@@ -1,0 +1,109 @@
+grammar org.xtext.BPMN_translator with org.eclipse.xtext.common.Terminals
+
+generate bPMN_translator "http://www.xtext.org/BPMN_translator"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Model:
+	
+	model += Xml
+;
+
+
+
+Xml:
+	{Xml} tag += (Tag)*
+;
+
+
+Tag:
+	 (Singleton|(result+=BODY|result+=KEYWORDS)|result+=STRING) 
+;
+terminal HEAD:
+	("bpmn"|"bpmndi"|"camunda"|"xsi")
+;
+
+
+
+terminal KEYWORDS: "id" | "name" |  "isExecutable" | "sourceRef" | "processRef" | "targetRef"
+	| "calledElement" | "type" | "expression" | "value" | "resultVariable" | "asyncBefore"
+	| "class" | "event" | "startEvent"| "task" | "messageEventDefinition" | "sequenceFlow" 
+	| "condition" | "association" | "outgoing" | "serviceTask" | "process"
+	| "incoming" | "intermediateCatchEvent" | "conditionalEventDefinition"
+	| "endEvent" | "textAnnotation" | "text" | "dataStoreReference"
+	| "callActivity" | "laneSet" | "lane" | "flowNodeRef" 
+	| "dataOutputAssociation" | "exclusiveGateway" 
+	| "extensionElements" | "inputOutput" | "list" | "inputParameter"
+	| "outputParameter" |  "properties" | "property"
+	| "field" | "string" | "scriptTask" | "script" 
+	| "executionListener" | "timerEventDefinition" | "timeDuration"
+	| "parallelGateway";
+
+Singleton:
+	{Action}
+	(("<"|"</") HEAD ":" KEYWORDS  ((HEAD ":") | (KEYWORDS "=" value+=STRING))*| "/>" | ">")
+;
+
+/* 
+Singleton:
+	"<"
+	//Those are the possible words in the tag's head
+	("bpmn:"|"bpmndi:"|"camunda:") 
+	//Those are the possible datas in the tag's head
+	singleton_data = ("startEvent"| "task" | "messageEventDefinition" | "sequenceFlow" 
+						| "condition" | "association" | "outgoing" | "serviceTask" | "process"
+						| "incoming" | "intermediateCatchEvent" | "conditionalEventDefinition"
+						| "endEvent" | "textAnnotation" | "text" | "dataStoreReference"
+						| "callActivity" | "laneSet" | "lane" | "flowNodeRef" 
+						| "dataOutputAssociation" | "targetRef" | "exclusiveGateway" 
+						| "extensionElements" | "inputOutput" | "list" | "inputParameter"
+						| "outputParameter" |  "properties" | "property"
+						| "field" | "string" | "scriptTask" | "script" | "resultVariable" | "value"
+						| "executionListener" | "timerEventDefinition" | "timeDuration"
+						| "parallelGateway"
+						)
+	//Those are the possible values in the tag's head
+	("id=" id_value=STRING)? ("name=" name_value=STRING)? ("isExecutable=" isExecutable_value=STRING)?
+	("processRef=" processRef_value=STRING)? ("sourceRef=" sourceRef_value=STRING)?
+	("targetRef=" targetRef_value=STRING)? ("calledElement=" calledElement_value=STRING)?
+	("xsi:type=" xsi_type_value=STRING)? ("camunda:expression=" camunda_expression_value=STRING)?
+	("value=" value=STRING)?  ("camunda:resultVariable=" camunda_resultVariable_value=STRING)?
+	("camunda:asyncBefore=" asyncBefore_value=STRING)? ("class=" class_value=STRING)?
+	("event=" event_value=STRING)?
+	"/>"
+;
+
+Head:
+	"<"
+	//Those are the possible words in the tag's head
+	prelude =("bpmn:"|"bpmndi:"|"camunda:") 
+	//Those are the possible datas in the tag's head
+	 head_data= ("startEvent"| "task" | "messageEventDefinition" | "sequenceFlow" 
+						| "condition" | "association" | "outgoing" | "serviceTask" | "process"
+						| "incoming" | "intermediateCatchEvent" | "conditionalEventDefinition"
+						| "endEvent" | "textAnnotation" | "text" | "dataStoreReference"
+						| "callActivity" | "laneSet" | "lane" | "flowNodeRef" 
+						| "dataOutputAssociation" | "targetRef" | "exclusiveGateway" 
+						| "extensionElements" | "inputOutput" | "list" | "inputParameter"
+						| "outputParameter" |  "properties" | "property"
+						| "field" | "string" | "scriptTask" | "script" | "resultVariable" | "value"
+						| "executionListener" | "timerEventDefinition" | "timeDuration"
+						| "parallelGateway"
+						)
+	//Those are the possible values in the tag's head
+	("id=" id_value=STRING)? ("name=" name_value=STRING)? ("isExecutable=" isExecutable_value=STRING)?
+	("processRef=" processRef_value=STRING)? ("sourceRef=" sourceRef_value=STRING)?
+	("targetRef=" targetRef_value=STRING)? ("calledElement=" calledElement_value=STRING)?
+	("xsi:type=" xsi_type_value=STRING)? ("camunda:expression=" camunda_expression_value=STRING)?
+	("value=" value=STRING)?  ("camunda:resultVariable=" camunda_resultVariable_value=STRING)?
+	("camunda:asyncBefore=" asyncBefore_value=STRING)? ("class=" class_value=STRING)?
+	("event=" event_value=STRING)?
+	">"
+;
+*/
+
+
+
+
+
+terminal BODY returns ecore::EString : ('a'..'z'|'A'..'Z'|INT|'_')*;
+          
