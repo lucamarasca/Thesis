@@ -10,14 +10,21 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Model/model"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//Xml">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Xml/tag"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Xml/opening_tag"/>
     </genClasses>
-    <genClasses ecoreClass="BPMN_translator.ecore#//Tag">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Tag/result"/>
+    <genClasses ecoreClass="BPMN_translator.ecore#//Opening">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Opening/Prova"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Opening/Prova1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Opening/value"/>
     </genClasses>
-    <genClasses ecoreClass="BPMN_translator.ecore#//Singleton"/>
-    <genClasses ecoreClass="BPMN_translator.ecore#//Action">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Action/value"/>
+    <genClasses ecoreClass="BPMN_translator.ecore#//Open"/>
+    <genClasses ecoreClass="BPMN_translator.ecore#//Singleton">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Singleton/value"/>
+    </genClasses>
+    <genClasses ecoreClass="BPMN_translator.ecore#//Close"/>
+    <genClasses ecoreClass="BPMN_translator.ecore#//Opens">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Opens/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Opens/prova"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

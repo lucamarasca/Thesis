@@ -10,12 +10,14 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.xtext.bPMN_translator.Action;
 import org.xtext.bPMN_translator.BPMN_translatorFactory;
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
+import org.xtext.bPMN_translator.Close;
 import org.xtext.bPMN_translator.Model;
+import org.xtext.bPMN_translator.Open;
+import org.xtext.bPMN_translator.Opening;
+import org.xtext.bPMN_translator.Opens;
 import org.xtext.bPMN_translator.Singleton;
-import org.xtext.bPMN_translator.Tag;
 import org.xtext.bPMN_translator.Xml;
 
 /**
@@ -45,7 +47,14 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass tagEClass = null;
+  private EClass openingEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass openEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -59,7 +68,14 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass actionEClass = null;
+  private EClass closeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass opensEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -163,7 +179,7 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EReference getXml_Tag()
+  public EReference getXml_Opening_tag()
   {
     return (EReference)xmlEClass.getEStructuralFeatures().get(0);
   }
@@ -174,9 +190,9 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EClass getTag()
+  public EClass getOpening()
   {
-    return tagEClass;
+    return openingEClass;
   }
 
   /**
@@ -185,9 +201,42 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EAttribute getTag_Result()
+  public EReference getOpening_Prova()
   {
-    return (EAttribute)tagEClass.getEStructuralFeatures().get(0);
+    return (EReference)openingEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOpening_Prova1()
+  {
+    return (EReference)openingEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getOpening_Value()
+  {
+    return (EAttribute)openingEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getOpen()
+  {
+    return openEClass;
   }
 
   /**
@@ -207,9 +256,9 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EClass getAction()
+  public EAttribute getSingleton_Value()
   {
-    return actionEClass;
+    return (EAttribute)singletonEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -218,9 +267,42 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EAttribute getAction_Value()
+  public EClass getClose()
   {
-    return (EAttribute)actionEClass.getEStructuralFeatures().get(0);
+    return closeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getOpens()
+  {
+    return opensEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getOpens_Value()
+  {
+    return (EAttribute)opensEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOpens_Prova()
+  {
+    return (EReference)opensEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -258,15 +340,23 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     createEReference(modelEClass, MODEL__MODEL);
 
     xmlEClass = createEClass(XML);
-    createEReference(xmlEClass, XML__TAG);
+    createEReference(xmlEClass, XML__OPENING_TAG);
 
-    tagEClass = createEClass(TAG);
-    createEAttribute(tagEClass, TAG__RESULT);
+    openingEClass = createEClass(OPENING);
+    createEReference(openingEClass, OPENING__PROVA);
+    createEReference(openingEClass, OPENING__PROVA1);
+    createEAttribute(openingEClass, OPENING__VALUE);
+
+    openEClass = createEClass(OPEN);
 
     singletonEClass = createEClass(SINGLETON);
+    createEAttribute(singletonEClass, SINGLETON__VALUE);
 
-    actionEClass = createEClass(ACTION);
-    createEAttribute(actionEClass, ACTION__VALUE);
+    closeEClass = createEClass(CLOSE);
+
+    opensEClass = createEClass(OPENS);
+    createEAttribute(opensEClass, OPENS__VALUE);
+    createEReference(opensEClass, OPENS__PROVA);
   }
 
   /**
@@ -298,23 +388,30 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    singletonEClass.getESuperTypes().add(this.getTag());
-    actionEClass.getESuperTypes().add(this.getSingleton());
+    opensEClass.getESuperTypes().add(this.getOpen());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModel_Model(), this.getXml(), null, "model", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(xmlEClass, Xml.class, "Xml", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getXml_Tag(), this.getTag(), null, "tag", null, 0, -1, Xml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getXml_Opening_tag(), this.getOpening(), null, "opening_tag", null, 0, -1, Xml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTag_Result(), ecorePackage.getEString(), "result", null, 0, -1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(openingEClass, Opening.class, "Opening", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOpening_Prova(), this.getOpen(), null, "Prova", null, 0, -1, Opening.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOpening_Prova1(), this.getClose(), null, "Prova1", null, 0, -1, Opening.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOpening_Value(), ecorePackage.getEString(), "value", null, 0, -1, Opening.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(openEClass, Open.class, "Open", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(singletonEClass, Singleton.class, "Singleton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSingleton_Value(), ecorePackage.getEString(), "value", null, 0, -1, Singleton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAction_Value(), ecorePackage.getEString(), "value", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(closeEClass, Close.class, "Close", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(opensEClass, Opens.class, "Opens", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOpens_Value(), ecorePackage.getEString(), "value", null, 0, -1, Opens.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOpens_Prova(), this.getOpening(), null, "prova", null, 0, -1, Opens.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

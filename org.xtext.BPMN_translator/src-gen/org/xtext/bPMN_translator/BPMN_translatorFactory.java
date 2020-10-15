@@ -42,13 +42,22 @@ public interface BPMN_translatorFactory extends EFactory
   Xml createXml();
 
   /**
-   * Returns a new object of class '<em>Tag</em>'.
+   * Returns a new object of class '<em>Opening</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Tag</em>'.
+   * @return a new object of class '<em>Opening</em>'.
    * @generated
    */
-  Tag createTag();
+  Opening createOpening();
+
+  /**
+   * Returns a new object of class '<em>Open</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Open</em>'.
+   * @generated
+   */
+  Open createOpen();
 
   /**
    * Returns a new object of class '<em>Singleton</em>'.
@@ -60,13 +69,22 @@ public interface BPMN_translatorFactory extends EFactory
   Singleton createSingleton();
 
   /**
-   * Returns a new object of class '<em>Action</em>'.
+   * Returns a new object of class '<em>Close</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Action</em>'.
+   * @return a new object of class '<em>Close</em>'.
    * @generated
    */
-  Action createAction();
+  Close createClose();
+
+  /**
+   * Returns a new object of class '<em>Opens</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Opens</em>'.
+   * @generated
+   */
+  Opens createOpens();
 
   /**
    * Returns the package supported by this factory.

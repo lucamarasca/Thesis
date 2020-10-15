@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.bPMN_translator.Xml#getTag <em>Tag</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.Xml#getOpening_tag <em>Opening tag</em>}</li>
  * </ul>
  *
  * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getXml()
@@ -26,15 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface Xml extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Tag</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.bPMN_translator.Tag}.
+   * Returns the value of the '<em><b>Opening tag</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.bPMN_translator.Opening}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Tag</em>' containment reference list.
-   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getXml_Tag()
+   * @return the value of the '<em>Opening tag</em>' containment reference list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getXml_Opening_tag()
    * @model containment="true"
    * @generated
    */
-  EList<Tag> getTag();
+  EList<Opening> getOpening_tag();
 
 } // Xml

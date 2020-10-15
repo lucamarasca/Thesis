@@ -5,29 +5,36 @@ package org.xtext.bPMN_translator.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.bPMN_translator.Action;
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
+import org.xtext.bPMN_translator.Opening;
+import org.xtext.bPMN_translator.Opens;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Action</b></em>'.
+ * An implementation of the model object '<em><b>Opens</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.bPMN_translator.impl.ActionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.OpensImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.OpensImpl#getProva <em>Prova</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ActionImpl extends SingletonImpl implements Action
+public class OpensImpl extends OpenImpl implements Opens
 {
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' attribute list.
@@ -40,11 +47,21 @@ public class ActionImpl extends SingletonImpl implements Action
   protected EList<String> value;
 
   /**
+   * The cached value of the '{@link #getProva() <em>Prova</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProva()
+   * @generated
+   * @ordered
+   */
+  protected EList<Opening> prova;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ActionImpl()
+  protected OpensImpl()
   {
     super();
   }
@@ -57,7 +74,7 @@ public class ActionImpl extends SingletonImpl implements Action
   @Override
   protected EClass eStaticClass()
   {
-    return BPMN_translatorPackage.Literals.ACTION;
+    return BPMN_translatorPackage.Literals.OPENS;
   }
 
   /**
@@ -70,9 +87,40 @@ public class ActionImpl extends SingletonImpl implements Action
   {
     if (value == null)
     {
-      value = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.ACTION__VALUE);
+      value = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.OPENS__VALUE);
     }
     return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Opening> getProva()
+  {
+    if (prova == null)
+    {
+      prova = new EObjectContainmentEList<Opening>(Opening.class, this, BPMN_translatorPackage.OPENS__PROVA);
+    }
+    return prova;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case BPMN_translatorPackage.OPENS__PROVA:
+        return ((InternalEList<?>)getProva()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -85,8 +133,10 @@ public class ActionImpl extends SingletonImpl implements Action
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.ACTION__VALUE:
+      case BPMN_translatorPackage.OPENS__VALUE:
         return getValue();
+      case BPMN_translatorPackage.OPENS__PROVA:
+        return getProva();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -102,9 +152,13 @@ public class ActionImpl extends SingletonImpl implements Action
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.ACTION__VALUE:
+      case BPMN_translatorPackage.OPENS__VALUE:
         getValue().clear();
         getValue().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.OPENS__PROVA:
+        getProva().clear();
+        getProva().addAll((Collection<? extends Opening>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -120,8 +174,11 @@ public class ActionImpl extends SingletonImpl implements Action
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.ACTION__VALUE:
+      case BPMN_translatorPackage.OPENS__VALUE:
         getValue().clear();
+        return;
+      case BPMN_translatorPackage.OPENS__PROVA:
+        getProva().clear();
         return;
     }
     super.eUnset(featureID);
@@ -137,8 +194,10 @@ public class ActionImpl extends SingletonImpl implements Action
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.ACTION__VALUE:
+      case BPMN_translatorPackage.OPENS__VALUE:
         return value != null && !value.isEmpty();
+      case BPMN_translatorPackage.OPENS__PROVA:
+        return prova != null && !prova.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -160,4 +219,4 @@ public class ActionImpl extends SingletonImpl implements Action
     return result.toString();
   }
 
-} //ActionImpl
+} //OpensImpl

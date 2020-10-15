@@ -1,16 +1,52 @@
-<bpmn:process id="Process_14il0gk" name="Payment_procedure2" isExecutable="true">
-    <bpmn:startEvent id="Event_1ds0zt7" name="Payment Procedure Start">
-      <bpmn:outgoing>Flow_0hcypc4</bpmn:outgoing>
+<bpmn:process id="Process_02nv8q4" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="car Detected">
+      <bpmn:outgoing>Flow_0kfxzcf</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:exclusiveGateway id="Gateway_151yj0m" name="Payment Success">
-      <bpmn:incoming>Flow_0h6197c</bpmn:incoming>
-      <bpmn:outgoing>Flow_0czd7fu</bpmn:outgoing>
-      <bpmn:outgoing>Flow_00t2sxq</bpmn:outgoing>
+    <bpmn:intermediateCatchEvent id="Event_1aoit4v" name="Start Timer" camunda:asyncBefore="true">
+      <bpmn:extensionElements>
+        <camunda:executionListener class="" event="end" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1rq9r60</bpmn:incoming>
+      <bpmn:outgoing>Flow_0y20e80</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_0tqdmoi">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">20ms</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:exclusiveGateway id="Gateway_00s7f8o" name="If Park Has a Prenotation">
+      <bpmn:incoming>Flow_1ksb5gh</bpmn:incoming>
+      <bpmn:outgoing>Flow_0lyrgmy</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1ukaers</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:endEvent id="Event_0162a2d">
-      <bpmn:incoming>Flow_070132h</bpmn:incoming>
+    <bpmn:sequenceFlow id="Flow_1ksb5gh" sourceRef="Activity_140yl9q" targetRef="Gateway_00s7f8o" />
+    <bpmn:sequenceFlow id="Flow_0lyrgmy" name="yes" sourceRef="Gateway_00s7f8o" targetRef="Activity_01xkttu" />
+    <bpmn:sequenceFlow id="Flow_18cwb37" sourceRef="Activity_01xkttu" targetRef="Activity_1qepfni" />
+    <bpmn:exclusiveGateway id="Gateway_0xe1icy" name="Payment Success">
+      <bpmn:incoming>Flow_06vcpgg</bpmn:incoming>
+      <bpmn:outgoing>Flow_0hcky6e</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1merg40</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_06vcpgg" sourceRef="Activity_1qepfni" targetRef="Gateway_0xe1icy" />
+    <bpmn:sequenceFlow id="Flow_0hcky6e" name="no" sourceRef="Gateway_0xe1icy" targetRef="Activity_01xkttu" />
+    <bpmn:sequenceFlow id="Flow_1merg40" name="yes" sourceRef="Gateway_0xe1icy" targetRef="Activity_1ue2ubd" />
+    <bpmn:endEvent id="Event_0l8nk9u">
+      <bpmn:incoming>Flow_1vbhmce</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:serviceTask id="Activity_161cohx" name="Get Park Information" camunda:expression="Get_Park_Information()" camunda:resultVariable="Park park">
+    <bpmn:sequenceFlow id="Flow_1vbhmce" sourceRef="Activity_1ue2ubd" targetRef="Event_0l8nk9u" />
+    <bpmn:sequenceFlow id="Flow_1ukaers" name="no" sourceRef="Gateway_00s7f8o" targetRef="Activity_140yl9q" />
+    <bpmn:sequenceFlow id="Flow_0y20e80" sourceRef="Event_1aoit4v" targetRef="Activity_10cqocd" />
+    <bpmn:sequenceFlow id="Flow_0kfxzcf" sourceRef="StartEvent_1" targetRef="Gateway_1rcdgtr" />
+    <bpmn:parallelGateway id="Gateway_1rcdgtr">
+      <bpmn:incoming>Flow_0kfxzcf</bpmn:incoming>
+      <bpmn:outgoing>Flow_1rq9r60</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0v090vd</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sequenceFlow id="Flow_1rq9r60" sourceRef="Gateway_1rcdgtr" targetRef="Event_1aoit4v" />
+    <bpmn:sequenceFlow id="Flow_0v090vd" sourceRef="Gateway_1rcdgtr" targetRef="Activity_140yl9q" />
+    <bpmn:endEvent id="Event_0gzfv67">
+      <bpmn:incoming>Flow_0gt85by</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0gt85by" sourceRef="Activity_10cqocd" targetRef="Event_0gzfv67" />
+    <bpmn:serviceTask id="Activity_140yl9q" name="Get Park Information" camunda:expression="Get_Park_Information()" camunda:resultVariable="Park park">
       <bpmn:extensionElements>
         <camunda:inputOutput>
           <camunda:inputParameter name="User_Id">""</camunda:inputParameter>
@@ -33,10 +69,23 @@
           <camunda:string>""</camunda:string>
         </camunda:field>
       </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0hcypc4</bpmn:incoming>
-      <bpmn:outgoing>Flow_03v2fpp</bpmn:outgoing>
+      <bpmn:incoming>Flow_1ukaers</bpmn:incoming>
+      <bpmn:incoming>Flow_0v090vd</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ksb5gh</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:scriptTask id="Activity_1fa2ceq" name="Bluetooth Connection">
+    <bpmn:serviceTask id="Activity_10cqocd" name="Call Police" camunda:expression="Call_Police()">
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property name="ServiceURL" value="&#34;URL&#34;" />
+        </camunda:properties>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="police_number">number</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0y20e80</bpmn:incoming>
+      <bpmn:outgoing>Flow_0gt85by</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:scriptTask id="Activity_01xkttu" name="Bluetooth Connection">
       <bpmn:extensionElements>
         <camunda:inputOutput>
           <camunda:inputParameter name="User_Datas">
@@ -51,12 +100,12 @@
           <camunda:outputParameter name="result">"error"</camunda:outputParameter>
         </camunda:inputOutput>
       </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0czd7fu</bpmn:incoming>
-      <bpmn:incoming>Flow_03v2fpp</bpmn:incoming>
-      <bpmn:outgoing>Flow_07pjeyq</bpmn:outgoing>
+      <bpmn:incoming>Flow_0lyrgmy</bpmn:incoming>
+      <bpmn:incoming>Flow_0hcky6e</bpmn:incoming>
+      <bpmn:outgoing>Flow_18cwb37</bpmn:outgoing>
       <bpmn:script>"here the script that regard the bluetooth connection"</bpmn:script>
     </bpmn:scriptTask>
-    <bpmn:serviceTask id="Activity_1ch18up" name="Send Datas to server" camunda:expression="Send_Datas" camunda:resultVariable="result">
+    <bpmn:serviceTask id="Activity_1qepfni" name="Send Datas to server" camunda:expression="Send_Datas" camunda:resultVariable="result">
       <bpmn:extensionElements>
         <camunda:properties>
           <camunda:property name="ServiceURL" value="&#34;URL&#34;" />
@@ -73,19 +122,12 @@
           <camunda:outputParameter name="result">"error"</camunda:outputParameter>
         </camunda:inputOutput>
       </bpmn:extensionElements>
-      <bpmn:incoming>Flow_07pjeyq</bpmn:incoming>
-      <bpmn:outgoing>Flow_0h6197c</bpmn:outgoing>
+      <bpmn:incoming>Flow_18cwb37</bpmn:incoming>
+      <bpmn:outgoing>Flow_06vcpgg</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:scriptTask id="Activity_15x2tl2" name="Payment Success">
-      <bpmn:incoming>Flow_00t2sxq</bpmn:incoming>
-      <bpmn:outgoing>Flow_070132h</bpmn:outgoing>
+    <bpmn:scriptTask id="Activity_1ue2ubd" name="Payment Success">
+      <bpmn:incoming>Flow_1merg40</bpmn:incoming>
+      <bpmn:outgoing>Flow_1vbhmce</bpmn:outgoing>
       <bpmn:script>"Here the script used for say to the user that the payment is completed"</bpmn:script>
     </bpmn:scriptTask>
-    <bpmn:sequenceFlow id="Flow_0h6197c" sourceRef="Activity_1ch18up" targetRef="Gateway_151yj0m" />
-    <bpmn:sequenceFlow id="Flow_0czd7fu" name="no" sourceRef="Gateway_151yj0m" targetRef="Activity_1fa2ceq" />
-    <bpmn:sequenceFlow id="Flow_00t2sxq" name="yes" sourceRef="Gateway_151yj0m" targetRef="Activity_15x2tl2" />
-    <bpmn:sequenceFlow id="Flow_070132h" sourceRef="Activity_15x2tl2" targetRef="Event_0162a2d" />
-    <bpmn:sequenceFlow id="Flow_07pjeyq" sourceRef="Activity_1fa2ceq" targetRef="Activity_1ch18up" />
-    <bpmn:sequenceFlow id="Flow_03v2fpp" sourceRef="Activity_161cohx" targetRef="Activity_1fa2ceq" />
-    <bpmn:sequenceFlow id="Flow_0hcypc4" sourceRef="Event_1ds0zt7" targetRef="Activity_161cohx" />
   </bpmn:process>

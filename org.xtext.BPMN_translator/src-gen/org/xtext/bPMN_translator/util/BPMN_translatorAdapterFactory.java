@@ -86,9 +86,14 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
         return createXmlAdapter();
       }
       @Override
-      public Adapter caseTag(Tag object)
+      public Adapter caseOpening(Opening object)
       {
-        return createTagAdapter();
+        return createOpeningAdapter();
+      }
+      @Override
+      public Adapter caseOpen(Open object)
+      {
+        return createOpenAdapter();
       }
       @Override
       public Adapter caseSingleton(Singleton object)
@@ -96,9 +101,14 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
         return createSingletonAdapter();
       }
       @Override
-      public Adapter caseAction(Action object)
+      public Adapter caseClose(Close object)
       {
-        return createActionAdapter();
+        return createCloseAdapter();
+      }
+      @Override
+      public Adapter caseOpens(Opens object)
+      {
+        return createOpensAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -153,16 +163,31 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.Tag <em>Tag</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.Opening <em>Opening</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.bPMN_translator.Tag
+   * @see org.xtext.bPMN_translator.Opening
    * @generated
    */
-  public Adapter createTagAdapter()
+  public Adapter createOpeningAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.Open <em>Open</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.bPMN_translator.Open
+   * @generated
+   */
+  public Adapter createOpenAdapter()
   {
     return null;
   }
@@ -183,16 +208,31 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.Action <em>Action</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.Close <em>Close</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.bPMN_translator.Action
+   * @see org.xtext.bPMN_translator.Close
    * @generated
    */
-  public Adapter createActionAdapter()
+  public Adapter createCloseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.Opens <em>Opens</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.bPMN_translator.Opens
+   * @generated
+   */
+  public Adapter createOpensAdapter()
   {
     return null;
   }

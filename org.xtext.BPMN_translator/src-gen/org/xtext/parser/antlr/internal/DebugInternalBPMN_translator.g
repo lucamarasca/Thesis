@@ -10,49 +10,92 @@ ruleModel:
 
 // Rule Xml
 ruleXml:
-	ruleTag
-	*
+	ruleOpening
 ;
 
-// Rule Tag
-ruleTag:
+// Rule Opening
+ruleOpening:
 	(
-		ruleSingleton
+		ruleOpen
+		ruleClose
+		(
+			ruleOpen
+			ruleClose
+		)*
+		(
+			'<'
+			RULE_HEAD
+			':'
+			RULE_KEYWORDS
+			(
+				RULE_HEAD
+				':'
+				    |
+				RULE_KEYWORDS
+				'='
+				RULE_STRING
+			)*
+			'/>'
+		)*
 		    |
 		(
-			RULE_BODY
-			    |
+			'<'
+			RULE_HEAD
+			':'
 			RULE_KEYWORDS
-		)
+			(
+				RULE_HEAD
+				':'
+				    |
+				RULE_KEYWORDS
+				'='
+				RULE_STRING
+			)*
+			'/>'
+		)*
+	)
+;
+
+// Rule Data
+ruleData:
+	(
+		RULE_BODY
+		    |
+		RULE_KEYWORDS
 		    |
 		RULE_STRING
 	)
 ;
 
-// Rule Singleton
-ruleSingleton:
+// Rule Open
+ruleOpen:
+	'<'
+	RULE_HEAD
+	':'
+	RULE_KEYWORDS
 	(
-		(
-			'<'
-			    |
-			'</'
-		)
 		RULE_HEAD
 		':'
+		    |
 		RULE_KEYWORDS
-		(
-			RULE_HEAD
-			':'
-			    |
-			RULE_KEYWORDS
-			'='
-			RULE_STRING
-		)*
+		'='
+		RULE_STRING
+	)*
+	'>'
+	(
+		ruleData
 		    |
-		'/>'
-		    |
-		'>'
+		ruleOpening
 	)
+;
+
+// Rule Close
+ruleClose:
+	'</'
+	RULE_HEAD
+	':'
+	RULE_KEYWORDS
+	'>'
 ;
 
 RULE_HEAD : ('bpmn'|'bpmndi'|'camunda'|'xsi');

@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g 2020-10-10 17:00:46
+// $ANTLR 3.5.1 C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g 2020-10-15 16:58:42
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -167,10 +167,10 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 		try {
 			int _type = RULE_HEAD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:58:11: ( ( 'bpmn' | 'bpmndi' | 'camunda' | 'xsi' ) )
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:58:13: ( 'bpmn' | 'bpmndi' | 'camunda' | 'xsi' )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:11: ( ( 'bpmn' | 'bpmndi' | 'camunda' | 'xsi' ) )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:13: ( 'bpmn' | 'bpmndi' | 'camunda' | 'xsi' )
 			{
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:58:13: ( 'bpmn' | 'bpmndi' | 'camunda' | 'xsi' )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:13: ( 'bpmn' | 'bpmndi' | 'camunda' | 'xsi' )
 			int alt1=4;
 			switch ( input.LA(1) ) {
 			case 'b':
@@ -255,28 +255,28 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 			}
 			switch (alt1) {
 				case 1 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:58:14: 'bpmn'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:14: 'bpmn'
 					{
 					match("bpmn"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:58:21: 'bpmndi'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:21: 'bpmndi'
 					{
 					match("bpmndi"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:58:30: 'camunda'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:30: 'camunda'
 					{
 					match("camunda"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:58:40: 'xsi'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:40: 'xsi'
 					{
 					match("xsi"); 
 
@@ -301,365 +301,365 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 		try {
 			int _type = RULE_KEYWORDS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:15: ( ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'dataOutputAssociation' | 'exclusiveGateway' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'outputParameter' | 'properties' | 'property' | 'field' | 'string' | 'scriptTask' | 'script' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'parallelGateway' ) )
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:17: ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'dataOutputAssociation' | 'exclusiveGateway' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'outputParameter' | 'properties' | 'property' | 'field' | 'string' | 'scriptTask' | 'script' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'parallelGateway' )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:15: ( ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'dataOutputAssociation' | 'exclusiveGateway' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'outputParameter' | 'properties' | 'property' | 'field' | 'string' | 'scriptTask' | 'script' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'parallelGateway' ) )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:17: ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'dataOutputAssociation' | 'exclusiveGateway' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'outputParameter' | 'properties' | 'property' | 'field' | 'string' | 'scriptTask' | 'script' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'parallelGateway' )
 			{
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:17: ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'dataOutputAssociation' | 'exclusiveGateway' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'outputParameter' | 'properties' | 'property' | 'field' | 'string' | 'scriptTask' | 'script' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'parallelGateway' )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:17: ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'dataOutputAssociation' | 'exclusiveGateway' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'outputParameter' | 'properties' | 'property' | 'field' | 'string' | 'scriptTask' | 'script' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'parallelGateway' )
 			int alt2=51;
 			alt2 = dfa2.predict(input);
 			switch (alt2) {
 				case 1 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:18: 'id'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:18: 'id'
 					{
 					match("id"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:23: 'name'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:23: 'name'
 					{
 					match("name"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:30: 'isExecutable'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:30: 'isExecutable'
 					{
 					match("isExecutable"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:45: 'sourceRef'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:45: 'sourceRef'
 					{
 					match("sourceRef"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:57: 'processRef'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:57: 'processRef'
 					{
 					match("processRef"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:70: 'targetRef'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:70: 'targetRef'
 					{
 					match("targetRef"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:82: 'calledElement'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:82: 'calledElement'
 					{
 					match("calledElement"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:98: 'type'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:98: 'type'
 					{
 					match("type"); 
 
 					}
 					break;
 				case 9 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:105: 'expression'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:105: 'expression'
 					{
 					match("expression"); 
 
 					}
 					break;
 				case 10 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:118: 'value'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:118: 'value'
 					{
 					match("value"); 
 
 					}
 					break;
 				case 11 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:126: 'resultVariable'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:126: 'resultVariable'
 					{
 					match("resultVariable"); 
 
 					}
 					break;
 				case 12 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:143: 'asyncBefore'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:143: 'asyncBefore'
 					{
 					match("asyncBefore"); 
 
 					}
 					break;
 				case 13 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:157: 'class'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:157: 'class'
 					{
 					match("class"); 
 
 					}
 					break;
 				case 14 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:165: 'event'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:165: 'event'
 					{
 					match("event"); 
 
 					}
 					break;
 				case 15 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:173: 'startEvent'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:173: 'startEvent'
 					{
 					match("startEvent"); 
 
 					}
 					break;
 				case 16 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:186: 'task'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:186: 'task'
 					{
 					match("task"); 
 
 					}
 					break;
 				case 17 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:193: 'messageEventDefinition'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:193: 'messageEventDefinition'
 					{
 					match("messageEventDefinition"); 
 
 					}
 					break;
 				case 18 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:218: 'sequenceFlow'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:218: 'sequenceFlow'
 					{
 					match("sequenceFlow"); 
 
 					}
 					break;
 				case 19 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:233: 'condition'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:233: 'condition'
 					{
 					match("condition"); 
 
 					}
 					break;
 				case 20 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:245: 'association'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:245: 'association'
 					{
 					match("association"); 
 
 					}
 					break;
 				case 21 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:259: 'outgoing'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:259: 'outgoing'
 					{
 					match("outgoing"); 
 
 					}
 					break;
 				case 22 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:270: 'serviceTask'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:270: 'serviceTask'
 					{
 					match("serviceTask"); 
 
 					}
 					break;
 				case 23 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:284: 'process'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:284: 'process'
 					{
 					match("process"); 
 
 					}
 					break;
 				case 24 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:294: 'incoming'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:294: 'incoming'
 					{
 					match("incoming"); 
 
 					}
 					break;
 				case 25 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:305: 'intermediateCatchEvent'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:305: 'intermediateCatchEvent'
 					{
 					match("intermediateCatchEvent"); 
 
 					}
 					break;
 				case 26 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:330: 'conditionalEventDefinition'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:330: 'conditionalEventDefinition'
 					{
 					match("conditionalEventDefinition"); 
 
 					}
 					break;
 				case 27 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:359: 'endEvent'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:359: 'endEvent'
 					{
 					match("endEvent"); 
 
 					}
 					break;
 				case 28 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:370: 'textAnnotation'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:370: 'textAnnotation'
 					{
 					match("textAnnotation"); 
 
 					}
 					break;
 				case 29 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:387: 'text'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:387: 'text'
 					{
 					match("text"); 
 
 					}
 					break;
 				case 30 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:394: 'dataStoreReference'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:394: 'dataStoreReference'
 					{
 					match("dataStoreReference"); 
 
 					}
 					break;
 				case 31 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:415: 'callActivity'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:415: 'callActivity'
 					{
 					match("callActivity"); 
 
 					}
 					break;
 				case 32 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:430: 'laneSet'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:430: 'laneSet'
 					{
 					match("laneSet"); 
 
 					}
 					break;
 				case 33 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:440: 'lane'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:440: 'lane'
 					{
 					match("lane"); 
 
 					}
 					break;
 				case 34 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:447: 'flowNodeRef'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:447: 'flowNodeRef'
 					{
 					match("flowNodeRef"); 
 
 					}
 					break;
 				case 35 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:461: 'dataOutputAssociation'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:461: 'dataOutputAssociation'
 					{
 					match("dataOutputAssociation"); 
 
 					}
 					break;
 				case 36 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:485: 'exclusiveGateway'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:485: 'exclusiveGateway'
 					{
 					match("exclusiveGateway"); 
 
 					}
 					break;
 				case 37 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:504: 'extensionElements'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:504: 'extensionElements'
 					{
 					match("extensionElements"); 
 
 					}
 					break;
 				case 38 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:524: 'inputOutput'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:524: 'inputOutput'
 					{
 					match("inputOutput"); 
 
 					}
 					break;
 				case 39 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:538: 'list'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:538: 'list'
 					{
 					match("list"); 
 
 					}
 					break;
 				case 40 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:545: 'inputParameter'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:545: 'inputParameter'
 					{
 					match("inputParameter"); 
 
 					}
 					break;
 				case 41 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:562: 'outputParameter'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:562: 'outputParameter'
 					{
 					match("outputParameter"); 
 
 					}
 					break;
 				case 42 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:580: 'properties'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:580: 'properties'
 					{
 					match("properties"); 
 
 					}
 					break;
 				case 43 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:593: 'property'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:593: 'property'
 					{
 					match("property"); 
 
 					}
 					break;
 				case 44 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:604: 'field'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:604: 'field'
 					{
 					match("field"); 
 
 					}
 					break;
 				case 45 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:612: 'string'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:612: 'string'
 					{
 					match("string"); 
 
 					}
 					break;
 				case 46 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:621: 'scriptTask'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:621: 'scriptTask'
 					{
 					match("scriptTask"); 
 
 					}
 					break;
 				case 47 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:634: 'script'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:634: 'script'
 					{
 					match("script"); 
 
 					}
 					break;
 				case 48 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:643: 'executionListener'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:643: 'executionListener'
 					{
 					match("executionListener"); 
 
 					}
 					break;
 				case 49 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:663: 'timerEventDefinition'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:663: 'timerEventDefinition'
 					{
 					match("timerEventDefinition"); 
 
 					}
 					break;
 				case 50 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:686: 'timeDuration'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:686: 'timeDuration'
 					{
 					match("timeDuration"); 
 
 					}
 					break;
 				case 51 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:701: 'parallelGateway'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:701: 'parallelGateway'
 					{
 					match("parallelGateway"); 
 
@@ -684,10 +684,10 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 		try {
 			int _type = RULE_BODY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:62:11: ( ( 'a' .. 'z' | 'A' .. 'Z' | RULE_INT | '_' )* )
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:62:13: ( 'a' .. 'z' | 'A' .. 'Z' | RULE_INT | '_' )*
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:72:11: ( ( 'a' .. 'z' | 'A' .. 'Z' | RULE_INT | '_' )* )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:72:13: ( 'a' .. 'z' | 'A' .. 'Z' | RULE_INT | '_' )*
 			{
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:62:13: ( 'a' .. 'z' | 'A' .. 'Z' | RULE_INT | '_' )*
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:72:13: ( 'a' .. 'z' | 'A' .. 'Z' | RULE_INT | '_' )*
 			loop3:
 			while (true) {
 				int alt3=5;
@@ -774,26 +774,26 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 				}
 				switch (alt3) {
 				case 1 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:62:14: 'a' .. 'z'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:72:14: 'a' .. 'z'
 					{
 					matchRange('a','z'); 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:62:23: 'A' .. 'Z'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:72:23: 'A' .. 'Z'
 					{
 					matchRange('A','Z'); 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:62:32: RULE_INT
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:72:32: RULE_INT
 					{
 					mRULE_INT(); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:62:41: '_'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:72:41: '_'
 					{
 					match('_'); 
 					}
@@ -820,10 +820,10 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 		try {
 			int _type = RULE_ID;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:64:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:64:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:74:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:74:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
 			{
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:64:11: ( '^' )?
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:74:11: ( '^' )?
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0=='^') ) {
@@ -831,7 +831,7 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 			}
 			switch (alt4) {
 				case 1 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:64:11: '^'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:74:11: '^'
 					{
 					match('^'); 
 					}
@@ -847,7 +847,7 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:64:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:74:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
 			loop5:
 			while (true) {
 				int alt5=2;
@@ -890,10 +890,10 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 	// $ANTLR start "RULE_INT"
 	public final void mRULE_INT() throws RecognitionException {
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:66:19: ( ( '0' .. '9' )+ )
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:66:21: ( '0' .. '9' )+
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:76:19: ( ( '0' .. '9' )+ )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:76:21: ( '0' .. '9' )+
 			{
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:66:21: ( '0' .. '9' )+
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:76:21: ( '0' .. '9' )+
 			int cnt6=0;
 			loop6:
 			while (true) {
@@ -940,10 +940,10 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 		try {
 			int _type = RULE_STRING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:13: ( ( '\"' ( '\\\\' . |~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . |~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:15: ( '\"' ( '\\\\' . |~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . |~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:78:13: ( ( '\"' ( '\\\\' . |~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . |~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:78:15: ( '\"' ( '\\\\' . |~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . |~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
 			{
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:15: ( '\"' ( '\\\\' . |~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . |~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:78:15: ( '\"' ( '\\\\' . |~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . |~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
 			int alt9=2;
 			int LA9_0 = input.LA(1);
 			if ( (LA9_0=='\"') ) {
@@ -961,10 +961,10 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 
 			switch (alt9) {
 				case 1 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:16: '\"' ( '\\\\' . |~ ( ( '\\\\' | '\"' ) ) )* '\"'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:78:16: '\"' ( '\\\\' . |~ ( ( '\\\\' | '\"' ) ) )* '\"'
 					{
 					match('\"'); 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:20: ( '\\\\' . |~ ( ( '\\\\' | '\"' ) ) )*
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:78:20: ( '\\\\' . |~ ( ( '\\\\' | '\"' ) ) )*
 					loop7:
 					while (true) {
 						int alt7=3;
@@ -978,14 +978,14 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 
 						switch (alt7) {
 						case 1 :
-							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:21: '\\\\' .
+							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:78:21: '\\\\' .
 							{
 							match('\\'); 
 							matchAny(); 
 							}
 							break;
 						case 2 :
-							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:28: ~ ( ( '\\\\' | '\"' ) )
+							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:78:28: ~ ( ( '\\\\' | '\"' ) )
 							{
 							if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
 								input.consume();
@@ -1007,10 +1007,10 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:48: '\\'' ( '\\\\' . |~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:78:48: '\\'' ( '\\\\' . |~ ( ( '\\\\' | '\\'' ) ) )* '\\''
 					{
 					match('\''); 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:53: ( '\\\\' . |~ ( ( '\\\\' | '\\'' ) ) )*
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:78:53: ( '\\\\' . |~ ( ( '\\\\' | '\\'' ) ) )*
 					loop8:
 					while (true) {
 						int alt8=3;
@@ -1024,14 +1024,14 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 
 						switch (alt8) {
 						case 1 :
-							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:54: '\\\\' .
+							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:78:54: '\\\\' .
 							{
 							match('\\'); 
 							matchAny(); 
 							}
 							break;
 						case 2 :
-							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:68:61: ~ ( ( '\\\\' | '\\'' ) )
+							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:78:61: ~ ( ( '\\\\' | '\\'' ) )
 							{
 							if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '&')||(input.LA(1) >= '(' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
 								input.consume();
@@ -1071,12 +1071,12 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 		try {
 			int _type = RULE_ML_COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:19: '/*' ( options {greedy=false; } : . )* '*/'
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:80:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:80:19: '/*' ( options {greedy=false; } : . )* '*/'
 			{
 			match("/*"); 
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:24: ( options {greedy=false; } : . )*
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:80:24: ( options {greedy=false; } : . )*
 			loop10:
 			while (true) {
 				int alt10=2;
@@ -1097,7 +1097,7 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 
 				switch (alt10) {
 				case 1 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:70:52: .
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:80:52: .
 					{
 					matchAny(); 
 					}
@@ -1127,12 +1127,12 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 		try {
 			int _type = RULE_SL_COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:72:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:72:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:82:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:82:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
 			{
 			match("//"); 
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:72:24: (~ ( ( '\\n' | '\\r' ) ) )*
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:82:24: (~ ( ( '\\n' | '\\r' ) ) )*
 			loop11:
 			while (true) {
 				int alt11=2;
@@ -1161,7 +1161,7 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 				}
 			}
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:72:40: ( ( '\\r' )? '\\n' )?
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:82:40: ( ( '\\r' )? '\\n' )?
 			int alt13=2;
 			int LA13_0 = input.LA(1);
 			if ( (LA13_0=='\n'||LA13_0=='\r') ) {
@@ -1169,9 +1169,9 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 			}
 			switch (alt13) {
 				case 1 :
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:72:41: ( '\\r' )? '\\n'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:82:41: ( '\\r' )? '\\n'
 					{
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:72:41: ( '\\r' )?
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:82:41: ( '\\r' )?
 					int alt12=2;
 					int LA12_0 = input.LA(1);
 					if ( (LA12_0=='\r') ) {
@@ -1179,7 +1179,7 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 					}
 					switch (alt12) {
 						case 1 :
-							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:72:41: '\\r'
+							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:82:41: '\\r'
 							{
 							match('\r'); 
 							}
@@ -1210,10 +1210,10 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 		try {
 			int _type = RULE_WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:74:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:74:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:84:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:84:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
 			{
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:74:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:84:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
 			int cnt14=0;
 			loop14:
 			while (true) {
@@ -1263,8 +1263,8 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 		try {
 			int _type = RULE_ANY_OTHER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:76:16: ( . )
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:76:18: .
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:86:16: ( . )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:86:18: .
 			{
 			matchAny(); 
 			}
@@ -1573,7 +1573,7 @@ public class DebugInternalBPMN_translatorLexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "60:17: ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'dataOutputAssociation' | 'exclusiveGateway' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'outputParameter' | 'properties' | 'property' | 'field' | 'string' | 'scriptTask' | 'script' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'parallelGateway' )";
+			return "70:17: ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'dataOutputAssociation' | 'exclusiveGateway' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'outputParameter' | 'properties' | 'property' | 'field' | 'string' | 'scriptTask' | 'script' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'parallelGateway' )";
 		}
 	}
 

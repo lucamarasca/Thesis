@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g 2020-10-10 17:00:46
+// $ANTLR 3.5.1 C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g 2020-10-15 16:58:42
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -42,7 +42,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 	public static final String[] ruleNames = new String[] {
-		"invalidRule", "ruleModel", "ruleXml", "ruleTag", "ruleSingleton"
+		"invalidRule", "rulecontent", "ruleXml", "ruleelement", "ruleModel"
 	};
 
 	public static final boolean[] decisionCanBacktrack = new boolean[] {
@@ -130,7 +130,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 	// $ANTLR start "ruleXml"
-	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:12:1: ruleXml : ( ruleTag )* ;
+	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:12:1: ruleXml : ruleelement ;
 	public final void ruleXml() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "ruleXml");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
@@ -138,46 +138,15 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		dbg.location(12, 0);
 
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:12:8: ( ( ruleTag )* )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:12:8: ( ruleelement )
 			dbg.enterAlt(1);
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:13:2: ( ruleTag )*
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:13:2: ruleelement
 			{
 			dbg.location(13,2);
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:13:2: ( ruleTag )*
-			try { dbg.enterSubRule(1);
-
-			loop1:
-			while (true) {
-				int alt1=2;
-				try { dbg.enterDecision(1, decisionCanBacktrack[1]);
-
-				int LA1_0 = input.LA(1);
-				if ( (LA1_0==RULE_BODY||LA1_0==RULE_KEYWORDS||LA1_0==RULE_STRING||LA1_0==14||(LA1_0 >= 16 && LA1_0 <= 17)||LA1_0==19) ) {
-					alt1=1;
-				}
-
-				} finally {dbg.exitDecision(1);}
-
-				switch (alt1) {
-				case 1 :
-					dbg.enterAlt(1);
-
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:13:2: ruleTag
-					{
-					dbg.location(13,2);
-					pushFollow(FOLLOW_ruleTag_in_ruleXml23);
-					ruleTag();
-					state._fsp--;
-
-					}
-					break;
-
-				default :
-					break loop1;
-				}
-			}
-			} finally {dbg.exitSubRule(1);}
+			pushFollow(FOLLOW_ruleelement_in_ruleXml23);
+			ruleelement();
+			state._fsp--;
 
 			}
 
@@ -189,7 +158,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(15, 0);
+		dbg.location(14, 0);
 
 		}
 		finally {
@@ -203,96 +172,169 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 
-	// $ANTLR start "ruleTag"
-	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:18:1: ruleTag : ( ruleSingleton | ( RULE_BODY | RULE_KEYWORDS ) | RULE_STRING ) ;
-	public final void ruleTag() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "ruleTag");
+	// $ANTLR start "ruleelement"
+	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:17:1: ruleelement : ( '<' RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* '>' rulecontent '</' RULE_HEAD ':' RULE_KEYWORDS '>' | '<' RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* '/>' ) ;
+	public final void ruleelement() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "ruleelement");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(18, 0);
+		dbg.location(17, 0);
 
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:18:8: ( ( ruleSingleton | ( RULE_BODY | RULE_KEYWORDS ) | RULE_STRING ) )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:17:12: ( ( '<' RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* '>' rulecontent '</' RULE_HEAD ':' RULE_KEYWORDS '>' | '<' RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* '/>' ) )
 			dbg.enterAlt(1);
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:19:2: ( ruleSingleton | ( RULE_BODY | RULE_KEYWORDS ) | RULE_STRING )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:18:2: ( '<' RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* '>' rulecontent '</' RULE_HEAD ':' RULE_KEYWORDS '>' | '<' RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* '/>' )
 			{
-			dbg.location(19,2);
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:19:2: ( ruleSingleton | ( RULE_BODY | RULE_KEYWORDS ) | RULE_STRING )
-			int alt2=3;
-			try { dbg.enterSubRule(2);
-			try { dbg.enterDecision(2, decisionCanBacktrack[2]);
+			dbg.location(18,2);
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:18:2: ( '<' RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* '>' rulecontent '</' RULE_HEAD ':' RULE_KEYWORDS '>' | '<' RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* '/>' )
+			int alt3=2;
+			try { dbg.enterSubRule(3);
+			try { dbg.enterDecision(3, decisionCanBacktrack[3]);
 
-			switch ( input.LA(1) ) {
-			case 14:
-			case 16:
-			case 17:
-			case 19:
-				{
-				alt2=1;
-				}
-				break;
-			case RULE_BODY:
-			case RULE_KEYWORDS:
-				{
-				alt2=2;
-				}
-				break;
-			case RULE_STRING:
-				{
-				alt2=3;
-				}
-				break;
-			default:
-				NoViableAltException nvae =
-					new NoViableAltException("", 2, 0, input);
+			try {
+				isCyclicDecision = true;
+				alt3 = dfa3.predict(input);
+			}
+			catch (NoViableAltException nvae) {
 				dbg.recognitionException(nvae);
 				throw nvae;
 			}
-			} finally {dbg.exitDecision(2);}
+			} finally {dbg.exitDecision(3);}
 
-			switch (alt2) {
+			switch (alt3) {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:20:3: ruleSingleton
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:19:3: '<' RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* '>' rulecontent '</' RULE_HEAD ':' RULE_KEYWORDS '>'
 					{
-					dbg.location(20,3);
-					pushFollow(FOLLOW_ruleSingleton_in_ruleTag40);
-					ruleSingleton();
-					state._fsp--;
+					dbg.location(19,3);
+					match(input,16,FOLLOW_16_in_ruleelement37); dbg.location(20,3);
+					match(input,RULE_HEAD,FOLLOW_RULE_HEAD_in_ruleelement41); dbg.location(21,3);
+					match(input,15,FOLLOW_15_in_ruleelement45); dbg.location(22,3);
+					match(input,RULE_KEYWORDS,FOLLOW_RULE_KEYWORDS_in_ruleelement49); dbg.location(23,3);
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:23:3: ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )*
+					try { dbg.enterSubRule(1);
 
+					loop1:
+					while (true) {
+						int alt1=3;
+						try { dbg.enterDecision(1, decisionCanBacktrack[1]);
+
+						int LA1_0 = input.LA(1);
+						if ( (LA1_0==RULE_HEAD) ) {
+							alt1=1;
+						}
+						else if ( (LA1_0==RULE_KEYWORDS) ) {
+							alt1=2;
+						}
+
+						} finally {dbg.exitDecision(1);}
+
+						switch (alt1) {
+						case 1 :
+							dbg.enterAlt(1);
+
+							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:24:4: RULE_HEAD ':'
+							{
+							dbg.location(24,4);
+							match(input,RULE_HEAD,FOLLOW_RULE_HEAD_in_ruleelement58); dbg.location(25,4);
+							match(input,15,FOLLOW_15_in_ruleelement63); 
+							}
+							break;
+						case 2 :
+							dbg.enterAlt(2);
+
+							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:27:4: RULE_KEYWORDS '=' RULE_STRING
+							{
+							dbg.location(27,4);
+							match(input,RULE_KEYWORDS,FOLLOW_RULE_KEYWORDS_in_ruleelement77); dbg.location(28,4);
+							match(input,18,FOLLOW_18_in_ruleelement82); dbg.location(29,4);
+							match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleelement87); 
+							}
+							break;
+
+						default :
+							break loop1;
+						}
+					}
+					} finally {dbg.exitSubRule(1);}
+					dbg.location(31,3);
+					match(input,19,FOLLOW_19_in_ruleelement96); dbg.location(32,3);
+					pushFollow(FOLLOW_rulecontent_in_ruleelement100);
+					rulecontent();
+					state._fsp--;
+					dbg.location(33,3);
+					match(input,17,FOLLOW_17_in_ruleelement104); dbg.location(34,3);
+					match(input,RULE_HEAD,FOLLOW_RULE_HEAD_in_ruleelement108); dbg.location(35,3);
+					match(input,15,FOLLOW_15_in_ruleelement112); dbg.location(36,3);
+					match(input,RULE_KEYWORDS,FOLLOW_RULE_KEYWORDS_in_ruleelement116); dbg.location(37,3);
+					match(input,19,FOLLOW_19_in_ruleelement120); 
 					}
 					break;
 				case 2 :
 					dbg.enterAlt(2);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:22:3: ( RULE_BODY | RULE_KEYWORDS )
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:39:3: '<' RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* '/>'
 					{
-					dbg.location(22,3);
-					if ( input.LA(1)==RULE_BODY||input.LA(1)==RULE_KEYWORDS ) {
-						input.consume();
-						state.errorRecovery=false;
-					}
-					else {
-						MismatchedSetException mse = new MismatchedSetException(null,input);
-						dbg.recognitionException(mse);
-						throw mse;
-					}
-					}
-					break;
-				case 3 :
-					dbg.enterAlt(3);
+					dbg.location(39,3);
+					match(input,16,FOLLOW_16_in_ruleelement132); dbg.location(40,3);
+					match(input,RULE_HEAD,FOLLOW_RULE_HEAD_in_ruleelement136); dbg.location(41,3);
+					match(input,15,FOLLOW_15_in_ruleelement140); dbg.location(42,3);
+					match(input,RULE_KEYWORDS,FOLLOW_RULE_KEYWORDS_in_ruleelement144); dbg.location(43,3);
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:43:3: ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )*
+					try { dbg.enterSubRule(2);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:28:3: RULE_STRING
-					{
-					dbg.location(28,3);
-					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleTag87); 
+					loop2:
+					while (true) {
+						int alt2=3;
+						try { dbg.enterDecision(2, decisionCanBacktrack[2]);
+
+						int LA2_0 = input.LA(1);
+						if ( (LA2_0==RULE_HEAD) ) {
+							alt2=1;
+						}
+						else if ( (LA2_0==RULE_KEYWORDS) ) {
+							alt2=2;
+						}
+
+						} finally {dbg.exitDecision(2);}
+
+						switch (alt2) {
+						case 1 :
+							dbg.enterAlt(1);
+
+							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:44:4: RULE_HEAD ':'
+							{
+							dbg.location(44,4);
+							match(input,RULE_HEAD,FOLLOW_RULE_HEAD_in_ruleelement153); dbg.location(45,4);
+							match(input,15,FOLLOW_15_in_ruleelement158); 
+							}
+							break;
+						case 2 :
+							dbg.enterAlt(2);
+
+							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:47:4: RULE_KEYWORDS '=' RULE_STRING
+							{
+							dbg.location(47,4);
+							match(input,RULE_KEYWORDS,FOLLOW_RULE_KEYWORDS_in_ruleelement172); dbg.location(48,4);
+							match(input,18,FOLLOW_18_in_ruleelement177); dbg.location(49,4);
+							match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleelement182); 
+							}
+							break;
+
+						default :
+							break loop2;
+						}
+					}
+					} finally {dbg.exitSubRule(2);}
+					dbg.location(51,3);
+					match(input,14,FOLLOW_14_in_ruleelement191); 
 					}
 					break;
 
 			}
-			} finally {dbg.exitSubRule(2);}
+			} finally {dbg.exitSubRule(3);}
 
 			}
 
@@ -304,156 +346,111 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(30, 0);
+		dbg.location(53, 0);
 
 		}
 		finally {
-			dbg.exitRule(getGrammarFileName(), "ruleTag");
+			dbg.exitRule(getGrammarFileName(), "ruleelement");
 			decRuleLevel();
 			if ( getRuleLevel()==0 ) {dbg.terminate();}
 		}
 
 	}
-	// $ANTLR end "ruleTag"
+	// $ANTLR end "ruleelement"
 
 
 
-	// $ANTLR start "ruleSingleton"
-	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:33:1: ruleSingleton : ( ( '<' | '</' ) RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* | '/>' | '>' ) ;
-	public final void ruleSingleton() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "ruleSingleton");
+	// $ANTLR start "rulecontent"
+	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:56:1: rulecontent : ( ruleelement | RULE_BODY | RULE_KEYWORDS | RULE_STRING )* ;
+	public final void rulecontent() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "rulecontent");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(33, 0);
+		dbg.location(56, 0);
 
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:33:14: ( ( ( '<' | '</' ) RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* | '/>' | '>' ) )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:56:12: ( ( ruleelement | RULE_BODY | RULE_KEYWORDS | RULE_STRING )* )
 			dbg.enterAlt(1);
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:34:2: ( ( '<' | '</' ) RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* | '/>' | '>' )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:57:2: ( ruleelement | RULE_BODY | RULE_KEYWORDS | RULE_STRING )*
 			{
-			dbg.location(34,2);
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:34:2: ( ( '<' | '</' ) RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* | '/>' | '>' )
-			int alt4=3;
+			dbg.location(57,2);
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:57:2: ( ruleelement | RULE_BODY | RULE_KEYWORDS | RULE_STRING )*
 			try { dbg.enterSubRule(4);
-			try { dbg.enterDecision(4, decisionCanBacktrack[4]);
 
-			switch ( input.LA(1) ) {
-			case 16:
-			case 17:
-				{
-				alt4=1;
-				}
-				break;
-			case 14:
-				{
-				alt4=2;
-				}
-				break;
-			case 19:
-				{
-				alt4=3;
-				}
-				break;
-			default:
-				NoViableAltException nvae =
-					new NoViableAltException("", 4, 0, input);
-				dbg.recognitionException(nvae);
-				throw nvae;
-			}
-			} finally {dbg.exitDecision(4);}
+			loop4:
+			while (true) {
+				int alt4=5;
+				try { dbg.enterDecision(4, decisionCanBacktrack[4]);
 
-			switch (alt4) {
+				switch ( input.LA(1) ) {
+				case 16:
+					{
+					alt4=1;
+					}
+					break;
+				case RULE_BODY:
+					{
+					alt4=2;
+					}
+					break;
+				case RULE_KEYWORDS:
+					{
+					alt4=3;
+					}
+					break;
+				case RULE_STRING:
+					{
+					alt4=4;
+					}
+					break;
+				}
+				} finally {dbg.exitDecision(4);}
+
+				switch (alt4) {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:35:3: ( '<' | '</' ) RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )*
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:58:3: ruleelement
 					{
-					dbg.location(35,3);
-					if ( (input.LA(1) >= 16 && input.LA(1) <= 17) ) {
-						input.consume();
-						state.errorRecovery=false;
-					}
-					else {
-						MismatchedSetException mse = new MismatchedSetException(null,input);
-						dbg.recognitionException(mse);
-						throw mse;
-					}dbg.location(40,3);
-					match(input,RULE_HEAD,FOLLOW_RULE_HEAD_in_ruleSingleton131); dbg.location(41,3);
-					match(input,15,FOLLOW_15_in_ruleSingleton135); dbg.location(42,3);
-					match(input,RULE_KEYWORDS,FOLLOW_RULE_KEYWORDS_in_ruleSingleton139); dbg.location(43,3);
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:43:3: ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )*
-					try { dbg.enterSubRule(3);
-
-					loop3:
-					while (true) {
-						int alt3=3;
-						try { dbg.enterDecision(3, decisionCanBacktrack[3]);
-
-						int LA3_0 = input.LA(1);
-						if ( (LA3_0==RULE_KEYWORDS) ) {
-							int LA3_2 = input.LA(2);
-							if ( (LA3_2==18) ) {
-								alt3=2;
-							}
-
-						}
-						else if ( (LA3_0==RULE_HEAD) ) {
-							alt3=1;
-						}
-
-						} finally {dbg.exitDecision(3);}
-
-						switch (alt3) {
-						case 1 :
-							dbg.enterAlt(1);
-
-							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:44:4: RULE_HEAD ':'
-							{
-							dbg.location(44,4);
-							match(input,RULE_HEAD,FOLLOW_RULE_HEAD_in_ruleSingleton148); dbg.location(45,4);
-							match(input,15,FOLLOW_15_in_ruleSingleton153); 
-							}
-							break;
-						case 2 :
-							dbg.enterAlt(2);
-
-							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:47:4: RULE_KEYWORDS '=' RULE_STRING
-							{
-							dbg.location(47,4);
-							match(input,RULE_KEYWORDS,FOLLOW_RULE_KEYWORDS_in_ruleSingleton167); dbg.location(48,4);
-							match(input,18,FOLLOW_18_in_ruleSingleton172); dbg.location(49,4);
-							match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleSingleton177); 
-							}
-							break;
-
-						default :
-							break loop3;
-						}
-					}
-					} finally {dbg.exitSubRule(3);}
+					dbg.location(58,3);
+					pushFollow(FOLLOW_ruleelement_in_rulecontent208);
+					ruleelement();
+					state._fsp--;
 
 					}
 					break;
 				case 2 :
 					dbg.enterAlt(2);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:52:3: '/>'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:60:3: RULE_BODY
 					{
-					dbg.location(52,3);
-					match(input,14,FOLLOW_14_in_ruleSingleton194); 
+					dbg.location(60,3);
+					match(input,RULE_BODY,FOLLOW_RULE_BODY_in_rulecontent220); 
 					}
 					break;
 				case 3 :
 					dbg.enterAlt(3);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:54:3: '>'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:62:3: RULE_KEYWORDS
 					{
-					dbg.location(54,3);
-					match(input,19,FOLLOW_19_in_ruleSingleton206); 
+					dbg.location(62,3);
+					match(input,RULE_KEYWORDS,FOLLOW_RULE_KEYWORDS_in_rulecontent232); 
+					}
+					break;
+				case 4 :
+					dbg.enterAlt(4);
+
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:64:3: RULE_STRING
+					{
+					dbg.location(64,3);
+					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulecontent244); 
 					}
 					break;
 
+				default :
+					break loop4;
+				}
 			}
 			} finally {dbg.exitSubRule(4);}
 
@@ -467,36 +464,117 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(56, 0);
+		dbg.location(66, 0);
 
 		}
 		finally {
-			dbg.exitRule(getGrammarFileName(), "ruleSingleton");
+			dbg.exitRule(getGrammarFileName(), "rulecontent");
 			decRuleLevel();
 			if ( getRuleLevel()==0 ) {dbg.terminate();}
 		}
 
 	}
-	// $ANTLR end "ruleSingleton"
+	// $ANTLR end "rulecontent"
 
 	// Delegated rules
 
 
+	protected DFA3 dfa3 = new DFA3(this);
+	static final String DFA3_eotS =
+		"\14\uffff";
+	static final String DFA3_eofS =
+		"\14\uffff";
+	static final String DFA3_minS =
+		"\1\20\1\6\1\17\1\11\1\6\1\17\1\22\2\uffff\1\6\1\14\1\6";
+	static final String DFA3_maxS =
+		"\1\20\1\6\1\17\1\11\1\23\1\17\1\22\2\uffff\1\23\1\14\1\23";
+	static final String DFA3_acceptS =
+		"\7\uffff\1\1\1\2\3\uffff";
+	static final String DFA3_specialS =
+		"\14\uffff}>";
+	static final String[] DFA3_transitionS = {
+			"\1\1",
+			"\1\2",
+			"\1\3",
+			"\1\4",
+			"\1\5\2\uffff\1\6\4\uffff\1\10\4\uffff\1\7",
+			"\1\11",
+			"\1\12",
+			"",
+			"",
+			"\1\5\2\uffff\1\6\4\uffff\1\10\4\uffff\1\7",
+			"\1\13",
+			"\1\5\2\uffff\1\6\4\uffff\1\10\4\uffff\1\7"
+	};
+
+	static final short[] DFA3_eot = DFA.unpackEncodedString(DFA3_eotS);
+	static final short[] DFA3_eof = DFA.unpackEncodedString(DFA3_eofS);
+	static final char[] DFA3_min = DFA.unpackEncodedStringToUnsignedChars(DFA3_minS);
+	static final char[] DFA3_max = DFA.unpackEncodedStringToUnsignedChars(DFA3_maxS);
+	static final short[] DFA3_accept = DFA.unpackEncodedString(DFA3_acceptS);
+	static final short[] DFA3_special = DFA.unpackEncodedString(DFA3_specialS);
+	static final short[][] DFA3_transition;
+
+	static {
+		int numStates = DFA3_transitionS.length;
+		DFA3_transition = new short[numStates][];
+		for (int i=0; i<numStates; i++) {
+			DFA3_transition[i] = DFA.unpackEncodedString(DFA3_transitionS[i]);
+		}
+	}
+
+	protected class DFA3 extends DFA {
+
+		public DFA3(BaseRecognizer recognizer) {
+			this.recognizer = recognizer;
+			this.decisionNumber = 3;
+			this.eot = DFA3_eot;
+			this.eof = DFA3_eof;
+			this.min = DFA3_min;
+			this.max = DFA3_max;
+			this.accept = DFA3_accept;
+			this.special = DFA3_special;
+			this.transition = DFA3_transition;
+		}
+		@Override
+		public String getDescription() {
+			return "18:2: ( '<' RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* '>' rulecontent '</' RULE_HEAD ':' RULE_KEYWORDS '>' | '<' RULE_HEAD ':' RULE_KEYWORDS ( RULE_HEAD ':' | RULE_KEYWORDS '=' RULE_STRING )* '/>' )";
+		}
+		public void error(NoViableAltException nvae) {
+			dbg.recognitionException(nvae);
+		}
+	}
 
 	public static final BitSet FOLLOW_ruleXml_in_ruleModel13 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ruleTag_in_ruleXml23 = new BitSet(new long[]{0x00000000000B5222L});
-	public static final BitSet FOLLOW_ruleSingleton_in_ruleTag40 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_set_in_ruleTag52 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_ruleTag87 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_set_in_ruleSingleton104 = new BitSet(new long[]{0x0000000000000040L});
-	public static final BitSet FOLLOW_RULE_HEAD_in_ruleSingleton131 = new BitSet(new long[]{0x0000000000008000L});
-	public static final BitSet FOLLOW_15_in_ruleSingleton135 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_RULE_KEYWORDS_in_ruleSingleton139 = new BitSet(new long[]{0x0000000000000242L});
-	public static final BitSet FOLLOW_RULE_HEAD_in_ruleSingleton148 = new BitSet(new long[]{0x0000000000008000L});
-	public static final BitSet FOLLOW_15_in_ruleSingleton153 = new BitSet(new long[]{0x0000000000000242L});
-	public static final BitSet FOLLOW_RULE_KEYWORDS_in_ruleSingleton167 = new BitSet(new long[]{0x0000000000040000L});
-	public static final BitSet FOLLOW_18_in_ruleSingleton172 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_ruleSingleton177 = new BitSet(new long[]{0x0000000000000242L});
-	public static final BitSet FOLLOW_14_in_ruleSingleton194 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_19_in_ruleSingleton206 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleelement_in_ruleXml23 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_16_in_ruleelement37 = new BitSet(new long[]{0x0000000000000040L});
+	public static final BitSet FOLLOW_RULE_HEAD_in_ruleelement41 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_15_in_ruleelement45 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_RULE_KEYWORDS_in_ruleelement49 = new BitSet(new long[]{0x0000000000080240L});
+	public static final BitSet FOLLOW_RULE_HEAD_in_ruleelement58 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_15_in_ruleelement63 = new BitSet(new long[]{0x0000000000080240L});
+	public static final BitSet FOLLOW_RULE_KEYWORDS_in_ruleelement77 = new BitSet(new long[]{0x0000000000040000L});
+	public static final BitSet FOLLOW_18_in_ruleelement82 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_ruleelement87 = new BitSet(new long[]{0x0000000000080240L});
+	public static final BitSet FOLLOW_19_in_ruleelement96 = new BitSet(new long[]{0x0000000000031220L});
+	public static final BitSet FOLLOW_rulecontent_in_ruleelement100 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_17_in_ruleelement104 = new BitSet(new long[]{0x0000000000000040L});
+	public static final BitSet FOLLOW_RULE_HEAD_in_ruleelement108 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_15_in_ruleelement112 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_RULE_KEYWORDS_in_ruleelement116 = new BitSet(new long[]{0x0000000000080000L});
+	public static final BitSet FOLLOW_19_in_ruleelement120 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_16_in_ruleelement132 = new BitSet(new long[]{0x0000000000000040L});
+	public static final BitSet FOLLOW_RULE_HEAD_in_ruleelement136 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_15_in_ruleelement140 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_RULE_KEYWORDS_in_ruleelement144 = new BitSet(new long[]{0x0000000000004240L});
+	public static final BitSet FOLLOW_RULE_HEAD_in_ruleelement153 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_15_in_ruleelement158 = new BitSet(new long[]{0x0000000000004240L});
+	public static final BitSet FOLLOW_RULE_KEYWORDS_in_ruleelement172 = new BitSet(new long[]{0x0000000000040000L});
+	public static final BitSet FOLLOW_18_in_ruleelement177 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_ruleelement182 = new BitSet(new long[]{0x0000000000004240L});
+	public static final BitSet FOLLOW_14_in_ruleelement191 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleelement_in_rulecontent208 = new BitSet(new long[]{0x0000000000011222L});
+	public static final BitSet FOLLOW_RULE_BODY_in_rulecontent220 = new BitSet(new long[]{0x0000000000011222L});
+	public static final BitSet FOLLOW_RULE_KEYWORDS_in_rulecontent232 = new BitSet(new long[]{0x0000000000011222L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulecontent244 = new BitSet(new long[]{0x0000000000011222L});
 }

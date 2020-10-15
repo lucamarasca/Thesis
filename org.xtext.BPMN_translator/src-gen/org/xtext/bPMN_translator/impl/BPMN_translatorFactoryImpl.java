@@ -67,9 +67,11 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
     {
       case BPMN_translatorPackage.MODEL: return createModel();
       case BPMN_translatorPackage.XML: return createXml();
-      case BPMN_translatorPackage.TAG: return createTag();
+      case BPMN_translatorPackage.OPENING: return createOpening();
+      case BPMN_translatorPackage.OPEN: return createOpen();
       case BPMN_translatorPackage.SINGLETON: return createSingleton();
-      case BPMN_translatorPackage.ACTION: return createAction();
+      case BPMN_translatorPackage.CLOSE: return createClose();
+      case BPMN_translatorPackage.OPENS: return createOpens();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -105,10 +107,22 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public Tag createTag()
+  public Opening createOpening()
   {
-    TagImpl tag = new TagImpl();
-    return tag;
+    OpeningImpl opening = new OpeningImpl();
+    return opening;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Open createOpen()
+  {
+    OpenImpl open = new OpenImpl();
+    return open;
   }
 
   /**
@@ -129,10 +143,22 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public Action createAction()
+  public Close createClose()
   {
-    ActionImpl action = new ActionImpl();
-    return action;
+    CloseImpl close = new CloseImpl();
+    return close;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Opens createOpens()
+  {
+    OpensImpl opens = new OpensImpl();
+    return opens;
   }
 
   /**

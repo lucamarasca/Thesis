@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
-import org.xtext.bPMN_translator.Tag;
+import org.xtext.bPMN_translator.Opening;
 import org.xtext.bPMN_translator.Xml;
 
 /**
@@ -29,7 +29,7 @@ import org.xtext.bPMN_translator.Xml;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.bPMN_translator.impl.XmlImpl#getTag <em>Tag</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.XmlImpl#getOpening_tag <em>Opening tag</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +37,14 @@ import org.xtext.bPMN_translator.Xml;
 public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
 {
   /**
-   * The cached value of the '{@link #getTag() <em>Tag</em>}' containment reference list.
+   * The cached value of the '{@link #getOpening_tag() <em>Opening tag</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTag()
+   * @see #getOpening_tag()
    * @generated
    * @ordered
    */
-  protected EList<Tag> tag;
+  protected EList<Opening> opening_tag;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,13 +73,13 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
    * @generated
    */
   @Override
-  public EList<Tag> getTag()
+  public EList<Opening> getOpening_tag()
   {
-    if (tag == null)
+    if (opening_tag == null)
     {
-      tag = new EObjectContainmentEList<Tag>(Tag.class, this, BPMN_translatorPackage.XML__TAG);
+      opening_tag = new EObjectContainmentEList<Opening>(Opening.class, this, BPMN_translatorPackage.XML__OPENING_TAG);
     }
-    return tag;
+    return opening_tag;
   }
 
   /**
@@ -92,8 +92,8 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__TAG:
-        return ((InternalEList<?>)getTag()).basicRemove(otherEnd, msgs);
+      case BPMN_translatorPackage.XML__OPENING_TAG:
+        return ((InternalEList<?>)getOpening_tag()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +108,8 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__TAG:
-        return getTag();
+      case BPMN_translatorPackage.XML__OPENING_TAG:
+        return getOpening_tag();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +125,9 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__TAG:
-        getTag().clear();
-        getTag().addAll((Collection<? extends Tag>)newValue);
+      case BPMN_translatorPackage.XML__OPENING_TAG:
+        getOpening_tag().clear();
+        getOpening_tag().addAll((Collection<? extends Opening>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +143,8 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__TAG:
-        getTag().clear();
+      case BPMN_translatorPackage.XML__OPENING_TAG:
+        getOpening_tag().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,8 +160,8 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__TAG:
-        return tag != null && !tag.isEmpty();
+      case BPMN_translatorPackage.XML__OPENING_TAG:
+        return opening_tag != null && !opening_tag.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -10,7 +10,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -22,24 +21,51 @@ import org.xtext.services.BPMN_translatorGrammarAccess;
 public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected BPMN_translatorGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Singleton_GreaterThanSignKeyword_1_2_or_SolidusGreaterThanSignKeyword_1_1_or_____LessThanSignKeyword_1_0_0_0_or_LessThanSignSolidusKeyword_1_0_0_1___HEADTerminalRuleCall_1_0_1_ColonKeyword_1_0_2_KEYWORDSTerminalRuleCall_1_0_3___HEADTerminalRuleCall_1_0_4_0_0_ColonKeyword_1_0_4_0_1__a__;
-	protected AbstractElementAlias match_Singleton_LessThanSignKeyword_1_0_0_0_or_LessThanSignSolidusKeyword_1_0_0_1;
-	protected AbstractElementAlias match_Singleton___HEADTerminalRuleCall_1_0_4_0_0_ColonKeyword_1_0_4_0_1__a;
+	protected AbstractElementAlias match_Open___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a;
+	protected AbstractElementAlias match_Opening___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a;
+	protected AbstractElementAlias match_Opening___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a;
+	protected AbstractElementAlias match_Opening___LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a_SolidusGreaterThanSignKeyword_0_1_2_1__a;
+	protected AbstractElementAlias match_Opening___LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a_SolidusGreaterThanSignKeyword_1_1_1__a;
+	protected AbstractElementAlias match_Opening___SolidusGreaterThanSignKeyword_0_1_2_1_LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a__a;
+	protected AbstractElementAlias match_Opening___SolidusGreaterThanSignKeyword_1_1_1_LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a__a;
+	protected AbstractElementAlias match_Opening_____HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__q___SolidusGreaterThanSignKeyword_0_1_2_1_LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3__q__p;
+	protected AbstractElementAlias match_Opening_____HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__q___SolidusGreaterThanSignKeyword_1_1_1_LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3__q__p;
+	protected AbstractElementAlias match_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (BPMN_translatorGrammarAccess) access;
-		match_Singleton_GreaterThanSignKeyword_1_2_or_SolidusGreaterThanSignKeyword_1_1_or_____LessThanSignKeyword_1_0_0_0_or_LessThanSignSolidusKeyword_1_0_0_1___HEADTerminalRuleCall_1_0_1_ColonKeyword_1_0_2_KEYWORDSTerminalRuleCall_1_0_3___HEADTerminalRuleCall_1_0_4_0_0_ColonKeyword_1_0_4_0_1__a__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSingletonAccess().getLessThanSignKeyword_1_0_0_0()), new TokenAlias(false, false, grammarAccess.getSingletonAccess().getLessThanSignSolidusKeyword_1_0_0_1())), new TokenAlias(false, false, grammarAccess.getSingletonAccess().getHEADTerminalRuleCall_1_0_1()), new TokenAlias(false, false, grammarAccess.getSingletonAccess().getColonKeyword_1_0_2()), new TokenAlias(false, false, grammarAccess.getSingletonAccess().getKEYWORDSTerminalRuleCall_1_0_3()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getSingletonAccess().getHEADTerminalRuleCall_1_0_4_0_0()), new TokenAlias(false, false, grammarAccess.getSingletonAccess().getColonKeyword_1_0_4_0_1()))), new TokenAlias(false, false, grammarAccess.getSingletonAccess().getGreaterThanSignKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getSingletonAccess().getSolidusGreaterThanSignKeyword_1_1()));
-		match_Singleton_LessThanSignKeyword_1_0_0_0_or_LessThanSignSolidusKeyword_1_0_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getSingletonAccess().getLessThanSignKeyword_1_0_0_0()), new TokenAlias(false, false, grammarAccess.getSingletonAccess().getLessThanSignSolidusKeyword_1_0_0_1()));
-		match_Singleton___HEADTerminalRuleCall_1_0_4_0_0_ColonKeyword_1_0_4_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getSingletonAccess().getHEADTerminalRuleCall_1_0_4_0_0()), new TokenAlias(false, false, grammarAccess.getSingletonAccess().getColonKeyword_1_0_4_0_1()));
+		match_Open___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_4_0_0()), new TokenAlias(false, false, grammarAccess.getOpenAccess().getColonKeyword_1_4_0_1()));
+		match_Opening___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_0_1_2_0_4_0_0()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getColonKeyword_0_1_2_0_4_0_1()));
+		match_Opening___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_1_1_0_4_0_0()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getColonKeyword_1_1_0_4_0_1()));
+		match_Opening___LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a_SolidusGreaterThanSignKeyword_0_1_2_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getOpeningAccess().getLessThanSignKeyword_0_1_2_0_0()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_0_1_2_0_1()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getColonKeyword_0_1_2_0_2()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getKEYWORDSTerminalRuleCall_0_1_2_0_3()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_0_1_2_0_4_0_0()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getColonKeyword_0_1_2_0_4_0_1())), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getSolidusGreaterThanSignKeyword_0_1_2_1()));
+		match_Opening___LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a_SolidusGreaterThanSignKeyword_1_1_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getOpeningAccess().getLessThanSignKeyword_1_1_0_0()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_1_1_0_1()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getColonKeyword_1_1_0_2()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getKEYWORDSTerminalRuleCall_1_1_0_3()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_1_1_0_4_0_0()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getColonKeyword_1_1_0_4_0_1())), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getSolidusGreaterThanSignKeyword_1_1_1()));
+		match_Opening___SolidusGreaterThanSignKeyword_0_1_2_1_LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getOpeningAccess().getSolidusGreaterThanSignKeyword_0_1_2_1()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getLessThanSignKeyword_0_1_2_0_0()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_0_1_2_0_1()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getColonKeyword_0_1_2_0_2()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getKEYWORDSTerminalRuleCall_0_1_2_0_3()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_0_1_2_0_4_0_0()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getColonKeyword_0_1_2_0_4_0_1())));
+		match_Opening___SolidusGreaterThanSignKeyword_1_1_1_LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getOpeningAccess().getSolidusGreaterThanSignKeyword_1_1_1()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getLessThanSignKeyword_1_1_0_0()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_1_1_0_1()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getColonKeyword_1_1_0_2()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getKEYWORDSTerminalRuleCall_1_1_0_3()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_1_1_0_4_0_0()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getColonKeyword_1_1_0_4_0_1())));
+		match_Opening_____HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__q___SolidusGreaterThanSignKeyword_0_1_2_1_LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3__q__p = new GroupAlias(true, false, new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_0_1_2_0_4_0_0()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getColonKeyword_0_1_2_0_4_0_1())), new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getOpeningAccess().getSolidusGreaterThanSignKeyword_0_1_2_1()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getLessThanSignKeyword_0_1_2_0_0()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_0_1_2_0_1()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getColonKeyword_0_1_2_0_2()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getKEYWORDSTerminalRuleCall_0_1_2_0_3())));
+		match_Opening_____HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__q___SolidusGreaterThanSignKeyword_1_1_1_LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3__q__p = new GroupAlias(true, false, new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_1_1_0_4_0_0()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getColonKeyword_1_1_0_4_0_1())), new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getOpeningAccess().getSolidusGreaterThanSignKeyword_1_1_1()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getLessThanSignKeyword_1_1_0_0()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_1_1_0_1()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getColonKeyword_1_1_0_2()), new TokenAlias(false, false, grammarAccess.getOpeningAccess().getKEYWORDSTerminalRuleCall_1_1_0_3())));
+		match_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getSingletonAccess().getHEADTerminalRuleCall_1_4_0_0()), new TokenAlias(false, false, grammarAccess.getSingletonAccess().getColonKeyword_1_4_0_1()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getHEADRule())
+		if (ruleCall.getRule() == grammarAccess.getDataRule())
+			return getDataToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getHEADRule())
 			return getHEADToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getKEYWORDSRule())
 			return getKEYWORDSToken(semanticObject, ruleCall, node);
+		return "";
+	}
+	
+	/**
+	 * Data:
+	 * 	(BODY | KEYWORDS  | STRING  )
+	 * ;
+	 */
+	protected String getDataToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
 		return "";
 	}
 	
@@ -81,35 +107,43 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Singleton_GreaterThanSignKeyword_1_2_or_SolidusGreaterThanSignKeyword_1_1_or_____LessThanSignKeyword_1_0_0_0_or_LessThanSignSolidusKeyword_1_0_0_1___HEADTerminalRuleCall_1_0_1_ColonKeyword_1_0_2_KEYWORDSTerminalRuleCall_1_0_3___HEADTerminalRuleCall_1_0_4_0_0_ColonKeyword_1_0_4_0_1__a__.equals(syntax))
-				emit_Singleton_GreaterThanSignKeyword_1_2_or_SolidusGreaterThanSignKeyword_1_1_or_____LessThanSignKeyword_1_0_0_0_or_LessThanSignSolidusKeyword_1_0_0_1___HEADTerminalRuleCall_1_0_1_ColonKeyword_1_0_2_KEYWORDSTerminalRuleCall_1_0_3___HEADTerminalRuleCall_1_0_4_0_0_ColonKeyword_1_0_4_0_1__a__(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Singleton_LessThanSignKeyword_1_0_0_0_or_LessThanSignSolidusKeyword_1_0_0_1.equals(syntax))
-				emit_Singleton_LessThanSignKeyword_1_0_0_0_or_LessThanSignSolidusKeyword_1_0_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Singleton___HEADTerminalRuleCall_1_0_4_0_0_ColonKeyword_1_0_4_0_1__a.equals(syntax))
-				emit_Singleton___HEADTerminalRuleCall_1_0_4_0_0_ColonKeyword_1_0_4_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Open___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a.equals(syntax))
+				emit_Open___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Opening___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a.equals(syntax))
+				emit_Opening___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Opening___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a.equals(syntax))
+				emit_Opening___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Opening___LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a_SolidusGreaterThanSignKeyword_0_1_2_1__a.equals(syntax))
+				emit_Opening___LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a_SolidusGreaterThanSignKeyword_0_1_2_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Opening___LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a_SolidusGreaterThanSignKeyword_1_1_1__a.equals(syntax))
+				emit_Opening___LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a_SolidusGreaterThanSignKeyword_1_1_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Opening___SolidusGreaterThanSignKeyword_0_1_2_1_LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a__a.equals(syntax))
+				emit_Opening___SolidusGreaterThanSignKeyword_0_1_2_1_LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Opening___SolidusGreaterThanSignKeyword_1_1_1_LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a__a.equals(syntax))
+				emit_Opening___SolidusGreaterThanSignKeyword_1_1_1_LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Opening_____HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__q___SolidusGreaterThanSignKeyword_0_1_2_1_LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3__q__p.equals(syntax))
+				emit_Opening_____HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__q___SolidusGreaterThanSignKeyword_0_1_2_1_LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3__q__p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Opening_____HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__q___SolidusGreaterThanSignKeyword_1_1_1_LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3__q__p.equals(syntax))
+				emit_Opening_____HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__q___SolidusGreaterThanSignKeyword_1_1_1_LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3__q__p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a.equals(syntax))
+				emit_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     (('<' | '</') HEAD ':' KEYWORDS (HEAD ':')*) | '/>' | '>'
+	 *     (HEAD ':')*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
+	 *     (rule start) '<' HEAD ':' KEYWORDS (ambiguity) '>' Data (rule start)
+	 *     (rule start) '<' HEAD ':' KEYWORDS (ambiguity) '>' prova+=Opening
+	 *     (rule start) '<' HEAD ':' KEYWORDS (ambiguity) KEYWORDS '=' value+=STRING
+	 *     value+=STRING (ambiguity) '>' Data (rule end)
+	 *     value+=STRING (ambiguity) '>' prova+=Opening
+	 *     value+=STRING (ambiguity) KEYWORDS '=' value+=STRING
 	 */
-	protected void emit_Singleton_GreaterThanSignKeyword_1_2_or_SolidusGreaterThanSignKeyword_1_1_or_____LessThanSignKeyword_1_0_0_0_or_LessThanSignSolidusKeyword_1_0_0_1___HEADTerminalRuleCall_1_0_1_ColonKeyword_1_0_2_KEYWORDSTerminalRuleCall_1_0_3___HEADTerminalRuleCall_1_0_4_0_0_ColonKeyword_1_0_4_0_1__a__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     '<' | '</'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) HEAD ':' KEYWORDS (HEAD ':')* KEYWORDS '=' value+=STRING
-	 */
-	protected void emit_Singleton_LessThanSignKeyword_1_0_0_0_or_LessThanSignSolidusKeyword_1_0_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Open___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -118,11 +152,132 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *     (HEAD ':')*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) ('<' | '</') HEAD ':' KEYWORDS (ambiguity) KEYWORDS '=' value+=STRING
-	 *     value+=STRING (ambiguity) (rule end)
+	 *     Prova1+=Close '<' HEAD ':' KEYWORDS (ambiguity) ('/>' '<' HEAD ':' KEYWORDS (ambiguity))* KEYWORDS '=' value+=STRING
+	 *     value+=STRING (ambiguity) '/>' ('<' HEAD ':' KEYWORDS (ambiguity) '/>')* (rule end)
+	 */
+	protected void emit_Opening___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (HEAD ':')*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) '<' HEAD ':' KEYWORDS (ambiguity) ('/>' '<' HEAD ':' KEYWORDS (ambiguity))* KEYWORDS '=' value+=STRING
+	 *     value+=STRING (ambiguity) '/>' ('<' HEAD ':' KEYWORDS (ambiguity) '/>')* (rule end)
+	 */
+	protected void emit_Opening___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (
+	  *         '<' 
+	  *         HEAD 
+	  *         ':' 
+	  *         KEYWORDS 
+	  *         (HEAD ':')* 
+	  *         '/>'
+	  *     )*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     Prova1+=Close (ambiguity) (rule end)
+	 *     value+=STRING (HEAD ':')* '/>' (ambiguity) (rule end)
+	 */
+	protected void emit_Opening___LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a_SolidusGreaterThanSignKeyword_0_1_2_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (
+	  *         '<' 
+	  *         HEAD 
+	  *         ':' 
+	  *         KEYWORDS 
+	  *         (HEAD ':')* 
+	  *         '/>'
+	  *     )*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 *     value+=STRING (HEAD ':')* '/>' (ambiguity) (rule end)
+	 */
+	protected void emit_Opening___LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a_SolidusGreaterThanSignKeyword_1_1_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (
+	  *         '/>' 
+	  *         '<' 
+	  *         HEAD 
+	  *         ':' 
+	  *         KEYWORDS 
+	  *         (HEAD ':')*
+	  *     )*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     Prova1+=Close '<' HEAD ':' KEYWORDS (HEAD ':')* (ambiguity) KEYWORDS '=' value+=STRING
+	 */
+	protected void emit_Opening___SolidusGreaterThanSignKeyword_0_1_2_1_LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3___HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (
+	  *         '/>' 
+	  *         '<' 
+	  *         HEAD 
+	  *         ':' 
+	  *         KEYWORDS 
+	  *         (HEAD ':')*
+	  *     )*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) '<' HEAD ':' KEYWORDS (HEAD ':')* (ambiguity) KEYWORDS '=' value+=STRING
+	 */
+	protected void emit_Opening___SolidusGreaterThanSignKeyword_1_1_1_LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3___HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ((HEAD ':')? ('/>' '<' HEAD ':' KEYWORDS)?)+
+	 *
+	 * This ambiguous syntax occurs at:
 	 *     value+=STRING (ambiguity) KEYWORDS '=' value+=STRING
 	 */
-	protected void emit_Singleton___HEADTerminalRuleCall_1_0_4_0_0_ColonKeyword_1_0_4_0_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Opening_____HEADTerminalRuleCall_0_1_2_0_4_0_0_ColonKeyword_0_1_2_0_4_0_1__q___SolidusGreaterThanSignKeyword_0_1_2_1_LessThanSignKeyword_0_1_2_0_0_HEADTerminalRuleCall_0_1_2_0_1_ColonKeyword_0_1_2_0_2_KEYWORDSTerminalRuleCall_0_1_2_0_3__q__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ((HEAD ':')? ('/>' '<' HEAD ':' KEYWORDS)?)+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     value+=STRING (ambiguity) KEYWORDS '=' value+=STRING
+	 */
+	protected void emit_Opening_____HEADTerminalRuleCall_1_1_0_4_0_0_ColonKeyword_1_1_0_4_0_1__q___SolidusGreaterThanSignKeyword_1_1_1_LessThanSignKeyword_1_1_0_0_HEADTerminalRuleCall_1_1_0_1_ColonKeyword_1_1_0_2_KEYWORDSTerminalRuleCall_1_1_0_3__q__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (HEAD ':')*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) '<' HEAD ':' KEYWORDS (ambiguity) '/>' (rule start)
+	 *     (rule start) '<' HEAD ':' KEYWORDS (ambiguity) KEYWORDS '=' value+=STRING
+	 *     value+=STRING (ambiguity) '/>' (rule end)
+	 *     value+=STRING (ambiguity) KEYWORDS '=' value+=STRING
+	 */
+	protected void emit_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

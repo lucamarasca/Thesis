@@ -3,17 +3,38 @@
  */
 package org.xtext.bPMN_translator;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Singleton</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.bPMN_translator.Singleton#getValue <em>Value</em>}</li>
+ * </ul>
  *
  * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getSingleton()
  * @model
  * @generated
  */
-public interface Singleton extends Tag
+public interface Singleton extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Value</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Value</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getSingleton_Value()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getValue();
+
 } // Singleton

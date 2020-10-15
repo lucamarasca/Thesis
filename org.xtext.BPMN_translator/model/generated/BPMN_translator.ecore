@@ -7,16 +7,27 @@
         eType="#//Xml" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Xml">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tag" upperBound="-1" eType="#//Tag"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="opening_tag" upperBound="-1"
+        eType="#//Opening" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Tag">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="result" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Singleton" eSuperTypes="#//Tag"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//Singleton">
+  <eClassifiers xsi:type="ecore:EClass" name="Opening">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Prova" upperBound="-1"
+        eType="#//Open" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Prova1" upperBound="-1"
+        eType="#//Close" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Open"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Singleton">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Close"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Opens" eSuperTypes="#//Open">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prova" upperBound="-1"
+        eType="#//Opening" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

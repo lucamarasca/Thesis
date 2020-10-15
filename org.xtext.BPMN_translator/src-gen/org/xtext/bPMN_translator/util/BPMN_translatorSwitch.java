@@ -87,10 +87,17 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BPMN_translatorPackage.TAG:
+      case BPMN_translatorPackage.OPENING:
       {
-        Tag tag = (Tag)theEObject;
-        T result = caseTag(tag);
+        Opening opening = (Opening)theEObject;
+        T result = caseOpening(opening);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BPMN_translatorPackage.OPEN:
+      {
+        Open open = (Open)theEObject;
+        T result = caseOpen(open);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -98,16 +105,21 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
       {
         Singleton singleton = (Singleton)theEObject;
         T result = caseSingleton(singleton);
-        if (result == null) result = caseTag(singleton);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BPMN_translatorPackage.ACTION:
+      case BPMN_translatorPackage.CLOSE:
       {
-        Action action = (Action)theEObject;
-        T result = caseAction(action);
-        if (result == null) result = caseSingleton(action);
-        if (result == null) result = caseTag(action);
+        Close close = (Close)theEObject;
+        T result = caseClose(close);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BPMN_translatorPackage.OPENS:
+      {
+        Opens opens = (Opens)theEObject;
+        T result = caseOpens(opens);
+        if (result == null) result = caseOpen(opens);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -148,17 +160,33 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Tag</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Opening</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Tag</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Opening</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTag(Tag object)
+  public T caseOpening(Opening object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Open</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Open</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOpen(Open object)
   {
     return null;
   }
@@ -180,17 +208,33 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Close</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Close</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAction(Action object)
+  public T caseClose(Close object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Opens</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Opens</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOpens(Opens object)
   {
     return null;
   }
