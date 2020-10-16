@@ -42,250 +42,161 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.Xml");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cXmlAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cOpening_tagAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cOpening_tagOpeningParserRuleCall_1_0 = (RuleCall)cOpening_tagAssignment_1.eContents().get(0);
+		private final RuleCall cPrologParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cProvaAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cProvaElementParserRuleCall_2_0 = (RuleCall)cProvaAssignment_2.eContents().get(0);
 		
 		//Xml:
-		//	{Xml} opening_tag+=Opening;
+		//	{Xml} prolog? prova+=element*
+		//	//{Xml} opening_tag += (Opening)
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Xml} opening_tag+=Opening
+		//{Xml} prolog? prova+=element*
 		public Group getGroup() { return cGroup; }
 		
 		//{Xml}
 		public Action getXmlAction_0() { return cXmlAction_0; }
 		
-		//opening_tag+=Opening
-		public Assignment getOpening_tagAssignment_1() { return cOpening_tagAssignment_1; }
+		//prolog?
+		public RuleCall getPrologParserRuleCall_1() { return cPrologParserRuleCall_1; }
 		
-		//Opening
-		public RuleCall getOpening_tagOpeningParserRuleCall_1_0() { return cOpening_tagOpeningParserRuleCall_1_0; }
+		//prova+=element*
+		public Assignment getProvaAssignment_2() { return cProvaAssignment_2; }
+		
+		//element
+		public RuleCall getProvaElementParserRuleCall_2_0() { return cProvaElementParserRuleCall_2_0; }
 	}
-	public class OpeningElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.Opening");
+	public class PrologElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.prolog");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLessThanSignQuestionMarkKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cHEADTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Keyword cVersionKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cSTRINGTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Keyword cEncodingKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final RuleCall cSTRINGTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Keyword cQuestionMarkGreaterThanSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//prolog:
+		//	"<?" HEAD "version=" STRING "encoding=" STRING "?>";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"<?" HEAD "version=" STRING "encoding=" STRING "?>"
+		public Group getGroup() { return cGroup; }
+		
+		//"<?"
+		public Keyword getLessThanSignQuestionMarkKeyword_0() { return cLessThanSignQuestionMarkKeyword_0; }
+		
+		//HEAD
+		public RuleCall getHEADTerminalRuleCall_1() { return cHEADTerminalRuleCall_1; }
+		
+		//"version="
+		public Keyword getVersionKeyword_2() { return cVersionKeyword_2; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_3() { return cSTRINGTerminalRuleCall_3; }
+		
+		//"encoding="
+		public Keyword getEncodingKeyword_4() { return cEncodingKeyword_4; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_5() { return cSTRINGTerminalRuleCall_5; }
+		
+		//"?>"
+		public Keyword getQuestionMarkGreaterThanSignKeyword_6() { return cQuestionMarkGreaterThanSignKeyword_6; }
+	}
+	public class ElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.element");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cOpeningAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
-		private final Group cGroup_0_1_0 = (Group)cGroup_0_1.eContents().get(0);
-		private final Assignment cProvaAssignment_0_1_0_0 = (Assignment)cGroup_0_1_0.eContents().get(0);
-		private final RuleCall cProvaOpenParserRuleCall_0_1_0_0_0 = (RuleCall)cProvaAssignment_0_1_0_0.eContents().get(0);
-		private final Assignment cProva1Assignment_0_1_0_1 = (Assignment)cGroup_0_1_0.eContents().get(1);
-		private final RuleCall cProva1CloseParserRuleCall_0_1_0_1_0 = (RuleCall)cProva1Assignment_0_1_0_1.eContents().get(0);
-		private final Group cGroup_0_1_1 = (Group)cGroup_0_1.eContents().get(1);
-		private final Assignment cProvaAssignment_0_1_1_0 = (Assignment)cGroup_0_1_1.eContents().get(0);
-		private final RuleCall cProvaOpenParserRuleCall_0_1_1_0_0 = (RuleCall)cProvaAssignment_0_1_1_0.eContents().get(0);
-		private final Assignment cProva1Assignment_0_1_1_1 = (Assignment)cGroup_0_1_1.eContents().get(1);
-		private final RuleCall cProva1CloseParserRuleCall_0_1_1_1_0 = (RuleCall)cProva1Assignment_0_1_1_1.eContents().get(0);
-		private final Group cGroup_0_1_2 = (Group)cGroup_0_1.eContents().get(2);
-		private final Group cGroup_0_1_2_0 = (Group)cGroup_0_1_2.eContents().get(0);
-		private final Keyword cLessThanSignKeyword_0_1_2_0_0 = (Keyword)cGroup_0_1_2_0.eContents().get(0);
-		private final RuleCall cHEADTerminalRuleCall_0_1_2_0_1 = (RuleCall)cGroup_0_1_2_0.eContents().get(1);
-		private final Keyword cColonKeyword_0_1_2_0_2 = (Keyword)cGroup_0_1_2_0.eContents().get(2);
-		private final RuleCall cKEYWORDSTerminalRuleCall_0_1_2_0_3 = (RuleCall)cGroup_0_1_2_0.eContents().get(3);
-		private final Alternatives cAlternatives_0_1_2_0_4 = (Alternatives)cGroup_0_1_2_0.eContents().get(4);
-		private final Group cGroup_0_1_2_0_4_0 = (Group)cAlternatives_0_1_2_0_4.eContents().get(0);
-		private final RuleCall cHEADTerminalRuleCall_0_1_2_0_4_0_0 = (RuleCall)cGroup_0_1_2_0_4_0.eContents().get(0);
-		private final Keyword cColonKeyword_0_1_2_0_4_0_1 = (Keyword)cGroup_0_1_2_0_4_0.eContents().get(1);
-		private final Group cGroup_0_1_2_0_4_1 = (Group)cAlternatives_0_1_2_0_4.eContents().get(1);
-		private final RuleCall cKEYWORDSTerminalRuleCall_0_1_2_0_4_1_0 = (RuleCall)cGroup_0_1_2_0_4_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_0_1_2_0_4_1_1 = (Keyword)cGroup_0_1_2_0_4_1.eContents().get(1);
-		private final Assignment cValueAssignment_0_1_2_0_4_1_2 = (Assignment)cGroup_0_1_2_0_4_1.eContents().get(2);
-		private final RuleCall cValueSTRINGTerminalRuleCall_0_1_2_0_4_1_2_0 = (RuleCall)cValueAssignment_0_1_2_0_4_1_2.eContents().get(0);
-		private final Keyword cSolidusGreaterThanSignKeyword_0_1_2_1 = (Keyword)cGroup_0_1_2.eContents().get(1);
+		private final RuleCall cOpenParserRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
+		private final Assignment cContentsAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cContentsContentParserRuleCall_0_1_0 = (RuleCall)cContentsAssignment_0_1.eContents().get(0);
+		private final Assignment cClose_tagAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cClose_tagCloseParserRuleCall_0_2_0 = (RuleCall)cClose_tagAssignment_0_2.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cOpeningAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
-		private final Group cGroup_1_1_0 = (Group)cGroup_1_1.eContents().get(0);
-		private final Keyword cLessThanSignKeyword_1_1_0_0 = (Keyword)cGroup_1_1_0.eContents().get(0);
-		private final RuleCall cHEADTerminalRuleCall_1_1_0_1 = (RuleCall)cGroup_1_1_0.eContents().get(1);
-		private final Keyword cColonKeyword_1_1_0_2 = (Keyword)cGroup_1_1_0.eContents().get(2);
-		private final RuleCall cKEYWORDSTerminalRuleCall_1_1_0_3 = (RuleCall)cGroup_1_1_0.eContents().get(3);
-		private final Alternatives cAlternatives_1_1_0_4 = (Alternatives)cGroup_1_1_0.eContents().get(4);
-		private final Group cGroup_1_1_0_4_0 = (Group)cAlternatives_1_1_0_4.eContents().get(0);
-		private final RuleCall cHEADTerminalRuleCall_1_1_0_4_0_0 = (RuleCall)cGroup_1_1_0_4_0.eContents().get(0);
-		private final Keyword cColonKeyword_1_1_0_4_0_1 = (Keyword)cGroup_1_1_0_4_0.eContents().get(1);
-		private final Group cGroup_1_1_0_4_1 = (Group)cAlternatives_1_1_0_4.eContents().get(1);
-		private final RuleCall cKEYWORDSTerminalRuleCall_1_1_0_4_1_0 = (RuleCall)cGroup_1_1_0_4_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_1_1_0_4_1_1 = (Keyword)cGroup_1_1_0_4_1.eContents().get(1);
-		private final Assignment cValueAssignment_1_1_0_4_1_2 = (Assignment)cGroup_1_1_0_4_1.eContents().get(2);
-		private final RuleCall cValueSTRINGTerminalRuleCall_1_1_0_4_1_2_0 = (RuleCall)cValueAssignment_1_1_0_4_1_2.eContents().get(0);
-		private final Keyword cSolidusGreaterThanSignKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Action cElementAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Assignment cSingleton_tagAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cSingleton_tagSingletonParserRuleCall_1_1_0 = (RuleCall)cSingleton_tagAssignment_1_1.eContents().get(0);
 		
-		//Opening:
-		//	{Opening} ((Prova+=Open Prova1+=Close) (Prova+=Open Prova1+=Close)* (("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "="
-		//	value+=STRING)*) "/>")*) | {Opening} (("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "=" value+=STRING)*) "/>")*;
+		//element:
+		//	Open
+		//	contents+=content close_tag+=Close
+		//	| {element} singleton_tag+=Singleton;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Opening} ((Prova+=Open Prova1+=Close) (Prova+=Open Prova1+=Close)* (("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "="
-		//value+=STRING)*) "/>")*) | {Opening} (("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "=" value+=STRING)*) "/>")*
+		//Open contents+=content close_tag+=Close | {element} singleton_tag+=Singleton
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{Opening} ((Prova+=Open Prova1+=Close) (Prova+=Open Prova1+=Close)* (("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "="
-		//value+=STRING)*) "/>")*)
+		//Open contents+=content close_tag+=Close
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//{Opening}
-		public Action getOpeningAction_0_0() { return cOpeningAction_0_0; }
-		
-		//((Prova+=Open Prova1+=Close) (Prova+=Open Prova1+=Close)* (("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "="
-		//value+=STRING)*) "/>")*)
-		public Group getGroup_0_1() { return cGroup_0_1; }
-		
-		//(Prova+=Open Prova1+=Close)
-		public Group getGroup_0_1_0() { return cGroup_0_1_0; }
-		
-		//Prova+=Open
-		public Assignment getProvaAssignment_0_1_0_0() { return cProvaAssignment_0_1_0_0; }
-		
 		//Open
-		public RuleCall getProvaOpenParserRuleCall_0_1_0_0_0() { return cProvaOpenParserRuleCall_0_1_0_0_0; }
+		public RuleCall getOpenParserRuleCall_0_0() { return cOpenParserRuleCall_0_0; }
 		
-		//Prova1+=Close
-		public Assignment getProva1Assignment_0_1_0_1() { return cProva1Assignment_0_1_0_1; }
+		//contents+=content
+		public Assignment getContentsAssignment_0_1() { return cContentsAssignment_0_1; }
+		
+		//content
+		public RuleCall getContentsContentParserRuleCall_0_1_0() { return cContentsContentParserRuleCall_0_1_0; }
+		
+		//close_tag+=Close
+		public Assignment getClose_tagAssignment_0_2() { return cClose_tagAssignment_0_2; }
 		
 		//Close
-		public RuleCall getProva1CloseParserRuleCall_0_1_0_1_0() { return cProva1CloseParserRuleCall_0_1_0_1_0; }
+		public RuleCall getClose_tagCloseParserRuleCall_0_2_0() { return cClose_tagCloseParserRuleCall_0_2_0; }
 		
-		//(Prova+=Open Prova1+=Close)*
-		public Group getGroup_0_1_1() { return cGroup_0_1_1; }
-		
-		//Prova+=Open
-		public Assignment getProvaAssignment_0_1_1_0() { return cProvaAssignment_0_1_1_0; }
-		
-		//Open
-		public RuleCall getProvaOpenParserRuleCall_0_1_1_0_0() { return cProvaOpenParserRuleCall_0_1_1_0_0; }
-		
-		//Prova1+=Close
-		public Assignment getProva1Assignment_0_1_1_1() { return cProva1Assignment_0_1_1_1; }
-		
-		//Close
-		public RuleCall getProva1CloseParserRuleCall_0_1_1_1_0() { return cProva1CloseParserRuleCall_0_1_1_1_0; }
-		
-		//(("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "=" value+=STRING)*) "/>")*
-		public Group getGroup_0_1_2() { return cGroup_0_1_2; }
-		
-		//("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "=" value+=STRING)*)
-		public Group getGroup_0_1_2_0() { return cGroup_0_1_2_0; }
-		
-		//"<"
-		public Keyword getLessThanSignKeyword_0_1_2_0_0() { return cLessThanSignKeyword_0_1_2_0_0; }
-		
-		//HEAD
-		public RuleCall getHEADTerminalRuleCall_0_1_2_0_1() { return cHEADTerminalRuleCall_0_1_2_0_1; }
-		
-		//":"
-		public Keyword getColonKeyword_0_1_2_0_2() { return cColonKeyword_0_1_2_0_2; }
-		
-		//KEYWORDS
-		public RuleCall getKEYWORDSTerminalRuleCall_0_1_2_0_3() { return cKEYWORDSTerminalRuleCall_0_1_2_0_3; }
-		
-		//(HEAD ":" | KEYWORDS "=" value+=STRING)*
-		public Alternatives getAlternatives_0_1_2_0_4() { return cAlternatives_0_1_2_0_4; }
-		
-		//HEAD ":"
-		public Group getGroup_0_1_2_0_4_0() { return cGroup_0_1_2_0_4_0; }
-		
-		//HEAD
-		public RuleCall getHEADTerminalRuleCall_0_1_2_0_4_0_0() { return cHEADTerminalRuleCall_0_1_2_0_4_0_0; }
-		
-		//":"
-		public Keyword getColonKeyword_0_1_2_0_4_0_1() { return cColonKeyword_0_1_2_0_4_0_1; }
-		
-		//KEYWORDS "=" value+=STRING
-		public Group getGroup_0_1_2_0_4_1() { return cGroup_0_1_2_0_4_1; }
-		
-		//KEYWORDS
-		public RuleCall getKEYWORDSTerminalRuleCall_0_1_2_0_4_1_0() { return cKEYWORDSTerminalRuleCall_0_1_2_0_4_1_0; }
-		
-		//"="
-		public Keyword getEqualsSignKeyword_0_1_2_0_4_1_1() { return cEqualsSignKeyword_0_1_2_0_4_1_1; }
-		
-		//value+=STRING
-		public Assignment getValueAssignment_0_1_2_0_4_1_2() { return cValueAssignment_0_1_2_0_4_1_2; }
-		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_0_1_2_0_4_1_2_0() { return cValueSTRINGTerminalRuleCall_0_1_2_0_4_1_2_0; }
-		
-		//"/>"
-		public Keyword getSolidusGreaterThanSignKeyword_0_1_2_1() { return cSolidusGreaterThanSignKeyword_0_1_2_1; }
-		
-		//{Opening} (("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "=" value+=STRING)*) "/>")*
+		//{element} singleton_tag+=Singleton
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//{Opening}
-		public Action getOpeningAction_1_0() { return cOpeningAction_1_0; }
+		//{element}
+		public Action getElementAction_1_0() { return cElementAction_1_0; }
 		
-		//(("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "=" value+=STRING)*) "/>")*
-		public Group getGroup_1_1() { return cGroup_1_1; }
+		//singleton_tag+=Singleton
+		public Assignment getSingleton_tagAssignment_1_1() { return cSingleton_tagAssignment_1_1; }
 		
-		//("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "=" value+=STRING)*)
-		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
-		
-		//"<"
-		public Keyword getLessThanSignKeyword_1_1_0_0() { return cLessThanSignKeyword_1_1_0_0; }
-		
-		//HEAD
-		public RuleCall getHEADTerminalRuleCall_1_1_0_1() { return cHEADTerminalRuleCall_1_1_0_1; }
-		
-		//":"
-		public Keyword getColonKeyword_1_1_0_2() { return cColonKeyword_1_1_0_2; }
-		
-		//KEYWORDS
-		public RuleCall getKEYWORDSTerminalRuleCall_1_1_0_3() { return cKEYWORDSTerminalRuleCall_1_1_0_3; }
-		
-		//(HEAD ":" | KEYWORDS "=" value+=STRING)*
-		public Alternatives getAlternatives_1_1_0_4() { return cAlternatives_1_1_0_4; }
-		
-		//HEAD ":"
-		public Group getGroup_1_1_0_4_0() { return cGroup_1_1_0_4_0; }
-		
-		//HEAD
-		public RuleCall getHEADTerminalRuleCall_1_1_0_4_0_0() { return cHEADTerminalRuleCall_1_1_0_4_0_0; }
-		
-		//":"
-		public Keyword getColonKeyword_1_1_0_4_0_1() { return cColonKeyword_1_1_0_4_0_1; }
-		
-		//KEYWORDS "=" value+=STRING
-		public Group getGroup_1_1_0_4_1() { return cGroup_1_1_0_4_1; }
-		
-		//KEYWORDS
-		public RuleCall getKEYWORDSTerminalRuleCall_1_1_0_4_1_0() { return cKEYWORDSTerminalRuleCall_1_1_0_4_1_0; }
-		
-		//"="
-		public Keyword getEqualsSignKeyword_1_1_0_4_1_1() { return cEqualsSignKeyword_1_1_0_4_1_1; }
-		
-		//value+=STRING
-		public Assignment getValueAssignment_1_1_0_4_1_2() { return cValueAssignment_1_1_0_4_1_2; }
-		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_1_1_0_4_1_2_0() { return cValueSTRINGTerminalRuleCall_1_1_0_4_1_2_0; }
-		
-		//"/>"
-		public Keyword getSolidusGreaterThanSignKeyword_1_1_1() { return cSolidusGreaterThanSignKeyword_1_1_1; }
+		//Singleton
+		public RuleCall getSingleton_tagSingletonParserRuleCall_1_1_0() { return cSingleton_tagSingletonParserRuleCall_1_1_0; }
 	}
-	public class DataElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.Data");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cBODYTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cKEYWORDSTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+	public class ContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.content");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cContentAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cProvaAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cProvaElementParserRuleCall_1_0_0 = (RuleCall)cProvaAssignment_1_0.eContents().get(0);
+		private final RuleCall cBODYTerminalRuleCall_1_1 = (RuleCall)cAlternatives_1.eContents().get(1);
+		private final RuleCall cKEYWORDSTerminalRuleCall_1_2 = (RuleCall)cAlternatives_1.eContents().get(2);
+		private final RuleCall cSTRINGTerminalRuleCall_1_3 = (RuleCall)cAlternatives_1.eContents().get(3);
 		
-		//Data:
-		//	BODY | KEYWORDS | STRING;
+		//content:
+		//	{content} (prova+=element | BODY | KEYWORDS | STRING)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//BODY | KEYWORDS | STRING
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//{content} (prova+=element | BODY | KEYWORDS | STRING)*
+		public Group getGroup() { return cGroup; }
+		
+		//{content}
+		public Action getContentAction_0() { return cContentAction_0; }
+		
+		//(prova+=element | BODY | KEYWORDS | STRING)*
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//prova+=element
+		public Assignment getProvaAssignment_1_0() { return cProvaAssignment_1_0; }
+		
+		//element
+		public RuleCall getProvaElementParserRuleCall_1_0_0() { return cProvaElementParserRuleCall_1_0_0; }
 		
 		//BODY
-		public RuleCall getBODYTerminalRuleCall_0() { return cBODYTerminalRuleCall_0; }
+		public RuleCall getBODYTerminalRuleCall_1_1() { return cBODYTerminalRuleCall_1_1; }
 		
 		//KEYWORDS
-		public RuleCall getKEYWORDSTerminalRuleCall_1() { return cKEYWORDSTerminalRuleCall_1; }
+		public RuleCall getKEYWORDSTerminalRuleCall_1_2() { return cKEYWORDSTerminalRuleCall_1_2; }
 		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_2() { return cSTRINGTerminalRuleCall_2; }
+		public RuleCall getSTRINGTerminalRuleCall_1_3() { return cSTRINGTerminalRuleCall_1_3; }
 	}
 	public class OpenElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.Open");
@@ -301,27 +212,25 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final RuleCall cHEADTerminalRuleCall_1_4_0_0 = (RuleCall)cGroup_1_4_0.eContents().get(0);
 		private final Keyword cColonKeyword_1_4_0_1 = (Keyword)cGroup_1_4_0.eContents().get(1);
 		private final Group cGroup_1_4_1 = (Group)cAlternatives_1_4.eContents().get(1);
-		private final RuleCall cKEYWORDSTerminalRuleCall_1_4_1_0 = (RuleCall)cGroup_1_4_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_4_1_0 = (Alternatives)cGroup_1_4_1.eContents().get(0);
+		private final RuleCall cHEADTerminalRuleCall_1_4_1_0_0 = (RuleCall)cAlternatives_1_4_1_0.eContents().get(0);
+		private final RuleCall cKEYWORDSTerminalRuleCall_1_4_1_0_1 = (RuleCall)cAlternatives_1_4_1_0.eContents().get(1);
 		private final Keyword cEqualsSignKeyword_1_4_1_1 = (Keyword)cGroup_1_4_1.eContents().get(1);
 		private final Assignment cValueAssignment_1_4_1_2 = (Assignment)cGroup_1_4_1.eContents().get(2);
 		private final RuleCall cValueSTRINGTerminalRuleCall_1_4_1_2_0 = (RuleCall)cValueAssignment_1_4_1_2.eContents().get(0);
 		private final Keyword cGreaterThanSignKeyword_1_5 = (Keyword)cGroup_1.eContents().get(5);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final RuleCall cDataParserRuleCall_2_0 = (RuleCall)cAlternatives_2.eContents().get(0);
-		private final Assignment cProvaAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
-		private final RuleCall cProvaOpeningParserRuleCall_2_1_0 = (RuleCall)cProvaAssignment_2_1.eContents().get(0);
 		
 		//Open:
-		//	{Opens} ("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "=" value+=STRING)* ">") (Data | prova+=Opening);
+		//	{Opens} ("<" HEAD ":" KEYWORDS (HEAD ":" | (HEAD | KEYWORDS) "=" value+=STRING)* ">");
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Opens} ("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "=" value+=STRING)* ">") (Data | prova+=Opening)
+		//{Opens} ("<" HEAD ":" KEYWORDS (HEAD ":" | (HEAD | KEYWORDS) "=" value+=STRING)* ">")
 		public Group getGroup() { return cGroup; }
 		
 		//{Opens}
 		public Action getOpensAction_0() { return cOpensAction_0; }
 		
-		//("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "=" value+=STRING)* ">")
+		//("<" HEAD ":" KEYWORDS (HEAD ":" | (HEAD | KEYWORDS) "=" value+=STRING)* ">")
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//"<"
@@ -336,7 +245,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//KEYWORDS
 		public RuleCall getKEYWORDSTerminalRuleCall_1_3() { return cKEYWORDSTerminalRuleCall_1_3; }
 		
-		//(HEAD ":" | KEYWORDS "=" value+=STRING)*
+		//(HEAD ":" | (HEAD | KEYWORDS) "=" value+=STRING)*
 		public Alternatives getAlternatives_1_4() { return cAlternatives_1_4; }
 		
 		//HEAD ":"
@@ -348,11 +257,17 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//":"
 		public Keyword getColonKeyword_1_4_0_1() { return cColonKeyword_1_4_0_1; }
 		
-		//KEYWORDS "=" value+=STRING
+		//(HEAD | KEYWORDS) "=" value+=STRING
 		public Group getGroup_1_4_1() { return cGroup_1_4_1; }
 		
+		//(HEAD | KEYWORDS)
+		public Alternatives getAlternatives_1_4_1_0() { return cAlternatives_1_4_1_0; }
+		
+		//HEAD
+		public RuleCall getHEADTerminalRuleCall_1_4_1_0_0() { return cHEADTerminalRuleCall_1_4_1_0_0; }
+		
 		//KEYWORDS
-		public RuleCall getKEYWORDSTerminalRuleCall_1_4_1_0() { return cKEYWORDSTerminalRuleCall_1_4_1_0; }
+		public RuleCall getKEYWORDSTerminalRuleCall_1_4_1_0_1() { return cKEYWORDSTerminalRuleCall_1_4_1_0_1; }
 		
 		//"="
 		public Keyword getEqualsSignKeyword_1_4_1_1() { return cEqualsSignKeyword_1_4_1_1; }
@@ -365,18 +280,6 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		
 		//">"
 		public Keyword getGreaterThanSignKeyword_1_5() { return cGreaterThanSignKeyword_1_5; }
-		
-		//(Data | prova+=Opening)
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
-		
-		//Data
-		public RuleCall getDataParserRuleCall_2_0() { return cDataParserRuleCall_2_0; }
-		
-		//prova+=Opening
-		public Assignment getProvaAssignment_2_1() { return cProvaAssignment_2_1; }
-		
-		//Opening
-		public RuleCall getProvaOpeningParserRuleCall_2_1_0() { return cProvaOpeningParserRuleCall_2_1_0; }
 	}
 	public class SingletonElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.Singleton");
@@ -497,8 +400,9 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	
 	private final ModelElements pModel;
 	private final XmlElements pXml;
-	private final OpeningElements pOpening;
-	private final DataElements pData;
+	private final PrologElements pProlog;
+	private final ElementElements pElement;
+	private final ContentElements pContent;
 	private final OpenElements pOpen;
 	private final SingletonElements pSingleton;
 	private final CloseElements pClose;
@@ -517,8 +421,9 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
 		this.pXml = new XmlElements();
-		this.pOpening = new OpeningElements();
-		this.pData = new DataElements();
+		this.pProlog = new PrologElements();
+		this.pElement = new ElementElements();
+		this.pContent = new ContentElements();
 		this.pOpen = new OpenElements();
 		this.pSingleton = new SingletonElements();
 		this.pClose = new CloseElements();
@@ -565,7 +470,9 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	}
 	
 	//Xml:
-	//	{Xml} opening_tag+=Opening;
+	//	{Xml} prolog? prova+=element*
+	//	//{Xml} opening_tag += (Opening)
+	//;
 	public XmlElements getXmlAccess() {
 		return pXml;
 	}
@@ -574,29 +481,40 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		return getXmlAccess().getRule();
 	}
 	
-	//Opening:
-	//	{Opening} ((Prova+=Open Prova1+=Close) (Prova+=Open Prova1+=Close)* (("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "="
-	//	value+=STRING)*) "/>")*) | {Opening} (("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "=" value+=STRING)*) "/>")*;
-	public OpeningElements getOpeningAccess() {
-		return pOpening;
+	//prolog:
+	//	"<?" HEAD "version=" STRING "encoding=" STRING "?>";
+	public PrologElements getPrologAccess() {
+		return pProlog;
 	}
 	
-	public ParserRule getOpeningRule() {
-		return getOpeningAccess().getRule();
+	public ParserRule getPrologRule() {
+		return getPrologAccess().getRule();
 	}
 	
-	//Data:
-	//	BODY | KEYWORDS | STRING;
-	public DataElements getDataAccess() {
-		return pData;
+	//element:
+	//	Open
+	//	contents+=content close_tag+=Close
+	//	| {element} singleton_tag+=Singleton;
+	public ElementElements getElementAccess() {
+		return pElement;
 	}
 	
-	public ParserRule getDataRule() {
-		return getDataAccess().getRule();
+	public ParserRule getElementRule() {
+		return getElementAccess().getRule();
+	}
+	
+	//content:
+	//	{content} (prova+=element | BODY | KEYWORDS | STRING)*;
+	public ContentElements getContentAccess() {
+		return pContent;
+	}
+	
+	public ParserRule getContentRule() {
+		return getContentAccess().getRule();
 	}
 	
 	//Open:
-	//	{Opens} ("<" HEAD ":" KEYWORDS (HEAD ":" | KEYWORDS "=" value+=STRING)* ">") (Data | prova+=Opening);
+	//	{Opens} ("<" HEAD ":" KEYWORDS (HEAD ":" | (HEAD | KEYWORDS) "=" value+=STRING)* ">");
 	public OpenElements getOpenAccess() {
 		return pOpen;
 	}
@@ -627,7 +545,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	}
 	
 	//terminal HEAD:
-	//	"bpmn" | "bpmndi" | "camunda" | "xsi";
+	//	"bpmn" | "bpmndi" | "camunda" | "xsi" | "xml" | "xmlns" | "dc" | "di";
 	public TerminalRule getHEADRule() {
 		return tHEAD;
 	}
@@ -637,15 +555,16 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	//	| "calledElement" | "type" | "expression" | "value" | "resultVariable" | "asyncBefore"
 	//	| "class" | "event" | "startEvent" | "task" | "messageEventDefinition" | "sequenceFlow"
 	//	| "condition" | "association" | "outgoing" | "serviceTask" | "process"
-	//	| "incoming" | "intermediateCatchEvent" | "conditionalEventDefinition"
-	//	| "endEvent" | "textAnnotation" | "text" | "dataStoreReference"
-	//	| "callActivity" | "laneSet" | "lane" | "flowNodeRef"
-	//	| "dataOutputAssociation" | "exclusiveGateway"
-	//	| "extensionElements" | "inputOutput" | "list" | "inputParameter"
-	//	| "outputParameter" | "properties" | "property"
-	//	| "field" | "string" | "scriptTask" | "script"
-	//	| "executionListener" | "timerEventDefinition" | "timeDuration"
-	//	| "parallelGateway";
+	//	| "incoming" | "intermediateCatchEvent" | "conditionalEventDefinition" | "isMarkerVisible"
+	//	| "endEvent" | "textAnnotation" | "text" | "dataStoreReference" | "bpmnElement"
+	//	| "callActivity" | "laneSet" | "lane" | "flowNodeRef" | "definitions"
+	//	| "dataOutputAssociation" | "exclusiveGateway" | "waypoint" | "BPMNLabel"
+	//	| "extensionElements" | "inputOutput" | "list" | "inputParameter" | "height"
+	//	| "outputParameter" | "properties" | "property" | "BPMNShape" | "Bounds"
+	//	| "field" | "string" | "scriptTask" | "script" | "BPMNPlane" | "BPMNEdge"
+	//	| "executionListener" | "timerEventDefinition" | "timeDuration" | "width"
+	//	| "parallelGateway" | "collaboration" | "participant" | "targetNamespace"
+	//	| "BPMNDiagram" | "exporter" | "exporterVersion" | "x" | "y" | "isHorizontal";
 	public TerminalRule getKEYWORDSRule() {
 		return tKEYWORDS;
 	}

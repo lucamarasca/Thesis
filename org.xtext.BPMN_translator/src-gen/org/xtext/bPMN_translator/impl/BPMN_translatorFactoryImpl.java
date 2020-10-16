@@ -67,7 +67,8 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
     {
       case BPMN_translatorPackage.MODEL: return createModel();
       case BPMN_translatorPackage.XML: return createXml();
-      case BPMN_translatorPackage.OPENING: return createOpening();
+      case BPMN_translatorPackage.ELEMENT: return createelement();
+      case BPMN_translatorPackage.CONTENT: return createcontent();
       case BPMN_translatorPackage.OPEN: return createOpen();
       case BPMN_translatorPackage.SINGLETON: return createSingleton();
       case BPMN_translatorPackage.CLOSE: return createClose();
@@ -107,10 +108,22 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public Opening createOpening()
+  public element createelement()
   {
-    OpeningImpl opening = new OpeningImpl();
-    return opening;
+    elementImpl element = new elementImpl();
+    return element;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public content createcontent()
+  {
+    contentImpl content = new contentImpl();
+    return content;
   }
 
   /**

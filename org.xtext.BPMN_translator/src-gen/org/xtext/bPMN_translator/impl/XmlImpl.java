@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
-import org.xtext.bPMN_translator.Opening;
 import org.xtext.bPMN_translator.Xml;
+import org.xtext.bPMN_translator.element;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +29,7 @@ import org.xtext.bPMN_translator.Xml;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.bPMN_translator.impl.XmlImpl#getOpening_tag <em>Opening tag</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.XmlImpl#getProva <em>Prova</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +37,14 @@ import org.xtext.bPMN_translator.Xml;
 public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
 {
   /**
-   * The cached value of the '{@link #getOpening_tag() <em>Opening tag</em>}' containment reference list.
+   * The cached value of the '{@link #getProva() <em>Prova</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOpening_tag()
+   * @see #getProva()
    * @generated
    * @ordered
    */
-  protected EList<Opening> opening_tag;
+  protected EList<element> prova;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,13 +73,13 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
    * @generated
    */
   @Override
-  public EList<Opening> getOpening_tag()
+  public EList<element> getProva()
   {
-    if (opening_tag == null)
+    if (prova == null)
     {
-      opening_tag = new EObjectContainmentEList<Opening>(Opening.class, this, BPMN_translatorPackage.XML__OPENING_TAG);
+      prova = new EObjectContainmentEList<element>(element.class, this, BPMN_translatorPackage.XML__PROVA);
     }
-    return opening_tag;
+    return prova;
   }
 
   /**
@@ -92,8 +92,8 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__OPENING_TAG:
-        return ((InternalEList<?>)getOpening_tag()).basicRemove(otherEnd, msgs);
+      case BPMN_translatorPackage.XML__PROVA:
+        return ((InternalEList<?>)getProva()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +108,8 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__OPENING_TAG:
-        return getOpening_tag();
+      case BPMN_translatorPackage.XML__PROVA:
+        return getProva();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +125,9 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__OPENING_TAG:
-        getOpening_tag().clear();
-        getOpening_tag().addAll((Collection<? extends Opening>)newValue);
+      case BPMN_translatorPackage.XML__PROVA:
+        getProva().clear();
+        getProva().addAll((Collection<? extends element>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +143,8 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__OPENING_TAG:
-        getOpening_tag().clear();
+      case BPMN_translatorPackage.XML__PROVA:
+        getProva().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,8 +160,8 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__OPENING_TAG:
-        return opening_tag != null && !opening_tag.isEmpty();
+      case BPMN_translatorPackage.XML__PROVA:
+        return prova != null && !prova.isEmpty();
     }
     return super.eIsSet(featureID);
   }

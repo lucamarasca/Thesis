@@ -11,26 +11,28 @@ Model:
 
 
 Xml:
-	{Xml} opening_tag += (Opening)
+	{Xml}  prolog? prova+=element*
+	//{Xml} opening_tag += (Opening)
 ;
 
-
-Opening:
-		({Opening} (((Prova += Open ) (Prova1 += Close)) 
-			
-			(((Prova += Open ) (Prova1 += Close))*) 
-			(("<" HEAD ":" KEYWORDS ((HEAD ":") | (KEYWORDS "=" value+=STRING))*) "/>")*)
-			| 
-	  	{Opening} (("<" HEAD ":" KEYWORDS ((HEAD ":") | (KEYWORDS "=" value+=STRING))*) "/>")*)	
+prolog:
+	"<?" HEAD "version=" STRING "encoding="STRING "?>"
 ;
 
-Data:
-	(BODY | KEYWORDS  | STRING  )
+element     :   Open 
+				contents+=content close_tag+=Close
+            |  	{element} singleton_tag+=Singleton
+            ;
+
+content:
+	{content}
+	( prova+=element |   BODY |   KEYWORDS  |  STRING  )*
 ;
+
 Open:
 	
-	{Opens} ("<" HEAD ":" KEYWORDS  ((HEAD ":") | (KEYWORDS "=" value+=STRING))* ">")
-	( Data | (prova += Opening)) 
+	{Opens} ("<" HEAD ":" KEYWORDS  ((HEAD ":") | ((HEAD|KEYWORDS) "=" value+=STRING))* ">")
+	 
 	 
 ;
 
@@ -42,12 +44,12 @@ Singleton:
 Close:
 
 	{Close} ("</" HEAD ":" KEYWORDS  ">") 
-;
-
+;       
 
 terminal HEAD:
-	("bpmn"|"bpmndi"|"camunda"|"xsi")
+	("bpmn"|"bpmndi"|"camunda"|"xsi"|"xml"|"xmlns"|"dc"|"di")
 ;
+
 
 
 
@@ -55,17 +57,18 @@ terminal KEYWORDS: "id" | "name" |  "isExecutable" | "sourceRef" | "processRef" 
 	| "calledElement" | "type" | "expression" | "value" | "resultVariable" | "asyncBefore"
 	| "class" | "event" | "startEvent"| "task" | "messageEventDefinition" | "sequenceFlow" 
 	| "condition" | "association" | "outgoing" | "serviceTask" | "process"
-	| "incoming" | "intermediateCatchEvent" | "conditionalEventDefinition"
-	| "endEvent" | "textAnnotation" | "text" | "dataStoreReference"
-	| "callActivity" | "laneSet" | "lane" | "flowNodeRef" 
-	| "dataOutputAssociation" | "exclusiveGateway" 
-	| "extensionElements" | "inputOutput" | "list" | "inputParameter"
-	| "outputParameter" |  "properties" | "property"
-	| "field" | "string" | "scriptTask" | "script" 
-	| "executionListener" | "timerEventDefinition" | "timeDuration"
-	| "parallelGateway";
+	| "incoming" | "intermediateCatchEvent" | "conditionalEventDefinition"|"isMarkerVisible"
+	| "endEvent" | "textAnnotation" | "text" | "dataStoreReference" | "bpmnElement"
+	| "callActivity" | "laneSet" | "lane" | "flowNodeRef" |"definitions"
+	| "dataOutputAssociation" | "exclusiveGateway" | "waypoint" | "BPMNLabel"
+	| "extensionElements" | "inputOutput" | "list" | "inputParameter" | "height"
+	| "outputParameter" |  "properties" | "property" | "BPMNShape" | "Bounds"
+	| "field" | "string" | "scriptTask" | "script" |"BPMNPlane" | "BPMNEdge"
+	| "executionListener" | "timerEventDefinition" | "timeDuration" | "width"
+	| "parallelGateway" | "collaboration" | "participant" | "targetNamespace"
+	| "BPMNDiagram"		| "exporter" | "exporterVersion" | "x" | "y"| "isHorizontal";
 
 
 
 terminal BODY returns ecore::EString : ('a'..'z'|'A'..'Z'|INT|'_')* ;
-        
+ 

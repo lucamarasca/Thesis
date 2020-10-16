@@ -5,19 +5,13 @@ package org.xtext.bPMN_translator.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
-import org.xtext.bPMN_translator.Opening;
 import org.xtext.bPMN_translator.Opens;
 
 /**
@@ -29,7 +23,6 @@ import org.xtext.bPMN_translator.Opens;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.bPMN_translator.impl.OpensImpl#getValue <em>Value</em>}</li>
- *   <li>{@link org.xtext.bPMN_translator.impl.OpensImpl#getProva <em>Prova</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,16 +38,6 @@ public class OpensImpl extends OpenImpl implements Opens
    * @ordered
    */
   protected EList<String> value;
-
-  /**
-   * The cached value of the '{@link #getProva() <em>Prova</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getProva()
-   * @generated
-   * @ordered
-   */
-  protected EList<Opening> prova;
 
   /**
    * <!-- begin-user-doc -->
@@ -98,45 +81,12 @@ public class OpensImpl extends OpenImpl implements Opens
    * @generated
    */
   @Override
-  public EList<Opening> getProva()
-  {
-    if (prova == null)
-    {
-      prova = new EObjectContainmentEList<Opening>(Opening.class, this, BPMN_translatorPackage.OPENS__PROVA);
-    }
-    return prova;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case BPMN_translatorPackage.OPENS__PROVA:
-        return ((InternalEList<?>)getProva()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case BPMN_translatorPackage.OPENS__VALUE:
         return getValue();
-      case BPMN_translatorPackage.OPENS__PROVA:
-        return getProva();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -156,10 +106,6 @@ public class OpensImpl extends OpenImpl implements Opens
         getValue().clear();
         getValue().addAll((Collection<? extends String>)newValue);
         return;
-      case BPMN_translatorPackage.OPENS__PROVA:
-        getProva().clear();
-        getProva().addAll((Collection<? extends Opening>)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -177,9 +123,6 @@ public class OpensImpl extends OpenImpl implements Opens
       case BPMN_translatorPackage.OPENS__VALUE:
         getValue().clear();
         return;
-      case BPMN_translatorPackage.OPENS__PROVA:
-        getProva().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -196,8 +139,6 @@ public class OpensImpl extends OpenImpl implements Opens
     {
       case BPMN_translatorPackage.OPENS__VALUE:
         return value != null && !value.isEmpty();
-      case BPMN_translatorPackage.OPENS__PROVA:
-        return prova != null && !prova.isEmpty();
     }
     return super.eIsSet(featureID);
   }

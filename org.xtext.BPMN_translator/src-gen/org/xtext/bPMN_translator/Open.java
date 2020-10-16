@@ -3,18 +3,49 @@
  */
 package org.xtext.bPMN_translator;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Open</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.bPMN_translator.Open#getContents <em>Contents</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.Open#getClose_tag <em>Close tag</em>}</li>
+ * </ul>
  *
  * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getOpen()
  * @model
  * @generated
  */
-public interface Open extends EObject
+public interface Open extends element
 {
+  /**
+   * Returns the value of the '<em><b>Contents</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.bPMN_translator.content}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Contents</em>' containment reference list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getOpen_Contents()
+   * @model containment="true"
+   * @generated
+   */
+  EList<content> getContents();
+
+  /**
+   * Returns the value of the '<em><b>Close tag</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.bPMN_translator.Close}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Close tag</em>' containment reference list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getOpen_Close_tag()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Close> getClose_tag();
+
 } // Open

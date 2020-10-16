@@ -10,61 +10,44 @@ ruleModel:
 
 // Rule Xml
 ruleXml:
-	ruleOpening
+	ruleprolog?
+	ruleelement
+	*
 ;
 
-// Rule Opening
-ruleOpening:
+// Rule prolog
+ruleprolog:
+	'<?'
+	RULE_HEAD
+	'version='
+	RULE_STRING
+	'encoding='
+	RULE_STRING
+	'?>'
+;
+
+// Rule element
+ruleelement:
 	(
 		ruleOpen
+		rulecontent
 		ruleClose
-		(
-			ruleOpen
-			ruleClose
-		)*
-		(
-			'<'
-			RULE_HEAD
-			':'
-			RULE_KEYWORDS
-			(
-				RULE_HEAD
-				':'
-				    |
-				RULE_KEYWORDS
-				'='
-				RULE_STRING
-			)*
-			'/>'
-		)*
 		    |
-		(
-			'<'
-			RULE_HEAD
-			':'
-			RULE_KEYWORDS
-			(
-				RULE_HEAD
-				':'
-				    |
-				RULE_KEYWORDS
-				'='
-				RULE_STRING
-			)*
-			'/>'
-		)*
+		ruleSingleton
 	)
 ;
 
-// Rule Data
-ruleData:
+// Rule content
+rulecontent:
 	(
+		ruleelement
+		    |
 		RULE_BODY
 		    |
 		RULE_KEYWORDS
 		    |
 		RULE_STRING
-	)
+	)*
 ;
 
 // Rule Open
@@ -77,16 +60,32 @@ ruleOpen:
 		RULE_HEAD
 		':'
 		    |
-		RULE_KEYWORDS
+		(
+			RULE_HEAD
+			    |
+			RULE_KEYWORDS
+		)
 		'='
 		RULE_STRING
 	)*
 	'>'
+;
+
+// Rule Singleton
+ruleSingleton:
+	'<'
+	RULE_HEAD
+	':'
+	RULE_KEYWORDS
 	(
-		ruleData
+		RULE_HEAD
+		':'
 		    |
-		ruleOpening
-	)
+		RULE_KEYWORDS
+		'='
+		RULE_STRING
+	)*
+	'/>'
 ;
 
 // Rule Close
@@ -98,9 +97,9 @@ ruleClose:
 	'>'
 ;
 
-RULE_HEAD : ('bpmn'|'bpmndi'|'camunda'|'xsi');
+RULE_HEAD : ('bpmn'|'bpmndi'|'camunda'|'xsi'|'xml'|'xmlns'|'dc'|'di');
 
-RULE_KEYWORDS : ('id'|'name'|'isExecutable'|'sourceRef'|'processRef'|'targetRef'|'calledElement'|'type'|'expression'|'value'|'resultVariable'|'asyncBefore'|'class'|'event'|'startEvent'|'task'|'messageEventDefinition'|'sequenceFlow'|'condition'|'association'|'outgoing'|'serviceTask'|'process'|'incoming'|'intermediateCatchEvent'|'conditionalEventDefinition'|'endEvent'|'textAnnotation'|'text'|'dataStoreReference'|'callActivity'|'laneSet'|'lane'|'flowNodeRef'|'dataOutputAssociation'|'exclusiveGateway'|'extensionElements'|'inputOutput'|'list'|'inputParameter'|'outputParameter'|'properties'|'property'|'field'|'string'|'scriptTask'|'script'|'executionListener'|'timerEventDefinition'|'timeDuration'|'parallelGateway');
+RULE_KEYWORDS : ('id'|'name'|'isExecutable'|'sourceRef'|'processRef'|'targetRef'|'calledElement'|'type'|'expression'|'value'|'resultVariable'|'asyncBefore'|'class'|'event'|'startEvent'|'task'|'messageEventDefinition'|'sequenceFlow'|'condition'|'association'|'outgoing'|'serviceTask'|'process'|'incoming'|'intermediateCatchEvent'|'conditionalEventDefinition'|'isMarkerVisible'|'endEvent'|'textAnnotation'|'text'|'dataStoreReference'|'bpmnElement'|'callActivity'|'laneSet'|'lane'|'flowNodeRef'|'definitions'|'dataOutputAssociation'|'exclusiveGateway'|'waypoint'|'BPMNLabel'|'extensionElements'|'inputOutput'|'list'|'inputParameter'|'height'|'outputParameter'|'properties'|'property'|'BPMNShape'|'Bounds'|'field'|'string'|'scriptTask'|'script'|'BPMNPlane'|'BPMNEdge'|'executionListener'|'timerEventDefinition'|'timeDuration'|'width'|'parallelGateway'|'collaboration'|'participant'|'targetNamespace'|'BPMNDiagram'|'exporter'|'exporterVersion'|'x'|'y'|'isHorizontal');
 
 RULE_BODY : ('a'..'z'|'A'..'Z'|RULE_INT|'_')*;
 

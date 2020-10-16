@@ -42,13 +42,22 @@ public interface BPMN_translatorFactory extends EFactory
   Xml createXml();
 
   /**
-   * Returns a new object of class '<em>Opening</em>'.
+   * Returns a new object of class '<em>element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Opening</em>'.
+   * @return a new object of class '<em>element</em>'.
    * @generated
    */
-  Opening createOpening();
+  element createelement();
+
+  /**
+   * Returns a new object of class '<em>content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>content</em>'.
+   * @generated
+   */
+  content createcontent();
 
   /**
    * Returns a new object of class '<em>Open</em>'.

@@ -15,10 +15,11 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
 import org.xtext.bPMN_translator.Close;
 import org.xtext.bPMN_translator.Model;
-import org.xtext.bPMN_translator.Opening;
 import org.xtext.bPMN_translator.Opens;
 import org.xtext.bPMN_translator.Singleton;
 import org.xtext.bPMN_translator.Xml;
+import org.xtext.bPMN_translator.content;
+import org.xtext.bPMN_translator.element;
 import org.xtext.services.BPMN_translatorGrammarAccess;
 
 @SuppressWarnings("all")
@@ -41,17 +42,27 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 			case BPMN_translatorPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case BPMN_translatorPackage.OPENING:
-				sequence_Opening(context, (Opening) semanticObject); 
-				return; 
 			case BPMN_translatorPackage.OPENS:
-				sequence_Open(context, (Opens) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getOpenRule()) {
+					sequence_Open(context, (Opens) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getElementRule()) {
+					sequence_Open_element(context, (Opens) semanticObject); 
+					return; 
+				}
+				else break;
 			case BPMN_translatorPackage.SINGLETON:
 				sequence_Singleton(context, (Singleton) semanticObject); 
 				return; 
 			case BPMN_translatorPackage.XML:
 				sequence_Xml(context, (Xml) semanticObject); 
+				return; 
+			case BPMN_translatorPackage.CONTENT:
+				sequence_content(context, (content) semanticObject); 
+				return; 
+			case BPMN_translatorPackage.ELEMENT:
+				sequence_element(context, (element) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -87,7 +98,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     Open returns Opens
 	 *
 	 * Constraint:
-	 *     (value+=STRING* prova+=Opening?)
+	 *     value+=STRING*
 	 */
 	protected void sequence_Open(ISerializationContext context, Opens semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -96,12 +107,12 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	
 	/**
 	 * Contexts:
-	 *     Opening returns Opening
+	 *     element returns Opens
 	 *
 	 * Constraint:
-	 *     ((Prova+=Open Prova1+=Close (Prova+=Open Prova1+=Close)* value+=STRING*) | value+=STRING+)?
+	 *     (value+=STRING* contents+=content close_tag+=Close)
 	 */
-	protected void sequence_Opening(ISerializationContext context, Opening semanticObject) {
+	protected void sequence_Open_element(ISerializationContext context, Opens semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -123,9 +134,33 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     Xml returns Xml
 	 *
 	 * Constraint:
-	 *     opening_tag+=Opening
+	 *     prova+=element*
 	 */
 	protected void sequence_Xml(ISerializationContext context, Xml semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     content returns content
+	 *
+	 * Constraint:
+	 *     prova+=element*
+	 */
+	protected void sequence_content(ISerializationContext context, content semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     element returns element
+	 *
+	 * Constraint:
+	 *     singleton_tag+=Singleton
+	 */
+	protected void sequence_element(ISerializationContext context, element semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

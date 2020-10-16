@@ -21,12 +21,12 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_HEAD", "RULE_KEYWORDS", "RULE_STRING", "RULE_BODY", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'<'", "':'", "'='", "'/>'", "'>'", "'</'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_HEAD", "RULE_STRING", "RULE_BODY", "RULE_KEYWORDS", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'<?'", "'version='", "'encoding='", "'?>'", "'<'", "':'", "'='", "'>'", "'/>'", "'</'"
     };
-    public static final int RULE_STRING=6;
+    public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=11;
     public static final int T__19=19;
-    public static final int RULE_KEYWORDS=5;
+    public static final int RULE_KEYWORDS=7;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
@@ -34,12 +34,16 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
     public static final int T__14=14;
     public static final int EOF=-1;
     public static final int RULE_HEAD=4;
-    public static final int RULE_BODY=7;
+    public static final int RULE_BODY=6;
     public static final int RULE_ID=9;
     public static final int RULE_WS=12;
     public static final int RULE_ANY_OTHER=13;
     public static final int RULE_INT=8;
+    public static final int T__22=22;
     public static final int RULE_ML_COMMENT=10;
+    public static final int T__23=23;
+    public static final int T__20=20;
+    public static final int T__21=21;
 
     // delegates
     // delegators
@@ -218,22 +222,22 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXml"
-    // InternalBPMN_translator.g:107:1: ruleXml returns [EObject current=null] : ( () ( (lv_opening_tag_1_0= ruleOpening ) ) ) ;
+    // InternalBPMN_translator.g:107:1: ruleXml returns [EObject current=null] : ( () ( ruleprolog )? ( (lv_prova_2_0= ruleelement ) )* ) ;
     public final EObject ruleXml() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_opening_tag_1_0 = null;
+        EObject lv_prova_2_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalBPMN_translator.g:113:2: ( ( () ( (lv_opening_tag_1_0= ruleOpening ) ) ) )
-            // InternalBPMN_translator.g:114:2: ( () ( (lv_opening_tag_1_0= ruleOpening ) ) )
+            // InternalBPMN_translator.g:113:2: ( ( () ( ruleprolog )? ( (lv_prova_2_0= ruleelement ) )* ) )
+            // InternalBPMN_translator.g:114:2: ( () ( ruleprolog )? ( (lv_prova_2_0= ruleelement ) )* )
             {
-            // InternalBPMN_translator.g:114:2: ( () ( (lv_opening_tag_1_0= ruleOpening ) ) )
-            // InternalBPMN_translator.g:115:3: () ( (lv_opening_tag_1_0= ruleOpening ) )
+            // InternalBPMN_translator.g:114:2: ( () ( ruleprolog )? ( (lv_prova_2_0= ruleelement ) )* )
+            // InternalBPMN_translator.g:115:3: () ( ruleprolog )? ( (lv_prova_2_0= ruleelement ) )*
             {
             // InternalBPMN_translator.g:115:3: ()
             // InternalBPMN_translator.g:116:4: 
@@ -246,36 +250,82 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBPMN_translator.g:122:3: ( (lv_opening_tag_1_0= ruleOpening ) )
-            // InternalBPMN_translator.g:123:4: (lv_opening_tag_1_0= ruleOpening )
-            {
-            // InternalBPMN_translator.g:123:4: (lv_opening_tag_1_0= ruleOpening )
-            // InternalBPMN_translator.g:124:5: lv_opening_tag_1_0= ruleOpening
-            {
+            // InternalBPMN_translator.g:122:3: ( ruleprolog )?
+            int alt1=2;
+            int LA1_0 = input.LA(1);
 
-            					newCompositeNode(grammarAccess.getXmlAccess().getOpening_tagOpeningParserRuleCall_1_0());
-            				
-            pushFollow(FOLLOW_2);
-            lv_opening_tag_1_0=ruleOpening();
+            if ( (LA1_0==14) ) {
+                alt1=1;
+            }
+            switch (alt1) {
+                case 1 :
+                    // InternalBPMN_translator.g:123:4: ruleprolog
+                    {
 
-            state._fsp--;
+                    				newCompositeNode(grammarAccess.getXmlAccess().getPrologParserRuleCall_1());
+                    			
+                    pushFollow(FOLLOW_3);
+                    ruleprolog();
+
+                    state._fsp--;
 
 
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getXmlRule());
-            					}
-            					add(
-            						current,
-            						"opening_tag",
-            						lv_opening_tag_1_0,
-            						"org.xtext.BPMN_translator.Opening");
-            					afterParserOrEnumRuleCall();
-            				
+                    				afterParserOrEnumRuleCall();
+                    			
+
+                    }
+                    break;
 
             }
 
+            // InternalBPMN_translator.g:131:3: ( (lv_prova_2_0= ruleelement ) )*
+            loop2:
+            do {
+                int alt2=2;
+                int LA2_0 = input.LA(1);
 
-            }
+                if ( (LA2_0==18) ) {
+                    alt2=1;
+                }
+
+
+                switch (alt2) {
+            	case 1 :
+            	    // InternalBPMN_translator.g:132:4: (lv_prova_2_0= ruleelement )
+            	    {
+            	    // InternalBPMN_translator.g:132:4: (lv_prova_2_0= ruleelement )
+            	    // InternalBPMN_translator.g:133:5: lv_prova_2_0= ruleelement
+            	    {
+
+            	    					newCompositeNode(grammarAccess.getXmlAccess().getProvaElementParserRuleCall_2_0());
+            	    				
+            	    pushFollow(FOLLOW_3);
+            	    lv_prova_2_0=ruleelement();
+
+            	    state._fsp--;
+
+
+            	    					if (current==null) {
+            	    						current = createModelElementForParent(grammarAccess.getXmlRule());
+            	    					}
+            	    					add(
+            	    						current,
+            	    						"prova",
+            	    						lv_prova_2_0,
+            	    						"org.xtext.BPMN_translator.element");
+            	    					afterParserOrEnumRuleCall();
+            	    				
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop2;
+                }
+            } while (true);
 
 
             }
@@ -299,602 +349,25 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleXml"
 
 
-    // $ANTLR start "entryRuleOpening"
-    // InternalBPMN_translator.g:145:1: entryRuleOpening returns [EObject current=null] : iv_ruleOpening= ruleOpening EOF ;
-    public final EObject entryRuleOpening() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleOpening = null;
-
-
-        try {
-            // InternalBPMN_translator.g:145:48: (iv_ruleOpening= ruleOpening EOF )
-            // InternalBPMN_translator.g:146:2: iv_ruleOpening= ruleOpening EOF
-            {
-             newCompositeNode(grammarAccess.getOpeningRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleOpening=ruleOpening();
-
-            state._fsp--;
-
-             current =iv_ruleOpening; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleOpening"
-
-
-    // $ANTLR start "ruleOpening"
-    // InternalBPMN_translator.g:152:1: ruleOpening returns [EObject current=null] : ( ( () ( ( ( (lv_Prova_1_0= ruleOpen ) ) ( (lv_Prova1_2_0= ruleClose ) ) ) ( ( (lv_Prova_3_0= ruleOpen ) ) ( (lv_Prova1_4_0= ruleClose ) ) )* ( (otherlv_5= '<' this_HEAD_6= RULE_HEAD otherlv_7= ':' this_KEYWORDS_8= RULE_KEYWORDS ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )* ) otherlv_14= '/>' )* ) ) | ( () ( (otherlv_16= '<' this_HEAD_17= RULE_HEAD otherlv_18= ':' this_KEYWORDS_19= RULE_KEYWORDS ( (this_HEAD_20= RULE_HEAD otherlv_21= ':' ) | (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) ) )* ) otherlv_25= '/>' )* ) ) ;
-    public final EObject ruleOpening() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_5=null;
-        Token this_HEAD_6=null;
-        Token otherlv_7=null;
-        Token this_KEYWORDS_8=null;
-        Token this_HEAD_9=null;
-        Token otherlv_10=null;
-        Token this_KEYWORDS_11=null;
-        Token otherlv_12=null;
-        Token lv_value_13_0=null;
-        Token otherlv_14=null;
-        Token otherlv_16=null;
-        Token this_HEAD_17=null;
-        Token otherlv_18=null;
-        Token this_KEYWORDS_19=null;
-        Token this_HEAD_20=null;
-        Token otherlv_21=null;
-        Token this_KEYWORDS_22=null;
-        Token otherlv_23=null;
-        Token lv_value_24_0=null;
-        Token otherlv_25=null;
-        EObject lv_Prova_1_0 = null;
-
-        EObject lv_Prova1_2_0 = null;
-
-        EObject lv_Prova_3_0 = null;
-
-        EObject lv_Prova1_4_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalBPMN_translator.g:158:2: ( ( ( () ( ( ( (lv_Prova_1_0= ruleOpen ) ) ( (lv_Prova1_2_0= ruleClose ) ) ) ( ( (lv_Prova_3_0= ruleOpen ) ) ( (lv_Prova1_4_0= ruleClose ) ) )* ( (otherlv_5= '<' this_HEAD_6= RULE_HEAD otherlv_7= ':' this_KEYWORDS_8= RULE_KEYWORDS ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )* ) otherlv_14= '/>' )* ) ) | ( () ( (otherlv_16= '<' this_HEAD_17= RULE_HEAD otherlv_18= ':' this_KEYWORDS_19= RULE_KEYWORDS ( (this_HEAD_20= RULE_HEAD otherlv_21= ':' ) | (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) ) )* ) otherlv_25= '/>' )* ) ) )
-            // InternalBPMN_translator.g:159:2: ( ( () ( ( ( (lv_Prova_1_0= ruleOpen ) ) ( (lv_Prova1_2_0= ruleClose ) ) ) ( ( (lv_Prova_3_0= ruleOpen ) ) ( (lv_Prova1_4_0= ruleClose ) ) )* ( (otherlv_5= '<' this_HEAD_6= RULE_HEAD otherlv_7= ':' this_KEYWORDS_8= RULE_KEYWORDS ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )* ) otherlv_14= '/>' )* ) ) | ( () ( (otherlv_16= '<' this_HEAD_17= RULE_HEAD otherlv_18= ':' this_KEYWORDS_19= RULE_KEYWORDS ( (this_HEAD_20= RULE_HEAD otherlv_21= ':' ) | (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) ) )* ) otherlv_25= '/>' )* ) )
-            {
-            // InternalBPMN_translator.g:159:2: ( ( () ( ( ( (lv_Prova_1_0= ruleOpen ) ) ( (lv_Prova1_2_0= ruleClose ) ) ) ( ( (lv_Prova_3_0= ruleOpen ) ) ( (lv_Prova1_4_0= ruleClose ) ) )* ( (otherlv_5= '<' this_HEAD_6= RULE_HEAD otherlv_7= ':' this_KEYWORDS_8= RULE_KEYWORDS ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )* ) otherlv_14= '/>' )* ) ) | ( () ( (otherlv_16= '<' this_HEAD_17= RULE_HEAD otherlv_18= ':' this_KEYWORDS_19= RULE_KEYWORDS ( (this_HEAD_20= RULE_HEAD otherlv_21= ':' ) | (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) ) )* ) otherlv_25= '/>' )* ) )
-            int alt6=2;
-            alt6 = dfa6.predict(input);
-            switch (alt6) {
-                case 1 :
-                    // InternalBPMN_translator.g:160:3: ( () ( ( ( (lv_Prova_1_0= ruleOpen ) ) ( (lv_Prova1_2_0= ruleClose ) ) ) ( ( (lv_Prova_3_0= ruleOpen ) ) ( (lv_Prova1_4_0= ruleClose ) ) )* ( (otherlv_5= '<' this_HEAD_6= RULE_HEAD otherlv_7= ':' this_KEYWORDS_8= RULE_KEYWORDS ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )* ) otherlv_14= '/>' )* ) )
-                    {
-                    // InternalBPMN_translator.g:160:3: ( () ( ( ( (lv_Prova_1_0= ruleOpen ) ) ( (lv_Prova1_2_0= ruleClose ) ) ) ( ( (lv_Prova_3_0= ruleOpen ) ) ( (lv_Prova1_4_0= ruleClose ) ) )* ( (otherlv_5= '<' this_HEAD_6= RULE_HEAD otherlv_7= ':' this_KEYWORDS_8= RULE_KEYWORDS ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )* ) otherlv_14= '/>' )* ) )
-                    // InternalBPMN_translator.g:161:4: () ( ( ( (lv_Prova_1_0= ruleOpen ) ) ( (lv_Prova1_2_0= ruleClose ) ) ) ( ( (lv_Prova_3_0= ruleOpen ) ) ( (lv_Prova1_4_0= ruleClose ) ) )* ( (otherlv_5= '<' this_HEAD_6= RULE_HEAD otherlv_7= ':' this_KEYWORDS_8= RULE_KEYWORDS ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )* ) otherlv_14= '/>' )* )
-                    {
-                    // InternalBPMN_translator.g:161:4: ()
-                    // InternalBPMN_translator.g:162:5: 
-                    {
-
-                    					current = forceCreateModelElement(
-                    						grammarAccess.getOpeningAccess().getOpeningAction_0_0(),
-                    						current);
-                    				
-
-                    }
-
-                    // InternalBPMN_translator.g:168:4: ( ( ( (lv_Prova_1_0= ruleOpen ) ) ( (lv_Prova1_2_0= ruleClose ) ) ) ( ( (lv_Prova_3_0= ruleOpen ) ) ( (lv_Prova1_4_0= ruleClose ) ) )* ( (otherlv_5= '<' this_HEAD_6= RULE_HEAD otherlv_7= ':' this_KEYWORDS_8= RULE_KEYWORDS ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )* ) otherlv_14= '/>' )* )
-                    // InternalBPMN_translator.g:169:5: ( ( (lv_Prova_1_0= ruleOpen ) ) ( (lv_Prova1_2_0= ruleClose ) ) ) ( ( (lv_Prova_3_0= ruleOpen ) ) ( (lv_Prova1_4_0= ruleClose ) ) )* ( (otherlv_5= '<' this_HEAD_6= RULE_HEAD otherlv_7= ':' this_KEYWORDS_8= RULE_KEYWORDS ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )* ) otherlv_14= '/>' )*
-                    {
-                    // InternalBPMN_translator.g:169:5: ( ( (lv_Prova_1_0= ruleOpen ) ) ( (lv_Prova1_2_0= ruleClose ) ) )
-                    // InternalBPMN_translator.g:170:6: ( (lv_Prova_1_0= ruleOpen ) ) ( (lv_Prova1_2_0= ruleClose ) )
-                    {
-                    // InternalBPMN_translator.g:170:6: ( (lv_Prova_1_0= ruleOpen ) )
-                    // InternalBPMN_translator.g:171:7: (lv_Prova_1_0= ruleOpen )
-                    {
-                    // InternalBPMN_translator.g:171:7: (lv_Prova_1_0= ruleOpen )
-                    // InternalBPMN_translator.g:172:8: lv_Prova_1_0= ruleOpen
-                    {
-
-                    								newCompositeNode(grammarAccess.getOpeningAccess().getProvaOpenParserRuleCall_0_1_0_0_0());
-                    							
-                    pushFollow(FOLLOW_3);
-                    lv_Prova_1_0=ruleOpen();
-
-                    state._fsp--;
-
-
-                    								if (current==null) {
-                    									current = createModelElementForParent(grammarAccess.getOpeningRule());
-                    								}
-                    								add(
-                    									current,
-                    									"Prova",
-                    									lv_Prova_1_0,
-                    									"org.xtext.BPMN_translator.Open");
-                    								afterParserOrEnumRuleCall();
-                    							
-
-                    }
-
-
-                    }
-
-                    // InternalBPMN_translator.g:189:6: ( (lv_Prova1_2_0= ruleClose ) )
-                    // InternalBPMN_translator.g:190:7: (lv_Prova1_2_0= ruleClose )
-                    {
-                    // InternalBPMN_translator.g:190:7: (lv_Prova1_2_0= ruleClose )
-                    // InternalBPMN_translator.g:191:8: lv_Prova1_2_0= ruleClose
-                    {
-
-                    								newCompositeNode(grammarAccess.getOpeningAccess().getProva1CloseParserRuleCall_0_1_0_1_0());
-                    							
-                    pushFollow(FOLLOW_4);
-                    lv_Prova1_2_0=ruleClose();
-
-                    state._fsp--;
-
-
-                    								if (current==null) {
-                    									current = createModelElementForParent(grammarAccess.getOpeningRule());
-                    								}
-                    								add(
-                    									current,
-                    									"Prova1",
-                    									lv_Prova1_2_0,
-                    									"org.xtext.BPMN_translator.Close");
-                    								afterParserOrEnumRuleCall();
-                    							
-
-                    }
-
-
-                    }
-
-
-                    }
-
-                    // InternalBPMN_translator.g:209:5: ( ( (lv_Prova_3_0= ruleOpen ) ) ( (lv_Prova1_4_0= ruleClose ) ) )*
-                    loop1:
-                    do {
-                        int alt1=2;
-                        alt1 = dfa1.predict(input);
-                        switch (alt1) {
-                    	case 1 :
-                    	    // InternalBPMN_translator.g:210:6: ( (lv_Prova_3_0= ruleOpen ) ) ( (lv_Prova1_4_0= ruleClose ) )
-                    	    {
-                    	    // InternalBPMN_translator.g:210:6: ( (lv_Prova_3_0= ruleOpen ) )
-                    	    // InternalBPMN_translator.g:211:7: (lv_Prova_3_0= ruleOpen )
-                    	    {
-                    	    // InternalBPMN_translator.g:211:7: (lv_Prova_3_0= ruleOpen )
-                    	    // InternalBPMN_translator.g:212:8: lv_Prova_3_0= ruleOpen
-                    	    {
-
-                    	    								newCompositeNode(grammarAccess.getOpeningAccess().getProvaOpenParserRuleCall_0_1_1_0_0());
-                    	    							
-                    	    pushFollow(FOLLOW_3);
-                    	    lv_Prova_3_0=ruleOpen();
-
-                    	    state._fsp--;
-
-
-                    	    								if (current==null) {
-                    	    									current = createModelElementForParent(grammarAccess.getOpeningRule());
-                    	    								}
-                    	    								add(
-                    	    									current,
-                    	    									"Prova",
-                    	    									lv_Prova_3_0,
-                    	    									"org.xtext.BPMN_translator.Open");
-                    	    								afterParserOrEnumRuleCall();
-                    	    							
-
-                    	    }
-
-
-                    	    }
-
-                    	    // InternalBPMN_translator.g:229:6: ( (lv_Prova1_4_0= ruleClose ) )
-                    	    // InternalBPMN_translator.g:230:7: (lv_Prova1_4_0= ruleClose )
-                    	    {
-                    	    // InternalBPMN_translator.g:230:7: (lv_Prova1_4_0= ruleClose )
-                    	    // InternalBPMN_translator.g:231:8: lv_Prova1_4_0= ruleClose
-                    	    {
-
-                    	    								newCompositeNode(grammarAccess.getOpeningAccess().getProva1CloseParserRuleCall_0_1_1_1_0());
-                    	    							
-                    	    pushFollow(FOLLOW_4);
-                    	    lv_Prova1_4_0=ruleClose();
-
-                    	    state._fsp--;
-
-
-                    	    								if (current==null) {
-                    	    									current = createModelElementForParent(grammarAccess.getOpeningRule());
-                    	    								}
-                    	    								add(
-                    	    									current,
-                    	    									"Prova1",
-                    	    									lv_Prova1_4_0,
-                    	    									"org.xtext.BPMN_translator.Close");
-                    	    								afterParserOrEnumRuleCall();
-                    	    							
-
-                    	    }
-
-
-                    	    }
-
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop1;
-                        }
-                    } while (true);
-
-                    // InternalBPMN_translator.g:249:5: ( (otherlv_5= '<' this_HEAD_6= RULE_HEAD otherlv_7= ':' this_KEYWORDS_8= RULE_KEYWORDS ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )* ) otherlv_14= '/>' )*
-                    loop3:
-                    do {
-                        int alt3=2;
-                        int LA3_0 = input.LA(1);
-
-                        if ( (LA3_0==14) ) {
-                            alt3=1;
-                        }
-
-
-                        switch (alt3) {
-                    	case 1 :
-                    	    // InternalBPMN_translator.g:250:6: (otherlv_5= '<' this_HEAD_6= RULE_HEAD otherlv_7= ':' this_KEYWORDS_8= RULE_KEYWORDS ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )* ) otherlv_14= '/>'
-                    	    {
-                    	    // InternalBPMN_translator.g:250:6: (otherlv_5= '<' this_HEAD_6= RULE_HEAD otherlv_7= ':' this_KEYWORDS_8= RULE_KEYWORDS ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )* )
-                    	    // InternalBPMN_translator.g:251:7: otherlv_5= '<' this_HEAD_6= RULE_HEAD otherlv_7= ':' this_KEYWORDS_8= RULE_KEYWORDS ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )*
-                    	    {
-                    	    otherlv_5=(Token)match(input,14,FOLLOW_5); 
-
-                    	    							newLeafNode(otherlv_5, grammarAccess.getOpeningAccess().getLessThanSignKeyword_0_1_2_0_0());
-                    	    						
-                    	    this_HEAD_6=(Token)match(input,RULE_HEAD,FOLLOW_6); 
-
-                    	    							newLeafNode(this_HEAD_6, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_0_1_2_0_1());
-                    	    						
-                    	    otherlv_7=(Token)match(input,15,FOLLOW_7); 
-
-                    	    							newLeafNode(otherlv_7, grammarAccess.getOpeningAccess().getColonKeyword_0_1_2_0_2());
-                    	    						
-                    	    this_KEYWORDS_8=(Token)match(input,RULE_KEYWORDS,FOLLOW_8); 
-
-                    	    							newLeafNode(this_KEYWORDS_8, grammarAccess.getOpeningAccess().getKEYWORDSTerminalRuleCall_0_1_2_0_3());
-                    	    						
-                    	    // InternalBPMN_translator.g:267:7: ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )*
-                    	    loop2:
-                    	    do {
-                    	        int alt2=3;
-                    	        int LA2_0 = input.LA(1);
-
-                    	        if ( (LA2_0==RULE_HEAD) ) {
-                    	            alt2=1;
-                    	        }
-                    	        else if ( (LA2_0==RULE_KEYWORDS) ) {
-                    	            alt2=2;
-                    	        }
-
-
-                    	        switch (alt2) {
-                    	    	case 1 :
-                    	    	    // InternalBPMN_translator.g:268:8: (this_HEAD_9= RULE_HEAD otherlv_10= ':' )
-                    	    	    {
-                    	    	    // InternalBPMN_translator.g:268:8: (this_HEAD_9= RULE_HEAD otherlv_10= ':' )
-                    	    	    // InternalBPMN_translator.g:269:9: this_HEAD_9= RULE_HEAD otherlv_10= ':'
-                    	    	    {
-                    	    	    this_HEAD_9=(Token)match(input,RULE_HEAD,FOLLOW_6); 
-
-                    	    	    									newLeafNode(this_HEAD_9, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_0_1_2_0_4_0_0());
-                    	    	    								
-                    	    	    otherlv_10=(Token)match(input,15,FOLLOW_8); 
-
-                    	    	    									newLeafNode(otherlv_10, grammarAccess.getOpeningAccess().getColonKeyword_0_1_2_0_4_0_1());
-                    	    	    								
-
-                    	    	    }
-
-
-                    	    	    }
-                    	    	    break;
-                    	    	case 2 :
-                    	    	    // InternalBPMN_translator.g:279:8: (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) )
-                    	    	    {
-                    	    	    // InternalBPMN_translator.g:279:8: (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) )
-                    	    	    // InternalBPMN_translator.g:280:9: this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) )
-                    	    	    {
-                    	    	    this_KEYWORDS_11=(Token)match(input,RULE_KEYWORDS,FOLLOW_9); 
-
-                    	    	    									newLeafNode(this_KEYWORDS_11, grammarAccess.getOpeningAccess().getKEYWORDSTerminalRuleCall_0_1_2_0_4_1_0());
-                    	    	    								
-                    	    	    otherlv_12=(Token)match(input,16,FOLLOW_10); 
-
-                    	    	    									newLeafNode(otherlv_12, grammarAccess.getOpeningAccess().getEqualsSignKeyword_0_1_2_0_4_1_1());
-                    	    	    								
-                    	    	    // InternalBPMN_translator.g:288:9: ( (lv_value_13_0= RULE_STRING ) )
-                    	    	    // InternalBPMN_translator.g:289:10: (lv_value_13_0= RULE_STRING )
-                    	    	    {
-                    	    	    // InternalBPMN_translator.g:289:10: (lv_value_13_0= RULE_STRING )
-                    	    	    // InternalBPMN_translator.g:290:11: lv_value_13_0= RULE_STRING
-                    	    	    {
-                    	    	    lv_value_13_0=(Token)match(input,RULE_STRING,FOLLOW_8); 
-
-                    	    	    											newLeafNode(lv_value_13_0, grammarAccess.getOpeningAccess().getValueSTRINGTerminalRuleCall_0_1_2_0_4_1_2_0());
-                    	    	    										
-
-                    	    	    											if (current==null) {
-                    	    	    												current = createModelElement(grammarAccess.getOpeningRule());
-                    	    	    											}
-                    	    	    											addWithLastConsumed(
-                    	    	    												current,
-                    	    	    												"value",
-                    	    	    												lv_value_13_0,
-                    	    	    												"org.eclipse.xtext.common.Terminals.STRING");
-                    	    	    										
-
-                    	    	    }
-
-
-                    	    	    }
-
-
-                    	    	    }
-
-
-                    	    	    }
-                    	    	    break;
-
-                    	    	default :
-                    	    	    break loop2;
-                    	        }
-                    	    } while (true);
-
-
-                    	    }
-
-                    	    otherlv_14=(Token)match(input,17,FOLLOW_4); 
-
-                    	    						newLeafNode(otherlv_14, grammarAccess.getOpeningAccess().getSolidusGreaterThanSignKeyword_0_1_2_1());
-                    	    					
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop3;
-                        }
-                    } while (true);
-
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalBPMN_translator.g:317:3: ( () ( (otherlv_16= '<' this_HEAD_17= RULE_HEAD otherlv_18= ':' this_KEYWORDS_19= RULE_KEYWORDS ( (this_HEAD_20= RULE_HEAD otherlv_21= ':' ) | (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) ) )* ) otherlv_25= '/>' )* )
-                    {
-                    // InternalBPMN_translator.g:317:3: ( () ( (otherlv_16= '<' this_HEAD_17= RULE_HEAD otherlv_18= ':' this_KEYWORDS_19= RULE_KEYWORDS ( (this_HEAD_20= RULE_HEAD otherlv_21= ':' ) | (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) ) )* ) otherlv_25= '/>' )* )
-                    // InternalBPMN_translator.g:318:4: () ( (otherlv_16= '<' this_HEAD_17= RULE_HEAD otherlv_18= ':' this_KEYWORDS_19= RULE_KEYWORDS ( (this_HEAD_20= RULE_HEAD otherlv_21= ':' ) | (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) ) )* ) otherlv_25= '/>' )*
-                    {
-                    // InternalBPMN_translator.g:318:4: ()
-                    // InternalBPMN_translator.g:319:5: 
-                    {
-
-                    					current = forceCreateModelElement(
-                    						grammarAccess.getOpeningAccess().getOpeningAction_1_0(),
-                    						current);
-                    				
-
-                    }
-
-                    // InternalBPMN_translator.g:325:4: ( (otherlv_16= '<' this_HEAD_17= RULE_HEAD otherlv_18= ':' this_KEYWORDS_19= RULE_KEYWORDS ( (this_HEAD_20= RULE_HEAD otherlv_21= ':' ) | (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) ) )* ) otherlv_25= '/>' )*
-                    loop5:
-                    do {
-                        int alt5=2;
-                        int LA5_0 = input.LA(1);
-
-                        if ( (LA5_0==14) ) {
-                            alt5=1;
-                        }
-
-
-                        switch (alt5) {
-                    	case 1 :
-                    	    // InternalBPMN_translator.g:326:5: (otherlv_16= '<' this_HEAD_17= RULE_HEAD otherlv_18= ':' this_KEYWORDS_19= RULE_KEYWORDS ( (this_HEAD_20= RULE_HEAD otherlv_21= ':' ) | (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) ) )* ) otherlv_25= '/>'
-                    	    {
-                    	    // InternalBPMN_translator.g:326:5: (otherlv_16= '<' this_HEAD_17= RULE_HEAD otherlv_18= ':' this_KEYWORDS_19= RULE_KEYWORDS ( (this_HEAD_20= RULE_HEAD otherlv_21= ':' ) | (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) ) )* )
-                    	    // InternalBPMN_translator.g:327:6: otherlv_16= '<' this_HEAD_17= RULE_HEAD otherlv_18= ':' this_KEYWORDS_19= RULE_KEYWORDS ( (this_HEAD_20= RULE_HEAD otherlv_21= ':' ) | (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) ) )*
-                    	    {
-                    	    otherlv_16=(Token)match(input,14,FOLLOW_5); 
-
-                    	    						newLeafNode(otherlv_16, grammarAccess.getOpeningAccess().getLessThanSignKeyword_1_1_0_0());
-                    	    					
-                    	    this_HEAD_17=(Token)match(input,RULE_HEAD,FOLLOW_6); 
-
-                    	    						newLeafNode(this_HEAD_17, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_1_1_0_1());
-                    	    					
-                    	    otherlv_18=(Token)match(input,15,FOLLOW_7); 
-
-                    	    						newLeafNode(otherlv_18, grammarAccess.getOpeningAccess().getColonKeyword_1_1_0_2());
-                    	    					
-                    	    this_KEYWORDS_19=(Token)match(input,RULE_KEYWORDS,FOLLOW_8); 
-
-                    	    						newLeafNode(this_KEYWORDS_19, grammarAccess.getOpeningAccess().getKEYWORDSTerminalRuleCall_1_1_0_3());
-                    	    					
-                    	    // InternalBPMN_translator.g:343:6: ( (this_HEAD_20= RULE_HEAD otherlv_21= ':' ) | (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) ) )*
-                    	    loop4:
-                    	    do {
-                    	        int alt4=3;
-                    	        int LA4_0 = input.LA(1);
-
-                    	        if ( (LA4_0==RULE_HEAD) ) {
-                    	            alt4=1;
-                    	        }
-                    	        else if ( (LA4_0==RULE_KEYWORDS) ) {
-                    	            alt4=2;
-                    	        }
-
-
-                    	        switch (alt4) {
-                    	    	case 1 :
-                    	    	    // InternalBPMN_translator.g:344:7: (this_HEAD_20= RULE_HEAD otherlv_21= ':' )
-                    	    	    {
-                    	    	    // InternalBPMN_translator.g:344:7: (this_HEAD_20= RULE_HEAD otherlv_21= ':' )
-                    	    	    // InternalBPMN_translator.g:345:8: this_HEAD_20= RULE_HEAD otherlv_21= ':'
-                    	    	    {
-                    	    	    this_HEAD_20=(Token)match(input,RULE_HEAD,FOLLOW_6); 
-
-                    	    	    								newLeafNode(this_HEAD_20, grammarAccess.getOpeningAccess().getHEADTerminalRuleCall_1_1_0_4_0_0());
-                    	    	    							
-                    	    	    otherlv_21=(Token)match(input,15,FOLLOW_8); 
-
-                    	    	    								newLeafNode(otherlv_21, grammarAccess.getOpeningAccess().getColonKeyword_1_1_0_4_0_1());
-                    	    	    							
-
-                    	    	    }
-
-
-                    	    	    }
-                    	    	    break;
-                    	    	case 2 :
-                    	    	    // InternalBPMN_translator.g:355:7: (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) )
-                    	    	    {
-                    	    	    // InternalBPMN_translator.g:355:7: (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) )
-                    	    	    // InternalBPMN_translator.g:356:8: this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) )
-                    	    	    {
-                    	    	    this_KEYWORDS_22=(Token)match(input,RULE_KEYWORDS,FOLLOW_9); 
-
-                    	    	    								newLeafNode(this_KEYWORDS_22, grammarAccess.getOpeningAccess().getKEYWORDSTerminalRuleCall_1_1_0_4_1_0());
-                    	    	    							
-                    	    	    otherlv_23=(Token)match(input,16,FOLLOW_10); 
-
-                    	    	    								newLeafNode(otherlv_23, grammarAccess.getOpeningAccess().getEqualsSignKeyword_1_1_0_4_1_1());
-                    	    	    							
-                    	    	    // InternalBPMN_translator.g:364:8: ( (lv_value_24_0= RULE_STRING ) )
-                    	    	    // InternalBPMN_translator.g:365:9: (lv_value_24_0= RULE_STRING )
-                    	    	    {
-                    	    	    // InternalBPMN_translator.g:365:9: (lv_value_24_0= RULE_STRING )
-                    	    	    // InternalBPMN_translator.g:366:10: lv_value_24_0= RULE_STRING
-                    	    	    {
-                    	    	    lv_value_24_0=(Token)match(input,RULE_STRING,FOLLOW_8); 
-
-                    	    	    										newLeafNode(lv_value_24_0, grammarAccess.getOpeningAccess().getValueSTRINGTerminalRuleCall_1_1_0_4_1_2_0());
-                    	    	    									
-
-                    	    	    										if (current==null) {
-                    	    	    											current = createModelElement(grammarAccess.getOpeningRule());
-                    	    	    										}
-                    	    	    										addWithLastConsumed(
-                    	    	    											current,
-                    	    	    											"value",
-                    	    	    											lv_value_24_0,
-                    	    	    											"org.eclipse.xtext.common.Terminals.STRING");
-                    	    	    									
-
-                    	    	    }
-
-
-                    	    	    }
-
-
-                    	    	    }
-
-
-                    	    	    }
-                    	    	    break;
-
-                    	    	default :
-                    	    	    break loop4;
-                    	        }
-                    	    } while (true);
-
-
-                    	    }
-
-                    	    otherlv_25=(Token)match(input,17,FOLLOW_4); 
-
-                    	    					newLeafNode(otherlv_25, grammarAccess.getOpeningAccess().getSolidusGreaterThanSignKeyword_1_1_1());
-                    	    				
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop5;
-                        }
-                    } while (true);
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleOpening"
-
-
-    // $ANTLR start "entryRuleData"
-    // InternalBPMN_translator.g:395:1: entryRuleData returns [String current=null] : iv_ruleData= ruleData EOF ;
-    public final String entryRuleData() throws RecognitionException {
+    // $ANTLR start "entryRuleprolog"
+    // InternalBPMN_translator.g:154:1: entryRuleprolog returns [String current=null] : iv_ruleprolog= ruleprolog EOF ;
+    public final String entryRuleprolog() throws RecognitionException {
         String current = null;
 
-        AntlrDatatypeRuleToken iv_ruleData = null;
+        AntlrDatatypeRuleToken iv_ruleprolog = null;
 
 
         try {
-            // InternalBPMN_translator.g:395:44: (iv_ruleData= ruleData EOF )
-            // InternalBPMN_translator.g:396:2: iv_ruleData= ruleData EOF
+            // InternalBPMN_translator.g:154:46: (iv_ruleprolog= ruleprolog EOF )
+            // InternalBPMN_translator.g:155:2: iv_ruleprolog= ruleprolog EOF
             {
-             newCompositeNode(grammarAccess.getDataRule()); 
+             newCompositeNode(grammarAccess.getPrologRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleData=ruleData();
+            iv_ruleprolog=ruleprolog();
 
             state._fsp--;
 
-             current =iv_ruleData.getText(); 
+             current =iv_ruleprolog.getText(); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -909,87 +382,290 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleData"
+    // $ANTLR end "entryRuleprolog"
 
 
-    // $ANTLR start "ruleData"
-    // InternalBPMN_translator.g:402:1: ruleData returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_BODY_0= RULE_BODY | this_KEYWORDS_1= RULE_KEYWORDS | this_STRING_2= RULE_STRING ) ;
-    public final AntlrDatatypeRuleToken ruleData() throws RecognitionException {
+    // $ANTLR start "ruleprolog"
+    // InternalBPMN_translator.g:161:1: ruleprolog returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '<?' this_HEAD_1= RULE_HEAD kw= 'version=' this_STRING_3= RULE_STRING kw= 'encoding=' this_STRING_5= RULE_STRING kw= '?>' ) ;
+    public final AntlrDatatypeRuleToken ruleprolog() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
-        Token this_BODY_0=null;
-        Token this_KEYWORDS_1=null;
-        Token this_STRING_2=null;
+        Token kw=null;
+        Token this_HEAD_1=null;
+        Token this_STRING_3=null;
+        Token this_STRING_5=null;
 
 
         	enterRule();
 
         try {
-            // InternalBPMN_translator.g:408:2: ( (this_BODY_0= RULE_BODY | this_KEYWORDS_1= RULE_KEYWORDS | this_STRING_2= RULE_STRING ) )
-            // InternalBPMN_translator.g:409:2: (this_BODY_0= RULE_BODY | this_KEYWORDS_1= RULE_KEYWORDS | this_STRING_2= RULE_STRING )
+            // InternalBPMN_translator.g:167:2: ( (kw= '<?' this_HEAD_1= RULE_HEAD kw= 'version=' this_STRING_3= RULE_STRING kw= 'encoding=' this_STRING_5= RULE_STRING kw= '?>' ) )
+            // InternalBPMN_translator.g:168:2: (kw= '<?' this_HEAD_1= RULE_HEAD kw= 'version=' this_STRING_3= RULE_STRING kw= 'encoding=' this_STRING_5= RULE_STRING kw= '?>' )
             {
-            // InternalBPMN_translator.g:409:2: (this_BODY_0= RULE_BODY | this_KEYWORDS_1= RULE_KEYWORDS | this_STRING_2= RULE_STRING )
-            int alt7=3;
-            switch ( input.LA(1) ) {
-            case RULE_BODY:
-                {
-                alt7=1;
-                }
-                break;
-            case RULE_KEYWORDS:
-                {
-                alt7=2;
-                }
-                break;
-            case RULE_STRING:
-                {
-                alt7=3;
-                }
-                break;
-            default:
-                NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+            // InternalBPMN_translator.g:168:2: (kw= '<?' this_HEAD_1= RULE_HEAD kw= 'version=' this_STRING_3= RULE_STRING kw= 'encoding=' this_STRING_5= RULE_STRING kw= '?>' )
+            // InternalBPMN_translator.g:169:3: kw= '<?' this_HEAD_1= RULE_HEAD kw= 'version=' this_STRING_3= RULE_STRING kw= 'encoding=' this_STRING_5= RULE_STRING kw= '?>'
+            {
+            kw=(Token)match(input,14,FOLLOW_4); 
 
-                throw nvae;
+            			current.merge(kw);
+            			newLeafNode(kw, grammarAccess.getPrologAccess().getLessThanSignQuestionMarkKeyword_0());
+            		
+            this_HEAD_1=(Token)match(input,RULE_HEAD,FOLLOW_5); 
+
+            			current.merge(this_HEAD_1);
+            		
+
+            			newLeafNode(this_HEAD_1, grammarAccess.getPrologAccess().getHEADTerminalRuleCall_1());
+            		
+            kw=(Token)match(input,15,FOLLOW_6); 
+
+            			current.merge(kw);
+            			newLeafNode(kw, grammarAccess.getPrologAccess().getVersionKeyword_2());
+            		
+            this_STRING_3=(Token)match(input,RULE_STRING,FOLLOW_7); 
+
+            			current.merge(this_STRING_3);
+            		
+
+            			newLeafNode(this_STRING_3, grammarAccess.getPrologAccess().getSTRINGTerminalRuleCall_3());
+            		
+            kw=(Token)match(input,16,FOLLOW_6); 
+
+            			current.merge(kw);
+            			newLeafNode(kw, grammarAccess.getPrologAccess().getEncodingKeyword_4());
+            		
+            this_STRING_5=(Token)match(input,RULE_STRING,FOLLOW_8); 
+
+            			current.merge(this_STRING_5);
+            		
+
+            			newLeafNode(this_STRING_5, grammarAccess.getPrologAccess().getSTRINGTerminalRuleCall_5());
+            		
+            kw=(Token)match(input,17,FOLLOW_2); 
+
+            			current.merge(kw);
+            			newLeafNode(kw, grammarAccess.getPrologAccess().getQuestionMarkGreaterThanSignKeyword_6());
+            		
+
             }
 
-            switch (alt7) {
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleprolog"
+
+
+    // $ANTLR start "entryRuleelement"
+    // InternalBPMN_translator.g:214:1: entryRuleelement returns [EObject current=null] : iv_ruleelement= ruleelement EOF ;
+    public final EObject entryRuleelement() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleelement = null;
+
+
+        try {
+            // InternalBPMN_translator.g:214:48: (iv_ruleelement= ruleelement EOF )
+            // InternalBPMN_translator.g:215:2: iv_ruleelement= ruleelement EOF
+            {
+             newCompositeNode(grammarAccess.getElementRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleelement=ruleelement();
+
+            state._fsp--;
+
+             current =iv_ruleelement; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleelement"
+
+
+    // $ANTLR start "ruleelement"
+    // InternalBPMN_translator.g:221:1: ruleelement returns [EObject current=null] : ( (this_Open_0= ruleOpen ( (lv_contents_1_0= rulecontent ) ) ( (lv_close_tag_2_0= ruleClose ) ) ) | ( () ( (lv_singleton_tag_4_0= ruleSingleton ) ) ) ) ;
+    public final EObject ruleelement() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_Open_0 = null;
+
+        EObject lv_contents_1_0 = null;
+
+        EObject lv_close_tag_2_0 = null;
+
+        EObject lv_singleton_tag_4_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalBPMN_translator.g:227:2: ( ( (this_Open_0= ruleOpen ( (lv_contents_1_0= rulecontent ) ) ( (lv_close_tag_2_0= ruleClose ) ) ) | ( () ( (lv_singleton_tag_4_0= ruleSingleton ) ) ) ) )
+            // InternalBPMN_translator.g:228:2: ( (this_Open_0= ruleOpen ( (lv_contents_1_0= rulecontent ) ) ( (lv_close_tag_2_0= ruleClose ) ) ) | ( () ( (lv_singleton_tag_4_0= ruleSingleton ) ) ) )
+            {
+            // InternalBPMN_translator.g:228:2: ( (this_Open_0= ruleOpen ( (lv_contents_1_0= rulecontent ) ) ( (lv_close_tag_2_0= ruleClose ) ) ) | ( () ( (lv_singleton_tag_4_0= ruleSingleton ) ) ) )
+            int alt3=2;
+            alt3 = dfa3.predict(input);
+            switch (alt3) {
                 case 1 :
-                    // InternalBPMN_translator.g:410:3: this_BODY_0= RULE_BODY
+                    // InternalBPMN_translator.g:229:3: (this_Open_0= ruleOpen ( (lv_contents_1_0= rulecontent ) ) ( (lv_close_tag_2_0= ruleClose ) ) )
                     {
-                    this_BODY_0=(Token)match(input,RULE_BODY,FOLLOW_2); 
+                    // InternalBPMN_translator.g:229:3: (this_Open_0= ruleOpen ( (lv_contents_1_0= rulecontent ) ) ( (lv_close_tag_2_0= ruleClose ) ) )
+                    // InternalBPMN_translator.g:230:4: this_Open_0= ruleOpen ( (lv_contents_1_0= rulecontent ) ) ( (lv_close_tag_2_0= ruleClose ) )
+                    {
 
-                    			current.merge(this_BODY_0);
-                    		
+                    				newCompositeNode(grammarAccess.getElementAccess().getOpenParserRuleCall_0_0());
+                    			
+                    pushFollow(FOLLOW_9);
+                    this_Open_0=ruleOpen();
 
-                    			newLeafNode(this_BODY_0, grammarAccess.getDataAccess().getBODYTerminalRuleCall_0());
-                    		
+                    state._fsp--;
+
+
+                    				current = this_Open_0;
+                    				afterParserOrEnumRuleCall();
+                    			
+                    // InternalBPMN_translator.g:238:4: ( (lv_contents_1_0= rulecontent ) )
+                    // InternalBPMN_translator.g:239:5: (lv_contents_1_0= rulecontent )
+                    {
+                    // InternalBPMN_translator.g:239:5: (lv_contents_1_0= rulecontent )
+                    // InternalBPMN_translator.g:240:6: lv_contents_1_0= rulecontent
+                    {
+
+                    						newCompositeNode(grammarAccess.getElementAccess().getContentsContentParserRuleCall_0_1_0());
+                    					
+                    pushFollow(FOLLOW_9);
+                    lv_contents_1_0=rulecontent();
+
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getElementRule());
+                    						}
+                    						add(
+                    							current,
+                    							"contents",
+                    							lv_contents_1_0,
+                    							"org.xtext.BPMN_translator.content");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+                    // InternalBPMN_translator.g:257:4: ( (lv_close_tag_2_0= ruleClose ) )
+                    // InternalBPMN_translator.g:258:5: (lv_close_tag_2_0= ruleClose )
+                    {
+                    // InternalBPMN_translator.g:258:5: (lv_close_tag_2_0= ruleClose )
+                    // InternalBPMN_translator.g:259:6: lv_close_tag_2_0= ruleClose
+                    {
+
+                    						newCompositeNode(grammarAccess.getElementAccess().getClose_tagCloseParserRuleCall_0_2_0());
+                    					
+                    pushFollow(FOLLOW_2);
+                    lv_close_tag_2_0=ruleClose();
+
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getElementRule());
+                    						}
+                    						add(
+                    							current,
+                    							"close_tag",
+                    							lv_close_tag_2_0,
+                    							"org.xtext.BPMN_translator.Close");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+
 
                     }
                     break;
                 case 2 :
-                    // InternalBPMN_translator.g:418:3: this_KEYWORDS_1= RULE_KEYWORDS
+                    // InternalBPMN_translator.g:278:3: ( () ( (lv_singleton_tag_4_0= ruleSingleton ) ) )
                     {
-                    this_KEYWORDS_1=(Token)match(input,RULE_KEYWORDS,FOLLOW_2); 
+                    // InternalBPMN_translator.g:278:3: ( () ( (lv_singleton_tag_4_0= ruleSingleton ) ) )
+                    // InternalBPMN_translator.g:279:4: () ( (lv_singleton_tag_4_0= ruleSingleton ) )
+                    {
+                    // InternalBPMN_translator.g:279:4: ()
+                    // InternalBPMN_translator.g:280:5: 
+                    {
 
-                    			current.merge(this_KEYWORDS_1);
-                    		
-
-                    			newLeafNode(this_KEYWORDS_1, grammarAccess.getDataAccess().getKEYWORDSTerminalRuleCall_1());
-                    		
+                    					current = forceCreateModelElement(
+                    						grammarAccess.getElementAccess().getElementAction_1_0(),
+                    						current);
+                    				
 
                     }
-                    break;
-                case 3 :
-                    // InternalBPMN_translator.g:426:3: this_STRING_2= RULE_STRING
+
+                    // InternalBPMN_translator.g:286:4: ( (lv_singleton_tag_4_0= ruleSingleton ) )
+                    // InternalBPMN_translator.g:287:5: (lv_singleton_tag_4_0= ruleSingleton )
                     {
-                    this_STRING_2=(Token)match(input,RULE_STRING,FOLLOW_2); 
+                    // InternalBPMN_translator.g:287:5: (lv_singleton_tag_4_0= ruleSingleton )
+                    // InternalBPMN_translator.g:288:6: lv_singleton_tag_4_0= ruleSingleton
+                    {
 
-                    			current.merge(this_STRING_2);
-                    		
+                    						newCompositeNode(grammarAccess.getElementAccess().getSingleton_tagSingletonParserRuleCall_1_1_0());
+                    					
+                    pushFollow(FOLLOW_2);
+                    lv_singleton_tag_4_0=ruleSingleton();
 
-                    			newLeafNode(this_STRING_2, grammarAccess.getDataAccess().getSTRINGTerminalRuleCall_2());
-                    		
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getElementRule());
+                    						}
+                    						add(
+                    							current,
+                    							"singleton_tag",
+                    							lv_singleton_tag_4_0,
+                    							"org.xtext.BPMN_translator.Singleton");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+
 
                     }
                     break;
@@ -1012,11 +688,203 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleData"
+    // $ANTLR end "ruleelement"
+
+
+    // $ANTLR start "entryRulecontent"
+    // InternalBPMN_translator.g:310:1: entryRulecontent returns [EObject current=null] : iv_rulecontent= rulecontent EOF ;
+    public final EObject entryRulecontent() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_rulecontent = null;
+
+
+        try {
+            // InternalBPMN_translator.g:310:48: (iv_rulecontent= rulecontent EOF )
+            // InternalBPMN_translator.g:311:2: iv_rulecontent= rulecontent EOF
+            {
+             newCompositeNode(grammarAccess.getContentRule()); 
+            pushFollow(FOLLOW_1);
+            iv_rulecontent=rulecontent();
+
+            state._fsp--;
+
+             current =iv_rulecontent; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRulecontent"
+
+
+    // $ANTLR start "rulecontent"
+    // InternalBPMN_translator.g:317:1: rulecontent returns [EObject current=null] : ( () ( ( (lv_prova_1_0= ruleelement ) ) | this_BODY_2= RULE_BODY | this_KEYWORDS_3= RULE_KEYWORDS | this_STRING_4= RULE_STRING )* ) ;
+    public final EObject rulecontent() throws RecognitionException {
+        EObject current = null;
+
+        Token this_BODY_2=null;
+        Token this_KEYWORDS_3=null;
+        Token this_STRING_4=null;
+        EObject lv_prova_1_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalBPMN_translator.g:323:2: ( ( () ( ( (lv_prova_1_0= ruleelement ) ) | this_BODY_2= RULE_BODY | this_KEYWORDS_3= RULE_KEYWORDS | this_STRING_4= RULE_STRING )* ) )
+            // InternalBPMN_translator.g:324:2: ( () ( ( (lv_prova_1_0= ruleelement ) ) | this_BODY_2= RULE_BODY | this_KEYWORDS_3= RULE_KEYWORDS | this_STRING_4= RULE_STRING )* )
+            {
+            // InternalBPMN_translator.g:324:2: ( () ( ( (lv_prova_1_0= ruleelement ) ) | this_BODY_2= RULE_BODY | this_KEYWORDS_3= RULE_KEYWORDS | this_STRING_4= RULE_STRING )* )
+            // InternalBPMN_translator.g:325:3: () ( ( (lv_prova_1_0= ruleelement ) ) | this_BODY_2= RULE_BODY | this_KEYWORDS_3= RULE_KEYWORDS | this_STRING_4= RULE_STRING )*
+            {
+            // InternalBPMN_translator.g:325:3: ()
+            // InternalBPMN_translator.g:326:4: 
+            {
+
+            				current = forceCreateModelElement(
+            					grammarAccess.getContentAccess().getContentAction_0(),
+            					current);
+            			
+
+            }
+
+            // InternalBPMN_translator.g:332:3: ( ( (lv_prova_1_0= ruleelement ) ) | this_BODY_2= RULE_BODY | this_KEYWORDS_3= RULE_KEYWORDS | this_STRING_4= RULE_STRING )*
+            loop4:
+            do {
+                int alt4=5;
+                switch ( input.LA(1) ) {
+                case 18:
+                    {
+                    alt4=1;
+                    }
+                    break;
+                case RULE_BODY:
+                    {
+                    alt4=2;
+                    }
+                    break;
+                case RULE_KEYWORDS:
+                    {
+                    alt4=3;
+                    }
+                    break;
+                case RULE_STRING:
+                    {
+                    alt4=4;
+                    }
+                    break;
+
+                }
+
+                switch (alt4) {
+            	case 1 :
+            	    // InternalBPMN_translator.g:333:4: ( (lv_prova_1_0= ruleelement ) )
+            	    {
+            	    // InternalBPMN_translator.g:333:4: ( (lv_prova_1_0= ruleelement ) )
+            	    // InternalBPMN_translator.g:334:5: (lv_prova_1_0= ruleelement )
+            	    {
+            	    // InternalBPMN_translator.g:334:5: (lv_prova_1_0= ruleelement )
+            	    // InternalBPMN_translator.g:335:6: lv_prova_1_0= ruleelement
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getContentAccess().getProvaElementParserRuleCall_1_0_0());
+            	    					
+            	    pushFollow(FOLLOW_10);
+            	    lv_prova_1_0=ruleelement();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getContentRule());
+            	    						}
+            	    						add(
+            	    							current,
+            	    							"prova",
+            	    							lv_prova_1_0,
+            	    							"org.xtext.BPMN_translator.element");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // InternalBPMN_translator.g:353:4: this_BODY_2= RULE_BODY
+            	    {
+            	    this_BODY_2=(Token)match(input,RULE_BODY,FOLLOW_10); 
+
+            	    				newLeafNode(this_BODY_2, grammarAccess.getContentAccess().getBODYTerminalRuleCall_1_1());
+            	    			
+
+            	    }
+            	    break;
+            	case 3 :
+            	    // InternalBPMN_translator.g:358:4: this_KEYWORDS_3= RULE_KEYWORDS
+            	    {
+            	    this_KEYWORDS_3=(Token)match(input,RULE_KEYWORDS,FOLLOW_10); 
+
+            	    				newLeafNode(this_KEYWORDS_3, grammarAccess.getContentAccess().getKEYWORDSTerminalRuleCall_1_2());
+            	    			
+
+            	    }
+            	    break;
+            	case 4 :
+            	    // InternalBPMN_translator.g:363:4: this_STRING_4= RULE_STRING
+            	    {
+            	    this_STRING_4=(Token)match(input,RULE_STRING,FOLLOW_10); 
+
+            	    				newLeafNode(this_STRING_4, grammarAccess.getContentAccess().getSTRINGTerminalRuleCall_1_3());
+            	    			
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop4;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "rulecontent"
 
 
     // $ANTLR start "entryRuleOpen"
-    // InternalBPMN_translator.g:437:1: entryRuleOpen returns [EObject current=null] : iv_ruleOpen= ruleOpen EOF ;
+    // InternalBPMN_translator.g:372:1: entryRuleOpen returns [EObject current=null] : iv_ruleOpen= ruleOpen EOF ;
     public final EObject entryRuleOpen() throws RecognitionException {
         EObject current = null;
 
@@ -1024,8 +892,8 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBPMN_translator.g:437:45: (iv_ruleOpen= ruleOpen EOF )
-            // InternalBPMN_translator.g:438:2: iv_ruleOpen= ruleOpen EOF
+            // InternalBPMN_translator.g:372:45: (iv_ruleOpen= ruleOpen EOF )
+            // InternalBPMN_translator.g:373:2: iv_ruleOpen= ruleOpen EOF
             {
              newCompositeNode(grammarAccess.getOpenRule()); 
             pushFollow(FOLLOW_1);
@@ -1052,7 +920,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpen"
-    // InternalBPMN_translator.g:444:1: ruleOpen returns [EObject current=null] : ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>' ) ( ruleData | ( (lv_prova_12_0= ruleOpening ) ) ) ) ;
+    // InternalBPMN_translator.g:379:1: ruleOpen returns [EObject current=null] : ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | ( (this_HEAD_7= RULE_HEAD | this_KEYWORDS_8= RULE_KEYWORDS ) otherlv_9= '=' ( (lv_value_10_0= RULE_STRING ) ) ) )* otherlv_11= '>' ) ) ;
     public final EObject ruleOpen() throws RecognitionException {
         EObject current = null;
 
@@ -1062,25 +930,24 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         Token this_KEYWORDS_4=null;
         Token this_HEAD_5=null;
         Token otherlv_6=null;
-        Token this_KEYWORDS_7=null;
-        Token otherlv_8=null;
-        Token lv_value_9_0=null;
-        Token otherlv_10=null;
-        EObject lv_prova_12_0 = null;
-
+        Token this_HEAD_7=null;
+        Token this_KEYWORDS_8=null;
+        Token otherlv_9=null;
+        Token lv_value_10_0=null;
+        Token otherlv_11=null;
 
 
         	enterRule();
 
         try {
-            // InternalBPMN_translator.g:450:2: ( ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>' ) ( ruleData | ( (lv_prova_12_0= ruleOpening ) ) ) ) )
-            // InternalBPMN_translator.g:451:2: ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>' ) ( ruleData | ( (lv_prova_12_0= ruleOpening ) ) ) )
+            // InternalBPMN_translator.g:385:2: ( ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | ( (this_HEAD_7= RULE_HEAD | this_KEYWORDS_8= RULE_KEYWORDS ) otherlv_9= '=' ( (lv_value_10_0= RULE_STRING ) ) ) )* otherlv_11= '>' ) ) )
+            // InternalBPMN_translator.g:386:2: ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | ( (this_HEAD_7= RULE_HEAD | this_KEYWORDS_8= RULE_KEYWORDS ) otherlv_9= '=' ( (lv_value_10_0= RULE_STRING ) ) ) )* otherlv_11= '>' ) )
             {
-            // InternalBPMN_translator.g:451:2: ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>' ) ( ruleData | ( (lv_prova_12_0= ruleOpening ) ) ) )
-            // InternalBPMN_translator.g:452:3: () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>' ) ( ruleData | ( (lv_prova_12_0= ruleOpening ) ) )
+            // InternalBPMN_translator.g:386:2: ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | ( (this_HEAD_7= RULE_HEAD | this_KEYWORDS_8= RULE_KEYWORDS ) otherlv_9= '=' ( (lv_value_10_0= RULE_STRING ) ) ) )* otherlv_11= '>' ) )
+            // InternalBPMN_translator.g:387:3: () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | ( (this_HEAD_7= RULE_HEAD | this_KEYWORDS_8= RULE_KEYWORDS ) otherlv_9= '=' ( (lv_value_10_0= RULE_STRING ) ) ) )* otherlv_11= '>' )
             {
-            // InternalBPMN_translator.g:452:3: ()
-            // InternalBPMN_translator.g:453:4: 
+            // InternalBPMN_translator.g:387:3: ()
+            // InternalBPMN_translator.g:388:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1090,51 +957,60 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBPMN_translator.g:459:3: (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>' )
-            // InternalBPMN_translator.g:460:4: otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>'
+            // InternalBPMN_translator.g:394:3: (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | ( (this_HEAD_7= RULE_HEAD | this_KEYWORDS_8= RULE_KEYWORDS ) otherlv_9= '=' ( (lv_value_10_0= RULE_STRING ) ) ) )* otherlv_11= '>' )
+            // InternalBPMN_translator.g:395:4: otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | ( (this_HEAD_7= RULE_HEAD | this_KEYWORDS_8= RULE_KEYWORDS ) otherlv_9= '=' ( (lv_value_10_0= RULE_STRING ) ) ) )* otherlv_11= '>'
             {
-            otherlv_1=(Token)match(input,14,FOLLOW_5); 
+            otherlv_1=(Token)match(input,18,FOLLOW_4); 
 
             				newLeafNode(otherlv_1, grammarAccess.getOpenAccess().getLessThanSignKeyword_1_0());
             			
-            this_HEAD_2=(Token)match(input,RULE_HEAD,FOLLOW_6); 
+            this_HEAD_2=(Token)match(input,RULE_HEAD,FOLLOW_11); 
 
             				newLeafNode(this_HEAD_2, grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_1());
             			
-            otherlv_3=(Token)match(input,15,FOLLOW_7); 
+            otherlv_3=(Token)match(input,19,FOLLOW_12); 
 
             				newLeafNode(otherlv_3, grammarAccess.getOpenAccess().getColonKeyword_1_2());
             			
-            this_KEYWORDS_4=(Token)match(input,RULE_KEYWORDS,FOLLOW_11); 
+            this_KEYWORDS_4=(Token)match(input,RULE_KEYWORDS,FOLLOW_13); 
 
             				newLeafNode(this_KEYWORDS_4, grammarAccess.getOpenAccess().getKEYWORDSTerminalRuleCall_1_3());
             			
-            // InternalBPMN_translator.g:476:4: ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )*
-            loop8:
+            // InternalBPMN_translator.g:411:4: ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | ( (this_HEAD_7= RULE_HEAD | this_KEYWORDS_8= RULE_KEYWORDS ) otherlv_9= '=' ( (lv_value_10_0= RULE_STRING ) ) ) )*
+            loop6:
             do {
-                int alt8=3;
-                int LA8_0 = input.LA(1);
+                int alt6=3;
+                int LA6_0 = input.LA(1);
 
-                if ( (LA8_0==RULE_HEAD) ) {
-                    alt8=1;
+                if ( (LA6_0==RULE_HEAD) ) {
+                    int LA6_2 = input.LA(2);
+
+                    if ( (LA6_2==20) ) {
+                        alt6=2;
+                    }
+                    else if ( (LA6_2==19) ) {
+                        alt6=1;
+                    }
+
+
                 }
-                else if ( (LA8_0==RULE_KEYWORDS) ) {
-                    alt8=2;
+                else if ( (LA6_0==RULE_KEYWORDS) ) {
+                    alt6=2;
                 }
 
 
-                switch (alt8) {
+                switch (alt6) {
             	case 1 :
-            	    // InternalBPMN_translator.g:477:5: (this_HEAD_5= RULE_HEAD otherlv_6= ':' )
+            	    // InternalBPMN_translator.g:412:5: (this_HEAD_5= RULE_HEAD otherlv_6= ':' )
             	    {
-            	    // InternalBPMN_translator.g:477:5: (this_HEAD_5= RULE_HEAD otherlv_6= ':' )
-            	    // InternalBPMN_translator.g:478:6: this_HEAD_5= RULE_HEAD otherlv_6= ':'
+            	    // InternalBPMN_translator.g:412:5: (this_HEAD_5= RULE_HEAD otherlv_6= ':' )
+            	    // InternalBPMN_translator.g:413:6: this_HEAD_5= RULE_HEAD otherlv_6= ':'
             	    {
-            	    this_HEAD_5=(Token)match(input,RULE_HEAD,FOLLOW_6); 
+            	    this_HEAD_5=(Token)match(input,RULE_HEAD,FOLLOW_11); 
 
             	    						newLeafNode(this_HEAD_5, grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_4_0_0());
             	    					
-            	    otherlv_6=(Token)match(input,15,FOLLOW_11); 
+            	    otherlv_6=(Token)match(input,19,FOLLOW_13); 
 
             	    						newLeafNode(otherlv_6, grammarAccess.getOpenAccess().getColonKeyword_1_4_0_1());
             	    					
@@ -1145,28 +1021,64 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalBPMN_translator.g:488:5: (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) )
+            	    // InternalBPMN_translator.g:423:5: ( (this_HEAD_7= RULE_HEAD | this_KEYWORDS_8= RULE_KEYWORDS ) otherlv_9= '=' ( (lv_value_10_0= RULE_STRING ) ) )
             	    {
-            	    // InternalBPMN_translator.g:488:5: (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) )
-            	    // InternalBPMN_translator.g:489:6: this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:423:5: ( (this_HEAD_7= RULE_HEAD | this_KEYWORDS_8= RULE_KEYWORDS ) otherlv_9= '=' ( (lv_value_10_0= RULE_STRING ) ) )
+            	    // InternalBPMN_translator.g:424:6: (this_HEAD_7= RULE_HEAD | this_KEYWORDS_8= RULE_KEYWORDS ) otherlv_9= '=' ( (lv_value_10_0= RULE_STRING ) )
             	    {
-            	    this_KEYWORDS_7=(Token)match(input,RULE_KEYWORDS,FOLLOW_9); 
+            	    // InternalBPMN_translator.g:424:6: (this_HEAD_7= RULE_HEAD | this_KEYWORDS_8= RULE_KEYWORDS )
+            	    int alt5=2;
+            	    int LA5_0 = input.LA(1);
 
-            	    						newLeafNode(this_KEYWORDS_7, grammarAccess.getOpenAccess().getKEYWORDSTerminalRuleCall_1_4_1_0());
+            	    if ( (LA5_0==RULE_HEAD) ) {
+            	        alt5=1;
+            	    }
+            	    else if ( (LA5_0==RULE_KEYWORDS) ) {
+            	        alt5=2;
+            	    }
+            	    else {
+            	        NoViableAltException nvae =
+            	            new NoViableAltException("", 5, 0, input);
+
+            	        throw nvae;
+            	    }
+            	    switch (alt5) {
+            	        case 1 :
+            	            // InternalBPMN_translator.g:425:7: this_HEAD_7= RULE_HEAD
+            	            {
+            	            this_HEAD_7=(Token)match(input,RULE_HEAD,FOLLOW_14); 
+
+            	            							newLeafNode(this_HEAD_7, grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_4_1_0_0());
+            	            						
+
+            	            }
+            	            break;
+            	        case 2 :
+            	            // InternalBPMN_translator.g:430:7: this_KEYWORDS_8= RULE_KEYWORDS
+            	            {
+            	            this_KEYWORDS_8=(Token)match(input,RULE_KEYWORDS,FOLLOW_14); 
+
+            	            							newLeafNode(this_KEYWORDS_8, grammarAccess.getOpenAccess().getKEYWORDSTerminalRuleCall_1_4_1_0_1());
+            	            						
+
+            	            }
+            	            break;
+
+            	    }
+
+            	    otherlv_9=(Token)match(input,20,FOLLOW_6); 
+
+            	    						newLeafNode(otherlv_9, grammarAccess.getOpenAccess().getEqualsSignKeyword_1_4_1_1());
             	    					
-            	    otherlv_8=(Token)match(input,16,FOLLOW_10); 
-
-            	    						newLeafNode(otherlv_8, grammarAccess.getOpenAccess().getEqualsSignKeyword_1_4_1_1());
-            	    					
-            	    // InternalBPMN_translator.g:497:6: ( (lv_value_9_0= RULE_STRING ) )
-            	    // InternalBPMN_translator.g:498:7: (lv_value_9_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:439:6: ( (lv_value_10_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:440:7: (lv_value_10_0= RULE_STRING )
             	    {
-            	    // InternalBPMN_translator.g:498:7: (lv_value_9_0= RULE_STRING )
-            	    // InternalBPMN_translator.g:499:8: lv_value_9_0= RULE_STRING
+            	    // InternalBPMN_translator.g:440:7: (lv_value_10_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:441:8: lv_value_10_0= RULE_STRING
             	    {
-            	    lv_value_9_0=(Token)match(input,RULE_STRING,FOLLOW_11); 
+            	    lv_value_10_0=(Token)match(input,RULE_STRING,FOLLOW_13); 
 
-            	    								newLeafNode(lv_value_9_0, grammarAccess.getOpenAccess().getValueSTRINGTerminalRuleCall_1_4_1_2_0());
+            	    								newLeafNode(lv_value_10_0, grammarAccess.getOpenAccess().getValueSTRINGTerminalRuleCall_1_4_1_2_0());
             	    							
 
             	    								if (current==null) {
@@ -1175,7 +1087,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    								addWithLastConsumed(
             	    									current,
             	    									"value",
-            	    									lv_value_9_0,
+            	    									lv_value_10_0,
             	    									"org.eclipse.xtext.common.Terminals.STRING");
             	    							
 
@@ -1192,88 +1104,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop6;
                 }
             } while (true);
 
-            otherlv_10=(Token)match(input,18,FOLLOW_12); 
+            otherlv_11=(Token)match(input,21,FOLLOW_2); 
 
-            				newLeafNode(otherlv_10, grammarAccess.getOpenAccess().getGreaterThanSignKeyword_1_5());
+            				newLeafNode(otherlv_11, grammarAccess.getOpenAccess().getGreaterThanSignKeyword_1_5());
             			
-
-            }
-
-            // InternalBPMN_translator.g:522:3: ( ruleData | ( (lv_prova_12_0= ruleOpening ) ) )
-            int alt9=2;
-            int LA9_0 = input.LA(1);
-
-            if ( ((LA9_0>=RULE_KEYWORDS && LA9_0<=RULE_BODY)) ) {
-                alt9=1;
-            }
-            else if ( (LA9_0==EOF||LA9_0==14||LA9_0==19) ) {
-                alt9=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
-
-                throw nvae;
-            }
-            switch (alt9) {
-                case 1 :
-                    // InternalBPMN_translator.g:523:4: ruleData
-                    {
-
-                    				newCompositeNode(grammarAccess.getOpenAccess().getDataParserRuleCall_2_0());
-                    			
-                    pushFollow(FOLLOW_2);
-                    ruleData();
-
-                    state._fsp--;
-
-
-                    				afterParserOrEnumRuleCall();
-                    			
-
-                    }
-                    break;
-                case 2 :
-                    // InternalBPMN_translator.g:531:4: ( (lv_prova_12_0= ruleOpening ) )
-                    {
-                    // InternalBPMN_translator.g:531:4: ( (lv_prova_12_0= ruleOpening ) )
-                    // InternalBPMN_translator.g:532:5: (lv_prova_12_0= ruleOpening )
-                    {
-                    // InternalBPMN_translator.g:532:5: (lv_prova_12_0= ruleOpening )
-                    // InternalBPMN_translator.g:533:6: lv_prova_12_0= ruleOpening
-                    {
-
-                    						newCompositeNode(grammarAccess.getOpenAccess().getProvaOpeningParserRuleCall_2_1_0());
-                    					
-                    pushFollow(FOLLOW_2);
-                    lv_prova_12_0=ruleOpening();
-
-                    state._fsp--;
-
-
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getOpenRule());
-                    						}
-                    						add(
-                    							current,
-                    							"prova",
-                    							lv_prova_12_0,
-                    							"org.xtext.BPMN_translator.Opening");
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
 
             }
 
@@ -1299,8 +1137,216 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleOpen"
 
 
+    // $ANTLR start "entryRuleSingleton"
+    // InternalBPMN_translator.g:468:1: entryRuleSingleton returns [EObject current=null] : iv_ruleSingleton= ruleSingleton EOF ;
+    public final EObject entryRuleSingleton() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleSingleton = null;
+
+
+        try {
+            // InternalBPMN_translator.g:468:50: (iv_ruleSingleton= ruleSingleton EOF )
+            // InternalBPMN_translator.g:469:2: iv_ruleSingleton= ruleSingleton EOF
+            {
+             newCompositeNode(grammarAccess.getSingletonRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleSingleton=ruleSingleton();
+
+            state._fsp--;
+
+             current =iv_ruleSingleton; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleSingleton"
+
+
+    // $ANTLR start "ruleSingleton"
+    // InternalBPMN_translator.g:475:1: ruleSingleton returns [EObject current=null] : ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>' ) ;
+    public final EObject ruleSingleton() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        Token this_HEAD_2=null;
+        Token otherlv_3=null;
+        Token this_KEYWORDS_4=null;
+        Token this_HEAD_5=null;
+        Token otherlv_6=null;
+        Token this_KEYWORDS_7=null;
+        Token otherlv_8=null;
+        Token lv_value_9_0=null;
+        Token otherlv_10=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalBPMN_translator.g:481:2: ( ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>' ) )
+            // InternalBPMN_translator.g:482:2: ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>' )
+            {
+            // InternalBPMN_translator.g:482:2: ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>' )
+            // InternalBPMN_translator.g:483:3: () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>'
+            {
+            // InternalBPMN_translator.g:483:3: ()
+            // InternalBPMN_translator.g:484:4: 
+            {
+
+            				current = forceCreateModelElement(
+            					grammarAccess.getSingletonAccess().getSingletonAction_0(),
+            					current);
+            			
+
+            }
+
+            // InternalBPMN_translator.g:490:3: (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* )
+            // InternalBPMN_translator.g:491:4: otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )*
+            {
+            otherlv_1=(Token)match(input,18,FOLLOW_4); 
+
+            				newLeafNode(otherlv_1, grammarAccess.getSingletonAccess().getLessThanSignKeyword_1_0());
+            			
+            this_HEAD_2=(Token)match(input,RULE_HEAD,FOLLOW_11); 
+
+            				newLeafNode(this_HEAD_2, grammarAccess.getSingletonAccess().getHEADTerminalRuleCall_1_1());
+            			
+            otherlv_3=(Token)match(input,19,FOLLOW_12); 
+
+            				newLeafNode(otherlv_3, grammarAccess.getSingletonAccess().getColonKeyword_1_2());
+            			
+            this_KEYWORDS_4=(Token)match(input,RULE_KEYWORDS,FOLLOW_15); 
+
+            				newLeafNode(this_KEYWORDS_4, grammarAccess.getSingletonAccess().getKEYWORDSTerminalRuleCall_1_3());
+            			
+            // InternalBPMN_translator.g:507:4: ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )*
+            loop7:
+            do {
+                int alt7=3;
+                int LA7_0 = input.LA(1);
+
+                if ( (LA7_0==RULE_HEAD) ) {
+                    alt7=1;
+                }
+                else if ( (LA7_0==RULE_KEYWORDS) ) {
+                    alt7=2;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // InternalBPMN_translator.g:508:5: (this_HEAD_5= RULE_HEAD otherlv_6= ':' )
+            	    {
+            	    // InternalBPMN_translator.g:508:5: (this_HEAD_5= RULE_HEAD otherlv_6= ':' )
+            	    // InternalBPMN_translator.g:509:6: this_HEAD_5= RULE_HEAD otherlv_6= ':'
+            	    {
+            	    this_HEAD_5=(Token)match(input,RULE_HEAD,FOLLOW_11); 
+
+            	    						newLeafNode(this_HEAD_5, grammarAccess.getSingletonAccess().getHEADTerminalRuleCall_1_4_0_0());
+            	    					
+            	    otherlv_6=(Token)match(input,19,FOLLOW_15); 
+
+            	    						newLeafNode(otherlv_6, grammarAccess.getSingletonAccess().getColonKeyword_1_4_0_1());
+            	    					
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // InternalBPMN_translator.g:519:5: (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) )
+            	    {
+            	    // InternalBPMN_translator.g:519:5: (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) )
+            	    // InternalBPMN_translator.g:520:6: this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) )
+            	    {
+            	    this_KEYWORDS_7=(Token)match(input,RULE_KEYWORDS,FOLLOW_14); 
+
+            	    						newLeafNode(this_KEYWORDS_7, grammarAccess.getSingletonAccess().getKEYWORDSTerminalRuleCall_1_4_1_0());
+            	    					
+            	    otherlv_8=(Token)match(input,20,FOLLOW_6); 
+
+            	    						newLeafNode(otherlv_8, grammarAccess.getSingletonAccess().getEqualsSignKeyword_1_4_1_1());
+            	    					
+            	    // InternalBPMN_translator.g:528:6: ( (lv_value_9_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:529:7: (lv_value_9_0= RULE_STRING )
+            	    {
+            	    // InternalBPMN_translator.g:529:7: (lv_value_9_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:530:8: lv_value_9_0= RULE_STRING
+            	    {
+            	    lv_value_9_0=(Token)match(input,RULE_STRING,FOLLOW_15); 
+
+            	    								newLeafNode(lv_value_9_0, grammarAccess.getSingletonAccess().getValueSTRINGTerminalRuleCall_1_4_1_2_0());
+            	    							
+
+            	    								if (current==null) {
+            	    									current = createModelElement(grammarAccess.getSingletonRule());
+            	    								}
+            	    								addWithLastConsumed(
+            	    									current,
+            	    									"value",
+            	    									lv_value_9_0,
+            	    									"org.eclipse.xtext.common.Terminals.STRING");
+            	    							
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
+
+
+            }
+
+            otherlv_10=(Token)match(input,22,FOLLOW_2); 
+
+            			newLeafNode(otherlv_10, grammarAccess.getSingletonAccess().getSolidusGreaterThanSignKeyword_2());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleSingleton"
+
+
     // $ANTLR start "entryRuleClose"
-    // InternalBPMN_translator.g:555:1: entryRuleClose returns [EObject current=null] : iv_ruleClose= ruleClose EOF ;
+    // InternalBPMN_translator.g:557:1: entryRuleClose returns [EObject current=null] : iv_ruleClose= ruleClose EOF ;
     public final EObject entryRuleClose() throws RecognitionException {
         EObject current = null;
 
@@ -1308,8 +1354,8 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBPMN_translator.g:555:46: (iv_ruleClose= ruleClose EOF )
-            // InternalBPMN_translator.g:556:2: iv_ruleClose= ruleClose EOF
+            // InternalBPMN_translator.g:557:46: (iv_ruleClose= ruleClose EOF )
+            // InternalBPMN_translator.g:558:2: iv_ruleClose= ruleClose EOF
             {
              newCompositeNode(grammarAccess.getCloseRule()); 
             pushFollow(FOLLOW_1);
@@ -1336,7 +1382,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleClose"
-    // InternalBPMN_translator.g:562:1: ruleClose returns [EObject current=null] : ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) ) ;
+    // InternalBPMN_translator.g:564:1: ruleClose returns [EObject current=null] : ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) ) ;
     public final EObject ruleClose() throws RecognitionException {
         EObject current = null;
 
@@ -1350,14 +1396,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBPMN_translator.g:568:2: ( ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) ) )
-            // InternalBPMN_translator.g:569:2: ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) )
+            // InternalBPMN_translator.g:570:2: ( ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) ) )
+            // InternalBPMN_translator.g:571:2: ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) )
             {
-            // InternalBPMN_translator.g:569:2: ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) )
-            // InternalBPMN_translator.g:570:3: () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' )
+            // InternalBPMN_translator.g:571:2: ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) )
+            // InternalBPMN_translator.g:572:3: () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' )
             {
-            // InternalBPMN_translator.g:570:3: ()
-            // InternalBPMN_translator.g:571:4: 
+            // InternalBPMN_translator.g:572:3: ()
+            // InternalBPMN_translator.g:573:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1367,26 +1413,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBPMN_translator.g:577:3: (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' )
-            // InternalBPMN_translator.g:578:4: otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>'
+            // InternalBPMN_translator.g:579:3: (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' )
+            // InternalBPMN_translator.g:580:4: otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>'
             {
-            otherlv_1=(Token)match(input,19,FOLLOW_5); 
+            otherlv_1=(Token)match(input,23,FOLLOW_4); 
 
             				newLeafNode(otherlv_1, grammarAccess.getCloseAccess().getLessThanSignSolidusKeyword_1_0());
             			
-            this_HEAD_2=(Token)match(input,RULE_HEAD,FOLLOW_6); 
+            this_HEAD_2=(Token)match(input,RULE_HEAD,FOLLOW_11); 
 
             				newLeafNode(this_HEAD_2, grammarAccess.getCloseAccess().getHEADTerminalRuleCall_1_1());
             			
-            otherlv_3=(Token)match(input,15,FOLLOW_7); 
+            otherlv_3=(Token)match(input,19,FOLLOW_12); 
 
             				newLeafNode(otherlv_3, grammarAccess.getCloseAccess().getColonKeyword_1_2());
             			
-            this_KEYWORDS_4=(Token)match(input,RULE_KEYWORDS,FOLLOW_13); 
+            this_KEYWORDS_4=(Token)match(input,RULE_KEYWORDS,FOLLOW_16); 
 
             				newLeafNode(this_KEYWORDS_4, grammarAccess.getCloseAccess().getKEYWORDSTerminalRuleCall_1_3());
             			
-            otherlv_5=(Token)match(input,18,FOLLOW_2); 
+            otherlv_5=(Token)match(input,21,FOLLOW_2); 
 
             				newLeafNode(otherlv_5, grammarAccess.getCloseAccess().getGreaterThanSignKeyword_1_4());
             			
@@ -1417,86 +1463,68 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
     // Delegated rules
 
 
-    protected DFA6 dfa6 = new DFA6(this);
-    protected DFA1 dfa1 = new DFA1(this);
+    protected DFA3 dfa3 = new DFA3(this);
     static final String dfa_1s = "\14\uffff";
-    static final String dfa_2s = "\1\2\13\uffff";
-    static final String dfa_3s = "\1\16\1\4\1\uffff\1\17\1\5\1\4\1\17\1\20\1\uffff\1\4\1\6\1\4";
-    static final String dfa_4s = "\1\23\1\4\1\uffff\1\17\1\5\1\22\1\17\1\20\1\uffff\1\22\1\6\1\22";
-    static final String dfa_5s = "\2\uffff\1\2\5\uffff\1\1\3\uffff";
-    static final String dfa_6s = "\14\uffff}>";
-    static final String[] dfa_7s = {
-            "\1\1\4\uffff\1\2",
+    static final String dfa_2s = "\1\22\1\4\1\23\1\7\1\4\1\23\1\24\2\uffff\1\4\1\5\1\4";
+    static final String dfa_3s = "\1\22\1\4\1\23\1\7\1\26\2\24\2\uffff\1\26\1\5\1\26";
+    static final String dfa_4s = "\7\uffff\1\1\1\2\3\uffff";
+    static final String dfa_5s = "\14\uffff}>";
+    static final String[] dfa_6s = {
+            "\1\1",
+            "\1\2",
             "\1\3",
-            "",
             "\1\4",
-            "\1\5",
-            "\1\6\1\7\13\uffff\1\2\1\10",
-            "\1\11",
+            "\1\5\2\uffff\1\6\15\uffff\1\7\1\10",
+            "\1\11\1\7",
             "\1\12",
             "",
-            "\1\6\1\7\13\uffff\1\2\1\10",
+            "",
+            "\1\5\2\uffff\1\6\15\uffff\1\7\1\10",
             "\1\13",
-            "\1\6\1\7\13\uffff\1\2\1\10"
+            "\1\5\2\uffff\1\6\15\uffff\1\7\1\10"
     };
 
     static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
-    static final short[] dfa_2 = DFA.unpackEncodedString(dfa_2s);
+    static final char[] dfa_2 = DFA.unpackEncodedStringToUnsignedChars(dfa_2s);
     static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
-    static final char[] dfa_4 = DFA.unpackEncodedStringToUnsignedChars(dfa_4s);
+    static final short[] dfa_4 = DFA.unpackEncodedString(dfa_4s);
     static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
-    static final short[] dfa_6 = DFA.unpackEncodedString(dfa_6s);
-    static final short[][] dfa_7 = unpackEncodedStringArray(dfa_7s);
+    static final short[][] dfa_6 = unpackEncodedStringArray(dfa_6s);
 
-    class DFA6 extends DFA {
+    class DFA3 extends DFA {
 
-        public DFA6(BaseRecognizer recognizer) {
+        public DFA3(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 6;
+            this.decisionNumber = 3;
             this.eot = dfa_1;
-            this.eof = dfa_2;
-            this.min = dfa_3;
-            this.max = dfa_4;
-            this.accept = dfa_5;
-            this.special = dfa_6;
-            this.transition = dfa_7;
+            this.eof = dfa_1;
+            this.min = dfa_2;
+            this.max = dfa_3;
+            this.accept = dfa_4;
+            this.special = dfa_5;
+            this.transition = dfa_6;
         }
         public String getDescription() {
-            return "159:2: ( ( () ( ( ( (lv_Prova_1_0= ruleOpen ) ) ( (lv_Prova1_2_0= ruleClose ) ) ) ( ( (lv_Prova_3_0= ruleOpen ) ) ( (lv_Prova1_4_0= ruleClose ) ) )* ( (otherlv_5= '<' this_HEAD_6= RULE_HEAD otherlv_7= ':' this_KEYWORDS_8= RULE_KEYWORDS ( (this_HEAD_9= RULE_HEAD otherlv_10= ':' ) | (this_KEYWORDS_11= RULE_KEYWORDS otherlv_12= '=' ( (lv_value_13_0= RULE_STRING ) ) ) )* ) otherlv_14= '/>' )* ) ) | ( () ( (otherlv_16= '<' this_HEAD_17= RULE_HEAD otherlv_18= ':' this_KEYWORDS_19= RULE_KEYWORDS ( (this_HEAD_20= RULE_HEAD otherlv_21= ':' ) | (this_KEYWORDS_22= RULE_KEYWORDS otherlv_23= '=' ( (lv_value_24_0= RULE_STRING ) ) ) )* ) otherlv_25= '/>' )* ) )";
-        }
-    }
-
-    class DFA1 extends DFA {
-
-        public DFA1(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 1;
-            this.eot = dfa_1;
-            this.eof = dfa_2;
-            this.min = dfa_3;
-            this.max = dfa_4;
-            this.accept = dfa_5;
-            this.special = dfa_6;
-            this.transition = dfa_7;
-        }
-        public String getDescription() {
-            return "()* loopback of 209:5: ( ( (lv_Prova_3_0= ruleOpen ) ) ( (lv_Prova1_4_0= ruleClose ) ) )*";
+            return "228:2: ( (this_Open_0= ruleOpen ( (lv_contents_1_0= rulecontent ) ) ( (lv_close_tag_2_0= ruleClose ) ) ) | ( () ( (lv_singleton_tag_4_0= ruleSingleton ) ) ) )";
         }
     }
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000020030L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040030L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x00000000000040E0L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x00000000008400E0L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000000400E2L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000200090L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000400090L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000200000L});
 
 }

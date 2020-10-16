@@ -3,22 +3,59 @@
  */
 package org.xtext.bPMN_translator.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import java.util.Collection;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
+import org.xtext.bPMN_translator.Close;
 import org.xtext.bPMN_translator.Open;
+import org.xtext.bPMN_translator.content;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Open</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.bPMN_translator.impl.OpenImpl#getContents <em>Contents</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.OpenImpl#getClose_tag <em>Close tag</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class OpenImpl extends MinimalEObjectImpl.Container implements Open
+public class OpenImpl extends elementImpl implements Open
 {
+  /**
+   * The cached value of the '{@link #getContents() <em>Contents</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContents()
+   * @generated
+   * @ordered
+   */
+  protected EList<content> contents;
+
+  /**
+   * The cached value of the '{@link #getClose_tag() <em>Close tag</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClose_tag()
+   * @generated
+   * @ordered
+   */
+  protected EList<Close> close_tag;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +75,133 @@ public class OpenImpl extends MinimalEObjectImpl.Container implements Open
   protected EClass eStaticClass()
   {
     return BPMN_translatorPackage.Literals.OPEN;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<content> getContents()
+  {
+    if (contents == null)
+    {
+      contents = new EObjectContainmentEList<content>(content.class, this, BPMN_translatorPackage.OPEN__CONTENTS);
+    }
+    return contents;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Close> getClose_tag()
+  {
+    if (close_tag == null)
+    {
+      close_tag = new EObjectContainmentEList<Close>(Close.class, this, BPMN_translatorPackage.OPEN__CLOSE_TAG);
+    }
+    return close_tag;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case BPMN_translatorPackage.OPEN__CONTENTS:
+        return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
+      case BPMN_translatorPackage.OPEN__CLOSE_TAG:
+        return ((InternalEList<?>)getClose_tag()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case BPMN_translatorPackage.OPEN__CONTENTS:
+        return getContents();
+      case BPMN_translatorPackage.OPEN__CLOSE_TAG:
+        return getClose_tag();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case BPMN_translatorPackage.OPEN__CONTENTS:
+        getContents().clear();
+        getContents().addAll((Collection<? extends content>)newValue);
+        return;
+      case BPMN_translatorPackage.OPEN__CLOSE_TAG:
+        getClose_tag().clear();
+        getClose_tag().addAll((Collection<? extends Close>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case BPMN_translatorPackage.OPEN__CONTENTS:
+        getContents().clear();
+        return;
+      case BPMN_translatorPackage.OPEN__CLOSE_TAG:
+        getClose_tag().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case BPMN_translatorPackage.OPEN__CONTENTS:
+        return contents != null && !contents.isEmpty();
+      case BPMN_translatorPackage.OPEN__CLOSE_TAG:
+        return close_tag != null && !close_tag.isEmpty();
+    }
+    return super.eIsSet(featureID);
   }
 
 } //OpenImpl

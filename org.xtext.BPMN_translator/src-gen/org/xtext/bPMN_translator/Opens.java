@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.bPMN_translator.Opens#getValue <em>Value</em>}</li>
- *   <li>{@link org.xtext.bPMN_translator.Opens#getProva <em>Prova</em>}</li>
  * </ul>
  *
  * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getOpens()
@@ -35,17 +34,5 @@ public interface Opens extends Open
    * @generated
    */
   EList<String> getValue();
-
-  /**
-   * Returns the value of the '<em><b>Prova</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.bPMN_translator.Opening}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Prova</em>' containment reference list.
-   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getOpens_Prova()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Opening> getProva();
 
 } // Opens

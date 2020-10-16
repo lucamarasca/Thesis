@@ -31,27 +31,16 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, BPMN_translatorGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getOpeningAccess().getAlternatives(), "rule__Opening__Alternatives");
-			builder.put(grammarAccess.getOpeningAccess().getAlternatives_0_1_2_0_4(), "rule__Opening__Alternatives_0_1_2_0_4");
-			builder.put(grammarAccess.getOpeningAccess().getAlternatives_1_1_0_4(), "rule__Opening__Alternatives_1_1_0_4");
-			builder.put(grammarAccess.getDataAccess().getAlternatives(), "rule__Data__Alternatives");
+			builder.put(grammarAccess.getElementAccess().getAlternatives(), "rule__Element__Alternatives");
+			builder.put(grammarAccess.getContentAccess().getAlternatives_1(), "rule__Content__Alternatives_1");
 			builder.put(grammarAccess.getOpenAccess().getAlternatives_1_4(), "rule__Open__Alternatives_1_4");
-			builder.put(grammarAccess.getOpenAccess().getAlternatives_2(), "rule__Open__Alternatives_2");
+			builder.put(grammarAccess.getOpenAccess().getAlternatives_1_4_1_0(), "rule__Open__Alternatives_1_4_1_0");
 			builder.put(grammarAccess.getSingletonAccess().getAlternatives_1_4(), "rule__Singleton__Alternatives_1_4");
 			builder.put(grammarAccess.getXmlAccess().getGroup(), "rule__Xml__Group__0");
-			builder.put(grammarAccess.getOpeningAccess().getGroup_0(), "rule__Opening__Group_0__0");
-			builder.put(grammarAccess.getOpeningAccess().getGroup_0_1(), "rule__Opening__Group_0_1__0");
-			builder.put(grammarAccess.getOpeningAccess().getGroup_0_1_0(), "rule__Opening__Group_0_1_0__0");
-			builder.put(grammarAccess.getOpeningAccess().getGroup_0_1_1(), "rule__Opening__Group_0_1_1__0");
-			builder.put(grammarAccess.getOpeningAccess().getGroup_0_1_2(), "rule__Opening__Group_0_1_2__0");
-			builder.put(grammarAccess.getOpeningAccess().getGroup_0_1_2_0(), "rule__Opening__Group_0_1_2_0__0");
-			builder.put(grammarAccess.getOpeningAccess().getGroup_0_1_2_0_4_0(), "rule__Opening__Group_0_1_2_0_4_0__0");
-			builder.put(grammarAccess.getOpeningAccess().getGroup_0_1_2_0_4_1(), "rule__Opening__Group_0_1_2_0_4_1__0");
-			builder.put(grammarAccess.getOpeningAccess().getGroup_1(), "rule__Opening__Group_1__0");
-			builder.put(grammarAccess.getOpeningAccess().getGroup_1_1(), "rule__Opening__Group_1_1__0");
-			builder.put(grammarAccess.getOpeningAccess().getGroup_1_1_0(), "rule__Opening__Group_1_1_0__0");
-			builder.put(grammarAccess.getOpeningAccess().getGroup_1_1_0_4_0(), "rule__Opening__Group_1_1_0_4_0__0");
-			builder.put(grammarAccess.getOpeningAccess().getGroup_1_1_0_4_1(), "rule__Opening__Group_1_1_0_4_1__0");
+			builder.put(grammarAccess.getPrologAccess().getGroup(), "rule__Prolog__Group__0");
+			builder.put(grammarAccess.getElementAccess().getGroup_0(), "rule__Element__Group_0__0");
+			builder.put(grammarAccess.getElementAccess().getGroup_1(), "rule__Element__Group_1__0");
+			builder.put(grammarAccess.getContentAccess().getGroup(), "rule__Content__Group__0");
 			builder.put(grammarAccess.getOpenAccess().getGroup(), "rule__Open__Group__0");
 			builder.put(grammarAccess.getOpenAccess().getGroup_1(), "rule__Open__Group_1__0");
 			builder.put(grammarAccess.getOpenAccess().getGroup_1_4_0(), "rule__Open__Group_1_4_0__0");
@@ -63,15 +52,12 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCloseAccess().getGroup(), "rule__Close__Group__0");
 			builder.put(grammarAccess.getCloseAccess().getGroup_1(), "rule__Close__Group_1__0");
 			builder.put(grammarAccess.getModelAccess().getModelAssignment(), "rule__Model__ModelAssignment");
-			builder.put(grammarAccess.getXmlAccess().getOpening_tagAssignment_1(), "rule__Xml__Opening_tagAssignment_1");
-			builder.put(grammarAccess.getOpeningAccess().getProvaAssignment_0_1_0_0(), "rule__Opening__ProvaAssignment_0_1_0_0");
-			builder.put(grammarAccess.getOpeningAccess().getProva1Assignment_0_1_0_1(), "rule__Opening__Prova1Assignment_0_1_0_1");
-			builder.put(grammarAccess.getOpeningAccess().getProvaAssignment_0_1_1_0(), "rule__Opening__ProvaAssignment_0_1_1_0");
-			builder.put(grammarAccess.getOpeningAccess().getProva1Assignment_0_1_1_1(), "rule__Opening__Prova1Assignment_0_1_1_1");
-			builder.put(grammarAccess.getOpeningAccess().getValueAssignment_0_1_2_0_4_1_2(), "rule__Opening__ValueAssignment_0_1_2_0_4_1_2");
-			builder.put(grammarAccess.getOpeningAccess().getValueAssignment_1_1_0_4_1_2(), "rule__Opening__ValueAssignment_1_1_0_4_1_2");
+			builder.put(grammarAccess.getXmlAccess().getProvaAssignment_2(), "rule__Xml__ProvaAssignment_2");
+			builder.put(grammarAccess.getElementAccess().getContentsAssignment_0_1(), "rule__Element__ContentsAssignment_0_1");
+			builder.put(grammarAccess.getElementAccess().getClose_tagAssignment_0_2(), "rule__Element__Close_tagAssignment_0_2");
+			builder.put(grammarAccess.getElementAccess().getSingleton_tagAssignment_1_1(), "rule__Element__Singleton_tagAssignment_1_1");
+			builder.put(grammarAccess.getContentAccess().getProvaAssignment_1_0(), "rule__Content__ProvaAssignment_1_0");
 			builder.put(grammarAccess.getOpenAccess().getValueAssignment_1_4_1_2(), "rule__Open__ValueAssignment_1_4_1_2");
-			builder.put(grammarAccess.getOpenAccess().getProvaAssignment_2_1(), "rule__Open__ProvaAssignment_2_1");
 			builder.put(grammarAccess.getSingletonAccess().getValueAssignment_1_4_1_2(), "rule__Singleton__ValueAssignment_1_4_1_2");
 		}
 	}

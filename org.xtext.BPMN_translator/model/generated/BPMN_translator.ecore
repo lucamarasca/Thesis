@@ -7,18 +7,23 @@
         eType="#//Xml" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Xml">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="opening_tag" upperBound="-1"
-        eType="#//Opening" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prova" upperBound="-1"
+        eType="#//element" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Opening">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Prova" upperBound="-1"
-        eType="#//Open" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Prova1" upperBound="-1"
+  <eClassifiers xsi:type="ecore:EClass" name="element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="singleton_tag" upperBound="-1"
+        eType="#//Singleton" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="content">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prova" upperBound="-1"
+        eType="#//element" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Open" eSuperTypes="#//element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        eType="#//content" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="close_tag" upperBound="-1"
         eType="#//Close" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Open"/>
   <eClassifiers xsi:type="ecore:EClass" name="Singleton">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -27,7 +32,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="Opens" eSuperTypes="#//Open">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="prova" upperBound="-1"
-        eType="#//Opening" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
