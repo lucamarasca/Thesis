@@ -54,7 +54,7 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	}
 	
 	/**
-	 * terminal BODY returns ecore::EString : ('a'..'z'|'A'..'Z'|INT|'_')* ;
+	 * terminal BODY returns ecore::EString : ('a'..'z'|'A'..'Z'|'è'|'ò'|INT|'_')* ;
 	 */
 	protected String getBODYToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -74,20 +74,20 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	}
 	
 	/**
-	 * terminal KEYWORDS: "id" | "name" |  "isExecutable" | "sourceRef" | "processRef" | "targetRef"
-	 * 	| "calledElement" | "type" | "expression" | "value" | "resultVariable" | "asyncBefore"
-	 * 	| "class" | "event" | "startEvent"| "task" | "messageEventDefinition" | "sequenceFlow" 
-	 * 	| "condition" | "association" | "outgoing" | "serviceTask" | "process"
-	 * 	| "incoming" | "intermediateCatchEvent" | "conditionalEventDefinition"|"isMarkerVisible"
-	 * 	| "endEvent" | "textAnnotation" | "text" | "dataStoreReference" | "bpmnElement"
-	 * 	| "callActivity" | "laneSet" | "lane" | "flowNodeRef" |"definitions"
-	 * 	| "dataOutputAssociation" | "exclusiveGateway" | "waypoint" | "BPMNLabel"
-	 * 	| "extensionElements" | "inputOutput" | "list" | "inputParameter" | "height"
-	 * 	| "outputParameter" |  "properties" | "property" | "BPMNShape" | "Bounds"
-	 * 	| "field" | "string" | "scriptTask" | "script" |"BPMNPlane" | "BPMNEdge"
-	 * 	| "executionListener" | "timerEventDefinition" | "timeDuration" | "width"
-	 * 	| "parallelGateway" | "collaboration" | "participant" | "targetNamespace"
-	 * 	| "BPMNDiagram"		| "exporter" | "exporterVersion" | "x" | "y"| "isHorizontal";
+	 * terminal KEYWORDS: "id" | "name" |  "isExecutable" | "sourceRef" | "processRef" | "targetRef" 
+	 * 	| "calledElement" | "type" | "expression" | "value" | "resultVariable" | "asyncBefore" | "intermediateThrowEvent"
+	 * 	| "class" | "event" | "startEvent"| "task" | "messageEventDefinition" | "sequenceFlow" | "isExpanded"
+	 * 	| "condition" | "association" | "outgoing" | "serviceTask" | "process" | "standardLoopCharacteristics"
+	 * 	| "incoming" | "intermediateCatchEvent" | "conditionalEventDefinition"|"isMarkerVisible" | "terminateEventDefinition"
+	 * 	| "endEvent" | "textAnnotation" | "text" | "dataStoreReference" | "bpmnElement" | "dataObjectReference"
+	 * 	| "callActivity" | "laneSet" | "lane" | "flowNodeRef" |"definitions" | "userTask" | "documentation"
+	 * 	| "dataOutputAssociation" | "exclusiveGateway" | "waypoint" | "BPMNLabel" | "diagramRelationId"
+	 * 	| "extensionElements" | "inputOutput" | "list" | "inputParameter" | "height" | "messageFlow" | "dataObjectRef"
+	 * 	| "outputParameter" |  "properties" | "property" | "BPMNShape" | "Bounds" | "subProcess" | "cancelActivity"
+	 * 	| "field" | "string" | "scriptTask" | "script" |"BPMNPlane" | "BPMNEdge" | "sendTask" | "boundaryEvent"
+	 * 	| "executionListener" | "timerEventDefinition" | "timeDuration" | "width" | "dataInputAssociation"
+	 * 	| "parallelGateway" | "collaboration" | "participant" | "targetNamespace" | "dataObject" | "signalEventDefinition"
+	 * 	| "BPMNDiagram"		| "exporter" | "exporterVersion" | "x" | "y"| "isHorizontal" | "attachedToRef";
 	 */
 	protected String getKEYWORDSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
