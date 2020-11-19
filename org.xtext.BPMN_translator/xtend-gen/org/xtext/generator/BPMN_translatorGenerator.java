@@ -3,10 +3,14 @@
  */
 package org.xtext.generator;
 
+import com.google.common.collect.Iterators;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.bPMN_translator.Model;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +21,18 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class BPMN_translatorGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    System.out.println("Do Generate è stato chiamato");
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      Iterable<Model> _iterable = IteratorExtensions.<Model>toIterable(Iterators.<Model>filter(resource.getAllContents(), Model.class));
+      for(final Model state : _iterable) {
+        _builder.append("Model ");
+        String _name = Model.class.getName();
+        _builder.append(_name);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    fsa.generateFile("a.txt", _builder);
+    System.out.println("Do Generate è finitooooo");
   }
 }

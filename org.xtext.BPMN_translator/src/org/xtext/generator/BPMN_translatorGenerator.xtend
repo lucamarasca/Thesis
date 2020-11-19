@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.bPMN_translator.Model
 
 /**
  * Generates code from your model files on save.
@@ -16,10 +17,12 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class BPMN_translatorGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		System.out.println("Do Generate è stato chiamato");
+		fsa.generateFile("a.txt", '''
+            «FOR state : resource.allContents.filter(Model).toIterable»
+                Model «Model.name»
+            «ENDFOR»
+        ''')
+        System.out.println("Do Generate è finitooooo");
 	}
 }
