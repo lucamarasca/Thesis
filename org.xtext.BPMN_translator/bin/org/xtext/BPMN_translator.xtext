@@ -72,38 +72,3 @@ terminal KEYWORDS: "id" | "name" |  "isExecutable" | "sourceRef" | "processRef" 
 
 terminal BODY returns ecore::EString : ('a'..'z'|'A'..'Z'|'è'|'ò'|INT|'_')* ;
 
-
-
-Statemachine :
-	{Statemachine}
-	('events'
-		events+=Event+
-	'end')?
-	('resetEvents'
-		resetEvents+=[Event]+
-	'end')?
-	('commands'
-		commands+=Command+
-	'end')?
-	states+=State*
-;
-
-Event:
-	name=ID code=ID
-;
-
-Command:
-	name=ID code=ID
-;
-
-State:
-	'state' name=ID
-		('actions' '{' actions+=[Command]+ '}')?
-		transitions+=Transition*
-	'end'
-;
-
-Transition:
-	event=[Event] '=>' state=[State]
-;
- 

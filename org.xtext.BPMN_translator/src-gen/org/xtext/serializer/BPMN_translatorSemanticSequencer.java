@@ -11,19 +11,12 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
 import org.xtext.bPMN_translator.Close;
-import org.xtext.bPMN_translator.Command;
-import org.xtext.bPMN_translator.Event;
 import org.xtext.bPMN_translator.Model;
 import org.xtext.bPMN_translator.Opens;
 import org.xtext.bPMN_translator.Singleton;
-import org.xtext.bPMN_translator.State;
-import org.xtext.bPMN_translator.Statemachine;
-import org.xtext.bPMN_translator.Transition;
 import org.xtext.bPMN_translator.Xml;
 import org.xtext.bPMN_translator.content;
 import org.xtext.bPMN_translator.element;
@@ -46,12 +39,6 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 			case BPMN_translatorPackage.CLOSE:
 				sequence_Close(context, (Close) semanticObject); 
 				return; 
-			case BPMN_translatorPackage.COMMAND:
-				sequence_Command(context, (Command) semanticObject); 
-				return; 
-			case BPMN_translatorPackage.EVENT:
-				sequence_Event(context, (Event) semanticObject); 
-				return; 
 			case BPMN_translatorPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
@@ -67,15 +54,6 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 				else break;
 			case BPMN_translatorPackage.SINGLETON:
 				sequence_Singleton(context, (Singleton) semanticObject); 
-				return; 
-			case BPMN_translatorPackage.STATE:
-				sequence_State(context, (State) semanticObject); 
-				return; 
-			case BPMN_translatorPackage.STATEMACHINE:
-				sequence_Statemachine(context, (Statemachine) semanticObject); 
-				return; 
-			case BPMN_translatorPackage.TRANSITION:
-				sequence_Transition(context, (Transition) semanticObject); 
 				return; 
 			case BPMN_translatorPackage.XML:
 				sequence_Xml(context, (Xml) semanticObject); 
@@ -100,48 +78,6 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 */
 	protected void sequence_Close(ISerializationContext context, Close semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Command returns Command
-	 *
-	 * Constraint:
-	 *     (name=ID code=ID)
-	 */
-	protected void sequence_Command(ISerializationContext context, Command semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BPMN_translatorPackage.Literals.COMMAND__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BPMN_translatorPackage.Literals.COMMAND__NAME));
-			if (transientValues.isValueTransient(semanticObject, BPMN_translatorPackage.Literals.COMMAND__CODE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BPMN_translatorPackage.Literals.COMMAND__CODE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCommandAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getCommandAccess().getCodeIDTerminalRuleCall_1_0(), semanticObject.getCode());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Event returns Event
-	 *
-	 * Constraint:
-	 *     (name=ID code=ID)
-	 */
-	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BPMN_translatorPackage.Literals.EVENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BPMN_translatorPackage.Literals.EVENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, BPMN_translatorPackage.Literals.EVENT__CODE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BPMN_translatorPackage.Literals.EVENT__CODE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEventAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getEventAccess().getCodeIDTerminalRuleCall_1_0(), semanticObject.getCode());
-		feeder.finish();
 	}
 	
 	
@@ -190,51 +126,6 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 */
 	protected void sequence_Singleton(ISerializationContext context, Singleton semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     State returns State
-	 *
-	 * Constraint:
-	 *     (name=ID actions+=[Command|ID]* transitions+=Transition*)
-	 */
-	protected void sequence_State(ISerializationContext context, State semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Statemachine returns Statemachine
-	 *
-	 * Constraint:
-	 *     (events+=Event* resetEvents+=[Event|ID]* commands+=Command* states+=State*)
-	 */
-	protected void sequence_Statemachine(ISerializationContext context, Statemachine semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Transition returns Transition
-	 *
-	 * Constraint:
-	 *     (event=[Event|ID] state=[State|ID])
-	 */
-	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, BPMN_translatorPackage.Literals.TRANSITION__EVENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BPMN_translatorPackage.Literals.TRANSITION__EVENT));
-			if (transientValues.isValueTransient(semanticObject, BPMN_translatorPackage.Literals.TRANSITION__STATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BPMN_translatorPackage.Literals.TRANSITION__STATE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTransitionAccess().getEventEventIDTerminalRuleCall_0_0_1(), semanticObject.eGet(BPMN_translatorPackage.Literals.TRANSITION__EVENT, false));
-		feeder.accept(grammarAccess.getTransitionAccess().getStateStateIDTerminalRuleCall_2_0_1(), semanticObject.eGet(BPMN_translatorPackage.Literals.TRANSITION__STATE, false));
-		feeder.finish();
 	}
 	
 	

@@ -72,11 +72,6 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
       case BPMN_translatorPackage.OPEN: return createOpen();
       case BPMN_translatorPackage.SINGLETON: return createSingleton();
       case BPMN_translatorPackage.CLOSE: return createClose();
-      case BPMN_translatorPackage.STATEMACHINE: return createStatemachine();
-      case BPMN_translatorPackage.EVENT: return createEvent();
-      case BPMN_translatorPackage.COMMAND: return createCommand();
-      case BPMN_translatorPackage.STATE: return createState();
-      case BPMN_translatorPackage.TRANSITION: return createTransition();
       case BPMN_translatorPackage.OPENS: return createOpens();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -165,66 +160,6 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
   {
     CloseImpl close = new CloseImpl();
     return close;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Statemachine createStatemachine()
-  {
-    StatemachineImpl statemachine = new StatemachineImpl();
-    return statemachine;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Event createEvent()
-  {
-    EventImpl event = new EventImpl();
-    return event;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Command createCommand()
-  {
-    CommandImpl command = new CommandImpl();
-    return command;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public State createState()
-  {
-    StateImpl state = new StateImpl();
-    return state;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Transition createTransition()
-  {
-    TransitionImpl transition = new TransitionImpl();
-    return transition;
   }
 
   /**

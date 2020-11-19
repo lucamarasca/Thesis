@@ -26,29 +26,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Singleton/value"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//Close"/>
-    <genClasses ecoreClass="BPMN_translator.ecore#//Statemachine">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Statemachine/events"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Statemachine/resetEvents"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Statemachine/commands"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Statemachine/states"/>
-    </genClasses>
-    <genClasses ecoreClass="BPMN_translator.ecore#//Event">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Event/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Event/code"/>
-    </genClasses>
-    <genClasses ecoreClass="BPMN_translator.ecore#//Command">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Command/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Command/code"/>
-    </genClasses>
-    <genClasses ecoreClass="BPMN_translator.ecore#//State">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//State/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//State/actions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//State/transitions"/>
-    </genClasses>
-    <genClasses ecoreClass="BPMN_translator.ecore#//Transition">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Transition/event"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Transition/state"/>
-    </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//Opens">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Opens/value"/>
     </genClasses>

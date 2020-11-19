@@ -87,51 +87,6 @@ public interface BPMN_translatorFactory extends EFactory
   Close createClose();
 
   /**
-   * Returns a new object of class '<em>Statemachine</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Statemachine</em>'.
-   * @generated
-   */
-  Statemachine createStatemachine();
-
-  /**
-   * Returns a new object of class '<em>Event</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Event</em>'.
-   * @generated
-   */
-  Event createEvent();
-
-  /**
-   * Returns a new object of class '<em>Command</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Command</em>'.
-   * @generated
-   */
-  Command createCommand();
-
-  /**
-   * Returns a new object of class '<em>State</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>State</em>'.
-   * @generated
-   */
-  State createState();
-
-  /**
-   * Returns a new object of class '<em>Transition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Transition</em>'.
-   * @generated
-   */
-  Transition createTransition();
-
-  /**
    * Returns a new object of class '<em>Opens</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
