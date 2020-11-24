@@ -105,7 +105,6 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
       {
         Open open = (Open)theEObject;
         T result = caseOpen(open);
-        if (result == null) result = caseelement(open);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -123,12 +122,11 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BPMN_translatorPackage.OPENS:
+      case BPMN_translatorPackage.ELEMENT_VALUE:
       {
-        Opens opens = (Opens)theEObject;
-        T result = caseOpens(opens);
-        if (result == null) result = caseOpen(opens);
-        if (result == null) result = caseelement(opens);
+        element_value element_value = (element_value)theEObject;
+        T result = caseelement_value(element_value);
+        if (result == null) result = caseelement(element_value);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -249,17 +247,17 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Opens</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>element value</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Opens</em>'.
+   * @return the result of interpreting the object as an instance of '<em>element value</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseOpens(Opens object)
+  public T caseelement_value(element_value object)
   {
     return null;
   }

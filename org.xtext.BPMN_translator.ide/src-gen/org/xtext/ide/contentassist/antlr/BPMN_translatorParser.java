@@ -33,8 +33,8 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, BPMN_translatorGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getElementAccess().getAlternatives(), "rule__Element__Alternatives");
 			builder.put(grammarAccess.getContentAccess().getAlternatives_1(), "rule__Content__Alternatives_1");
-			builder.put(grammarAccess.getOpenAccess().getAlternatives_1_4(), "rule__Open__Alternatives_1_4");
-			builder.put(grammarAccess.getOpenAccess().getAlternatives_1_4_1_0(), "rule__Open__Alternatives_1_4_1_0");
+			builder.put(grammarAccess.getOpenAccess().getAlternatives_4(), "rule__Open__Alternatives_4");
+			builder.put(grammarAccess.getOpenAccess().getAlternatives_4_1_0(), "rule__Open__Alternatives_4_1_0");
 			builder.put(grammarAccess.getSingletonAccess().getAlternatives_1_4(), "rule__Singleton__Alternatives_1_4");
 			builder.put(grammarAccess.getXmlAccess().getGroup(), "rule__Xml__Group__0");
 			builder.put(grammarAccess.getPrologAccess().getGroup(), "rule__Prolog__Group__0");
@@ -42,9 +42,8 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getElementAccess().getGroup_1(), "rule__Element__Group_1__0");
 			builder.put(grammarAccess.getContentAccess().getGroup(), "rule__Content__Group__0");
 			builder.put(grammarAccess.getOpenAccess().getGroup(), "rule__Open__Group__0");
-			builder.put(grammarAccess.getOpenAccess().getGroup_1(), "rule__Open__Group_1__0");
-			builder.put(grammarAccess.getOpenAccess().getGroup_1_4_0(), "rule__Open__Group_1_4_0__0");
-			builder.put(grammarAccess.getOpenAccess().getGroup_1_4_1(), "rule__Open__Group_1_4_1__0");
+			builder.put(grammarAccess.getOpenAccess().getGroup_4_0(), "rule__Open__Group_4_0__0");
+			builder.put(grammarAccess.getOpenAccess().getGroup_4_1(), "rule__Open__Group_4_1__0");
 			builder.put(grammarAccess.getSingletonAccess().getGroup(), "rule__Singleton__Group__0");
 			builder.put(grammarAccess.getSingletonAccess().getGroup_1(), "rule__Singleton__Group_1__0");
 			builder.put(grammarAccess.getSingletonAccess().getGroup_1_4_0(), "rule__Singleton__Group_1_4_0__0");
@@ -53,11 +52,17 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCloseAccess().getGroup_1(), "rule__Close__Group_1__0");
 			builder.put(grammarAccess.getModelAccess().getModelAssignment(), "rule__Model__ModelAssignment");
 			builder.put(grammarAccess.getXmlAccess().getProvaAssignment_2(), "rule__Xml__ProvaAssignment_2");
+			builder.put(grammarAccess.getElementAccess().getOpenAssignment_0_0(), "rule__Element__OpenAssignment_0_0");
 			builder.put(grammarAccess.getElementAccess().getContentsAssignment_0_1(), "rule__Element__ContentsAssignment_0_1");
 			builder.put(grammarAccess.getElementAccess().getClose_tagAssignment_0_2(), "rule__Element__Close_tagAssignment_0_2");
 			builder.put(grammarAccess.getElementAccess().getSingleton_tagAssignment_1_1(), "rule__Element__Singleton_tagAssignment_1_1");
 			builder.put(grammarAccess.getContentAccess().getProvaAssignment_1_0(), "rule__Content__ProvaAssignment_1_0");
-			builder.put(grammarAccess.getOpenAccess().getValueAssignment_1_4_1_2(), "rule__Open__ValueAssignment_1_4_1_2");
+			builder.put(grammarAccess.getOpenAccess().getHeadAssignment_1(), "rule__Open__HeadAssignment_1");
+			builder.put(grammarAccess.getOpenAccess().getKeywordsAssignment_3(), "rule__Open__KeywordsAssignment_3");
+			builder.put(grammarAccess.getOpenAccess().getHead1Assignment_4_0_0(), "rule__Open__Head1Assignment_4_0_0");
+			builder.put(grammarAccess.getOpenAccess().getHead1Assignment_4_1_0_0(), "rule__Open__Head1Assignment_4_1_0_0");
+			builder.put(grammarAccess.getOpenAccess().getKeywords1Assignment_4_1_0_1(), "rule__Open__Keywords1Assignment_4_1_0_1");
+			builder.put(grammarAccess.getOpenAccess().getValueAssignment_4_1_2(), "rule__Open__ValueAssignment_4_1_2");
 			builder.put(grammarAccess.getSingletonAccess().getValueAssignment_1_4_1_2(), "rule__Singleton__ValueAssignment_1_4_1_2");
 		}
 	}

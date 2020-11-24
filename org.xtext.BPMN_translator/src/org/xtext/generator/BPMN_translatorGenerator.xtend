@@ -7,7 +7,9 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.xtext.bPMN_translator.Model
+import org.xtext.bPMN_translator.element
+import org.xtext.bPMN_translator.Open
+import java.util.ArrayList
 
 /**
  * Generates code from your model files on save.
@@ -15,14 +17,86 @@ import org.xtext.bPMN_translator.Model
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class BPMN_translatorGenerator extends AbstractGenerator {
+//++++++++++++++++++++++++++++++Costants++++++++++++++++++++++++++++++++++
+ArrayList<String> task_type;
 
+def Initialize(){
+	FillTaskType();
+ 
+}
+
+def FillTaskType(){
+	task_type = new ArrayList<String>();
+	task_type.addAll("task","sendTask", "receiveTask" , "userTask",
+		"manualTask" , "businessRuleTask" , "serviceTask" , "scriptTask" , 
+		"callActivity"
+	);
+}
+//++++++++++++++++++++++++++++++Generation++++++++++++++++++++++++++++++++
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		System.out.println("Do Generate è stato chiamato");
-		fsa.generateFile("a.txt", '''
-            «FOR state : resource.allContents.filter(Model).toIterable»
-                Model «Model.name»
-            «ENDFOR»
-        ''')
-        System.out.println("Do Generate è finitooooo");
+		Initialize();
+		fsa.generateFile("Main.ino", StaticMainFile() )
+		fsa.generateFile("GeneratedLib.h" , StaticLibHStart() + '''
+        «FOR element : resource.allContents.filter(element).toIterable»
+	        «FOR Open : element.open» 
+	        	«TaskToMethods(Open)»     
+	        «ENDFOR»
+        «ENDFOR»
+        ''' + StaticLibHEnd())
+		        
 	}
+	
+	def TaskToMethods(Open open_tag){
+		val type = "void";
+		
+		if(task_type.contains(open_tag.keywords.get(0))){
+			
+			return "\t" + type + " " + open_tag.value.get(getNamePosition(open_tag))
+			.replaceAll(" ", "_").toLowerCase() + "();"
+		}
+		
+	}
+//+++++++++++++++++++++++++++++++++OTHER METHODS++++++++++++++++++++++++++++++++++++
+def int getNamePosition(Open open_tag){
+	return open_tag.keywords1.lastIndexOf("name");
+}	
+	
+//++++++++++++++++++++++++++++++++STATIC PART OF THE GENERATED CODE++++++++++++++++++++++++++++++++++++	
+def StaticLibHStart(){
+	return
+	"
+#include \"Arduino.h\"        //includes the library Arduino.h
+#include \"SoftwareSerial.h\" //Includes the library SoftwareSerial.h
+//Used for defining static variables
+enum {
+	//rate of trnsmission
+	BAUND_RATE = 9600,
+};
+class MyBPMNClass {
+"
+}
+
+def StaticLibHEnd(){
+	return "}"
+}
+def StaticMainFile(){
+	return 
+	"
+#include <GeneratedLib.h>
+
+void setup()
+{
+  Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
+
+  while (!Serial)
+    ;
+}
+
+void loop()
+{
+
+}
+		";
+}
+	
 }

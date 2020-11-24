@@ -227,14 +227,25 @@ ruleelement returns [EObject current=null]
 }:
 	(
 		(
-			{
-				newCompositeNode(grammarAccess.getElementAccess().getOpenParserRuleCall_0_0());
-			}
-			this_Open_0=ruleOpen
-			{
-				$current = $this_Open_0.current;
-				afterParserOrEnumRuleCall();
-			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getElementAccess().getOpenOpenParserRuleCall_0_0_0());
+					}
+					lv_open_0_0=ruleOpen
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getElementRule());
+						}
+						add(
+							$current,
+							"open",
+							lv_open_0_0,
+							"org.xtext.BPMN_translator.Open");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 			(
 				(
 					{
@@ -279,7 +290,7 @@ ruleelement returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getElementAccess().getElementAction_1_0(),
+						grammarAccess.getElementAccess().getElement_valueAction_1_0(),
 						$current);
 				}
 			)
@@ -384,63 +395,83 @@ ruleOpen returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0='<'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getOpenAccess().getLessThanSignKeyword_0());
+		}
 		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getOpenAccess().getOpensAction_0(),
-					$current);
-			}
+			(
+				lv_head_1_0=RULE_HEAD
+				{
+					newLeafNode(lv_head_1_0, grammarAccess.getOpenAccess().getHeadHEADTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getOpenRule());
+					}
+					addWithLastConsumed(
+						$current,
+						"head",
+						lv_head_1_0,
+						"org.xtext.BPMN_translator.HEAD");
+				}
+			)
+		)
+		otherlv_2=':'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getOpenAccess().getColonKeyword_2());
+		}
+		(
+			(
+				lv_keywords_3_0=RULE_KEYWORDS
+				{
+					newLeafNode(lv_keywords_3_0, grammarAccess.getOpenAccess().getKeywordsKEYWORDSTerminalRuleCall_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getOpenRule());
+					}
+					addWithLastConsumed(
+						$current,
+						"keywords",
+						lv_keywords_3_0,
+						"org.xtext.BPMN_translator.KEYWORDS");
+				}
+			)
 		)
 		(
-			otherlv_1='<'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getOpenAccess().getLessThanSignKeyword_1_0());
-			}
-			this_HEAD_2=RULE_HEAD
-			{
-				newLeafNode(this_HEAD_2, grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_1());
-			}
-			otherlv_3=':'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getOpenAccess().getColonKeyword_1_2());
-			}
-			this_KEYWORDS_4=RULE_KEYWORDS
-			{
-				newLeafNode(this_KEYWORDS_4, grammarAccess.getOpenAccess().getKEYWORDSTerminalRuleCall_1_3());
-			}
 			(
 				(
-					this_HEAD_5=RULE_HEAD
-					{
-						newLeafNode(this_HEAD_5, grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_4_0_0());
-					}
-					otherlv_6=':'
-					{
-						newLeafNode(otherlv_6, grammarAccess.getOpenAccess().getColonKeyword_1_4_0_1());
-					}
-				)
-				    |
-				(
 					(
-						this_HEAD_7=RULE_HEAD
+						lv_head1_4_0=RULE_HEAD
 						{
-							newLeafNode(this_HEAD_7, grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_4_1_0_0());
+							newLeafNode(lv_head1_4_0, grammarAccess.getOpenAccess().getHead1HEADTerminalRuleCall_4_0_0_0());
 						}
-						    |
-						this_KEYWORDS_8=RULE_KEYWORDS
 						{
-							newLeafNode(this_KEYWORDS_8, grammarAccess.getOpenAccess().getKEYWORDSTerminalRuleCall_1_4_1_0_1());
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getOpenRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"head1",
+								lv_head1_4_0,
+								"org.xtext.BPMN_translator.HEAD");
 						}
 					)
-					otherlv_9='='
-					{
-						newLeafNode(otherlv_9, grammarAccess.getOpenAccess().getEqualsSignKeyword_1_4_1_1());
-					}
+				)
+				otherlv_5=':'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getOpenAccess().getColonKeyword_4_0_1());
+				}
+			)
+			    |
+			(
+				(
 					(
 						(
-							lv_value_10_0=RULE_STRING
+							lv_head1_6_0=RULE_HEAD
 							{
-								newLeafNode(lv_value_10_0, grammarAccess.getOpenAccess().getValueSTRINGTerminalRuleCall_1_4_1_2_0());
+								newLeafNode(lv_head1_6_0, grammarAccess.getOpenAccess().getHead1HEADTerminalRuleCall_4_1_0_0_0());
 							}
 							{
 								if ($current==null) {
@@ -448,19 +479,60 @@ ruleOpen returns [EObject current=null]
 								}
 								addWithLastConsumed(
 									$current,
-									"value",
-									lv_value_10_0,
-									"org.eclipse.xtext.common.Terminals.STRING");
+									"head1",
+									lv_head1_6_0,
+									"org.xtext.BPMN_translator.HEAD");
+							}
+						)
+					)
+					    |
+					(
+						(
+							lv_keywords1_7_0=RULE_KEYWORDS
+							{
+								newLeafNode(lv_keywords1_7_0, grammarAccess.getOpenAccess().getKeywords1KEYWORDSTerminalRuleCall_4_1_0_1_0());
+							}
+							{
+								if ($current==null) {
+									$current = createModelElement(grammarAccess.getOpenRule());
+								}
+								addWithLastConsumed(
+									$current,
+									"keywords1",
+									lv_keywords1_7_0,
+									"org.xtext.BPMN_translator.KEYWORDS");
 							}
 						)
 					)
 				)
-			)*
-			otherlv_11='>'
-			{
-				newLeafNode(otherlv_11, grammarAccess.getOpenAccess().getGreaterThanSignKeyword_1_5());
-			}
-		)
+				otherlv_8='='
+				{
+					newLeafNode(otherlv_8, grammarAccess.getOpenAccess().getEqualsSignKeyword_4_1_1());
+				}
+				(
+					(
+						lv_value_9_0=RULE_STRING
+						{
+							newLeafNode(lv_value_9_0, grammarAccess.getOpenAccess().getValueSTRINGTerminalRuleCall_4_1_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getOpenRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"value",
+								lv_value_9_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+		)*
+		otherlv_10='>'
+		{
+			newLeafNode(otherlv_10, grammarAccess.getOpenAccess().getGreaterThanSignKeyword_5());
+		}
 	)
 ;
 

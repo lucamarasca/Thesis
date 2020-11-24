@@ -5,6 +5,8 @@ package org.xtext.bPMN_translator;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Open</b></em>'.
@@ -14,38 +16,77 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.bPMN_translator.Open#getContents <em>Contents</em>}</li>
- *   <li>{@link org.xtext.bPMN_translator.Open#getClose_tag <em>Close tag</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.Open#getHead <em>Head</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.Open#getKeywords <em>Keywords</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.Open#getHead1 <em>Head1</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.Open#getKeywords1 <em>Keywords1</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.Open#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getOpen()
  * @model
  * @generated
  */
-public interface Open extends element
+public interface Open extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Contents</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.bPMN_translator.content}.
+   * Returns the value of the '<em><b>Head</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Contents</em>' containment reference list.
-   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getOpen_Contents()
-   * @model containment="true"
+   * @return the value of the '<em>Head</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getOpen_Head()
+   * @model unique="false"
    * @generated
    */
-  EList<content> getContents();
+  EList<String> getHead();
 
   /**
-   * Returns the value of the '<em><b>Close tag</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.bPMN_translator.Close}.
+   * Returns the value of the '<em><b>Keywords</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Close tag</em>' containment reference list.
-   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getOpen_Close_tag()
-   * @model containment="true"
+   * @return the value of the '<em>Keywords</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getOpen_Keywords()
+   * @model unique="false"
    * @generated
    */
-  EList<Close> getClose_tag();
+  EList<String> getKeywords();
+
+  /**
+   * Returns the value of the '<em><b>Head1</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Head1</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getOpen_Head1()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getHead1();
+
+  /**
+   * Returns the value of the '<em><b>Keywords1</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Keywords1</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getOpen_Keywords1()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getKeywords1();
+
+  /**
+   * Returns the value of the '<em><b>Value</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Value</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getOpen_Value()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getValue();
 
 } // Open

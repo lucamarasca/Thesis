@@ -124,13 +124,31 @@ public interface BPMN_translatorPackage extends EPackage
   int ELEMENT = 2;
 
   /**
-   * The feature id for the '<em><b>Singleton tag</b></em>' containment reference list.
+   * The feature id for the '<em><b>Open</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ELEMENT__SINGLETON_TAG = 0;
+  int ELEMENT__OPEN = 0;
+
+  /**
+   * The feature id for the '<em><b>Contents</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__CONTENTS = 1;
+
+  /**
+   * The feature id for the '<em><b>Close tag</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__CLOSE_TAG = 2;
 
   /**
    * The number of structural features of the '<em>element</em>' class.
@@ -139,7 +157,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELEMENT_FEATURE_COUNT = 1;
+  int ELEMENT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.bPMN_translator.impl.contentImpl <em>content</em>}' class.
@@ -180,31 +198,49 @@ public interface BPMN_translatorPackage extends EPackage
   int OPEN = 4;
 
   /**
-   * The feature id for the '<em><b>Singleton tag</b></em>' containment reference list.
+   * The feature id for the '<em><b>Head</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPEN__SINGLETON_TAG = ELEMENT__SINGLETON_TAG;
+  int OPEN__HEAD = 0;
 
   /**
-   * The feature id for the '<em><b>Contents</b></em>' containment reference list.
+   * The feature id for the '<em><b>Keywords</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPEN__CONTENTS = ELEMENT_FEATURE_COUNT + 0;
+  int OPEN__KEYWORDS = 1;
 
   /**
-   * The feature id for the '<em><b>Close tag</b></em>' containment reference list.
+   * The feature id for the '<em><b>Head1</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPEN__CLOSE_TAG = ELEMENT_FEATURE_COUNT + 1;
+  int OPEN__HEAD1 = 2;
+
+  /**
+   * The feature id for the '<em><b>Keywords1</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPEN__KEYWORDS1 = 3;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPEN__VALUE = 4;
 
   /**
    * The number of structural features of the '<em>Open</em>' class.
@@ -213,7 +249,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPEN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+  int OPEN_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link org.xtext.bPMN_translator.impl.SingletonImpl <em>Singleton</em>}' class.
@@ -263,23 +299,23 @@ public interface BPMN_translatorPackage extends EPackage
   int CLOSE_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.OpensImpl <em>Opens</em>}' class.
+   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.element_valueImpl <em>element value</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.bPMN_translator.impl.OpensImpl
-   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getOpens()
+   * @see org.xtext.bPMN_translator.impl.element_valueImpl
+   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getelement_value()
    * @generated
    */
-  int OPENS = 7;
+  int ELEMENT_VALUE = 7;
 
   /**
-   * The feature id for the '<em><b>Singleton tag</b></em>' containment reference list.
+   * The feature id for the '<em><b>Open</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPENS__SINGLETON_TAG = OPEN__SINGLETON_TAG;
+  int ELEMENT_VALUE__OPEN = ELEMENT__OPEN;
 
   /**
    * The feature id for the '<em><b>Contents</b></em>' containment reference list.
@@ -288,7 +324,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPENS__CONTENTS = OPEN__CONTENTS;
+  int ELEMENT_VALUE__CONTENTS = ELEMENT__CONTENTS;
 
   /**
    * The feature id for the '<em><b>Close tag</b></em>' containment reference list.
@@ -297,25 +333,25 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPENS__CLOSE_TAG = OPEN__CLOSE_TAG;
+  int ELEMENT_VALUE__CLOSE_TAG = ELEMENT__CLOSE_TAG;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute list.
+   * The feature id for the '<em><b>Singleton tag</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPENS__VALUE = OPEN_FEATURE_COUNT + 0;
+  int ELEMENT_VALUE__SINGLETON_TAG = ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Opens</em>' class.
+   * The number of structural features of the '<em>element value</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPENS_FEATURE_COUNT = OPEN_FEATURE_COUNT + 1;
+  int ELEMENT_VALUE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
 
 
   /**
@@ -371,15 +407,37 @@ public interface BPMN_translatorPackage extends EPackage
   EClass getelement();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.element#getSingleton_tag <em>Singleton tag</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.element#getOpen <em>Open</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Singleton tag</em>'.
-   * @see org.xtext.bPMN_translator.element#getSingleton_tag()
+   * @return the meta object for the containment reference list '<em>Open</em>'.
+   * @see org.xtext.bPMN_translator.element#getOpen()
    * @see #getelement()
    * @generated
    */
-  EReference getelement_Singleton_tag();
+  EReference getelement_Open();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.element#getContents <em>Contents</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Contents</em>'.
+   * @see org.xtext.bPMN_translator.element#getContents()
+   * @see #getelement()
+   * @generated
+   */
+  EReference getelement_Contents();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.element#getClose_tag <em>Close tag</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Close tag</em>'.
+   * @see org.xtext.bPMN_translator.element#getClose_tag()
+   * @see #getelement()
+   * @generated
+   */
+  EReference getelement_Close_tag();
 
   /**
    * Returns the meta object for class '{@link org.xtext.bPMN_translator.content <em>content</em>}'.
@@ -413,26 +471,59 @@ public interface BPMN_translatorPackage extends EPackage
   EClass getOpen();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.Open#getContents <em>Contents</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.Open#getHead <em>Head</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Contents</em>'.
-   * @see org.xtext.bPMN_translator.Open#getContents()
+   * @return the meta object for the attribute list '<em>Head</em>'.
+   * @see org.xtext.bPMN_translator.Open#getHead()
    * @see #getOpen()
    * @generated
    */
-  EReference getOpen_Contents();
+  EAttribute getOpen_Head();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.Open#getClose_tag <em>Close tag</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.Open#getKeywords <em>Keywords</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Close tag</em>'.
-   * @see org.xtext.bPMN_translator.Open#getClose_tag()
+   * @return the meta object for the attribute list '<em>Keywords</em>'.
+   * @see org.xtext.bPMN_translator.Open#getKeywords()
    * @see #getOpen()
    * @generated
    */
-  EReference getOpen_Close_tag();
+  EAttribute getOpen_Keywords();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.Open#getHead1 <em>Head1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Head1</em>'.
+   * @see org.xtext.bPMN_translator.Open#getHead1()
+   * @see #getOpen()
+   * @generated
+   */
+  EAttribute getOpen_Head1();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.Open#getKeywords1 <em>Keywords1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Keywords1</em>'.
+   * @see org.xtext.bPMN_translator.Open#getKeywords1()
+   * @see #getOpen()
+   * @generated
+   */
+  EAttribute getOpen_Keywords1();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.Open#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Value</em>'.
+   * @see org.xtext.bPMN_translator.Open#getValue()
+   * @see #getOpen()
+   * @generated
+   */
+  EAttribute getOpen_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.bPMN_translator.Singleton <em>Singleton</em>}'.
@@ -466,25 +557,25 @@ public interface BPMN_translatorPackage extends EPackage
   EClass getClose();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.bPMN_translator.Opens <em>Opens</em>}'.
+   * Returns the meta object for class '{@link org.xtext.bPMN_translator.element_value <em>element value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Opens</em>'.
-   * @see org.xtext.bPMN_translator.Opens
+   * @return the meta object for class '<em>element value</em>'.
+   * @see org.xtext.bPMN_translator.element_value
    * @generated
    */
-  EClass getOpens();
+  EClass getelement_value();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.Opens#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.element_value#getSingleton_tag <em>Singleton tag</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Value</em>'.
-   * @see org.xtext.bPMN_translator.Opens#getValue()
-   * @see #getOpens()
+   * @return the meta object for the containment reference list '<em>Singleton tag</em>'.
+   * @see org.xtext.bPMN_translator.element_value#getSingleton_tag()
+   * @see #getelement_value()
    * @generated
    */
-  EAttribute getOpens_Value();
+  EReference getelement_value_Singleton_tag();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -556,12 +647,28 @@ public interface BPMN_translatorPackage extends EPackage
     EClass ELEMENT = eINSTANCE.getelement();
 
     /**
-     * The meta object literal for the '<em><b>Singleton tag</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Open</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ELEMENT__SINGLETON_TAG = eINSTANCE.getelement_Singleton_tag();
+    EReference ELEMENT__OPEN = eINSTANCE.getelement_Open();
+
+    /**
+     * The meta object literal for the '<em><b>Contents</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELEMENT__CONTENTS = eINSTANCE.getelement_Contents();
+
+    /**
+     * The meta object literal for the '<em><b>Close tag</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELEMENT__CLOSE_TAG = eINSTANCE.getelement_Close_tag();
 
     /**
      * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.contentImpl <em>content</em>}' class.
@@ -592,20 +699,44 @@ public interface BPMN_translatorPackage extends EPackage
     EClass OPEN = eINSTANCE.getOpen();
 
     /**
-     * The meta object literal for the '<em><b>Contents</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Head</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OPEN__CONTENTS = eINSTANCE.getOpen_Contents();
+    EAttribute OPEN__HEAD = eINSTANCE.getOpen_Head();
 
     /**
-     * The meta object literal for the '<em><b>Close tag</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Keywords</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OPEN__CLOSE_TAG = eINSTANCE.getOpen_Close_tag();
+    EAttribute OPEN__KEYWORDS = eINSTANCE.getOpen_Keywords();
+
+    /**
+     * The meta object literal for the '<em><b>Head1</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPEN__HEAD1 = eINSTANCE.getOpen_Head1();
+
+    /**
+     * The meta object literal for the '<em><b>Keywords1</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPEN__KEYWORDS1 = eINSTANCE.getOpen_Keywords1();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPEN__VALUE = eINSTANCE.getOpen_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.SingletonImpl <em>Singleton</em>}' class.
@@ -636,22 +767,22 @@ public interface BPMN_translatorPackage extends EPackage
     EClass CLOSE = eINSTANCE.getClose();
 
     /**
-     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.OpensImpl <em>Opens</em>}' class.
+     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.element_valueImpl <em>element value</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.bPMN_translator.impl.OpensImpl
-     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getOpens()
+     * @see org.xtext.bPMN_translator.impl.element_valueImpl
+     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getelement_value()
      * @generated
      */
-    EClass OPENS = eINSTANCE.getOpens();
+    EClass ELEMENT_VALUE = eINSTANCE.getelement_value();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Singleton tag</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OPENS__VALUE = eINSTANCE.getOpens_Value();
+    EReference ELEMENT_VALUE__SINGLETON_TAG = eINSTANCE.getelement_value_Singleton_tag();
 
   }
 

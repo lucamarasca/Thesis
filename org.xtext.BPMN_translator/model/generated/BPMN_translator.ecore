@@ -11,26 +11,36 @@
         eType="#//element" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="element">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="singleton_tag" upperBound="-1"
-        eType="#//Singleton" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="open" upperBound="-1" eType="#//Open"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        eType="#//content" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="close_tag" upperBound="-1"
+        eType="#//Close" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="content">
     <eStructuralFeatures xsi:type="ecore:EReference" name="prova" upperBound="-1"
         eType="#//element" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Open" eSuperTypes="#//element">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
-        eType="#//content" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="close_tag" upperBound="-1"
-        eType="#//Close" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Open">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="head" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keywords" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="head1" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keywords1" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Singleton">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Close"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Opens" eSuperTypes="#//Open">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="element_value" eSuperTypes="#//element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="singleton_tag" upperBound="-1"
+        eType="#//Singleton" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

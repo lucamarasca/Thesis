@@ -900,25 +900,25 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     // $ANTLR end "rule__Content__Alternatives_1"
 
 
-    // $ANTLR start "rule__Open__Alternatives_1_4"
-    // InternalBPMN_translator.g:306:1: rule__Open__Alternatives_1_4 : ( ( ( rule__Open__Group_1_4_0__0 ) ) | ( ( rule__Open__Group_1_4_1__0 ) ) );
-    public final void rule__Open__Alternatives_1_4() throws RecognitionException {
+    // $ANTLR start "rule__Open__Alternatives_4"
+    // InternalBPMN_translator.g:306:1: rule__Open__Alternatives_4 : ( ( ( rule__Open__Group_4_0__0 ) ) | ( ( rule__Open__Group_4_1__0 ) ) );
+    public final void rule__Open__Alternatives_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:310:1: ( ( ( rule__Open__Group_1_4_0__0 ) ) | ( ( rule__Open__Group_1_4_1__0 ) ) )
+            // InternalBPMN_translator.g:310:1: ( ( ( rule__Open__Group_4_0__0 ) ) | ( ( rule__Open__Group_4_1__0 ) ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
             if ( (LA3_0==RULE_HEAD) ) {
                 int LA3_1 = input.LA(2);
 
-                if ( (LA3_1==21) ) {
-                    alt3=2;
-                }
-                else if ( (LA3_1==19) ) {
+                if ( (LA3_1==19) ) {
                     alt3=1;
+                }
+                else if ( (LA3_1==21) ) {
+                    alt3=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -938,24 +938,24 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             }
             switch (alt3) {
                 case 1 :
-                    // InternalBPMN_translator.g:311:2: ( ( rule__Open__Group_1_4_0__0 ) )
+                    // InternalBPMN_translator.g:311:2: ( ( rule__Open__Group_4_0__0 ) )
                     {
-                    // InternalBPMN_translator.g:311:2: ( ( rule__Open__Group_1_4_0__0 ) )
-                    // InternalBPMN_translator.g:312:3: ( rule__Open__Group_1_4_0__0 )
+                    // InternalBPMN_translator.g:311:2: ( ( rule__Open__Group_4_0__0 ) )
+                    // InternalBPMN_translator.g:312:3: ( rule__Open__Group_4_0__0 )
                     {
-                     before(grammarAccess.getOpenAccess().getGroup_1_4_0()); 
-                    // InternalBPMN_translator.g:313:3: ( rule__Open__Group_1_4_0__0 )
-                    // InternalBPMN_translator.g:313:4: rule__Open__Group_1_4_0__0
+                     before(grammarAccess.getOpenAccess().getGroup_4_0()); 
+                    // InternalBPMN_translator.g:313:3: ( rule__Open__Group_4_0__0 )
+                    // InternalBPMN_translator.g:313:4: rule__Open__Group_4_0__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__Open__Group_1_4_0__0();
+                    rule__Open__Group_4_0__0();
 
                     state._fsp--;
 
 
                     }
 
-                     after(grammarAccess.getOpenAccess().getGroup_1_4_0()); 
+                     after(grammarAccess.getOpenAccess().getGroup_4_0()); 
 
                     }
 
@@ -963,24 +963,24 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
                     }
                     break;
                 case 2 :
-                    // InternalBPMN_translator.g:317:2: ( ( rule__Open__Group_1_4_1__0 ) )
+                    // InternalBPMN_translator.g:317:2: ( ( rule__Open__Group_4_1__0 ) )
                     {
-                    // InternalBPMN_translator.g:317:2: ( ( rule__Open__Group_1_4_1__0 ) )
-                    // InternalBPMN_translator.g:318:3: ( rule__Open__Group_1_4_1__0 )
+                    // InternalBPMN_translator.g:317:2: ( ( rule__Open__Group_4_1__0 ) )
+                    // InternalBPMN_translator.g:318:3: ( rule__Open__Group_4_1__0 )
                     {
-                     before(grammarAccess.getOpenAccess().getGroup_1_4_1()); 
-                    // InternalBPMN_translator.g:319:3: ( rule__Open__Group_1_4_1__0 )
-                    // InternalBPMN_translator.g:319:4: rule__Open__Group_1_4_1__0
+                     before(grammarAccess.getOpenAccess().getGroup_4_1()); 
+                    // InternalBPMN_translator.g:319:3: ( rule__Open__Group_4_1__0 )
+                    // InternalBPMN_translator.g:319:4: rule__Open__Group_4_1__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__Open__Group_1_4_1__0();
+                    rule__Open__Group_4_1__0();
 
                     state._fsp--;
 
 
                     }
 
-                     after(grammarAccess.getOpenAccess().getGroup_1_4_1()); 
+                     after(grammarAccess.getOpenAccess().getGroup_4_1()); 
 
                     }
 
@@ -1001,17 +1001,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Alternatives_1_4"
+    // $ANTLR end "rule__Open__Alternatives_4"
 
 
-    // $ANTLR start "rule__Open__Alternatives_1_4_1_0"
-    // InternalBPMN_translator.g:327:1: rule__Open__Alternatives_1_4_1_0 : ( ( RULE_HEAD ) | ( RULE_KEYWORDS ) );
-    public final void rule__Open__Alternatives_1_4_1_0() throws RecognitionException {
+    // $ANTLR start "rule__Open__Alternatives_4_1_0"
+    // InternalBPMN_translator.g:327:1: rule__Open__Alternatives_4_1_0 : ( ( ( rule__Open__Head1Assignment_4_1_0_0 ) ) | ( ( rule__Open__Keywords1Assignment_4_1_0_1 ) ) );
+    public final void rule__Open__Alternatives_4_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:331:1: ( ( RULE_HEAD ) | ( RULE_KEYWORDS ) )
+            // InternalBPMN_translator.g:331:1: ( ( ( rule__Open__Head1Assignment_4_1_0_0 ) ) | ( ( rule__Open__Keywords1Assignment_4_1_0_1 ) ) )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1029,14 +1029,24 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             }
             switch (alt4) {
                 case 1 :
-                    // InternalBPMN_translator.g:332:2: ( RULE_HEAD )
+                    // InternalBPMN_translator.g:332:2: ( ( rule__Open__Head1Assignment_4_1_0_0 ) )
                     {
-                    // InternalBPMN_translator.g:332:2: ( RULE_HEAD )
-                    // InternalBPMN_translator.g:333:3: RULE_HEAD
+                    // InternalBPMN_translator.g:332:2: ( ( rule__Open__Head1Assignment_4_1_0_0 ) )
+                    // InternalBPMN_translator.g:333:3: ( rule__Open__Head1Assignment_4_1_0_0 )
                     {
-                     before(grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_4_1_0_0()); 
-                    match(input,RULE_HEAD,FOLLOW_2); 
-                     after(grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_4_1_0_0()); 
+                     before(grammarAccess.getOpenAccess().getHead1Assignment_4_1_0_0()); 
+                    // InternalBPMN_translator.g:334:3: ( rule__Open__Head1Assignment_4_1_0_0 )
+                    // InternalBPMN_translator.g:334:4: rule__Open__Head1Assignment_4_1_0_0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Open__Head1Assignment_4_1_0_0();
+
+                    state._fsp--;
+
+
+                    }
+
+                     after(grammarAccess.getOpenAccess().getHead1Assignment_4_1_0_0()); 
 
                     }
 
@@ -1044,14 +1054,24 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
                     }
                     break;
                 case 2 :
-                    // InternalBPMN_translator.g:338:2: ( RULE_KEYWORDS )
+                    // InternalBPMN_translator.g:338:2: ( ( rule__Open__Keywords1Assignment_4_1_0_1 ) )
                     {
-                    // InternalBPMN_translator.g:338:2: ( RULE_KEYWORDS )
-                    // InternalBPMN_translator.g:339:3: RULE_KEYWORDS
+                    // InternalBPMN_translator.g:338:2: ( ( rule__Open__Keywords1Assignment_4_1_0_1 ) )
+                    // InternalBPMN_translator.g:339:3: ( rule__Open__Keywords1Assignment_4_1_0_1 )
                     {
-                     before(grammarAccess.getOpenAccess().getKEYWORDSTerminalRuleCall_1_4_1_0_1()); 
-                    match(input,RULE_KEYWORDS,FOLLOW_2); 
-                     after(grammarAccess.getOpenAccess().getKEYWORDSTerminalRuleCall_1_4_1_0_1()); 
+                     before(grammarAccess.getOpenAccess().getKeywords1Assignment_4_1_0_1()); 
+                    // InternalBPMN_translator.g:340:3: ( rule__Open__Keywords1Assignment_4_1_0_1 )
+                    // InternalBPMN_translator.g:340:4: rule__Open__Keywords1Assignment_4_1_0_1
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Open__Keywords1Assignment_4_1_0_1();
+
+                    state._fsp--;
+
+
+                    }
+
+                     after(grammarAccess.getOpenAccess().getKeywords1Assignment_4_1_0_1()); 
 
                     }
 
@@ -1072,7 +1092,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Alternatives_1_4_1_0"
+    // $ANTLR end "rule__Open__Alternatives_4_1_0"
 
 
     // $ANTLR start "rule__Singleton__Alternatives_1_4"
@@ -1994,25 +2014,31 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Element__Group_0__0__Impl"
-    // InternalBPMN_translator.g:651:1: rule__Element__Group_0__0__Impl : ( ruleOpen ) ;
+    // InternalBPMN_translator.g:651:1: rule__Element__Group_0__0__Impl : ( ( rule__Element__OpenAssignment_0_0 ) ) ;
     public final void rule__Element__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:655:1: ( ( ruleOpen ) )
-            // InternalBPMN_translator.g:656:1: ( ruleOpen )
+            // InternalBPMN_translator.g:655:1: ( ( ( rule__Element__OpenAssignment_0_0 ) ) )
+            // InternalBPMN_translator.g:656:1: ( ( rule__Element__OpenAssignment_0_0 ) )
             {
-            // InternalBPMN_translator.g:656:1: ( ruleOpen )
-            // InternalBPMN_translator.g:657:2: ruleOpen
+            // InternalBPMN_translator.g:656:1: ( ( rule__Element__OpenAssignment_0_0 ) )
+            // InternalBPMN_translator.g:657:2: ( rule__Element__OpenAssignment_0_0 )
             {
-             before(grammarAccess.getElementAccess().getOpenParserRuleCall_0_0()); 
+             before(grammarAccess.getElementAccess().getOpenAssignment_0_0()); 
+            // InternalBPMN_translator.g:658:2: ( rule__Element__OpenAssignment_0_0 )
+            // InternalBPMN_translator.g:658:3: rule__Element__OpenAssignment_0_0
+            {
             pushFollow(FOLLOW_2);
-            ruleOpen();
+            rule__Element__OpenAssignment_0_0();
 
             state._fsp--;
 
-             after(grammarAccess.getElementAccess().getOpenParserRuleCall_0_0()); 
+
+            }
+
+             after(grammarAccess.getElementAccess().getOpenAssignment_0_0()); 
 
             }
 
@@ -2250,13 +2276,13 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:737:1: ( () )
             // InternalBPMN_translator.g:738:2: ()
             {
-             before(grammarAccess.getElementAccess().getElementAction_1_0()); 
+             before(grammarAccess.getElementAccess().getElement_valueAction_1_0()); 
             // InternalBPMN_translator.g:739:2: ()
             // InternalBPMN_translator.g:739:3: 
             {
             }
 
-             after(grammarAccess.getElementAccess().getElementAction_1_0()); 
+             after(grammarAccess.getElementAccess().getElement_valueAction_1_0()); 
 
             }
 
@@ -2537,7 +2563,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:832:1: ( rule__Open__Group__0__Impl rule__Open__Group__1 )
             // InternalBPMN_translator.g:833:2: rule__Open__Group__0__Impl rule__Open__Group__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_5);
             rule__Open__Group__0__Impl();
 
             state._fsp--;
@@ -2566,31 +2592,31 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Open__Group__0__Impl"
-    // InternalBPMN_translator.g:840:1: rule__Open__Group__0__Impl : ( () ) ;
+    // InternalBPMN_translator.g:840:1: rule__Open__Group__0__Impl : ( '<' ) ;
     public final void rule__Open__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:844:1: ( ( () ) )
-            // InternalBPMN_translator.g:845:1: ( () )
+            // InternalBPMN_translator.g:844:1: ( ( '<' ) )
+            // InternalBPMN_translator.g:845:1: ( '<' )
             {
-            // InternalBPMN_translator.g:845:1: ( () )
-            // InternalBPMN_translator.g:846:2: ()
+            // InternalBPMN_translator.g:845:1: ( '<' )
+            // InternalBPMN_translator.g:846:2: '<'
             {
-             before(grammarAccess.getOpenAccess().getOpensAction_0()); 
-            // InternalBPMN_translator.g:847:2: ()
-            // InternalBPMN_translator.g:847:3: 
-            {
-            }
-
-             after(grammarAccess.getOpenAccess().getOpensAction_0()); 
+             before(grammarAccess.getOpenAccess().getLessThanSignKeyword_0()); 
+            match(input,18,FOLLOW_2); 
+             after(grammarAccess.getOpenAccess().getLessThanSignKeyword_0()); 
 
             }
 
 
             }
 
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
         }
         finally {
 
@@ -2603,17 +2629,22 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Open__Group__1"
-    // InternalBPMN_translator.g:855:1: rule__Open__Group__1 : rule__Open__Group__1__Impl ;
+    // InternalBPMN_translator.g:855:1: rule__Open__Group__1 : rule__Open__Group__1__Impl rule__Open__Group__2 ;
     public final void rule__Open__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:859:1: ( rule__Open__Group__1__Impl )
-            // InternalBPMN_translator.g:860:2: rule__Open__Group__1__Impl
+            // InternalBPMN_translator.g:859:1: ( rule__Open__Group__1__Impl rule__Open__Group__2 )
+            // InternalBPMN_translator.g:860:2: rule__Open__Group__1__Impl rule__Open__Group__2
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_14);
             rule__Open__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Open__Group__2();
 
             state._fsp--;
 
@@ -2636,31 +2667,31 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Open__Group__1__Impl"
-    // InternalBPMN_translator.g:866:1: rule__Open__Group__1__Impl : ( ( rule__Open__Group_1__0 ) ) ;
+    // InternalBPMN_translator.g:867:1: rule__Open__Group__1__Impl : ( ( rule__Open__HeadAssignment_1 ) ) ;
     public final void rule__Open__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:870:1: ( ( ( rule__Open__Group_1__0 ) ) )
-            // InternalBPMN_translator.g:871:1: ( ( rule__Open__Group_1__0 ) )
+            // InternalBPMN_translator.g:871:1: ( ( ( rule__Open__HeadAssignment_1 ) ) )
+            // InternalBPMN_translator.g:872:1: ( ( rule__Open__HeadAssignment_1 ) )
             {
-            // InternalBPMN_translator.g:871:1: ( ( rule__Open__Group_1__0 ) )
-            // InternalBPMN_translator.g:872:2: ( rule__Open__Group_1__0 )
+            // InternalBPMN_translator.g:872:1: ( ( rule__Open__HeadAssignment_1 ) )
+            // InternalBPMN_translator.g:873:2: ( rule__Open__HeadAssignment_1 )
             {
-             before(grammarAccess.getOpenAccess().getGroup_1()); 
-            // InternalBPMN_translator.g:873:2: ( rule__Open__Group_1__0 )
-            // InternalBPMN_translator.g:873:3: rule__Open__Group_1__0
+             before(grammarAccess.getOpenAccess().getHeadAssignment_1()); 
+            // InternalBPMN_translator.g:874:2: ( rule__Open__HeadAssignment_1 )
+            // InternalBPMN_translator.g:874:3: rule__Open__HeadAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__Open__Group_1__0();
+            rule__Open__HeadAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getOpenAccess().getGroup_1()); 
+             after(grammarAccess.getOpenAccess().getHeadAssignment_1()); 
 
             }
 
@@ -2682,173 +2713,23 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     // $ANTLR end "rule__Open__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Open__Group_1__0"
-    // InternalBPMN_translator.g:882:1: rule__Open__Group_1__0 : rule__Open__Group_1__0__Impl rule__Open__Group_1__1 ;
-    public final void rule__Open__Group_1__0() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group__2"
+    // InternalBPMN_translator.g:882:1: rule__Open__Group__2 : rule__Open__Group__2__Impl rule__Open__Group__3 ;
+    public final void rule__Open__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:886:1: ( rule__Open__Group_1__0__Impl rule__Open__Group_1__1 )
-            // InternalBPMN_translator.g:887:2: rule__Open__Group_1__0__Impl rule__Open__Group_1__1
-            {
-            pushFollow(FOLLOW_5);
-            rule__Open__Group_1__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Open__Group_1__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Open__Group_1__0"
-
-
-    // $ANTLR start "rule__Open__Group_1__0__Impl"
-    // InternalBPMN_translator.g:894:1: rule__Open__Group_1__0__Impl : ( '<' ) ;
-    public final void rule__Open__Group_1__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBPMN_translator.g:898:1: ( ( '<' ) )
-            // InternalBPMN_translator.g:899:1: ( '<' )
-            {
-            // InternalBPMN_translator.g:899:1: ( '<' )
-            // InternalBPMN_translator.g:900:2: '<'
-            {
-             before(grammarAccess.getOpenAccess().getLessThanSignKeyword_1_0()); 
-            match(input,18,FOLLOW_2); 
-             after(grammarAccess.getOpenAccess().getLessThanSignKeyword_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Open__Group_1__0__Impl"
-
-
-    // $ANTLR start "rule__Open__Group_1__1"
-    // InternalBPMN_translator.g:909:1: rule__Open__Group_1__1 : rule__Open__Group_1__1__Impl rule__Open__Group_1__2 ;
-    public final void rule__Open__Group_1__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBPMN_translator.g:913:1: ( rule__Open__Group_1__1__Impl rule__Open__Group_1__2 )
-            // InternalBPMN_translator.g:914:2: rule__Open__Group_1__1__Impl rule__Open__Group_1__2
-            {
-            pushFollow(FOLLOW_14);
-            rule__Open__Group_1__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Open__Group_1__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Open__Group_1__1"
-
-
-    // $ANTLR start "rule__Open__Group_1__1__Impl"
-    // InternalBPMN_translator.g:921:1: rule__Open__Group_1__1__Impl : ( RULE_HEAD ) ;
-    public final void rule__Open__Group_1__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBPMN_translator.g:925:1: ( ( RULE_HEAD ) )
-            // InternalBPMN_translator.g:926:1: ( RULE_HEAD )
-            {
-            // InternalBPMN_translator.g:926:1: ( RULE_HEAD )
-            // InternalBPMN_translator.g:927:2: RULE_HEAD
-            {
-             before(grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_1()); 
-            match(input,RULE_HEAD,FOLLOW_2); 
-             after(grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Open__Group_1__1__Impl"
-
-
-    // $ANTLR start "rule__Open__Group_1__2"
-    // InternalBPMN_translator.g:936:1: rule__Open__Group_1__2 : rule__Open__Group_1__2__Impl rule__Open__Group_1__3 ;
-    public final void rule__Open__Group_1__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBPMN_translator.g:940:1: ( rule__Open__Group_1__2__Impl rule__Open__Group_1__3 )
-            // InternalBPMN_translator.g:941:2: rule__Open__Group_1__2__Impl rule__Open__Group_1__3
+            // InternalBPMN_translator.g:886:1: ( rule__Open__Group__2__Impl rule__Open__Group__3 )
+            // InternalBPMN_translator.g:887:2: rule__Open__Group__2__Impl rule__Open__Group__3
             {
             pushFollow(FOLLOW_15);
-            rule__Open__Group_1__2__Impl();
+            rule__Open__Group__2__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Open__Group_1__3();
+            rule__Open__Group__3();
 
             state._fsp--;
 
@@ -2867,25 +2748,25 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1__2"
+    // $ANTLR end "rule__Open__Group__2"
 
 
-    // $ANTLR start "rule__Open__Group_1__2__Impl"
-    // InternalBPMN_translator.g:948:1: rule__Open__Group_1__2__Impl : ( ':' ) ;
-    public final void rule__Open__Group_1__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group__2__Impl"
+    // InternalBPMN_translator.g:894:1: rule__Open__Group__2__Impl : ( ':' ) ;
+    public final void rule__Open__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:952:1: ( ( ':' ) )
-            // InternalBPMN_translator.g:953:1: ( ':' )
+            // InternalBPMN_translator.g:898:1: ( ( ':' ) )
+            // InternalBPMN_translator.g:899:1: ( ':' )
             {
-            // InternalBPMN_translator.g:953:1: ( ':' )
-            // InternalBPMN_translator.g:954:2: ':'
+            // InternalBPMN_translator.g:899:1: ( ':' )
+            // InternalBPMN_translator.g:900:2: ':'
             {
-             before(grammarAccess.getOpenAccess().getColonKeyword_1_2()); 
+             before(grammarAccess.getOpenAccess().getColonKeyword_2()); 
             match(input,19,FOLLOW_2); 
-             after(grammarAccess.getOpenAccess().getColonKeyword_1_2()); 
+             after(grammarAccess.getOpenAccess().getColonKeyword_2()); 
 
             }
 
@@ -2904,26 +2785,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1__2__Impl"
+    // $ANTLR end "rule__Open__Group__2__Impl"
 
 
-    // $ANTLR start "rule__Open__Group_1__3"
-    // InternalBPMN_translator.g:963:1: rule__Open__Group_1__3 : rule__Open__Group_1__3__Impl rule__Open__Group_1__4 ;
-    public final void rule__Open__Group_1__3() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group__3"
+    // InternalBPMN_translator.g:909:1: rule__Open__Group__3 : rule__Open__Group__3__Impl rule__Open__Group__4 ;
+    public final void rule__Open__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:967:1: ( rule__Open__Group_1__3__Impl rule__Open__Group_1__4 )
-            // InternalBPMN_translator.g:968:2: rule__Open__Group_1__3__Impl rule__Open__Group_1__4
+            // InternalBPMN_translator.g:913:1: ( rule__Open__Group__3__Impl rule__Open__Group__4 )
+            // InternalBPMN_translator.g:914:2: rule__Open__Group__3__Impl rule__Open__Group__4
             {
             pushFollow(FOLLOW_16);
-            rule__Open__Group_1__3__Impl();
+            rule__Open__Group__3__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Open__Group_1__4();
+            rule__Open__Group__4();
 
             state._fsp--;
 
@@ -2942,25 +2823,35 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1__3"
+    // $ANTLR end "rule__Open__Group__3"
 
 
-    // $ANTLR start "rule__Open__Group_1__3__Impl"
-    // InternalBPMN_translator.g:975:1: rule__Open__Group_1__3__Impl : ( RULE_KEYWORDS ) ;
-    public final void rule__Open__Group_1__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group__3__Impl"
+    // InternalBPMN_translator.g:921:1: rule__Open__Group__3__Impl : ( ( rule__Open__KeywordsAssignment_3 ) ) ;
+    public final void rule__Open__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:979:1: ( ( RULE_KEYWORDS ) )
-            // InternalBPMN_translator.g:980:1: ( RULE_KEYWORDS )
+            // InternalBPMN_translator.g:925:1: ( ( ( rule__Open__KeywordsAssignment_3 ) ) )
+            // InternalBPMN_translator.g:926:1: ( ( rule__Open__KeywordsAssignment_3 ) )
             {
-            // InternalBPMN_translator.g:980:1: ( RULE_KEYWORDS )
-            // InternalBPMN_translator.g:981:2: RULE_KEYWORDS
+            // InternalBPMN_translator.g:926:1: ( ( rule__Open__KeywordsAssignment_3 ) )
+            // InternalBPMN_translator.g:927:2: ( rule__Open__KeywordsAssignment_3 )
             {
-             before(grammarAccess.getOpenAccess().getKEYWORDSTerminalRuleCall_1_3()); 
-            match(input,RULE_KEYWORDS,FOLLOW_2); 
-             after(grammarAccess.getOpenAccess().getKEYWORDSTerminalRuleCall_1_3()); 
+             before(grammarAccess.getOpenAccess().getKeywordsAssignment_3()); 
+            // InternalBPMN_translator.g:928:2: ( rule__Open__KeywordsAssignment_3 )
+            // InternalBPMN_translator.g:928:3: rule__Open__KeywordsAssignment_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__Open__KeywordsAssignment_3();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getOpenAccess().getKeywordsAssignment_3()); 
 
             }
 
@@ -2979,26 +2870,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1__3__Impl"
+    // $ANTLR end "rule__Open__Group__3__Impl"
 
 
-    // $ANTLR start "rule__Open__Group_1__4"
-    // InternalBPMN_translator.g:990:1: rule__Open__Group_1__4 : rule__Open__Group_1__4__Impl rule__Open__Group_1__5 ;
-    public final void rule__Open__Group_1__4() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group__4"
+    // InternalBPMN_translator.g:936:1: rule__Open__Group__4 : rule__Open__Group__4__Impl rule__Open__Group__5 ;
+    public final void rule__Open__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:994:1: ( rule__Open__Group_1__4__Impl rule__Open__Group_1__5 )
-            // InternalBPMN_translator.g:995:2: rule__Open__Group_1__4__Impl rule__Open__Group_1__5
+            // InternalBPMN_translator.g:940:1: ( rule__Open__Group__4__Impl rule__Open__Group__5 )
+            // InternalBPMN_translator.g:941:2: rule__Open__Group__4__Impl rule__Open__Group__5
             {
             pushFollow(FOLLOW_16);
-            rule__Open__Group_1__4__Impl();
+            rule__Open__Group__4__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Open__Group_1__5();
+            rule__Open__Group__5();
 
             state._fsp--;
 
@@ -3017,24 +2908,24 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1__4"
+    // $ANTLR end "rule__Open__Group__4"
 
 
-    // $ANTLR start "rule__Open__Group_1__4__Impl"
-    // InternalBPMN_translator.g:1002:1: rule__Open__Group_1__4__Impl : ( ( rule__Open__Alternatives_1_4 )* ) ;
-    public final void rule__Open__Group_1__4__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group__4__Impl"
+    // InternalBPMN_translator.g:948:1: rule__Open__Group__4__Impl : ( ( rule__Open__Alternatives_4 )* ) ;
+    public final void rule__Open__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1006:1: ( ( ( rule__Open__Alternatives_1_4 )* ) )
-            // InternalBPMN_translator.g:1007:1: ( ( rule__Open__Alternatives_1_4 )* )
+            // InternalBPMN_translator.g:952:1: ( ( ( rule__Open__Alternatives_4 )* ) )
+            // InternalBPMN_translator.g:953:1: ( ( rule__Open__Alternatives_4 )* )
             {
-            // InternalBPMN_translator.g:1007:1: ( ( rule__Open__Alternatives_1_4 )* )
-            // InternalBPMN_translator.g:1008:2: ( rule__Open__Alternatives_1_4 )*
+            // InternalBPMN_translator.g:953:1: ( ( rule__Open__Alternatives_4 )* )
+            // InternalBPMN_translator.g:954:2: ( rule__Open__Alternatives_4 )*
             {
-             before(grammarAccess.getOpenAccess().getAlternatives_1_4()); 
-            // InternalBPMN_translator.g:1009:2: ( rule__Open__Alternatives_1_4 )*
+             before(grammarAccess.getOpenAccess().getAlternatives_4()); 
+            // InternalBPMN_translator.g:955:2: ( rule__Open__Alternatives_4 )*
             loop9:
             do {
                 int alt9=2;
@@ -3047,10 +2938,10 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalBPMN_translator.g:1009:3: rule__Open__Alternatives_1_4
+            	    // InternalBPMN_translator.g:955:3: rule__Open__Alternatives_4
             	    {
             	    pushFollow(FOLLOW_17);
-            	    rule__Open__Alternatives_1_4();
+            	    rule__Open__Alternatives_4();
 
             	    state._fsp--;
 
@@ -3063,7 +2954,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
                 }
             } while (true);
 
-             after(grammarAccess.getOpenAccess().getAlternatives_1_4()); 
+             after(grammarAccess.getOpenAccess().getAlternatives_4()); 
 
             }
 
@@ -3082,21 +2973,21 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1__4__Impl"
+    // $ANTLR end "rule__Open__Group__4__Impl"
 
 
-    // $ANTLR start "rule__Open__Group_1__5"
-    // InternalBPMN_translator.g:1017:1: rule__Open__Group_1__5 : rule__Open__Group_1__5__Impl ;
-    public final void rule__Open__Group_1__5() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group__5"
+    // InternalBPMN_translator.g:963:1: rule__Open__Group__5 : rule__Open__Group__5__Impl ;
+    public final void rule__Open__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1021:1: ( rule__Open__Group_1__5__Impl )
-            // InternalBPMN_translator.g:1022:2: rule__Open__Group_1__5__Impl
+            // InternalBPMN_translator.g:967:1: ( rule__Open__Group__5__Impl )
+            // InternalBPMN_translator.g:968:2: rule__Open__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Open__Group_1__5__Impl();
+            rule__Open__Group__5__Impl();
 
             state._fsp--;
 
@@ -3115,25 +3006,25 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1__5"
+    // $ANTLR end "rule__Open__Group__5"
 
 
-    // $ANTLR start "rule__Open__Group_1__5__Impl"
-    // InternalBPMN_translator.g:1028:1: rule__Open__Group_1__5__Impl : ( '>' ) ;
-    public final void rule__Open__Group_1__5__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group__5__Impl"
+    // InternalBPMN_translator.g:974:1: rule__Open__Group__5__Impl : ( '>' ) ;
+    public final void rule__Open__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1032:1: ( ( '>' ) )
-            // InternalBPMN_translator.g:1033:1: ( '>' )
+            // InternalBPMN_translator.g:978:1: ( ( '>' ) )
+            // InternalBPMN_translator.g:979:1: ( '>' )
             {
-            // InternalBPMN_translator.g:1033:1: ( '>' )
-            // InternalBPMN_translator.g:1034:2: '>'
+            // InternalBPMN_translator.g:979:1: ( '>' )
+            // InternalBPMN_translator.g:980:2: '>'
             {
-             before(grammarAccess.getOpenAccess().getGreaterThanSignKeyword_1_5()); 
+             before(grammarAccess.getOpenAccess().getGreaterThanSignKeyword_5()); 
             match(input,20,FOLLOW_2); 
-             after(grammarAccess.getOpenAccess().getGreaterThanSignKeyword_1_5()); 
+             after(grammarAccess.getOpenAccess().getGreaterThanSignKeyword_5()); 
 
             }
 
@@ -3152,26 +3043,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1__5__Impl"
+    // $ANTLR end "rule__Open__Group__5__Impl"
 
 
-    // $ANTLR start "rule__Open__Group_1_4_0__0"
-    // InternalBPMN_translator.g:1044:1: rule__Open__Group_1_4_0__0 : rule__Open__Group_1_4_0__0__Impl rule__Open__Group_1_4_0__1 ;
-    public final void rule__Open__Group_1_4_0__0() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group_4_0__0"
+    // InternalBPMN_translator.g:990:1: rule__Open__Group_4_0__0 : rule__Open__Group_4_0__0__Impl rule__Open__Group_4_0__1 ;
+    public final void rule__Open__Group_4_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1048:1: ( rule__Open__Group_1_4_0__0__Impl rule__Open__Group_1_4_0__1 )
-            // InternalBPMN_translator.g:1049:2: rule__Open__Group_1_4_0__0__Impl rule__Open__Group_1_4_0__1
+            // InternalBPMN_translator.g:994:1: ( rule__Open__Group_4_0__0__Impl rule__Open__Group_4_0__1 )
+            // InternalBPMN_translator.g:995:2: rule__Open__Group_4_0__0__Impl rule__Open__Group_4_0__1
             {
             pushFollow(FOLLOW_14);
-            rule__Open__Group_1_4_0__0__Impl();
+            rule__Open__Group_4_0__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Open__Group_1_4_0__1();
+            rule__Open__Group_4_0__1();
 
             state._fsp--;
 
@@ -3190,58 +3081,68 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1_4_0__0"
+    // $ANTLR end "rule__Open__Group_4_0__0"
 
 
-    // $ANTLR start "rule__Open__Group_1_4_0__0__Impl"
-    // InternalBPMN_translator.g:1056:1: rule__Open__Group_1_4_0__0__Impl : ( RULE_HEAD ) ;
-    public final void rule__Open__Group_1_4_0__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalBPMN_translator.g:1060:1: ( ( RULE_HEAD ) )
-            // InternalBPMN_translator.g:1061:1: ( RULE_HEAD )
-            {
-            // InternalBPMN_translator.g:1061:1: ( RULE_HEAD )
-            // InternalBPMN_translator.g:1062:2: RULE_HEAD
-            {
-             before(grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_4_0_0()); 
-            match(input,RULE_HEAD,FOLLOW_2); 
-             after(grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_4_0_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Open__Group_1_4_0__0__Impl"
-
-
-    // $ANTLR start "rule__Open__Group_1_4_0__1"
-    // InternalBPMN_translator.g:1071:1: rule__Open__Group_1_4_0__1 : rule__Open__Group_1_4_0__1__Impl ;
-    public final void rule__Open__Group_1_4_0__1() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group_4_0__0__Impl"
+    // InternalBPMN_translator.g:1002:1: rule__Open__Group_4_0__0__Impl : ( ( rule__Open__Head1Assignment_4_0_0 ) ) ;
+    public final void rule__Open__Group_4_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1075:1: ( rule__Open__Group_1_4_0__1__Impl )
-            // InternalBPMN_translator.g:1076:2: rule__Open__Group_1_4_0__1__Impl
+            // InternalBPMN_translator.g:1006:1: ( ( ( rule__Open__Head1Assignment_4_0_0 ) ) )
+            // InternalBPMN_translator.g:1007:1: ( ( rule__Open__Head1Assignment_4_0_0 ) )
+            {
+            // InternalBPMN_translator.g:1007:1: ( ( rule__Open__Head1Assignment_4_0_0 ) )
+            // InternalBPMN_translator.g:1008:2: ( rule__Open__Head1Assignment_4_0_0 )
+            {
+             before(grammarAccess.getOpenAccess().getHead1Assignment_4_0_0()); 
+            // InternalBPMN_translator.g:1009:2: ( rule__Open__Head1Assignment_4_0_0 )
+            // InternalBPMN_translator.g:1009:3: rule__Open__Head1Assignment_4_0_0
             {
             pushFollow(FOLLOW_2);
-            rule__Open__Group_1_4_0__1__Impl();
+            rule__Open__Head1Assignment_4_0_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getOpenAccess().getHead1Assignment_4_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Open__Group_4_0__0__Impl"
+
+
+    // $ANTLR start "rule__Open__Group_4_0__1"
+    // InternalBPMN_translator.g:1017:1: rule__Open__Group_4_0__1 : rule__Open__Group_4_0__1__Impl ;
+    public final void rule__Open__Group_4_0__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBPMN_translator.g:1021:1: ( rule__Open__Group_4_0__1__Impl )
+            // InternalBPMN_translator.g:1022:2: rule__Open__Group_4_0__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Open__Group_4_0__1__Impl();
 
             state._fsp--;
 
@@ -3260,25 +3161,25 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1_4_0__1"
+    // $ANTLR end "rule__Open__Group_4_0__1"
 
 
-    // $ANTLR start "rule__Open__Group_1_4_0__1__Impl"
-    // InternalBPMN_translator.g:1082:1: rule__Open__Group_1_4_0__1__Impl : ( ':' ) ;
-    public final void rule__Open__Group_1_4_0__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group_4_0__1__Impl"
+    // InternalBPMN_translator.g:1028:1: rule__Open__Group_4_0__1__Impl : ( ':' ) ;
+    public final void rule__Open__Group_4_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1086:1: ( ( ':' ) )
-            // InternalBPMN_translator.g:1087:1: ( ':' )
+            // InternalBPMN_translator.g:1032:1: ( ( ':' ) )
+            // InternalBPMN_translator.g:1033:1: ( ':' )
             {
-            // InternalBPMN_translator.g:1087:1: ( ':' )
-            // InternalBPMN_translator.g:1088:2: ':'
+            // InternalBPMN_translator.g:1033:1: ( ':' )
+            // InternalBPMN_translator.g:1034:2: ':'
             {
-             before(grammarAccess.getOpenAccess().getColonKeyword_1_4_0_1()); 
+             before(grammarAccess.getOpenAccess().getColonKeyword_4_0_1()); 
             match(input,19,FOLLOW_2); 
-             after(grammarAccess.getOpenAccess().getColonKeyword_1_4_0_1()); 
+             after(grammarAccess.getOpenAccess().getColonKeyword_4_0_1()); 
 
             }
 
@@ -3297,26 +3198,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1_4_0__1__Impl"
+    // $ANTLR end "rule__Open__Group_4_0__1__Impl"
 
 
-    // $ANTLR start "rule__Open__Group_1_4_1__0"
-    // InternalBPMN_translator.g:1098:1: rule__Open__Group_1_4_1__0 : rule__Open__Group_1_4_1__0__Impl rule__Open__Group_1_4_1__1 ;
-    public final void rule__Open__Group_1_4_1__0() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group_4_1__0"
+    // InternalBPMN_translator.g:1044:1: rule__Open__Group_4_1__0 : rule__Open__Group_4_1__0__Impl rule__Open__Group_4_1__1 ;
+    public final void rule__Open__Group_4_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1102:1: ( rule__Open__Group_1_4_1__0__Impl rule__Open__Group_1_4_1__1 )
-            // InternalBPMN_translator.g:1103:2: rule__Open__Group_1_4_1__0__Impl rule__Open__Group_1_4_1__1
+            // InternalBPMN_translator.g:1048:1: ( rule__Open__Group_4_1__0__Impl rule__Open__Group_4_1__1 )
+            // InternalBPMN_translator.g:1049:2: rule__Open__Group_4_1__0__Impl rule__Open__Group_4_1__1
             {
             pushFollow(FOLLOW_18);
-            rule__Open__Group_1_4_1__0__Impl();
+            rule__Open__Group_4_1__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Open__Group_1_4_1__1();
+            rule__Open__Group_4_1__1();
 
             state._fsp--;
 
@@ -3335,35 +3236,35 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1_4_1__0"
+    // $ANTLR end "rule__Open__Group_4_1__0"
 
 
-    // $ANTLR start "rule__Open__Group_1_4_1__0__Impl"
-    // InternalBPMN_translator.g:1110:1: rule__Open__Group_1_4_1__0__Impl : ( ( rule__Open__Alternatives_1_4_1_0 ) ) ;
-    public final void rule__Open__Group_1_4_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group_4_1__0__Impl"
+    // InternalBPMN_translator.g:1056:1: rule__Open__Group_4_1__0__Impl : ( ( rule__Open__Alternatives_4_1_0 ) ) ;
+    public final void rule__Open__Group_4_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1114:1: ( ( ( rule__Open__Alternatives_1_4_1_0 ) ) )
-            // InternalBPMN_translator.g:1115:1: ( ( rule__Open__Alternatives_1_4_1_0 ) )
+            // InternalBPMN_translator.g:1060:1: ( ( ( rule__Open__Alternatives_4_1_0 ) ) )
+            // InternalBPMN_translator.g:1061:1: ( ( rule__Open__Alternatives_4_1_0 ) )
             {
-            // InternalBPMN_translator.g:1115:1: ( ( rule__Open__Alternatives_1_4_1_0 ) )
-            // InternalBPMN_translator.g:1116:2: ( rule__Open__Alternatives_1_4_1_0 )
+            // InternalBPMN_translator.g:1061:1: ( ( rule__Open__Alternatives_4_1_0 ) )
+            // InternalBPMN_translator.g:1062:2: ( rule__Open__Alternatives_4_1_0 )
             {
-             before(grammarAccess.getOpenAccess().getAlternatives_1_4_1_0()); 
-            // InternalBPMN_translator.g:1117:2: ( rule__Open__Alternatives_1_4_1_0 )
-            // InternalBPMN_translator.g:1117:3: rule__Open__Alternatives_1_4_1_0
+             before(grammarAccess.getOpenAccess().getAlternatives_4_1_0()); 
+            // InternalBPMN_translator.g:1063:2: ( rule__Open__Alternatives_4_1_0 )
+            // InternalBPMN_translator.g:1063:3: rule__Open__Alternatives_4_1_0
             {
             pushFollow(FOLLOW_2);
-            rule__Open__Alternatives_1_4_1_0();
+            rule__Open__Alternatives_4_1_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getOpenAccess().getAlternatives_1_4_1_0()); 
+             after(grammarAccess.getOpenAccess().getAlternatives_4_1_0()); 
 
             }
 
@@ -3382,26 +3283,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1_4_1__0__Impl"
+    // $ANTLR end "rule__Open__Group_4_1__0__Impl"
 
 
-    // $ANTLR start "rule__Open__Group_1_4_1__1"
-    // InternalBPMN_translator.g:1125:1: rule__Open__Group_1_4_1__1 : rule__Open__Group_1_4_1__1__Impl rule__Open__Group_1_4_1__2 ;
-    public final void rule__Open__Group_1_4_1__1() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group_4_1__1"
+    // InternalBPMN_translator.g:1071:1: rule__Open__Group_4_1__1 : rule__Open__Group_4_1__1__Impl rule__Open__Group_4_1__2 ;
+    public final void rule__Open__Group_4_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1129:1: ( rule__Open__Group_1_4_1__1__Impl rule__Open__Group_1_4_1__2 )
-            // InternalBPMN_translator.g:1130:2: rule__Open__Group_1_4_1__1__Impl rule__Open__Group_1_4_1__2
+            // InternalBPMN_translator.g:1075:1: ( rule__Open__Group_4_1__1__Impl rule__Open__Group_4_1__2 )
+            // InternalBPMN_translator.g:1076:2: rule__Open__Group_4_1__1__Impl rule__Open__Group_4_1__2
             {
             pushFollow(FOLLOW_7);
-            rule__Open__Group_1_4_1__1__Impl();
+            rule__Open__Group_4_1__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Open__Group_1_4_1__2();
+            rule__Open__Group_4_1__2();
 
             state._fsp--;
 
@@ -3420,25 +3321,25 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1_4_1__1"
+    // $ANTLR end "rule__Open__Group_4_1__1"
 
 
-    // $ANTLR start "rule__Open__Group_1_4_1__1__Impl"
-    // InternalBPMN_translator.g:1137:1: rule__Open__Group_1_4_1__1__Impl : ( '=' ) ;
-    public final void rule__Open__Group_1_4_1__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group_4_1__1__Impl"
+    // InternalBPMN_translator.g:1083:1: rule__Open__Group_4_1__1__Impl : ( '=' ) ;
+    public final void rule__Open__Group_4_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1141:1: ( ( '=' ) )
-            // InternalBPMN_translator.g:1142:1: ( '=' )
+            // InternalBPMN_translator.g:1087:1: ( ( '=' ) )
+            // InternalBPMN_translator.g:1088:1: ( '=' )
             {
-            // InternalBPMN_translator.g:1142:1: ( '=' )
-            // InternalBPMN_translator.g:1143:2: '='
+            // InternalBPMN_translator.g:1088:1: ( '=' )
+            // InternalBPMN_translator.g:1089:2: '='
             {
-             before(grammarAccess.getOpenAccess().getEqualsSignKeyword_1_4_1_1()); 
+             before(grammarAccess.getOpenAccess().getEqualsSignKeyword_4_1_1()); 
             match(input,21,FOLLOW_2); 
-             after(grammarAccess.getOpenAccess().getEqualsSignKeyword_1_4_1_1()); 
+             after(grammarAccess.getOpenAccess().getEqualsSignKeyword_4_1_1()); 
 
             }
 
@@ -3457,21 +3358,21 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1_4_1__1__Impl"
+    // $ANTLR end "rule__Open__Group_4_1__1__Impl"
 
 
-    // $ANTLR start "rule__Open__Group_1_4_1__2"
-    // InternalBPMN_translator.g:1152:1: rule__Open__Group_1_4_1__2 : rule__Open__Group_1_4_1__2__Impl ;
-    public final void rule__Open__Group_1_4_1__2() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group_4_1__2"
+    // InternalBPMN_translator.g:1098:1: rule__Open__Group_4_1__2 : rule__Open__Group_4_1__2__Impl ;
+    public final void rule__Open__Group_4_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1156:1: ( rule__Open__Group_1_4_1__2__Impl )
-            // InternalBPMN_translator.g:1157:2: rule__Open__Group_1_4_1__2__Impl
+            // InternalBPMN_translator.g:1102:1: ( rule__Open__Group_4_1__2__Impl )
+            // InternalBPMN_translator.g:1103:2: rule__Open__Group_4_1__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Open__Group_1_4_1__2__Impl();
+            rule__Open__Group_4_1__2__Impl();
 
             state._fsp--;
 
@@ -3490,35 +3391,35 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1_4_1__2"
+    // $ANTLR end "rule__Open__Group_4_1__2"
 
 
-    // $ANTLR start "rule__Open__Group_1_4_1__2__Impl"
-    // InternalBPMN_translator.g:1163:1: rule__Open__Group_1_4_1__2__Impl : ( ( rule__Open__ValueAssignment_1_4_1_2 ) ) ;
-    public final void rule__Open__Group_1_4_1__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Open__Group_4_1__2__Impl"
+    // InternalBPMN_translator.g:1109:1: rule__Open__Group_4_1__2__Impl : ( ( rule__Open__ValueAssignment_4_1_2 ) ) ;
+    public final void rule__Open__Group_4_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1167:1: ( ( ( rule__Open__ValueAssignment_1_4_1_2 ) ) )
-            // InternalBPMN_translator.g:1168:1: ( ( rule__Open__ValueAssignment_1_4_1_2 ) )
+            // InternalBPMN_translator.g:1113:1: ( ( ( rule__Open__ValueAssignment_4_1_2 ) ) )
+            // InternalBPMN_translator.g:1114:1: ( ( rule__Open__ValueAssignment_4_1_2 ) )
             {
-            // InternalBPMN_translator.g:1168:1: ( ( rule__Open__ValueAssignment_1_4_1_2 ) )
-            // InternalBPMN_translator.g:1169:2: ( rule__Open__ValueAssignment_1_4_1_2 )
+            // InternalBPMN_translator.g:1114:1: ( ( rule__Open__ValueAssignment_4_1_2 ) )
+            // InternalBPMN_translator.g:1115:2: ( rule__Open__ValueAssignment_4_1_2 )
             {
-             before(grammarAccess.getOpenAccess().getValueAssignment_1_4_1_2()); 
-            // InternalBPMN_translator.g:1170:2: ( rule__Open__ValueAssignment_1_4_1_2 )
-            // InternalBPMN_translator.g:1170:3: rule__Open__ValueAssignment_1_4_1_2
+             before(grammarAccess.getOpenAccess().getValueAssignment_4_1_2()); 
+            // InternalBPMN_translator.g:1116:2: ( rule__Open__ValueAssignment_4_1_2 )
+            // InternalBPMN_translator.g:1116:3: rule__Open__ValueAssignment_4_1_2
             {
             pushFollow(FOLLOW_2);
-            rule__Open__ValueAssignment_1_4_1_2();
+            rule__Open__ValueAssignment_4_1_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getOpenAccess().getValueAssignment_1_4_1_2()); 
+             after(grammarAccess.getOpenAccess().getValueAssignment_4_1_2()); 
 
             }
 
@@ -3537,18 +3438,18 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__Group_1_4_1__2__Impl"
+    // $ANTLR end "rule__Open__Group_4_1__2__Impl"
 
 
     // $ANTLR start "rule__Singleton__Group__0"
-    // InternalBPMN_translator.g:1179:1: rule__Singleton__Group__0 : rule__Singleton__Group__0__Impl rule__Singleton__Group__1 ;
+    // InternalBPMN_translator.g:1125:1: rule__Singleton__Group__0 : rule__Singleton__Group__0__Impl rule__Singleton__Group__1 ;
     public final void rule__Singleton__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1183:1: ( rule__Singleton__Group__0__Impl rule__Singleton__Group__1 )
-            // InternalBPMN_translator.g:1184:2: rule__Singleton__Group__0__Impl rule__Singleton__Group__1
+            // InternalBPMN_translator.g:1129:1: ( rule__Singleton__Group__0__Impl rule__Singleton__Group__1 )
+            // InternalBPMN_translator.g:1130:2: rule__Singleton__Group__0__Impl rule__Singleton__Group__1
             {
             pushFollow(FOLLOW_12);
             rule__Singleton__Group__0__Impl();
@@ -3579,21 +3480,21 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group__0__Impl"
-    // InternalBPMN_translator.g:1191:1: rule__Singleton__Group__0__Impl : ( () ) ;
+    // InternalBPMN_translator.g:1137:1: rule__Singleton__Group__0__Impl : ( () ) ;
     public final void rule__Singleton__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1195:1: ( ( () ) )
-            // InternalBPMN_translator.g:1196:1: ( () )
+            // InternalBPMN_translator.g:1141:1: ( ( () ) )
+            // InternalBPMN_translator.g:1142:1: ( () )
             {
-            // InternalBPMN_translator.g:1196:1: ( () )
-            // InternalBPMN_translator.g:1197:2: ()
+            // InternalBPMN_translator.g:1142:1: ( () )
+            // InternalBPMN_translator.g:1143:2: ()
             {
              before(grammarAccess.getSingletonAccess().getSingletonAction_0()); 
-            // InternalBPMN_translator.g:1198:2: ()
-            // InternalBPMN_translator.g:1198:3: 
+            // InternalBPMN_translator.g:1144:2: ()
+            // InternalBPMN_translator.g:1144:3: 
             {
             }
 
@@ -3616,14 +3517,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group__1"
-    // InternalBPMN_translator.g:1206:1: rule__Singleton__Group__1 : rule__Singleton__Group__1__Impl rule__Singleton__Group__2 ;
+    // InternalBPMN_translator.g:1152:1: rule__Singleton__Group__1 : rule__Singleton__Group__1__Impl rule__Singleton__Group__2 ;
     public final void rule__Singleton__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1210:1: ( rule__Singleton__Group__1__Impl rule__Singleton__Group__2 )
-            // InternalBPMN_translator.g:1211:2: rule__Singleton__Group__1__Impl rule__Singleton__Group__2
+            // InternalBPMN_translator.g:1156:1: ( rule__Singleton__Group__1__Impl rule__Singleton__Group__2 )
+            // InternalBPMN_translator.g:1157:2: rule__Singleton__Group__1__Impl rule__Singleton__Group__2
             {
             pushFollow(FOLLOW_19);
             rule__Singleton__Group__1__Impl();
@@ -3654,21 +3555,21 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group__1__Impl"
-    // InternalBPMN_translator.g:1218:1: rule__Singleton__Group__1__Impl : ( ( rule__Singleton__Group_1__0 ) ) ;
+    // InternalBPMN_translator.g:1164:1: rule__Singleton__Group__1__Impl : ( ( rule__Singleton__Group_1__0 ) ) ;
     public final void rule__Singleton__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1222:1: ( ( ( rule__Singleton__Group_1__0 ) ) )
-            // InternalBPMN_translator.g:1223:1: ( ( rule__Singleton__Group_1__0 ) )
+            // InternalBPMN_translator.g:1168:1: ( ( ( rule__Singleton__Group_1__0 ) ) )
+            // InternalBPMN_translator.g:1169:1: ( ( rule__Singleton__Group_1__0 ) )
             {
-            // InternalBPMN_translator.g:1223:1: ( ( rule__Singleton__Group_1__0 ) )
-            // InternalBPMN_translator.g:1224:2: ( rule__Singleton__Group_1__0 )
+            // InternalBPMN_translator.g:1169:1: ( ( rule__Singleton__Group_1__0 ) )
+            // InternalBPMN_translator.g:1170:2: ( rule__Singleton__Group_1__0 )
             {
              before(grammarAccess.getSingletonAccess().getGroup_1()); 
-            // InternalBPMN_translator.g:1225:2: ( rule__Singleton__Group_1__0 )
-            // InternalBPMN_translator.g:1225:3: rule__Singleton__Group_1__0
+            // InternalBPMN_translator.g:1171:2: ( rule__Singleton__Group_1__0 )
+            // InternalBPMN_translator.g:1171:3: rule__Singleton__Group_1__0
             {
             pushFollow(FOLLOW_2);
             rule__Singleton__Group_1__0();
@@ -3701,14 +3602,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group__2"
-    // InternalBPMN_translator.g:1233:1: rule__Singleton__Group__2 : rule__Singleton__Group__2__Impl ;
+    // InternalBPMN_translator.g:1179:1: rule__Singleton__Group__2 : rule__Singleton__Group__2__Impl ;
     public final void rule__Singleton__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1237:1: ( rule__Singleton__Group__2__Impl )
-            // InternalBPMN_translator.g:1238:2: rule__Singleton__Group__2__Impl
+            // InternalBPMN_translator.g:1183:1: ( rule__Singleton__Group__2__Impl )
+            // InternalBPMN_translator.g:1184:2: rule__Singleton__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Singleton__Group__2__Impl();
@@ -3734,17 +3635,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group__2__Impl"
-    // InternalBPMN_translator.g:1244:1: rule__Singleton__Group__2__Impl : ( '/>' ) ;
+    // InternalBPMN_translator.g:1190:1: rule__Singleton__Group__2__Impl : ( '/>' ) ;
     public final void rule__Singleton__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1248:1: ( ( '/>' ) )
-            // InternalBPMN_translator.g:1249:1: ( '/>' )
+            // InternalBPMN_translator.g:1194:1: ( ( '/>' ) )
+            // InternalBPMN_translator.g:1195:1: ( '/>' )
             {
-            // InternalBPMN_translator.g:1249:1: ( '/>' )
-            // InternalBPMN_translator.g:1250:2: '/>'
+            // InternalBPMN_translator.g:1195:1: ( '/>' )
+            // InternalBPMN_translator.g:1196:2: '/>'
             {
              before(grammarAccess.getSingletonAccess().getSolidusGreaterThanSignKeyword_2()); 
             match(input,22,FOLLOW_2); 
@@ -3771,14 +3672,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1__0"
-    // InternalBPMN_translator.g:1260:1: rule__Singleton__Group_1__0 : rule__Singleton__Group_1__0__Impl rule__Singleton__Group_1__1 ;
+    // InternalBPMN_translator.g:1206:1: rule__Singleton__Group_1__0 : rule__Singleton__Group_1__0__Impl rule__Singleton__Group_1__1 ;
     public final void rule__Singleton__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1264:1: ( rule__Singleton__Group_1__0__Impl rule__Singleton__Group_1__1 )
-            // InternalBPMN_translator.g:1265:2: rule__Singleton__Group_1__0__Impl rule__Singleton__Group_1__1
+            // InternalBPMN_translator.g:1210:1: ( rule__Singleton__Group_1__0__Impl rule__Singleton__Group_1__1 )
+            // InternalBPMN_translator.g:1211:2: rule__Singleton__Group_1__0__Impl rule__Singleton__Group_1__1
             {
             pushFollow(FOLLOW_5);
             rule__Singleton__Group_1__0__Impl();
@@ -3809,17 +3710,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1__0__Impl"
-    // InternalBPMN_translator.g:1272:1: rule__Singleton__Group_1__0__Impl : ( '<' ) ;
+    // InternalBPMN_translator.g:1218:1: rule__Singleton__Group_1__0__Impl : ( '<' ) ;
     public final void rule__Singleton__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1276:1: ( ( '<' ) )
-            // InternalBPMN_translator.g:1277:1: ( '<' )
+            // InternalBPMN_translator.g:1222:1: ( ( '<' ) )
+            // InternalBPMN_translator.g:1223:1: ( '<' )
             {
-            // InternalBPMN_translator.g:1277:1: ( '<' )
-            // InternalBPMN_translator.g:1278:2: '<'
+            // InternalBPMN_translator.g:1223:1: ( '<' )
+            // InternalBPMN_translator.g:1224:2: '<'
             {
              before(grammarAccess.getSingletonAccess().getLessThanSignKeyword_1_0()); 
             match(input,18,FOLLOW_2); 
@@ -3846,14 +3747,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1__1"
-    // InternalBPMN_translator.g:1287:1: rule__Singleton__Group_1__1 : rule__Singleton__Group_1__1__Impl rule__Singleton__Group_1__2 ;
+    // InternalBPMN_translator.g:1233:1: rule__Singleton__Group_1__1 : rule__Singleton__Group_1__1__Impl rule__Singleton__Group_1__2 ;
     public final void rule__Singleton__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1291:1: ( rule__Singleton__Group_1__1__Impl rule__Singleton__Group_1__2 )
-            // InternalBPMN_translator.g:1292:2: rule__Singleton__Group_1__1__Impl rule__Singleton__Group_1__2
+            // InternalBPMN_translator.g:1237:1: ( rule__Singleton__Group_1__1__Impl rule__Singleton__Group_1__2 )
+            // InternalBPMN_translator.g:1238:2: rule__Singleton__Group_1__1__Impl rule__Singleton__Group_1__2
             {
             pushFollow(FOLLOW_14);
             rule__Singleton__Group_1__1__Impl();
@@ -3884,17 +3785,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1__1__Impl"
-    // InternalBPMN_translator.g:1299:1: rule__Singleton__Group_1__1__Impl : ( RULE_HEAD ) ;
+    // InternalBPMN_translator.g:1245:1: rule__Singleton__Group_1__1__Impl : ( RULE_HEAD ) ;
     public final void rule__Singleton__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1303:1: ( ( RULE_HEAD ) )
-            // InternalBPMN_translator.g:1304:1: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1249:1: ( ( RULE_HEAD ) )
+            // InternalBPMN_translator.g:1250:1: ( RULE_HEAD )
             {
-            // InternalBPMN_translator.g:1304:1: ( RULE_HEAD )
-            // InternalBPMN_translator.g:1305:2: RULE_HEAD
+            // InternalBPMN_translator.g:1250:1: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1251:2: RULE_HEAD
             {
              before(grammarAccess.getSingletonAccess().getHEADTerminalRuleCall_1_1()); 
             match(input,RULE_HEAD,FOLLOW_2); 
@@ -3921,14 +3822,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1__2"
-    // InternalBPMN_translator.g:1314:1: rule__Singleton__Group_1__2 : rule__Singleton__Group_1__2__Impl rule__Singleton__Group_1__3 ;
+    // InternalBPMN_translator.g:1260:1: rule__Singleton__Group_1__2 : rule__Singleton__Group_1__2__Impl rule__Singleton__Group_1__3 ;
     public final void rule__Singleton__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1318:1: ( rule__Singleton__Group_1__2__Impl rule__Singleton__Group_1__3 )
-            // InternalBPMN_translator.g:1319:2: rule__Singleton__Group_1__2__Impl rule__Singleton__Group_1__3
+            // InternalBPMN_translator.g:1264:1: ( rule__Singleton__Group_1__2__Impl rule__Singleton__Group_1__3 )
+            // InternalBPMN_translator.g:1265:2: rule__Singleton__Group_1__2__Impl rule__Singleton__Group_1__3
             {
             pushFollow(FOLLOW_15);
             rule__Singleton__Group_1__2__Impl();
@@ -3959,17 +3860,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1__2__Impl"
-    // InternalBPMN_translator.g:1326:1: rule__Singleton__Group_1__2__Impl : ( ':' ) ;
+    // InternalBPMN_translator.g:1272:1: rule__Singleton__Group_1__2__Impl : ( ':' ) ;
     public final void rule__Singleton__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1330:1: ( ( ':' ) )
-            // InternalBPMN_translator.g:1331:1: ( ':' )
+            // InternalBPMN_translator.g:1276:1: ( ( ':' ) )
+            // InternalBPMN_translator.g:1277:1: ( ':' )
             {
-            // InternalBPMN_translator.g:1331:1: ( ':' )
-            // InternalBPMN_translator.g:1332:2: ':'
+            // InternalBPMN_translator.g:1277:1: ( ':' )
+            // InternalBPMN_translator.g:1278:2: ':'
             {
              before(grammarAccess.getSingletonAccess().getColonKeyword_1_2()); 
             match(input,19,FOLLOW_2); 
@@ -3996,14 +3897,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1__3"
-    // InternalBPMN_translator.g:1341:1: rule__Singleton__Group_1__3 : rule__Singleton__Group_1__3__Impl rule__Singleton__Group_1__4 ;
+    // InternalBPMN_translator.g:1287:1: rule__Singleton__Group_1__3 : rule__Singleton__Group_1__3__Impl rule__Singleton__Group_1__4 ;
     public final void rule__Singleton__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1345:1: ( rule__Singleton__Group_1__3__Impl rule__Singleton__Group_1__4 )
-            // InternalBPMN_translator.g:1346:2: rule__Singleton__Group_1__3__Impl rule__Singleton__Group_1__4
+            // InternalBPMN_translator.g:1291:1: ( rule__Singleton__Group_1__3__Impl rule__Singleton__Group_1__4 )
+            // InternalBPMN_translator.g:1292:2: rule__Singleton__Group_1__3__Impl rule__Singleton__Group_1__4
             {
             pushFollow(FOLLOW_20);
             rule__Singleton__Group_1__3__Impl();
@@ -4034,17 +3935,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1__3__Impl"
-    // InternalBPMN_translator.g:1353:1: rule__Singleton__Group_1__3__Impl : ( RULE_KEYWORDS ) ;
+    // InternalBPMN_translator.g:1299:1: rule__Singleton__Group_1__3__Impl : ( RULE_KEYWORDS ) ;
     public final void rule__Singleton__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1357:1: ( ( RULE_KEYWORDS ) )
-            // InternalBPMN_translator.g:1358:1: ( RULE_KEYWORDS )
+            // InternalBPMN_translator.g:1303:1: ( ( RULE_KEYWORDS ) )
+            // InternalBPMN_translator.g:1304:1: ( RULE_KEYWORDS )
             {
-            // InternalBPMN_translator.g:1358:1: ( RULE_KEYWORDS )
-            // InternalBPMN_translator.g:1359:2: RULE_KEYWORDS
+            // InternalBPMN_translator.g:1304:1: ( RULE_KEYWORDS )
+            // InternalBPMN_translator.g:1305:2: RULE_KEYWORDS
             {
              before(grammarAccess.getSingletonAccess().getKEYWORDSTerminalRuleCall_1_3()); 
             match(input,RULE_KEYWORDS,FOLLOW_2); 
@@ -4071,14 +3972,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1__4"
-    // InternalBPMN_translator.g:1368:1: rule__Singleton__Group_1__4 : rule__Singleton__Group_1__4__Impl ;
+    // InternalBPMN_translator.g:1314:1: rule__Singleton__Group_1__4 : rule__Singleton__Group_1__4__Impl ;
     public final void rule__Singleton__Group_1__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1372:1: ( rule__Singleton__Group_1__4__Impl )
-            // InternalBPMN_translator.g:1373:2: rule__Singleton__Group_1__4__Impl
+            // InternalBPMN_translator.g:1318:1: ( rule__Singleton__Group_1__4__Impl )
+            // InternalBPMN_translator.g:1319:2: rule__Singleton__Group_1__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Singleton__Group_1__4__Impl();
@@ -4104,20 +4005,20 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1__4__Impl"
-    // InternalBPMN_translator.g:1379:1: rule__Singleton__Group_1__4__Impl : ( ( rule__Singleton__Alternatives_1_4 )* ) ;
+    // InternalBPMN_translator.g:1325:1: rule__Singleton__Group_1__4__Impl : ( ( rule__Singleton__Alternatives_1_4 )* ) ;
     public final void rule__Singleton__Group_1__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1383:1: ( ( ( rule__Singleton__Alternatives_1_4 )* ) )
-            // InternalBPMN_translator.g:1384:1: ( ( rule__Singleton__Alternatives_1_4 )* )
+            // InternalBPMN_translator.g:1329:1: ( ( ( rule__Singleton__Alternatives_1_4 )* ) )
+            // InternalBPMN_translator.g:1330:1: ( ( rule__Singleton__Alternatives_1_4 )* )
             {
-            // InternalBPMN_translator.g:1384:1: ( ( rule__Singleton__Alternatives_1_4 )* )
-            // InternalBPMN_translator.g:1385:2: ( rule__Singleton__Alternatives_1_4 )*
+            // InternalBPMN_translator.g:1330:1: ( ( rule__Singleton__Alternatives_1_4 )* )
+            // InternalBPMN_translator.g:1331:2: ( rule__Singleton__Alternatives_1_4 )*
             {
              before(grammarAccess.getSingletonAccess().getAlternatives_1_4()); 
-            // InternalBPMN_translator.g:1386:2: ( rule__Singleton__Alternatives_1_4 )*
+            // InternalBPMN_translator.g:1332:2: ( rule__Singleton__Alternatives_1_4 )*
             loop10:
             do {
                 int alt10=2;
@@ -4130,7 +4031,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalBPMN_translator.g:1386:3: rule__Singleton__Alternatives_1_4
+            	    // InternalBPMN_translator.g:1332:3: rule__Singleton__Alternatives_1_4
             	    {
             	    pushFollow(FOLLOW_17);
             	    rule__Singleton__Alternatives_1_4();
@@ -4169,14 +4070,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1_4_0__0"
-    // InternalBPMN_translator.g:1395:1: rule__Singleton__Group_1_4_0__0 : rule__Singleton__Group_1_4_0__0__Impl rule__Singleton__Group_1_4_0__1 ;
+    // InternalBPMN_translator.g:1341:1: rule__Singleton__Group_1_4_0__0 : rule__Singleton__Group_1_4_0__0__Impl rule__Singleton__Group_1_4_0__1 ;
     public final void rule__Singleton__Group_1_4_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1399:1: ( rule__Singleton__Group_1_4_0__0__Impl rule__Singleton__Group_1_4_0__1 )
-            // InternalBPMN_translator.g:1400:2: rule__Singleton__Group_1_4_0__0__Impl rule__Singleton__Group_1_4_0__1
+            // InternalBPMN_translator.g:1345:1: ( rule__Singleton__Group_1_4_0__0__Impl rule__Singleton__Group_1_4_0__1 )
+            // InternalBPMN_translator.g:1346:2: rule__Singleton__Group_1_4_0__0__Impl rule__Singleton__Group_1_4_0__1
             {
             pushFollow(FOLLOW_14);
             rule__Singleton__Group_1_4_0__0__Impl();
@@ -4207,17 +4108,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1_4_0__0__Impl"
-    // InternalBPMN_translator.g:1407:1: rule__Singleton__Group_1_4_0__0__Impl : ( RULE_HEAD ) ;
+    // InternalBPMN_translator.g:1353:1: rule__Singleton__Group_1_4_0__0__Impl : ( RULE_HEAD ) ;
     public final void rule__Singleton__Group_1_4_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1411:1: ( ( RULE_HEAD ) )
-            // InternalBPMN_translator.g:1412:1: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1357:1: ( ( RULE_HEAD ) )
+            // InternalBPMN_translator.g:1358:1: ( RULE_HEAD )
             {
-            // InternalBPMN_translator.g:1412:1: ( RULE_HEAD )
-            // InternalBPMN_translator.g:1413:2: RULE_HEAD
+            // InternalBPMN_translator.g:1358:1: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1359:2: RULE_HEAD
             {
              before(grammarAccess.getSingletonAccess().getHEADTerminalRuleCall_1_4_0_0()); 
             match(input,RULE_HEAD,FOLLOW_2); 
@@ -4244,14 +4145,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1_4_0__1"
-    // InternalBPMN_translator.g:1422:1: rule__Singleton__Group_1_4_0__1 : rule__Singleton__Group_1_4_0__1__Impl ;
+    // InternalBPMN_translator.g:1368:1: rule__Singleton__Group_1_4_0__1 : rule__Singleton__Group_1_4_0__1__Impl ;
     public final void rule__Singleton__Group_1_4_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1426:1: ( rule__Singleton__Group_1_4_0__1__Impl )
-            // InternalBPMN_translator.g:1427:2: rule__Singleton__Group_1_4_0__1__Impl
+            // InternalBPMN_translator.g:1372:1: ( rule__Singleton__Group_1_4_0__1__Impl )
+            // InternalBPMN_translator.g:1373:2: rule__Singleton__Group_1_4_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Singleton__Group_1_4_0__1__Impl();
@@ -4277,17 +4178,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1_4_0__1__Impl"
-    // InternalBPMN_translator.g:1433:1: rule__Singleton__Group_1_4_0__1__Impl : ( ':' ) ;
+    // InternalBPMN_translator.g:1379:1: rule__Singleton__Group_1_4_0__1__Impl : ( ':' ) ;
     public final void rule__Singleton__Group_1_4_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1437:1: ( ( ':' ) )
-            // InternalBPMN_translator.g:1438:1: ( ':' )
+            // InternalBPMN_translator.g:1383:1: ( ( ':' ) )
+            // InternalBPMN_translator.g:1384:1: ( ':' )
             {
-            // InternalBPMN_translator.g:1438:1: ( ':' )
-            // InternalBPMN_translator.g:1439:2: ':'
+            // InternalBPMN_translator.g:1384:1: ( ':' )
+            // InternalBPMN_translator.g:1385:2: ':'
             {
              before(grammarAccess.getSingletonAccess().getColonKeyword_1_4_0_1()); 
             match(input,19,FOLLOW_2); 
@@ -4314,14 +4215,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1_4_1__0"
-    // InternalBPMN_translator.g:1449:1: rule__Singleton__Group_1_4_1__0 : rule__Singleton__Group_1_4_1__0__Impl rule__Singleton__Group_1_4_1__1 ;
+    // InternalBPMN_translator.g:1395:1: rule__Singleton__Group_1_4_1__0 : rule__Singleton__Group_1_4_1__0__Impl rule__Singleton__Group_1_4_1__1 ;
     public final void rule__Singleton__Group_1_4_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1453:1: ( rule__Singleton__Group_1_4_1__0__Impl rule__Singleton__Group_1_4_1__1 )
-            // InternalBPMN_translator.g:1454:2: rule__Singleton__Group_1_4_1__0__Impl rule__Singleton__Group_1_4_1__1
+            // InternalBPMN_translator.g:1399:1: ( rule__Singleton__Group_1_4_1__0__Impl rule__Singleton__Group_1_4_1__1 )
+            // InternalBPMN_translator.g:1400:2: rule__Singleton__Group_1_4_1__0__Impl rule__Singleton__Group_1_4_1__1
             {
             pushFollow(FOLLOW_18);
             rule__Singleton__Group_1_4_1__0__Impl();
@@ -4352,17 +4253,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1_4_1__0__Impl"
-    // InternalBPMN_translator.g:1461:1: rule__Singleton__Group_1_4_1__0__Impl : ( RULE_KEYWORDS ) ;
+    // InternalBPMN_translator.g:1407:1: rule__Singleton__Group_1_4_1__0__Impl : ( RULE_KEYWORDS ) ;
     public final void rule__Singleton__Group_1_4_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1465:1: ( ( RULE_KEYWORDS ) )
-            // InternalBPMN_translator.g:1466:1: ( RULE_KEYWORDS )
+            // InternalBPMN_translator.g:1411:1: ( ( RULE_KEYWORDS ) )
+            // InternalBPMN_translator.g:1412:1: ( RULE_KEYWORDS )
             {
-            // InternalBPMN_translator.g:1466:1: ( RULE_KEYWORDS )
-            // InternalBPMN_translator.g:1467:2: RULE_KEYWORDS
+            // InternalBPMN_translator.g:1412:1: ( RULE_KEYWORDS )
+            // InternalBPMN_translator.g:1413:2: RULE_KEYWORDS
             {
              before(grammarAccess.getSingletonAccess().getKEYWORDSTerminalRuleCall_1_4_1_0()); 
             match(input,RULE_KEYWORDS,FOLLOW_2); 
@@ -4389,14 +4290,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1_4_1__1"
-    // InternalBPMN_translator.g:1476:1: rule__Singleton__Group_1_4_1__1 : rule__Singleton__Group_1_4_1__1__Impl rule__Singleton__Group_1_4_1__2 ;
+    // InternalBPMN_translator.g:1422:1: rule__Singleton__Group_1_4_1__1 : rule__Singleton__Group_1_4_1__1__Impl rule__Singleton__Group_1_4_1__2 ;
     public final void rule__Singleton__Group_1_4_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1480:1: ( rule__Singleton__Group_1_4_1__1__Impl rule__Singleton__Group_1_4_1__2 )
-            // InternalBPMN_translator.g:1481:2: rule__Singleton__Group_1_4_1__1__Impl rule__Singleton__Group_1_4_1__2
+            // InternalBPMN_translator.g:1426:1: ( rule__Singleton__Group_1_4_1__1__Impl rule__Singleton__Group_1_4_1__2 )
+            // InternalBPMN_translator.g:1427:2: rule__Singleton__Group_1_4_1__1__Impl rule__Singleton__Group_1_4_1__2
             {
             pushFollow(FOLLOW_7);
             rule__Singleton__Group_1_4_1__1__Impl();
@@ -4427,17 +4328,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1_4_1__1__Impl"
-    // InternalBPMN_translator.g:1488:1: rule__Singleton__Group_1_4_1__1__Impl : ( '=' ) ;
+    // InternalBPMN_translator.g:1434:1: rule__Singleton__Group_1_4_1__1__Impl : ( '=' ) ;
     public final void rule__Singleton__Group_1_4_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1492:1: ( ( '=' ) )
-            // InternalBPMN_translator.g:1493:1: ( '=' )
+            // InternalBPMN_translator.g:1438:1: ( ( '=' ) )
+            // InternalBPMN_translator.g:1439:1: ( '=' )
             {
-            // InternalBPMN_translator.g:1493:1: ( '=' )
-            // InternalBPMN_translator.g:1494:2: '='
+            // InternalBPMN_translator.g:1439:1: ( '=' )
+            // InternalBPMN_translator.g:1440:2: '='
             {
              before(grammarAccess.getSingletonAccess().getEqualsSignKeyword_1_4_1_1()); 
             match(input,21,FOLLOW_2); 
@@ -4464,14 +4365,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1_4_1__2"
-    // InternalBPMN_translator.g:1503:1: rule__Singleton__Group_1_4_1__2 : rule__Singleton__Group_1_4_1__2__Impl ;
+    // InternalBPMN_translator.g:1449:1: rule__Singleton__Group_1_4_1__2 : rule__Singleton__Group_1_4_1__2__Impl ;
     public final void rule__Singleton__Group_1_4_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1507:1: ( rule__Singleton__Group_1_4_1__2__Impl )
-            // InternalBPMN_translator.g:1508:2: rule__Singleton__Group_1_4_1__2__Impl
+            // InternalBPMN_translator.g:1453:1: ( rule__Singleton__Group_1_4_1__2__Impl )
+            // InternalBPMN_translator.g:1454:2: rule__Singleton__Group_1_4_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Singleton__Group_1_4_1__2__Impl();
@@ -4497,21 +4398,21 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__Group_1_4_1__2__Impl"
-    // InternalBPMN_translator.g:1514:1: rule__Singleton__Group_1_4_1__2__Impl : ( ( rule__Singleton__ValueAssignment_1_4_1_2 ) ) ;
+    // InternalBPMN_translator.g:1460:1: rule__Singleton__Group_1_4_1__2__Impl : ( ( rule__Singleton__ValueAssignment_1_4_1_2 ) ) ;
     public final void rule__Singleton__Group_1_4_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1518:1: ( ( ( rule__Singleton__ValueAssignment_1_4_1_2 ) ) )
-            // InternalBPMN_translator.g:1519:1: ( ( rule__Singleton__ValueAssignment_1_4_1_2 ) )
+            // InternalBPMN_translator.g:1464:1: ( ( ( rule__Singleton__ValueAssignment_1_4_1_2 ) ) )
+            // InternalBPMN_translator.g:1465:1: ( ( rule__Singleton__ValueAssignment_1_4_1_2 ) )
             {
-            // InternalBPMN_translator.g:1519:1: ( ( rule__Singleton__ValueAssignment_1_4_1_2 ) )
-            // InternalBPMN_translator.g:1520:2: ( rule__Singleton__ValueAssignment_1_4_1_2 )
+            // InternalBPMN_translator.g:1465:1: ( ( rule__Singleton__ValueAssignment_1_4_1_2 ) )
+            // InternalBPMN_translator.g:1466:2: ( rule__Singleton__ValueAssignment_1_4_1_2 )
             {
              before(grammarAccess.getSingletonAccess().getValueAssignment_1_4_1_2()); 
-            // InternalBPMN_translator.g:1521:2: ( rule__Singleton__ValueAssignment_1_4_1_2 )
-            // InternalBPMN_translator.g:1521:3: rule__Singleton__ValueAssignment_1_4_1_2
+            // InternalBPMN_translator.g:1467:2: ( rule__Singleton__ValueAssignment_1_4_1_2 )
+            // InternalBPMN_translator.g:1467:3: rule__Singleton__ValueAssignment_1_4_1_2
             {
             pushFollow(FOLLOW_2);
             rule__Singleton__ValueAssignment_1_4_1_2();
@@ -4544,14 +4445,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Close__Group__0"
-    // InternalBPMN_translator.g:1530:1: rule__Close__Group__0 : rule__Close__Group__0__Impl rule__Close__Group__1 ;
+    // InternalBPMN_translator.g:1476:1: rule__Close__Group__0 : rule__Close__Group__0__Impl rule__Close__Group__1 ;
     public final void rule__Close__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1534:1: ( rule__Close__Group__0__Impl rule__Close__Group__1 )
-            // InternalBPMN_translator.g:1535:2: rule__Close__Group__0__Impl rule__Close__Group__1
+            // InternalBPMN_translator.g:1480:1: ( rule__Close__Group__0__Impl rule__Close__Group__1 )
+            // InternalBPMN_translator.g:1481:2: rule__Close__Group__0__Impl rule__Close__Group__1
             {
             pushFollow(FOLLOW_11);
             rule__Close__Group__0__Impl();
@@ -4582,21 +4483,21 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Close__Group__0__Impl"
-    // InternalBPMN_translator.g:1542:1: rule__Close__Group__0__Impl : ( () ) ;
+    // InternalBPMN_translator.g:1488:1: rule__Close__Group__0__Impl : ( () ) ;
     public final void rule__Close__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1546:1: ( ( () ) )
-            // InternalBPMN_translator.g:1547:1: ( () )
+            // InternalBPMN_translator.g:1492:1: ( ( () ) )
+            // InternalBPMN_translator.g:1493:1: ( () )
             {
-            // InternalBPMN_translator.g:1547:1: ( () )
-            // InternalBPMN_translator.g:1548:2: ()
+            // InternalBPMN_translator.g:1493:1: ( () )
+            // InternalBPMN_translator.g:1494:2: ()
             {
              before(grammarAccess.getCloseAccess().getCloseAction_0()); 
-            // InternalBPMN_translator.g:1549:2: ()
-            // InternalBPMN_translator.g:1549:3: 
+            // InternalBPMN_translator.g:1495:2: ()
+            // InternalBPMN_translator.g:1495:3: 
             {
             }
 
@@ -4619,14 +4520,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Close__Group__1"
-    // InternalBPMN_translator.g:1557:1: rule__Close__Group__1 : rule__Close__Group__1__Impl ;
+    // InternalBPMN_translator.g:1503:1: rule__Close__Group__1 : rule__Close__Group__1__Impl ;
     public final void rule__Close__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1561:1: ( rule__Close__Group__1__Impl )
-            // InternalBPMN_translator.g:1562:2: rule__Close__Group__1__Impl
+            // InternalBPMN_translator.g:1507:1: ( rule__Close__Group__1__Impl )
+            // InternalBPMN_translator.g:1508:2: rule__Close__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Close__Group__1__Impl();
@@ -4652,21 +4553,21 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Close__Group__1__Impl"
-    // InternalBPMN_translator.g:1568:1: rule__Close__Group__1__Impl : ( ( rule__Close__Group_1__0 ) ) ;
+    // InternalBPMN_translator.g:1514:1: rule__Close__Group__1__Impl : ( ( rule__Close__Group_1__0 ) ) ;
     public final void rule__Close__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1572:1: ( ( ( rule__Close__Group_1__0 ) ) )
-            // InternalBPMN_translator.g:1573:1: ( ( rule__Close__Group_1__0 ) )
+            // InternalBPMN_translator.g:1518:1: ( ( ( rule__Close__Group_1__0 ) ) )
+            // InternalBPMN_translator.g:1519:1: ( ( rule__Close__Group_1__0 ) )
             {
-            // InternalBPMN_translator.g:1573:1: ( ( rule__Close__Group_1__0 ) )
-            // InternalBPMN_translator.g:1574:2: ( rule__Close__Group_1__0 )
+            // InternalBPMN_translator.g:1519:1: ( ( rule__Close__Group_1__0 ) )
+            // InternalBPMN_translator.g:1520:2: ( rule__Close__Group_1__0 )
             {
              before(grammarAccess.getCloseAccess().getGroup_1()); 
-            // InternalBPMN_translator.g:1575:2: ( rule__Close__Group_1__0 )
-            // InternalBPMN_translator.g:1575:3: rule__Close__Group_1__0
+            // InternalBPMN_translator.g:1521:2: ( rule__Close__Group_1__0 )
+            // InternalBPMN_translator.g:1521:3: rule__Close__Group_1__0
             {
             pushFollow(FOLLOW_2);
             rule__Close__Group_1__0();
@@ -4699,14 +4600,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Close__Group_1__0"
-    // InternalBPMN_translator.g:1584:1: rule__Close__Group_1__0 : rule__Close__Group_1__0__Impl rule__Close__Group_1__1 ;
+    // InternalBPMN_translator.g:1530:1: rule__Close__Group_1__0 : rule__Close__Group_1__0__Impl rule__Close__Group_1__1 ;
     public final void rule__Close__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1588:1: ( rule__Close__Group_1__0__Impl rule__Close__Group_1__1 )
-            // InternalBPMN_translator.g:1589:2: rule__Close__Group_1__0__Impl rule__Close__Group_1__1
+            // InternalBPMN_translator.g:1534:1: ( rule__Close__Group_1__0__Impl rule__Close__Group_1__1 )
+            // InternalBPMN_translator.g:1535:2: rule__Close__Group_1__0__Impl rule__Close__Group_1__1
             {
             pushFollow(FOLLOW_5);
             rule__Close__Group_1__0__Impl();
@@ -4737,17 +4638,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Close__Group_1__0__Impl"
-    // InternalBPMN_translator.g:1596:1: rule__Close__Group_1__0__Impl : ( '</' ) ;
+    // InternalBPMN_translator.g:1542:1: rule__Close__Group_1__0__Impl : ( '</' ) ;
     public final void rule__Close__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1600:1: ( ( '</' ) )
-            // InternalBPMN_translator.g:1601:1: ( '</' )
+            // InternalBPMN_translator.g:1546:1: ( ( '</' ) )
+            // InternalBPMN_translator.g:1547:1: ( '</' )
             {
-            // InternalBPMN_translator.g:1601:1: ( '</' )
-            // InternalBPMN_translator.g:1602:2: '</'
+            // InternalBPMN_translator.g:1547:1: ( '</' )
+            // InternalBPMN_translator.g:1548:2: '</'
             {
              before(grammarAccess.getCloseAccess().getLessThanSignSolidusKeyword_1_0()); 
             match(input,23,FOLLOW_2); 
@@ -4774,14 +4675,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Close__Group_1__1"
-    // InternalBPMN_translator.g:1611:1: rule__Close__Group_1__1 : rule__Close__Group_1__1__Impl rule__Close__Group_1__2 ;
+    // InternalBPMN_translator.g:1557:1: rule__Close__Group_1__1 : rule__Close__Group_1__1__Impl rule__Close__Group_1__2 ;
     public final void rule__Close__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1615:1: ( rule__Close__Group_1__1__Impl rule__Close__Group_1__2 )
-            // InternalBPMN_translator.g:1616:2: rule__Close__Group_1__1__Impl rule__Close__Group_1__2
+            // InternalBPMN_translator.g:1561:1: ( rule__Close__Group_1__1__Impl rule__Close__Group_1__2 )
+            // InternalBPMN_translator.g:1562:2: rule__Close__Group_1__1__Impl rule__Close__Group_1__2
             {
             pushFollow(FOLLOW_14);
             rule__Close__Group_1__1__Impl();
@@ -4812,17 +4713,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Close__Group_1__1__Impl"
-    // InternalBPMN_translator.g:1623:1: rule__Close__Group_1__1__Impl : ( RULE_HEAD ) ;
+    // InternalBPMN_translator.g:1569:1: rule__Close__Group_1__1__Impl : ( RULE_HEAD ) ;
     public final void rule__Close__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1627:1: ( ( RULE_HEAD ) )
-            // InternalBPMN_translator.g:1628:1: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1573:1: ( ( RULE_HEAD ) )
+            // InternalBPMN_translator.g:1574:1: ( RULE_HEAD )
             {
-            // InternalBPMN_translator.g:1628:1: ( RULE_HEAD )
-            // InternalBPMN_translator.g:1629:2: RULE_HEAD
+            // InternalBPMN_translator.g:1574:1: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1575:2: RULE_HEAD
             {
              before(grammarAccess.getCloseAccess().getHEADTerminalRuleCall_1_1()); 
             match(input,RULE_HEAD,FOLLOW_2); 
@@ -4849,14 +4750,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Close__Group_1__2"
-    // InternalBPMN_translator.g:1638:1: rule__Close__Group_1__2 : rule__Close__Group_1__2__Impl rule__Close__Group_1__3 ;
+    // InternalBPMN_translator.g:1584:1: rule__Close__Group_1__2 : rule__Close__Group_1__2__Impl rule__Close__Group_1__3 ;
     public final void rule__Close__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1642:1: ( rule__Close__Group_1__2__Impl rule__Close__Group_1__3 )
-            // InternalBPMN_translator.g:1643:2: rule__Close__Group_1__2__Impl rule__Close__Group_1__3
+            // InternalBPMN_translator.g:1588:1: ( rule__Close__Group_1__2__Impl rule__Close__Group_1__3 )
+            // InternalBPMN_translator.g:1589:2: rule__Close__Group_1__2__Impl rule__Close__Group_1__3
             {
             pushFollow(FOLLOW_15);
             rule__Close__Group_1__2__Impl();
@@ -4887,17 +4788,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Close__Group_1__2__Impl"
-    // InternalBPMN_translator.g:1650:1: rule__Close__Group_1__2__Impl : ( ':' ) ;
+    // InternalBPMN_translator.g:1596:1: rule__Close__Group_1__2__Impl : ( ':' ) ;
     public final void rule__Close__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1654:1: ( ( ':' ) )
-            // InternalBPMN_translator.g:1655:1: ( ':' )
+            // InternalBPMN_translator.g:1600:1: ( ( ':' ) )
+            // InternalBPMN_translator.g:1601:1: ( ':' )
             {
-            // InternalBPMN_translator.g:1655:1: ( ':' )
-            // InternalBPMN_translator.g:1656:2: ':'
+            // InternalBPMN_translator.g:1601:1: ( ':' )
+            // InternalBPMN_translator.g:1602:2: ':'
             {
              before(grammarAccess.getCloseAccess().getColonKeyword_1_2()); 
             match(input,19,FOLLOW_2); 
@@ -4924,14 +4825,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Close__Group_1__3"
-    // InternalBPMN_translator.g:1665:1: rule__Close__Group_1__3 : rule__Close__Group_1__3__Impl rule__Close__Group_1__4 ;
+    // InternalBPMN_translator.g:1611:1: rule__Close__Group_1__3 : rule__Close__Group_1__3__Impl rule__Close__Group_1__4 ;
     public final void rule__Close__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1669:1: ( rule__Close__Group_1__3__Impl rule__Close__Group_1__4 )
-            // InternalBPMN_translator.g:1670:2: rule__Close__Group_1__3__Impl rule__Close__Group_1__4
+            // InternalBPMN_translator.g:1615:1: ( rule__Close__Group_1__3__Impl rule__Close__Group_1__4 )
+            // InternalBPMN_translator.g:1616:2: rule__Close__Group_1__3__Impl rule__Close__Group_1__4
             {
             pushFollow(FOLLOW_21);
             rule__Close__Group_1__3__Impl();
@@ -4962,17 +4863,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Close__Group_1__3__Impl"
-    // InternalBPMN_translator.g:1677:1: rule__Close__Group_1__3__Impl : ( RULE_KEYWORDS ) ;
+    // InternalBPMN_translator.g:1623:1: rule__Close__Group_1__3__Impl : ( RULE_KEYWORDS ) ;
     public final void rule__Close__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1681:1: ( ( RULE_KEYWORDS ) )
-            // InternalBPMN_translator.g:1682:1: ( RULE_KEYWORDS )
+            // InternalBPMN_translator.g:1627:1: ( ( RULE_KEYWORDS ) )
+            // InternalBPMN_translator.g:1628:1: ( RULE_KEYWORDS )
             {
-            // InternalBPMN_translator.g:1682:1: ( RULE_KEYWORDS )
-            // InternalBPMN_translator.g:1683:2: RULE_KEYWORDS
+            // InternalBPMN_translator.g:1628:1: ( RULE_KEYWORDS )
+            // InternalBPMN_translator.g:1629:2: RULE_KEYWORDS
             {
              before(grammarAccess.getCloseAccess().getKEYWORDSTerminalRuleCall_1_3()); 
             match(input,RULE_KEYWORDS,FOLLOW_2); 
@@ -4999,14 +4900,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Close__Group_1__4"
-    // InternalBPMN_translator.g:1692:1: rule__Close__Group_1__4 : rule__Close__Group_1__4__Impl ;
+    // InternalBPMN_translator.g:1638:1: rule__Close__Group_1__4 : rule__Close__Group_1__4__Impl ;
     public final void rule__Close__Group_1__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1696:1: ( rule__Close__Group_1__4__Impl )
-            // InternalBPMN_translator.g:1697:2: rule__Close__Group_1__4__Impl
+            // InternalBPMN_translator.g:1642:1: ( rule__Close__Group_1__4__Impl )
+            // InternalBPMN_translator.g:1643:2: rule__Close__Group_1__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Close__Group_1__4__Impl();
@@ -5032,17 +4933,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Close__Group_1__4__Impl"
-    // InternalBPMN_translator.g:1703:1: rule__Close__Group_1__4__Impl : ( '>' ) ;
+    // InternalBPMN_translator.g:1649:1: rule__Close__Group_1__4__Impl : ( '>' ) ;
     public final void rule__Close__Group_1__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1707:1: ( ( '>' ) )
-            // InternalBPMN_translator.g:1708:1: ( '>' )
+            // InternalBPMN_translator.g:1653:1: ( ( '>' ) )
+            // InternalBPMN_translator.g:1654:1: ( '>' )
             {
-            // InternalBPMN_translator.g:1708:1: ( '>' )
-            // InternalBPMN_translator.g:1709:2: '>'
+            // InternalBPMN_translator.g:1654:1: ( '>' )
+            // InternalBPMN_translator.g:1655:2: '>'
             {
              before(grammarAccess.getCloseAccess().getGreaterThanSignKeyword_1_4()); 
             match(input,20,FOLLOW_2); 
@@ -5069,17 +4970,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Model__ModelAssignment"
-    // InternalBPMN_translator.g:1719:1: rule__Model__ModelAssignment : ( ruleXml ) ;
+    // InternalBPMN_translator.g:1665:1: rule__Model__ModelAssignment : ( ruleXml ) ;
     public final void rule__Model__ModelAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1723:1: ( ( ruleXml ) )
-            // InternalBPMN_translator.g:1724:2: ( ruleXml )
+            // InternalBPMN_translator.g:1669:1: ( ( ruleXml ) )
+            // InternalBPMN_translator.g:1670:2: ( ruleXml )
             {
-            // InternalBPMN_translator.g:1724:2: ( ruleXml )
-            // InternalBPMN_translator.g:1725:3: ruleXml
+            // InternalBPMN_translator.g:1670:2: ( ruleXml )
+            // InternalBPMN_translator.g:1671:3: ruleXml
             {
              before(grammarAccess.getModelAccess().getModelXmlParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -5110,17 +5011,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Xml__ProvaAssignment_2"
-    // InternalBPMN_translator.g:1734:1: rule__Xml__ProvaAssignment_2 : ( ruleelement ) ;
+    // InternalBPMN_translator.g:1680:1: rule__Xml__ProvaAssignment_2 : ( ruleelement ) ;
     public final void rule__Xml__ProvaAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1738:1: ( ( ruleelement ) )
-            // InternalBPMN_translator.g:1739:2: ( ruleelement )
+            // InternalBPMN_translator.g:1684:1: ( ( ruleelement ) )
+            // InternalBPMN_translator.g:1685:2: ( ruleelement )
             {
-            // InternalBPMN_translator.g:1739:2: ( ruleelement )
-            // InternalBPMN_translator.g:1740:3: ruleelement
+            // InternalBPMN_translator.g:1685:2: ( ruleelement )
+            // InternalBPMN_translator.g:1686:3: ruleelement
             {
              before(grammarAccess.getXmlAccess().getProvaElementParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -5150,18 +5051,59 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     // $ANTLR end "rule__Xml__ProvaAssignment_2"
 
 
+    // $ANTLR start "rule__Element__OpenAssignment_0_0"
+    // InternalBPMN_translator.g:1695:1: rule__Element__OpenAssignment_0_0 : ( ruleOpen ) ;
+    public final void rule__Element__OpenAssignment_0_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBPMN_translator.g:1699:1: ( ( ruleOpen ) )
+            // InternalBPMN_translator.g:1700:2: ( ruleOpen )
+            {
+            // InternalBPMN_translator.g:1700:2: ( ruleOpen )
+            // InternalBPMN_translator.g:1701:3: ruleOpen
+            {
+             before(grammarAccess.getElementAccess().getOpenOpenParserRuleCall_0_0_0()); 
+            pushFollow(FOLLOW_2);
+            ruleOpen();
+
+            state._fsp--;
+
+             after(grammarAccess.getElementAccess().getOpenOpenParserRuleCall_0_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Element__OpenAssignment_0_0"
+
+
     // $ANTLR start "rule__Element__ContentsAssignment_0_1"
-    // InternalBPMN_translator.g:1749:1: rule__Element__ContentsAssignment_0_1 : ( rulecontent ) ;
+    // InternalBPMN_translator.g:1710:1: rule__Element__ContentsAssignment_0_1 : ( rulecontent ) ;
     public final void rule__Element__ContentsAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1753:1: ( ( rulecontent ) )
-            // InternalBPMN_translator.g:1754:2: ( rulecontent )
+            // InternalBPMN_translator.g:1714:1: ( ( rulecontent ) )
+            // InternalBPMN_translator.g:1715:2: ( rulecontent )
             {
-            // InternalBPMN_translator.g:1754:2: ( rulecontent )
-            // InternalBPMN_translator.g:1755:3: rulecontent
+            // InternalBPMN_translator.g:1715:2: ( rulecontent )
+            // InternalBPMN_translator.g:1716:3: rulecontent
             {
              before(grammarAccess.getElementAccess().getContentsContentParserRuleCall_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5192,17 +5134,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Element__Close_tagAssignment_0_2"
-    // InternalBPMN_translator.g:1764:1: rule__Element__Close_tagAssignment_0_2 : ( ruleClose ) ;
+    // InternalBPMN_translator.g:1725:1: rule__Element__Close_tagAssignment_0_2 : ( ruleClose ) ;
     public final void rule__Element__Close_tagAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1768:1: ( ( ruleClose ) )
-            // InternalBPMN_translator.g:1769:2: ( ruleClose )
+            // InternalBPMN_translator.g:1729:1: ( ( ruleClose ) )
+            // InternalBPMN_translator.g:1730:2: ( ruleClose )
             {
-            // InternalBPMN_translator.g:1769:2: ( ruleClose )
-            // InternalBPMN_translator.g:1770:3: ruleClose
+            // InternalBPMN_translator.g:1730:2: ( ruleClose )
+            // InternalBPMN_translator.g:1731:3: ruleClose
             {
              before(grammarAccess.getElementAccess().getClose_tagCloseParserRuleCall_0_2_0()); 
             pushFollow(FOLLOW_2);
@@ -5233,17 +5175,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Element__Singleton_tagAssignment_1_1"
-    // InternalBPMN_translator.g:1779:1: rule__Element__Singleton_tagAssignment_1_1 : ( ruleSingleton ) ;
+    // InternalBPMN_translator.g:1740:1: rule__Element__Singleton_tagAssignment_1_1 : ( ruleSingleton ) ;
     public final void rule__Element__Singleton_tagAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1783:1: ( ( ruleSingleton ) )
-            // InternalBPMN_translator.g:1784:2: ( ruleSingleton )
+            // InternalBPMN_translator.g:1744:1: ( ( ruleSingleton ) )
+            // InternalBPMN_translator.g:1745:2: ( ruleSingleton )
             {
-            // InternalBPMN_translator.g:1784:2: ( ruleSingleton )
-            // InternalBPMN_translator.g:1785:3: ruleSingleton
+            // InternalBPMN_translator.g:1745:2: ( ruleSingleton )
+            // InternalBPMN_translator.g:1746:3: ruleSingleton
             {
              before(grammarAccess.getElementAccess().getSingleton_tagSingletonParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5274,17 +5216,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Content__ProvaAssignment_1_0"
-    // InternalBPMN_translator.g:1794:1: rule__Content__ProvaAssignment_1_0 : ( ruleelement ) ;
+    // InternalBPMN_translator.g:1755:1: rule__Content__ProvaAssignment_1_0 : ( ruleelement ) ;
     public final void rule__Content__ProvaAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1798:1: ( ( ruleelement ) )
-            // InternalBPMN_translator.g:1799:2: ( ruleelement )
+            // InternalBPMN_translator.g:1759:1: ( ( ruleelement ) )
+            // InternalBPMN_translator.g:1760:2: ( ruleelement )
             {
-            // InternalBPMN_translator.g:1799:2: ( ruleelement )
-            // InternalBPMN_translator.g:1800:3: ruleelement
+            // InternalBPMN_translator.g:1760:2: ( ruleelement )
+            // InternalBPMN_translator.g:1761:3: ruleelement
             {
              before(grammarAccess.getContentAccess().getProvaElementParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -5314,22 +5256,22 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     // $ANTLR end "rule__Content__ProvaAssignment_1_0"
 
 
-    // $ANTLR start "rule__Open__ValueAssignment_1_4_1_2"
-    // InternalBPMN_translator.g:1809:1: rule__Open__ValueAssignment_1_4_1_2 : ( RULE_STRING ) ;
-    public final void rule__Open__ValueAssignment_1_4_1_2() throws RecognitionException {
+    // $ANTLR start "rule__Open__HeadAssignment_1"
+    // InternalBPMN_translator.g:1770:1: rule__Open__HeadAssignment_1 : ( RULE_HEAD ) ;
+    public final void rule__Open__HeadAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1813:1: ( ( RULE_STRING ) )
-            // InternalBPMN_translator.g:1814:2: ( RULE_STRING )
+            // InternalBPMN_translator.g:1774:1: ( ( RULE_HEAD ) )
+            // InternalBPMN_translator.g:1775:2: ( RULE_HEAD )
             {
-            // InternalBPMN_translator.g:1814:2: ( RULE_STRING )
-            // InternalBPMN_translator.g:1815:3: RULE_STRING
+            // InternalBPMN_translator.g:1775:2: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1776:3: RULE_HEAD
             {
-             before(grammarAccess.getOpenAccess().getValueSTRINGTerminalRuleCall_1_4_1_2_0()); 
-            match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getOpenAccess().getValueSTRINGTerminalRuleCall_1_4_1_2_0()); 
+             before(grammarAccess.getOpenAccess().getHeadHEADTerminalRuleCall_1_0()); 
+            match(input,RULE_HEAD,FOLLOW_2); 
+             after(grammarAccess.getOpenAccess().getHeadHEADTerminalRuleCall_1_0()); 
 
             }
 
@@ -5348,21 +5290,206 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Open__ValueAssignment_1_4_1_2"
+    // $ANTLR end "rule__Open__HeadAssignment_1"
+
+
+    // $ANTLR start "rule__Open__KeywordsAssignment_3"
+    // InternalBPMN_translator.g:1785:1: rule__Open__KeywordsAssignment_3 : ( RULE_KEYWORDS ) ;
+    public final void rule__Open__KeywordsAssignment_3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBPMN_translator.g:1789:1: ( ( RULE_KEYWORDS ) )
+            // InternalBPMN_translator.g:1790:2: ( RULE_KEYWORDS )
+            {
+            // InternalBPMN_translator.g:1790:2: ( RULE_KEYWORDS )
+            // InternalBPMN_translator.g:1791:3: RULE_KEYWORDS
+            {
+             before(grammarAccess.getOpenAccess().getKeywordsKEYWORDSTerminalRuleCall_3_0()); 
+            match(input,RULE_KEYWORDS,FOLLOW_2); 
+             after(grammarAccess.getOpenAccess().getKeywordsKEYWORDSTerminalRuleCall_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Open__KeywordsAssignment_3"
+
+
+    // $ANTLR start "rule__Open__Head1Assignment_4_0_0"
+    // InternalBPMN_translator.g:1800:1: rule__Open__Head1Assignment_4_0_0 : ( RULE_HEAD ) ;
+    public final void rule__Open__Head1Assignment_4_0_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBPMN_translator.g:1804:1: ( ( RULE_HEAD ) )
+            // InternalBPMN_translator.g:1805:2: ( RULE_HEAD )
+            {
+            // InternalBPMN_translator.g:1805:2: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1806:3: RULE_HEAD
+            {
+             before(grammarAccess.getOpenAccess().getHead1HEADTerminalRuleCall_4_0_0_0()); 
+            match(input,RULE_HEAD,FOLLOW_2); 
+             after(grammarAccess.getOpenAccess().getHead1HEADTerminalRuleCall_4_0_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Open__Head1Assignment_4_0_0"
+
+
+    // $ANTLR start "rule__Open__Head1Assignment_4_1_0_0"
+    // InternalBPMN_translator.g:1815:1: rule__Open__Head1Assignment_4_1_0_0 : ( RULE_HEAD ) ;
+    public final void rule__Open__Head1Assignment_4_1_0_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBPMN_translator.g:1819:1: ( ( RULE_HEAD ) )
+            // InternalBPMN_translator.g:1820:2: ( RULE_HEAD )
+            {
+            // InternalBPMN_translator.g:1820:2: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1821:3: RULE_HEAD
+            {
+             before(grammarAccess.getOpenAccess().getHead1HEADTerminalRuleCall_4_1_0_0_0()); 
+            match(input,RULE_HEAD,FOLLOW_2); 
+             after(grammarAccess.getOpenAccess().getHead1HEADTerminalRuleCall_4_1_0_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Open__Head1Assignment_4_1_0_0"
+
+
+    // $ANTLR start "rule__Open__Keywords1Assignment_4_1_0_1"
+    // InternalBPMN_translator.g:1830:1: rule__Open__Keywords1Assignment_4_1_0_1 : ( RULE_KEYWORDS ) ;
+    public final void rule__Open__Keywords1Assignment_4_1_0_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBPMN_translator.g:1834:1: ( ( RULE_KEYWORDS ) )
+            // InternalBPMN_translator.g:1835:2: ( RULE_KEYWORDS )
+            {
+            // InternalBPMN_translator.g:1835:2: ( RULE_KEYWORDS )
+            // InternalBPMN_translator.g:1836:3: RULE_KEYWORDS
+            {
+             before(grammarAccess.getOpenAccess().getKeywords1KEYWORDSTerminalRuleCall_4_1_0_1_0()); 
+            match(input,RULE_KEYWORDS,FOLLOW_2); 
+             after(grammarAccess.getOpenAccess().getKeywords1KEYWORDSTerminalRuleCall_4_1_0_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Open__Keywords1Assignment_4_1_0_1"
+
+
+    // $ANTLR start "rule__Open__ValueAssignment_4_1_2"
+    // InternalBPMN_translator.g:1845:1: rule__Open__ValueAssignment_4_1_2 : ( RULE_STRING ) ;
+    public final void rule__Open__ValueAssignment_4_1_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBPMN_translator.g:1849:1: ( ( RULE_STRING ) )
+            // InternalBPMN_translator.g:1850:2: ( RULE_STRING )
+            {
+            // InternalBPMN_translator.g:1850:2: ( RULE_STRING )
+            // InternalBPMN_translator.g:1851:3: RULE_STRING
+            {
+             before(grammarAccess.getOpenAccess().getValueSTRINGTerminalRuleCall_4_1_2_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getOpenAccess().getValueSTRINGTerminalRuleCall_4_1_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Open__ValueAssignment_4_1_2"
 
 
     // $ANTLR start "rule__Singleton__ValueAssignment_1_4_1_2"
-    // InternalBPMN_translator.g:1824:1: rule__Singleton__ValueAssignment_1_4_1_2 : ( RULE_STRING ) ;
+    // InternalBPMN_translator.g:1860:1: rule__Singleton__ValueAssignment_1_4_1_2 : ( RULE_STRING ) ;
     public final void rule__Singleton__ValueAssignment_1_4_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1828:1: ( ( RULE_STRING ) )
-            // InternalBPMN_translator.g:1829:2: ( RULE_STRING )
+            // InternalBPMN_translator.g:1864:1: ( ( RULE_STRING ) )
+            // InternalBPMN_translator.g:1865:2: ( RULE_STRING )
             {
-            // InternalBPMN_translator.g:1829:2: ( RULE_STRING )
-            // InternalBPMN_translator.g:1830:3: RULE_STRING
+            // InternalBPMN_translator.g:1865:2: ( RULE_STRING )
+            // InternalBPMN_translator.g:1866:3: RULE_STRING
             {
              before(grammarAccess.getSingletonAccess().getValueSTRINGTerminalRuleCall_1_4_1_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -5394,21 +5521,21 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     static final String dfa_1s = "\14\uffff";
     static final String dfa_2s = "\1\22\1\7\1\23\2\5\1\23\1\25\2\uffff\1\5\1\6\1\5";
     static final String dfa_3s = "\1\22\1\7\1\23\1\5\1\26\2\25\2\uffff\1\26\1\6\1\26";
-    static final String dfa_4s = "\7\uffff\1\1\1\2\3\uffff";
+    static final String dfa_4s = "\7\uffff\1\2\1\1\3\uffff";
     static final String dfa_5s = "\14\uffff}>";
     static final String[] dfa_6s = {
             "\1\1",
             "\1\2",
             "\1\3",
             "\1\4",
-            "\1\6\1\uffff\1\5\14\uffff\1\7\1\uffff\1\10",
-            "\1\11\1\uffff\1\7",
+            "\1\6\1\uffff\1\5\14\uffff\1\10\1\uffff\1\7",
+            "\1\11\1\uffff\1\10",
             "\1\12",
             "",
             "",
-            "\1\6\1\uffff\1\5\14\uffff\1\7\1\uffff\1\10",
+            "\1\6\1\uffff\1\5\14\uffff\1\10\1\uffff\1\7",
             "\1\13",
-            "\1\6\1\uffff\1\5\14\uffff\1\7\1\uffff\1\10"
+            "\1\6\1\uffff\1\5\14\uffff\1\10\1\uffff\1\7"
     };
 
     static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);

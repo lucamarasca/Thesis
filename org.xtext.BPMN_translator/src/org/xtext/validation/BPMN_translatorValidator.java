@@ -3,6 +3,10 @@
  */
 package org.xtext.validation;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.xtext.validation.Check;
+import org.xtext.bPMN_translator.BPMN_translatorPackage;
+import org.xtext.bPMN_translator.Model;
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +15,14 @@ package org.xtext.validation;
  */
 public class BPMN_translatorValidator extends AbstractBPMN_translatorValidator {
 	
-//	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					BPMN_translatorPackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
+	public static final String INVALID_NAME = "invalidName";
+
+	@Check
+	public void checkGreetingStartsWithCapital(Model model) {
+		
+			//warning("Name should start with a capital", null);
+		
+	}
 	
 }
+//++++++++++++++++++++++++++This class is used for sending warnings in the source++++++++++

@@ -72,7 +72,7 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
       case BPMN_translatorPackage.OPEN: return createOpen();
       case BPMN_translatorPackage.SINGLETON: return createSingleton();
       case BPMN_translatorPackage.CLOSE: return createClose();
-      case BPMN_translatorPackage.OPENS: return createOpens();
+      case BPMN_translatorPackage.ELEMENT_VALUE: return createelement_value();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -168,10 +168,10 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public Opens createOpens()
+  public element_value createelement_value()
   {
-    OpensImpl opens = new OpensImpl();
-    return opens;
+    element_valueImpl element_value = new element_valueImpl();
+    return element_value;
   }
 
   /**

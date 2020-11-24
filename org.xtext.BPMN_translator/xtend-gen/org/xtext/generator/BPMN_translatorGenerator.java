@@ -4,13 +4,17 @@
 package org.xtext.generator;
 
 import com.google.common.collect.Iterators;
+import java.util.ArrayList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.CollectionExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
-import org.xtext.bPMN_translator.Model;
+import org.xtext.bPMN_translator.Open;
+import org.xtext.bPMN_translator.element;
 
 /**
  * Generates code from your model files on save.
@@ -19,20 +23,74 @@ import org.xtext.bPMN_translator.Model;
  */
 @SuppressWarnings("all")
 public class BPMN_translatorGenerator extends AbstractGenerator {
+  private ArrayList<String> task_type;
+  
+  public boolean Initialize() {
+    return this.FillTaskType();
+  }
+  
+  public boolean FillTaskType() {
+    boolean _xblockexpression = false;
+    {
+      ArrayList<String> _arrayList = new ArrayList<String>();
+      this.task_type = _arrayList;
+      _xblockexpression = CollectionExtensions.<String>addAll(this.task_type, "task", "sendTask", "receiveTask", "userTask", 
+        "manualTask", "businessRuleTask", "serviceTask", "scriptTask", 
+        "callActivity");
+    }
+    return _xblockexpression;
+  }
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    System.out.println("Do Generate è stato chiamato");
+    this.Initialize();
+    fsa.generateFile("Main.ino", this.StaticMainFile());
+    String _StaticLibHStart = this.StaticLibHStart();
     StringConcatenation _builder = new StringConcatenation();
     {
-      Iterable<Model> _iterable = IteratorExtensions.<Model>toIterable(Iterators.<Model>filter(resource.getAllContents(), Model.class));
-      for(final Model state : _iterable) {
-        _builder.append("Model ");
-        String _name = Model.class.getName();
-        _builder.append(_name);
-        _builder.newLineIfNotEmpty();
+      Iterable<element> _iterable = IteratorExtensions.<element>toIterable(Iterators.<element>filter(resource.getAllContents(), element.class));
+      for(final element element : _iterable) {
+        {
+          EList<Open> _open = element.getOpen();
+          for(final Open Open : _open) {
+            String _TaskToMethods = this.TaskToMethods(Open);
+            _builder.append(_TaskToMethods);
+            _builder.append("     ");
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
-    fsa.generateFile("a.txt", _builder);
-    System.out.println("Do Generate è finitooooo");
+    String _plus = (_StaticLibHStart + _builder);
+    String _StaticLibHEnd = this.StaticLibHEnd();
+    String _plus_1 = (_plus + _StaticLibHEnd);
+    fsa.generateFile("GeneratedLib.h", _plus_1);
+  }
+  
+  public String TaskToMethods(final Open open_tag) {
+    final String type = "void";
+    boolean _contains = this.task_type.contains(open_tag.getKeywords().get(0));
+    if (_contains) {
+      String _lowerCase = open_tag.getValue().get(this.getNamePosition(open_tag)).replaceAll(" ", "_").toLowerCase();
+      String _plus = ((("\t" + type) + " ") + _lowerCase);
+      return (_plus + "();");
+    }
+    return null;
+  }
+  
+  public int getNamePosition(final Open open_tag) {
+    return open_tag.getKeywords1().lastIndexOf("name");
+  }
+  
+  public String StaticLibHStart() {
+    return "\r\n#include \"Arduino.h\"        //includes the library Arduino.h\r\n#include \"SoftwareSerial.h\" //Includes the library SoftwareSerial.h\r\n//Used for defining static variables\r\nenum {\r\n\t//rate of trnsmission\r\n\tBAUND_RATE = 9600,\r\n};\r\nclass MyBPMNClass {\r\n";
+  }
+  
+  public String StaticLibHEnd() {
+    return "}";
+  }
+  
+  public String StaticMainFile() {
+    return "\r\n#include <GeneratedLib.h>\r\n\r\nvoid setup()\r\n{\r\n  Serial.begin(9600); // opens serial port, sets data rate to 9600 bps\r\n\r\n  while (!Serial)\r\n    ;\r\n}\r\n\r\nvoid loop()\r\n{\r\n\r\n}\r\n\t\t";
   }
 }

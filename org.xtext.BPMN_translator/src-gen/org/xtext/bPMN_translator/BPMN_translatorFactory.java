@@ -87,13 +87,13 @@ public interface BPMN_translatorFactory extends EFactory
   Close createClose();
 
   /**
-   * Returns a new object of class '<em>Opens</em>'.
+   * Returns a new object of class '<em>element value</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Opens</em>'.
+   * @return a new object of class '<em>element value</em>'.
    * @generated
    */
-  Opens createOpens();
+  element_value createelement_value();
 
   /**
    * Returns the package supported by this factory.

@@ -111,9 +111,9 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
         return createCloseAdapter();
       }
       @Override
-      public Adapter caseOpens(Opens object)
+      public Adapter caseelement_value(element_value object)
       {
-        return createOpensAdapter();
+        return createelement_valueAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -243,16 +243,16 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.Opens <em>Opens</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.element_value <em>element value</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.bPMN_translator.Opens
+   * @see org.xtext.bPMN_translator.element_value
    * @generated
    */
-  public Adapter createOpensAdapter()
+  public Adapter createelement_valueAdapter()
   {
     return null;
   }

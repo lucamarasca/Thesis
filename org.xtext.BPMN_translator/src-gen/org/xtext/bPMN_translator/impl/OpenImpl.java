@@ -5,20 +5,16 @@ package org.xtext.bPMN_translator.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
-import org.xtext.bPMN_translator.Close;
 import org.xtext.bPMN_translator.Open;
-import org.xtext.bPMN_translator.content;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,33 +24,66 @@ import org.xtext.bPMN_translator.content;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.bPMN_translator.impl.OpenImpl#getContents <em>Contents</em>}</li>
- *   <li>{@link org.xtext.bPMN_translator.impl.OpenImpl#getClose_tag <em>Close tag</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.OpenImpl#getHead <em>Head</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.OpenImpl#getKeywords <em>Keywords</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.OpenImpl#getHead1 <em>Head1</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.OpenImpl#getKeywords1 <em>Keywords1</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.OpenImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OpenImpl extends elementImpl implements Open
+public class OpenImpl extends MinimalEObjectImpl.Container implements Open
 {
   /**
-   * The cached value of the '{@link #getContents() <em>Contents</em>}' containment reference list.
+   * The cached value of the '{@link #getHead() <em>Head</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getContents()
+   * @see #getHead()
    * @generated
    * @ordered
    */
-  protected EList<content> contents;
+  protected EList<String> head;
 
   /**
-   * The cached value of the '{@link #getClose_tag() <em>Close tag</em>}' containment reference list.
+   * The cached value of the '{@link #getKeywords() <em>Keywords</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getClose_tag()
+   * @see #getKeywords()
    * @generated
    * @ordered
    */
-  protected EList<Close> close_tag;
+  protected EList<String> keywords;
+
+  /**
+   * The cached value of the '{@link #getHead1() <em>Head1</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHead1()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> head1;
+
+  /**
+   * The cached value of the '{@link #getKeywords1() <em>Keywords1</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKeywords1()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> keywords1;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> value;
 
   /**
    * <!-- begin-user-doc -->
@@ -83,13 +112,13 @@ public class OpenImpl extends elementImpl implements Open
    * @generated
    */
   @Override
-  public EList<content> getContents()
+  public EList<String> getHead()
   {
-    if (contents == null)
+    if (head == null)
     {
-      contents = new EObjectContainmentEList<content>(content.class, this, BPMN_translatorPackage.OPEN__CONTENTS);
+      head = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.OPEN__HEAD);
     }
-    return contents;
+    return head;
   }
 
   /**
@@ -98,13 +127,13 @@ public class OpenImpl extends elementImpl implements Open
    * @generated
    */
   @Override
-  public EList<Close> getClose_tag()
+  public EList<String> getKeywords()
   {
-    if (close_tag == null)
+    if (keywords == null)
     {
-      close_tag = new EObjectContainmentEList<Close>(Close.class, this, BPMN_translatorPackage.OPEN__CLOSE_TAG);
+      keywords = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.OPEN__KEYWORDS);
     }
-    return close_tag;
+    return keywords;
   }
 
   /**
@@ -113,16 +142,43 @@ public class OpenImpl extends elementImpl implements Open
    * @generated
    */
   @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  public EList<String> getHead1()
   {
-    switch (featureID)
+    if (head1 == null)
     {
-      case BPMN_translatorPackage.OPEN__CONTENTS:
-        return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
-      case BPMN_translatorPackage.OPEN__CLOSE_TAG:
-        return ((InternalEList<?>)getClose_tag()).basicRemove(otherEnd, msgs);
+      head1 = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.OPEN__HEAD1);
     }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    return head1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getKeywords1()
+  {
+    if (keywords1 == null)
+    {
+      keywords1 = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.OPEN__KEYWORDS1);
+    }
+    return keywords1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getValue()
+  {
+    if (value == null)
+    {
+      value = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.OPEN__VALUE);
+    }
+    return value;
   }
 
   /**
@@ -135,10 +191,16 @@ public class OpenImpl extends elementImpl implements Open
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.OPEN__CONTENTS:
-        return getContents();
-      case BPMN_translatorPackage.OPEN__CLOSE_TAG:
-        return getClose_tag();
+      case BPMN_translatorPackage.OPEN__HEAD:
+        return getHead();
+      case BPMN_translatorPackage.OPEN__KEYWORDS:
+        return getKeywords();
+      case BPMN_translatorPackage.OPEN__HEAD1:
+        return getHead1();
+      case BPMN_translatorPackage.OPEN__KEYWORDS1:
+        return getKeywords1();
+      case BPMN_translatorPackage.OPEN__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -154,13 +216,25 @@ public class OpenImpl extends elementImpl implements Open
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.OPEN__CONTENTS:
-        getContents().clear();
-        getContents().addAll((Collection<? extends content>)newValue);
+      case BPMN_translatorPackage.OPEN__HEAD:
+        getHead().clear();
+        getHead().addAll((Collection<? extends String>)newValue);
         return;
-      case BPMN_translatorPackage.OPEN__CLOSE_TAG:
-        getClose_tag().clear();
-        getClose_tag().addAll((Collection<? extends Close>)newValue);
+      case BPMN_translatorPackage.OPEN__KEYWORDS:
+        getKeywords().clear();
+        getKeywords().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.OPEN__HEAD1:
+        getHead1().clear();
+        getHead1().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.OPEN__KEYWORDS1:
+        getKeywords1().clear();
+        getKeywords1().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.OPEN__VALUE:
+        getValue().clear();
+        getValue().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -176,11 +250,20 @@ public class OpenImpl extends elementImpl implements Open
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.OPEN__CONTENTS:
-        getContents().clear();
+      case BPMN_translatorPackage.OPEN__HEAD:
+        getHead().clear();
         return;
-      case BPMN_translatorPackage.OPEN__CLOSE_TAG:
-        getClose_tag().clear();
+      case BPMN_translatorPackage.OPEN__KEYWORDS:
+        getKeywords().clear();
+        return;
+      case BPMN_translatorPackage.OPEN__HEAD1:
+        getHead1().clear();
+        return;
+      case BPMN_translatorPackage.OPEN__KEYWORDS1:
+        getKeywords1().clear();
+        return;
+      case BPMN_translatorPackage.OPEN__VALUE:
+        getValue().clear();
         return;
     }
     super.eUnset(featureID);
@@ -196,12 +279,43 @@ public class OpenImpl extends elementImpl implements Open
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.OPEN__CONTENTS:
-        return contents != null && !contents.isEmpty();
-      case BPMN_translatorPackage.OPEN__CLOSE_TAG:
-        return close_tag != null && !close_tag.isEmpty();
+      case BPMN_translatorPackage.OPEN__HEAD:
+        return head != null && !head.isEmpty();
+      case BPMN_translatorPackage.OPEN__KEYWORDS:
+        return keywords != null && !keywords.isEmpty();
+      case BPMN_translatorPackage.OPEN__HEAD1:
+        return head1 != null && !head1.isEmpty();
+      case BPMN_translatorPackage.OPEN__KEYWORDS1:
+        return keywords1 != null && !keywords1.isEmpty();
+      case BPMN_translatorPackage.OPEN__VALUE:
+        return value != null && !value.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (head: ");
+    result.append(head);
+    result.append(", keywords: ");
+    result.append(keywords);
+    result.append(", head1: ");
+    result.append(head1);
+    result.append(", keywords1: ");
+    result.append(keywords1);
+    result.append(", value: ");
+    result.append(value);
+    result.append(')');
+    return result.toString();
   }
 
 } //OpenImpl

@@ -13,21 +13,26 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Xml/prova"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//element">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//element/singleton_tag"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//element/open"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//element/contents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//element/close_tag"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//content">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//content/prova"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//Open">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Open/contents"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//Open/close_tag"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Open/head"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Open/keywords"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Open/head1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Open/keywords1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Open/value"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//Singleton">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Singleton/value"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//Close"/>
-    <genClasses ecoreClass="BPMN_translator.ecore#//Opens">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Opens/value"/>
+    <genClasses ecoreClass="BPMN_translator.ecore#//element_value">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//element_value/singleton_tag"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

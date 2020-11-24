@@ -22,8 +22,6 @@ import org.xtext.services.BPMN_translatorGrammarAccess;
 public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected BPMN_translatorGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Open_HEADTerminalRuleCall_1_4_1_0_0_or_KEYWORDSTerminalRuleCall_1_4_1_0_1;
-	protected AbstractElementAlias match_Open___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a;
 	protected AbstractElementAlias match_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a;
 	protected AbstractElementAlias match_Xml_PrologParserRuleCall_1_q;
 	protected AbstractElementAlias match_content___BODYTerminalRuleCall_1_1_or_KEYWORDSTerminalRuleCall_1_2_or_STRINGTerminalRuleCall_1_3__a;
@@ -31,8 +29,6 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (BPMN_translatorGrammarAccess) access;
-		match_Open_HEADTerminalRuleCall_1_4_1_0_0_or_KEYWORDSTerminalRuleCall_1_4_1_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_4_1_0_0()), new TokenAlias(false, false, grammarAccess.getOpenAccess().getKEYWORDSTerminalRuleCall_1_4_1_0_1()));
-		match_Open___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getOpenAccess().getHEADTerminalRuleCall_1_4_0_0()), new TokenAlias(false, false, grammarAccess.getOpenAccess().getColonKeyword_1_4_0_1()));
 		match_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getSingletonAccess().getHEADTerminalRuleCall_1_4_0_0()), new TokenAlias(false, false, grammarAccess.getSingletonAccess().getColonKeyword_1_4_0_1()));
 		match_Xml_PrologParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getXmlAccess().getPrologParserRuleCall_1());
 		match_content___BODYTerminalRuleCall_1_1_or_KEYWORDSTerminalRuleCall_1_2_or_STRINGTerminalRuleCall_1_3__a = new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getContentAccess().getBODYTerminalRuleCall_1_1()), new TokenAlias(false, false, grammarAccess.getContentAccess().getKEYWORDSTerminalRuleCall_1_2()), new TokenAlias(false, false, grammarAccess.getContentAccess().getSTRINGTerminalRuleCall_1_3()));
@@ -124,11 +120,7 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Open_HEADTerminalRuleCall_1_4_1_0_0_or_KEYWORDSTerminalRuleCall_1_4_1_0_1.equals(syntax))
-				emit_Open_HEADTerminalRuleCall_1_4_1_0_0_or_KEYWORDSTerminalRuleCall_1_4_1_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Open___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a.equals(syntax))
-				emit_Open___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a.equals(syntax))
+			if (match_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a.equals(syntax))
 				emit_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Xml_PrologParserRuleCall_1_q.equals(syntax))
 				emit_Xml_PrologParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -138,34 +130,6 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     HEAD | KEYWORDS
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '<' HEAD ':' KEYWORDS (HEAD ':')* (ambiguity) '=' value+=STRING
-	 *     value+=STRING (HEAD ':')* (ambiguity) '=' value+=STRING
-	 */
-	protected void emit_Open_HEADTerminalRuleCall_1_4_1_0_0_or_KEYWORDSTerminalRuleCall_1_4_1_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (HEAD ':')*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '<' HEAD ':' KEYWORDS (ambiguity) '>' (rule start)
-	 *     (rule start) '<' HEAD ':' KEYWORDS (ambiguity) '>' contents+=content
-	 *     (rule start) '<' HEAD ':' KEYWORDS (ambiguity) (HEAD | KEYWORDS) '=' value+=STRING
-	 *     value+=STRING (ambiguity) '>' (rule end)
-	 *     value+=STRING (ambiguity) '>' contents+=content
-	 *     value+=STRING (ambiguity) (HEAD | KEYWORDS) '=' value+=STRING
-	 */
-	protected void emit_Open___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 	/**
 	 * Ambiguous syntax:
 	 *     (HEAD ':')*

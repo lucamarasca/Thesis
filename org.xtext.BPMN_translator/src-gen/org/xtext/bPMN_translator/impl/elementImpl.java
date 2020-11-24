@@ -18,7 +18,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
-import org.xtext.bPMN_translator.Singleton;
+import org.xtext.bPMN_translator.Close;
+import org.xtext.bPMN_translator.Open;
+import org.xtext.bPMN_translator.content;
 import org.xtext.bPMN_translator.element;
 
 /**
@@ -29,7 +31,9 @@ import org.xtext.bPMN_translator.element;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.bPMN_translator.impl.elementImpl#getSingleton_tag <em>Singleton tag</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.elementImpl#getOpen <em>Open</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.elementImpl#getContents <em>Contents</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.elementImpl#getClose_tag <em>Close tag</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +41,34 @@ import org.xtext.bPMN_translator.element;
 public class elementImpl extends MinimalEObjectImpl.Container implements element
 {
   /**
-   * The cached value of the '{@link #getSingleton_tag() <em>Singleton tag</em>}' containment reference list.
+   * The cached value of the '{@link #getOpen() <em>Open</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSingleton_tag()
+   * @see #getOpen()
    * @generated
    * @ordered
    */
-  protected EList<Singleton> singleton_tag;
+  protected EList<Open> open;
+
+  /**
+   * The cached value of the '{@link #getContents() <em>Contents</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContents()
+   * @generated
+   * @ordered
+   */
+  protected EList<content> contents;
+
+  /**
+   * The cached value of the '{@link #getClose_tag() <em>Close tag</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClose_tag()
+   * @generated
+   * @ordered
+   */
+  protected EList<Close> close_tag;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,13 +97,43 @@ public class elementImpl extends MinimalEObjectImpl.Container implements element
    * @generated
    */
   @Override
-  public EList<Singleton> getSingleton_tag()
+  public EList<Open> getOpen()
   {
-    if (singleton_tag == null)
+    if (open == null)
     {
-      singleton_tag = new EObjectContainmentEList<Singleton>(Singleton.class, this, BPMN_translatorPackage.ELEMENT__SINGLETON_TAG);
+      open = new EObjectContainmentEList<Open>(Open.class, this, BPMN_translatorPackage.ELEMENT__OPEN);
     }
-    return singleton_tag;
+    return open;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<content> getContents()
+  {
+    if (contents == null)
+    {
+      contents = new EObjectContainmentEList<content>(content.class, this, BPMN_translatorPackage.ELEMENT__CONTENTS);
+    }
+    return contents;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Close> getClose_tag()
+  {
+    if (close_tag == null)
+    {
+      close_tag = new EObjectContainmentEList<Close>(Close.class, this, BPMN_translatorPackage.ELEMENT__CLOSE_TAG);
+    }
+    return close_tag;
   }
 
   /**
@@ -92,8 +146,12 @@ public class elementImpl extends MinimalEObjectImpl.Container implements element
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.ELEMENT__SINGLETON_TAG:
-        return ((InternalEList<?>)getSingleton_tag()).basicRemove(otherEnd, msgs);
+      case BPMN_translatorPackage.ELEMENT__OPEN:
+        return ((InternalEList<?>)getOpen()).basicRemove(otherEnd, msgs);
+      case BPMN_translatorPackage.ELEMENT__CONTENTS:
+        return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
+      case BPMN_translatorPackage.ELEMENT__CLOSE_TAG:
+        return ((InternalEList<?>)getClose_tag()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +166,12 @@ public class elementImpl extends MinimalEObjectImpl.Container implements element
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.ELEMENT__SINGLETON_TAG:
-        return getSingleton_tag();
+      case BPMN_translatorPackage.ELEMENT__OPEN:
+        return getOpen();
+      case BPMN_translatorPackage.ELEMENT__CONTENTS:
+        return getContents();
+      case BPMN_translatorPackage.ELEMENT__CLOSE_TAG:
+        return getClose_tag();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +187,17 @@ public class elementImpl extends MinimalEObjectImpl.Container implements element
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.ELEMENT__SINGLETON_TAG:
-        getSingleton_tag().clear();
-        getSingleton_tag().addAll((Collection<? extends Singleton>)newValue);
+      case BPMN_translatorPackage.ELEMENT__OPEN:
+        getOpen().clear();
+        getOpen().addAll((Collection<? extends Open>)newValue);
+        return;
+      case BPMN_translatorPackage.ELEMENT__CONTENTS:
+        getContents().clear();
+        getContents().addAll((Collection<? extends content>)newValue);
+        return;
+      case BPMN_translatorPackage.ELEMENT__CLOSE_TAG:
+        getClose_tag().clear();
+        getClose_tag().addAll((Collection<? extends Close>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +213,14 @@ public class elementImpl extends MinimalEObjectImpl.Container implements element
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.ELEMENT__SINGLETON_TAG:
-        getSingleton_tag().clear();
+      case BPMN_translatorPackage.ELEMENT__OPEN:
+        getOpen().clear();
+        return;
+      case BPMN_translatorPackage.ELEMENT__CONTENTS:
+        getContents().clear();
+        return;
+      case BPMN_translatorPackage.ELEMENT__CLOSE_TAG:
+        getClose_tag().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,8 +236,12 @@ public class elementImpl extends MinimalEObjectImpl.Container implements element
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.ELEMENT__SINGLETON_TAG:
-        return singleton_tag != null && !singleton_tag.isEmpty();
+      case BPMN_translatorPackage.ELEMENT__OPEN:
+        return open != null && !open.isEmpty();
+      case BPMN_translatorPackage.ELEMENT__CONTENTS:
+        return contents != null && !contents.isEmpty();
+      case BPMN_translatorPackage.ELEMENT__CLOSE_TAG:
+        return close_tag != null && !close_tag.isEmpty();
     }
     return super.eIsSet(featureID);
   }
