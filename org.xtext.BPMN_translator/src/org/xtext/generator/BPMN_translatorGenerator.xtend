@@ -19,10 +19,10 @@ import java.util.ArrayList
 class BPMN_translatorGenerator extends AbstractGenerator {
 //++++++++++++++++++++++++++++++Costants++++++++++++++++++++++++++++++++++
 ArrayList<String> task_type;
-
+ArrayList<String> gateway_type;
 def Initialize(){
 	FillTaskType();
- 
+	FillGatewayType();
 }
 
 def FillTaskType(){
@@ -32,27 +32,74 @@ def FillTaskType(){
 		"callActivity"
 	);
 }
+
+def FillGatewayType(){
+	gateway_type = new ArrayList<String>();
+	gateway_type.addAll("exclusiveGateway" , "parallelGateway", "inclusiveGateway",
+		"complexGateway", "eventBasedGateway"
+	);
+}
 //++++++++++++++++++++++++++++++Generation++++++++++++++++++++++++++++++++
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		Initialize();
-		fsa.generateFile("Main.ino", StaticMainFile() )
+		//Main file generation
+		fsa.generateFile("Main.ino", StaticMainFileStart() + '''
+        «FOR element : resource.allContents.filter(element).toIterable»	         
+	        	«GenerateMainFile(element)»     	       
+        «ENDFOR»
+        ''' + StaticMainFileEnd())
+		//.h lib file generation
 		fsa.generateFile("GeneratedLib.h" , StaticLibHStart() + '''
         «FOR element : resource.allContents.filter(element).toIterable»
 	        «FOR Open : element.open» 
-	        	«TaskToMethods(Open)»     
+	        	«TaskToMethodsH(Open)»     
 	        «ENDFOR»
         «ENDFOR»
         ''' + StaticLibHEnd())
+        //.cpp lib file generation
+        fsa.generateFile("GeneratedLib.cpp" , StaticLibCPPStart() + '''
+        «FOR element : resource.allContents.filter(element).toIterable»
+	        «FOR Open : element.open» 
+	        	«TaskToMethodsCPP(Open)»     
+	        «ENDFOR»
+        «ENDFOR»
+        ''')
 		        
 	}
 	
-	def TaskToMethods(Open open_tag){
+	def GenerateMainFile(element e){
+		if(gateway_type.contains(getTaskType(e)))
+		{
+			//TODO
+		}
+		
+	}
+	//return the task type
+	def getTaskType(element e){
+		'''
+		«FOR Open : e.open» 
+	        «Open.keywords»	    
+	    «ENDFOR»
+		'''
+	}
+	
+	def TaskToMethodsH(Open open_tag){
 		val type = "void";
 		
 		if(task_type.contains(open_tag.keywords.get(0))){
 			
 			return "\t" + type + " " + open_tag.value.get(getNamePosition(open_tag))
 			.replaceAll(" ", "_").toLowerCase() + "();"
+		}
+		
+	}
+	def TaskToMethodsCPP(Open open_tag){
+		val type = "void";
+		
+		if(task_type.contains(open_tag.keywords.get(0))){
+			
+			return type + " MyBPMNClass::" + open_tag.value.get(getNamePosition(open_tag))
+			.replaceAll(" ", "_").toLowerCase() + "()\n{\n\n\\\todo\n\n}\n"
 		}
 		
 	}
@@ -79,7 +126,17 @@ class MyBPMNClass {
 def StaticLibHEnd(){
 	return "}"
 }
-def StaticMainFile(){
+
+def StaticLibCPPStart(){
+	return 
+"
+#include <GeneratedLib.h>\n
+"
+}
+
+
+
+def StaticMainFileStart(){
 	return 
 	"
 #include <GeneratedLib.h>
@@ -90,13 +147,19 @@ void setup()
 
   while (!Serial)
     ;
+
+		";
+}
+def StaticMainFileEnd(){
+return 
+"
 }
 
 void loop()
 {
 
 }
-		";
+"
 }
 	
 }
