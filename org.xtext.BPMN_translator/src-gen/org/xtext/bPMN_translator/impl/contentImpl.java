@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -29,7 +30,10 @@ import org.xtext.bPMN_translator.element;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.bPMN_translator.impl.contentImpl#getProva <em>Prova</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.contentImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.contentImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.contentImpl#getKeywords <em>Keywords</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.contentImpl#getData <em>Data</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +41,44 @@ import org.xtext.bPMN_translator.element;
 public class contentImpl extends MinimalEObjectImpl.Container implements content
 {
   /**
-   * The cached value of the '{@link #getProva() <em>Prova</em>}' containment reference list.
+   * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProva()
+   * @see #getElement()
    * @generated
    * @ordered
    */
-  protected EList<element> prova;
+  protected EList<element> element;
+
+  /**
+   * The cached value of the '{@link #getBody() <em>Body</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBody()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> body;
+
+  /**
+   * The cached value of the '{@link #getKeywords() <em>Keywords</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKeywords()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> keywords;
+
+  /**
+   * The cached value of the '{@link #getData() <em>Data</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getData()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> data;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,13 +107,58 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
    * @generated
    */
   @Override
-  public EList<element> getProva()
+  public EList<element> getElement()
   {
-    if (prova == null)
+    if (element == null)
     {
-      prova = new EObjectContainmentEList<element>(element.class, this, BPMN_translatorPackage.CONTENT__PROVA);
+      element = new EObjectContainmentEList<element>(element.class, this, BPMN_translatorPackage.CONTENT__ELEMENT);
     }
-    return prova;
+    return element;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getBody()
+  {
+    if (body == null)
+    {
+      body = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.CONTENT__BODY);
+    }
+    return body;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getKeywords()
+  {
+    if (keywords == null)
+    {
+      keywords = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.CONTENT__KEYWORDS);
+    }
+    return keywords;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getData()
+  {
+    if (data == null)
+    {
+      data = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.CONTENT__DATA);
+    }
+    return data;
   }
 
   /**
@@ -92,8 +171,8 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.CONTENT__PROVA:
-        return ((InternalEList<?>)getProva()).basicRemove(otherEnd, msgs);
+      case BPMN_translatorPackage.CONTENT__ELEMENT:
+        return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +187,14 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.CONTENT__PROVA:
-        return getProva();
+      case BPMN_translatorPackage.CONTENT__ELEMENT:
+        return getElement();
+      case BPMN_translatorPackage.CONTENT__BODY:
+        return getBody();
+      case BPMN_translatorPackage.CONTENT__KEYWORDS:
+        return getKeywords();
+      case BPMN_translatorPackage.CONTENT__DATA:
+        return getData();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +210,21 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.CONTENT__PROVA:
-        getProva().clear();
-        getProva().addAll((Collection<? extends element>)newValue);
+      case BPMN_translatorPackage.CONTENT__ELEMENT:
+        getElement().clear();
+        getElement().addAll((Collection<? extends element>)newValue);
+        return;
+      case BPMN_translatorPackage.CONTENT__BODY:
+        getBody().clear();
+        getBody().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.CONTENT__KEYWORDS:
+        getKeywords().clear();
+        getKeywords().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.CONTENT__DATA:
+        getData().clear();
+        getData().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +240,17 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.CONTENT__PROVA:
-        getProva().clear();
+      case BPMN_translatorPackage.CONTENT__ELEMENT:
+        getElement().clear();
+        return;
+      case BPMN_translatorPackage.CONTENT__BODY:
+        getBody().clear();
+        return;
+      case BPMN_translatorPackage.CONTENT__KEYWORDS:
+        getKeywords().clear();
+        return;
+      case BPMN_translatorPackage.CONTENT__DATA:
+        getData().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,10 +266,37 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.CONTENT__PROVA:
-        return prova != null && !prova.isEmpty();
+      case BPMN_translatorPackage.CONTENT__ELEMENT:
+        return element != null && !element.isEmpty();
+      case BPMN_translatorPackage.CONTENT__BODY:
+        return body != null && !body.isEmpty();
+      case BPMN_translatorPackage.CONTENT__KEYWORDS:
+        return keywords != null && !keywords.isEmpty();
+      case BPMN_translatorPackage.CONTENT__DATA:
+        return data != null && !data.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (body: ");
+    result.append(body);
+    result.append(", keywords: ");
+    result.append(keywords);
+    result.append(", data: ");
+    result.append(data);
+    result.append(')');
+    return result.toString();
   }
 
 } //contentImpl

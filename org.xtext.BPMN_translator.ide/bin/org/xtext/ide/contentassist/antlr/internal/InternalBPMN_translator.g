@@ -276,27 +276,27 @@ rule__Content__Alternatives_1
 	}
 :
 	(
-		{ before(grammarAccess.getContentAccess().getProvaAssignment_1_0()); }
-		(rule__Content__ProvaAssignment_1_0)
-		{ after(grammarAccess.getContentAccess().getProvaAssignment_1_0()); }
+		{ before(grammarAccess.getContentAccess().getElementAssignment_1_0()); }
+		(rule__Content__ElementAssignment_1_0)
+		{ after(grammarAccess.getContentAccess().getElementAssignment_1_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getContentAccess().getBODYTerminalRuleCall_1_1()); }
-		RULE_BODY
-		{ after(grammarAccess.getContentAccess().getBODYTerminalRuleCall_1_1()); }
+		{ before(grammarAccess.getContentAccess().getBodyAssignment_1_1()); }
+		(rule__Content__BodyAssignment_1_1)
+		{ after(grammarAccess.getContentAccess().getBodyAssignment_1_1()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getContentAccess().getKEYWORDSTerminalRuleCall_1_2()); }
-		RULE_KEYWORDS
-		{ after(grammarAccess.getContentAccess().getKEYWORDSTerminalRuleCall_1_2()); }
+		{ before(grammarAccess.getContentAccess().getKeywordsAssignment_1_2()); }
+		(rule__Content__KeywordsAssignment_1_2)
+		{ after(grammarAccess.getContentAccess().getKeywordsAssignment_1_2()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getContentAccess().getSTRINGTerminalRuleCall_1_3()); }
-		RULE_STRING
-		{ after(grammarAccess.getContentAccess().getSTRINGTerminalRuleCall_1_3()); }
+		{ before(grammarAccess.getContentAccess().getDataAssignment_1_3()); }
+		(rule__Content__DataAssignment_1_3)
+		{ after(grammarAccess.getContentAccess().getDataAssignment_1_3()); }
 	)
 ;
 finally {
@@ -1752,15 +1752,60 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Content__ProvaAssignment_1_0
+rule__Content__ElementAssignment_1_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getContentAccess().getProvaElementParserRuleCall_1_0_0()); }
+		{ before(grammarAccess.getContentAccess().getElementElementParserRuleCall_1_0_0()); }
 		ruleelement
-		{ after(grammarAccess.getContentAccess().getProvaElementParserRuleCall_1_0_0()); }
+		{ after(grammarAccess.getContentAccess().getElementElementParserRuleCall_1_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Content__BodyAssignment_1_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getContentAccess().getBodyBODYTerminalRuleCall_1_1_0()); }
+		RULE_BODY
+		{ after(grammarAccess.getContentAccess().getBodyBODYTerminalRuleCall_1_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Content__KeywordsAssignment_1_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getContentAccess().getKeywordsKEYWORDSTerminalRuleCall_1_2_0()); }
+		RULE_KEYWORDS
+		{ after(grammarAccess.getContentAccess().getKeywordsKEYWORDSTerminalRuleCall_1_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Content__DataAssignment_1_3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getContentAccess().getDataSTRINGTerminalRuleCall_1_3_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getContentAccess().getDataSTRINGTerminalRuleCall_1_3_0()); }
 	)
 ;
 finally {
@@ -1874,7 +1919,7 @@ finally {
 
 RULE_HEAD : ('bpmn'|'bpmndi'|'camunda'|'xsi'|'xml'|'xmlns'|'dc'|'di');
 
-RULE_KEYWORDS : ('id'|'name'|'isExecutable'|'sourceRef'|'processRef'|'targetRef'|'calledElement'|'type'|'expression'|'value'|'resultVariable'|'asyncBefore'|'intermediateThrowEvent'|'class'|'event'|'startEvent'|'task'|'messageEventDefinition'|'sequenceFlow'|'isExpanded'|'condition'|'association'|'outgoing'|'serviceTask'|'process'|'standardLoopCharacteristics'|'incoming'|'intermediateCatchEvent'|'conditionalEventDefinition'|'isMarkerVisible'|'terminateEventDefinition'|'endEvent'|'textAnnotation'|'text'|'dataStoreReference'|'bpmnElement'|'dataObjectReference'|'callActivity'|'laneSet'|'lane'|'flowNodeRef'|'definitions'|'userTask'|'documentation'|'dataOutputAssociation'|'exclusiveGateway'|'waypoint'|'BPMNLabel'|'diagramRelationId'|'extensionElements'|'inputOutput'|'list'|'inputParameter'|'height'|'messageFlow'|'dataObjectRef'|'outputParameter'|'properties'|'property'|'BPMNShape'|'Bounds'|'subProcess'|'cancelActivity'|'field'|'string'|'scriptTask'|'script'|'BPMNPlane'|'BPMNEdge'|'sendTask'|'boundaryEvent'|'executionListener'|'timerEventDefinition'|'timeDuration'|'width'|'dataInputAssociation'|'parallelGateway'|'collaboration'|'participant'|'targetNamespace'|'dataObject'|'signalEventDefinition'|'BPMNDiagram'|'exporter'|'exporterVersion'|'x'|'y'|'isHorizontal'|'attachedToRef');
+RULE_KEYWORDS : ('id'|'name'|'isExecutable'|'sourceRef'|'processRef'|'targetRef'|'calledElement'|'type'|'expression'|'value'|'resultVariable'|'asyncBefore'|'intermediateThrowEvent'|'class'|'event'|'startEvent'|'task'|'messageEventDefinition'|'sequenceFlow'|'isExpanded'|'condition'|'association'|'outgoing'|'serviceTask'|'process'|'standardLoopCharacteristics'|'incoming'|'intermediateCatchEvent'|'conditionalEventDefinition'|'isMarkerVisible'|'terminateEventDefinition'|'endEvent'|'textAnnotation'|'text'|'dataStoreReference'|'bpmnElement'|'dataObjectReference'|'callActivity'|'laneSet'|'lane'|'flowNodeRef'|'definitions'|'userTask'|'documentation'|'dataOutputAssociation'|'exclusiveGateway'|'waypoint'|'BPMNLabel'|'diagramRelationId'|'extensionElements'|'inputOutput'|'list'|'inputParameter'|'height'|'messageFlow'|'dataObjectRef'|'outputParameter'|'properties'|'property'|'BPMNShape'|'Bounds'|'subProcess'|'cancelActivity'|'field'|'string'|'scriptTask'|'script'|'BPMNPlane'|'BPMNEdge'|'sendTask'|'boundaryEvent'|'executionListener'|'timerEventDefinition'|'timeDuration'|'width'|'dataInputAssociation'|'parallelGateway'|'collaboration'|'participant'|'targetNamespace'|'dataObject'|'signalEventDefinition'|'BPMNDiagram'|'exporter'|'exporterVersion'|'x'|'y'|'isHorizontal'|'attachedToRef'|'conditionExpression');
 
 RULE_BODY : ('a'..'z'|'A'..'Z'|'\u00E8'|'\u00F2'|RULE_INT|'_')*;
 

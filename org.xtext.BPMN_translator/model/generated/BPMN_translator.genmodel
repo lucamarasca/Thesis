@@ -18,7 +18,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//element/close_tag"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//content">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//content/prova"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//content/element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//content/body"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//content/keywords"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//content/data"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//Open">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Open/head"/>

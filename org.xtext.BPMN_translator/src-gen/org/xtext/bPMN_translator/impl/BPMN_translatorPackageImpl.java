@@ -253,9 +253,42 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EReference getcontent_Prova()
+  public EReference getcontent_Element()
   {
     return (EReference)contentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getcontent_Body()
+  {
+    return (EAttribute)contentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getcontent_Keywords()
+  {
+    return (EAttribute)contentEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getcontent_Data()
+  {
+    return (EAttribute)contentEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -422,7 +455,10 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     createEReference(elementEClass, ELEMENT__CLOSE_TAG);
 
     contentEClass = createEClass(CONTENT);
-    createEReference(contentEClass, CONTENT__PROVA);
+    createEReference(contentEClass, CONTENT__ELEMENT);
+    createEAttribute(contentEClass, CONTENT__BODY);
+    createEAttribute(contentEClass, CONTENT__KEYWORDS);
+    createEAttribute(contentEClass, CONTENT__DATA);
 
     openEClass = createEClass(OPEN);
     createEAttribute(openEClass, OPEN__HEAD);
@@ -484,7 +520,10 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     initEReference(getelement_Close_tag(), this.getClose(), null, "close_tag", null, 0, -1, element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contentEClass, content.class, "content", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getcontent_Prova(), this.getelement(), null, "prova", null, 0, -1, content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getcontent_Element(), this.getelement(), null, "element", null, 0, -1, content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getcontent_Body(), ecorePackage.getEString(), "body", null, 0, -1, content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getcontent_Keywords(), ecorePackage.getEString(), "keywords", null, 0, -1, content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getcontent_Data(), ecorePackage.getEString(), "data", null, 0, -1, content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(openEClass, Open.class, "Open", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOpen_Head(), ecorePackage.getEString(), "head", null, 0, -1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

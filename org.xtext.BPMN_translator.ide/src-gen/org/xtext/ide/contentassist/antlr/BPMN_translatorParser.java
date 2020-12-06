@@ -56,7 +56,10 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getElementAccess().getContentsAssignment_0_1(), "rule__Element__ContentsAssignment_0_1");
 			builder.put(grammarAccess.getElementAccess().getClose_tagAssignment_0_2(), "rule__Element__Close_tagAssignment_0_2");
 			builder.put(grammarAccess.getElementAccess().getSingleton_tagAssignment_1_1(), "rule__Element__Singleton_tagAssignment_1_1");
-			builder.put(grammarAccess.getContentAccess().getProvaAssignment_1_0(), "rule__Content__ProvaAssignment_1_0");
+			builder.put(grammarAccess.getContentAccess().getElementAssignment_1_0(), "rule__Content__ElementAssignment_1_0");
+			builder.put(grammarAccess.getContentAccess().getBodyAssignment_1_1(), "rule__Content__BodyAssignment_1_1");
+			builder.put(grammarAccess.getContentAccess().getKeywordsAssignment_1_2(), "rule__Content__KeywordsAssignment_1_2");
+			builder.put(grammarAccess.getContentAccess().getDataAssignment_1_3(), "rule__Content__DataAssignment_1_3");
 			builder.put(grammarAccess.getOpenAccess().getHeadAssignment_1(), "rule__Open__HeadAssignment_1");
 			builder.put(grammarAccess.getOpenAccess().getKeywordsAssignment_3(), "rule__Open__KeywordsAssignment_3");
 			builder.put(grammarAccess.getOpenAccess().getHead1Assignment_4_0_0(), "rule__Open__Head1Assignment_4_0_0");

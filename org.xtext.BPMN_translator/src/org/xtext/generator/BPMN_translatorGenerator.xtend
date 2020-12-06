@@ -7,8 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.xtext.bPMN_translator.element
-import org.xtext.bPMN_translator.Open
+import org.xtext.bPMN_translator.*
 import java.util.ArrayList
 
 /**
@@ -20,9 +19,18 @@ class BPMN_translatorGenerator extends AbstractGenerator {
 //++++++++++++++++++++++++++++++Costants++++++++++++++++++++++++++++++++++
 ArrayList<String> task_type;
 ArrayList<String> gateway_type;
-def Initialize(){
+String app;
+Resource r;
+int i;
+String incoming_arrow;
+String outgoing_arrow;
+	
+	String return_value
+	
+def Initialize(Resource resource){
 	FillTaskType();
 	FillGatewayType();
+	r=resource
 }
 
 def FillTaskType(){
@@ -41,7 +49,7 @@ def FillGatewayType(){
 }
 //++++++++++++++++++++++++++++++Generation++++++++++++++++++++++++++++++++
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		Initialize();
+		Initialize(resource);
 		//Main file generation
 		fsa.generateFile("Main.ino", StaticMainFileStart() + '''
         «FOR element : resource.allContents.filter(element).toIterable»	         
@@ -59,28 +67,12 @@ def FillGatewayType(){
         //.cpp lib file generation
         fsa.generateFile("GeneratedLib.cpp" , StaticLibCPPStart() + '''
         «FOR element : resource.allContents.filter(element).toIterable»
-	        «FOR Open : element.open» 
+	        «FOR Open : element.open»         
 	        	«TaskToMethodsCPP(Open)»     
 	        «ENDFOR»
         «ENDFOR»
         ''')
 		        
-	}
-	
-	def GenerateMainFile(element e){
-		if(gateway_type.contains(getTaskType(e)))
-		{
-			//TODO
-		}
-		
-	}
-	//return the task type
-	def getTaskType(element e){
-		'''
-		«FOR Open : e.open» 
-	        «Open.keywords»	    
-	    «ENDFOR»
-		'''
 	}
 	
 	def TaskToMethodsH(Open open_tag){
@@ -99,10 +91,67 @@ def FillGatewayType(){
 		if(task_type.contains(open_tag.keywords.get(0))){
 			
 			return type + " MyBPMNClass::" + open_tag.value.get(getNamePosition(open_tag))
-			.replaceAll(" ", "_").toLowerCase() + "()\n{\n\n\\\todo\n\n}\n"
+			.replaceAll(" ", "_").toLowerCase() + "()\n{\n\n\t\\\\todo\n\n}\n"
 		}
 		
 	}
+	def GenerateMainFile(element e){
+		
+		
+		
+		app = ""
+		
+		//outgoing_arrow = getOutgoingArrowId(e)
+				
+		if(gateway_type.contains(getTaskType(e).toString()))
+		{	
+			'''	
+			«FOR element : r.allContents.filter(element).toIterable»	         
+	        	«getOutgoingArrow(element, getTaskId(e))»     	       
+        	«ENDFOR»
+			'''
+		}
+			
+		
+		
+		
+			
+	}
+	
+	
+	
+//+++++++++++++++++++++++++++++++GETERS++++++++++++++++++++++++++++++++
+def getOutgoingArrow(element e, CharSequence app){
+		return_value = "" 
+	
+		i=0;
+		for (Open : e.open)
+		{
+			if (Open.keywords.get(0).equals("sequenceFlow"))
+			{
+				for (keywords : Open.keywords1)
+				{
+					if( keywords.equals("sourceRef"))
+						return_value += Open.value.get(i).toString()
+					i++
+				}
+			}
+		}
+		return return_value
+	}
+def write(Object o){
+	'''«o»'''
+}
+	//return the task type
+	def getTaskType(element e){		 
+'''«FOR Open : e.open»«Open.keywords.get(0)»«ENDFOR»'''
+	}
+	//return the id of an task
+	def getTaskId(element e){		 
+'''«FOR Open : e.open»«Open.value»«ENDFOR»'''
+	}
+	
+	
 //+++++++++++++++++++++++++++++++++OTHER METHODS++++++++++++++++++++++++++++++++++++
 def int getNamePosition(Open open_tag){
 	return open_tag.keywords1.lastIndexOf("name");

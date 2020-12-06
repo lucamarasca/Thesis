@@ -170,13 +170,40 @@ public interface BPMN_translatorPackage extends EPackage
   int CONTENT = 3;
 
   /**
-   * The feature id for the '<em><b>Prova</b></em>' containment reference list.
+   * The feature id for the '<em><b>Element</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTENT__PROVA = 0;
+  int CONTENT__ELEMENT = 0;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTENT__BODY = 1;
+
+  /**
+   * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTENT__KEYWORDS = 2;
+
+  /**
+   * The feature id for the '<em><b>Data</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTENT__DATA = 3;
 
   /**
    * The number of structural features of the '<em>content</em>' class.
@@ -185,7 +212,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTENT_FEATURE_COUNT = 1;
+  int CONTENT_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.bPMN_translator.impl.OpenImpl <em>Open</em>}' class.
@@ -450,15 +477,48 @@ public interface BPMN_translatorPackage extends EPackage
   EClass getcontent();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.content#getProva <em>Prova</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.content#getElement <em>Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Prova</em>'.
-   * @see org.xtext.bPMN_translator.content#getProva()
+   * @return the meta object for the containment reference list '<em>Element</em>'.
+   * @see org.xtext.bPMN_translator.content#getElement()
    * @see #getcontent()
    * @generated
    */
-  EReference getcontent_Prova();
+  EReference getcontent_Element();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.content#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Body</em>'.
+   * @see org.xtext.bPMN_translator.content#getBody()
+   * @see #getcontent()
+   * @generated
+   */
+  EAttribute getcontent_Body();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.content#getKeywords <em>Keywords</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Keywords</em>'.
+   * @see org.xtext.bPMN_translator.content#getKeywords()
+   * @see #getcontent()
+   * @generated
+   */
+  EAttribute getcontent_Keywords();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.content#getData <em>Data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Data</em>'.
+   * @see org.xtext.bPMN_translator.content#getData()
+   * @see #getcontent()
+   * @generated
+   */
+  EAttribute getcontent_Data();
 
   /**
    * Returns the meta object for class '{@link org.xtext.bPMN_translator.Open <em>Open</em>}'.
@@ -681,12 +741,36 @@ public interface BPMN_translatorPackage extends EPackage
     EClass CONTENT = eINSTANCE.getcontent();
 
     /**
-     * The meta object literal for the '<em><b>Prova</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Element</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONTENT__PROVA = eINSTANCE.getcontent_Prova();
+    EReference CONTENT__ELEMENT = eINSTANCE.getcontent_Element();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTENT__BODY = eINSTANCE.getcontent_Body();
+
+    /**
+     * The meta object literal for the '<em><b>Keywords</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTENT__KEYWORDS = eINSTANCE.getcontent_Keywords();
+
+    /**
+     * The meta object literal for the '<em><b>Data</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTENT__DATA = eINSTANCE.getcontent_Data();
 
     /**
      * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.OpenImpl <em>Open</em>}' class.

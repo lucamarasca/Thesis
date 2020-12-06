@@ -26,7 +26,7 @@ element     :   (open += Open
 
 content:
 	{content}
-	( prova+=element |   BODY |   KEYWORDS  |  STRING  )*
+	( element+=element |   body+=BODY |   keywords+=KEYWORDS  |  data+=STRING  )*
 ;
 
 Open:
@@ -66,8 +66,8 @@ terminal KEYWORDS: "id" | "name" |  "isExecutable" | "sourceRef" | "processRef" 
 	| "field" | "string" | "scriptTask" | "script" |"BPMNPlane" | "BPMNEdge" | "sendTask" | "boundaryEvent"
 	| "executionListener" | "timerEventDefinition" | "timeDuration" | "width" | "dataInputAssociation"
 	| "parallelGateway" | "collaboration" | "participant" | "targetNamespace" | "dataObject" | "signalEventDefinition"
-	| "BPMNDiagram"		| "exporter" | "exporterVersion" | "x" | "y"| "isHorizontal" | "attachedToRef";
-
+	| "BPMNDiagram"		| "exporter" | "exporterVersion" | "x" | "y"| "isHorizontal" | "attachedToRef"
+	| "conditionExpression";
 
 
 terminal BODY returns ecore::EString : ('a'..'z'|'A'..'Z'|'è'|'ò'|INT|'_')* ;

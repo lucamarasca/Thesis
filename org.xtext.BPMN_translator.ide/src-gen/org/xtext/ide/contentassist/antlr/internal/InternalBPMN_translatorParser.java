@@ -22,20 +22,20 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalBPMN_translatorParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_BODY", "RULE_KEYWORDS", "RULE_STRING", "RULE_HEAD", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'<?'", "'version='", "'encoding='", "'?>'", "'<'", "':'", "'>'", "'='", "'/>'", "'</'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_HEAD", "RULE_STRING", "RULE_KEYWORDS", "RULE_BODY", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'<?'", "'version='", "'encoding='", "'?>'", "'<'", "':'", "'>'", "'='", "'/>'", "'</'"
     };
-    public static final int RULE_STRING=6;
+    public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=11;
     public static final int T__19=19;
-    public static final int RULE_KEYWORDS=5;
+    public static final int RULE_KEYWORDS=6;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int RULE_HEAD=7;
-    public static final int RULE_BODY=4;
+    public static final int RULE_HEAD=4;
+    public static final int RULE_BODY=7;
     public static final int RULE_ID=9;
     public static final int RULE_WS=12;
     public static final int RULE_ANY_OTHER=13;
@@ -776,13 +776,13 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Content__Alternatives_1"
-    // InternalBPMN_translator.g:273:1: rule__Content__Alternatives_1 : ( ( ( rule__Content__ProvaAssignment_1_0 ) ) | ( RULE_BODY ) | ( RULE_KEYWORDS ) | ( RULE_STRING ) );
+    // InternalBPMN_translator.g:273:1: rule__Content__Alternatives_1 : ( ( ( rule__Content__ElementAssignment_1_0 ) ) | ( ( rule__Content__BodyAssignment_1_1 ) ) | ( ( rule__Content__KeywordsAssignment_1_2 ) ) | ( ( rule__Content__DataAssignment_1_3 ) ) );
     public final void rule__Content__Alternatives_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:277:1: ( ( ( rule__Content__ProvaAssignment_1_0 ) ) | ( RULE_BODY ) | ( RULE_KEYWORDS ) | ( RULE_STRING ) )
+            // InternalBPMN_translator.g:277:1: ( ( ( rule__Content__ElementAssignment_1_0 ) ) | ( ( rule__Content__BodyAssignment_1_1 ) ) | ( ( rule__Content__KeywordsAssignment_1_2 ) ) | ( ( rule__Content__DataAssignment_1_3 ) ) )
             int alt2=4;
             switch ( input.LA(1) ) {
             case 18:
@@ -814,24 +814,24 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
             switch (alt2) {
                 case 1 :
-                    // InternalBPMN_translator.g:278:2: ( ( rule__Content__ProvaAssignment_1_0 ) )
+                    // InternalBPMN_translator.g:278:2: ( ( rule__Content__ElementAssignment_1_0 ) )
                     {
-                    // InternalBPMN_translator.g:278:2: ( ( rule__Content__ProvaAssignment_1_0 ) )
-                    // InternalBPMN_translator.g:279:3: ( rule__Content__ProvaAssignment_1_0 )
+                    // InternalBPMN_translator.g:278:2: ( ( rule__Content__ElementAssignment_1_0 ) )
+                    // InternalBPMN_translator.g:279:3: ( rule__Content__ElementAssignment_1_0 )
                     {
-                     before(grammarAccess.getContentAccess().getProvaAssignment_1_0()); 
-                    // InternalBPMN_translator.g:280:3: ( rule__Content__ProvaAssignment_1_0 )
-                    // InternalBPMN_translator.g:280:4: rule__Content__ProvaAssignment_1_0
+                     before(grammarAccess.getContentAccess().getElementAssignment_1_0()); 
+                    // InternalBPMN_translator.g:280:3: ( rule__Content__ElementAssignment_1_0 )
+                    // InternalBPMN_translator.g:280:4: rule__Content__ElementAssignment_1_0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__Content__ProvaAssignment_1_0();
+                    rule__Content__ElementAssignment_1_0();
 
                     state._fsp--;
 
 
                     }
 
-                     after(grammarAccess.getContentAccess().getProvaAssignment_1_0()); 
+                     after(grammarAccess.getContentAccess().getElementAssignment_1_0()); 
 
                     }
 
@@ -839,14 +839,24 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
                     }
                     break;
                 case 2 :
-                    // InternalBPMN_translator.g:284:2: ( RULE_BODY )
+                    // InternalBPMN_translator.g:284:2: ( ( rule__Content__BodyAssignment_1_1 ) )
                     {
-                    // InternalBPMN_translator.g:284:2: ( RULE_BODY )
-                    // InternalBPMN_translator.g:285:3: RULE_BODY
+                    // InternalBPMN_translator.g:284:2: ( ( rule__Content__BodyAssignment_1_1 ) )
+                    // InternalBPMN_translator.g:285:3: ( rule__Content__BodyAssignment_1_1 )
                     {
-                     before(grammarAccess.getContentAccess().getBODYTerminalRuleCall_1_1()); 
-                    match(input,RULE_BODY,FOLLOW_2); 
-                     after(grammarAccess.getContentAccess().getBODYTerminalRuleCall_1_1()); 
+                     before(grammarAccess.getContentAccess().getBodyAssignment_1_1()); 
+                    // InternalBPMN_translator.g:286:3: ( rule__Content__BodyAssignment_1_1 )
+                    // InternalBPMN_translator.g:286:4: rule__Content__BodyAssignment_1_1
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Content__BodyAssignment_1_1();
+
+                    state._fsp--;
+
+
+                    }
+
+                     after(grammarAccess.getContentAccess().getBodyAssignment_1_1()); 
 
                     }
 
@@ -854,14 +864,24 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
                     }
                     break;
                 case 3 :
-                    // InternalBPMN_translator.g:290:2: ( RULE_KEYWORDS )
+                    // InternalBPMN_translator.g:290:2: ( ( rule__Content__KeywordsAssignment_1_2 ) )
                     {
-                    // InternalBPMN_translator.g:290:2: ( RULE_KEYWORDS )
-                    // InternalBPMN_translator.g:291:3: RULE_KEYWORDS
+                    // InternalBPMN_translator.g:290:2: ( ( rule__Content__KeywordsAssignment_1_2 ) )
+                    // InternalBPMN_translator.g:291:3: ( rule__Content__KeywordsAssignment_1_2 )
                     {
-                     before(grammarAccess.getContentAccess().getKEYWORDSTerminalRuleCall_1_2()); 
-                    match(input,RULE_KEYWORDS,FOLLOW_2); 
-                     after(grammarAccess.getContentAccess().getKEYWORDSTerminalRuleCall_1_2()); 
+                     before(grammarAccess.getContentAccess().getKeywordsAssignment_1_2()); 
+                    // InternalBPMN_translator.g:292:3: ( rule__Content__KeywordsAssignment_1_2 )
+                    // InternalBPMN_translator.g:292:4: rule__Content__KeywordsAssignment_1_2
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Content__KeywordsAssignment_1_2();
+
+                    state._fsp--;
+
+
+                    }
+
+                     after(grammarAccess.getContentAccess().getKeywordsAssignment_1_2()); 
 
                     }
 
@@ -869,14 +889,24 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
                     }
                     break;
                 case 4 :
-                    // InternalBPMN_translator.g:296:2: ( RULE_STRING )
+                    // InternalBPMN_translator.g:296:2: ( ( rule__Content__DataAssignment_1_3 ) )
                     {
-                    // InternalBPMN_translator.g:296:2: ( RULE_STRING )
-                    // InternalBPMN_translator.g:297:3: RULE_STRING
+                    // InternalBPMN_translator.g:296:2: ( ( rule__Content__DataAssignment_1_3 ) )
+                    // InternalBPMN_translator.g:297:3: ( rule__Content__DataAssignment_1_3 )
                     {
-                     before(grammarAccess.getContentAccess().getSTRINGTerminalRuleCall_1_3()); 
-                    match(input,RULE_STRING,FOLLOW_2); 
-                     after(grammarAccess.getContentAccess().getSTRINGTerminalRuleCall_1_3()); 
+                     before(grammarAccess.getContentAccess().getDataAssignment_1_3()); 
+                    // InternalBPMN_translator.g:298:3: ( rule__Content__DataAssignment_1_3 )
+                    // InternalBPMN_translator.g:298:4: rule__Content__DataAssignment_1_3
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Content__DataAssignment_1_3();
+
+                    state._fsp--;
+
+
+                    }
+
+                     after(grammarAccess.getContentAccess().getDataAssignment_1_3()); 
 
                     }
 
@@ -914,11 +944,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             if ( (LA3_0==RULE_HEAD) ) {
                 int LA3_1 = input.LA(2);
 
-                if ( (LA3_1==19) ) {
-                    alt3=1;
-                }
-                else if ( (LA3_1==21) ) {
+                if ( (LA3_1==21) ) {
                     alt3=2;
+                }
+                else if ( (LA3_1==19) ) {
+                    alt3=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -2508,7 +2538,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( ((LA8_0>=RULE_BODY && LA8_0<=RULE_STRING)||LA8_0==18) ) {
+                if ( ((LA8_0>=RULE_STRING && LA8_0<=RULE_BODY)||LA8_0==18) ) {
                     alt8=1;
                 }
 
@@ -2931,7 +2961,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( (LA9_0==RULE_KEYWORDS||LA9_0==RULE_HEAD) ) {
+                if ( (LA9_0==RULE_HEAD||LA9_0==RULE_KEYWORDS) ) {
                     alt9=1;
                 }
 
@@ -4024,7 +4054,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
                 int alt10=2;
                 int LA10_0 = input.LA(1);
 
-                if ( (LA10_0==RULE_KEYWORDS||LA10_0==RULE_HEAD) ) {
+                if ( (LA10_0==RULE_HEAD||LA10_0==RULE_KEYWORDS) ) {
                     alt10=1;
                 }
 
@@ -5215,9 +5245,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     // $ANTLR end "rule__Element__Singleton_tagAssignment_1_1"
 
 
-    // $ANTLR start "rule__Content__ProvaAssignment_1_0"
-    // InternalBPMN_translator.g:1755:1: rule__Content__ProvaAssignment_1_0 : ( ruleelement ) ;
-    public final void rule__Content__ProvaAssignment_1_0() throws RecognitionException {
+    // $ANTLR start "rule__Content__ElementAssignment_1_0"
+    // InternalBPMN_translator.g:1755:1: rule__Content__ElementAssignment_1_0 : ( ruleelement ) ;
+    public final void rule__Content__ElementAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -5228,13 +5258,13 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:1760:2: ( ruleelement )
             // InternalBPMN_translator.g:1761:3: ruleelement
             {
-             before(grammarAccess.getContentAccess().getProvaElementParserRuleCall_1_0_0()); 
+             before(grammarAccess.getContentAccess().getElementElementParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
             ruleelement();
 
             state._fsp--;
 
-             after(grammarAccess.getContentAccess().getProvaElementParserRuleCall_1_0_0()); 
+             after(grammarAccess.getContentAccess().getElementElementParserRuleCall_1_0_0()); 
 
             }
 
@@ -5253,21 +5283,132 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Content__ProvaAssignment_1_0"
+    // $ANTLR end "rule__Content__ElementAssignment_1_0"
+
+
+    // $ANTLR start "rule__Content__BodyAssignment_1_1"
+    // InternalBPMN_translator.g:1770:1: rule__Content__BodyAssignment_1_1 : ( RULE_BODY ) ;
+    public final void rule__Content__BodyAssignment_1_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBPMN_translator.g:1774:1: ( ( RULE_BODY ) )
+            // InternalBPMN_translator.g:1775:2: ( RULE_BODY )
+            {
+            // InternalBPMN_translator.g:1775:2: ( RULE_BODY )
+            // InternalBPMN_translator.g:1776:3: RULE_BODY
+            {
+             before(grammarAccess.getContentAccess().getBodyBODYTerminalRuleCall_1_1_0()); 
+            match(input,RULE_BODY,FOLLOW_2); 
+             after(grammarAccess.getContentAccess().getBodyBODYTerminalRuleCall_1_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Content__BodyAssignment_1_1"
+
+
+    // $ANTLR start "rule__Content__KeywordsAssignment_1_2"
+    // InternalBPMN_translator.g:1785:1: rule__Content__KeywordsAssignment_1_2 : ( RULE_KEYWORDS ) ;
+    public final void rule__Content__KeywordsAssignment_1_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBPMN_translator.g:1789:1: ( ( RULE_KEYWORDS ) )
+            // InternalBPMN_translator.g:1790:2: ( RULE_KEYWORDS )
+            {
+            // InternalBPMN_translator.g:1790:2: ( RULE_KEYWORDS )
+            // InternalBPMN_translator.g:1791:3: RULE_KEYWORDS
+            {
+             before(grammarAccess.getContentAccess().getKeywordsKEYWORDSTerminalRuleCall_1_2_0()); 
+            match(input,RULE_KEYWORDS,FOLLOW_2); 
+             after(grammarAccess.getContentAccess().getKeywordsKEYWORDSTerminalRuleCall_1_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Content__KeywordsAssignment_1_2"
+
+
+    // $ANTLR start "rule__Content__DataAssignment_1_3"
+    // InternalBPMN_translator.g:1800:1: rule__Content__DataAssignment_1_3 : ( RULE_STRING ) ;
+    public final void rule__Content__DataAssignment_1_3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBPMN_translator.g:1804:1: ( ( RULE_STRING ) )
+            // InternalBPMN_translator.g:1805:2: ( RULE_STRING )
+            {
+            // InternalBPMN_translator.g:1805:2: ( RULE_STRING )
+            // InternalBPMN_translator.g:1806:3: RULE_STRING
+            {
+             before(grammarAccess.getContentAccess().getDataSTRINGTerminalRuleCall_1_3_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getContentAccess().getDataSTRINGTerminalRuleCall_1_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Content__DataAssignment_1_3"
 
 
     // $ANTLR start "rule__Open__HeadAssignment_1"
-    // InternalBPMN_translator.g:1770:1: rule__Open__HeadAssignment_1 : ( RULE_HEAD ) ;
+    // InternalBPMN_translator.g:1815:1: rule__Open__HeadAssignment_1 : ( RULE_HEAD ) ;
     public final void rule__Open__HeadAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1774:1: ( ( RULE_HEAD ) )
-            // InternalBPMN_translator.g:1775:2: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1819:1: ( ( RULE_HEAD ) )
+            // InternalBPMN_translator.g:1820:2: ( RULE_HEAD )
             {
-            // InternalBPMN_translator.g:1775:2: ( RULE_HEAD )
-            // InternalBPMN_translator.g:1776:3: RULE_HEAD
+            // InternalBPMN_translator.g:1820:2: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1821:3: RULE_HEAD
             {
              before(grammarAccess.getOpenAccess().getHeadHEADTerminalRuleCall_1_0()); 
             match(input,RULE_HEAD,FOLLOW_2); 
@@ -5294,17 +5435,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Open__KeywordsAssignment_3"
-    // InternalBPMN_translator.g:1785:1: rule__Open__KeywordsAssignment_3 : ( RULE_KEYWORDS ) ;
+    // InternalBPMN_translator.g:1830:1: rule__Open__KeywordsAssignment_3 : ( RULE_KEYWORDS ) ;
     public final void rule__Open__KeywordsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1789:1: ( ( RULE_KEYWORDS ) )
-            // InternalBPMN_translator.g:1790:2: ( RULE_KEYWORDS )
+            // InternalBPMN_translator.g:1834:1: ( ( RULE_KEYWORDS ) )
+            // InternalBPMN_translator.g:1835:2: ( RULE_KEYWORDS )
             {
-            // InternalBPMN_translator.g:1790:2: ( RULE_KEYWORDS )
-            // InternalBPMN_translator.g:1791:3: RULE_KEYWORDS
+            // InternalBPMN_translator.g:1835:2: ( RULE_KEYWORDS )
+            // InternalBPMN_translator.g:1836:3: RULE_KEYWORDS
             {
              before(grammarAccess.getOpenAccess().getKeywordsKEYWORDSTerminalRuleCall_3_0()); 
             match(input,RULE_KEYWORDS,FOLLOW_2); 
@@ -5331,17 +5472,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Open__Head1Assignment_4_0_0"
-    // InternalBPMN_translator.g:1800:1: rule__Open__Head1Assignment_4_0_0 : ( RULE_HEAD ) ;
+    // InternalBPMN_translator.g:1845:1: rule__Open__Head1Assignment_4_0_0 : ( RULE_HEAD ) ;
     public final void rule__Open__Head1Assignment_4_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1804:1: ( ( RULE_HEAD ) )
-            // InternalBPMN_translator.g:1805:2: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1849:1: ( ( RULE_HEAD ) )
+            // InternalBPMN_translator.g:1850:2: ( RULE_HEAD )
             {
-            // InternalBPMN_translator.g:1805:2: ( RULE_HEAD )
-            // InternalBPMN_translator.g:1806:3: RULE_HEAD
+            // InternalBPMN_translator.g:1850:2: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1851:3: RULE_HEAD
             {
              before(grammarAccess.getOpenAccess().getHead1HEADTerminalRuleCall_4_0_0_0()); 
             match(input,RULE_HEAD,FOLLOW_2); 
@@ -5368,17 +5509,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Open__Head1Assignment_4_1_0_0"
-    // InternalBPMN_translator.g:1815:1: rule__Open__Head1Assignment_4_1_0_0 : ( RULE_HEAD ) ;
+    // InternalBPMN_translator.g:1860:1: rule__Open__Head1Assignment_4_1_0_0 : ( RULE_HEAD ) ;
     public final void rule__Open__Head1Assignment_4_1_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1819:1: ( ( RULE_HEAD ) )
-            // InternalBPMN_translator.g:1820:2: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1864:1: ( ( RULE_HEAD ) )
+            // InternalBPMN_translator.g:1865:2: ( RULE_HEAD )
             {
-            // InternalBPMN_translator.g:1820:2: ( RULE_HEAD )
-            // InternalBPMN_translator.g:1821:3: RULE_HEAD
+            // InternalBPMN_translator.g:1865:2: ( RULE_HEAD )
+            // InternalBPMN_translator.g:1866:3: RULE_HEAD
             {
              before(grammarAccess.getOpenAccess().getHead1HEADTerminalRuleCall_4_1_0_0_0()); 
             match(input,RULE_HEAD,FOLLOW_2); 
@@ -5405,17 +5546,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Open__Keywords1Assignment_4_1_0_1"
-    // InternalBPMN_translator.g:1830:1: rule__Open__Keywords1Assignment_4_1_0_1 : ( RULE_KEYWORDS ) ;
+    // InternalBPMN_translator.g:1875:1: rule__Open__Keywords1Assignment_4_1_0_1 : ( RULE_KEYWORDS ) ;
     public final void rule__Open__Keywords1Assignment_4_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1834:1: ( ( RULE_KEYWORDS ) )
-            // InternalBPMN_translator.g:1835:2: ( RULE_KEYWORDS )
+            // InternalBPMN_translator.g:1879:1: ( ( RULE_KEYWORDS ) )
+            // InternalBPMN_translator.g:1880:2: ( RULE_KEYWORDS )
             {
-            // InternalBPMN_translator.g:1835:2: ( RULE_KEYWORDS )
-            // InternalBPMN_translator.g:1836:3: RULE_KEYWORDS
+            // InternalBPMN_translator.g:1880:2: ( RULE_KEYWORDS )
+            // InternalBPMN_translator.g:1881:3: RULE_KEYWORDS
             {
              before(grammarAccess.getOpenAccess().getKeywords1KEYWORDSTerminalRuleCall_4_1_0_1_0()); 
             match(input,RULE_KEYWORDS,FOLLOW_2); 
@@ -5442,17 +5583,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Open__ValueAssignment_4_1_2"
-    // InternalBPMN_translator.g:1845:1: rule__Open__ValueAssignment_4_1_2 : ( RULE_STRING ) ;
+    // InternalBPMN_translator.g:1890:1: rule__Open__ValueAssignment_4_1_2 : ( RULE_STRING ) ;
     public final void rule__Open__ValueAssignment_4_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1849:1: ( ( RULE_STRING ) )
-            // InternalBPMN_translator.g:1850:2: ( RULE_STRING )
+            // InternalBPMN_translator.g:1894:1: ( ( RULE_STRING ) )
+            // InternalBPMN_translator.g:1895:2: ( RULE_STRING )
             {
-            // InternalBPMN_translator.g:1850:2: ( RULE_STRING )
-            // InternalBPMN_translator.g:1851:3: RULE_STRING
+            // InternalBPMN_translator.g:1895:2: ( RULE_STRING )
+            // InternalBPMN_translator.g:1896:3: RULE_STRING
             {
              before(grammarAccess.getOpenAccess().getValueSTRINGTerminalRuleCall_4_1_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -5479,17 +5620,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Singleton__ValueAssignment_1_4_1_2"
-    // InternalBPMN_translator.g:1860:1: rule__Singleton__ValueAssignment_1_4_1_2 : ( RULE_STRING ) ;
+    // InternalBPMN_translator.g:1905:1: rule__Singleton__ValueAssignment_1_4_1_2 : ( RULE_STRING ) ;
     public final void rule__Singleton__ValueAssignment_1_4_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1864:1: ( ( RULE_STRING ) )
-            // InternalBPMN_translator.g:1865:2: ( RULE_STRING )
+            // InternalBPMN_translator.g:1909:1: ( ( RULE_STRING ) )
+            // InternalBPMN_translator.g:1910:2: ( RULE_STRING )
             {
-            // InternalBPMN_translator.g:1865:2: ( RULE_STRING )
-            // InternalBPMN_translator.g:1866:3: RULE_STRING
+            // InternalBPMN_translator.g:1910:2: ( RULE_STRING )
+            // InternalBPMN_translator.g:1911:3: RULE_STRING
             {
              before(grammarAccess.getSingletonAccess().getValueSTRINGTerminalRuleCall_1_4_1_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -5519,8 +5660,8 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
     protected DFA1 dfa1 = new DFA1(this);
     static final String dfa_1s = "\14\uffff";
-    static final String dfa_2s = "\1\22\1\7\1\23\2\5\1\23\1\25\2\uffff\1\5\1\6\1\5";
-    static final String dfa_3s = "\1\22\1\7\1\23\1\5\1\26\2\25\2\uffff\1\26\1\6\1\26";
+    static final String dfa_2s = "\1\22\1\4\1\23\1\6\1\4\1\23\1\25\2\uffff\1\4\1\5\1\4";
+    static final String dfa_3s = "\1\22\1\4\1\23\1\6\1\26\2\25\2\uffff\1\26\1\5\1\26";
     static final String dfa_4s = "\7\uffff\1\2\1\1\3\uffff";
     static final String dfa_5s = "\14\uffff}>";
     static final String[] dfa_6s = {
@@ -5528,14 +5669,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             "\1\2",
             "\1\3",
             "\1\4",
-            "\1\6\1\uffff\1\5\14\uffff\1\10\1\uffff\1\7",
+            "\1\5\1\uffff\1\6\15\uffff\1\10\1\uffff\1\7",
             "\1\11\1\uffff\1\10",
             "\1\12",
             "",
             "",
-            "\1\6\1\uffff\1\5\14\uffff\1\10\1\uffff\1\7",
+            "\1\5\1\uffff\1\6\15\uffff\1\10\1\uffff\1\7",
             "\1\13",
-            "\1\6\1\uffff\1\5\14\uffff\1\10\1\uffff\1\7"
+            "\1\5\1\uffff\1\6\15\uffff\1\10\1\uffff\1\7"
     };
 
     static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
@@ -5568,22 +5709,22 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000044000L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000040002L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000040070L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000000400E0L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000040072L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x00000000000400E2L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x00000000001000A0L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x00000000000000A2L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000100050L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000052L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x00000000000000A0L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000000050L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000100000L});
 
 }

@@ -747,25 +747,25 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulecontent"
-    // InternalBPMN_translator.g:328:1: rulecontent returns [EObject current=null] : ( () ( ( (lv_prova_1_0= ruleelement ) ) | this_BODY_2= RULE_BODY | this_KEYWORDS_3= RULE_KEYWORDS | this_STRING_4= RULE_STRING )* ) ;
+    // InternalBPMN_translator.g:328:1: rulecontent returns [EObject current=null] : ( () ( ( (lv_element_1_0= ruleelement ) ) | ( (lv_body_2_0= RULE_BODY ) ) | ( (lv_keywords_3_0= RULE_KEYWORDS ) ) | ( (lv_data_4_0= RULE_STRING ) ) )* ) ;
     public final EObject rulecontent() throws RecognitionException {
         EObject current = null;
 
-        Token this_BODY_2=null;
-        Token this_KEYWORDS_3=null;
-        Token this_STRING_4=null;
-        EObject lv_prova_1_0 = null;
+        Token lv_body_2_0=null;
+        Token lv_keywords_3_0=null;
+        Token lv_data_4_0=null;
+        EObject lv_element_1_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalBPMN_translator.g:334:2: ( ( () ( ( (lv_prova_1_0= ruleelement ) ) | this_BODY_2= RULE_BODY | this_KEYWORDS_3= RULE_KEYWORDS | this_STRING_4= RULE_STRING )* ) )
-            // InternalBPMN_translator.g:335:2: ( () ( ( (lv_prova_1_0= ruleelement ) ) | this_BODY_2= RULE_BODY | this_KEYWORDS_3= RULE_KEYWORDS | this_STRING_4= RULE_STRING )* )
+            // InternalBPMN_translator.g:334:2: ( ( () ( ( (lv_element_1_0= ruleelement ) ) | ( (lv_body_2_0= RULE_BODY ) ) | ( (lv_keywords_3_0= RULE_KEYWORDS ) ) | ( (lv_data_4_0= RULE_STRING ) ) )* ) )
+            // InternalBPMN_translator.g:335:2: ( () ( ( (lv_element_1_0= ruleelement ) ) | ( (lv_body_2_0= RULE_BODY ) ) | ( (lv_keywords_3_0= RULE_KEYWORDS ) ) | ( (lv_data_4_0= RULE_STRING ) ) )* )
             {
-            // InternalBPMN_translator.g:335:2: ( () ( ( (lv_prova_1_0= ruleelement ) ) | this_BODY_2= RULE_BODY | this_KEYWORDS_3= RULE_KEYWORDS | this_STRING_4= RULE_STRING )* )
-            // InternalBPMN_translator.g:336:3: () ( ( (lv_prova_1_0= ruleelement ) ) | this_BODY_2= RULE_BODY | this_KEYWORDS_3= RULE_KEYWORDS | this_STRING_4= RULE_STRING )*
+            // InternalBPMN_translator.g:335:2: ( () ( ( (lv_element_1_0= ruleelement ) ) | ( (lv_body_2_0= RULE_BODY ) ) | ( (lv_keywords_3_0= RULE_KEYWORDS ) ) | ( (lv_data_4_0= RULE_STRING ) ) )* )
+            // InternalBPMN_translator.g:336:3: () ( ( (lv_element_1_0= ruleelement ) ) | ( (lv_body_2_0= RULE_BODY ) ) | ( (lv_keywords_3_0= RULE_KEYWORDS ) ) | ( (lv_data_4_0= RULE_STRING ) ) )*
             {
             // InternalBPMN_translator.g:336:3: ()
             // InternalBPMN_translator.g:337:4: 
@@ -778,7 +778,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBPMN_translator.g:343:3: ( ( (lv_prova_1_0= ruleelement ) ) | this_BODY_2= RULE_BODY | this_KEYWORDS_3= RULE_KEYWORDS | this_STRING_4= RULE_STRING )*
+            // InternalBPMN_translator.g:343:3: ( ( (lv_element_1_0= ruleelement ) ) | ( (lv_body_2_0= RULE_BODY ) ) | ( (lv_keywords_3_0= RULE_KEYWORDS ) ) | ( (lv_data_4_0= RULE_STRING ) ) )*
             loop4:
             do {
                 int alt4=5;
@@ -808,19 +808,19 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalBPMN_translator.g:344:4: ( (lv_prova_1_0= ruleelement ) )
+            	    // InternalBPMN_translator.g:344:4: ( (lv_element_1_0= ruleelement ) )
             	    {
-            	    // InternalBPMN_translator.g:344:4: ( (lv_prova_1_0= ruleelement ) )
-            	    // InternalBPMN_translator.g:345:5: (lv_prova_1_0= ruleelement )
+            	    // InternalBPMN_translator.g:344:4: ( (lv_element_1_0= ruleelement ) )
+            	    // InternalBPMN_translator.g:345:5: (lv_element_1_0= ruleelement )
             	    {
-            	    // InternalBPMN_translator.g:345:5: (lv_prova_1_0= ruleelement )
-            	    // InternalBPMN_translator.g:346:6: lv_prova_1_0= ruleelement
+            	    // InternalBPMN_translator.g:345:5: (lv_element_1_0= ruleelement )
+            	    // InternalBPMN_translator.g:346:6: lv_element_1_0= ruleelement
             	    {
 
-            	    						newCompositeNode(grammarAccess.getContentAccess().getProvaElementParserRuleCall_1_0_0());
+            	    						newCompositeNode(grammarAccess.getContentAccess().getElementElementParserRuleCall_1_0_0());
             	    					
             	    pushFollow(FOLLOW_10);
-            	    lv_prova_1_0=ruleelement();
+            	    lv_element_1_0=ruleelement();
 
             	    state._fsp--;
 
@@ -830,8 +830,8 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    						}
             	    						add(
             	    							current,
-            	    							"prova",
-            	    							lv_prova_1_0,
+            	    							"element",
+            	    							lv_element_1_0,
             	    							"org.xtext.BPMN_translator.element");
             	    						afterParserOrEnumRuleCall();
             	    					
@@ -845,32 +845,98 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalBPMN_translator.g:364:4: this_BODY_2= RULE_BODY
+            	    // InternalBPMN_translator.g:364:4: ( (lv_body_2_0= RULE_BODY ) )
             	    {
-            	    this_BODY_2=(Token)match(input,RULE_BODY,FOLLOW_10); 
+            	    // InternalBPMN_translator.g:364:4: ( (lv_body_2_0= RULE_BODY ) )
+            	    // InternalBPMN_translator.g:365:5: (lv_body_2_0= RULE_BODY )
+            	    {
+            	    // InternalBPMN_translator.g:365:5: (lv_body_2_0= RULE_BODY )
+            	    // InternalBPMN_translator.g:366:6: lv_body_2_0= RULE_BODY
+            	    {
+            	    lv_body_2_0=(Token)match(input,RULE_BODY,FOLLOW_10); 
 
-            	    				newLeafNode(this_BODY_2, grammarAccess.getContentAccess().getBODYTerminalRuleCall_1_1());
-            	    			
+            	    						newLeafNode(lv_body_2_0, grammarAccess.getContentAccess().getBodyBODYTerminalRuleCall_1_1_0());
+            	    					
+
+            	    						if (current==null) {
+            	    							current = createModelElement(grammarAccess.getContentRule());
+            	    						}
+            	    						addWithLastConsumed(
+            	    							current,
+            	    							"body",
+            	    							lv_body_2_0,
+            	    							"org.xtext.BPMN_translator.BODY");
+            	    					
+
+            	    }
+
+
+            	    }
+
 
             	    }
             	    break;
             	case 3 :
-            	    // InternalBPMN_translator.g:369:4: this_KEYWORDS_3= RULE_KEYWORDS
+            	    // InternalBPMN_translator.g:383:4: ( (lv_keywords_3_0= RULE_KEYWORDS ) )
             	    {
-            	    this_KEYWORDS_3=(Token)match(input,RULE_KEYWORDS,FOLLOW_10); 
+            	    // InternalBPMN_translator.g:383:4: ( (lv_keywords_3_0= RULE_KEYWORDS ) )
+            	    // InternalBPMN_translator.g:384:5: (lv_keywords_3_0= RULE_KEYWORDS )
+            	    {
+            	    // InternalBPMN_translator.g:384:5: (lv_keywords_3_0= RULE_KEYWORDS )
+            	    // InternalBPMN_translator.g:385:6: lv_keywords_3_0= RULE_KEYWORDS
+            	    {
+            	    lv_keywords_3_0=(Token)match(input,RULE_KEYWORDS,FOLLOW_10); 
 
-            	    				newLeafNode(this_KEYWORDS_3, grammarAccess.getContentAccess().getKEYWORDSTerminalRuleCall_1_2());
-            	    			
+            	    						newLeafNode(lv_keywords_3_0, grammarAccess.getContentAccess().getKeywordsKEYWORDSTerminalRuleCall_1_2_0());
+            	    					
+
+            	    						if (current==null) {
+            	    							current = createModelElement(grammarAccess.getContentRule());
+            	    						}
+            	    						addWithLastConsumed(
+            	    							current,
+            	    							"keywords",
+            	    							lv_keywords_3_0,
+            	    							"org.xtext.BPMN_translator.KEYWORDS");
+            	    					
+
+            	    }
+
+
+            	    }
+
 
             	    }
             	    break;
             	case 4 :
-            	    // InternalBPMN_translator.g:374:4: this_STRING_4= RULE_STRING
+            	    // InternalBPMN_translator.g:402:4: ( (lv_data_4_0= RULE_STRING ) )
             	    {
-            	    this_STRING_4=(Token)match(input,RULE_STRING,FOLLOW_10); 
+            	    // InternalBPMN_translator.g:402:4: ( (lv_data_4_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:403:5: (lv_data_4_0= RULE_STRING )
+            	    {
+            	    // InternalBPMN_translator.g:403:5: (lv_data_4_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:404:6: lv_data_4_0= RULE_STRING
+            	    {
+            	    lv_data_4_0=(Token)match(input,RULE_STRING,FOLLOW_10); 
 
-            	    				newLeafNode(this_STRING_4, grammarAccess.getContentAccess().getSTRINGTerminalRuleCall_1_3());
-            	    			
+            	    						newLeafNode(lv_data_4_0, grammarAccess.getContentAccess().getDataSTRINGTerminalRuleCall_1_3_0());
+            	    					
+
+            	    						if (current==null) {
+            	    							current = createModelElement(grammarAccess.getContentRule());
+            	    						}
+            	    						addWithLastConsumed(
+            	    							current,
+            	    							"data",
+            	    							lv_data_4_0,
+            	    							"org.eclipse.xtext.common.Terminals.STRING");
+            	    					
+
+            	    }
+
+
+            	    }
+
 
             	    }
             	    break;
@@ -903,7 +969,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOpen"
-    // InternalBPMN_translator.g:383:1: entryRuleOpen returns [EObject current=null] : iv_ruleOpen= ruleOpen EOF ;
+    // InternalBPMN_translator.g:425:1: entryRuleOpen returns [EObject current=null] : iv_ruleOpen= ruleOpen EOF ;
     public final EObject entryRuleOpen() throws RecognitionException {
         EObject current = null;
 
@@ -911,8 +977,8 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBPMN_translator.g:383:45: (iv_ruleOpen= ruleOpen EOF )
-            // InternalBPMN_translator.g:384:2: iv_ruleOpen= ruleOpen EOF
+            // InternalBPMN_translator.g:425:45: (iv_ruleOpen= ruleOpen EOF )
+            // InternalBPMN_translator.g:426:2: iv_ruleOpen= ruleOpen EOF
             {
              newCompositeNode(grammarAccess.getOpenRule()); 
             pushFollow(FOLLOW_1);
@@ -939,7 +1005,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpen"
-    // InternalBPMN_translator.g:390:1: ruleOpen returns [EObject current=null] : (otherlv_0= '<' ( (lv_head_1_0= RULE_HEAD ) ) otherlv_2= ':' ( (lv_keywords_3_0= RULE_KEYWORDS ) ) ( ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' ) | ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>' ) ;
+    // InternalBPMN_translator.g:432:1: ruleOpen returns [EObject current=null] : (otherlv_0= '<' ( (lv_head_1_0= RULE_HEAD ) ) otherlv_2= ':' ( (lv_keywords_3_0= RULE_KEYWORDS ) ) ( ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' ) | ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>' ) ;
     public final EObject ruleOpen() throws RecognitionException {
         EObject current = null;
 
@@ -959,21 +1025,21 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBPMN_translator.g:396:2: ( (otherlv_0= '<' ( (lv_head_1_0= RULE_HEAD ) ) otherlv_2= ':' ( (lv_keywords_3_0= RULE_KEYWORDS ) ) ( ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' ) | ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>' ) )
-            // InternalBPMN_translator.g:397:2: (otherlv_0= '<' ( (lv_head_1_0= RULE_HEAD ) ) otherlv_2= ':' ( (lv_keywords_3_0= RULE_KEYWORDS ) ) ( ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' ) | ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>' )
+            // InternalBPMN_translator.g:438:2: ( (otherlv_0= '<' ( (lv_head_1_0= RULE_HEAD ) ) otherlv_2= ':' ( (lv_keywords_3_0= RULE_KEYWORDS ) ) ( ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' ) | ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>' ) )
+            // InternalBPMN_translator.g:439:2: (otherlv_0= '<' ( (lv_head_1_0= RULE_HEAD ) ) otherlv_2= ':' ( (lv_keywords_3_0= RULE_KEYWORDS ) ) ( ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' ) | ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>' )
             {
-            // InternalBPMN_translator.g:397:2: (otherlv_0= '<' ( (lv_head_1_0= RULE_HEAD ) ) otherlv_2= ':' ( (lv_keywords_3_0= RULE_KEYWORDS ) ) ( ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' ) | ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>' )
-            // InternalBPMN_translator.g:398:3: otherlv_0= '<' ( (lv_head_1_0= RULE_HEAD ) ) otherlv_2= ':' ( (lv_keywords_3_0= RULE_KEYWORDS ) ) ( ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' ) | ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>'
+            // InternalBPMN_translator.g:439:2: (otherlv_0= '<' ( (lv_head_1_0= RULE_HEAD ) ) otherlv_2= ':' ( (lv_keywords_3_0= RULE_KEYWORDS ) ) ( ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' ) | ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>' )
+            // InternalBPMN_translator.g:440:3: otherlv_0= '<' ( (lv_head_1_0= RULE_HEAD ) ) otherlv_2= ':' ( (lv_keywords_3_0= RULE_KEYWORDS ) ) ( ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' ) | ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* otherlv_10= '>'
             {
             otherlv_0=(Token)match(input,18,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getOpenAccess().getLessThanSignKeyword_0());
             		
-            // InternalBPMN_translator.g:402:3: ( (lv_head_1_0= RULE_HEAD ) )
-            // InternalBPMN_translator.g:403:4: (lv_head_1_0= RULE_HEAD )
+            // InternalBPMN_translator.g:444:3: ( (lv_head_1_0= RULE_HEAD ) )
+            // InternalBPMN_translator.g:445:4: (lv_head_1_0= RULE_HEAD )
             {
-            // InternalBPMN_translator.g:403:4: (lv_head_1_0= RULE_HEAD )
-            // InternalBPMN_translator.g:404:5: lv_head_1_0= RULE_HEAD
+            // InternalBPMN_translator.g:445:4: (lv_head_1_0= RULE_HEAD )
+            // InternalBPMN_translator.g:446:5: lv_head_1_0= RULE_HEAD
             {
             lv_head_1_0=(Token)match(input,RULE_HEAD,FOLLOW_11); 
 
@@ -999,11 +1065,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getOpenAccess().getColonKeyword_2());
             		
-            // InternalBPMN_translator.g:424:3: ( (lv_keywords_3_0= RULE_KEYWORDS ) )
-            // InternalBPMN_translator.g:425:4: (lv_keywords_3_0= RULE_KEYWORDS )
+            // InternalBPMN_translator.g:466:3: ( (lv_keywords_3_0= RULE_KEYWORDS ) )
+            // InternalBPMN_translator.g:467:4: (lv_keywords_3_0= RULE_KEYWORDS )
             {
-            // InternalBPMN_translator.g:425:4: (lv_keywords_3_0= RULE_KEYWORDS )
-            // InternalBPMN_translator.g:426:5: lv_keywords_3_0= RULE_KEYWORDS
+            // InternalBPMN_translator.g:467:4: (lv_keywords_3_0= RULE_KEYWORDS )
+            // InternalBPMN_translator.g:468:5: lv_keywords_3_0= RULE_KEYWORDS
             {
             lv_keywords_3_0=(Token)match(input,RULE_KEYWORDS,FOLLOW_13); 
 
@@ -1025,7 +1091,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBPMN_translator.g:442:3: ( ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' ) | ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )*
+            // InternalBPMN_translator.g:484:3: ( ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' ) | ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )*
             loop6:
             do {
                 int alt6=3;
@@ -1050,16 +1116,16 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalBPMN_translator.g:443:4: ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' )
+            	    // InternalBPMN_translator.g:485:4: ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' )
             	    {
-            	    // InternalBPMN_translator.g:443:4: ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' )
-            	    // InternalBPMN_translator.g:444:5: ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':'
+            	    // InternalBPMN_translator.g:485:4: ( ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':' )
+            	    // InternalBPMN_translator.g:486:5: ( (lv_head1_4_0= RULE_HEAD ) ) otherlv_5= ':'
             	    {
-            	    // InternalBPMN_translator.g:444:5: ( (lv_head1_4_0= RULE_HEAD ) )
-            	    // InternalBPMN_translator.g:445:6: (lv_head1_4_0= RULE_HEAD )
+            	    // InternalBPMN_translator.g:486:5: ( (lv_head1_4_0= RULE_HEAD ) )
+            	    // InternalBPMN_translator.g:487:6: (lv_head1_4_0= RULE_HEAD )
             	    {
-            	    // InternalBPMN_translator.g:445:6: (lv_head1_4_0= RULE_HEAD )
-            	    // InternalBPMN_translator.g:446:7: lv_head1_4_0= RULE_HEAD
+            	    // InternalBPMN_translator.g:487:6: (lv_head1_4_0= RULE_HEAD )
+            	    // InternalBPMN_translator.g:488:7: lv_head1_4_0= RULE_HEAD
             	    {
             	    lv_head1_4_0=(Token)match(input,RULE_HEAD,FOLLOW_11); 
 
@@ -1092,12 +1158,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalBPMN_translator.g:468:4: ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) )
+            	    // InternalBPMN_translator.g:510:4: ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) )
             	    {
-            	    // InternalBPMN_translator.g:468:4: ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) )
-            	    // InternalBPMN_translator.g:469:5: ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:510:4: ( ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) )
+            	    // InternalBPMN_translator.g:511:5: ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) ) otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) )
             	    {
-            	    // InternalBPMN_translator.g:469:5: ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) )
+            	    // InternalBPMN_translator.g:511:5: ( ( (lv_head1_6_0= RULE_HEAD ) ) | ( (lv_keywords1_7_0= RULE_KEYWORDS ) ) )
             	    int alt5=2;
             	    int LA5_0 = input.LA(1);
 
@@ -1115,13 +1181,13 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    }
             	    switch (alt5) {
             	        case 1 :
-            	            // InternalBPMN_translator.g:470:6: ( (lv_head1_6_0= RULE_HEAD ) )
+            	            // InternalBPMN_translator.g:512:6: ( (lv_head1_6_0= RULE_HEAD ) )
             	            {
-            	            // InternalBPMN_translator.g:470:6: ( (lv_head1_6_0= RULE_HEAD ) )
-            	            // InternalBPMN_translator.g:471:7: (lv_head1_6_0= RULE_HEAD )
+            	            // InternalBPMN_translator.g:512:6: ( (lv_head1_6_0= RULE_HEAD ) )
+            	            // InternalBPMN_translator.g:513:7: (lv_head1_6_0= RULE_HEAD )
             	            {
-            	            // InternalBPMN_translator.g:471:7: (lv_head1_6_0= RULE_HEAD )
-            	            // InternalBPMN_translator.g:472:8: lv_head1_6_0= RULE_HEAD
+            	            // InternalBPMN_translator.g:513:7: (lv_head1_6_0= RULE_HEAD )
+            	            // InternalBPMN_translator.g:514:8: lv_head1_6_0= RULE_HEAD
             	            {
             	            lv_head1_6_0=(Token)match(input,RULE_HEAD,FOLLOW_14); 
 
@@ -1147,13 +1213,13 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // InternalBPMN_translator.g:489:6: ( (lv_keywords1_7_0= RULE_KEYWORDS ) )
+            	            // InternalBPMN_translator.g:531:6: ( (lv_keywords1_7_0= RULE_KEYWORDS ) )
             	            {
-            	            // InternalBPMN_translator.g:489:6: ( (lv_keywords1_7_0= RULE_KEYWORDS ) )
-            	            // InternalBPMN_translator.g:490:7: (lv_keywords1_7_0= RULE_KEYWORDS )
+            	            // InternalBPMN_translator.g:531:6: ( (lv_keywords1_7_0= RULE_KEYWORDS ) )
+            	            // InternalBPMN_translator.g:532:7: (lv_keywords1_7_0= RULE_KEYWORDS )
             	            {
-            	            // InternalBPMN_translator.g:490:7: (lv_keywords1_7_0= RULE_KEYWORDS )
-            	            // InternalBPMN_translator.g:491:8: lv_keywords1_7_0= RULE_KEYWORDS
+            	            // InternalBPMN_translator.g:532:7: (lv_keywords1_7_0= RULE_KEYWORDS )
+            	            // InternalBPMN_translator.g:533:8: lv_keywords1_7_0= RULE_KEYWORDS
             	            {
             	            lv_keywords1_7_0=(Token)match(input,RULE_KEYWORDS,FOLLOW_14); 
 
@@ -1185,11 +1251,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             	    					newLeafNode(otherlv_8, grammarAccess.getOpenAccess().getEqualsSignKeyword_4_1_1());
             	    				
-            	    // InternalBPMN_translator.g:512:5: ( (lv_value_9_0= RULE_STRING ) )
-            	    // InternalBPMN_translator.g:513:6: (lv_value_9_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:554:5: ( (lv_value_9_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:555:6: (lv_value_9_0= RULE_STRING )
             	    {
-            	    // InternalBPMN_translator.g:513:6: (lv_value_9_0= RULE_STRING )
-            	    // InternalBPMN_translator.g:514:7: lv_value_9_0= RULE_STRING
+            	    // InternalBPMN_translator.g:555:6: (lv_value_9_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:556:7: lv_value_9_0= RULE_STRING
             	    {
             	    lv_value_9_0=(Token)match(input,RULE_STRING,FOLLOW_13); 
 
@@ -1250,7 +1316,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSingleton"
-    // InternalBPMN_translator.g:540:1: entryRuleSingleton returns [EObject current=null] : iv_ruleSingleton= ruleSingleton EOF ;
+    // InternalBPMN_translator.g:582:1: entryRuleSingleton returns [EObject current=null] : iv_ruleSingleton= ruleSingleton EOF ;
     public final EObject entryRuleSingleton() throws RecognitionException {
         EObject current = null;
 
@@ -1258,8 +1324,8 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBPMN_translator.g:540:50: (iv_ruleSingleton= ruleSingleton EOF )
-            // InternalBPMN_translator.g:541:2: iv_ruleSingleton= ruleSingleton EOF
+            // InternalBPMN_translator.g:582:50: (iv_ruleSingleton= ruleSingleton EOF )
+            // InternalBPMN_translator.g:583:2: iv_ruleSingleton= ruleSingleton EOF
             {
              newCompositeNode(grammarAccess.getSingletonRule()); 
             pushFollow(FOLLOW_1);
@@ -1286,7 +1352,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSingleton"
-    // InternalBPMN_translator.g:547:1: ruleSingleton returns [EObject current=null] : ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>' ) ;
+    // InternalBPMN_translator.g:589:1: ruleSingleton returns [EObject current=null] : ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>' ) ;
     public final EObject ruleSingleton() throws RecognitionException {
         EObject current = null;
 
@@ -1305,14 +1371,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBPMN_translator.g:553:2: ( ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>' ) )
-            // InternalBPMN_translator.g:554:2: ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>' )
+            // InternalBPMN_translator.g:595:2: ( ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>' ) )
+            // InternalBPMN_translator.g:596:2: ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>' )
             {
-            // InternalBPMN_translator.g:554:2: ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>' )
-            // InternalBPMN_translator.g:555:3: () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>'
+            // InternalBPMN_translator.g:596:2: ( () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>' )
+            // InternalBPMN_translator.g:597:3: () (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* ) otherlv_10= '/>'
             {
-            // InternalBPMN_translator.g:555:3: ()
-            // InternalBPMN_translator.g:556:4: 
+            // InternalBPMN_translator.g:597:3: ()
+            // InternalBPMN_translator.g:598:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1322,8 +1388,8 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBPMN_translator.g:562:3: (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* )
-            // InternalBPMN_translator.g:563:4: otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )*
+            // InternalBPMN_translator.g:604:3: (otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )* )
+            // InternalBPMN_translator.g:605:4: otherlv_1= '<' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )*
             {
             otherlv_1=(Token)match(input,18,FOLLOW_4); 
 
@@ -1341,7 +1407,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             				newLeafNode(this_KEYWORDS_4, grammarAccess.getSingletonAccess().getKEYWORDSTerminalRuleCall_1_3());
             			
-            // InternalBPMN_translator.g:579:4: ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )*
+            // InternalBPMN_translator.g:621:4: ( (this_HEAD_5= RULE_HEAD otherlv_6= ':' ) | (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) ) )*
             loop7:
             do {
                 int alt7=3;
@@ -1357,10 +1423,10 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalBPMN_translator.g:580:5: (this_HEAD_5= RULE_HEAD otherlv_6= ':' )
+            	    // InternalBPMN_translator.g:622:5: (this_HEAD_5= RULE_HEAD otherlv_6= ':' )
             	    {
-            	    // InternalBPMN_translator.g:580:5: (this_HEAD_5= RULE_HEAD otherlv_6= ':' )
-            	    // InternalBPMN_translator.g:581:6: this_HEAD_5= RULE_HEAD otherlv_6= ':'
+            	    // InternalBPMN_translator.g:622:5: (this_HEAD_5= RULE_HEAD otherlv_6= ':' )
+            	    // InternalBPMN_translator.g:623:6: this_HEAD_5= RULE_HEAD otherlv_6= ':'
             	    {
             	    this_HEAD_5=(Token)match(input,RULE_HEAD,FOLLOW_11); 
 
@@ -1377,10 +1443,10 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalBPMN_translator.g:591:5: (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) )
+            	    // InternalBPMN_translator.g:633:5: (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) )
             	    {
-            	    // InternalBPMN_translator.g:591:5: (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) )
-            	    // InternalBPMN_translator.g:592:6: this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:633:5: (this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) ) )
+            	    // InternalBPMN_translator.g:634:6: this_KEYWORDS_7= RULE_KEYWORDS otherlv_8= '=' ( (lv_value_9_0= RULE_STRING ) )
             	    {
             	    this_KEYWORDS_7=(Token)match(input,RULE_KEYWORDS,FOLLOW_14); 
 
@@ -1390,11 +1456,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             	    						newLeafNode(otherlv_8, grammarAccess.getSingletonAccess().getEqualsSignKeyword_1_4_1_1());
             	    					
-            	    // InternalBPMN_translator.g:600:6: ( (lv_value_9_0= RULE_STRING ) )
-            	    // InternalBPMN_translator.g:601:7: (lv_value_9_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:642:6: ( (lv_value_9_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:643:7: (lv_value_9_0= RULE_STRING )
             	    {
-            	    // InternalBPMN_translator.g:601:7: (lv_value_9_0= RULE_STRING )
-            	    // InternalBPMN_translator.g:602:8: lv_value_9_0= RULE_STRING
+            	    // InternalBPMN_translator.g:643:7: (lv_value_9_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:644:8: lv_value_9_0= RULE_STRING
             	    {
             	    lv_value_9_0=(Token)match(input,RULE_STRING,FOLLOW_15); 
 
@@ -1458,7 +1524,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleClose"
-    // InternalBPMN_translator.g:629:1: entryRuleClose returns [EObject current=null] : iv_ruleClose= ruleClose EOF ;
+    // InternalBPMN_translator.g:671:1: entryRuleClose returns [EObject current=null] : iv_ruleClose= ruleClose EOF ;
     public final EObject entryRuleClose() throws RecognitionException {
         EObject current = null;
 
@@ -1466,8 +1532,8 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBPMN_translator.g:629:46: (iv_ruleClose= ruleClose EOF )
-            // InternalBPMN_translator.g:630:2: iv_ruleClose= ruleClose EOF
+            // InternalBPMN_translator.g:671:46: (iv_ruleClose= ruleClose EOF )
+            // InternalBPMN_translator.g:672:2: iv_ruleClose= ruleClose EOF
             {
              newCompositeNode(grammarAccess.getCloseRule()); 
             pushFollow(FOLLOW_1);
@@ -1494,7 +1560,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleClose"
-    // InternalBPMN_translator.g:636:1: ruleClose returns [EObject current=null] : ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) ) ;
+    // InternalBPMN_translator.g:678:1: ruleClose returns [EObject current=null] : ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) ) ;
     public final EObject ruleClose() throws RecognitionException {
         EObject current = null;
 
@@ -1508,14 +1574,14 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBPMN_translator.g:642:2: ( ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) ) )
-            // InternalBPMN_translator.g:643:2: ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) )
+            // InternalBPMN_translator.g:684:2: ( ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) ) )
+            // InternalBPMN_translator.g:685:2: ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) )
             {
-            // InternalBPMN_translator.g:643:2: ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) )
-            // InternalBPMN_translator.g:644:3: () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' )
+            // InternalBPMN_translator.g:685:2: ( () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' ) )
+            // InternalBPMN_translator.g:686:3: () (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' )
             {
-            // InternalBPMN_translator.g:644:3: ()
-            // InternalBPMN_translator.g:645:4: 
+            // InternalBPMN_translator.g:686:3: ()
+            // InternalBPMN_translator.g:687:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1525,8 +1591,8 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBPMN_translator.g:651:3: (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' )
-            // InternalBPMN_translator.g:652:4: otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>'
+            // InternalBPMN_translator.g:693:3: (otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>' )
+            // InternalBPMN_translator.g:694:4: otherlv_1= '</' this_HEAD_2= RULE_HEAD otherlv_3= ':' this_KEYWORDS_4= RULE_KEYWORDS otherlv_5= '>'
             {
             otherlv_1=(Token)match(input,23,FOLLOW_4); 
 
@@ -1579,21 +1645,21 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
     static final String dfa_1s = "\14\uffff";
     static final String dfa_2s = "\1\22\1\4\1\23\1\7\1\4\1\23\1\24\2\uffff\1\4\1\5\1\4";
     static final String dfa_3s = "\1\22\1\4\1\23\1\7\1\26\2\24\2\uffff\1\26\1\5\1\26";
-    static final String dfa_4s = "\7\uffff\1\2\1\1\3\uffff";
+    static final String dfa_4s = "\7\uffff\1\1\1\2\3\uffff";
     static final String dfa_5s = "\14\uffff}>";
     static final String[] dfa_6s = {
             "\1\1",
             "\1\2",
             "\1\3",
             "\1\4",
-            "\1\5\2\uffff\1\6\15\uffff\1\10\1\7",
-            "\1\11\1\10",
+            "\1\5\2\uffff\1\6\15\uffff\1\7\1\10",
+            "\1\11\1\7",
             "\1\12",
             "",
             "",
-            "\1\5\2\uffff\1\6\15\uffff\1\10\1\7",
+            "\1\5\2\uffff\1\6\15\uffff\1\7\1\10",
             "\1\13",
-            "\1\5\2\uffff\1\6\15\uffff\1\10\1\7"
+            "\1\5\2\uffff\1\6\15\uffff\1\7\1\10"
     };
 
     static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);

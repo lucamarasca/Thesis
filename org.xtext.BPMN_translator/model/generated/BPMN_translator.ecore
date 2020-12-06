@@ -19,8 +19,14 @@
         eType="#//Close" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="content">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="prova" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" upperBound="-1"
         eType="#//element" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keywords" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Open">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="head" unique="false" upperBound="-1"

@@ -3,9 +3,7 @@
  */
 package org.xtext.validation;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.validation.Check;
-import org.xtext.bPMN_translator.BPMN_translatorPackage;
 import org.xtext.bPMN_translator.Model;
 
 /**

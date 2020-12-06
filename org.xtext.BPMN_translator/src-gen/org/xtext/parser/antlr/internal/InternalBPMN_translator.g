@@ -344,37 +344,79 @@ rulecontent returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getContentAccess().getProvaElementParserRuleCall_1_0_0());
+						newCompositeNode(grammarAccess.getContentAccess().getElementElementParserRuleCall_1_0_0());
 					}
-					lv_prova_1_0=ruleelement
+					lv_element_1_0=ruleelement
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getContentRule());
 						}
 						add(
 							$current,
-							"prova",
-							lv_prova_1_0,
+							"element",
+							lv_element_1_0,
 							"org.xtext.BPMN_translator.element");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			    |
-			this_BODY_2=RULE_BODY
-			{
-				newLeafNode(this_BODY_2, grammarAccess.getContentAccess().getBODYTerminalRuleCall_1_1());
-			}
+			(
+				(
+					lv_body_2_0=RULE_BODY
+					{
+						newLeafNode(lv_body_2_0, grammarAccess.getContentAccess().getBodyBODYTerminalRuleCall_1_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getContentRule());
+						}
+						addWithLastConsumed(
+							$current,
+							"body",
+							lv_body_2_0,
+							"org.xtext.BPMN_translator.BODY");
+					}
+				)
+			)
 			    |
-			this_KEYWORDS_3=RULE_KEYWORDS
-			{
-				newLeafNode(this_KEYWORDS_3, grammarAccess.getContentAccess().getKEYWORDSTerminalRuleCall_1_2());
-			}
+			(
+				(
+					lv_keywords_3_0=RULE_KEYWORDS
+					{
+						newLeafNode(lv_keywords_3_0, grammarAccess.getContentAccess().getKeywordsKEYWORDSTerminalRuleCall_1_2_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getContentRule());
+						}
+						addWithLastConsumed(
+							$current,
+							"keywords",
+							lv_keywords_3_0,
+							"org.xtext.BPMN_translator.KEYWORDS");
+					}
+				)
+			)
 			    |
-			this_STRING_4=RULE_STRING
-			{
-				newLeafNode(this_STRING_4, grammarAccess.getContentAccess().getSTRINGTerminalRuleCall_1_3());
-			}
+			(
+				(
+					lv_data_4_0=RULE_STRING
+					{
+						newLeafNode(lv_data_4_0, grammarAccess.getContentAccess().getDataSTRINGTerminalRuleCall_1_3_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getContentRule());
+						}
+						addWithLastConsumed(
+							$current,
+							"data",
+							lv_data_4_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
 		)*
 	)
 ;
@@ -675,7 +717,7 @@ ruleClose returns [EObject current=null]
 
 RULE_HEAD : ('bpmn'|'bpmndi'|'camunda'|'xsi'|'xml'|'xmlns'|'dc'|'di');
 
-RULE_KEYWORDS : ('id'|'name'|'isExecutable'|'sourceRef'|'processRef'|'targetRef'|'calledElement'|'type'|'expression'|'value'|'resultVariable'|'asyncBefore'|'intermediateThrowEvent'|'class'|'event'|'startEvent'|'task'|'messageEventDefinition'|'sequenceFlow'|'isExpanded'|'condition'|'association'|'outgoing'|'serviceTask'|'process'|'standardLoopCharacteristics'|'incoming'|'intermediateCatchEvent'|'conditionalEventDefinition'|'isMarkerVisible'|'terminateEventDefinition'|'endEvent'|'textAnnotation'|'text'|'dataStoreReference'|'bpmnElement'|'dataObjectReference'|'callActivity'|'laneSet'|'lane'|'flowNodeRef'|'definitions'|'userTask'|'documentation'|'dataOutputAssociation'|'exclusiveGateway'|'waypoint'|'BPMNLabel'|'diagramRelationId'|'extensionElements'|'inputOutput'|'list'|'inputParameter'|'height'|'messageFlow'|'dataObjectRef'|'outputParameter'|'properties'|'property'|'BPMNShape'|'Bounds'|'subProcess'|'cancelActivity'|'field'|'string'|'scriptTask'|'script'|'BPMNPlane'|'BPMNEdge'|'sendTask'|'boundaryEvent'|'executionListener'|'timerEventDefinition'|'timeDuration'|'width'|'dataInputAssociation'|'parallelGateway'|'collaboration'|'participant'|'targetNamespace'|'dataObject'|'signalEventDefinition'|'BPMNDiagram'|'exporter'|'exporterVersion'|'x'|'y'|'isHorizontal'|'attachedToRef');
+RULE_KEYWORDS : ('id'|'name'|'isExecutable'|'sourceRef'|'processRef'|'targetRef'|'calledElement'|'type'|'expression'|'value'|'resultVariable'|'asyncBefore'|'intermediateThrowEvent'|'class'|'event'|'startEvent'|'task'|'messageEventDefinition'|'sequenceFlow'|'isExpanded'|'condition'|'association'|'outgoing'|'serviceTask'|'process'|'standardLoopCharacteristics'|'incoming'|'intermediateCatchEvent'|'conditionalEventDefinition'|'isMarkerVisible'|'terminateEventDefinition'|'endEvent'|'textAnnotation'|'text'|'dataStoreReference'|'bpmnElement'|'dataObjectReference'|'callActivity'|'laneSet'|'lane'|'flowNodeRef'|'definitions'|'userTask'|'documentation'|'dataOutputAssociation'|'exclusiveGateway'|'waypoint'|'BPMNLabel'|'diagramRelationId'|'extensionElements'|'inputOutput'|'list'|'inputParameter'|'height'|'messageFlow'|'dataObjectRef'|'outputParameter'|'properties'|'property'|'BPMNShape'|'Bounds'|'subProcess'|'cancelActivity'|'field'|'string'|'scriptTask'|'script'|'BPMNPlane'|'BPMNEdge'|'sendTask'|'boundaryEvent'|'executionListener'|'timerEventDefinition'|'timeDuration'|'width'|'dataInputAssociation'|'parallelGateway'|'collaboration'|'participant'|'targetNamespace'|'dataObject'|'signalEventDefinition'|'BPMNDiagram'|'exporter'|'exporterVersion'|'x'|'y'|'isHorizontal'|'attachedToRef'|'conditionExpression');
 
 RULE_BODY : ('a'..'z'|'A'..'Z'|'\u00E8'|'\u00F2'|RULE_INT|'_')*;
 

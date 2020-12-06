@@ -10,7 +10,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -24,37 +23,22 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	protected BPMN_translatorGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a;
 	protected AbstractElementAlias match_Xml_PrologParserRuleCall_1_q;
-	protected AbstractElementAlias match_content___BODYTerminalRuleCall_1_1_or_KEYWORDSTerminalRuleCall_1_2_or_STRINGTerminalRuleCall_1_3__a;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (BPMN_translatorGrammarAccess) access;
 		match_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getSingletonAccess().getHEADTerminalRuleCall_1_4_0_0()), new TokenAlias(false, false, grammarAccess.getSingletonAccess().getColonKeyword_1_4_0_1()));
 		match_Xml_PrologParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getXmlAccess().getPrologParserRuleCall_1());
-		match_content___BODYTerminalRuleCall_1_1_or_KEYWORDSTerminalRuleCall_1_2_or_STRINGTerminalRuleCall_1_3__a = new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getContentAccess().getBODYTerminalRuleCall_1_1()), new TokenAlias(false, false, grammarAccess.getContentAccess().getKEYWORDSTerminalRuleCall_1_2()), new TokenAlias(false, false, grammarAccess.getContentAccess().getSTRINGTerminalRuleCall_1_3()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getBODYRule())
-			return getBODYToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getHEADRule())
+		if (ruleCall.getRule() == grammarAccess.getHEADRule())
 			return getHEADToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getKEYWORDSRule())
 			return getKEYWORDSToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getSTRINGRule())
-			return getSTRINGToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getPrologRule())
 			return getprologToken(semanticObject, ruleCall, node);
-		return "";
-	}
-	
-	/**
-	 * terminal BODY returns ecore::EString : ('a'..'z'|'A'..'Z'|'è'|'ò'|INT|'_')* ;
-	 */
-	protected String getBODYToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
 		return "";
 	}
 	
@@ -83,24 +67,13 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 * 	| "field" | "string" | "scriptTask" | "script" |"BPMNPlane" | "BPMNEdge" | "sendTask" | "boundaryEvent"
 	 * 	| "executionListener" | "timerEventDefinition" | "timeDuration" | "width" | "dataInputAssociation"
 	 * 	| "parallelGateway" | "collaboration" | "participant" | "targetNamespace" | "dataObject" | "signalEventDefinition"
-	 * 	| "BPMNDiagram"		| "exporter" | "exporterVersion" | "x" | "y"| "isHorizontal" | "attachedToRef";
+	 * 	| "BPMNDiagram"		| "exporter" | "exporterVersion" | "x" | "y"| "isHorizontal" | "attachedToRef"
+	 * 	| "conditionExpression";
 	 */
 	protected String getKEYWORDSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "id";
-	}
-	
-	/**
-	 * terminal STRING:
-	 * 			'"' ( '\\' .  | !('\\'|'"') )* '"' |
-	 * 			"'" ( '\\' .  | !('\\'|"'") )* "'"
-	 * 		;
-	 */
-	protected String getSTRINGToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "\"\"";
 	}
 	
 	/**
@@ -124,8 +97,6 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 				emit_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Xml_PrologParserRuleCall_1_q.equals(syntax))
 				emit_Xml_PrologParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_content___BODYTerminalRuleCall_1_1_or_KEYWORDSTerminalRuleCall_1_2_or_STRINGTerminalRuleCall_1_3__a.equals(syntax))
-				emit_content___BODYTerminalRuleCall_1_1_or_KEYWORDSTerminalRuleCall_1_2_or_STRINGTerminalRuleCall_1_3__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -153,20 +124,6 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *     (rule start) (ambiguity) prova+=element
 	 */
 	protected void emit_Xml_PrologParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (BODY | KEYWORDS | STRING)*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
-	 *     (rule start) (ambiguity) prova+=element
-	 *     prova+=element (ambiguity) (rule end)
-	 *     prova+=element (ambiguity) prova+=element
-	 */
-	protected void emit_content___BODYTerminalRuleCall_1_1_or_KEYWORDSTerminalRuleCall_1_2_or_STRINGTerminalRuleCall_1_3__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
