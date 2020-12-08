@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.Document;
@@ -44,18 +45,25 @@ public class Gui implements ActionListener {
 	GridBagConstraints c;
 	JPanel view ;
 	JFrame frame;
+	MessageConsole console;
+	
 	public Gui(Main main) {
 		this.main = main;
 		source_path = "";
 		output_path = "";
 		this.init();
+		System.out.println("Console:");
 	}
 	private void init() {
 		
-		this.textComponent = textComponent;
-		this.document = textComponent.getDocument();
-		this.isAppend = isAppend;
-		textComponent.setEditable( false );
+		
+		
+		//CONSOLE
+		console = new MessageConsole();
+		console.setEditable(false);
+		//Collegamento del System.out alla JConsole
+		System.setOut(console.getPrintStream());
+		System.setErr(console.getPrintStream());
 		
 		
 		frame = new JFrame();
@@ -69,7 +77,7 @@ public class Gui implements ActionListener {
 	   
           
 		text1 = new JLabel("source BPMN file:");
-		text2 = new JLabel("Outpur folder:");
+		text2 = new JLabel("Output folder:");
 		btnBrowseSource = new JButton("Browse");
 		btnBrowseOutput = new JButton("Browse");
 		txtFieldSource = new JTextField();
@@ -88,43 +96,68 @@ public class Gui implements ActionListener {
 	private void showAndAdjustGui() {
 		
 		
-		c.fill = GridBagConstraints.HORIZONTAL;
+		c.fill = GridBagConstraints.BOTH;
+		//First label
 		c.insets = new Insets(30,30,5,0);
 		c.gridx=0;
 		c.gridy=0;
 		c.weightx = 1;
 		text1.setFont(new Font("Courier", Font.BOLD,14));
 		view.add(text1,c);
+		
+		//First textField
 		c.insets = new Insets(0,30,5,30);
 		c.gridx=0;
 		c.gridy=1;
 		view.add(txtFieldSource,c);
+		
+		//First button
 		c.gridx=1;
 		c.gridy=1;
 		c.weightx = 0;
 	    view.add(btnBrowseSource,c);
+	    
+	    //Second Label
 	    c.weightx = 1;
 	    c.gridx=0;
 		c.gridy=2;
 		c.insets = new Insets(30,30,5,0);
 		text2.setFont(new Font("Courier", Font.BOLD,14));
 		view.add(text2,c);
+		
+		//Second textField
 		c.insets = new Insets(0,30,5,30);
 		c.gridx=0;
 		c.gridy=3;
+		c.weightx = 0;
 	    view.add(txtFieldOutput,c);
+	    
+	    //Second Button
 	    c.gridx=1;
 		c.gridy=3;
-		c.insets = new Insets(30,30,30,30);
 		c.weightx = 0;
 	    view.add(btnBrowseOutput,c);
+	    
+	    //Confirm Button
 	    c.weightx = 1;
 	    c.gridx=0;
 		c.gridy=4;
 		c.gridwidth = 2;
 		c.anchor = GridBagConstraints.PAGE_END;
 		c.weightx = 0;
+		c.insets = new Insets(30,30,5,30);
 	    view.add(btnSubmit,c);
+	    
+	    //Console
+	    c.gridx = 0;
+	    c.gridy = 10;
+	    c.gridwidth = 2;
+	    c.gridheight = 10;
+	    c.weighty = 1;
+	    view.add(new JScrollPane(console),c);
+	    
+	    //End
+	    frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 	    
 	    frame.setContentPane(view);
 	    frame.setVisible(true);
 	}

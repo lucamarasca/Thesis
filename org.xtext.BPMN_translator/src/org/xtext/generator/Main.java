@@ -26,7 +26,7 @@ public class Main {
 		Injector injector = new BPMN_translatorStandaloneSetup().createInjectorAndDoEMFRegistration();
 		Main main = injector.getInstance(Main.class);
 		Gui gui = new Gui(main);
-		//main.runGenerator("");
+		
 	}
 
 	@Inject
