@@ -11,11 +11,17 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.Vector;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -25,27 +31,51 @@ import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
 
 public class Gui implements ActionListener {
-	private JTextComponent textComponent;
-	private Document document;
-	private boolean isAppend;
-	private DocumentListener limitLinesListener;
 	
 	
 	Main main;
 	String source_path;
 	String output_path;
-	JTextField txtFieldSource; 
-	JTextField txtFieldOutput; 
-	JButton btnBrowseSource ;
-	JButton btnBrowseOutput ;
-	JButton btnSubmit ;
+//++++++++++++++++++++++++++++++++++++++GUI ELEMENTS+++++++++++++++++++++++++++++++++++
 	JFileChooser chooser;
-	JLabel text1;
-	JLabel text2;
 	GridBagConstraints c;
-	JPanel view ;
-	JFrame frame;
+	JPanel main_view;
+	JPanel view_browse ; //View that contains browse options
+	JPanel view_menus ;	//View that contains Jmenus bar
+	JPanel view_console; //View that contain submit button and console
+	JFrame frame;	//Container of all the views
+	
+	
+	
+	//First view
+	JLabel text1;
+	JTextField txtFieldSource; 
+	JButton btnBrowseSource ;
+	
+	JLabel text2;
+	JTextField txtFieldOutput; 
+	JButton btnBrowseOutput ;
+	
+	//Second view
+	JLabel text3;
+	JComboBox<String> devices;
+	JLabel text4;
+	JComboBox<String> network_protocol_type;
+	JComboBox<String> network_protocol_wired;
+	JComboBox<String> network_protocol_wireless;
+	JLabel text5;
+	JComboBox<String> sensors;
+	JComboBox<String> bluetooth_sensors;
+	JComboBox<String> distance_sensors;
+	JComboBox<String> wifi_sensors;
+	JComboBox<String> temperature_sensors;
+	//Third view
+	JButton btnSubmit ;
 	MessageConsole console;
+	
+	
+	
+	
 	
 	public Gui(Main main) {
 		this.main = main;
@@ -71,23 +101,45 @@ public class Gui implements ActionListener {
 		frame.setSize(600,700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		view = new JPanel(new GridBagLayout());
+		//Init views
+		view_browse = new JPanel(new GridBagLayout());
+		view_menus = new JPanel(new GridBagLayout());
+		view_console = new JPanel(new GridBagLayout());
+		main_view = new JPanel(new GridLayout(0,1));
 		c = new GridBagConstraints();
 			    
 	   
-          
+        //Init graphical elements
 		text1 = new JLabel("source BPMN file:");
 		text2 = new JLabel("Output folder:");
+		text3 =  new JLabel("Device:");
+		text4 = new JLabel("Network protocol:");
+		text5 = new JLabel("Sensor:");
 		btnBrowseSource = new JButton("Browse");
 		btnBrowseOutput = new JButton("Browse");
 		txtFieldSource = new JTextField();
 		txtFieldOutput = new JTextField();
+		devices = new JComboBox<String>(new Vector<String>(Parameters.Devices));
+		network_protocol_type = new JComboBox<String>(new Vector<String>(Parameters.Network_protocols_type));
+		network_protocol_wired = new JComboBox<String>(new Vector<String>(Parameters.Network_protocols_wired));
+		network_protocol_wireless = new JComboBox<String>(new Vector<String>(Parameters.Network_protocols_wireless));
+		sensors = new JComboBox<String>(new Vector<String>(Parameters.Sensor_type));
+		bluetooth_sensors = new JComboBox<String>(new Vector<String>(Parameters.Bluetooth_sensors));
+		distance_sensors = new JComboBox<String>(new Vector<String>(Parameters.Distance_sensors));
+		wifi_sensors = new JComboBox<String>(new Vector<String>(Parameters.Wifi_sensors));
+		temperature_sensors = new JComboBox<String>(new Vector<String>(Parameters.Temperature_sensors));
+		btnSubmit = new JButton("Submit");
+		
+		
+		
+		
+		
+		
+		
 		btnBrowseSource.addActionListener(this);
 		btnBrowseOutput.addActionListener(this);
-		
-		
-		
-		btnSubmit = new JButton("Submit");
+		network_protocol_type.addActionListener(this);
+		sensors.addActionListener(this);
 	    btnSubmit.addActionListener(this);
         showAndAdjustGui();
 	    
@@ -103,50 +155,108 @@ public class Gui implements ActionListener {
 		c.gridy=0;
 		c.weightx = 1;
 		text1.setFont(new Font("Courier", Font.BOLD,14));
-		view.add(text1,c);
+		view_browse.add(text1,c);
 		
 		//First textField
 		c.insets = new Insets(0,30,5,30);
-		c.gridx=0;
-		c.gridy=1;
-		view.add(txtFieldSource,c);
+		c.gridy++;
+		view_browse.add(txtFieldSource,c);
 		
 		//First button
-		c.gridx=1;
-		c.gridy=1;
+		c.gridx++;		
 		c.weightx = 0;
-	    view.add(btnBrowseSource,c);
+		view_browse.add(btnBrowseSource,c);
 	    
 	    //Second Label
 	    c.weightx = 1;
 	    c.gridx=0;
-		c.gridy=2;
+		c.gridy++;
 		c.insets = new Insets(30,30,5,0);
 		text2.setFont(new Font("Courier", Font.BOLD,14));
-		view.add(text2,c);
+		view_browse.add(text2,c);
 		
 		//Second textField
 		c.insets = new Insets(0,30,5,30);
 		c.gridx=0;
-		c.gridy=3;
+		c.gridy++;
 		c.weightx = 0;
-	    view.add(txtFieldOutput,c);
+		view_browse.add(txtFieldOutput,c);
 	    
 	    //Second Button
 	    c.gridx=1;
-		c.gridy=3;
 		c.weightx = 0;
-	    view.add(btnBrowseOutput,c);
+		view_browse.add(btnBrowseOutput,c);
 	    
+	    //Devices Label
+	    c.weightx = 1;
+	    c.gridx=0;
+		c.gridy++;
+		c.insets = new Insets(0,30,5,0);
+		text3.setFont(new Font("Courier", Font.BOLD,14));
+		view_menus.add(text3,c);
+	    
+		//Devices Label
+	    c.weightx = 1;
+	    c.gridx=0;
+		c.gridy=0;
+		c.insets = new Insets(30,30,5,0);
+		text3.setFont(new Font("Courier", Font.BOLD,14));
+		view_menus.add(text3,c);
+		
+		//First Menu
+		c.insets = new Insets(0,30,5,30);
+		c.gridy++;
+		c.weightx = 0;
+		view_menus.add(devices,c);
+	    
+		//Network Label
+	    c.weightx = 1;
+	    c.gridx=0;
+		c.gridy++;
+		c.insets = new Insets(0,30,5,0);
+		text4.setFont(new Font("Courier", Font.BOLD,14));
+		view_menus.add(text4,c);
+		
+		//Second Menu
+		c.insets = new Insets(0,30,5,30);
+		c.gridy++;
+		c.weightx = 0;
+		view_menus.add(network_protocol_type,c);
+		c.gridy++;
+		network_protocol_wired.setVisible(false);
+		view_menus.add(network_protocol_wired,c);
+		network_protocol_wireless.setVisible(false);
+		view_menus.add(network_protocol_wireless,c);
+		
+		//Sensors Label
+	    c.weightx = 1;
+	    c.gridx=0;
+		c.gridy++;
+		c.insets = new Insets(0,30,5,0);
+		text5.setFont(new Font("Courier", Font.BOLD,14));
+		view_menus.add(text5,c);
+		
+		//Second Menu
+		c.insets = new Insets(0,30,5,30);
+		c.gridy++;
+		c.weightx = 0;
+		view_menus.add(sensors,c);
+		c.gridy++;
+		bluetooth_sensors.setVisible(false);
+		view_menus.add(bluetooth_sensors,c);
+		distance_sensors.setVisible(false);
+		view_menus.add(distance_sensors,c);
+		wifi_sensors.setVisible(false);
+		view_menus.add(wifi_sensors,c);
+		temperature_sensors.setVisible(false);
+		view_menus.add(temperature_sensors,c);
+		
 	    //Confirm Button
 	    c.weightx = 1;
 	    c.gridx=0;
-		c.gridy=4;
-		c.gridwidth = 2;
-		c.anchor = GridBagConstraints.PAGE_END;
-		c.weightx = 0;
+		c.gridy=0;
 		c.insets = new Insets(30,30,5,30);
-	    view.add(btnSubmit,c);
+	    view_console.add(btnSubmit,c);
 	    
 	    //Console
 	    c.gridx = 0;
@@ -154,11 +264,14 @@ public class Gui implements ActionListener {
 	    c.gridwidth = 2;
 	    c.gridheight = 10;
 	    c.weighty = 1;
-	    view.add(new JScrollPane(console),c);
+	    view_console.add(new JScrollPane(console),c);
 	    
 	    //End
 	    frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 	    
-	    frame.setContentPane(view);
+	    main_view.add(view_browse);
+	    main_view.add(view_menus);
+	    main_view.add(view_console);
+	    frame.add(main_view);
 	    frame.setVisible(true);
 	}
 	public void actionPerformed(ActionEvent e)
@@ -182,9 +295,24 @@ public class Gui implements ActionListener {
         	} 
         	else
         	{
+        		Parameters.selected_device = devices.getItemAt(devices.getSelectedIndex());
+        		if (network_protocol_type.getSelectedIndex() == 1)
+        			Parameters.selected_protocol = network_protocol_wired.getItemAt(network_protocol_wired.getSelectedIndex());
+        		if (network_protocol_type.getSelectedIndex() == 2)
+        			Parameters.selected_protocol = network_protocol_wireless.getItemAt(network_protocol_wireless.getSelectedIndex());
+        		
+        		if (sensors.getSelectedIndex() == 1)
+        			Parameters.selected_sensor = bluetooth_sensors.getItemAt(bluetooth_sensors.getSelectedIndex());
+        		if (sensors.getSelectedIndex() == 2)
+        			Parameters.selected_sensor = distance_sensors.getItemAt(distance_sensors.getSelectedIndex());
+        		if (sensors.getSelectedIndex() == 3)
+        			Parameters.selected_sensor =  wifi_sensors.getItemAt(wifi_sensors.getSelectedIndex());
+        		if (sensors.getSelectedIndex() == 4)
+        			Parameters.selected_sensor = temperature_sensors.getItemAt(temperature_sensors.getSelectedIndex());
+        		
+        		
         		main.runGenerator(source_path, output_path);
-        		source_path = "";
-        		output_path = "";
+        		
         	}
 	    }
 		//Action to perform for the browse button
@@ -195,7 +323,7 @@ public class Gui implements ActionListener {
 	        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 	        chooser.setAcceptAllFileFilterUsed(false);
 	        
-	        if (chooser.showSaveDialog(view) == JFileChooser.APPROVE_OPTION)
+	        if (chooser.showSaveDialog(view_browse) == JFileChooser.APPROVE_OPTION)
 	        { 
 	            source_path = chooser.getSelectedFile().getPath();
 	            txtFieldSource.setText(source_path);
@@ -209,11 +337,67 @@ public class Gui implements ActionListener {
 	        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 	        chooser.setAcceptAllFileFilterUsed(false);
 	        
-	        if (chooser.showSaveDialog(view) == JFileChooser.APPROVE_OPTION)
+	        if (chooser.showSaveDialog(view_browse) == JFileChooser.APPROVE_OPTION)
 	        { 
 	            output_path = chooser.getSelectedFile().getPath();
 	            txtFieldOutput.setText(output_path);
 	        }
+	    }
+	    if (e.getSource() == network_protocol_type)
+	    {
+	    	if(network_protocol_type.getSelectedIndex() == 0)
+	    	{
+	    		network_protocol_wireless.setVisible(false);
+	    		network_protocol_wired.setVisible(false);
+	    	}
+	    	if(network_protocol_type.getSelectedIndex() == 1)
+	    	{
+	    		network_protocol_wireless.setVisible(true);
+	    		network_protocol_wired.setVisible(false);
+	    	}
+	    	if(network_protocol_type.getSelectedIndex() == 2)
+	    	{
+	    		network_protocol_wireless.setVisible(false);
+	    		network_protocol_wired.setVisible(true);
+	    	}
+	    }
+	    if (e.getSource() == sensors)
+	    {
+	    	if(sensors.getSelectedIndex() == 0)
+	    	{
+	    		bluetooth_sensors.setVisible(false);
+				distance_sensors.setVisible(false);
+				wifi_sensors.setVisible(false);
+				temperature_sensors.setVisible(false);
+	    	}
+	    	if(sensors.getSelectedIndex() == 1)
+	    	{
+	    		bluetooth_sensors.setVisible(true);
+				distance_sensors.setVisible(false);
+				wifi_sensors.setVisible(false);
+				temperature_sensors.setVisible(false);
+	    	}	
+	    	if(sensors.getSelectedIndex() == 2)
+	    	{
+	    		bluetooth_sensors.setVisible(false);
+				distance_sensors.setVisible(true);
+				wifi_sensors.setVisible(false);
+				temperature_sensors.setVisible(false);
+	    	}
+	    	if(sensors.getSelectedIndex() == 3)
+	    	{
+	    		bluetooth_sensors.setVisible(false);
+				distance_sensors.setVisible(false);
+				wifi_sensors.setVisible(true);
+				temperature_sensors.setVisible(false);
+	    	}
+	    	if(sensors.getSelectedIndex() == 4)
+	    	{
+	    		bluetooth_sensors.setVisible(false);
+				distance_sensors.setVisible(false);
+				wifi_sensors.setVisible(false);
+				temperature_sensors.setVisible(true);
+	    	}
 	    }
 	    
 	}

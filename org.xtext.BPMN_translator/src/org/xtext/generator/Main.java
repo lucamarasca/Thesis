@@ -20,11 +20,12 @@ import org.eclipse.xtext.validation.Issue;
 import org.xtext.BPMN_translatorStandaloneSetup;
 
 public class Main {
-
+	
 	public static void main(String[] args) {
 		
 		Injector injector = new BPMN_translatorStandaloneSetup().createInjectorAndDoEMFRegistration();
 		Main main = injector.getInstance(Main.class);
+		
 		Gui gui = new Gui(main);
 		
 	}
@@ -40,6 +41,8 @@ public class Main {
 
 	@Inject 
 	private JavaIoFileSystemAccess fileAccess;
+
+	
 
 	protected void runGenerator(String source_path, String output_path) {
 		// Load the resource
