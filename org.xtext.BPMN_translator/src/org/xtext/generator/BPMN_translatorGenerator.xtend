@@ -8,6 +8,7 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.bPMN_translator.*
+
 import java.util.ArrayList
 
 /**
@@ -24,6 +25,7 @@ Resource r;
 int i;
 String incoming_arrow;
 String outgoing_arrow;
+SensorsCodeGenerator s;
 	
 	String return_value
 	
@@ -49,33 +51,91 @@ def FillGatewayType(){
 }
 //++++++++++++++++++++++++++++++Generation++++++++++++++++++++++++++++++++
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		Initialize(resource);
-		//Main file generation
-		fsa.generateFile("Main.ino", StaticMainFileStart() + '''
-        «FOR element : resource.allContents.filter(element).toIterable»	         
-	        	«GenerateMainFile(element)»     	       
-        «ENDFOR»
-        ''' + StaticMainFileEnd())
-		//.h lib file generation
-		fsa.generateFile("GeneratedLib.h" , StaticLibHStart() + '''
-        «FOR element : resource.allContents.filter(element).toIterable»
-	        «FOR Open : element.open» 
-	        	«TaskToMethodsH(Open)»     
-	        «ENDFOR»
-        «ENDFOR»
-        ''' + StaticLibHEnd())
-        //.cpp lib file generation
-        fsa.generateFile("GeneratedLib.cpp" , StaticLibCPPStart() + '''
-        «FOR element : resource.allContents.filter(element).toIterable»
-	        «FOR Open : element.open»         
-	        	«TaskToMethodsCPP(Open)»     
-	        «ENDFOR»
-        «ENDFOR»
-        ''')
+		if (resource !== null)
+		{
+			//THIS MEANS THAT I'VE SELECTED A BPMN
+			Initialize(resource);
+			//Main file generation
+			fsa.generateFile("Main.ino", StaticMainFileStart() + StaticMainFileEnd())
+			//.h lib file generation
+			fsa.generateFile("GeneratedLib.h" , StaticLibHStart() + StaticLibHEnd())
+	        //.cpp lib file generation
+	        fsa.generateFile("GeneratedLib.cpp" , ArduinoSensorGenerationCodeCPP()  )
+        }
+        else
+        {
+        	//THIS MEANS THAT NO SOURCE BPMN HAS BEEN SELECTED
+        	//I need to generate generic code using my datas
+        	
+			//Main file generation
+			fsa.generateFile("Main.ino", StaticMainFileStart() + StaticMainFileEnd())
+			//.h lib file generation
+			fsa.generateFile("GeneratedLib.h" , StaticLibHStart() + StaticLibHEnd())
+	        //.cpp lib file generation
+	        fsa.generateFile("GeneratedLib.cpp" , ArduinoSensorGenerationCodeCPP() )
+        }
 		        
 	}
 	
-	def TaskToMethodsH(Open open_tag){
+	
+	
+	
+
+def ArduinoSensorGenerationCodeCPP(){
+	s = new SensorsCodeGenerator(Parameters.selected_sensor,0);
+	return s.GenerateCPPCode();
+	
+}	
+//++++++++++++++++++++++++++++++++STATIC PART OF THE GENERATED CODE++++++++++++++++++++++++++++++++++++	
+def StaticLibHStart(){
+	return
+	"
+#include \"Arduino.h\"        //includes the library Arduino.h
+#include \"SoftwareSerial.h\" //Includes the library SoftwareSerial.h
+//Used for defining static variables
+enum {
+	//rate of trnsmission
+	BAUND_RATE = 9600,
+};
+class MyBPMNClass {
+"
+}
+
+def StaticLibHEnd(){
+	return "}"
+}
+
+
+
+
+
+def StaticMainFileStart(){
+	return 
+	"#include <GeneratedLib.h>\n" +
+	"void setup()\n" +
+	"{" +
+  		"\tSerial.begin(9600);\n // opens serial port, sets data rate to 9600 bps"+
+
+  		"\twhile (!Serial);";
+    
+}
+def StaticMainFileEnd(){
+return 
+"
+}
+void loop()
+{
+
+}
+"
+}
+
+
+
+
+//++++++++++++++++++++++++++++Comments+++++++++++++++++++++++++++++++++++++++
+/*
+ def TaskToMethodsH(Open open_tag){
 		val type = "void";
 		
 		if(task_type.contains(open_tag.keywords.get(0))){
@@ -95,31 +155,9 @@ def FillGatewayType(){
 		}
 		
 	}
-	def GenerateMainFile(element e){
-		
-		
-		
-		app = ""
-		
-		//outgoing_arrow = getOutgoingArrowId(e)
-				
-		if(gateway_type.contains(getTaskType(e).toString()))
-		{	
-			'''	
-			«FOR element : r.allContents.filter(element).toIterable»	         
-	        	«getOutgoingArrow(element, getTaskId(e))»     	       
-        	«ENDFOR»
-			'''
-		}
-			
-		
-		
-		
-			
-	}
-	
-	
-	
+
+
+
 //+++++++++++++++++++++++++++++++GETERS++++++++++++++++++++++++++++++++
 def getOutgoingArrow(element e, CharSequence app){
 		return_value = "" 
@@ -155,60 +193,5 @@ def write(Object o){
 //+++++++++++++++++++++++++++++++++OTHER METHODS++++++++++++++++++++++++++++++++++++
 def int getNamePosition(Open open_tag){
 	return open_tag.keywords1.lastIndexOf("name");
-}	
-	
-//++++++++++++++++++++++++++++++++STATIC PART OF THE GENERATED CODE++++++++++++++++++++++++++++++++++++	
-def StaticLibHStart(){
-	return
-	"
-#include \"Arduino.h\"        //includes the library Arduino.h
-#include \"SoftwareSerial.h\" //Includes the library SoftwareSerial.h
-//Used for defining static variables
-enum {
-	//rate of trnsmission
-	BAUND_RATE = 9600,
-};
-class MyBPMNClass {
-"
-}
-
-def StaticLibHEnd(){
-	return "}"
-}
-
-def StaticLibCPPStart(){
-	return 
-"
-#include <GeneratedLib.h>\n
-"
-}
-
-
-
-def StaticMainFileStart(){
-	return 
-	"
-#include <GeneratedLib.h>
-
-void setup()
-{
-  Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
-
-  while (!Serial)
-    ;
-
-		";
-}
-def StaticMainFileEnd(){
-return 
-"
-}
-
-void loop()
-{
-
-}
-"
-}
-	
+}	 */	
 }

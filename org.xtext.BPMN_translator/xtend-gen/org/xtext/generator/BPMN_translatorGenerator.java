@@ -3,18 +3,14 @@
  */
 package org.xtext.generator;
 
-import com.google.common.collect.Iterators;
 import java.util.ArrayList;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.CollectionExtensions;
-import org.eclipse.xtext.xbase.lib.IteratorExtensions;
-import org.xtext.bPMN_translator.Open;
-import org.xtext.bPMN_translator.element;
+import org.xtext.generator.Parameters;
+import org.xtext.generator.SensorsCodeGenerator;
 
 /**
  * Generates code from your model files on save.
@@ -36,6 +32,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   private String incoming_arrow;
   
   private String outgoing_arrow;
+  
+  private SensorsCodeGenerator s;
   
   private String return_value;
   
@@ -74,164 +72,34 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    this.Initialize(resource);
-    String _StaticMainFileStart = this.StaticMainFileStart();
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      Iterable<element> _iterable = IteratorExtensions.<element>toIterable(Iterators.<element>filter(resource.getAllContents(), element.class));
-      for(final element element : _iterable) {
-        CharSequence _GenerateMainFile = this.GenerateMainFile(element);
-        _builder.append(_GenerateMainFile);
-        _builder.append("     \t       ");
-        _builder.newLineIfNotEmpty();
-      }
+    if ((resource != null)) {
+      this.Initialize(resource);
+      String _StaticMainFileStart = this.StaticMainFileStart();
+      String _StaticMainFileEnd = this.StaticMainFileEnd();
+      String _plus = (_StaticMainFileStart + _StaticMainFileEnd);
+      fsa.generateFile("Main.ino", _plus);
+      String _StaticLibHStart = this.StaticLibHStart();
+      String _StaticLibHEnd = this.StaticLibHEnd();
+      String _plus_1 = (_StaticLibHStart + _StaticLibHEnd);
+      fsa.generateFile("GeneratedLib.h", _plus_1);
+      fsa.generateFile("GeneratedLib.cpp", this.ArduinoSensorGenerationCodeCPP());
+    } else {
+      String _StaticMainFileStart_1 = this.StaticMainFileStart();
+      String _StaticMainFileEnd_1 = this.StaticMainFileEnd();
+      String _plus_2 = (_StaticMainFileStart_1 + _StaticMainFileEnd_1);
+      fsa.generateFile("Main.ino", _plus_2);
+      String _StaticLibHStart_1 = this.StaticLibHStart();
+      String _StaticLibHEnd_1 = this.StaticLibHEnd();
+      String _plus_3 = (_StaticLibHStart_1 + _StaticLibHEnd_1);
+      fsa.generateFile("GeneratedLib.h", _plus_3);
+      fsa.generateFile("GeneratedLib.cpp", this.ArduinoSensorGenerationCodeCPP());
     }
-    String _plus = (_StaticMainFileStart + _builder);
-    String _StaticMainFileEnd = this.StaticMainFileEnd();
-    String _plus_1 = (_plus + _StaticMainFileEnd);
-    fsa.generateFile("Main.ino", _plus_1);
-    String _StaticLibHStart = this.StaticLibHStart();
-    StringConcatenation _builder_1 = new StringConcatenation();
-    {
-      Iterable<org.xtext.bPMN_translator.element> _iterable_1 = IteratorExtensions.<org.xtext.bPMN_translator.element>toIterable(Iterators.<org.xtext.bPMN_translator.element>filter(resource.getAllContents(), org.xtext.bPMN_translator.element.class));
-      for(final org.xtext.bPMN_translator.element element_1 : _iterable_1) {
-        {
-          EList<Open> _open = element_1.getOpen();
-          for(final Open Open : _open) {
-            String _TaskToMethodsH = this.TaskToMethodsH(Open);
-            _builder_1.append(_TaskToMethodsH);
-            _builder_1.append("     ");
-            _builder_1.newLineIfNotEmpty();
-          }
-        }
-      }
-    }
-    String _plus_2 = (_StaticLibHStart + _builder_1);
-    String _StaticLibHEnd = this.StaticLibHEnd();
-    String _plus_3 = (_plus_2 + _StaticLibHEnd);
-    fsa.generateFile("GeneratedLib.h", _plus_3);
-    String _StaticLibCPPStart = this.StaticLibCPPStart();
-    StringConcatenation _builder_2 = new StringConcatenation();
-    {
-      Iterable<org.xtext.bPMN_translator.element> _iterable_2 = IteratorExtensions.<org.xtext.bPMN_translator.element>toIterable(Iterators.<org.xtext.bPMN_translator.element>filter(resource.getAllContents(), org.xtext.bPMN_translator.element.class));
-      for(final org.xtext.bPMN_translator.element element_2 : _iterable_2) {
-        {
-          EList<org.xtext.bPMN_translator.Open> _open_1 = element_2.getOpen();
-          for(final org.xtext.bPMN_translator.Open Open_1 : _open_1) {
-            String _TaskToMethodsCPP = this.TaskToMethodsCPP(Open_1);
-            _builder_2.append(_TaskToMethodsCPP);
-            _builder_2.append("     ");
-            _builder_2.newLineIfNotEmpty();
-          }
-        }
-      }
-    }
-    String _plus_4 = (_StaticLibCPPStart + _builder_2);
-    fsa.generateFile("GeneratedLib.cpp", _plus_4);
   }
   
-  public String TaskToMethodsH(final Open open_tag) {
-    final String type = "void";
-    boolean _contains = this.task_type.contains(open_tag.getKeywords().get(0));
-    if (_contains) {
-      String _lowerCase = open_tag.getValue().get(this.getNamePosition(open_tag)).replaceAll(" ", "_").toLowerCase();
-      String _plus = ((("\t" + type) + " ") + _lowerCase);
-      return (_plus + "();");
-    }
-    return null;
-  }
-  
-  public String TaskToMethodsCPP(final Open open_tag) {
-    final String type = "void";
-    boolean _contains = this.task_type.contains(open_tag.getKeywords().get(0));
-    if (_contains) {
-      String _lowerCase = open_tag.getValue().get(this.getNamePosition(open_tag)).replaceAll(" ", "_").toLowerCase();
-      String _plus = ((type + " MyBPMNClass::") + _lowerCase);
-      return (_plus + "()\n{\n\n\t\\\\todo\n\n}\n");
-    }
-    return null;
-  }
-  
-  public CharSequence GenerateMainFile(final element e) {
-    CharSequence _xblockexpression = null;
-    {
-      this.app = "";
-      CharSequence _xifexpression = null;
-      boolean _contains = this.gateway_type.contains(this.getTaskType(e).toString());
-      if (_contains) {
-        StringConcatenation _builder = new StringConcatenation();
-        {
-          Iterable<element> _iterable = IteratorExtensions.<element>toIterable(Iterators.<element>filter(this.r.getAllContents(), element.class));
-          for(final element element : _iterable) {
-            String _outgoingArrow = this.getOutgoingArrow(element, this.getTaskId(e));
-            _builder.append(_outgoingArrow);
-            _builder.append("     \t       ");
-            _builder.newLineIfNotEmpty();
-          }
-        }
-        _xifexpression = _builder;
-      }
-      _xblockexpression = _xifexpression;
-    }
-    return _xblockexpression;
-  }
-  
-  public String getOutgoingArrow(final element e, final CharSequence app) {
-    this.return_value = "";
-    this.i = 0;
-    EList<Open> _open = e.getOpen();
-    for (final Open Open : _open) {
-      boolean _equals = Open.getKeywords().get(0).equals("sequenceFlow");
-      if (_equals) {
-        EList<String> _keywords1 = Open.getKeywords1();
-        for (final String keywords : _keywords1) {
-          {
-            boolean _equals_1 = keywords.equals("sourceRef");
-            if (_equals_1) {
-              String _return_value = this.return_value;
-              String _string = Open.getValue().get(this.i).toString();
-              this.return_value = (_return_value + _string);
-            }
-            this.i++;
-          }
-        }
-      }
-    }
-    return this.return_value;
-  }
-  
-  public CharSequence write(final Object o) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append(o);
-    return _builder;
-  }
-  
-  public CharSequence getTaskType(final element e) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<Open> _open = e.getOpen();
-      for(final Open Open : _open) {
-        String _get = Open.getKeywords().get(0);
-        _builder.append(_get);
-      }
-    }
-    return _builder;
-  }
-  
-  public CharSequence getTaskId(final element e) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<Open> _open = e.getOpen();
-      for(final Open Open : _open) {
-        EList<String> _value = Open.getValue();
-        _builder.append(_value);
-      }
-    }
-    return _builder;
-  }
-  
-  public int getNamePosition(final Open open_tag) {
-    return open_tag.getKeywords1().lastIndexOf("name");
+  public String ArduinoSensorGenerationCodeCPP() {
+    SensorsCodeGenerator _sensorsCodeGenerator = new SensorsCodeGenerator(Parameters.selected_sensor, 0);
+    this.s = _sensorsCodeGenerator;
+    return this.s.GenerateCPPCode();
   }
   
   public String StaticLibHStart() {
@@ -242,15 +110,15 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     return "}";
   }
   
-  public String StaticLibCPPStart() {
-    return "\r\n#include <GeneratedLib.h>\n\r\n";
-  }
-  
   public String StaticMainFileStart() {
-    return "\r\n#include <GeneratedLib.h>\r\n\r\nvoid setup()\r\n{\r\n  Serial.begin(9600); // opens serial port, sets data rate to 9600 bps\r\n\r\n  while (!Serial)\r\n    ;\r\n\r\n\t\t";
+    return (((("#include <GeneratedLib.h>\n" + 
+      "void setup()\n") + 
+      "{") + 
+      "\tSerial.begin(9600);\n // opens serial port, sets data rate to 9600 bps") + 
+      "\twhile (!Serial);");
   }
   
   public String StaticMainFileEnd() {
-    return "\r\n}\r\n\r\nvoid loop()\r\n{\r\n\r\n}\r\n";
+    return "\r\n}\r\nvoid loop()\r\n{\r\n\r\n}\r\n";
   }
 }

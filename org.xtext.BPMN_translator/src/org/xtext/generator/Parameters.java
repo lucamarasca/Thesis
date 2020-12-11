@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Collection;
 
 public class Parameters {
+	
+	
 	//Device Lists
 	static public ArrayList <String> Devices = new ArrayList<String>();
 	
@@ -43,7 +45,7 @@ public class Parameters {
 		Temperature_sensors.addAll(Arrays.asList("","DHT22 (AM2302)" , "DHT11 (AM2303)"));
 
 	}
-
+	
 	static public String selected_device;
 	static public String selected_protocol;
 	static public String selected_sensor;

@@ -45,25 +45,37 @@ public class Main {
 	
 
 	protected void runGenerator(String source_path, String output_path) {
-		// Load the resource
-		ResourceSet set = resourceSetProvider.get();
-		Resource resource = set.getResource(URI.createFileURI(source_path), true);
-
-		// Validate the resource
-		List<Issue> list = validator.validate(resource, CheckMode.ALL, CancelIndicator.NullImpl);
-		if (!list.isEmpty()) {
-			for (Issue issue : list) {
-				System.err.println(issue);
+		if (!source_path.equals(""))
+		{	
+			// Load the resource
+			ResourceSet set = resourceSetProvider.get();
+			Resource resource = set.getResource(URI.createFileURI(source_path), true);
+	
+			// Validate the resource
+			List<Issue> list = validator.validate(resource, CheckMode.ALL, CancelIndicator.NullImpl);
+			if (!list.isEmpty()) {
+				for (Issue issue : list) {
+					System.err.println(issue);
+				}
+				return;
 			}
-			return;
+	
+			// Configure and start the generator
+			fileAccess.setOutputPath(output_path);
+			GeneratorContext context = new GeneratorContext();
+			context.setCancelIndicator(CancelIndicator.NullImpl);
+			generator.generate(resource, fileAccess, context);
+	
+			System.out.println("Code generation finished.");
 		}
-
-		// Configure and start the generator
-		fileAccess.setOutputPath(output_path);
-		GeneratorContext context = new GeneratorContext();
-		context.setCancelIndicator(CancelIndicator.NullImpl);
-		generator.generate(resource, fileAccess, context);
-
-		System.out.println("Code generation finished.");
+		else
+		{
+			Resource resource = null;
+			GeneratorContext context = null;
+			fileAccess.setOutputPath(output_path);
+			generator.generate(resource, fileAccess, context);
+			
+			Gui.ConsoleLog("Code generation finished.",3);
+		}
 	}
 }

@@ -1,6 +1,7 @@
 package org.xtext.generator;
 
 import java.awt.Button;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -44,7 +45,7 @@ public class Gui implements ActionListener {
 	JPanel view_menus ;	//View that contains Jmenus bar
 	JPanel view_console; //View that contain submit button and console
 	JFrame frame;	//Container of all the views
-	
+	Button dialogButton;
 	
 	
 	//First view
@@ -71,7 +72,7 @@ public class Gui implements ActionListener {
 	JComboBox<String> temperature_sensors;
 	//Third view
 	JButton btnSubmit ;
-	MessageConsole console;
+	static MessageConsole console;
 	
 	
 	
@@ -82,7 +83,7 @@ public class Gui implements ActionListener {
 		source_path = "";
 		output_path = "";
 		this.init();
-		System.out.println("Console:");
+		ConsoleLog("Console:>", 1);
 	}
 	private void init() {
 		
@@ -94,6 +95,7 @@ public class Gui implements ActionListener {
 		//Collegamento del System.out alla JConsole
 		System.setOut(console.getPrintStream());
 		System.setErr(console.getPrintStream());
+		
 		
 		
 		frame = new JFrame();
@@ -281,37 +283,55 @@ public class Gui implements ActionListener {
 	    {
 			if(source_path.equals(""))
 			{
-				JOptionPane.showMessageDialog(null, 
-                        "ERROR", 
-                        "select a source file", 
-                        JOptionPane.WARNING_MESSAGE);
+				int dialogResult = JOptionPane.showConfirmDialog (null, "you didn't select a source file, you wish to continue?");
+				if(dialogResult == JOptionPane.YES_OPTION){
+					if (output_path.equals(""))
+		        	{
+		        		JOptionPane.showMessageDialog(null, 
+		                        "ERROR", 
+		                        "select output folder", 
+		                        JOptionPane.WARNING_MESSAGE);      		
+		        	} 
+					else
+					{
+						if (CheckCorrectnessOfData())
+		        		{
+							GetDataForGeneration();
+							main.runGenerator(source_path, output_path);
+		        		}
+						else
+						{
+							
+		        			JOptionPane.showMessageDialog(null, 
+		                            "ERROR", 
+		                            "fill all the required field", 
+		                            JOptionPane.ERROR_MESSAGE);
+			        		
+						}
+					}
+				}
 			}
         	else if (output_path.equals(""))
         	{
         		JOptionPane.showMessageDialog(null, 
                         "ERROR", 
                         "select output folder", 
-                        JOptionPane.WARNING_MESSAGE);      		
+                        JOptionPane.ERROR_MESSAGE);      		
         	} 
         	else
         	{
-        		Parameters.selected_device = devices.getItemAt(devices.getSelectedIndex());
-        		if (network_protocol_type.getSelectedIndex() == 1)
-        			Parameters.selected_protocol = network_protocol_wired.getItemAt(network_protocol_wired.getSelectedIndex());
-        		if (network_protocol_type.getSelectedIndex() == 2)
-        			Parameters.selected_protocol = network_protocol_wireless.getItemAt(network_protocol_wireless.getSelectedIndex());
-        		
-        		if (sensors.getSelectedIndex() == 1)
-        			Parameters.selected_sensor = bluetooth_sensors.getItemAt(bluetooth_sensors.getSelectedIndex());
-        		if (sensors.getSelectedIndex() == 2)
-        			Parameters.selected_sensor = distance_sensors.getItemAt(distance_sensors.getSelectedIndex());
-        		if (sensors.getSelectedIndex() == 3)
-        			Parameters.selected_sensor =  wifi_sensors.getItemAt(wifi_sensors.getSelectedIndex());
-        		if (sensors.getSelectedIndex() == 4)
-        			Parameters.selected_sensor = temperature_sensors.getItemAt(temperature_sensors.getSelectedIndex());
-        		
-        		
-        		main.runGenerator(source_path, output_path);
+        		if (CheckCorrectnessOfData())
+        		{
+        			GetDataForGeneration();
+            		main.runGenerator(source_path, output_path);
+        		}
+        		else
+        		{
+        			JOptionPane.showMessageDialog(null, 
+                            "ERROR", 
+                            "fill all the required field", 
+                            JOptionPane.ERROR_MESSAGE);
+        		}
         		
         	}
 	    }
@@ -401,5 +421,63 @@ public class Gui implements ActionListener {
 	    }
 	    
 	}
+	public void GetDataForGeneration() {
+		Parameters.selected_device = devices.getItemAt(devices.getSelectedIndex());
+		if (network_protocol_type.getSelectedIndex() == 1)
+			Parameters.selected_protocol = network_protocol_wireless.getItemAt(network_protocol_wireless.getSelectedIndex());
+		if (network_protocol_type.getSelectedIndex() == 2)
+			Parameters.selected_protocol = network_protocol_wired.getItemAt(network_protocol_wired.getSelectedIndex());
+		
+		if (sensors.getSelectedIndex() == 1)
+			Parameters.selected_sensor = bluetooth_sensors.getItemAt(bluetooth_sensors.getSelectedIndex());
+		if (sensors.getSelectedIndex() == 2)
+			Parameters.selected_sensor = distance_sensors.getItemAt(distance_sensors.getSelectedIndex());
+		if (sensors.getSelectedIndex() == 3)
+			Parameters.selected_sensor =  wifi_sensors.getItemAt(wifi_sensors.getSelectedIndex());
+		if (sensors.getSelectedIndex() == 4)
+			Parameters.selected_sensor = temperature_sensors.getItemAt(temperature_sensors.getSelectedIndex());
+		if(source_path.equals(""))
+		ConsoleLog("+++++++++++++ NO SOURCE BPMN SELECTED+++++++++++++", 2);
+		else
+		ConsoleLog("SOURCE BPMN: " + source_path, 2);
+		
+		ConsoleLog("Generating cod for:\n->DEVICE: "+ Parameters.selected_device+
+				"\n->NETWORK PROTOCOL: "+ Parameters.selected_protocol+
+				"\n->SENSOR: " + Parameters.selected_sensor, 1);
+	}
+	public boolean CheckCorrectnessOfData() {
+		if (network_protocol_type.getSelectedIndex() != 0 &&
+				(network_protocol_wired.getSelectedIndex() != 0 || network_protocol_wireless.getSelectedIndex() != 0) &&
+				sensors.getSelectedIndex() != 0 &&
+				(bluetooth_sensors.getSelectedIndex() != 0 ||
+				distance_sensors.getSelectedIndex() != 0 ||
+				wifi_sensors.getSelectedIndex() != 0 ||
+				temperature_sensors.getSelectedIndex() != 0)
+			)
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	 static public void ConsoleLog(String message, int code) {
+		switch (code) {
+		case 1: 
+			System.out.println(message);
+			break;
+		case 2: 
+			console.setSelectedTextColor(new Color(0, 0, 0));
+			System.out.println( message);
+			console.setSelectedTextColor(new Color(0, 0, 255));
+			break;
+		case 3:
+			console.setSelectedTextColor(new Color(0, 0, 0));
+			System.out.println( message);
+			console.setSelectedTextColor(new Color(0, 0, 255));			
+			break;
+		default:
+			System.out.println(message);
+		}
+	}	
 	
 }
