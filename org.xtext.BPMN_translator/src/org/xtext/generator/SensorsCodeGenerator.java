@@ -18,27 +18,44 @@ public class SensorsCodeGenerator {
 			case 0:
 				//So che non ho una BPMN, quindi posso generare del codice di default
 				String result =
-				"#include <DHT.h>\r\n"
-				+ "//Costanti\r\n"
-				+ "#define DHTPIN 8   //Pin a cui è connesso il sensore\r\n"
-				+ "#define DHTTYPE DHT22   //Tipo di sensore che stiamo utilizzando (DHT22)\r\n"
-				+ "DHT dht(DHTPIN, DHTTYPE); //Inizializza oggetto chiamato \"dht\", parametri: pin a cui è connesso il sensore, tipo di dht 11/22"
-				+ "//Variabili\r\n"
-				+ "int chk;\r\n"
-				+ "float hum;  //Variabile in cui verrà inserita la % di umidità\r\n"
-				+ "float temp; //Variabile in cui verrà inserita la temperatura\r\n"
-				+ "public void Init(){\n\tdht.begin();\n}\n"
-				+ "public void ReadTempAndHumidity(){\n"
-				+ "//Leggi i dati e salvali nelle variabili hum e temp\r\n"
-				+ "hum = dht.readHumidity();\r\n"
-				+ "temp= dht.readTemperature();\r\n"
-				+ "//Stampa umidità e temperatura tramite monitor seriale\r\n"
-				+ "Serial.print(\"Umidità: \");\r\n"
-				+ "Serial.print(hum);\r\n"
-				+ "Serial.print(\" %, Temp: \");\r\n"
-				+ "Serial.print(temp);\r\n"
-				+ "Serial.println(\" Celsius\");"
-				+ "\n}"
+				"public void Init_sensor()\n{\n\tDHT dht(DHTPIN, DHTTYPE); "
+				+ "//Inizializza oggetto chiamato \\\"dht\\\", parametri: pin a cui è connesso il sensore, tipo di dht 11/22\"\r\n"
+				+ "\tdht.begin();\n}\n"
+				+ "public void ReadTempAndHumidity()\n{\n"
+				+ "\t//Leggi i dati e salvali nelle variabili hum e temp\r\n"
+				+ "\thum = dht.readHumidity();\r\n"
+				+ "\ttemp= dht.readTemperature();\r\n"
+				+ "\t//Stampa umidità e temperatura tramite monitor seriale\r\n"
+				+ "\tSerial.print(\"Umidità: \");\r\n"
+				+ "\tSerial.print(hum);\r\n"
+				+ "\tSerial.print(\" %, Temp: \");\r\n"
+				+ "\tSerial.print(temp);\r\n"
+				+ "\tSerial.println(\" Celsius\");"
+				+ "\n}\n"
+				;
+				return result;
+			case 1:
+				return "";
+				
+			default:
+				return "Non cpp file for sensor: " + sensor + " has been generated.";
+				
+			}
+		default:
+			return "";
+		}
+	}
+	public String GenerateHCode() {
+		switch (sensor)
+		{
+		case "DHT22 (AM2302)":
+			switch(generation_type)
+			{
+			case 0:
+				//So che non ho una BPMN, quindi posso generare del codice di default
+				String result =
+				  "\tvoid Init_sensor();\n"
+				+ "\tvoid ReadTempAndHumidity();\n"
 				;
 				return result;
 			case 1:

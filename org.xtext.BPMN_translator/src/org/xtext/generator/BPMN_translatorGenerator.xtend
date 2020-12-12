@@ -26,6 +26,9 @@ int i;
 String incoming_arrow;
 String outgoing_arrow;
 SensorsCodeGenerator s;
+NetworkCodeGenerator p;
+VariablesCodeGenerator imp;
+DefineCodeGenerator define;
 	
 	String return_value
 	
@@ -60,7 +63,9 @@ def FillGatewayType(){
 			//.h lib file generation
 			fsa.generateFile("GeneratedLib.h" , StaticLibHStart() + StaticLibHEnd())
 	        //.cpp lib file generation
-	        fsa.generateFile("GeneratedLib.cpp" , ArduinoSensorGenerationCodeCPP()  )
+	        fsa.generateFile("GeneratedLib.cpp" , ArduinoSensorGenerationCodeCPP() 
+	        	
+	        )
         }
         else
         {
@@ -70,34 +75,54 @@ def FillGatewayType(){
 			//Main file generation
 			fsa.generateFile("Main.ino", StaticMainFileStart() + StaticMainFileEnd())
 			//.h lib file generation
-			fsa.generateFile("GeneratedLib.h" , StaticLibHStart() + StaticLibHEnd())
+			fsa.generateFile("GeneratedLib.h" , StaticLibHStart() +
+				ArduinoIncludeCodeGenerationH() +
+				ArduinoSensorGenerationCodeH() +
+				ArduinoNetworkProtocolGenerationCodeH() +
+				StaticLibHEnd()
+			)
 	        //.cpp lib file generation
-	        fsa.generateFile("GeneratedLib.cpp" , ArduinoSensorGenerationCodeCPP() )
+	        fsa.generateFile("GeneratedLib.cpp" ,ArduinoVariablesGenerationCodeCPP() +
+	        	ArduinoSensorGenerationCodeCPP() +
+	        	ArduinoNetworkProtocolGenerationCodeCPP()
+	        )
         }
 		        
 	}
 	
-	
-	
-	
-
+//library.h
+def ArduinoIncludeCodeGenerationH(){
+	define = new DefineCodeGenerator(Parameters.selected_sensor,Parameters.selected_protocol);
+	define.generateHCode();
+}	
+def ArduinoSensorGenerationCodeH(){
+	s = new SensorsCodeGenerator(Parameters.selected_sensor,0);
+	return s.GenerateHCode();
+}
+def ArduinoNetworkProtocolGenerationCodeH(){
+	p = new NetworkCodeGenerator(Parameters.selected_protocol,0);
+	return p.GenerateHCode();
+}
+//library.cpp
+def ArduinoVariablesGenerationCodeCPP(){
+	imp = new VariablesCodeGenerator(Parameters.selected_sensor,Parameters.selected_protocol); 
+	return imp.generateCPPCode();
+}
 def ArduinoSensorGenerationCodeCPP(){
 	s = new SensorsCodeGenerator(Parameters.selected_sensor,0);
 	return s.GenerateCPPCode();
-	
 }	
+
+def ArduinoNetworkProtocolGenerationCodeCPP(){
+	p = new NetworkCodeGenerator(Parameters.selected_protocol,0);
+	return p.GenerateCPPCode();
+}
 //++++++++++++++++++++++++++++++++STATIC PART OF THE GENERATED CODE++++++++++++++++++++++++++++++++++++	
 def StaticLibHStart(){
 	return
 	"
 #include \"Arduino.h\"        //includes the library Arduino.h
-#include \"SoftwareSerial.h\" //Includes the library SoftwareSerial.h
-//Used for defining static variables
-enum {
-	//rate of trnsmission
-	BAUND_RATE = 9600,
-};
-class MyBPMNClass {
+#include \"SoftwareSerial.h\" //Includes the library SoftwareSerial.h \n
 "
 }
 

@@ -9,8 +9,11 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.CollectionExtensions;
+import org.xtext.generator.DefineCodeGenerator;
+import org.xtext.generator.NetworkCodeGenerator;
 import org.xtext.generator.Parameters;
 import org.xtext.generator.SensorsCodeGenerator;
+import org.xtext.generator.VariablesCodeGenerator;
 
 /**
  * Generates code from your model files on save.
@@ -34,6 +37,12 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   private String outgoing_arrow;
   
   private SensorsCodeGenerator s;
+  
+  private NetworkCodeGenerator p;
+  
+  private VariablesCodeGenerator imp;
+  
+  private DefineCodeGenerator define;
   
   private String return_value;
   
@@ -89,11 +98,50 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
       String _plus_2 = (_StaticMainFileStart_1 + _StaticMainFileEnd_1);
       fsa.generateFile("Main.ino", _plus_2);
       String _StaticLibHStart_1 = this.StaticLibHStart();
+      String _ArduinoIncludeCodeGenerationH = this.ArduinoIncludeCodeGenerationH();
+      String _plus_3 = (_StaticLibHStart_1 + _ArduinoIncludeCodeGenerationH);
+      String _ArduinoSensorGenerationCodeH = this.ArduinoSensorGenerationCodeH();
+      String _plus_4 = (_plus_3 + _ArduinoSensorGenerationCodeH);
+      String _ArduinoNetworkProtocolGenerationCodeH = this.ArduinoNetworkProtocolGenerationCodeH();
+      String _plus_5 = (_plus_4 + _ArduinoNetworkProtocolGenerationCodeH);
       String _StaticLibHEnd_1 = this.StaticLibHEnd();
-      String _plus_3 = (_StaticLibHStart_1 + _StaticLibHEnd_1);
-      fsa.generateFile("GeneratedLib.h", _plus_3);
-      fsa.generateFile("GeneratedLib.cpp", this.ArduinoSensorGenerationCodeCPP());
+      String _plus_6 = (_plus_5 + _StaticLibHEnd_1);
+      fsa.generateFile("GeneratedLib.h", _plus_6);
+      String _ArduinoVariablesGenerationCodeCPP = this.ArduinoVariablesGenerationCodeCPP();
+      String _ArduinoSensorGenerationCodeCPP = this.ArduinoSensorGenerationCodeCPP();
+      String _plus_7 = (_ArduinoVariablesGenerationCodeCPP + _ArduinoSensorGenerationCodeCPP);
+      String _ArduinoNetworkProtocolGenerationCodeCPP = this.ArduinoNetworkProtocolGenerationCodeCPP();
+      String _plus_8 = (_plus_7 + _ArduinoNetworkProtocolGenerationCodeCPP);
+      fsa.generateFile("GeneratedLib.cpp", _plus_8);
     }
+  }
+  
+  public String ArduinoIncludeCodeGenerationH() {
+    String _xblockexpression = null;
+    {
+      DefineCodeGenerator _defineCodeGenerator = new DefineCodeGenerator(Parameters.selected_sensor, Parameters.selected_protocol);
+      this.define = _defineCodeGenerator;
+      _xblockexpression = this.define.generateHCode();
+    }
+    return _xblockexpression;
+  }
+  
+  public String ArduinoSensorGenerationCodeH() {
+    SensorsCodeGenerator _sensorsCodeGenerator = new SensorsCodeGenerator(Parameters.selected_sensor, 0);
+    this.s = _sensorsCodeGenerator;
+    return this.s.GenerateHCode();
+  }
+  
+  public String ArduinoNetworkProtocolGenerationCodeH() {
+    NetworkCodeGenerator _networkCodeGenerator = new NetworkCodeGenerator(Parameters.selected_protocol, 0);
+    this.p = _networkCodeGenerator;
+    return this.p.GenerateHCode();
+  }
+  
+  public String ArduinoVariablesGenerationCodeCPP() {
+    VariablesCodeGenerator _variablesCodeGenerator = new VariablesCodeGenerator(Parameters.selected_sensor, Parameters.selected_protocol);
+    this.imp = _variablesCodeGenerator;
+    return this.imp.generateCPPCode();
   }
   
   public String ArduinoSensorGenerationCodeCPP() {
@@ -102,8 +150,14 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     return this.s.GenerateCPPCode();
   }
   
+  public String ArduinoNetworkProtocolGenerationCodeCPP() {
+    NetworkCodeGenerator _networkCodeGenerator = new NetworkCodeGenerator(Parameters.selected_protocol, 0);
+    this.p = _networkCodeGenerator;
+    return this.p.GenerateCPPCode();
+  }
+  
   public String StaticLibHStart() {
-    return "\r\n#include \"Arduino.h\"        //includes the library Arduino.h\r\n#include \"SoftwareSerial.h\" //Includes the library SoftwareSerial.h\r\n//Used for defining static variables\r\nenum {\r\n\t//rate of trnsmission\r\n\tBAUND_RATE = 9600,\r\n};\r\nclass MyBPMNClass {\r\n";
+    return "\r\n#include \"Arduino.h\"        //includes the library Arduino.h\r\n#include \"SoftwareSerial.h\" //Includes the library SoftwareSerial.h \n\r\n";
   }
   
   public String StaticLibHEnd() {
