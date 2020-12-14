@@ -342,11 +342,45 @@ rulecontent returns [EObject current=null]
 		)
 		(
 			(
+				otherlv_1='TRANSLATE'
+				{
+					newLeafNode(otherlv_1, grammarAccess.getContentAccess().getTRANSLATEKeyword_1_0_0());
+				}
+				otherlv_2='{'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getContentAccess().getLeftCurlyBracketKeyword_1_0_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getContentAccess().getCodexCodexParserRuleCall_1_0_2_0());
+						}
+						lv_codex_3_0=rulecodex
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getContentRule());
+							}
+							add(
+								$current,
+								"codex",
+								lv_codex_3_0,
+								"org.xtext.BPMN_translator.codex");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				otherlv_4='}'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getContentAccess().getRightCurlyBracketKeyword_1_0_3());
+				}
+			)
+			    |
+			(
 				(
 					{
-						newCompositeNode(grammarAccess.getContentAccess().getElementElementParserRuleCall_1_0_0());
+						newCompositeNode(grammarAccess.getContentAccess().getElementElementParserRuleCall_1_1_0());
 					}
-					lv_element_1_0=ruleelement
+					lv_element_5_0=ruleelement
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getContentRule());
@@ -354,7 +388,7 @@ rulecontent returns [EObject current=null]
 						add(
 							$current,
 							"element",
-							lv_element_1_0,
+							lv_element_5_0,
 							"org.xtext.BPMN_translator.element");
 						afterParserOrEnumRuleCall();
 					}
@@ -363,9 +397,9 @@ rulecontent returns [EObject current=null]
 			    |
 			(
 				(
-					lv_body_2_0=RULE_BODY
+					lv_body_6_0=RULE_BODY
 					{
-						newLeafNode(lv_body_2_0, grammarAccess.getContentAccess().getBodyBODYTerminalRuleCall_1_1_0());
+						newLeafNode(lv_body_6_0, grammarAccess.getContentAccess().getBodyBODYTerminalRuleCall_1_2_0());
 					}
 					{
 						if ($current==null) {
@@ -374,7 +408,7 @@ rulecontent returns [EObject current=null]
 						addWithLastConsumed(
 							$current,
 							"body",
-							lv_body_2_0,
+							lv_body_6_0,
 							"org.xtext.BPMN_translator.BODY");
 					}
 				)
@@ -382,9 +416,9 @@ rulecontent returns [EObject current=null]
 			    |
 			(
 				(
-					lv_keywords_3_0=RULE_KEYWORDS
+					lv_keywords_7_0=RULE_KEYWORDS
 					{
-						newLeafNode(lv_keywords_3_0, grammarAccess.getContentAccess().getKeywordsKEYWORDSTerminalRuleCall_1_2_0());
+						newLeafNode(lv_keywords_7_0, grammarAccess.getContentAccess().getKeywordsKEYWORDSTerminalRuleCall_1_3_0());
 					}
 					{
 						if ($current==null) {
@@ -393,7 +427,7 @@ rulecontent returns [EObject current=null]
 						addWithLastConsumed(
 							$current,
 							"keywords",
-							lv_keywords_3_0,
+							lv_keywords_7_0,
 							"org.xtext.BPMN_translator.KEYWORDS");
 					}
 				)
@@ -401,9 +435,9 @@ rulecontent returns [EObject current=null]
 			    |
 			(
 				(
-					lv_data_4_0=RULE_STRING
+					lv_data_8_0=RULE_STRING
 					{
-						newLeafNode(lv_data_4_0, grammarAccess.getContentAccess().getDataSTRINGTerminalRuleCall_1_3_0());
+						newLeafNode(lv_data_8_0, grammarAccess.getContentAccess().getDataSTRINGTerminalRuleCall_1_4_0());
 					}
 					{
 						if ($current==null) {
@@ -412,7 +446,7 @@ rulecontent returns [EObject current=null]
 						addWithLastConsumed(
 							$current,
 							"data",
-							lv_data_4_0,
+							lv_data_8_0,
 							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
@@ -715,9 +749,558 @@ ruleClose returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRulecodex
+entryRulecodex returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCodexRule()); }
+	iv_rulecodex=rulecodex
+	{ $current=$iv_rulecodex.current; }
+	EOF;
+
+// Rule codex
+rulecodex returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCodexAccess().getDevice_codeDeviceParserRuleCall_0_0());
+				}
+				lv_device_code_0_0=ruledevice
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCodexRule());
+					}
+					add(
+						$current,
+						"device_code",
+						lv_device_code_0_0,
+						"org.xtext.BPMN_translator.device");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCodexAccess().getProtocolProtocolParserRuleCall_1_0());
+				}
+				lv_protocol_1_0=ruleprotocol
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCodexRule());
+					}
+					add(
+						$current,
+						"protocol",
+						lv_protocol_1_0,
+						"org.xtext.BPMN_translator.protocol");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCodexAccess().getSensor_codeSensorParserRuleCall_2_0());
+				}
+				lv_sensor_code_2_0=rulesensor
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCodexRule());
+					}
+					add(
+						$current,
+						"sensor_code",
+						lv_sensor_code_2_0,
+						"org.xtext.BPMN_translator.sensor");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuledevice
+entryRuledevice returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDeviceRule()); }
+	iv_ruledevice=ruledevice
+	{ $current=$iv_ruledevice.current; }
+	EOF;
+
+// Rule device
+ruledevice returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='DEVICE'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDeviceAccess().getDEVICEKeyword_0());
+		}
+		otherlv_1=':'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getDeviceAccess().getColonKeyword_1());
+		}
+		(
+			(
+				lv_device_2_0=RULE_STRING
+				{
+					newLeafNode(lv_device_2_0, grammarAccess.getDeviceAccess().getDeviceSTRINGTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDeviceRule());
+					}
+					addWithLastConsumed(
+						$current,
+						"device",
+						lv_device_2_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleprotocol
+entryRuleprotocol returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getProtocolRule()); }
+	iv_ruleprotocol=ruleprotocol
+	{ $current=$iv_ruleprotocol.current; }
+	EOF;
+
+// Rule protocol
+ruleprotocol returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='NETWORK_PROTOCOL'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getProtocolAccess().getNETWORK_PROTOCOLKeyword_0());
+		}
+		otherlv_1='{'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getProtocolAccess().getLeftCurlyBracketKeyword_1());
+		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getProtocolAccess().getProtocol_dataProtocol_dataParserRuleCall_2_0_0());
+					}
+					lv_protocol_data_2_0=ruleprotocol_data
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProtocolRule());
+						}
+						add(
+							$current,
+							"protocol_data",
+							lv_protocol_data_2_0,
+							"org.xtext.BPMN_translator.protocol_data");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getProtocolAccess().getProtocol_deviceProtocol_deviceParserRuleCall_2_1_0());
+					}
+					lv_protocol_device_3_0=ruleprotocol_device
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProtocolRule());
+						}
+						add(
+							$current,
+							"protocol_device",
+							lv_protocol_device_3_0,
+							"org.xtext.BPMN_translator.protocol_device");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		otherlv_4='}'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getProtocolAccess().getRightCurlyBracketKeyword_3());
+		}
+	)
+;
+
+// Entry rule entryRuleprotocol_data
+entryRuleprotocol_data returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getProtocol_dataRule()); }
+	iv_ruleprotocol_data=ruleprotocol_data
+	{ $current=$iv_ruleprotocol_data.current; }
+	EOF;
+
+// Rule protocol_data
+ruleprotocol_data returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getProtocol_dataAccess().getProtocol_dataAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				otherlv_1='NAME'
+				{
+					newLeafNode(otherlv_1, grammarAccess.getProtocol_dataAccess().getNAMEKeyword_1_0_0());
+				}
+				otherlv_2='='
+				{
+					newLeafNode(otherlv_2, grammarAccess.getProtocol_dataAccess().getEqualsSignKeyword_1_0_1());
+				}
+				(
+					(
+						lv_pname_3_0=RULE_STRING
+						{
+							newLeafNode(lv_pname_3_0, grammarAccess.getProtocol_dataAccess().getPnameSTRINGTerminalRuleCall_1_0_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getProtocol_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"pname",
+								lv_pname_3_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_4='CLIENT_MAC'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getProtocol_dataAccess().getCLIENT_MACKeyword_1_1_0());
+				}
+				otherlv_5='='
+				{
+					newLeafNode(otherlv_5, grammarAccess.getProtocol_dataAccess().getEqualsSignKeyword_1_1_1());
+				}
+				(
+					(
+						lv_mac_6_0=RULE_STRING
+						{
+							newLeafNode(lv_mac_6_0, grammarAccess.getProtocol_dataAccess().getMacSTRINGTerminalRuleCall_1_1_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getProtocol_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"mac",
+								lv_mac_6_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_7='CLIENT_IP'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getProtocol_dataAccess().getCLIENT_IPKeyword_1_2_0());
+				}
+				otherlv_8='='
+				{
+					newLeafNode(otherlv_8, grammarAccess.getProtocol_dataAccess().getEqualsSignKeyword_1_2_1());
+				}
+				(
+					(
+						lv_ip_address_9_0=RULE_STRING
+						{
+							newLeafNode(lv_ip_address_9_0, grammarAccess.getProtocol_dataAccess().getIp_addressSTRINGTerminalRuleCall_1_2_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getProtocol_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"ip_address",
+								lv_ip_address_9_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_10='SERVER_IP'
+				{
+					newLeafNode(otherlv_10, grammarAccess.getProtocol_dataAccess().getSERVER_IPKeyword_1_3_0());
+				}
+				otherlv_11='='
+				{
+					newLeafNode(otherlv_11, grammarAccess.getProtocol_dataAccess().getEqualsSignKeyword_1_3_1());
+				}
+				(
+					(
+						lv_server_address_12_0=RULE_STRING
+						{
+							newLeafNode(lv_server_address_12_0, grammarAccess.getProtocol_dataAccess().getServer_addressSTRINGTerminalRuleCall_1_3_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getProtocol_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"server_address",
+								lv_server_address_12_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleprotocol_device
+entryRuleprotocol_device returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getProtocol_deviceRule()); }
+	iv_ruleprotocol_device=ruleprotocol_device
+	{ $current=$iv_ruleprotocol_device.current; }
+	EOF;
+
+// Rule protocol_device
+ruleprotocol_device returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='PROTOCOL_DEVICE'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getProtocol_deviceAccess().getPROTOCOL_DEVICEKeyword_0());
+		}
+		otherlv_1='{'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getProtocol_deviceAccess().getLeftCurlyBracketKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getProtocol_deviceAccess().getProtocol_deviceSensor_dataParserRuleCall_2_0());
+				}
+				lv_protocol_device_2_0=rulesensor_data
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getProtocol_deviceRule());
+					}
+					add(
+						$current,
+						"protocol_device",
+						lv_protocol_device_2_0,
+						"org.xtext.BPMN_translator.sensor_data");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_3='}'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getProtocol_deviceAccess().getRightCurlyBracketKeyword_3());
+		}
+	)
+;
+
+// Entry rule entryRulesensor
+entryRulesensor returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSensorRule()); }
+	iv_rulesensor=rulesensor
+	{ $current=$iv_rulesensor.current; }
+	EOF;
+
+// Rule sensor
+rulesensor returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='SENSOR'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getSensorAccess().getSENSORKeyword_0());
+		}
+		otherlv_1='{'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getSensorAccess().getLeftCurlyBracketKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSensorAccess().getSensorSensor_dataParserRuleCall_2_0());
+				}
+				lv_sensor_2_0=rulesensor_data
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSensorRule());
+					}
+					add(
+						$current,
+						"sensor",
+						lv_sensor_2_0,
+						"org.xtext.BPMN_translator.sensor_data");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_3='}'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_3());
+		}
+	)
+;
+
+// Entry rule entryRulesensor_data
+entryRulesensor_data returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSensor_dataRule()); }
+	iv_rulesensor_data=rulesensor_data
+	{ $current=$iv_rulesensor_data.current; }
+	EOF;
+
+// Rule sensor_data
+rulesensor_data returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getSensor_dataAccess().getSensor_dataAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				otherlv_1='NAME'
+				{
+					newLeafNode(otherlv_1, grammarAccess.getSensor_dataAccess().getNAMEKeyword_1_0_0());
+				}
+				otherlv_2='='
+				{
+					newLeafNode(otherlv_2, grammarAccess.getSensor_dataAccess().getEqualsSignKeyword_1_0_1());
+				}
+				(
+					(
+						lv_pname_3_0=RULE_STRING
+						{
+							newLeafNode(lv_pname_3_0, grammarAccess.getSensor_dataAccess().getPnameSTRINGTerminalRuleCall_1_0_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSensor_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"pname",
+								lv_pname_3_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_4='TYPE'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getSensor_dataAccess().getTYPEKeyword_1_1_0());
+				}
+				otherlv_5='='
+				{
+					newLeafNode(otherlv_5, grammarAccess.getSensor_dataAccess().getEqualsSignKeyword_1_1_1());
+				}
+				(
+					(
+						lv_type_6_0=RULE_STRING
+						{
+							newLeafNode(lv_type_6_0, grammarAccess.getSensor_dataAccess().getTypeSTRINGTerminalRuleCall_1_1_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSensor_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"type",
+								lv_type_6_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_7='PINS'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getSensor_dataAccess().getPINSKeyword_1_2_0());
+				}
+				otherlv_8='='
+				{
+					newLeafNode(otherlv_8, grammarAccess.getSensor_dataAccess().getEqualsSignKeyword_1_2_1());
+				}
+				(
+					(
+						lv_pins_9_0=RULE_STRING
+						{
+							newLeafNode(lv_pins_9_0, grammarAccess.getSensor_dataAccess().getPinsSTRINGTerminalRuleCall_1_2_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSensor_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"pins",
+								lv_pins_9_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+		)*
+	)
+;
+
 RULE_HEAD : ('bpmn'|'bpmndi'|'camunda'|'xsi'|'xml'|'xmlns'|'dc'|'di');
 
-RULE_KEYWORDS : ('id'|'name'|'isExecutable'|'sourceRef'|'processRef'|'targetRef'|'calledElement'|'type'|'expression'|'value'|'resultVariable'|'asyncBefore'|'intermediateThrowEvent'|'class'|'event'|'startEvent'|'task'|'messageEventDefinition'|'sequenceFlow'|'isExpanded'|'condition'|'association'|'outgoing'|'serviceTask'|'process'|'standardLoopCharacteristics'|'incoming'|'intermediateCatchEvent'|'conditionalEventDefinition'|'isMarkerVisible'|'terminateEventDefinition'|'endEvent'|'textAnnotation'|'text'|'dataStoreReference'|'bpmnElement'|'dataObjectReference'|'callActivity'|'laneSet'|'lane'|'flowNodeRef'|'definitions'|'userTask'|'documentation'|'dataOutputAssociation'|'exclusiveGateway'|'waypoint'|'BPMNLabel'|'diagramRelationId'|'extensionElements'|'inputOutput'|'list'|'inputParameter'|'height'|'messageFlow'|'dataObjectRef'|'outputParameter'|'properties'|'property'|'BPMNShape'|'Bounds'|'subProcess'|'cancelActivity'|'field'|'string'|'scriptTask'|'script'|'BPMNPlane'|'BPMNEdge'|'sendTask'|'boundaryEvent'|'executionListener'|'timerEventDefinition'|'timeDuration'|'width'|'dataInputAssociation'|'parallelGateway'|'collaboration'|'participant'|'targetNamespace'|'dataObject'|'signalEventDefinition'|'BPMNDiagram'|'exporter'|'exporterVersion'|'x'|'y'|'isHorizontal'|'attachedToRef'|'conditionExpression');
+RULE_KEYWORDS : ('id'|'name'|'isExecutable'|'sourceRef'|'processRef'|'targetRef'|'calledElement'|'type'|'expression'|'value'|'resultVariable'|'asyncBefore'|'intermediateThrowEvent'|'class'|'event'|'startEvent'|'task'|'messageEventDefinition'|'sequenceFlow'|'isExpanded'|'condition'|'association'|'outgoing'|'serviceTask'|'process'|'standardLoopCharacteristics'|'incoming'|'intermediateCatchEvent'|'conditionalEventDefinition'|'isMarkerVisible'|'terminateEventDefinition'|'endEvent'|'textAnnotation'|'text'|'dataStoreReference'|'bpmnElement'|'dataObjectReference'|'callActivity'|'laneSet'|'lane'|'flowNodeRef'|'definitions'|'userTask'|'documentation'|'dataOutputAssociation'|'exclusiveGateway'|'waypoint'|'BPMNLabel'|'diagramRelationId'|'extensionElements'|'inputOutput'|'list'|'inputParameter'|'height'|'messageFlow'|'dataObjectRef'|'outputParameter'|'properties'|'property'|'BPMNShape'|'Bounds'|'subProcess'|'cancelActivity'|'field'|'string'|'scriptTask'|'script'|'BPMNPlane'|'BPMNEdge'|'sendTask'|'boundaryEvent'|'executionListener'|'timerEventDefinition'|'timeDuration'|'width'|'dataInputAssociation'|'parallelGateway'|'collaboration'|'participant'|'targetNamespace'|'dataObject'|'signalEventDefinition'|'BPMNDiagram'|'exporter'|'exporterVersion'|'x'|'y'|'isHorizontal'|'attachedToRef'|'conditionExpression'|'receiveTask'|'messageRef'|'initiator'|'message');
 
 RULE_BODY : ('a'..'z'|'A'..'Z'|'\u00E8'|'\u00F2'|RULE_INT|'_')*;
 

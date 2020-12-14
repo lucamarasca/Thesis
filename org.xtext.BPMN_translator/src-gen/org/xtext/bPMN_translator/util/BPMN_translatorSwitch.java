@@ -122,6 +122,55 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case BPMN_translatorPackage.CODEX:
+      {
+        codex codex = (codex)theEObject;
+        T result = casecodex(codex);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BPMN_translatorPackage.DEVICE:
+      {
+        device device = (device)theEObject;
+        T result = casedevice(device);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BPMN_translatorPackage.PROTOCOL:
+      {
+        protocol protocol = (protocol)theEObject;
+        T result = caseprotocol(protocol);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BPMN_translatorPackage.PROTOCOL_DATA:
+      {
+        protocol_data protocol_data = (protocol_data)theEObject;
+        T result = caseprotocol_data(protocol_data);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BPMN_translatorPackage.PROTOCOL_DEVICE:
+      {
+        protocol_device protocol_device = (protocol_device)theEObject;
+        T result = caseprotocol_device(protocol_device);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BPMN_translatorPackage.SENSOR:
+      {
+        sensor sensor = (sensor)theEObject;
+        T result = casesensor(sensor);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BPMN_translatorPackage.SENSOR_DATA:
+      {
+        sensor_data sensor_data = (sensor_data)theEObject;
+        T result = casesensor_data(sensor_data);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case BPMN_translatorPackage.ELEMENT_VALUE:
       {
         element_value element_value = (element_value)theEObject;
@@ -242,6 +291,118 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseClose(Close object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>codex</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>codex</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casecodex(codex object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>device</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>device</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casedevice(device object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>protocol</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>protocol</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseprotocol(protocol object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>protocol data</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>protocol data</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseprotocol_data(protocol_data object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>protocol device</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>protocol device</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseprotocol_device(protocol_device object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>sensor</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>sensor</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casesensor(sensor object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>sensor data</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>sensor data</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casesensor_data(sensor_data object)
   {
     return null;
   }

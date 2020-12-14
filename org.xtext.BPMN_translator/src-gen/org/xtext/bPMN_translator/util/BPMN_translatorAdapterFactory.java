@@ -111,6 +111,41 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
         return createCloseAdapter();
       }
       @Override
+      public Adapter casecodex(codex object)
+      {
+        return createcodexAdapter();
+      }
+      @Override
+      public Adapter casedevice(device object)
+      {
+        return createdeviceAdapter();
+      }
+      @Override
+      public Adapter caseprotocol(protocol object)
+      {
+        return createprotocolAdapter();
+      }
+      @Override
+      public Adapter caseprotocol_data(protocol_data object)
+      {
+        return createprotocol_dataAdapter();
+      }
+      @Override
+      public Adapter caseprotocol_device(protocol_device object)
+      {
+        return createprotocol_deviceAdapter();
+      }
+      @Override
+      public Adapter casesensor(sensor object)
+      {
+        return createsensorAdapter();
+      }
+      @Override
+      public Adapter casesensor_data(sensor_data object)
+      {
+        return createsensor_dataAdapter();
+      }
+      @Override
       public Adapter caseelement_value(element_value object)
       {
         return createelement_valueAdapter();
@@ -238,6 +273,111 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCloseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.codex <em>codex</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.bPMN_translator.codex
+   * @generated
+   */
+  public Adapter createcodexAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.device <em>device</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.bPMN_translator.device
+   * @generated
+   */
+  public Adapter createdeviceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.protocol <em>protocol</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.bPMN_translator.protocol
+   * @generated
+   */
+  public Adapter createprotocolAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.protocol_data <em>protocol data</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.bPMN_translator.protocol_data
+   * @generated
+   */
+  public Adapter createprotocol_dataAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.protocol_device <em>protocol device</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.bPMN_translator.protocol_device
+   * @generated
+   */
+  public Adapter createprotocol_deviceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.sensor <em>sensor</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.bPMN_translator.sensor
+   * @generated
+   */
+  public Adapter createsensorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.sensor_data <em>sensor data</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.bPMN_translator.sensor_data
+   * @generated
+   */
+  public Adapter createsensor_dataAdapter()
   {
     return null;
   }

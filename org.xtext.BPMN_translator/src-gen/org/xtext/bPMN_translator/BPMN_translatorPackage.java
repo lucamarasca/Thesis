@@ -170,13 +170,22 @@ public interface BPMN_translatorPackage extends EPackage
   int CONTENT = 3;
 
   /**
+   * The feature id for the '<em><b>Codex</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTENT__CODEX = 0;
+
+  /**
    * The feature id for the '<em><b>Element</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTENT__ELEMENT = 0;
+  int CONTENT__ELEMENT = 1;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' attribute list.
@@ -185,7 +194,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTENT__BODY = 1;
+  int CONTENT__BODY = 2;
 
   /**
    * The feature id for the '<em><b>Keywords</b></em>' attribute list.
@@ -194,7 +203,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTENT__KEYWORDS = 2;
+  int CONTENT__KEYWORDS = 3;
 
   /**
    * The feature id for the '<em><b>Data</b></em>' attribute list.
@@ -203,7 +212,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTENT__DATA = 3;
+  int CONTENT__DATA = 4;
 
   /**
    * The number of structural features of the '<em>content</em>' class.
@@ -212,7 +221,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTENT_FEATURE_COUNT = 4;
+  int CONTENT_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link org.xtext.bPMN_translator.impl.OpenImpl <em>Open</em>}' class.
@@ -326,6 +335,274 @@ public interface BPMN_translatorPackage extends EPackage
   int CLOSE_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.codexImpl <em>codex</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.bPMN_translator.impl.codexImpl
+   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getcodex()
+   * @generated
+   */
+  int CODEX = 7;
+
+  /**
+   * The feature id for the '<em><b>Device code</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CODEX__DEVICE_CODE = 0;
+
+  /**
+   * The feature id for the '<em><b>Protocol</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CODEX__PROTOCOL = 1;
+
+  /**
+   * The feature id for the '<em><b>Sensor code</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CODEX__SENSOR_CODE = 2;
+
+  /**
+   * The number of structural features of the '<em>codex</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CODEX_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.deviceImpl <em>device</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.bPMN_translator.impl.deviceImpl
+   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getdevice()
+   * @generated
+   */
+  int DEVICE = 8;
+
+  /**
+   * The feature id for the '<em><b>Device</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEVICE__DEVICE = 0;
+
+  /**
+   * The number of structural features of the '<em>device</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEVICE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.protocolImpl <em>protocol</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.bPMN_translator.impl.protocolImpl
+   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getprotocol()
+   * @generated
+   */
+  int PROTOCOL = 9;
+
+  /**
+   * The feature id for the '<em><b>Protocol data</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL__PROTOCOL_DATA = 0;
+
+  /**
+   * The feature id for the '<em><b>Protocol device</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL__PROTOCOL_DEVICE = 1;
+
+  /**
+   * The number of structural features of the '<em>protocol</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.protocol_dataImpl <em>protocol data</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.bPMN_translator.impl.protocol_dataImpl
+   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getprotocol_data()
+   * @generated
+   */
+  int PROTOCOL_DATA = 10;
+
+  /**
+   * The feature id for the '<em><b>Pname</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_DATA__PNAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Mac</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_DATA__MAC = 1;
+
+  /**
+   * The feature id for the '<em><b>Ip address</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_DATA__IP_ADDRESS = 2;
+
+  /**
+   * The feature id for the '<em><b>Server address</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_DATA__SERVER_ADDRESS = 3;
+
+  /**
+   * The number of structural features of the '<em>protocol data</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_DATA_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.protocol_deviceImpl <em>protocol device</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.bPMN_translator.impl.protocol_deviceImpl
+   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getprotocol_device()
+   * @generated
+   */
+  int PROTOCOL_DEVICE = 11;
+
+  /**
+   * The feature id for the '<em><b>Protocol device</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_DEVICE__PROTOCOL_DEVICE = 0;
+
+  /**
+   * The number of structural features of the '<em>protocol device</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_DEVICE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.sensorImpl <em>sensor</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.bPMN_translator.impl.sensorImpl
+   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getsensor()
+   * @generated
+   */
+  int SENSOR = 12;
+
+  /**
+   * The feature id for the '<em><b>Sensor</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SENSOR__SENSOR = 0;
+
+  /**
+   * The number of structural features of the '<em>sensor</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SENSOR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.sensor_dataImpl <em>sensor data</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.bPMN_translator.impl.sensor_dataImpl
+   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getsensor_data()
+   * @generated
+   */
+  int SENSOR_DATA = 13;
+
+  /**
+   * The feature id for the '<em><b>Pname</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SENSOR_DATA__PNAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SENSOR_DATA__TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Pins</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SENSOR_DATA__PINS = 2;
+
+  /**
+   * The number of structural features of the '<em>sensor data</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SENSOR_DATA_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link org.xtext.bPMN_translator.impl.element_valueImpl <em>element value</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -333,7 +610,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getelement_value()
    * @generated
    */
-  int ELEMENT_VALUE = 7;
+  int ELEMENT_VALUE = 14;
 
   /**
    * The feature id for the '<em><b>Open</b></em>' containment reference list.
@@ -477,6 +754,17 @@ public interface BPMN_translatorPackage extends EPackage
   EClass getcontent();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.content#getCodex <em>Codex</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Codex</em>'.
+   * @see org.xtext.bPMN_translator.content#getCodex()
+   * @see #getcontent()
+   * @generated
+   */
+  EReference getcontent_Codex();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.content#getElement <em>Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -617,6 +905,241 @@ public interface BPMN_translatorPackage extends EPackage
   EClass getClose();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.bPMN_translator.codex <em>codex</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>codex</em>'.
+   * @see org.xtext.bPMN_translator.codex
+   * @generated
+   */
+  EClass getcodex();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.codex#getDevice_code <em>Device code</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Device code</em>'.
+   * @see org.xtext.bPMN_translator.codex#getDevice_code()
+   * @see #getcodex()
+   * @generated
+   */
+  EReference getcodex_Device_code();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.codex#getProtocol <em>Protocol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Protocol</em>'.
+   * @see org.xtext.bPMN_translator.codex#getProtocol()
+   * @see #getcodex()
+   * @generated
+   */
+  EReference getcodex_Protocol();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.codex#getSensor_code <em>Sensor code</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Sensor code</em>'.
+   * @see org.xtext.bPMN_translator.codex#getSensor_code()
+   * @see #getcodex()
+   * @generated
+   */
+  EReference getcodex_Sensor_code();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.bPMN_translator.device <em>device</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>device</em>'.
+   * @see org.xtext.bPMN_translator.device
+   * @generated
+   */
+  EClass getdevice();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.device#getDevice <em>Device</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Device</em>'.
+   * @see org.xtext.bPMN_translator.device#getDevice()
+   * @see #getdevice()
+   * @generated
+   */
+  EAttribute getdevice_Device();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.bPMN_translator.protocol <em>protocol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>protocol</em>'.
+   * @see org.xtext.bPMN_translator.protocol
+   * @generated
+   */
+  EClass getprotocol();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.protocol#getProtocol_data <em>Protocol data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Protocol data</em>'.
+   * @see org.xtext.bPMN_translator.protocol#getProtocol_data()
+   * @see #getprotocol()
+   * @generated
+   */
+  EReference getprotocol_Protocol_data();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.protocol#getProtocol_device <em>Protocol device</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Protocol device</em>'.
+   * @see org.xtext.bPMN_translator.protocol#getProtocol_device()
+   * @see #getprotocol()
+   * @generated
+   */
+  EReference getprotocol_Protocol_device();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.bPMN_translator.protocol_data <em>protocol data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>protocol data</em>'.
+   * @see org.xtext.bPMN_translator.protocol_data
+   * @generated
+   */
+  EClass getprotocol_data();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.protocol_data#getPname <em>Pname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Pname</em>'.
+   * @see org.xtext.bPMN_translator.protocol_data#getPname()
+   * @see #getprotocol_data()
+   * @generated
+   */
+  EAttribute getprotocol_data_Pname();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.protocol_data#getMac <em>Mac</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Mac</em>'.
+   * @see org.xtext.bPMN_translator.protocol_data#getMac()
+   * @see #getprotocol_data()
+   * @generated
+   */
+  EAttribute getprotocol_data_Mac();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.protocol_data#getIp_address <em>Ip address</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Ip address</em>'.
+   * @see org.xtext.bPMN_translator.protocol_data#getIp_address()
+   * @see #getprotocol_data()
+   * @generated
+   */
+  EAttribute getprotocol_data_Ip_address();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.protocol_data#getServer_address <em>Server address</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Server address</em>'.
+   * @see org.xtext.bPMN_translator.protocol_data#getServer_address()
+   * @see #getprotocol_data()
+   * @generated
+   */
+  EAttribute getprotocol_data_Server_address();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.bPMN_translator.protocol_device <em>protocol device</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>protocol device</em>'.
+   * @see org.xtext.bPMN_translator.protocol_device
+   * @generated
+   */
+  EClass getprotocol_device();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.protocol_device#getProtocol_device <em>Protocol device</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Protocol device</em>'.
+   * @see org.xtext.bPMN_translator.protocol_device#getProtocol_device()
+   * @see #getprotocol_device()
+   * @generated
+   */
+  EReference getprotocol_device_Protocol_device();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.bPMN_translator.sensor <em>sensor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>sensor</em>'.
+   * @see org.xtext.bPMN_translator.sensor
+   * @generated
+   */
+  EClass getsensor();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.sensor#getSensor <em>Sensor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Sensor</em>'.
+   * @see org.xtext.bPMN_translator.sensor#getSensor()
+   * @see #getsensor()
+   * @generated
+   */
+  EReference getsensor_Sensor();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.bPMN_translator.sensor_data <em>sensor data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>sensor data</em>'.
+   * @see org.xtext.bPMN_translator.sensor_data
+   * @generated
+   */
+  EClass getsensor_data();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.sensor_data#getPname <em>Pname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Pname</em>'.
+   * @see org.xtext.bPMN_translator.sensor_data#getPname()
+   * @see #getsensor_data()
+   * @generated
+   */
+  EAttribute getsensor_data_Pname();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.sensor_data#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Type</em>'.
+   * @see org.xtext.bPMN_translator.sensor_data#getType()
+   * @see #getsensor_data()
+   * @generated
+   */
+  EAttribute getsensor_data_Type();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.sensor_data#getPins <em>Pins</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Pins</em>'.
+   * @see org.xtext.bPMN_translator.sensor_data#getPins()
+   * @see #getsensor_data()
+   * @generated
+   */
+  EAttribute getsensor_data_Pins();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.bPMN_translator.element_value <em>element value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -741,6 +1264,14 @@ public interface BPMN_translatorPackage extends EPackage
     EClass CONTENT = eINSTANCE.getcontent();
 
     /**
+     * The meta object literal for the '<em><b>Codex</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTENT__CODEX = eINSTANCE.getcontent_Codex();
+
+    /**
      * The meta object literal for the '<em><b>Element</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -849,6 +1380,196 @@ public interface BPMN_translatorPackage extends EPackage
      * @generated
      */
     EClass CLOSE = eINSTANCE.getClose();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.codexImpl <em>codex</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.bPMN_translator.impl.codexImpl
+     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getcodex()
+     * @generated
+     */
+    EClass CODEX = eINSTANCE.getcodex();
+
+    /**
+     * The meta object literal for the '<em><b>Device code</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CODEX__DEVICE_CODE = eINSTANCE.getcodex_Device_code();
+
+    /**
+     * The meta object literal for the '<em><b>Protocol</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CODEX__PROTOCOL = eINSTANCE.getcodex_Protocol();
+
+    /**
+     * The meta object literal for the '<em><b>Sensor code</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CODEX__SENSOR_CODE = eINSTANCE.getcodex_Sensor_code();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.deviceImpl <em>device</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.bPMN_translator.impl.deviceImpl
+     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getdevice()
+     * @generated
+     */
+    EClass DEVICE = eINSTANCE.getdevice();
+
+    /**
+     * The meta object literal for the '<em><b>Device</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEVICE__DEVICE = eINSTANCE.getdevice_Device();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.protocolImpl <em>protocol</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.bPMN_translator.impl.protocolImpl
+     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getprotocol()
+     * @generated
+     */
+    EClass PROTOCOL = eINSTANCE.getprotocol();
+
+    /**
+     * The meta object literal for the '<em><b>Protocol data</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROTOCOL__PROTOCOL_DATA = eINSTANCE.getprotocol_Protocol_data();
+
+    /**
+     * The meta object literal for the '<em><b>Protocol device</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROTOCOL__PROTOCOL_DEVICE = eINSTANCE.getprotocol_Protocol_device();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.protocol_dataImpl <em>protocol data</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.bPMN_translator.impl.protocol_dataImpl
+     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getprotocol_data()
+     * @generated
+     */
+    EClass PROTOCOL_DATA = eINSTANCE.getprotocol_data();
+
+    /**
+     * The meta object literal for the '<em><b>Pname</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROTOCOL_DATA__PNAME = eINSTANCE.getprotocol_data_Pname();
+
+    /**
+     * The meta object literal for the '<em><b>Mac</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROTOCOL_DATA__MAC = eINSTANCE.getprotocol_data_Mac();
+
+    /**
+     * The meta object literal for the '<em><b>Ip address</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROTOCOL_DATA__IP_ADDRESS = eINSTANCE.getprotocol_data_Ip_address();
+
+    /**
+     * The meta object literal for the '<em><b>Server address</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROTOCOL_DATA__SERVER_ADDRESS = eINSTANCE.getprotocol_data_Server_address();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.protocol_deviceImpl <em>protocol device</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.bPMN_translator.impl.protocol_deviceImpl
+     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getprotocol_device()
+     * @generated
+     */
+    EClass PROTOCOL_DEVICE = eINSTANCE.getprotocol_device();
+
+    /**
+     * The meta object literal for the '<em><b>Protocol device</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROTOCOL_DEVICE__PROTOCOL_DEVICE = eINSTANCE.getprotocol_device_Protocol_device();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.sensorImpl <em>sensor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.bPMN_translator.impl.sensorImpl
+     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getsensor()
+     * @generated
+     */
+    EClass SENSOR = eINSTANCE.getsensor();
+
+    /**
+     * The meta object literal for the '<em><b>Sensor</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SENSOR__SENSOR = eINSTANCE.getsensor_Sensor();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.sensor_dataImpl <em>sensor data</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.bPMN_translator.impl.sensor_dataImpl
+     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getsensor_data()
+     * @generated
+     */
+    EClass SENSOR_DATA = eINSTANCE.getsensor_data();
+
+    /**
+     * The meta object literal for the '<em><b>Pname</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SENSOR_DATA__PNAME = eINSTANCE.getsensor_data_Pname();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SENSOR_DATA__TYPE = eINSTANCE.getsensor_data_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Pins</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SENSOR_DATA__PINS = eINSTANCE.getsensor_data_Pins();
 
     /**
      * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.element_valueImpl <em>element value</em>}' class.

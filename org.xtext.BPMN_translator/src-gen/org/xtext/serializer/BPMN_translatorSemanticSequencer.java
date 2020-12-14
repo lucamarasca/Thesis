@@ -18,9 +18,16 @@ import org.xtext.bPMN_translator.Model;
 import org.xtext.bPMN_translator.Open;
 import org.xtext.bPMN_translator.Singleton;
 import org.xtext.bPMN_translator.Xml;
+import org.xtext.bPMN_translator.codex;
 import org.xtext.bPMN_translator.content;
+import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
 import org.xtext.bPMN_translator.element_value;
+import org.xtext.bPMN_translator.protocol;
+import org.xtext.bPMN_translator.protocol_data;
+import org.xtext.bPMN_translator.protocol_device;
+import org.xtext.bPMN_translator.sensor;
+import org.xtext.bPMN_translator.sensor_data;
 import org.xtext.services.BPMN_translatorGrammarAccess;
 
 @SuppressWarnings("all")
@@ -52,14 +59,35 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 			case BPMN_translatorPackage.XML:
 				sequence_Xml(context, (Xml) semanticObject); 
 				return; 
+			case BPMN_translatorPackage.CODEX:
+				sequence_codex(context, (codex) semanticObject); 
+				return; 
 			case BPMN_translatorPackage.CONTENT:
 				sequence_content(context, (content) semanticObject); 
+				return; 
+			case BPMN_translatorPackage.DEVICE:
+				sequence_device(context, (device) semanticObject); 
 				return; 
 			case BPMN_translatorPackage.ELEMENT:
 				sequence_element(context, (element) semanticObject); 
 				return; 
 			case BPMN_translatorPackage.ELEMENT_VALUE:
 				sequence_element(context, (element_value) semanticObject); 
+				return; 
+			case BPMN_translatorPackage.PROTOCOL:
+				sequence_protocol(context, (protocol) semanticObject); 
+				return; 
+			case BPMN_translatorPackage.PROTOCOL_DATA:
+				sequence_protocol_data(context, (protocol_data) semanticObject); 
+				return; 
+			case BPMN_translatorPackage.PROTOCOL_DEVICE:
+				sequence_protocol_device(context, (protocol_device) semanticObject); 
+				return; 
+			case BPMN_translatorPackage.SENSOR:
+				sequence_sensor(context, (sensor) semanticObject); 
+				return; 
+			case BPMN_translatorPackage.SENSOR_DATA:
+				sequence_sensor_data(context, (sensor_data) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -128,12 +156,36 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	
 	/**
 	 * Contexts:
+	 *     codex returns codex
+	 *
+	 * Constraint:
+	 *     (device_code+=device protocol+=protocol sensor_code+=sensor)
+	 */
+	protected void sequence_codex(ISerializationContext context, codex semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     content returns content
 	 *
 	 * Constraint:
-	 *     (element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)*
+	 *     (codex+=codex | element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)*
 	 */
 	protected void sequence_content(ISerializationContext context, content semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     device returns device
+	 *
+	 * Constraint:
+	 *     device+=STRING
+	 */
+	protected void sequence_device(ISerializationContext context, device semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -158,6 +210,66 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     singleton_tag+=Singleton
 	 */
 	protected void sequence_element(ISerializationContext context, element_value semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     protocol_data returns protocol_data
+	 *
+	 * Constraint:
+	 *     (pname+=STRING | mac+=STRING | ip_address+=STRING | server_address+=STRING)*
+	 */
+	protected void sequence_protocol_data(ISerializationContext context, protocol_data semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     protocol_device returns protocol_device
+	 *
+	 * Constraint:
+	 *     protocol_device+=sensor_data
+	 */
+	protected void sequence_protocol_device(ISerializationContext context, protocol_device semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     protocol returns protocol
+	 *
+	 * Constraint:
+	 *     (protocol_data+=protocol_data protocol_device+=protocol_device)
+	 */
+	protected void sequence_protocol(ISerializationContext context, protocol semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     sensor_data returns sensor_data
+	 *
+	 * Constraint:
+	 *     (pname+=STRING | type+=STRING | pins+=STRING)*
+	 */
+	protected void sequence_sensor_data(ISerializationContext context, sensor_data semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     sensor returns sensor
+	 *
+	 * Constraint:
+	 *     sensor+=sensor_data
+	 */
+	protected void sequence_sensor(ISerializationContext context, sensor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

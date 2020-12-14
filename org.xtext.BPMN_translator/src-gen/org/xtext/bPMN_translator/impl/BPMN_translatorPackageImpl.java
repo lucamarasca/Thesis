@@ -17,9 +17,16 @@ import org.xtext.bPMN_translator.Model;
 import org.xtext.bPMN_translator.Open;
 import org.xtext.bPMN_translator.Singleton;
 import org.xtext.bPMN_translator.Xml;
+import org.xtext.bPMN_translator.codex;
 import org.xtext.bPMN_translator.content;
+import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
 import org.xtext.bPMN_translator.element_value;
+import org.xtext.bPMN_translator.protocol;
+import org.xtext.bPMN_translator.protocol_data;
+import org.xtext.bPMN_translator.protocol_device;
+import org.xtext.bPMN_translator.sensor;
+import org.xtext.bPMN_translator.sensor_data;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,6 +84,55 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   private EClass closeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass codexEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass deviceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass protocolEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass protocol_dataEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass protocol_deviceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sensorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sensor_dataEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -253,7 +309,7 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EReference getcontent_Element()
+  public EReference getcontent_Codex()
   {
     return (EReference)contentEClass.getEStructuralFeatures().get(0);
   }
@@ -264,9 +320,9 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EAttribute getcontent_Body()
+  public EReference getcontent_Element()
   {
-    return (EAttribute)contentEClass.getEStructuralFeatures().get(1);
+    return (EReference)contentEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -275,7 +331,7 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EAttribute getcontent_Keywords()
+  public EAttribute getcontent_Body()
   {
     return (EAttribute)contentEClass.getEStructuralFeatures().get(2);
   }
@@ -286,9 +342,20 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EAttribute getcontent_Data()
+  public EAttribute getcontent_Keywords()
   {
     return (EAttribute)contentEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getcontent_Data()
+  {
+    return (EAttribute)contentEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -396,6 +463,248 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
+  public EClass getcodex()
+  {
+    return codexEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getcodex_Device_code()
+  {
+    return (EReference)codexEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getcodex_Protocol()
+  {
+    return (EReference)codexEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getcodex_Sensor_code()
+  {
+    return (EReference)codexEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getdevice()
+  {
+    return deviceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getdevice_Device()
+  {
+    return (EAttribute)deviceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getprotocol()
+  {
+    return protocolEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getprotocol_Protocol_data()
+  {
+    return (EReference)protocolEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getprotocol_Protocol_device()
+  {
+    return (EReference)protocolEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getprotocol_data()
+  {
+    return protocol_dataEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getprotocol_data_Pname()
+  {
+    return (EAttribute)protocol_dataEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getprotocol_data_Mac()
+  {
+    return (EAttribute)protocol_dataEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getprotocol_data_Ip_address()
+  {
+    return (EAttribute)protocol_dataEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getprotocol_data_Server_address()
+  {
+    return (EAttribute)protocol_dataEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getprotocol_device()
+  {
+    return protocol_deviceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getprotocol_device_Protocol_device()
+  {
+    return (EReference)protocol_deviceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getsensor()
+  {
+    return sensorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getsensor_Sensor()
+  {
+    return (EReference)sensorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getsensor_data()
+  {
+    return sensor_dataEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getsensor_data_Pname()
+  {
+    return (EAttribute)sensor_dataEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getsensor_data_Type()
+  {
+    return (EAttribute)sensor_dataEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getsensor_data_Pins()
+  {
+    return (EAttribute)sensor_dataEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getelement_value()
   {
     return element_valueEClass;
@@ -455,6 +764,7 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     createEReference(elementEClass, ELEMENT__CLOSE_TAG);
 
     contentEClass = createEClass(CONTENT);
+    createEReference(contentEClass, CONTENT__CODEX);
     createEReference(contentEClass, CONTENT__ELEMENT);
     createEAttribute(contentEClass, CONTENT__BODY);
     createEAttribute(contentEClass, CONTENT__KEYWORDS);
@@ -471,6 +781,35 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     createEAttribute(singletonEClass, SINGLETON__VALUE);
 
     closeEClass = createEClass(CLOSE);
+
+    codexEClass = createEClass(CODEX);
+    createEReference(codexEClass, CODEX__DEVICE_CODE);
+    createEReference(codexEClass, CODEX__PROTOCOL);
+    createEReference(codexEClass, CODEX__SENSOR_CODE);
+
+    deviceEClass = createEClass(DEVICE);
+    createEAttribute(deviceEClass, DEVICE__DEVICE);
+
+    protocolEClass = createEClass(PROTOCOL);
+    createEReference(protocolEClass, PROTOCOL__PROTOCOL_DATA);
+    createEReference(protocolEClass, PROTOCOL__PROTOCOL_DEVICE);
+
+    protocol_dataEClass = createEClass(PROTOCOL_DATA);
+    createEAttribute(protocol_dataEClass, PROTOCOL_DATA__PNAME);
+    createEAttribute(protocol_dataEClass, PROTOCOL_DATA__MAC);
+    createEAttribute(protocol_dataEClass, PROTOCOL_DATA__IP_ADDRESS);
+    createEAttribute(protocol_dataEClass, PROTOCOL_DATA__SERVER_ADDRESS);
+
+    protocol_deviceEClass = createEClass(PROTOCOL_DEVICE);
+    createEReference(protocol_deviceEClass, PROTOCOL_DEVICE__PROTOCOL_DEVICE);
+
+    sensorEClass = createEClass(SENSOR);
+    createEReference(sensorEClass, SENSOR__SENSOR);
+
+    sensor_dataEClass = createEClass(SENSOR_DATA);
+    createEAttribute(sensor_dataEClass, SENSOR_DATA__PNAME);
+    createEAttribute(sensor_dataEClass, SENSOR_DATA__TYPE);
+    createEAttribute(sensor_dataEClass, SENSOR_DATA__PINS);
 
     element_valueEClass = createEClass(ELEMENT_VALUE);
     createEReference(element_valueEClass, ELEMENT_VALUE__SINGLETON_TAG);
@@ -520,6 +859,7 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     initEReference(getelement_Close_tag(), this.getClose(), null, "close_tag", null, 0, -1, element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contentEClass, content.class, "content", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getcontent_Codex(), this.getcodex(), null, "codex", null, 0, -1, content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getcontent_Element(), this.getelement(), null, "element", null, 0, -1, content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getcontent_Body(), ecorePackage.getEString(), "body", null, 0, -1, content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getcontent_Keywords(), ecorePackage.getEString(), "keywords", null, 0, -1, content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -536,6 +876,35 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     initEAttribute(getSingleton_Value(), ecorePackage.getEString(), "value", null, 0, -1, Singleton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(closeEClass, Close.class, "Close", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(codexEClass, codex.class, "codex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getcodex_Device_code(), this.getdevice(), null, "device_code", null, 0, -1, codex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getcodex_Protocol(), this.getprotocol(), null, "protocol", null, 0, -1, codex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getcodex_Sensor_code(), this.getsensor(), null, "sensor_code", null, 0, -1, codex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(deviceEClass, device.class, "device", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getdevice_Device(), ecorePackage.getEString(), "device", null, 0, -1, device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(protocolEClass, protocol.class, "protocol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getprotocol_Protocol_data(), this.getprotocol_data(), null, "protocol_data", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getprotocol_Protocol_device(), this.getprotocol_device(), null, "protocol_device", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(protocol_dataEClass, protocol_data.class, "protocol_data", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getprotocol_data_Pname(), ecorePackage.getEString(), "pname", null, 0, -1, protocol_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getprotocol_data_Mac(), ecorePackage.getEString(), "mac", null, 0, -1, protocol_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getprotocol_data_Ip_address(), ecorePackage.getEString(), "ip_address", null, 0, -1, protocol_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getprotocol_data_Server_address(), ecorePackage.getEString(), "server_address", null, 0, -1, protocol_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(protocol_deviceEClass, protocol_device.class, "protocol_device", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getprotocol_device_Protocol_device(), this.getsensor_data(), null, "protocol_device", null, 0, -1, protocol_device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sensorEClass, sensor.class, "sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getsensor_Sensor(), this.getsensor_data(), null, "sensor", null, 0, -1, sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sensor_dataEClass, sensor_data.class, "sensor_data", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getsensor_data_Pname(), ecorePackage.getEString(), "pname", null, 0, -1, sensor_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getsensor_data_Type(), ecorePackage.getEString(), "type", null, 0, -1, sensor_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getsensor_data_Pins(), ecorePackage.getEString(), "pins", null, 0, -1, sensor_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(element_valueEClass, element_value.class, "element_value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getelement_value_Singleton_tag(), this.getSingleton(), null, "singleton_tag", null, 0, -1, element_value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

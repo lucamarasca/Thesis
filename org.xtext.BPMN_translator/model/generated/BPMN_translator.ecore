@@ -19,6 +19,8 @@
         eType="#//Close" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="content">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="codex" upperBound="-1"
+        eType="#//codex" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" upperBound="-1"
         eType="#//element" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" unique="false" upperBound="-1"
@@ -45,6 +47,50 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Close"/>
+  <eClassifiers xsi:type="ecore:EClass" name="codex">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="device_code" upperBound="-1"
+        eType="#//device" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocol" upperBound="-1"
+        eType="#//protocol" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor_code" upperBound="-1"
+        eType="#//sensor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="device">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="device" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="protocol">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocol_data" upperBound="-1"
+        eType="#//protocol_data" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocol_device" upperBound="-1"
+        eType="#//protocol_device" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="protocol_data">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pname" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mac" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ip_address" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="server_address" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="protocol_device">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocol_device" upperBound="-1"
+        eType="#//sensor_data" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="sensor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" upperBound="-1"
+        eType="#//sensor_data" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="sensor_data">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pname" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pins" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="element_value" eSuperTypes="#//element">
     <eStructuralFeatures xsi:type="ecore:EReference" name="singleton_tag" upperBound="-1"
         eType="#//Singleton" containment="true"/>

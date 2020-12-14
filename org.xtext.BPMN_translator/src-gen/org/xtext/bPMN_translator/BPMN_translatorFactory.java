@@ -87,6 +87,69 @@ public interface BPMN_translatorFactory extends EFactory
   Close createClose();
 
   /**
+   * Returns a new object of class '<em>codex</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>codex</em>'.
+   * @generated
+   */
+  codex createcodex();
+
+  /**
+   * Returns a new object of class '<em>device</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>device</em>'.
+   * @generated
+   */
+  device createdevice();
+
+  /**
+   * Returns a new object of class '<em>protocol</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>protocol</em>'.
+   * @generated
+   */
+  protocol createprotocol();
+
+  /**
+   * Returns a new object of class '<em>protocol data</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>protocol data</em>'.
+   * @generated
+   */
+  protocol_data createprotocol_data();
+
+  /**
+   * Returns a new object of class '<em>protocol device</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>protocol device</em>'.
+   * @generated
+   */
+  protocol_device createprotocol_device();
+
+  /**
+   * Returns a new object of class '<em>sensor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>sensor</em>'.
+   * @generated
+   */
+  sensor createsensor();
+
+  /**
+   * Returns a new object of class '<em>sensor data</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>sensor data</em>'.
+   * @generated
+   */
+  sensor_data createsensor_data();
+
+  /**
    * Returns a new object of class '<em>element value</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

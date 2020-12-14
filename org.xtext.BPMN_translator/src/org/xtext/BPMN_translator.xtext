@@ -26,7 +26,7 @@ element     :   (open += Open
 
 content:
 	{content}
-	( element+=element |   body+=BODY |   keywords+=KEYWORDS  |  data+=STRING  )*
+	( "TRANSLATE" "{" codex += codex "}"| element+=element |   body+=BODY |   keywords+=KEYWORDS  |  data+=STRING  )*
 ;
 
 Open:
@@ -44,8 +44,36 @@ Singleton:
 Close:
 
 	{Close} ("</" HEAD ":" KEYWORDS  ">") 
-;       
-
+;
+//+++++++++++++++MY GRAMMAR +++++++++++++++      
+codex:
+	  ( device_code += device protocol += protocol sensor_code += sensor ) 
+;
+device:
+	"DEVICE" ":" device += STRING
+;
+protocol:
+	 ("NETWORK_PROTOCOL") "{" (protocol_data += protocol_data
+	 	protocol_device += protocol_device) "}"
+;
+protocol_data:
+	
+	{protocol_data}("NAME" "="  pname+=STRING |  "CLIENT_MAC" "=" mac+=STRING 
+		| "CLIENT_IP" "=" ip_address+=STRING | "SERVER_IP" "=" server_address += STRING
+	)*
+;
+protocol_device:
+	"PROTOCOL_DEVICE" "{" protocol_device += sensor_data "}"
+;
+sensor:
+	"SENSOR" "{" sensor += sensor_data "}"
+;
+sensor_data:
+	{sensor_data}("NAME" "="  pname+=STRING |  "TYPE" "=" type+=STRING 
+		| "PINS" "=" pins+=STRING 
+	)*
+;
+//++++++++++++++++END MY GRAMMAR+++++++++++++++++++
 terminal HEAD:
 	("bpmn"|"bpmndi"|"camunda"|"xsi"|"xml"|"xmlns"|"dc"|"di")
 ;
@@ -67,7 +95,7 @@ terminal KEYWORDS: "id" | "name" |  "isExecutable" | "sourceRef" | "processRef" 
 	| "executionListener" | "timerEventDefinition" | "timeDuration" | "width" | "dataInputAssociation"
 	| "parallelGateway" | "collaboration" | "participant" | "targetNamespace" | "dataObject" | "signalEventDefinition"
 	| "BPMNDiagram"		| "exporter" | "exporterVersion" | "x" | "y"| "isHorizontal" | "attachedToRef"
-	| "conditionExpression";
+	| "conditionExpression" | "receiveTask" | "messageRef" | "initiator" | "message";
 
 
 terminal BODY returns ecore::EString : ('a'..'z'|'A'..'Z'|'è'|'ò'|INT|'_')* ;

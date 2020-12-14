@@ -54,6 +54,7 @@ def FillGatewayType(){
 }
 //++++++++++++++++++++++++++++++Generation++++++++++++++++++++++++++++++++
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		
 		if (resource !== null)
 		{
 			//THIS MEANS THAT I'VE SELECTED A BPMN
@@ -87,6 +88,8 @@ def FillGatewayType(){
 	        	ArduinoNetworkProtocolGenerationCodeCPP()
 	        )
         }
+        
+       
 		        
 	}
 	

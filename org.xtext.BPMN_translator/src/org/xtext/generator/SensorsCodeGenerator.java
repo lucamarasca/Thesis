@@ -5,14 +5,13 @@ public class SensorsCodeGenerator {
 	//Mi serve per capire se ho la BPMN o meno, se non la ho, genero del codice più generico
 	int generation_type;
 	SensorsCodeGenerator(String sensor, int type){
-		this.sensor = sensor;
+		
 		this.generation_type = type;
 	}//in the loop lib instantiation.read
 	
 	public String GenerateCPPCode(){
-		switch (sensor)
-		{
-		case "DHT22 (AM2302)":
+		
+		
 			switch(generation_type)
 			{
 			case 0:
@@ -41,9 +40,7 @@ public class SensorsCodeGenerator {
 				return "Non cpp file for sensor: " + sensor + " has been generated.";
 				
 			}
-		default:
-			return "";
-		}
+		
 	}
 	public String GenerateHCode() {
 		switch (sensor)

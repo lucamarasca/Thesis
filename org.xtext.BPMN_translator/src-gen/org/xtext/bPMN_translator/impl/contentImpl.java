@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
+import org.xtext.bPMN_translator.codex;
 import org.xtext.bPMN_translator.content;
 import org.xtext.bPMN_translator.element;
 
@@ -30,6 +31,7 @@ import org.xtext.bPMN_translator.element;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.bPMN_translator.impl.contentImpl#getCodex <em>Codex</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.contentImpl#getElement <em>Element</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.contentImpl#getBody <em>Body</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.contentImpl#getKeywords <em>Keywords</em>}</li>
@@ -40,6 +42,16 @@ import org.xtext.bPMN_translator.element;
  */
 public class contentImpl extends MinimalEObjectImpl.Container implements content
 {
+  /**
+   * The cached value of the '{@link #getCodex() <em>Codex</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCodex()
+   * @generated
+   * @ordered
+   */
+  protected EList<codex> codex;
+
   /**
    * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -99,6 +111,21 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   protected EClass eStaticClass()
   {
     return BPMN_translatorPackage.Literals.CONTENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<codex> getCodex()
+  {
+    if (codex == null)
+    {
+      codex = new EObjectContainmentEList<codex>(codex.class, this, BPMN_translatorPackage.CONTENT__CODEX);
+    }
+    return codex;
   }
 
   /**
@@ -171,6 +198,8 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.CONTENT__CODEX:
+        return ((InternalEList<?>)getCodex()).basicRemove(otherEnd, msgs);
       case BPMN_translatorPackage.CONTENT__ELEMENT:
         return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
     }
@@ -187,6 +216,8 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.CONTENT__CODEX:
+        return getCodex();
       case BPMN_translatorPackage.CONTENT__ELEMENT:
         return getElement();
       case BPMN_translatorPackage.CONTENT__BODY:
@@ -210,6 +241,10 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.CONTENT__CODEX:
+        getCodex().clear();
+        getCodex().addAll((Collection<? extends codex>)newValue);
+        return;
       case BPMN_translatorPackage.CONTENT__ELEMENT:
         getElement().clear();
         getElement().addAll((Collection<? extends element>)newValue);
@@ -240,6 +275,9 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.CONTENT__CODEX:
+        getCodex().clear();
+        return;
       case BPMN_translatorPackage.CONTENT__ELEMENT:
         getElement().clear();
         return;
@@ -266,6 +304,8 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.CONTENT__CODEX:
+        return codex != null && !codex.isEmpty();
       case BPMN_translatorPackage.CONTENT__ELEMENT:
         return element != null && !element.isEmpty();
       case BPMN_translatorPackage.CONTENT__BODY:

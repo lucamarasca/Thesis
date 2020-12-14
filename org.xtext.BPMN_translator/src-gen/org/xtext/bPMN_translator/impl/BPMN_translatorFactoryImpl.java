@@ -72,6 +72,13 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
       case BPMN_translatorPackage.OPEN: return createOpen();
       case BPMN_translatorPackage.SINGLETON: return createSingleton();
       case BPMN_translatorPackage.CLOSE: return createClose();
+      case BPMN_translatorPackage.CODEX: return createcodex();
+      case BPMN_translatorPackage.DEVICE: return createdevice();
+      case BPMN_translatorPackage.PROTOCOL: return createprotocol();
+      case BPMN_translatorPackage.PROTOCOL_DATA: return createprotocol_data();
+      case BPMN_translatorPackage.PROTOCOL_DEVICE: return createprotocol_device();
+      case BPMN_translatorPackage.SENSOR: return createsensor();
+      case BPMN_translatorPackage.SENSOR_DATA: return createsensor_data();
       case BPMN_translatorPackage.ELEMENT_VALUE: return createelement_value();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -160,6 +167,90 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
   {
     CloseImpl close = new CloseImpl();
     return close;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public codex createcodex()
+  {
+    codexImpl codex = new codexImpl();
+    return codex;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public device createdevice()
+  {
+    deviceImpl device = new deviceImpl();
+    return device;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public protocol createprotocol()
+  {
+    protocolImpl protocol = new protocolImpl();
+    return protocol;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public protocol_data createprotocol_data()
+  {
+    protocol_dataImpl protocol_data = new protocol_dataImpl();
+    return protocol_data;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public protocol_device createprotocol_device()
+  {
+    protocol_deviceImpl protocol_device = new protocol_deviceImpl();
+    return protocol_device;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public sensor createsensor()
+  {
+    sensorImpl sensor = new sensorImpl();
+    return sensor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public sensor_data createsensor_data()
+  {
+    sensor_dataImpl sensor_data = new sensor_dataImpl();
+    return sensor_data;
   }
 
   /**

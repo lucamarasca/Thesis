@@ -18,6 +18,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//element/close_tag"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//content">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//content/codex"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//content/element"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//content/body"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//content/keywords"/>
@@ -34,6 +35,35 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Singleton/value"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//Close"/>
+    <genClasses ecoreClass="BPMN_translator.ecore#//codex">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//codex/device_code"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//codex/protocol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//codex/sensor_code"/>
+    </genClasses>
+    <genClasses ecoreClass="BPMN_translator.ecore#//device">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//device/device"/>
+    </genClasses>
+    <genClasses ecoreClass="BPMN_translator.ecore#//protocol">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol/protocol_data"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol/protocol_device"/>
+    </genClasses>
+    <genClasses ecoreClass="BPMN_translator.ecore#//protocol_data">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol_data/pname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol_data/mac"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol_data/ip_address"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol_data/server_address"/>
+    </genClasses>
+    <genClasses ecoreClass="BPMN_translator.ecore#//protocol_device">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol_device/protocol_device"/>
+    </genClasses>
+    <genClasses ecoreClass="BPMN_translator.ecore#//sensor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//sensor/sensor"/>
+    </genClasses>
+    <genClasses ecoreClass="BPMN_translator.ecore#//sensor_data">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//sensor_data/pname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//sensor_data/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//sensor_data/pins"/>
+    </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//element_value">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//element_value/singleton_tag"/>
     </genClasses>

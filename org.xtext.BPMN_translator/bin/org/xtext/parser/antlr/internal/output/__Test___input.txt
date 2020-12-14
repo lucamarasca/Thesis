@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0" camunda:diagramRelationId="d092b434-dd10-43b4-925e-26c97be405ce">
+  <bpmn:process id="Process_49cfbd28-e95d-410d-a83f-ad268bcfee59" isExecutable="true">
+    <bpmn:sequenceFlow id="Flow_1w4l51y" sourceRef="StartEvent_1" targetRef="Activity_0jf63a1" />
+    <bpmn:task id="Activity_0w60a5t" name="Read_Temperature">
+      <bpmn:documentation>TRANSLATE
+{
+DEVICE : "arduino"
+	NETWORK_PROTOCOL {
+		NAME = "MQTT"
+		PROTOCOL_DEVICE{
+			NAME = "HC-12"
+		}
+	}
+	SENSOR{
+		NAME = "sensore a caso"
+	}
+
+}
+</bpmn:documentation>
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="NAME">MQTT</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1f30jr1</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ikicr1</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1f30jr1" sourceRef="Activity_0jf63a1" targetRef="Activity_0w60a5t" />
+    <bpmn:task id="Activity_1tigerj" name="Publish_Temperature">
+      
+      <bpmn:incoming>Flow_1ikicr1</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ydwlqs</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1ikicr1" sourceRef="Activity_0w60a5t" targetRef="Activity_1tigerj" />
+    <bpmn:endEvent id="Event_03po6y5">
+      <bpmn:incoming>Flow_0ydwlqs</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0ydwlqs" sourceRef="Activity_1tigerj" targetRef="Event_03po6y5" />
+    <bpmn:receiveTask id="Activity_0jf63a1" name="Get_Read_Temperature" messageRef="Message_1e15efm">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="IP_ADDRESS" />
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1w4l51y</bpmn:incoming>
+      <bpmn:outgoing>Flow_1f30jr1</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:startEvent id="StartEvent_1" camunda:initiator="server">
+      <bpmn:outgoing>Flow_1w4l51y</bpmn:outgoing>
+    </bpmn:startEvent>
+  </bpmn:process>
+  <bpmn:message id="Message_1e15efm" name="Message_3mmhpjq" />
+  <bpmn:message id="Message_1k2lpcq" name="Message_1rtrlt8" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_49cfbd28-e95d-410d-a83f-ad268bcfee59">
+      <bpmndi:BPMNEdge id="Flow_0ydwlqs_di" bpmnElement="Flow_0ydwlqs">
+        <di:waypoint x="790" y="120" />
+        <di:waypoint x="872" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ikicr1_di" bpmnElement="Flow_1ikicr1">
+        <di:waypoint x="580" y="120" />
+        <di:waypoint x="690" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1f30jr1_di" bpmnElement="Flow_1f30jr1">
+        <di:waypoint x="390" y="120" />
+        <di:waypoint x="480" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1w4l51y_di" bpmnElement="Flow_1w4l51y">
+        <di:waypoint x="186" y="120" />
+        <di:waypoint x="290" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_0w60a5t_di" bpmnElement="Activity_0w60a5t">
+        <dc:Bounds x="480" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1tigerj_di" bpmnElement="Activity_1tigerj">
+        <dc:Bounds x="690" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_03po6y5_di" bpmnElement="Event_03po6y5">
+        <dc:Bounds x="872" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_197v6iz_di" bpmnElement="Activity_0jf63a1">
+        <dc:Bounds x="290" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1ktabz3_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="150" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -167,51 +167,75 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cContentAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cElementAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cElementElementParserRuleCall_1_0_0 = (RuleCall)cElementAssignment_1_0.eContents().get(0);
-		private final Assignment cBodyAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cBodyBODYTerminalRuleCall_1_1_0 = (RuleCall)cBodyAssignment_1_1.eContents().get(0);
-		private final Assignment cKeywordsAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
-		private final RuleCall cKeywordsKEYWORDSTerminalRuleCall_1_2_0 = (RuleCall)cKeywordsAssignment_1_2.eContents().get(0);
-		private final Assignment cDataAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
-		private final RuleCall cDataSTRINGTerminalRuleCall_1_3_0 = (RuleCall)cDataAssignment_1_3.eContents().get(0);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Keyword cTRANSLATEKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cCodexAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cCodexCodexParserRuleCall_1_0_2_0 = (RuleCall)cCodexAssignment_1_0_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_0_3 = (Keyword)cGroup_1_0.eContents().get(3);
+		private final Assignment cElementAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cElementElementParserRuleCall_1_1_0 = (RuleCall)cElementAssignment_1_1.eContents().get(0);
+		private final Assignment cBodyAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
+		private final RuleCall cBodyBODYTerminalRuleCall_1_2_0 = (RuleCall)cBodyAssignment_1_2.eContents().get(0);
+		private final Assignment cKeywordsAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
+		private final RuleCall cKeywordsKEYWORDSTerminalRuleCall_1_3_0 = (RuleCall)cKeywordsAssignment_1_3.eContents().get(0);
+		private final Assignment cDataAssignment_1_4 = (Assignment)cAlternatives_1.eContents().get(4);
+		private final RuleCall cDataSTRINGTerminalRuleCall_1_4_0 = (RuleCall)cDataAssignment_1_4.eContents().get(0);
 		
 		//content:
-		//	{content} (element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)*;
+		//	{content} ("TRANSLATE" "{" codex+=codex "}" | element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{content} (element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)*
+		//{content} ("TRANSLATE" "{" codex+=codex "}" | element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)*
 		public Group getGroup() { return cGroup; }
 		
 		//{content}
 		public Action getContentAction_0() { return cContentAction_0; }
 		
-		//(element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)*
+		//("TRANSLATE" "{" codex+=codex "}" | element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
+		//"TRANSLATE" "{" codex+=codex "}"
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//"TRANSLATE"
+		public Keyword getTRANSLATEKeyword_1_0_0() { return cTRANSLATEKeyword_1_0_0; }
+		
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1_0_1() { return cLeftCurlyBracketKeyword_1_0_1; }
+		
+		//codex+=codex
+		public Assignment getCodexAssignment_1_0_2() { return cCodexAssignment_1_0_2; }
+		
+		//codex
+		public RuleCall getCodexCodexParserRuleCall_1_0_2_0() { return cCodexCodexParserRuleCall_1_0_2_0; }
+		
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_1_0_3() { return cRightCurlyBracketKeyword_1_0_3; }
+		
 		//element+=element
-		public Assignment getElementAssignment_1_0() { return cElementAssignment_1_0; }
+		public Assignment getElementAssignment_1_1() { return cElementAssignment_1_1; }
 		
 		//element
-		public RuleCall getElementElementParserRuleCall_1_0_0() { return cElementElementParserRuleCall_1_0_0; }
+		public RuleCall getElementElementParserRuleCall_1_1_0() { return cElementElementParserRuleCall_1_1_0; }
 		
 		//body+=BODY
-		public Assignment getBodyAssignment_1_1() { return cBodyAssignment_1_1; }
+		public Assignment getBodyAssignment_1_2() { return cBodyAssignment_1_2; }
 		
 		//BODY
-		public RuleCall getBodyBODYTerminalRuleCall_1_1_0() { return cBodyBODYTerminalRuleCall_1_1_0; }
+		public RuleCall getBodyBODYTerminalRuleCall_1_2_0() { return cBodyBODYTerminalRuleCall_1_2_0; }
 		
 		//keywords+=KEYWORDS
-		public Assignment getKeywordsAssignment_1_2() { return cKeywordsAssignment_1_2; }
+		public Assignment getKeywordsAssignment_1_3() { return cKeywordsAssignment_1_3; }
 		
 		//KEYWORDS
-		public RuleCall getKeywordsKEYWORDSTerminalRuleCall_1_2_0() { return cKeywordsKEYWORDSTerminalRuleCall_1_2_0; }
+		public RuleCall getKeywordsKEYWORDSTerminalRuleCall_1_3_0() { return cKeywordsKEYWORDSTerminalRuleCall_1_3_0; }
 		
 		//data+=STRING
-		public Assignment getDataAssignment_1_3() { return cDataAssignment_1_3; }
+		public Assignment getDataAssignment_1_4() { return cDataAssignment_1_4; }
 		
 		//STRING
-		public RuleCall getDataSTRINGTerminalRuleCall_1_3_0() { return cDataSTRINGTerminalRuleCall_1_3_0; }
+		public RuleCall getDataSTRINGTerminalRuleCall_1_4_0() { return cDataSTRINGTerminalRuleCall_1_4_0; }
 	}
 	public class OpenElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.Open");
@@ -423,6 +447,357 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//">"
 		public Keyword getGreaterThanSignKeyword_1_4() { return cGreaterThanSignKeyword_1_4; }
 	}
+	public class CodexElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.codex");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cDevice_codeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDevice_codeDeviceParserRuleCall_0_0 = (RuleCall)cDevice_codeAssignment_0.eContents().get(0);
+		private final Assignment cProtocolAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cProtocolProtocolParserRuleCall_1_0 = (RuleCall)cProtocolAssignment_1.eContents().get(0);
+		private final Assignment cSensor_codeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSensor_codeSensorParserRuleCall_2_0 = (RuleCall)cSensor_codeAssignment_2.eContents().get(0);
+		
+		////+++++++++++++++MY GRAMMAR +++++++++++++++      
+		//codex:
+		//	device_code+=device protocol+=protocol sensor_code+=sensor;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//device_code+=device protocol+=protocol sensor_code+=sensor
+		public Group getGroup() { return cGroup; }
+		
+		//device_code+=device
+		public Assignment getDevice_codeAssignment_0() { return cDevice_codeAssignment_0; }
+		
+		//device
+		public RuleCall getDevice_codeDeviceParserRuleCall_0_0() { return cDevice_codeDeviceParserRuleCall_0_0; }
+		
+		//protocol+=protocol
+		public Assignment getProtocolAssignment_1() { return cProtocolAssignment_1; }
+		
+		//protocol
+		public RuleCall getProtocolProtocolParserRuleCall_1_0() { return cProtocolProtocolParserRuleCall_1_0; }
+		
+		//sensor_code+=sensor
+		public Assignment getSensor_codeAssignment_2() { return cSensor_codeAssignment_2; }
+		
+		//sensor
+		public RuleCall getSensor_codeSensorParserRuleCall_2_0() { return cSensor_codeSensorParserRuleCall_2_0; }
+	}
+	public class DeviceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.device");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDEVICEKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDeviceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDeviceSTRINGTerminalRuleCall_2_0 = (RuleCall)cDeviceAssignment_2.eContents().get(0);
+		
+		//device:
+		//	"DEVICE" ":" device+=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"DEVICE" ":" device+=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//"DEVICE"
+		public Keyword getDEVICEKeyword_0() { return cDEVICEKeyword_0; }
+		
+		//":"
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//device+=STRING
+		public Assignment getDeviceAssignment_2() { return cDeviceAssignment_2; }
+		
+		//STRING
+		public RuleCall getDeviceSTRINGTerminalRuleCall_2_0() { return cDeviceSTRINGTerminalRuleCall_2_0; }
+	}
+	public class ProtocolElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.protocol");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cNETWORK_PROTOCOLKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cProtocol_dataAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cProtocol_dataProtocol_dataParserRuleCall_2_0_0 = (RuleCall)cProtocol_dataAssignment_2_0.eContents().get(0);
+		private final Assignment cProtocol_deviceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cProtocol_deviceProtocol_deviceParserRuleCall_2_1_0 = (RuleCall)cProtocol_deviceAssignment_2_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//protocol:
+		//	"NETWORK_PROTOCOL" "{" (protocol_data+=protocol_data
+		//	protocol_device+=protocol_device) "}";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"NETWORK_PROTOCOL" "{" (protocol_data+=protocol_data protocol_device+=protocol_device) "}"
+		public Group getGroup() { return cGroup; }
+		
+		//"NETWORK_PROTOCOL"
+		public Keyword getNETWORK_PROTOCOLKeyword_0() { return cNETWORK_PROTOCOLKeyword_0; }
+		
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//(protocol_data+=protocol_data protocol_device+=protocol_device)
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//protocol_data+=protocol_data
+		public Assignment getProtocol_dataAssignment_2_0() { return cProtocol_dataAssignment_2_0; }
+		
+		//protocol_data
+		public RuleCall getProtocol_dataProtocol_dataParserRuleCall_2_0_0() { return cProtocol_dataProtocol_dataParserRuleCall_2_0_0; }
+		
+		//protocol_device+=protocol_device
+		public Assignment getProtocol_deviceAssignment_2_1() { return cProtocol_deviceAssignment_2_1; }
+		
+		//protocol_device
+		public RuleCall getProtocol_deviceProtocol_deviceParserRuleCall_2_1_0() { return cProtocol_deviceProtocol_deviceParserRuleCall_2_1_0; }
+		
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+	}
+	public class Protocol_dataElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.protocol_data");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cProtocol_dataAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Keyword cNAMEKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cPnameAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cPnameSTRINGTerminalRuleCall_1_0_2_0 = (RuleCall)cPnameAssignment_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Keyword cCLIENT_MACKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Assignment cMacAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cMacSTRINGTerminalRuleCall_1_1_2_0 = (RuleCall)cMacAssignment_1_1_2.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
+		private final Keyword cCLIENT_IPKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
+		private final Assignment cIp_addressAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cIp_addressSTRINGTerminalRuleCall_1_2_2_0 = (RuleCall)cIp_addressAssignment_1_2_2.eContents().get(0);
+		private final Group cGroup_1_3 = (Group)cAlternatives_1.eContents().get(3);
+		private final Keyword cSERVER_IPKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
+		private final Assignment cServer_addressAssignment_1_3_2 = (Assignment)cGroup_1_3.eContents().get(2);
+		private final RuleCall cServer_addressSTRINGTerminalRuleCall_1_3_2_0 = (RuleCall)cServer_addressAssignment_1_3_2.eContents().get(0);
+		
+		//protocol_data:
+		//	{protocol_data} ("NAME" "=" pname+=STRING | "CLIENT_MAC" "=" mac+=STRING
+		//	| "CLIENT_IP" "=" ip_address+=STRING | "SERVER_IP" "=" server_address+=STRING)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{protocol_data} ("NAME" "=" pname+=STRING | "CLIENT_MAC" "=" mac+=STRING | "CLIENT_IP" "=" ip_address+=STRING |
+		//"SERVER_IP" "=" server_address+=STRING)*
+		public Group getGroup() { return cGroup; }
+		
+		//{protocol_data}
+		public Action getProtocol_dataAction_0() { return cProtocol_dataAction_0; }
+		
+		//("NAME" "=" pname+=STRING | "CLIENT_MAC" "=" mac+=STRING | "CLIENT_IP" "=" ip_address+=STRING | "SERVER_IP" "="
+		//server_address+=STRING)*
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//"NAME" "=" pname+=STRING
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//"NAME"
+		public Keyword getNAMEKeyword_1_0_0() { return cNAMEKeyword_1_0_0; }
+		
+		//"="
+		public Keyword getEqualsSignKeyword_1_0_1() { return cEqualsSignKeyword_1_0_1; }
+		
+		//pname+=STRING
+		public Assignment getPnameAssignment_1_0_2() { return cPnameAssignment_1_0_2; }
+		
+		//STRING
+		public RuleCall getPnameSTRINGTerminalRuleCall_1_0_2_0() { return cPnameSTRINGTerminalRuleCall_1_0_2_0; }
+		
+		//"CLIENT_MAC" "=" mac+=STRING
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//"CLIENT_MAC"
+		public Keyword getCLIENT_MACKeyword_1_1_0() { return cCLIENT_MACKeyword_1_1_0; }
+		
+		//"="
+		public Keyword getEqualsSignKeyword_1_1_1() { return cEqualsSignKeyword_1_1_1; }
+		
+		//mac+=STRING
+		public Assignment getMacAssignment_1_1_2() { return cMacAssignment_1_1_2; }
+		
+		//STRING
+		public RuleCall getMacSTRINGTerminalRuleCall_1_1_2_0() { return cMacSTRINGTerminalRuleCall_1_1_2_0; }
+		
+		//"CLIENT_IP" "=" ip_address+=STRING
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//"CLIENT_IP"
+		public Keyword getCLIENT_IPKeyword_1_2_0() { return cCLIENT_IPKeyword_1_2_0; }
+		
+		//"="
+		public Keyword getEqualsSignKeyword_1_2_1() { return cEqualsSignKeyword_1_2_1; }
+		
+		//ip_address+=STRING
+		public Assignment getIp_addressAssignment_1_2_2() { return cIp_addressAssignment_1_2_2; }
+		
+		//STRING
+		public RuleCall getIp_addressSTRINGTerminalRuleCall_1_2_2_0() { return cIp_addressSTRINGTerminalRuleCall_1_2_2_0; }
+		
+		//"SERVER_IP" "=" server_address+=STRING
+		public Group getGroup_1_3() { return cGroup_1_3; }
+		
+		//"SERVER_IP"
+		public Keyword getSERVER_IPKeyword_1_3_0() { return cSERVER_IPKeyword_1_3_0; }
+		
+		//"="
+		public Keyword getEqualsSignKeyword_1_3_1() { return cEqualsSignKeyword_1_3_1; }
+		
+		//server_address+=STRING
+		public Assignment getServer_addressAssignment_1_3_2() { return cServer_addressAssignment_1_3_2; }
+		
+		//STRING
+		public RuleCall getServer_addressSTRINGTerminalRuleCall_1_3_2_0() { return cServer_addressSTRINGTerminalRuleCall_1_3_2_0; }
+	}
+	public class Protocol_deviceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.protocol_device");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPROTOCOL_DEVICEKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cProtocol_deviceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cProtocol_deviceSensor_dataParserRuleCall_2_0 = (RuleCall)cProtocol_deviceAssignment_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//protocol_device:
+		//	"PROTOCOL_DEVICE" "{" protocol_device+=sensor_data "}";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"PROTOCOL_DEVICE" "{" protocol_device+=sensor_data "}"
+		public Group getGroup() { return cGroup; }
+		
+		//"PROTOCOL_DEVICE"
+		public Keyword getPROTOCOL_DEVICEKeyword_0() { return cPROTOCOL_DEVICEKeyword_0; }
+		
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//protocol_device+=sensor_data
+		public Assignment getProtocol_deviceAssignment_2() { return cProtocol_deviceAssignment_2; }
+		
+		//sensor_data
+		public RuleCall getProtocol_deviceSensor_dataParserRuleCall_2_0() { return cProtocol_deviceSensor_dataParserRuleCall_2_0; }
+		
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+	}
+	public class SensorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.sensor");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSENSORKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cSensorAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSensorSensor_dataParserRuleCall_2_0 = (RuleCall)cSensorAssignment_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//sensor:
+		//	"SENSOR" "{" sensor+=sensor_data "}";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"SENSOR" "{" sensor+=sensor_data "}"
+		public Group getGroup() { return cGroup; }
+		
+		//"SENSOR"
+		public Keyword getSENSORKeyword_0() { return cSENSORKeyword_0; }
+		
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//sensor+=sensor_data
+		public Assignment getSensorAssignment_2() { return cSensorAssignment_2; }
+		
+		//sensor_data
+		public RuleCall getSensorSensor_dataParserRuleCall_2_0() { return cSensorSensor_dataParserRuleCall_2_0; }
+		
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+	}
+	public class Sensor_dataElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.sensor_data");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cSensor_dataAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Keyword cNAMEKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cPnameAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cPnameSTRINGTerminalRuleCall_1_0_2_0 = (RuleCall)cPnameAssignment_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Keyword cTYPEKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Assignment cTypeAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cTypeSTRINGTerminalRuleCall_1_1_2_0 = (RuleCall)cTypeAssignment_1_1_2.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
+		private final Keyword cPINSKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
+		private final Assignment cPinsAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cPinsSTRINGTerminalRuleCall_1_2_2_0 = (RuleCall)cPinsAssignment_1_2_2.eContents().get(0);
+		
+		//sensor_data:
+		//	{sensor_data} ("NAME" "=" pname+=STRING | "TYPE" "=" type+=STRING
+		//	| "PINS" "=" pins+=STRING)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{sensor_data} ("NAME" "=" pname+=STRING | "TYPE" "=" type+=STRING | "PINS" "=" pins+=STRING)*
+		public Group getGroup() { return cGroup; }
+		
+		//{sensor_data}
+		public Action getSensor_dataAction_0() { return cSensor_dataAction_0; }
+		
+		//("NAME" "=" pname+=STRING | "TYPE" "=" type+=STRING | "PINS" "=" pins+=STRING)*
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//"NAME" "=" pname+=STRING
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//"NAME"
+		public Keyword getNAMEKeyword_1_0_0() { return cNAMEKeyword_1_0_0; }
+		
+		//"="
+		public Keyword getEqualsSignKeyword_1_0_1() { return cEqualsSignKeyword_1_0_1; }
+		
+		//pname+=STRING
+		public Assignment getPnameAssignment_1_0_2() { return cPnameAssignment_1_0_2; }
+		
+		//STRING
+		public RuleCall getPnameSTRINGTerminalRuleCall_1_0_2_0() { return cPnameSTRINGTerminalRuleCall_1_0_2_0; }
+		
+		//"TYPE" "=" type+=STRING
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//"TYPE"
+		public Keyword getTYPEKeyword_1_1_0() { return cTYPEKeyword_1_1_0; }
+		
+		//"="
+		public Keyword getEqualsSignKeyword_1_1_1() { return cEqualsSignKeyword_1_1_1; }
+		
+		//type+=STRING
+		public Assignment getTypeAssignment_1_1_2() { return cTypeAssignment_1_1_2; }
+		
+		//STRING
+		public RuleCall getTypeSTRINGTerminalRuleCall_1_1_2_0() { return cTypeSTRINGTerminalRuleCall_1_1_2_0; }
+		
+		//"PINS" "=" pins+=STRING
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//"PINS"
+		public Keyword getPINSKeyword_1_2_0() { return cPINSKeyword_1_2_0; }
+		
+		//"="
+		public Keyword getEqualsSignKeyword_1_2_1() { return cEqualsSignKeyword_1_2_1; }
+		
+		//pins+=STRING
+		public Assignment getPinsAssignment_1_2_2() { return cPinsAssignment_1_2_2; }
+		
+		//STRING
+		public RuleCall getPinsSTRINGTerminalRuleCall_1_2_2_0() { return cPinsSTRINGTerminalRuleCall_1_2_2_0; }
+	}
 	
 	
 	private final ModelElements pModel;
@@ -433,6 +808,13 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	private final OpenElements pOpen;
 	private final SingletonElements pSingleton;
 	private final CloseElements pClose;
+	private final CodexElements pCodex;
+	private final DeviceElements pDevice;
+	private final ProtocolElements pProtocol;
+	private final Protocol_dataElements pProtocol_data;
+	private final Protocol_deviceElements pProtocol_device;
+	private final SensorElements pSensor;
+	private final Sensor_dataElements pSensor_data;
 	private final TerminalRule tHEAD;
 	private final TerminalRule tKEYWORDS;
 	private final TerminalRule tBODY;
@@ -454,6 +836,13 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		this.pOpen = new OpenElements();
 		this.pSingleton = new SingletonElements();
 		this.pClose = new CloseElements();
+		this.pCodex = new CodexElements();
+		this.pDevice = new DeviceElements();
+		this.pProtocol = new ProtocolElements();
+		this.pProtocol_data = new Protocol_dataElements();
+		this.pProtocol_device = new Protocol_deviceElements();
+		this.pSensor = new SensorElements();
+		this.pSensor_data = new Sensor_dataElements();
 		this.tHEAD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.HEAD");
 		this.tKEYWORDS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.KEYWORDS");
 		this.tBODY = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.BODY");
@@ -530,7 +919,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	}
 	
 	//content:
-	//	{content} (element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)*;
+	//	{content} ("TRANSLATE" "{" codex+=codex "}" | element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)*;
 	public ContentElements getContentAccess() {
 		return pContent;
 	}
@@ -570,6 +959,80 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		return getCloseAccess().getRule();
 	}
 	
+	////+++++++++++++++MY GRAMMAR +++++++++++++++      
+	//codex:
+	//	device_code+=device protocol+=protocol sensor_code+=sensor;
+	public CodexElements getCodexAccess() {
+		return pCodex;
+	}
+	
+	public ParserRule getCodexRule() {
+		return getCodexAccess().getRule();
+	}
+	
+	//device:
+	//	"DEVICE" ":" device+=STRING;
+	public DeviceElements getDeviceAccess() {
+		return pDevice;
+	}
+	
+	public ParserRule getDeviceRule() {
+		return getDeviceAccess().getRule();
+	}
+	
+	//protocol:
+	//	"NETWORK_PROTOCOL" "{" (protocol_data+=protocol_data
+	//	protocol_device+=protocol_device) "}";
+	public ProtocolElements getProtocolAccess() {
+		return pProtocol;
+	}
+	
+	public ParserRule getProtocolRule() {
+		return getProtocolAccess().getRule();
+	}
+	
+	//protocol_data:
+	//	{protocol_data} ("NAME" "=" pname+=STRING | "CLIENT_MAC" "=" mac+=STRING
+	//	| "CLIENT_IP" "=" ip_address+=STRING | "SERVER_IP" "=" server_address+=STRING)*;
+	public Protocol_dataElements getProtocol_dataAccess() {
+		return pProtocol_data;
+	}
+	
+	public ParserRule getProtocol_dataRule() {
+		return getProtocol_dataAccess().getRule();
+	}
+	
+	//protocol_device:
+	//	"PROTOCOL_DEVICE" "{" protocol_device+=sensor_data "}";
+	public Protocol_deviceElements getProtocol_deviceAccess() {
+		return pProtocol_device;
+	}
+	
+	public ParserRule getProtocol_deviceRule() {
+		return getProtocol_deviceAccess().getRule();
+	}
+	
+	//sensor:
+	//	"SENSOR" "{" sensor+=sensor_data "}";
+	public SensorElements getSensorAccess() {
+		return pSensor;
+	}
+	
+	public ParserRule getSensorRule() {
+		return getSensorAccess().getRule();
+	}
+	
+	//sensor_data:
+	//	{sensor_data} ("NAME" "=" pname+=STRING | "TYPE" "=" type+=STRING
+	//	| "PINS" "=" pins+=STRING)*;
+	public Sensor_dataElements getSensor_dataAccess() {
+		return pSensor_data;
+	}
+	
+	public ParserRule getSensor_dataRule() {
+		return getSensor_dataAccess().getRule();
+	}
+	
 	//terminal HEAD:
 	//	"bpmn" | "bpmndi" | "camunda" | "xsi" | "xml" | "xmlns" | "dc" | "di";
 	public TerminalRule getHEADRule() {
@@ -592,7 +1055,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	//	| "executionListener" | "timerEventDefinition" | "timeDuration" | "width" | "dataInputAssociation"
 	//	| "parallelGateway" | "collaboration" | "participant" | "targetNamespace" | "dataObject" | "signalEventDefinition"
 	//	| "BPMNDiagram" | "exporter" | "exporterVersion" | "x" | "y" | "isHorizontal" | "attachedToRef"
-	//	| "conditionExpression";
+	//	| "conditionExpression" | "receiveTask" | "messageRef" | "initiator" | "message";
 	public TerminalRule getKEYWORDSRule() {
 		return tKEYWORDS;
 	}
