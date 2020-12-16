@@ -84,7 +84,7 @@ public class Gui implements ActionListener, DocumentListener {
 	public Gui(Main main) {
 		this.main = main;
 		source_path = "";
-		output_path = "";
+		output_path = "C:\\Users\\Luca\\Desktop";
 		this.init();
 		ConsoleLog("Console:>", 1);
 	}
@@ -166,7 +166,7 @@ public class Gui implements ActionListener, DocumentListener {
 				  }
 
 				  public void update_string() {
-				     source_path = txtFieldOutput.getText();
+				     source_path = txtFieldSource.getText();
 				  }
 				});
 		btnBrowseSource.addActionListener(this);
@@ -376,7 +376,7 @@ public class Gui implements ActionListener, DocumentListener {
 	            txtFieldSource.setText(source_path);
 	        }
 	    }
-	  //Action to perform for the browse button
+	    //Action to perform for the browse button
 	    if (e.getSource() == btnBrowseOutput)
 	    {
 	        chooser = new JFileChooser(new File(System.getProperty("user.home") + "\\Downloads")); //Downloads Directory as default
@@ -417,16 +417,20 @@ public class Gui implements ActionListener, DocumentListener {
 	}
 	public void GetDataForGeneration() {
 		Parameters.selected_device = devices.getItemAt(devices.getSelectedIndex());
-		Parameters.selected_wifisensor = wifi_sensors.getItemAt(wifi_sensors.getSelectedIndex());
-		Parameters.selected_protocol = network_protocol_wireless.getItemAt(network_protocol_wireless.getSelectedIndex());
+		if (wifi_sensors.getSelectedIndex() != 0)
+			Parameters.selected_wifisensor = wifi_sensors.getItemAt(wifi_sensors.getSelectedIndex());
+		if (network_protocol_wireless.getSelectedIndex() != 0)	
+			Parameters.selected_protocol = network_protocol_wireless.getItemAt(network_protocol_wireless.getSelectedIndex());
 		if(end_point.isSelected())
 			Parameters.end_point_generation = true;
 		else
 			Parameters.end_point_generation = false;
 		if (sensors.getSelectedIndex() == 1)
-			Parameters.selected_sensor = distance_sensors.getItemAt(distance_sensors.getSelectedIndex());
+			if (distance_sensors.getSelectedIndex() != 0)		
+				Parameters.selected_sensor = distance_sensors.getItemAt(distance_sensors.getSelectedIndex());
 		if (sensors.getSelectedIndex() == 2)
-			Parameters.selected_sensor = temperature_sensors.getItemAt(temperature_sensors.getSelectedIndex());
+			if (temperature_sensors.getSelectedIndex() != 0)
+				Parameters.selected_sensor = temperature_sensors.getItemAt(temperature_sensors.getSelectedIndex());
 		if(source_path.equals(""))
 			ConsoleLog("+++++++++++++ NO SOURCE BPMN SELECTED+++++++++++++", 2);
 		else

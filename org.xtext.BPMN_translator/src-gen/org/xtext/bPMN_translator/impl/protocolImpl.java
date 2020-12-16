@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
+import org.xtext.bPMN_translator.mqtt_data;
+import org.xtext.bPMN_translator.mqtt_device;
 import org.xtext.bPMN_translator.protocol;
-import org.xtext.bPMN_translator.protocol_data;
-import org.xtext.bPMN_translator.protocol_device;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,8 +30,8 @@ import org.xtext.bPMN_translator.protocol_device;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.bPMN_translator.impl.protocolImpl#getProtocol_data <em>Protocol data</em>}</li>
- *   <li>{@link org.xtext.bPMN_translator.impl.protocolImpl#getProtocol_device <em>Protocol device</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.protocolImpl#getMqtt_data <em>Mqtt data</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.protocolImpl#getMqtt_device <em>Mqtt device</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,24 +39,24 @@ import org.xtext.bPMN_translator.protocol_device;
 public class protocolImpl extends MinimalEObjectImpl.Container implements protocol
 {
   /**
-   * The cached value of the '{@link #getProtocol_data() <em>Protocol data</em>}' containment reference list.
+   * The cached value of the '{@link #getMqtt_data() <em>Mqtt data</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProtocol_data()
+   * @see #getMqtt_data()
    * @generated
    * @ordered
    */
-  protected EList<protocol_data> protocol_data;
+  protected EList<mqtt_data> mqtt_data;
 
   /**
-   * The cached value of the '{@link #getProtocol_device() <em>Protocol device</em>}' containment reference list.
+   * The cached value of the '{@link #getMqtt_device() <em>Mqtt device</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProtocol_device()
+   * @see #getMqtt_device()
    * @generated
    * @ordered
    */
-  protected EList<protocol_device> protocol_device;
+  protected EList<mqtt_device> mqtt_device;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,13 +85,13 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
    * @generated
    */
   @Override
-  public EList<protocol_data> getProtocol_data()
+  public EList<mqtt_data> getMqtt_data()
   {
-    if (protocol_data == null)
+    if (mqtt_data == null)
     {
-      protocol_data = new EObjectContainmentEList<protocol_data>(protocol_data.class, this, BPMN_translatorPackage.PROTOCOL__PROTOCOL_DATA);
+      mqtt_data = new EObjectContainmentEList<mqtt_data>(mqtt_data.class, this, BPMN_translatorPackage.PROTOCOL__MQTT_DATA);
     }
-    return protocol_data;
+    return mqtt_data;
   }
 
   /**
@@ -100,13 +100,13 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
    * @generated
    */
   @Override
-  public EList<protocol_device> getProtocol_device()
+  public EList<mqtt_device> getMqtt_device()
   {
-    if (protocol_device == null)
+    if (mqtt_device == null)
     {
-      protocol_device = new EObjectContainmentEList<protocol_device>(protocol_device.class, this, BPMN_translatorPackage.PROTOCOL__PROTOCOL_DEVICE);
+      mqtt_device = new EObjectContainmentEList<mqtt_device>(mqtt_device.class, this, BPMN_translatorPackage.PROTOCOL__MQTT_DEVICE);
     }
-    return protocol_device;
+    return mqtt_device;
   }
 
   /**
@@ -119,10 +119,10 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.PROTOCOL__PROTOCOL_DATA:
-        return ((InternalEList<?>)getProtocol_data()).basicRemove(otherEnd, msgs);
-      case BPMN_translatorPackage.PROTOCOL__PROTOCOL_DEVICE:
-        return ((InternalEList<?>)getProtocol_device()).basicRemove(otherEnd, msgs);
+      case BPMN_translatorPackage.PROTOCOL__MQTT_DATA:
+        return ((InternalEList<?>)getMqtt_data()).basicRemove(otherEnd, msgs);
+      case BPMN_translatorPackage.PROTOCOL__MQTT_DEVICE:
+        return ((InternalEList<?>)getMqtt_device()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,10 +137,10 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.PROTOCOL__PROTOCOL_DATA:
-        return getProtocol_data();
-      case BPMN_translatorPackage.PROTOCOL__PROTOCOL_DEVICE:
-        return getProtocol_device();
+      case BPMN_translatorPackage.PROTOCOL__MQTT_DATA:
+        return getMqtt_data();
+      case BPMN_translatorPackage.PROTOCOL__MQTT_DEVICE:
+        return getMqtt_device();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -156,13 +156,13 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.PROTOCOL__PROTOCOL_DATA:
-        getProtocol_data().clear();
-        getProtocol_data().addAll((Collection<? extends protocol_data>)newValue);
+      case BPMN_translatorPackage.PROTOCOL__MQTT_DATA:
+        getMqtt_data().clear();
+        getMqtt_data().addAll((Collection<? extends mqtt_data>)newValue);
         return;
-      case BPMN_translatorPackage.PROTOCOL__PROTOCOL_DEVICE:
-        getProtocol_device().clear();
-        getProtocol_device().addAll((Collection<? extends protocol_device>)newValue);
+      case BPMN_translatorPackage.PROTOCOL__MQTT_DEVICE:
+        getMqtt_device().clear();
+        getMqtt_device().addAll((Collection<? extends mqtt_device>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -178,11 +178,11 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.PROTOCOL__PROTOCOL_DATA:
-        getProtocol_data().clear();
+      case BPMN_translatorPackage.PROTOCOL__MQTT_DATA:
+        getMqtt_data().clear();
         return;
-      case BPMN_translatorPackage.PROTOCOL__PROTOCOL_DEVICE:
-        getProtocol_device().clear();
+      case BPMN_translatorPackage.PROTOCOL__MQTT_DEVICE:
+        getMqtt_device().clear();
         return;
     }
     super.eUnset(featureID);
@@ -198,10 +198,10 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.PROTOCOL__PROTOCOL_DATA:
-        return protocol_data != null && !protocol_data.isEmpty();
-      case BPMN_translatorPackage.PROTOCOL__PROTOCOL_DEVICE:
-        return protocol_device != null && !protocol_device.isEmpty();
+      case BPMN_translatorPackage.PROTOCOL__MQTT_DATA:
+        return mqtt_data != null && !mqtt_data.isEmpty();
+      case BPMN_translatorPackage.PROTOCOL__MQTT_DEVICE:
+        return mqtt_device != null && !mqtt_device.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -75,11 +75,13 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
       case BPMN_translatorPackage.CODEX: return createcodex();
       case BPMN_translatorPackage.DEVICE: return createdevice();
       case BPMN_translatorPackage.PROTOCOL: return createprotocol();
-      case BPMN_translatorPackage.PROTOCOL_DATA: return createprotocol_data();
-      case BPMN_translatorPackage.PROTOCOL_DEVICE: return createprotocol_device();
+      case BPMN_translatorPackage.MQTT_DATA: return createmqtt_data();
+      case BPMN_translatorPackage.MQTT_NETWORK_DATA: return createmqtt_network_data();
+      case BPMN_translatorPackage.MQTT_DEVICE: return createmqtt_device();
       case BPMN_translatorPackage.SENSOR: return createsensor();
       case BPMN_translatorPackage.SENSOR_DATA: return createsensor_data();
       case BPMN_translatorPackage.ELEMENT_VALUE: return createelement_value();
+      case BPMN_translatorPackage.PROTOCOL_DATA: return createprotocol_data();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -211,10 +213,10 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public protocol_data createprotocol_data()
+  public mqtt_data createmqtt_data()
   {
-    protocol_dataImpl protocol_data = new protocol_dataImpl();
-    return protocol_data;
+    mqtt_dataImpl mqtt_data = new mqtt_dataImpl();
+    return mqtt_data;
   }
 
   /**
@@ -223,10 +225,22 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public protocol_device createprotocol_device()
+  public mqtt_network_data createmqtt_network_data()
   {
-    protocol_deviceImpl protocol_device = new protocol_deviceImpl();
-    return protocol_device;
+    mqtt_network_dataImpl mqtt_network_data = new mqtt_network_dataImpl();
+    return mqtt_network_data;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public mqtt_device createmqtt_device()
+  {
+    mqtt_deviceImpl mqtt_device = new mqtt_deviceImpl();
+    return mqtt_device;
   }
 
   /**
@@ -263,6 +277,18 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
   {
     element_valueImpl element_value = new element_valueImpl();
     return element_value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public protocol_data createprotocol_data()
+  {
+    protocol_dataImpl protocol_data = new protocol_dataImpl();
+    return protocol_data;
   }
 
   /**

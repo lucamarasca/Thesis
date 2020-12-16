@@ -114,22 +114,31 @@ public interface BPMN_translatorFactory extends EFactory
   protocol createprotocol();
 
   /**
-   * Returns a new object of class '<em>protocol data</em>'.
+   * Returns a new object of class '<em>mqtt data</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>protocol data</em>'.
+   * @return a new object of class '<em>mqtt data</em>'.
    * @generated
    */
-  protocol_data createprotocol_data();
+  mqtt_data createmqtt_data();
 
   /**
-   * Returns a new object of class '<em>protocol device</em>'.
+   * Returns a new object of class '<em>mqtt network data</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>protocol device</em>'.
+   * @return a new object of class '<em>mqtt network data</em>'.
    * @generated
    */
-  protocol_device createprotocol_device();
+  mqtt_network_data createmqtt_network_data();
+
+  /**
+   * Returns a new object of class '<em>mqtt device</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>mqtt device</em>'.
+   * @generated
+   */
+  mqtt_device createmqtt_device();
 
   /**
    * Returns a new object of class '<em>sensor</em>'.
@@ -157,6 +166,15 @@ public interface BPMN_translatorFactory extends EFactory
    * @generated
    */
   element_value createelement_value();
+
+  /**
+   * Returns a new object of class '<em>protocol data</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>protocol data</em>'.
+   * @generated
+   */
+  protocol_data createprotocol_data();
 
   /**
    * Returns the package supported by this factory.

@@ -106,7 +106,9 @@ ruleClose:
 rulecodex:
 	ruledevice
 	ruleprotocol
+	*
 	rulesensor
+	*
 ;
 
 // Rule device
@@ -118,40 +120,69 @@ ruledevice:
 
 // Rule protocol
 ruleprotocol:
-	'NETWORK_PROTOCOL'
+	'MQTT'
 	'{'
-	ruleprotocol_data
-	ruleprotocol_device
+	rulemqtt_data
+	rulemqtt_device
 	'}'
 ;
 
-// Rule protocol_data
-ruleprotocol_data:
+// Rule mqtt_data
+rulemqtt_data:
 	(
 		'NAME'
 		'='
 		RULE_STRING
 		    |
-		'CLIENT_MAC'
+		'BROKER_USER'
 		'='
 		RULE_STRING
 		    |
-		'CLIENT_IP'
+		'BROKER_PASSWORD'
 		'='
 		RULE_STRING
 		    |
-		'SERVER_IP'
+		'BROKER'
 		'='
 		RULE_STRING
+		    |
+		'NETWORK'
+		'{'
+		rulemqtt_network_data
+		*
+		'}'
+		    |
+		'TOPICS'
+		'{'
+		RULE_STRING
+		*
+		'}'
 	)*
 ;
 
-// Rule protocol_device
-ruleprotocol_device:
+// Rule mqtt_network_data
+rulemqtt_network_data:
+	'SSID'
+	'='
+	RULE_STRING
+	'PASSWORD'
+	'='
+	RULE_STRING
+;
+
+// Rule mqtt_device
+rulemqtt_device:
 	'PROTOCOL_DEVICE'
 	'{'
-	rulesensor_data
+	rulemqtt_sensor_data
 	'}'
+;
+
+// Rule mqtt_sensor_data
+rulemqtt_sensor_data:
+	'NAME'
+	'='
+	RULE_STRING
 ;
 
 // Rule sensor

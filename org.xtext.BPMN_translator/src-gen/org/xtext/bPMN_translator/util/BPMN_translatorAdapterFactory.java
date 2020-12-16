@@ -126,14 +126,19 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
         return createprotocolAdapter();
       }
       @Override
-      public Adapter caseprotocol_data(protocol_data object)
+      public Adapter casemqtt_data(mqtt_data object)
       {
-        return createprotocol_dataAdapter();
+        return createmqtt_dataAdapter();
       }
       @Override
-      public Adapter caseprotocol_device(protocol_device object)
+      public Adapter casemqtt_network_data(mqtt_network_data object)
       {
-        return createprotocol_deviceAdapter();
+        return createmqtt_network_dataAdapter();
+      }
+      @Override
+      public Adapter casemqtt_device(mqtt_device object)
+      {
+        return createmqtt_deviceAdapter();
       }
       @Override
       public Adapter casesensor(sensor object)
@@ -149,6 +154,11 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
       public Adapter caseelement_value(element_value object)
       {
         return createelement_valueAdapter();
+      }
+      @Override
+      public Adapter caseprotocol_data(protocol_data object)
+      {
+        return createprotocol_dataAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -323,31 +333,46 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.protocol_data <em>protocol data</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.mqtt_data <em>mqtt data</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.bPMN_translator.protocol_data
+   * @see org.xtext.bPMN_translator.mqtt_data
    * @generated
    */
-  public Adapter createprotocol_dataAdapter()
+  public Adapter createmqtt_dataAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.protocol_device <em>protocol device</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.mqtt_network_data <em>mqtt network data</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.bPMN_translator.protocol_device
+   * @see org.xtext.bPMN_translator.mqtt_network_data
    * @generated
    */
-  public Adapter createprotocol_deviceAdapter()
+  public Adapter createmqtt_network_dataAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.mqtt_device <em>mqtt device</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.bPMN_translator.mqtt_device
+   * @generated
+   */
+  public Adapter createmqtt_deviceAdapter()
   {
     return null;
   }
@@ -393,6 +418,21 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createelement_valueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.protocol_data <em>protocol data</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.bPMN_translator.protocol_data
+   * @generated
+   */
+  public Adapter createprotocol_dataAdapter()
   {
     return null;
   }

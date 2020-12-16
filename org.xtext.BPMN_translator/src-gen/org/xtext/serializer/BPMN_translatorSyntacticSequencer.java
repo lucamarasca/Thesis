@@ -10,6 +10,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -23,12 +24,30 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	protected BPMN_translatorGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a;
 	protected AbstractElementAlias match_Xml_PrologParserRuleCall_1_q;
+	protected AbstractElementAlias match_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a__a;
+	protected AbstractElementAlias match_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a;
+	protected AbstractElementAlias match_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a___or_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a_RightCurlyBracketKeyword_1_4_3__q___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__p_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a___RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__p_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a__a__;
+	protected AbstractElementAlias match_mqtt_data___RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a;
+	protected AbstractElementAlias match_mqtt_data___RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a;
+	protected AbstractElementAlias match_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a__a;
+	protected AbstractElementAlias match_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a;
+	protected AbstractElementAlias match_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a___or_____TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a_RightCurlyBracketKeyword_1_5_3__q___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__p_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a___RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__p_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a__a__;
+	protected AbstractElementAlias match_mqtt_data_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___or___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3____a;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (BPMN_translatorGrammarAccess) access;
 		match_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getSingletonAccess().getHEADTerminalRuleCall_1_4_0_0()), new TokenAlias(false, false, grammarAccess.getSingletonAccess().getColonKeyword_1_4_0_1()));
 		match_Xml_PrologParserRuleCall_1_q = new TokenAlias(false, true, grammarAccess.getXmlAccess().getPrologParserRuleCall_1());
+		match_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_4_3()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3())));
+		match_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_4_3()));
+		match_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a___or_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a_RightCurlyBracketKeyword_1_4_3__q___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__p_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a___RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__p_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a__a__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_4_3()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1())), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_4_3())), new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3())), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_4_3()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1())), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_4_3()), new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3())), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_4_3()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1())))), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_4_3()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1()))));
+		match_mqtt_data___RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_4_3()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3())), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1()));
+		match_mqtt_data___RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_4_3())), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1()));
+		match_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_4_3())));
+		match_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3()));
+		match_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a___or_____TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a_RightCurlyBracketKeyword_1_5_3__q___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__p_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a___RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__p_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a__a__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1())), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3())), new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_4_3())), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1())), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3()), new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_4_3())), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1())))), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1()))));
+		match_mqtt_data_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___or___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3____a = new AlternativeAlias(true, true, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getNETWORKKeyword_1_4_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_4_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1()), new TokenAlias(false, false, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3())));
 	}
 	
 	@Override
@@ -97,6 +116,24 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 				emit_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Xml_PrologParserRuleCall_1_q.equals(syntax))
 				emit_Xml_PrologParserRuleCall_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a__a.equals(syntax))
+				emit_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a.equals(syntax))
+				emit_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a___or_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a_RightCurlyBracketKeyword_1_4_3__q___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__p_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a___RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__p_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a__a__.equals(syntax))
+				emit_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a___or_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a_RightCurlyBracketKeyword_1_4_3__q___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__p_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a___RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__p_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a__a__(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_mqtt_data___RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a.equals(syntax))
+				emit_mqtt_data___RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_mqtt_data___RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a.equals(syntax))
+				emit_mqtt_data___RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a__a.equals(syntax))
+				emit_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a.equals(syntax))
+				emit_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a___or_____TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a_RightCurlyBracketKeyword_1_5_3__q___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__p_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a___RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__p_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a__a__.equals(syntax))
+				emit_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a___or_____TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a_RightCurlyBracketKeyword_1_5_3__q___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__p_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a___RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__p_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a__a__(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_mqtt_data_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___or___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3____a.equals(syntax))
+				emit_mqtt_data_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___or___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3____a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -124,6 +161,185 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *     (rule start) (ambiguity) prova+=element
 	 */
 	protected void emit_Xml_PrologParserRuleCall_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('NETWORK' '{' '}' ('TOPICS' '{' '}')*)*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     mqtt_network_data+=mqtt_network_data '}' ('TOPICS' '{' '}')* (ambiguity) 'BROKER' '=' broker+=STRING
+	 *     mqtt_network_data+=mqtt_network_data '}' ('TOPICS' '{' '}')* (ambiguity) 'BROKER_PASSWORD' '=' broker_password+=STRING
+	 *     mqtt_network_data+=mqtt_network_data '}' ('TOPICS' '{' '}')* (ambiguity) 'BROKER_USER' '=' broker_user+=STRING
+	 *     mqtt_network_data+=mqtt_network_data '}' ('TOPICS' '{' '}')* (ambiguity) 'NAME' '=' pname+=STRING
+	 *     mqtt_network_data+=mqtt_network_data '}' ('TOPICS' '{' '}')* (ambiguity) (rule end)
+	 */
+	protected void emit_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('NETWORK' '{' '}')*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'TOPICS' '{' ('}' (ambiguity) 'TOPICS' '{')* topics+=STRING
+	 *     broker+=STRING (ambiguity) 'TOPICS' '{' ('}' (ambiguity) 'TOPICS' '{')* topics+=STRING
+	 *     broker_password+=STRING (ambiguity) 'TOPICS' '{' ('}' (ambiguity) 'TOPICS' '{')* topics+=STRING
+	 *     broker_user+=STRING (ambiguity) 'TOPICS' '{' ('}' (ambiguity) 'TOPICS' '{')* topics+=STRING
+	 *     pname+=STRING (ambiguity) 'TOPICS' '{' ('}' (ambiguity) 'TOPICS' '{')* topics+=STRING
+	 *     topics+=STRING '}' (ambiguity) ('TOPICS' '{' '}' (ambiguity))* 'BROKER' '=' broker+=STRING
+	 *     topics+=STRING '}' (ambiguity) ('TOPICS' '{' '}' (ambiguity))* 'BROKER_PASSWORD' '=' broker_password+=STRING
+	 *     topics+=STRING '}' (ambiguity) ('TOPICS' '{' '}' (ambiguity))* 'BROKER_USER' '=' broker_user+=STRING
+	 *     topics+=STRING '}' (ambiguity) ('TOPICS' '{' '}' (ambiguity))* 'NAME' '=' pname+=STRING
+	 *     topics+=STRING '}' (ambiguity) ('TOPICS' '{' '}' (ambiguity))* (rule end)
+	 */
+	protected void emit_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (
+	  *         ('NETWORK' '{' ('}' 'NETWORK' '{')*) | 
+	  *         (
+	  *             ('NETWORK' '{' ('}' 'NETWORK' '{')* '}')? 
+	  *             ('TOPICS' '{' '}')+ 
+	  *             'NETWORK' 
+	  *             '{' 
+	  *             ('}' 'NETWORK' '{')* 
+	  *             ('}' ('TOPICS' '{' '}')+ 'NETWORK' '{' ('}' 'NETWORK' '{')*)*
+	  *         )
+	  *     )
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     topics+=STRING '}' (ambiguity) mqtt_network_data+=mqtt_network_data
+	 */
+	protected void emit_mqtt_data___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a___or_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a_RightCurlyBracketKeyword_1_4_3__q___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__p_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a___RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__p_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1___RightCurlyBracketKeyword_1_4_3_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a__a__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('}' ('TOPICS' '{' '}')* 'NETWORK' '{')*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) ('TOPICS' '{' '}')* 'NETWORK' '{' (ambiguity) mqtt_network_data+=mqtt_network_data
+	 *     broker+=STRING ('TOPICS' '{' '}')* 'NETWORK' '{' (ambiguity) mqtt_network_data+=mqtt_network_data
+	 *     broker_password+=STRING ('TOPICS' '{' '}')* 'NETWORK' '{' (ambiguity) mqtt_network_data+=mqtt_network_data
+	 *     broker_user+=STRING ('TOPICS' '{' '}')* 'NETWORK' '{' (ambiguity) mqtt_network_data+=mqtt_network_data
+	 *     mqtt_network_data+=mqtt_network_data (ambiguity) mqtt_network_data+=mqtt_network_data
+	 *     pname+=STRING ('TOPICS' '{' '}')* 'NETWORK' '{' (ambiguity) mqtt_network_data+=mqtt_network_data
+	 */
+	protected void emit_mqtt_data___RightCurlyBracketKeyword_1_4_3___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a_NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('}' ('NETWORK' '{' '}')* 'TOPICS' '{')*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) ('NETWORK' '{' '}')* 'TOPICS' '{' (ambiguity) topics+=STRING
+	 *     broker+=STRING ('NETWORK' '{' '}')* 'TOPICS' '{' (ambiguity) topics+=STRING
+	 *     broker_password+=STRING ('NETWORK' '{' '}')* 'TOPICS' '{' (ambiguity) topics+=STRING
+	 *     broker_user+=STRING ('NETWORK' '{' '}')* 'TOPICS' '{' (ambiguity) topics+=STRING
+	 *     pname+=STRING ('NETWORK' '{' '}')* 'TOPICS' '{' (ambiguity) topics+=STRING
+	 *     topics+=STRING (ambiguity) topics+=STRING
+	 */
+	protected void emit_mqtt_data___RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('TOPICS' '{' '}' ('NETWORK' '{' '}')*)*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     topics+=STRING '}' ('NETWORK' '{' '}')* (ambiguity) 'BROKER' '=' broker+=STRING
+	 *     topics+=STRING '}' ('NETWORK' '{' '}')* (ambiguity) 'BROKER_PASSWORD' '=' broker_password+=STRING
+	 *     topics+=STRING '}' ('NETWORK' '{' '}')* (ambiguity) 'BROKER_USER' '=' broker_user+=STRING
+	 *     topics+=STRING '}' ('NETWORK' '{' '}')* (ambiguity) 'NAME' '=' pname+=STRING
+	 *     topics+=STRING '}' ('NETWORK' '{' '}')* (ambiguity) (rule end)
+	 */
+	protected void emit_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('TOPICS' '{' '}')*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'NETWORK' '{' ('}' (ambiguity) 'NETWORK' '{')* mqtt_network_data+=mqtt_network_data
+	 *     broker+=STRING (ambiguity) 'NETWORK' '{' ('}' (ambiguity) 'NETWORK' '{')* mqtt_network_data+=mqtt_network_data
+	 *     broker_password+=STRING (ambiguity) 'NETWORK' '{' ('}' (ambiguity) 'NETWORK' '{')* mqtt_network_data+=mqtt_network_data
+	 *     broker_user+=STRING (ambiguity) 'NETWORK' '{' ('}' (ambiguity) 'NETWORK' '{')* mqtt_network_data+=mqtt_network_data
+	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) ('NETWORK' '{' '}' (ambiguity))* 'BROKER' '=' broker+=STRING
+	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) ('NETWORK' '{' '}' (ambiguity))* 'BROKER_PASSWORD' '=' broker_password+=STRING
+	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) ('NETWORK' '{' '}' (ambiguity))* 'BROKER_USER' '=' broker_user+=STRING
+	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) ('NETWORK' '{' '}' (ambiguity))* 'NAME' '=' pname+=STRING
+	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) ('NETWORK' '{' '}' (ambiguity))* (rule end)
+	 *     pname+=STRING (ambiguity) 'NETWORK' '{' ('}' (ambiguity) 'NETWORK' '{')* mqtt_network_data+=mqtt_network_data
+	 */
+	protected void emit_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (
+	  *         ('TOPICS' '{' ('}' 'TOPICS' '{')*) | 
+	  *         (
+	  *             ('TOPICS' '{' ('}' 'TOPICS' '{')* '}')? 
+	  *             ('NETWORK' '{' '}')+ 
+	  *             'TOPICS' 
+	  *             '{' 
+	  *             ('}' 'TOPICS' '{')* 
+	  *             ('}' ('NETWORK' '{' '}')+ 'TOPICS' '{' ('}' 'TOPICS' '{')*)*
+	  *         )
+	  *     )
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) topics+=STRING
+	 */
+	protected void emit_mqtt_data___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a___or_____TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a_RightCurlyBracketKeyword_1_5_3__q___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__p_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a___RightCurlyBracketKeyword_1_5_3___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__p_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1___RightCurlyBracketKeyword_1_5_3_TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1__a__a__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (('NETWORK' '{' '}') | ('TOPICS' '{' '}'))*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'BROKER' '=' broker+=STRING
+	 *     (rule start) (ambiguity) 'BROKER_PASSWORD' '=' broker_password+=STRING
+	 *     (rule start) (ambiguity) 'BROKER_USER' '=' broker_user+=STRING
+	 *     (rule start) (ambiguity) 'NAME' '=' pname+=STRING
+	 *     (rule start) (ambiguity) (rule start)
+	 *     broker+=STRING (ambiguity) 'BROKER' '=' broker+=STRING
+	 *     broker+=STRING (ambiguity) 'BROKER_PASSWORD' '=' broker_password+=STRING
+	 *     broker+=STRING (ambiguity) 'BROKER_USER' '=' broker_user+=STRING
+	 *     broker+=STRING (ambiguity) 'NAME' '=' pname+=STRING
+	 *     broker+=STRING (ambiguity) (rule end)
+	 *     broker_password+=STRING (ambiguity) 'BROKER' '=' broker+=STRING
+	 *     broker_password+=STRING (ambiguity) 'BROKER_PASSWORD' '=' broker_password+=STRING
+	 *     broker_password+=STRING (ambiguity) 'BROKER_USER' '=' broker_user+=STRING
+	 *     broker_password+=STRING (ambiguity) 'NAME' '=' pname+=STRING
+	 *     broker_password+=STRING (ambiguity) (rule end)
+	 *     broker_user+=STRING (ambiguity) 'BROKER' '=' broker+=STRING
+	 *     broker_user+=STRING (ambiguity) 'BROKER_PASSWORD' '=' broker_password+=STRING
+	 *     broker_user+=STRING (ambiguity) 'BROKER_USER' '=' broker_user+=STRING
+	 *     broker_user+=STRING (ambiguity) 'NAME' '=' pname+=STRING
+	 *     broker_user+=STRING (ambiguity) (rule end)
+	 *     pname+=STRING (ambiguity) 'BROKER' '=' broker+=STRING
+	 *     pname+=STRING (ambiguity) 'BROKER_PASSWORD' '=' broker_password+=STRING
+	 *     pname+=STRING (ambiguity) 'BROKER_USER' '=' broker_user+=STRING
+	 *     pname+=STRING (ambiguity) 'NAME' '=' pname+=STRING
+	 *     pname+=STRING (ambiguity) (rule end)
+	 */
+	protected void emit_mqtt_data_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___or___TOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

@@ -44,17 +44,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//device/device"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//protocol">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol/protocol_data"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol/protocol_device"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol/mqtt_data"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol/mqtt_device"/>
     </genClasses>
-    <genClasses ecoreClass="BPMN_translator.ecore#//protocol_data">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol_data/pname"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol_data/mac"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol_data/ip_address"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol_data/server_address"/>
+    <genClasses ecoreClass="BPMN_translator.ecore#//mqtt_data"/>
+    <genClasses ecoreClass="BPMN_translator.ecore#//mqtt_network_data">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//mqtt_network_data/ssid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//mqtt_network_data/password"/>
     </genClasses>
-    <genClasses ecoreClass="BPMN_translator.ecore#//protocol_device">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol_device/protocol_device"/>
+    <genClasses ecoreClass="BPMN_translator.ecore#//mqtt_device">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//mqtt_device/protocol_device"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//sensor">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//sensor/sensor"/>
@@ -66,6 +65,14 @@
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//element_value">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//element_value/singleton_tag"/>
+    </genClasses>
+    <genClasses ecoreClass="BPMN_translator.ecore#//protocol_data">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol_data/pname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol_data/broker_user"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol_data/broker_password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol_data/broker"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol_data/mqtt_network_data"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol_data/topics"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

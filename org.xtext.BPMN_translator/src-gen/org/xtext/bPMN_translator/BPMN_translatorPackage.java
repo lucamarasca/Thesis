@@ -419,22 +419,22 @@ public interface BPMN_translatorPackage extends EPackage
   int PROTOCOL = 9;
 
   /**
-   * The feature id for the '<em><b>Protocol data</b></em>' containment reference list.
+   * The feature id for the '<em><b>Mqtt data</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROTOCOL__PROTOCOL_DATA = 0;
+  int PROTOCOL__MQTT_DATA = 0;
 
   /**
-   * The feature id for the '<em><b>Protocol device</b></em>' containment reference list.
+   * The feature id for the '<em><b>Mqtt device</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROTOCOL__PROTOCOL_DEVICE = 1;
+  int PROTOCOL__MQTT_DEVICE = 1;
 
   /**
    * The number of structural features of the '<em>protocol</em>' class.
@@ -446,87 +446,88 @@ public interface BPMN_translatorPackage extends EPackage
   int PROTOCOL_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.protocol_dataImpl <em>protocol data</em>}' class.
+   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.mqtt_dataImpl <em>mqtt data</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.bPMN_translator.impl.protocol_dataImpl
-   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getprotocol_data()
+   * @see org.xtext.bPMN_translator.impl.mqtt_dataImpl
+   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getmqtt_data()
    * @generated
    */
-  int PROTOCOL_DATA = 10;
+  int MQTT_DATA = 10;
 
   /**
-   * The feature id for the '<em><b>Pname</b></em>' attribute list.
+   * The number of structural features of the '<em>mqtt data</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROTOCOL_DATA__PNAME = 0;
+  int MQTT_DATA_FEATURE_COUNT = 0;
 
   /**
-   * The feature id for the '<em><b>Mac</b></em>' attribute list.
+   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.mqtt_network_dataImpl <em>mqtt network data</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.bPMN_translator.impl.mqtt_network_dataImpl
+   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getmqtt_network_data()
+   * @generated
+   */
+  int MQTT_NETWORK_DATA = 11;
+
+  /**
+   * The feature id for the '<em><b>Ssid</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROTOCOL_DATA__MAC = 1;
+  int MQTT_NETWORK_DATA__SSID = 0;
 
   /**
-   * The feature id for the '<em><b>Ip address</b></em>' attribute list.
+   * The feature id for the '<em><b>Password</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROTOCOL_DATA__IP_ADDRESS = 2;
+  int MQTT_NETWORK_DATA__PASSWORD = 1;
 
   /**
-   * The feature id for the '<em><b>Server address</b></em>' attribute list.
+   * The number of structural features of the '<em>mqtt network data</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROTOCOL_DATA__SERVER_ADDRESS = 3;
+  int MQTT_NETWORK_DATA_FEATURE_COUNT = 2;
 
   /**
-   * The number of structural features of the '<em>protocol data</em>' class.
+   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.mqtt_deviceImpl <em>mqtt device</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.bPMN_translator.impl.mqtt_deviceImpl
+   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getmqtt_device()
+   * @generated
+   */
+  int MQTT_DEVICE = 12;
+
+  /**
+   * The feature id for the '<em><b>Protocol device</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROTOCOL_DATA_FEATURE_COUNT = 4;
+  int MQTT_DEVICE__PROTOCOL_DEVICE = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.protocol_deviceImpl <em>protocol device</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.bPMN_translator.impl.protocol_deviceImpl
-   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getprotocol_device()
-   * @generated
-   */
-  int PROTOCOL_DEVICE = 11;
-
-  /**
-   * The feature id for the '<em><b>Protocol device</b></em>' containment reference list.
+   * The number of structural features of the '<em>mqtt device</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROTOCOL_DEVICE__PROTOCOL_DEVICE = 0;
-
-  /**
-   * The number of structural features of the '<em>protocol device</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROTOCOL_DEVICE_FEATURE_COUNT = 1;
+  int MQTT_DEVICE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.bPMN_translator.impl.sensorImpl <em>sensor</em>}' class.
@@ -536,7 +537,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getsensor()
    * @generated
    */
-  int SENSOR = 12;
+  int SENSOR = 13;
 
   /**
    * The feature id for the '<em><b>Sensor</b></em>' containment reference list.
@@ -564,7 +565,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getsensor_data()
    * @generated
    */
-  int SENSOR_DATA = 13;
+  int SENSOR_DATA = 14;
 
   /**
    * The feature id for the '<em><b>Pname</b></em>' attribute list.
@@ -610,7 +611,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getelement_value()
    * @generated
    */
-  int ELEMENT_VALUE = 14;
+  int ELEMENT_VALUE = 15;
 
   /**
    * The feature id for the '<em><b>Open</b></em>' containment reference list.
@@ -656,6 +657,79 @@ public interface BPMN_translatorPackage extends EPackage
    * @ordered
    */
   int ELEMENT_VALUE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.protocol_dataImpl <em>protocol data</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.bPMN_translator.impl.protocol_dataImpl
+   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getprotocol_data()
+   * @generated
+   */
+  int PROTOCOL_DATA = 16;
+
+  /**
+   * The feature id for the '<em><b>Pname</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_DATA__PNAME = MQTT_DATA_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Broker user</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_DATA__BROKER_USER = MQTT_DATA_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Broker password</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_DATA__BROKER_PASSWORD = MQTT_DATA_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Broker</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_DATA__BROKER = MQTT_DATA_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Mqtt network data</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_DATA__MQTT_NETWORK_DATA = MQTT_DATA_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Topics</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_DATA__TOPICS = MQTT_DATA_FEATURE_COUNT + 5;
+
+  /**
+   * The number of structural features of the '<em>protocol data</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL_DATA_FEATURE_COUNT = MQTT_DATA_FEATURE_COUNT + 6;
 
 
   /**
@@ -979,101 +1053,89 @@ public interface BPMN_translatorPackage extends EPackage
   EClass getprotocol();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.protocol#getProtocol_data <em>Protocol data</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.protocol#getMqtt_data <em>Mqtt data</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Protocol data</em>'.
-   * @see org.xtext.bPMN_translator.protocol#getProtocol_data()
+   * @return the meta object for the containment reference list '<em>Mqtt data</em>'.
+   * @see org.xtext.bPMN_translator.protocol#getMqtt_data()
    * @see #getprotocol()
    * @generated
    */
-  EReference getprotocol_Protocol_data();
+  EReference getprotocol_Mqtt_data();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.protocol#getProtocol_device <em>Protocol device</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.protocol#getMqtt_device <em>Mqtt device</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Protocol device</em>'.
-   * @see org.xtext.bPMN_translator.protocol#getProtocol_device()
+   * @return the meta object for the containment reference list '<em>Mqtt device</em>'.
+   * @see org.xtext.bPMN_translator.protocol#getMqtt_device()
    * @see #getprotocol()
    * @generated
    */
-  EReference getprotocol_Protocol_device();
+  EReference getprotocol_Mqtt_device();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.bPMN_translator.protocol_data <em>protocol data</em>}'.
+   * Returns the meta object for class '{@link org.xtext.bPMN_translator.mqtt_data <em>mqtt data</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>protocol data</em>'.
-   * @see org.xtext.bPMN_translator.protocol_data
+   * @return the meta object for class '<em>mqtt data</em>'.
+   * @see org.xtext.bPMN_translator.mqtt_data
    * @generated
    */
-  EClass getprotocol_data();
+  EClass getmqtt_data();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.protocol_data#getPname <em>Pname</em>}'.
+   * Returns the meta object for class '{@link org.xtext.bPMN_translator.mqtt_network_data <em>mqtt network data</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Pname</em>'.
-   * @see org.xtext.bPMN_translator.protocol_data#getPname()
-   * @see #getprotocol_data()
+   * @return the meta object for class '<em>mqtt network data</em>'.
+   * @see org.xtext.bPMN_translator.mqtt_network_data
    * @generated
    */
-  EAttribute getprotocol_data_Pname();
+  EClass getmqtt_network_data();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.protocol_data#getMac <em>Mac</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.mqtt_network_data#getSsid <em>Ssid</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Mac</em>'.
-   * @see org.xtext.bPMN_translator.protocol_data#getMac()
-   * @see #getprotocol_data()
+   * @return the meta object for the attribute list '<em>Ssid</em>'.
+   * @see org.xtext.bPMN_translator.mqtt_network_data#getSsid()
+   * @see #getmqtt_network_data()
    * @generated
    */
-  EAttribute getprotocol_data_Mac();
+  EAttribute getmqtt_network_data_Ssid();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.protocol_data#getIp_address <em>Ip address</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.mqtt_network_data#getPassword <em>Password</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Ip address</em>'.
-   * @see org.xtext.bPMN_translator.protocol_data#getIp_address()
-   * @see #getprotocol_data()
+   * @return the meta object for the attribute list '<em>Password</em>'.
+   * @see org.xtext.bPMN_translator.mqtt_network_data#getPassword()
+   * @see #getmqtt_network_data()
    * @generated
    */
-  EAttribute getprotocol_data_Ip_address();
+  EAttribute getmqtt_network_data_Password();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.protocol_data#getServer_address <em>Server address</em>}'.
+   * Returns the meta object for class '{@link org.xtext.bPMN_translator.mqtt_device <em>mqtt device</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Server address</em>'.
-   * @see org.xtext.bPMN_translator.protocol_data#getServer_address()
-   * @see #getprotocol_data()
+   * @return the meta object for class '<em>mqtt device</em>'.
+   * @see org.xtext.bPMN_translator.mqtt_device
    * @generated
    */
-  EAttribute getprotocol_data_Server_address();
+  EClass getmqtt_device();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.bPMN_translator.protocol_device <em>protocol device</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.mqtt_device#getProtocol_device <em>Protocol device</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>protocol device</em>'.
-   * @see org.xtext.bPMN_translator.protocol_device
+   * @return the meta object for the attribute list '<em>Protocol device</em>'.
+   * @see org.xtext.bPMN_translator.mqtt_device#getProtocol_device()
+   * @see #getmqtt_device()
    * @generated
    */
-  EClass getprotocol_device();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.protocol_device#getProtocol_device <em>Protocol device</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Protocol device</em>'.
-   * @see org.xtext.bPMN_translator.protocol_device#getProtocol_device()
-   * @see #getprotocol_device()
-   * @generated
-   */
-  EReference getprotocol_device_Protocol_device();
+  EAttribute getmqtt_device_Protocol_device();
 
   /**
    * Returns the meta object for class '{@link org.xtext.bPMN_translator.sensor <em>sensor</em>}'.
@@ -1159,6 +1221,82 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    */
   EReference getelement_value_Singleton_tag();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.bPMN_translator.protocol_data <em>protocol data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>protocol data</em>'.
+   * @see org.xtext.bPMN_translator.protocol_data
+   * @generated
+   */
+  EClass getprotocol_data();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.protocol_data#getPname <em>Pname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Pname</em>'.
+   * @see org.xtext.bPMN_translator.protocol_data#getPname()
+   * @see #getprotocol_data()
+   * @generated
+   */
+  EAttribute getprotocol_data_Pname();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.protocol_data#getBroker_user <em>Broker user</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Broker user</em>'.
+   * @see org.xtext.bPMN_translator.protocol_data#getBroker_user()
+   * @see #getprotocol_data()
+   * @generated
+   */
+  EAttribute getprotocol_data_Broker_user();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.protocol_data#getBroker_password <em>Broker password</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Broker password</em>'.
+   * @see org.xtext.bPMN_translator.protocol_data#getBroker_password()
+   * @see #getprotocol_data()
+   * @generated
+   */
+  EAttribute getprotocol_data_Broker_password();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.protocol_data#getBroker <em>Broker</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Broker</em>'.
+   * @see org.xtext.bPMN_translator.protocol_data#getBroker()
+   * @see #getprotocol_data()
+   * @generated
+   */
+  EAttribute getprotocol_data_Broker();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.protocol_data#getMqtt_network_data <em>Mqtt network data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mqtt network data</em>'.
+   * @see org.xtext.bPMN_translator.protocol_data#getMqtt_network_data()
+   * @see #getprotocol_data()
+   * @generated
+   */
+  EReference getprotocol_data_Mqtt_network_data();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.protocol_data#getTopics <em>Topics</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Topics</em>'.
+   * @see org.xtext.bPMN_translator.protocol_data#getTopics()
+   * @see #getprotocol_data()
+   * @generated
+   */
+  EAttribute getprotocol_data_Topics();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1444,80 +1582,74 @@ public interface BPMN_translatorPackage extends EPackage
     EClass PROTOCOL = eINSTANCE.getprotocol();
 
     /**
-     * The meta object literal for the '<em><b>Protocol data</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Mqtt data</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PROTOCOL__PROTOCOL_DATA = eINSTANCE.getprotocol_Protocol_data();
+    EReference PROTOCOL__MQTT_DATA = eINSTANCE.getprotocol_Mqtt_data();
 
     /**
-     * The meta object literal for the '<em><b>Protocol device</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Mqtt device</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PROTOCOL__PROTOCOL_DEVICE = eINSTANCE.getprotocol_Protocol_device();
+    EReference PROTOCOL__MQTT_DEVICE = eINSTANCE.getprotocol_Mqtt_device();
 
     /**
-     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.protocol_dataImpl <em>protocol data</em>}' class.
+     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.mqtt_dataImpl <em>mqtt data</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.bPMN_translator.impl.protocol_dataImpl
-     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getprotocol_data()
+     * @see org.xtext.bPMN_translator.impl.mqtt_dataImpl
+     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getmqtt_data()
      * @generated
      */
-    EClass PROTOCOL_DATA = eINSTANCE.getprotocol_data();
+    EClass MQTT_DATA = eINSTANCE.getmqtt_data();
 
     /**
-     * The meta object literal for the '<em><b>Pname</b></em>' attribute list feature.
+     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.mqtt_network_dataImpl <em>mqtt network data</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.bPMN_translator.impl.mqtt_network_dataImpl
+     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getmqtt_network_data()
      * @generated
      */
-    EAttribute PROTOCOL_DATA__PNAME = eINSTANCE.getprotocol_data_Pname();
+    EClass MQTT_NETWORK_DATA = eINSTANCE.getmqtt_network_data();
 
     /**
-     * The meta object literal for the '<em><b>Mac</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Ssid</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROTOCOL_DATA__MAC = eINSTANCE.getprotocol_data_Mac();
+    EAttribute MQTT_NETWORK_DATA__SSID = eINSTANCE.getmqtt_network_data_Ssid();
 
     /**
-     * The meta object literal for the '<em><b>Ip address</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Password</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROTOCOL_DATA__IP_ADDRESS = eINSTANCE.getprotocol_data_Ip_address();
+    EAttribute MQTT_NETWORK_DATA__PASSWORD = eINSTANCE.getmqtt_network_data_Password();
 
     /**
-     * The meta object literal for the '<em><b>Server address</b></em>' attribute list feature.
+     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.mqtt_deviceImpl <em>mqtt device</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.bPMN_translator.impl.mqtt_deviceImpl
+     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getmqtt_device()
      * @generated
      */
-    EAttribute PROTOCOL_DATA__SERVER_ADDRESS = eINSTANCE.getprotocol_data_Server_address();
+    EClass MQTT_DEVICE = eINSTANCE.getmqtt_device();
 
     /**
-     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.protocol_deviceImpl <em>protocol device</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.bPMN_translator.impl.protocol_deviceImpl
-     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getprotocol_device()
-     * @generated
-     */
-    EClass PROTOCOL_DEVICE = eINSTANCE.getprotocol_device();
-
-    /**
-     * The meta object literal for the '<em><b>Protocol device</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Protocol device</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PROTOCOL_DEVICE__PROTOCOL_DEVICE = eINSTANCE.getprotocol_device_Protocol_device();
+    EAttribute MQTT_DEVICE__PROTOCOL_DEVICE = eINSTANCE.getmqtt_device_Protocol_device();
 
     /**
      * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.sensorImpl <em>sensor</em>}' class.
@@ -1588,6 +1720,64 @@ public interface BPMN_translatorPackage extends EPackage
      * @generated
      */
     EReference ELEMENT_VALUE__SINGLETON_TAG = eINSTANCE.getelement_value_Singleton_tag();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.protocol_dataImpl <em>protocol data</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.bPMN_translator.impl.protocol_dataImpl
+     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getprotocol_data()
+     * @generated
+     */
+    EClass PROTOCOL_DATA = eINSTANCE.getprotocol_data();
+
+    /**
+     * The meta object literal for the '<em><b>Pname</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROTOCOL_DATA__PNAME = eINSTANCE.getprotocol_data_Pname();
+
+    /**
+     * The meta object literal for the '<em><b>Broker user</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROTOCOL_DATA__BROKER_USER = eINSTANCE.getprotocol_data_Broker_user();
+
+    /**
+     * The meta object literal for the '<em><b>Broker password</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROTOCOL_DATA__BROKER_PASSWORD = eINSTANCE.getprotocol_data_Broker_password();
+
+    /**
+     * The meta object literal for the '<em><b>Broker</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROTOCOL_DATA__BROKER = eINSTANCE.getprotocol_data_Broker();
+
+    /**
+     * The meta object literal for the '<em><b>Mqtt network data</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROTOCOL_DATA__MQTT_NETWORK_DATA = eINSTANCE.getprotocol_data_Mqtt_network_data();
+
+    /**
+     * The meta object literal for the '<em><b>Topics</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROTOCOL_DATA__TOPICS = eINSTANCE.getprotocol_data_Topics();
 
   }
 

@@ -3,17 +3,24 @@
  */
 package org.xtext.generator;
 
+import com.google.common.collect.Iterables;
 import java.util.ArrayList;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.CollectionExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.bPMN_translator.codex;
+import org.xtext.bPMN_translator.content;
+import org.xtext.bPMN_translator.device;
+import org.xtext.bPMN_translator.element;
+import org.xtext.generator.ArduinoCPPCodeGenerator;
 import org.xtext.generator.DefineCodeGenerator;
-import org.xtext.generator.NetworkCodeGenerator;
 import org.xtext.generator.Parameters;
 import org.xtext.generator.SensorsCodeGenerator;
-import org.xtext.generator.VariablesCodeGenerator;
 
 /**
  * Generates code from your model files on save.
@@ -38,9 +45,7 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   
   private SensorsCodeGenerator s;
   
-  private NetworkCodeGenerator p;
-  
-  private VariablesCodeGenerator imp;
+  private ArduinoCPPCodeGenerator cpp_gen;
   
   private DefineCodeGenerator define;
   
@@ -51,6 +56,7 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     {
       this.FillTaskType();
       this.FillGatewayType();
+      this.setDatas(resource);
       _xblockexpression = this.r = resource;
     }
     return _xblockexpression;
@@ -91,69 +97,58 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
       String _StaticLibHEnd = this.StaticLibHEnd();
       String _plus_1 = (_StaticLibHStart + _StaticLibHEnd);
       fsa.generateFile("GeneratedLib.h", _plus_1);
-      fsa.generateFile("GeneratedLib.cpp", this.ArduinoSensorGenerationCodeCPP());
+      fsa.generateFile("GeneratedLib.cpp", this.ArduinoGenerationCodeCPP());
     } else {
       String _StaticMainFileStart_1 = this.StaticMainFileStart();
       String _StaticMainFileEnd_1 = this.StaticMainFileEnd();
       String _plus_2 = (_StaticMainFileStart_1 + _StaticMainFileEnd_1);
       fsa.generateFile("Main.ino", _plus_2);
       String _StaticLibHStart_1 = this.StaticLibHStart();
-      String _ArduinoIncludeCodeGenerationH = this.ArduinoIncludeCodeGenerationH();
-      String _plus_3 = (_StaticLibHStart_1 + _ArduinoIncludeCodeGenerationH);
-      String _ArduinoSensorGenerationCodeH = this.ArduinoSensorGenerationCodeH();
-      String _plus_4 = (_plus_3 + _ArduinoSensorGenerationCodeH);
-      String _ArduinoNetworkProtocolGenerationCodeH = this.ArduinoNetworkProtocolGenerationCodeH();
-      String _plus_5 = (_plus_4 + _ArduinoNetworkProtocolGenerationCodeH);
+      String _ArduinoCodeGenerationH = this.ArduinoCodeGenerationH();
+      String _plus_3 = (_StaticLibHStart_1 + _ArduinoCodeGenerationH);
       String _StaticLibHEnd_1 = this.StaticLibHEnd();
-      String _plus_6 = (_plus_5 + _StaticLibHEnd_1);
-      fsa.generateFile("GeneratedLib.h", _plus_6);
-      String _ArduinoVariablesGenerationCodeCPP = this.ArduinoVariablesGenerationCodeCPP();
-      String _ArduinoSensorGenerationCodeCPP = this.ArduinoSensorGenerationCodeCPP();
-      String _plus_7 = (_ArduinoVariablesGenerationCodeCPP + _ArduinoSensorGenerationCodeCPP);
-      String _ArduinoNetworkProtocolGenerationCodeCPP = this.ArduinoNetworkProtocolGenerationCodeCPP();
-      String _plus_8 = (_plus_7 + _ArduinoNetworkProtocolGenerationCodeCPP);
-      fsa.generateFile("GeneratedLib.cpp", _plus_8);
+      String _plus_4 = (_plus_3 + _StaticLibHEnd_1);
+      fsa.generateFile("GeneratedLib.h", _plus_4);
+      fsa.generateFile("GeneratedLib.cpp", this.ArduinoGenerationCodeCPP());
     }
   }
   
-  public String ArduinoIncludeCodeGenerationH() {
+  public String ArduinoCodeGenerationH() {
     String _xblockexpression = null;
     {
-      DefineCodeGenerator _defineCodeGenerator = new DefineCodeGenerator(Parameters.selected_sensor, Parameters.selected_protocol);
+      DefineCodeGenerator _defineCodeGenerator = new DefineCodeGenerator(Parameters.selected_sensor, Parameters.selected_protocol, Parameters.selected_wifisensor);
       this.define = _defineCodeGenerator;
       _xblockexpression = this.define.generateHCode();
     }
     return _xblockexpression;
   }
   
-  public String ArduinoSensorGenerationCodeH() {
-    SensorsCodeGenerator _sensorsCodeGenerator = new SensorsCodeGenerator(Parameters.selected_sensor, 0);
-    this.s = _sensorsCodeGenerator;
-    return this.s.GenerateHCode();
+  public String ArduinoGenerationCodeCPP() {
+    ArduinoCPPCodeGenerator _arduinoCPPCodeGenerator = new ArduinoCPPCodeGenerator(Parameters.selected_device, Parameters.selected_protocol, Parameters.selected_wifisensor, Parameters.selected_sensor);
+    this.cpp_gen = _arduinoCPPCodeGenerator;
+    return this.cpp_gen.Generation();
   }
   
-  public String ArduinoNetworkProtocolGenerationCodeH() {
-    NetworkCodeGenerator _networkCodeGenerator = new NetworkCodeGenerator(Parameters.selected_protocol, 0);
-    this.p = _networkCodeGenerator;
-    return this.p.GenerateHCode();
+  public void setDatas(final Resource r) {
+    this.setNetworkProtocolDatas(r);
   }
   
-  public String ArduinoVariablesGenerationCodeCPP() {
-    VariablesCodeGenerator _variablesCodeGenerator = new VariablesCodeGenerator(Parameters.selected_sensor, Parameters.selected_protocol);
-    this.imp = _variablesCodeGenerator;
-    return this.imp.generateCPPCode();
-  }
-  
-  public String ArduinoSensorGenerationCodeCPP() {
-    SensorsCodeGenerator _sensorsCodeGenerator = new SensorsCodeGenerator(Parameters.selected_sensor, 0);
-    this.s = _sensorsCodeGenerator;
-    return this.s.GenerateCPPCode();
-  }
-  
-  public String ArduinoNetworkProtocolGenerationCodeCPP() {
-    NetworkCodeGenerator _networkCodeGenerator = new NetworkCodeGenerator(Parameters.selected_protocol, 0);
-    this.p = _networkCodeGenerator;
-    return this.p.GenerateCPPCode();
+  public void setNetworkProtocolDatas(final Resource r) {
+    Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
+    for (final element Element : _filter) {
+      EList<content> _contents = Element.getContents();
+      for (final content Content : _contents) {
+        EList<codex> _codex = Content.getCodex();
+        for (final codex Codex : _codex) {
+          EList<device> _device_code = Codex.getDevice_code();
+          for (final device Device : _device_code) {
+            EList<String> _device = Device.getDevice();
+            String _plus = ("DEVICE=" + _device);
+            System.out.println(_plus);
+          }
+        }
+      }
+    }
   }
   
   public String StaticLibHStart() {

@@ -5,15 +5,19 @@ package org.xtext.bPMN_translator.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
+import org.xtext.bPMN_translator.mqtt_network_data;
 import org.xtext.bPMN_translator.protocol_data;
 
 /**
@@ -25,14 +29,16 @@ import org.xtext.bPMN_translator.protocol_data;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.bPMN_translator.impl.protocol_dataImpl#getPname <em>Pname</em>}</li>
- *   <li>{@link org.xtext.bPMN_translator.impl.protocol_dataImpl#getMac <em>Mac</em>}</li>
- *   <li>{@link org.xtext.bPMN_translator.impl.protocol_dataImpl#getIp_address <em>Ip address</em>}</li>
- *   <li>{@link org.xtext.bPMN_translator.impl.protocol_dataImpl#getServer_address <em>Server address</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.protocol_dataImpl#getBroker_user <em>Broker user</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.protocol_dataImpl#getBroker_password <em>Broker password</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.protocol_dataImpl#getBroker <em>Broker</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.protocol_dataImpl#getMqtt_network_data <em>Mqtt network data</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.protocol_dataImpl#getTopics <em>Topics</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class protocol_dataImpl extends MinimalEObjectImpl.Container implements protocol_data
+public class protocol_dataImpl extends mqtt_dataImpl implements protocol_data
 {
   /**
    * The cached value of the '{@link #getPname() <em>Pname</em>}' attribute list.
@@ -45,34 +51,54 @@ public class protocol_dataImpl extends MinimalEObjectImpl.Container implements p
   protected EList<String> pname;
 
   /**
-   * The cached value of the '{@link #getMac() <em>Mac</em>}' attribute list.
+   * The cached value of the '{@link #getBroker_user() <em>Broker user</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMac()
+   * @see #getBroker_user()
    * @generated
    * @ordered
    */
-  protected EList<String> mac;
+  protected EList<String> broker_user;
 
   /**
-   * The cached value of the '{@link #getIp_address() <em>Ip address</em>}' attribute list.
+   * The cached value of the '{@link #getBroker_password() <em>Broker password</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getIp_address()
+   * @see #getBroker_password()
    * @generated
    * @ordered
    */
-  protected EList<String> ip_address;
+  protected EList<String> broker_password;
 
   /**
-   * The cached value of the '{@link #getServer_address() <em>Server address</em>}' attribute list.
+   * The cached value of the '{@link #getBroker() <em>Broker</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getServer_address()
+   * @see #getBroker()
    * @generated
    * @ordered
    */
-  protected EList<String> server_address;
+  protected EList<String> broker;
+
+  /**
+   * The cached value of the '{@link #getMqtt_network_data() <em>Mqtt network data</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMqtt_network_data()
+   * @generated
+   * @ordered
+   */
+  protected EList<mqtt_network_data> mqtt_network_data;
+
+  /**
+   * The cached value of the '{@link #getTopics() <em>Topics</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTopics()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> topics;
 
   /**
    * <!-- begin-user-doc -->
@@ -116,13 +142,13 @@ public class protocol_dataImpl extends MinimalEObjectImpl.Container implements p
    * @generated
    */
   @Override
-  public EList<String> getMac()
+  public EList<String> getBroker_user()
   {
-    if (mac == null)
+    if (broker_user == null)
     {
-      mac = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.PROTOCOL_DATA__MAC);
+      broker_user = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.PROTOCOL_DATA__BROKER_USER);
     }
-    return mac;
+    return broker_user;
   }
 
   /**
@@ -131,13 +157,13 @@ public class protocol_dataImpl extends MinimalEObjectImpl.Container implements p
    * @generated
    */
   @Override
-  public EList<String> getIp_address()
+  public EList<String> getBroker_password()
   {
-    if (ip_address == null)
+    if (broker_password == null)
     {
-      ip_address = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.PROTOCOL_DATA__IP_ADDRESS);
+      broker_password = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.PROTOCOL_DATA__BROKER_PASSWORD);
     }
-    return ip_address;
+    return broker_password;
   }
 
   /**
@@ -146,13 +172,59 @@ public class protocol_dataImpl extends MinimalEObjectImpl.Container implements p
    * @generated
    */
   @Override
-  public EList<String> getServer_address()
+  public EList<String> getBroker()
   {
-    if (server_address == null)
+    if (broker == null)
     {
-      server_address = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.PROTOCOL_DATA__SERVER_ADDRESS);
+      broker = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.PROTOCOL_DATA__BROKER);
     }
-    return server_address;
+    return broker;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<mqtt_network_data> getMqtt_network_data()
+  {
+    if (mqtt_network_data == null)
+    {
+      mqtt_network_data = new EObjectContainmentEList<mqtt_network_data>(mqtt_network_data.class, this, BPMN_translatorPackage.PROTOCOL_DATA__MQTT_NETWORK_DATA);
+    }
+    return mqtt_network_data;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getTopics()
+  {
+    if (topics == null)
+    {
+      topics = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.PROTOCOL_DATA__TOPICS);
+    }
+    return topics;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case BPMN_translatorPackage.PROTOCOL_DATA__MQTT_NETWORK_DATA:
+        return ((InternalEList<?>)getMqtt_network_data()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -167,12 +239,16 @@ public class protocol_dataImpl extends MinimalEObjectImpl.Container implements p
     {
       case BPMN_translatorPackage.PROTOCOL_DATA__PNAME:
         return getPname();
-      case BPMN_translatorPackage.PROTOCOL_DATA__MAC:
-        return getMac();
-      case BPMN_translatorPackage.PROTOCOL_DATA__IP_ADDRESS:
-        return getIp_address();
-      case BPMN_translatorPackage.PROTOCOL_DATA__SERVER_ADDRESS:
-        return getServer_address();
+      case BPMN_translatorPackage.PROTOCOL_DATA__BROKER_USER:
+        return getBroker_user();
+      case BPMN_translatorPackage.PROTOCOL_DATA__BROKER_PASSWORD:
+        return getBroker_password();
+      case BPMN_translatorPackage.PROTOCOL_DATA__BROKER:
+        return getBroker();
+      case BPMN_translatorPackage.PROTOCOL_DATA__MQTT_NETWORK_DATA:
+        return getMqtt_network_data();
+      case BPMN_translatorPackage.PROTOCOL_DATA__TOPICS:
+        return getTopics();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -192,17 +268,25 @@ public class protocol_dataImpl extends MinimalEObjectImpl.Container implements p
         getPname().clear();
         getPname().addAll((Collection<? extends String>)newValue);
         return;
-      case BPMN_translatorPackage.PROTOCOL_DATA__MAC:
-        getMac().clear();
-        getMac().addAll((Collection<? extends String>)newValue);
+      case BPMN_translatorPackage.PROTOCOL_DATA__BROKER_USER:
+        getBroker_user().clear();
+        getBroker_user().addAll((Collection<? extends String>)newValue);
         return;
-      case BPMN_translatorPackage.PROTOCOL_DATA__IP_ADDRESS:
-        getIp_address().clear();
-        getIp_address().addAll((Collection<? extends String>)newValue);
+      case BPMN_translatorPackage.PROTOCOL_DATA__BROKER_PASSWORD:
+        getBroker_password().clear();
+        getBroker_password().addAll((Collection<? extends String>)newValue);
         return;
-      case BPMN_translatorPackage.PROTOCOL_DATA__SERVER_ADDRESS:
-        getServer_address().clear();
-        getServer_address().addAll((Collection<? extends String>)newValue);
+      case BPMN_translatorPackage.PROTOCOL_DATA__BROKER:
+        getBroker().clear();
+        getBroker().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.PROTOCOL_DATA__MQTT_NETWORK_DATA:
+        getMqtt_network_data().clear();
+        getMqtt_network_data().addAll((Collection<? extends mqtt_network_data>)newValue);
+        return;
+      case BPMN_translatorPackage.PROTOCOL_DATA__TOPICS:
+        getTopics().clear();
+        getTopics().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -221,14 +305,20 @@ public class protocol_dataImpl extends MinimalEObjectImpl.Container implements p
       case BPMN_translatorPackage.PROTOCOL_DATA__PNAME:
         getPname().clear();
         return;
-      case BPMN_translatorPackage.PROTOCOL_DATA__MAC:
-        getMac().clear();
+      case BPMN_translatorPackage.PROTOCOL_DATA__BROKER_USER:
+        getBroker_user().clear();
         return;
-      case BPMN_translatorPackage.PROTOCOL_DATA__IP_ADDRESS:
-        getIp_address().clear();
+      case BPMN_translatorPackage.PROTOCOL_DATA__BROKER_PASSWORD:
+        getBroker_password().clear();
         return;
-      case BPMN_translatorPackage.PROTOCOL_DATA__SERVER_ADDRESS:
-        getServer_address().clear();
+      case BPMN_translatorPackage.PROTOCOL_DATA__BROKER:
+        getBroker().clear();
+        return;
+      case BPMN_translatorPackage.PROTOCOL_DATA__MQTT_NETWORK_DATA:
+        getMqtt_network_data().clear();
+        return;
+      case BPMN_translatorPackage.PROTOCOL_DATA__TOPICS:
+        getTopics().clear();
         return;
     }
     super.eUnset(featureID);
@@ -246,12 +336,16 @@ public class protocol_dataImpl extends MinimalEObjectImpl.Container implements p
     {
       case BPMN_translatorPackage.PROTOCOL_DATA__PNAME:
         return pname != null && !pname.isEmpty();
-      case BPMN_translatorPackage.PROTOCOL_DATA__MAC:
-        return mac != null && !mac.isEmpty();
-      case BPMN_translatorPackage.PROTOCOL_DATA__IP_ADDRESS:
-        return ip_address != null && !ip_address.isEmpty();
-      case BPMN_translatorPackage.PROTOCOL_DATA__SERVER_ADDRESS:
-        return server_address != null && !server_address.isEmpty();
+      case BPMN_translatorPackage.PROTOCOL_DATA__BROKER_USER:
+        return broker_user != null && !broker_user.isEmpty();
+      case BPMN_translatorPackage.PROTOCOL_DATA__BROKER_PASSWORD:
+        return broker_password != null && !broker_password.isEmpty();
+      case BPMN_translatorPackage.PROTOCOL_DATA__BROKER:
+        return broker != null && !broker.isEmpty();
+      case BPMN_translatorPackage.PROTOCOL_DATA__MQTT_NETWORK_DATA:
+        return mqtt_network_data != null && !mqtt_network_data.isEmpty();
+      case BPMN_translatorPackage.PROTOCOL_DATA__TOPICS:
+        return topics != null && !topics.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -269,12 +363,14 @@ public class protocol_dataImpl extends MinimalEObjectImpl.Container implements p
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (pname: ");
     result.append(pname);
-    result.append(", mac: ");
-    result.append(mac);
-    result.append(", ip_address: ");
-    result.append(ip_address);
-    result.append(", server_address: ");
-    result.append(server_address);
+    result.append(", broker_user: ");
+    result.append(broker_user);
+    result.append(", broker_password: ");
+    result.append(broker_password);
+    result.append(", broker: ");
+    result.append(broker);
+    result.append(", topics: ");
+    result.append(topics);
     result.append(')');
     return result.toString();
   }

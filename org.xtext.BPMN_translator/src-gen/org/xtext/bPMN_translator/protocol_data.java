@@ -5,8 +5,6 @@ package org.xtext.bPMN_translator;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>protocol data</b></em>'.
@@ -17,16 +15,18 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.bPMN_translator.protocol_data#getPname <em>Pname</em>}</li>
- *   <li>{@link org.xtext.bPMN_translator.protocol_data#getMac <em>Mac</em>}</li>
- *   <li>{@link org.xtext.bPMN_translator.protocol_data#getIp_address <em>Ip address</em>}</li>
- *   <li>{@link org.xtext.bPMN_translator.protocol_data#getServer_address <em>Server address</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.protocol_data#getBroker_user <em>Broker user</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.protocol_data#getBroker_password <em>Broker password</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.protocol_data#getBroker <em>Broker</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.protocol_data#getMqtt_network_data <em>Mqtt network data</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.protocol_data#getTopics <em>Topics</em>}</li>
  * </ul>
  *
  * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_data()
  * @model
  * @generated
  */
-public interface protocol_data extends EObject
+public interface protocol_data extends mqtt_data
 {
   /**
    * Returns the value of the '<em><b>Pname</b></em>' attribute list.
@@ -41,39 +41,63 @@ public interface protocol_data extends EObject
   EList<String> getPname();
 
   /**
-   * Returns the value of the '<em><b>Mac</b></em>' attribute list.
+   * Returns the value of the '<em><b>Broker user</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Mac</em>' attribute list.
-   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_data_Mac()
+   * @return the value of the '<em>Broker user</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_data_Broker_user()
    * @model unique="false"
    * @generated
    */
-  EList<String> getMac();
+  EList<String> getBroker_user();
 
   /**
-   * Returns the value of the '<em><b>Ip address</b></em>' attribute list.
+   * Returns the value of the '<em><b>Broker password</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Ip address</em>' attribute list.
-   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_data_Ip_address()
+   * @return the value of the '<em>Broker password</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_data_Broker_password()
    * @model unique="false"
    * @generated
    */
-  EList<String> getIp_address();
+  EList<String> getBroker_password();
 
   /**
-   * Returns the value of the '<em><b>Server address</b></em>' attribute list.
+   * Returns the value of the '<em><b>Broker</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Server address</em>' attribute list.
-   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_data_Server_address()
+   * @return the value of the '<em>Broker</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_data_Broker()
    * @model unique="false"
    * @generated
    */
-  EList<String> getServer_address();
+  EList<String> getBroker();
+
+  /**
+   * Returns the value of the '<em><b>Mqtt network data</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.bPMN_translator.mqtt_network_data}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Mqtt network data</em>' containment reference list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_data_Mqtt_network_data()
+   * @model containment="true"
+   * @generated
+   */
+  EList<mqtt_network_data> getMqtt_network_data();
+
+  /**
+   * Returns the value of the '<em><b>Topics</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Topics</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_data_Topics()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getTopics();
 
 } // protocol_data

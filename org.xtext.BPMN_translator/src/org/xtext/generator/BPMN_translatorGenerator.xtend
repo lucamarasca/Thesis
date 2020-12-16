@@ -10,6 +10,7 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.bPMN_translator.*
 
 import java.util.ArrayList
+import javax.swing.text.html.parser.Entity
 
 /**
  * Generates code from your model files on save.
@@ -26,8 +27,7 @@ int i;
 String incoming_arrow;
 String outgoing_arrow;
 SensorsCodeGenerator s;
-NetworkCodeGenerator p;
-VariablesCodeGenerator imp;
+ArduinoCPPCodeGenerator cpp_gen;
 DefineCodeGenerator define;
 	
 	String return_value
@@ -35,6 +35,7 @@ DefineCodeGenerator define;
 def Initialize(Resource resource){
 	FillTaskType();
 	FillGatewayType();
+	setDatas(resource);
 	r=resource
 }
 
@@ -57,6 +58,7 @@ def FillGatewayType(){
 		
 		if (resource !== null)
 		{
+			
 			//THIS MEANS THAT I'VE SELECTED A BPMN
 			Initialize(resource);
 			//Main file generation
@@ -64,9 +66,9 @@ def FillGatewayType(){
 			//.h lib file generation
 			fsa.generateFile("GeneratedLib.h" , StaticLibHStart() + StaticLibHEnd())
 	        //.cpp lib file generation
-	        fsa.generateFile("GeneratedLib.cpp" , ArduinoSensorGenerationCodeCPP() 
-	        	
-	        )
+	        fsa.generateFile("GeneratedLib.cpp" ,ArduinoGenerationCodeCPP())
+	        
+	        
         }
         else
         {
@@ -75,18 +77,14 @@ def FillGatewayType(){
         	
 			//Main file generation
 			fsa.generateFile("Main.ino", StaticMainFileStart() + StaticMainFileEnd())
+			
 			//.h lib file generation
 			fsa.generateFile("GeneratedLib.h" , StaticLibHStart() +
-				ArduinoIncludeCodeGenerationH() +
-				ArduinoSensorGenerationCodeH() +
-				ArduinoNetworkProtocolGenerationCodeH() +
-				StaticLibHEnd()
-			)
+				ArduinoCodeGenerationH() +
+				StaticLibHEnd())
+
 	        //.cpp lib file generation
-	        fsa.generateFile("GeneratedLib.cpp" ,ArduinoVariablesGenerationCodeCPP() +
-	        	ArduinoSensorGenerationCodeCPP() +
-	        	ArduinoNetworkProtocolGenerationCodeCPP()
-	        )
+	        fsa.generateFile("GeneratedLib.cpp" ,ArduinoGenerationCodeCPP())
         }
         
        
@@ -94,31 +92,33 @@ def FillGatewayType(){
 	}
 	
 //library.h
-def ArduinoIncludeCodeGenerationH(){
-	define = new DefineCodeGenerator(Parameters.selected_sensor,Parameters.selected_protocol);
+def ArduinoCodeGenerationH(){
+	define = new DefineCodeGenerator(Parameters.selected_sensor,Parameters.selected_protocol,Parameters.selected_wifisensor);
 	define.generateHCode();
 }	
-def ArduinoSensorGenerationCodeH(){
-	s = new SensorsCodeGenerator(Parameters.selected_sensor,0);
-	return s.GenerateHCode();
-}
-def ArduinoNetworkProtocolGenerationCodeH(){
-	p = new NetworkCodeGenerator(Parameters.selected_protocol,0);
-	return p.GenerateHCode();
-}
-//library.cpp
-def ArduinoVariablesGenerationCodeCPP(){
-	imp = new VariablesCodeGenerator(Parameters.selected_sensor,Parameters.selected_protocol); 
-	return imp.generateCPPCode();
-}
-def ArduinoSensorGenerationCodeCPP(){
-	s = new SensorsCodeGenerator(Parameters.selected_sensor,0);
-	return s.GenerateCPPCode();
-}	
 
-def ArduinoNetworkProtocolGenerationCodeCPP(){
-	p = new NetworkCodeGenerator(Parameters.selected_protocol,0);
-	return p.GenerateCPPCode();
+//library.cpp
+def ArduinoGenerationCodeCPP(){
+	cpp_gen = new ArduinoCPPCodeGenerator(Parameters.selected_device , Parameters.selected_protocol, Parameters.selected_wifisensor, Parameters.selected_sensor); 
+	return cpp_gen.Generation();
+}
+
+def setDatas(Resource r){
+	setNetworkProtocolDatas(r);
+}
+
+def setNetworkProtocolDatas(Resource r){
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Content : Element.contents)
+		{
+			for(Codex : Content.codex)
+			{
+				for(Device : Codex.device_code)
+					System.out.println("DEVICE=" + Device.device);
+			}
+		}
+	}
 }
 //++++++++++++++++++++++++++++++++STATIC PART OF THE GENERATED CODE++++++++++++++++++++++++++++++++++++	
 def StaticLibHStart(){

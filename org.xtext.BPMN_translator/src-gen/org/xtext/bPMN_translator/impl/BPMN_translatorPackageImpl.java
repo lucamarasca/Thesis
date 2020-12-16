@@ -22,9 +22,11 @@ import org.xtext.bPMN_translator.content;
 import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
 import org.xtext.bPMN_translator.element_value;
+import org.xtext.bPMN_translator.mqtt_data;
+import org.xtext.bPMN_translator.mqtt_device;
+import org.xtext.bPMN_translator.mqtt_network_data;
 import org.xtext.bPMN_translator.protocol;
 import org.xtext.bPMN_translator.protocol_data;
-import org.xtext.bPMN_translator.protocol_device;
 import org.xtext.bPMN_translator.sensor;
 import org.xtext.bPMN_translator.sensor_data;
 
@@ -111,14 +113,21 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass protocol_dataEClass = null;
+  private EClass mqtt_dataEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass protocol_deviceEClass = null;
+  private EClass mqtt_network_dataEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mqtt_deviceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -140,6 +149,13 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   private EClass element_valueEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass protocol_dataEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -540,7 +556,7 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EReference getprotocol_Protocol_data()
+  public EReference getprotocol_Mqtt_data()
   {
     return (EReference)protocolEClass.getEStructuralFeatures().get(0);
   }
@@ -551,7 +567,7 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EReference getprotocol_Protocol_device()
+  public EReference getprotocol_Mqtt_device()
   {
     return (EReference)protocolEClass.getEStructuralFeatures().get(1);
   }
@@ -562,9 +578,9 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EClass getprotocol_data()
+  public EClass getmqtt_data()
   {
-    return protocol_dataEClass;
+    return mqtt_dataEClass;
   }
 
   /**
@@ -573,9 +589,9 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EAttribute getprotocol_data_Pname()
+  public EClass getmqtt_network_data()
   {
-    return (EAttribute)protocol_dataEClass.getEStructuralFeatures().get(0);
+    return mqtt_network_dataEClass;
   }
 
   /**
@@ -584,9 +600,9 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EAttribute getprotocol_data_Mac()
+  public EAttribute getmqtt_network_data_Ssid()
   {
-    return (EAttribute)protocol_dataEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)mqtt_network_dataEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -595,9 +611,9 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EAttribute getprotocol_data_Ip_address()
+  public EAttribute getmqtt_network_data_Password()
   {
-    return (EAttribute)protocol_dataEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)mqtt_network_dataEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -606,9 +622,9 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EAttribute getprotocol_data_Server_address()
+  public EClass getmqtt_device()
   {
-    return (EAttribute)protocol_dataEClass.getEStructuralFeatures().get(3);
+    return mqtt_deviceEClass;
   }
 
   /**
@@ -617,20 +633,9 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EClass getprotocol_device()
+  public EAttribute getmqtt_device_Protocol_device()
   {
-    return protocol_deviceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getprotocol_device_Protocol_device()
-  {
-    return (EReference)protocol_deviceEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)mqtt_deviceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -727,6 +732,83 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
+  public EClass getprotocol_data()
+  {
+    return protocol_dataEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getprotocol_data_Pname()
+  {
+    return (EAttribute)protocol_dataEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getprotocol_data_Broker_user()
+  {
+    return (EAttribute)protocol_dataEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getprotocol_data_Broker_password()
+  {
+    return (EAttribute)protocol_dataEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getprotocol_data_Broker()
+  {
+    return (EAttribute)protocol_dataEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getprotocol_data_Mqtt_network_data()
+  {
+    return (EReference)protocol_dataEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getprotocol_data_Topics()
+  {
+    return (EAttribute)protocol_dataEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public BPMN_translatorFactory getBPMN_translatorFactory()
   {
     return (BPMN_translatorFactory)getEFactoryInstance();
@@ -791,17 +873,17 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     createEAttribute(deviceEClass, DEVICE__DEVICE);
 
     protocolEClass = createEClass(PROTOCOL);
-    createEReference(protocolEClass, PROTOCOL__PROTOCOL_DATA);
-    createEReference(protocolEClass, PROTOCOL__PROTOCOL_DEVICE);
+    createEReference(protocolEClass, PROTOCOL__MQTT_DATA);
+    createEReference(protocolEClass, PROTOCOL__MQTT_DEVICE);
 
-    protocol_dataEClass = createEClass(PROTOCOL_DATA);
-    createEAttribute(protocol_dataEClass, PROTOCOL_DATA__PNAME);
-    createEAttribute(protocol_dataEClass, PROTOCOL_DATA__MAC);
-    createEAttribute(protocol_dataEClass, PROTOCOL_DATA__IP_ADDRESS);
-    createEAttribute(protocol_dataEClass, PROTOCOL_DATA__SERVER_ADDRESS);
+    mqtt_dataEClass = createEClass(MQTT_DATA);
 
-    protocol_deviceEClass = createEClass(PROTOCOL_DEVICE);
-    createEReference(protocol_deviceEClass, PROTOCOL_DEVICE__PROTOCOL_DEVICE);
+    mqtt_network_dataEClass = createEClass(MQTT_NETWORK_DATA);
+    createEAttribute(mqtt_network_dataEClass, MQTT_NETWORK_DATA__SSID);
+    createEAttribute(mqtt_network_dataEClass, MQTT_NETWORK_DATA__PASSWORD);
+
+    mqtt_deviceEClass = createEClass(MQTT_DEVICE);
+    createEAttribute(mqtt_deviceEClass, MQTT_DEVICE__PROTOCOL_DEVICE);
 
     sensorEClass = createEClass(SENSOR);
     createEReference(sensorEClass, SENSOR__SENSOR);
@@ -813,6 +895,14 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
 
     element_valueEClass = createEClass(ELEMENT_VALUE);
     createEReference(element_valueEClass, ELEMENT_VALUE__SINGLETON_TAG);
+
+    protocol_dataEClass = createEClass(PROTOCOL_DATA);
+    createEAttribute(protocol_dataEClass, PROTOCOL_DATA__PNAME);
+    createEAttribute(protocol_dataEClass, PROTOCOL_DATA__BROKER_USER);
+    createEAttribute(protocol_dataEClass, PROTOCOL_DATA__BROKER_PASSWORD);
+    createEAttribute(protocol_dataEClass, PROTOCOL_DATA__BROKER);
+    createEReference(protocol_dataEClass, PROTOCOL_DATA__MQTT_NETWORK_DATA);
+    createEAttribute(protocol_dataEClass, PROTOCOL_DATA__TOPICS);
   }
 
   /**
@@ -845,6 +935,7 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
 
     // Add supertypes to classes
     element_valueEClass.getESuperTypes().add(this.getelement());
+    protocol_dataEClass.getESuperTypes().add(this.getmqtt_data());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -886,17 +977,17 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     initEAttribute(getdevice_Device(), ecorePackage.getEString(), "device", null, 0, -1, device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(protocolEClass, protocol.class, "protocol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getprotocol_Protocol_data(), this.getprotocol_data(), null, "protocol_data", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getprotocol_Protocol_device(), this.getprotocol_device(), null, "protocol_device", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getprotocol_Mqtt_data(), this.getmqtt_data(), null, "mqtt_data", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getprotocol_Mqtt_device(), this.getmqtt_device(), null, "mqtt_device", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(protocol_dataEClass, protocol_data.class, "protocol_data", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getprotocol_data_Pname(), ecorePackage.getEString(), "pname", null, 0, -1, protocol_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getprotocol_data_Mac(), ecorePackage.getEString(), "mac", null, 0, -1, protocol_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getprotocol_data_Ip_address(), ecorePackage.getEString(), "ip_address", null, 0, -1, protocol_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getprotocol_data_Server_address(), ecorePackage.getEString(), "server_address", null, 0, -1, protocol_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(mqtt_dataEClass, mqtt_data.class, "mqtt_data", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(protocol_deviceEClass, protocol_device.class, "protocol_device", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getprotocol_device_Protocol_device(), this.getsensor_data(), null, "protocol_device", null, 0, -1, protocol_device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(mqtt_network_dataEClass, mqtt_network_data.class, "mqtt_network_data", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getmqtt_network_data_Ssid(), ecorePackage.getEString(), "ssid", null, 0, -1, mqtt_network_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getmqtt_network_data_Password(), ecorePackage.getEString(), "password", null, 0, -1, mqtt_network_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mqtt_deviceEClass, mqtt_device.class, "mqtt_device", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getmqtt_device_Protocol_device(), ecorePackage.getEString(), "protocol_device", null, 0, -1, mqtt_device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sensorEClass, sensor.class, "sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getsensor_Sensor(), this.getsensor_data(), null, "sensor", null, 0, -1, sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -908,6 +999,14 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
 
     initEClass(element_valueEClass, element_value.class, "element_value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getelement_value_Singleton_tag(), this.getSingleton(), null, "singleton_tag", null, 0, -1, element_value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(protocol_dataEClass, protocol_data.class, "protocol_data", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getprotocol_data_Pname(), ecorePackage.getEString(), "pname", null, 0, -1, protocol_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getprotocol_data_Broker_user(), ecorePackage.getEString(), "broker_user", null, 0, -1, protocol_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getprotocol_data_Broker_password(), ecorePackage.getEString(), "broker_password", null, 0, -1, protocol_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getprotocol_data_Broker(), ecorePackage.getEString(), "broker", null, 0, -1, protocol_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getprotocol_data_Mqtt_network_data(), this.getmqtt_network_data(), null, "mqtt_network_data", null, 0, -1, protocol_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getprotocol_data_Topics(), ecorePackage.getEString(), "topics", null, 0, -1, protocol_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

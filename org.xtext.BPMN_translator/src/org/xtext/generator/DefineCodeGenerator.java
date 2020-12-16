@@ -3,10 +3,12 @@ package org.xtext.generator;
 public class DefineCodeGenerator {
 	String sensor;
 	String protocol ;
+	String wifi_module;
 	String result;
-	DefineCodeGenerator(String sensor, String protocol){
-		this.sensor = sensor;
-		this.protocol = protocol;
+	DefineCodeGenerator(String sensor, String protocol, String wifi_module){
+		this.sensor = sensor.toLowerCase().replaceAll("\\s+","");;
+		this.protocol = protocol.toLowerCase().replaceAll("\\s+","");;
+		this.wifi_module = wifi_module.toLowerCase().replaceAll("\\s+","");;
 		this.result = "";
 	}
 	public String generateHCode(){
@@ -26,13 +28,24 @@ public class DefineCodeGenerator {
 		switch (protocol) 
 		{
 			case "MQTT":
-				result += 
-						  "#include <SPI.h>\r\n"
-						+ "#include <Ethernet.h>\r\n"
-						+ "#include <PubSubClient.h>";
+				result += "#include <Ethernet.h>\r\n"
+						+ "#include <PubSubClient.h>\n"
+						+ "#include <WiFiClient.h>\n";
 				break;
 			default: 
 				System.out.println("No code generation for protocol: " + protocol);
+		}
+		switch (wifi_module)
+		{
+			case "esp8266":
+				result += "#include <ESP8266WiFiMulti.h>\n"
+				+ "#include <ESP8266WiFi.h>\n";
+				break;
+			case "esp32":
+				result += "#include <Wire.h>\n";
+				break;
+			default: 
+				result+="No include for this module";
 		}
 		result += "\npublic class GeneratedLib\n{\npublic:\n\tfunction prototypes";
 		return result;

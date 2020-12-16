@@ -23,9 +23,10 @@ import org.xtext.bPMN_translator.content;
 import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
 import org.xtext.bPMN_translator.element_value;
+import org.xtext.bPMN_translator.mqtt_device;
+import org.xtext.bPMN_translator.mqtt_network_data;
 import org.xtext.bPMN_translator.protocol;
 import org.xtext.bPMN_translator.protocol_data;
-import org.xtext.bPMN_translator.protocol_device;
 import org.xtext.bPMN_translator.sensor;
 import org.xtext.bPMN_translator.sensor_data;
 import org.xtext.services.BPMN_translatorGrammarAccess;
@@ -74,14 +75,17 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 			case BPMN_translatorPackage.ELEMENT_VALUE:
 				sequence_element(context, (element_value) semanticObject); 
 				return; 
+			case BPMN_translatorPackage.MQTT_DEVICE:
+				sequence_mqtt_device(context, (mqtt_device) semanticObject); 
+				return; 
+			case BPMN_translatorPackage.MQTT_NETWORK_DATA:
+				sequence_mqtt_network_data(context, (mqtt_network_data) semanticObject); 
+				return; 
 			case BPMN_translatorPackage.PROTOCOL:
 				sequence_protocol(context, (protocol) semanticObject); 
 				return; 
 			case BPMN_translatorPackage.PROTOCOL_DATA:
-				sequence_protocol_data(context, (protocol_data) semanticObject); 
-				return; 
-			case BPMN_translatorPackage.PROTOCOL_DEVICE:
-				sequence_protocol_device(context, (protocol_device) semanticObject); 
+				sequence_mqtt_data(context, (protocol_data) semanticObject); 
 				return; 
 			case BPMN_translatorPackage.SENSOR:
 				sequence_sensor(context, (sensor) semanticObject); 
@@ -159,7 +163,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     codex returns codex
 	 *
 	 * Constraint:
-	 *     (device_code+=device protocol+=protocol sensor_code+=sensor)
+	 *     (device_code+=device protocol+=protocol* sensor_code+=sensor*)
 	 */
 	protected void sequence_codex(ISerializationContext context, codex semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -216,24 +220,43 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	
 	/**
 	 * Contexts:
-	 *     protocol_data returns protocol_data
+	 *     mqtt_data returns protocol_data
 	 *
 	 * Constraint:
-	 *     (pname+=STRING | mac+=STRING | ip_address+=STRING | server_address+=STRING)*
+	 *     (
+	 *         pname+=STRING | 
+	 *         broker_user+=STRING | 
+	 *         broker_password+=STRING | 
+	 *         broker+=STRING | 
+	 *         mqtt_network_data+=mqtt_network_data | 
+	 *         topics+=STRING
+	 *     )*
 	 */
-	protected void sequence_protocol_data(ISerializationContext context, protocol_data semanticObject) {
+	protected void sequence_mqtt_data(ISerializationContext context, protocol_data semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     protocol_device returns protocol_device
+	 *     mqtt_device returns mqtt_device
 	 *
 	 * Constraint:
-	 *     protocol_device+=sensor_data
+	 *     protocol_device+=mqtt_sensor_data
 	 */
-	protected void sequence_protocol_device(ISerializationContext context, protocol_device semanticObject) {
+	protected void sequence_mqtt_device(ISerializationContext context, mqtt_device semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     mqtt_network_data returns mqtt_network_data
+	 *
+	 * Constraint:
+	 *     (ssid+=STRING password+=STRING)
+	 */
+	protected void sequence_mqtt_network_data(ISerializationContext context, mqtt_network_data semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -243,7 +266,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     protocol returns protocol
 	 *
 	 * Constraint:
-	 *     (protocol_data+=protocol_data protocol_device+=protocol_device)
+	 *     (mqtt_data+=mqtt_data mqtt_device+=mqtt_device)
 	 */
 	protected void sequence_protocol(ISerializationContext context, protocol semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -1,0 +1,157 @@
+package network.protocols;
+
+public class MQTT {
+	String wifi_module;
+	MQTTDatas datas;
+	public MQTT(String wifi_module){
+		this.wifi_module = wifi_module.toLowerCase().replaceAll("\\s+","");
+		this.datas = new MQTTDatas();
+	}
+	
+	
+	public String getCPPCode() {
+		switch (wifi_module)
+		{
+		case "esp32":
+		case "esp8266":
+		case "samd":
+			return getCPPCodeESP();
+		default:
+			return "no wifi module";
+		}
+	}
+	
+	public String getCPPCodeESP() {
+		return 
+		"ESP8266WiFiMulti wifiMulti;\r\n"
+		+ "WiFiClient espClient;\r\n"
+		+ "PubSubClient client(espClient);\r\n"
+		+ "\r\n"
+		+ "const char* brokerUser = "+"\""+datas.getBroker_user()+"\""+";  // exp: myemail@mail.com\r\n"
+		+ "const char* brokerPass = "+"\""+datas.getBroker_password()+"\""+";\r\n"
+		+ "const char* broker = \""+datas.getBroker()+"\""+";\r\n"
+		+ "const char* adcTopic =  \""+datas.getTopics().get(0)+"\""+";\r\n"
+		+ "const char* statTopic = \""+datas.getTopics().get(1)+"\""+";\r\n"
+		+ "\r\n"
+		+ "long currentTime, lastTime;\r\n"
+		+ "bool enADC = false;\r\n"
+		+ "\r\n"
+		+ "void setupWiFi()\r\n"
+		+ "{\r\n"
+		+ "  delay(100);\r\n"
+		+ "  \r\n"
+		+ "  wifiMulti.addAP("+"\""+datas.getWifi_ssid().get(0)+"\""+","+"\""+datas.getWifi_pass().get(0)+"\""+");\r\n"
+		+ "  wifiMulti.addAP("+"\""+datas.getWifi_ssid().get(1)+"\""+","+"\""+datas.getWifi_pass().get(1)+"\""+");\r\n"
+		+ "  wifiMulti.addAP("+"\""+datas.getWifi_ssid().get(2)+"\""+","+"\""+datas.getWifi_pass().get(2)+"\""+");\r\n"		
+		+ "\r\n"
+		+ "  Serial.println(\"Connecting ...\");\r\n"
+		+ "  while (wifiMulti.run() != WL_CONNECTED) \r\n"
+		+ "  {\r\n"
+		+ "    delay(250);\r\n"
+		+ "    Serial.print('.');\r\n"
+		+ "  }\r\n"
+		+ "\r\n"
+		+ "  Serial.println('\\n');\r\n"
+		+ "  Serial.print(\"Connected to:\\t\");\r\n"
+		+ "  Serial.println(WiFi.SSID());\r\n"
+		+ "  \r\n"
+		+ "  Serial.print(\"IP address:\\t\");\r\n"
+		+ "  Serial.println(WiFi.localIP());\r\n"
+		+ "}\r\n"
+		+ "\r\n"
+		+ "void reconnect()\r\n"
+		+ "{\r\n"
+		+ "  while(!client.connected())\r\n"
+		+ "  {\r\n"
+		+ "    Serial.print(\"\\nConnecting to \");\r\n"
+		+ "    Serial.println(broker);\r\n"
+		+ "\r\n"
+		+ "    if(client.connect(\"WimosD1\", brokerUser, brokerPass))\r\n"
+		+ "    {\r\n"
+		+ "      Serial.print(\"\\nConnected to \");\r\n"
+		+ "      Serial.println(broker);\r\n"
+		+ "      client.subscribe(inTopic);\r\n"
+		+ "    }\r\n"
+		+ "    else\r\n"
+		+ "    {\r\n"
+		+ "      Serial.println(\"Connecting\");\r\n"
+		+ "      delay(2500);\r\n"
+		+ "    }\r\n"
+		+ "  }\r\n"
+		+ "}\r\n"
+		+ "\r\n"
+		+ "void callback(char* topic, byte* payload, unsigned int len)\r\n"
+		+ "{\r\n"
+		+ "  Serial.print(\"Received messages: \");\r\n"
+		+ "  Serial.println(topic);\r\n"
+		+ "  for(unsigned int i=0; i<len; i++)\r\n"
+		+ "  {\r\n"
+		+ "    Serial.print((char) payload[i]);\r\n"
+		+ "\r\n"
+		+ "    if(len == 1 && payload[0] == '1')\r\n"
+		+ "    {\r\n"
+		+ "      enADC = true;\r\n"
+		+ "    }\r\n"
+		+ "    else if(len == 1 && payload[0] == '0')\r\n"
+		+ "    {\r\n"
+		+ "      enADC = false;\r\n"
+		+ "    }\r\n"
+		+ "  }\r\n"
+		+ "  Serial.println();\r\n"
+		+ "}\r\n"
+		+ "\r\n"
+		+ "void setup()\r\n"
+		+ "{\r\n"
+		+ "  Serial.begin(115200);\r\n"
+		+ "  setupWiFi();\r\n"
+		+ "  client.setServer(broker, 1883);\r\n"
+		+ "  client.setCallback(callback);\r\n"
+		+ "}\r\n"
+		+ "\r\n"
+		+ "void loop()\r\n"
+		+ "{\r\n"
+		+ "  float adcValue;\r\n"
+		+ "\r\n"
+		+ "  char messagesStat[50];\r\n"
+		+ "  char messagesADC[50];\r\n"
+		+ "  \r\n"
+		+ "  if(!client.connected())\r\n"
+		+ "  {\r\n"
+		+ "    reconnect();\r\n"
+		+ "  }\r\n"
+		+ "\r\n"
+		+ "  client.loop();\r\n"
+		+ "\r\n"
+		+ "  currentTime = millis();\r\n"
+		+ "  if(currentTime - lastTime > 1500)\r\n"
+		+ "  {\r\n"
+		+ "    if(enADC)\r\n"
+		+ "    {\r\n"
+		+ "      adcValue = 1.0 * analogRead(A0) / 1024;\r\n"
+		+ "      \r\n"
+		+ "      snprintf(messagesStat, 75, \"Enabled\");\r\n"
+		+ "      dtostrf(adcValue, 1, 4, messagesADC);\r\n"
+		+ "    }\r\n"
+		+ "    else\r\n"
+		+ "    {\r\n"
+		+ "      snprintf(messagesStat, 50, \"Disabled\");\r\n"
+		+ "    }\r\n"
+		+ "\r\n"
+		+ "    Serial.print(\"Sending messages:\\t\");\r\n"
+		+ "    Serial.println(messagesStat);\r\n"
+		+ "    Serial.println(messagesADC);\r\n"
+		+ "    \r\n"
+		+ "    client.publish(statTopic, messagesStat);\r\n"
+		+ "    \r\n"
+		+ "    if(enADC)\r\n"
+		+ "    {\r\n"
+		+ "      client.publish(adcTopic, messagesADC);\r\n"
+		+ "    }\r\n"
+		+ "    \r\n"
+		+ "    lastTime = millis();\r\n"
+		+ "  }\r\n"
+		+ "}";
+	}
+
+	
+}

@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.bPMN_translator.protocol#getProtocol_data <em>Protocol data</em>}</li>
- *   <li>{@link org.xtext.bPMN_translator.protocol#getProtocol_device <em>Protocol device</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.protocol#getMqtt_data <em>Mqtt data</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.protocol#getMqtt_device <em>Mqtt device</em>}</li>
  * </ul>
  *
  * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol()
@@ -27,27 +27,27 @@ import org.eclipse.emf.ecore.EObject;
 public interface protocol extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Protocol data</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.bPMN_translator.protocol_data}.
+   * Returns the value of the '<em><b>Mqtt data</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.bPMN_translator.mqtt_data}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Protocol data</em>' containment reference list.
-   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_Protocol_data()
+   * @return the value of the '<em>Mqtt data</em>' containment reference list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_Mqtt_data()
    * @model containment="true"
    * @generated
    */
-  EList<protocol_data> getProtocol_data();
+  EList<mqtt_data> getMqtt_data();
 
   /**
-   * Returns the value of the '<em><b>Protocol device</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.bPMN_translator.protocol_device}.
+   * Returns the value of the '<em><b>Mqtt device</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.bPMN_translator.mqtt_device}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Protocol device</em>' containment reference list.
-   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_Protocol_device()
+   * @return the value of the '<em>Mqtt device</em>' containment reference list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_Mqtt_device()
    * @model containment="true"
    * @generated
    */
-  EList<protocol_device> getProtocol_device();
+  EList<mqtt_device> getMqtt_device();
 
 } // protocol

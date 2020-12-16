@@ -26,9 +26,10 @@ public class Parameters {
 		Devices.add("Arduino");
 		
 		//Network protocols list
-		Network_protocols_wireless.addAll(Arrays.asList("","Wi-Fi", "Zigbee" , "MQTT",
-				 "Lo-Ra"));
-		Wifi_sensors.addAll(Arrays.asList("","ESP8266 (ESP-12F)", "HC-12", "MKR 1010"));
+		Network_protocols_wireless.addAll(Arrays.asList("","Radio" , "MQTT",
+				 "HTTP"));
+		Wifi_sensors.addAll(Arrays.asList("","ESP8266", "ESP32", "SAMD" ,"MKR 1010",
+				"W5100", "SIM800L", "SIM900"));
 
 		//Sensors types
 		Sensor_type.addAll(Arrays.asList("","Distance Sensor", 
@@ -41,9 +42,9 @@ public class Parameters {
 
 	}
 	
-	static public String selected_device;
-	static public String selected_protocol;
-	static public String selected_wifisensor;
-	static public String selected_sensor;
-	static public boolean end_point_generation;
+	static public String selected_device = "";
+	static public String selected_protocol = "";
+	static public String selected_wifisensor = "";
+	static public String selected_sensor = "";
+	static public boolean end_point_generation = false;
 }
