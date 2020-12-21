@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.bPMN_translator.sensor#getSname <em>Sname</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.sensor#getSensor <em>Sensor</em>}</li>
  * </ul>
  *
@@ -25,6 +26,18 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface sensor extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Sname</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Sname</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getsensor_Sname()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getSname();
+
   /**
    * Returns the value of the '<em><b>Sensor</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.bPMN_translator.sensor_data}.

@@ -81,7 +81,6 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
       case BPMN_translatorPackage.SENSOR: return createsensor();
       case BPMN_translatorPackage.SENSOR_DATA: return createsensor_data();
       case BPMN_translatorPackage.ELEMENT_VALUE: return createelement_value();
-      case BPMN_translatorPackage.PROTOCOL_DATA: return createprotocol_data();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -277,18 +276,6 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
   {
     element_valueImpl element_value = new element_valueImpl();
     return element_value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public protocol_data createprotocol_data()
-  {
-    protocol_dataImpl protocol_data = new protocol_dataImpl();
-    return protocol_data;
   }
 
   /**

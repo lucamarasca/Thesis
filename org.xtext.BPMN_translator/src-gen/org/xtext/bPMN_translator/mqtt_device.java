@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.bPMN_translator.mqtt_device#getProtocol_device <em>Protocol device</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.mqtt_device#getDname <em>Dname</em>}</li>
  * </ul>
  *
  * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getmqtt_device()
@@ -26,15 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface mqtt_device extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Protocol device</b></em>' attribute list.
+   * Returns the value of the '<em><b>Dname</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Protocol device</em>' attribute list.
-   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getmqtt_device_Protocol_device()
+   * @return the value of the '<em>Dname</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getmqtt_device_Dname()
    * @model unique="false"
    * @generated
    */
-  EList<String> getProtocol_device();
+  EList<String> getDname();
 
 } // mqtt_device

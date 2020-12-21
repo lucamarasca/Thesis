@@ -25,6 +25,7 @@ import org.xtext.bPMN_translator.device;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.bPMN_translator.impl.deviceImpl#getDevice <em>Device</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.deviceImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,6 +41,16 @@ public class deviceImpl extends MinimalEObjectImpl.Container implements device
    * @ordered
    */
   protected EList<String> device;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> id;
 
   /**
    * <!-- begin-user-doc -->
@@ -83,12 +94,29 @@ public class deviceImpl extends MinimalEObjectImpl.Container implements device
    * @generated
    */
   @Override
+  public EList<String> getId()
+  {
+    if (id == null)
+    {
+      id = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.DEVICE__ID);
+    }
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case BPMN_translatorPackage.DEVICE__DEVICE:
         return getDevice();
+      case BPMN_translatorPackage.DEVICE__ID:
+        return getId();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -108,6 +136,10 @@ public class deviceImpl extends MinimalEObjectImpl.Container implements device
         getDevice().clear();
         getDevice().addAll((Collection<? extends String>)newValue);
         return;
+      case BPMN_translatorPackage.DEVICE__ID:
+        getId().clear();
+        getId().addAll((Collection<? extends String>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -125,6 +157,9 @@ public class deviceImpl extends MinimalEObjectImpl.Container implements device
       case BPMN_translatorPackage.DEVICE__DEVICE:
         getDevice().clear();
         return;
+      case BPMN_translatorPackage.DEVICE__ID:
+        getId().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -141,6 +176,8 @@ public class deviceImpl extends MinimalEObjectImpl.Container implements device
     {
       case BPMN_translatorPackage.DEVICE__DEVICE:
         return device != null && !device.isEmpty();
+      case BPMN_translatorPackage.DEVICE__ID:
+        return id != null && !id.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -158,6 +195,8 @@ public class deviceImpl extends MinimalEObjectImpl.Container implements device
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (device: ");
     result.append(device);
+    result.append(", id: ");
+    result.append(id);
     result.append(')');
     return result.toString();
   }

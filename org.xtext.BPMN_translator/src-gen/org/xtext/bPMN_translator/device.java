@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.bPMN_translator.device#getDevice <em>Device</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.device#getId <em>Id</em>}</li>
  * </ul>
  *
  * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getdevice()
@@ -36,5 +37,17 @@ public interface device extends EObject
    * @generated
    */
   EList<String> getDevice();
+
+  /**
+   * Returns the value of the '<em><b>Id</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Id</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getdevice_Id()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getId();
 
 } // device

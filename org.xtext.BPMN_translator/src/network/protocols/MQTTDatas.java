@@ -3,28 +3,43 @@ package network.protocols;
 import java.util.ArrayList;
 
 public class MQTTDatas {
+	String device;
 	String name ;
 	String broker_user;
 	String broker_password;
 	String broker;
+	String id;
 	ArrayList <String> wifi_ssid = new ArrayList<String>();
 	ArrayList <String> wifi_pass = new ArrayList<String>();
-	ArrayList <String> topics = new ArrayList<String>();
-	MQTTDatas(){
+	ArrayList <String> publish_topics = new ArrayList<String>();
+	ArrayList <String> subscribed_topics = new ArrayList<String>();
+	public MQTTDatas(){
+		id = "deviceid";
+		device = "Arduino";
 		name = "MQTT";
 		broker_user = "//<--broker user";
 		broker_password = "//<--broker password";
-		broker = "//<--Adress of the broker";
+		broker ="//<--Adress of the broker";
 		wifi_ssid.add("//<--First ssid");
 		wifi_ssid.add("//<--Second ssid");
 		wifi_ssid.add("//<--Third ssid");
 		wifi_pass.add("//<--First wifi pass");
 		wifi_pass.add("//<--Second wifi pass");
 		wifi_pass.add("//<--Third wifi pass");
-		topics.add("//<--First topic");
-		topics.add("//<--Second topic");
+		publish_topics.add("//<--First topic");
+		publish_topics.add("//<--Second topic");
+		subscribed_topics.add("//<--First topic");
+		subscribed_topics.add("//<--Second topic");
+		subscribed_topics.add("//<--Second topic");
+		subscribed_topics.add("//<--Second topic");
 	}
 //++++++++++++++++++++++++++++++GETTERS AND SETTERS+++++++++++++++++++++++++++++++++
+	public String getID() {
+		return id;
+	}
+	public void setID(String id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
@@ -49,11 +64,17 @@ public class MQTTDatas {
 	public void setBroker(String broker) {
 		this.broker = broker;
 	}
-	public ArrayList<String> getTopics() {
-		return topics;
+	public ArrayList<String> getPubTopics() {
+		return publish_topics;
 	}
-	public void setTopics(ArrayList<String> topics) {
-		this.topics = topics;
+	public void setPubTopics(ArrayList<String> topics) {
+		this.publish_topics = topics;
+	}
+	public ArrayList<String> getSubTopics() {
+		return subscribed_topics;
+	}
+	public void setSubTopics(ArrayList<String> topics) {
+		this.subscribed_topics = topics;
 	}
 	public ArrayList<String> getWifi_ssid() {
 		return wifi_ssid;
@@ -66,6 +87,12 @@ public class MQTTDatas {
 	}
 	public void setWifi_pass(ArrayList<String> wifi_pass) {
 		this.wifi_pass = wifi_pass;
+	}
+	public String getDevice() {
+		return device;
+	}
+	public void setDevice(String device) {
+		this.device = device;
 	}
 	
 }

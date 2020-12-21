@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.bPMN_translator.sensor_data#getPname <em>Pname</em>}</li>
- *   <li>{@link org.xtext.bPMN_translator.sensor_data#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.sensor_data#getPins <em>Pins</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.sensor_data#getSensor_id <em>Sensor id</em>}</li>
  * </ul>
  *
  * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getsensor_data()
@@ -40,18 +40,6 @@ public interface sensor_data extends EObject
   EList<String> getPname();
 
   /**
-   * Returns the value of the '<em><b>Type</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' attribute list.
-   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getsensor_data_Type()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getType();
-
-  /**
    * Returns the value of the '<em><b>Pins</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
@@ -62,5 +50,17 @@ public interface sensor_data extends EObject
    * @generated
    */
   EList<String> getPins();
+
+  /**
+   * Returns the value of the '<em><b>Sensor id</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Sensor id</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getsensor_data_Sensor_id()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getSensor_id();
 
 } // sensor_data

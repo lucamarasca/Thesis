@@ -23,10 +23,10 @@ import org.xtext.bPMN_translator.content;
 import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
 import org.xtext.bPMN_translator.element_value;
+import org.xtext.bPMN_translator.mqtt_data;
 import org.xtext.bPMN_translator.mqtt_device;
 import org.xtext.bPMN_translator.mqtt_network_data;
 import org.xtext.bPMN_translator.protocol;
-import org.xtext.bPMN_translator.protocol_data;
 import org.xtext.bPMN_translator.sensor;
 import org.xtext.bPMN_translator.sensor_data;
 import org.xtext.services.BPMN_translatorGrammarAccess;
@@ -75,6 +75,9 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 			case BPMN_translatorPackage.ELEMENT_VALUE:
 				sequence_element(context, (element_value) semanticObject); 
 				return; 
+			case BPMN_translatorPackage.MQTT_DATA:
+				sequence_mqtt_data(context, (mqtt_data) semanticObject); 
+				return; 
 			case BPMN_translatorPackage.MQTT_DEVICE:
 				sequence_mqtt_device(context, (mqtt_device) semanticObject); 
 				return; 
@@ -83,9 +86,6 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 				return; 
 			case BPMN_translatorPackage.PROTOCOL:
 				sequence_protocol(context, (protocol) semanticObject); 
-				return; 
-			case BPMN_translatorPackage.PROTOCOL_DATA:
-				sequence_mqtt_data(context, (protocol_data) semanticObject); 
 				return; 
 			case BPMN_translatorPackage.SENSOR:
 				sequence_sensor(context, (sensor) semanticObject); 
@@ -175,7 +175,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     content returns content
 	 *
 	 * Constraint:
-	 *     (codex+=codex | element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)*
+	 *     ((element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)? (type+='_TASK' codex+=codex)?)+
 	 */
 	protected void sequence_content(ISerializationContext context, content semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -187,7 +187,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     device returns device
 	 *
 	 * Constraint:
-	 *     device+=STRING
+	 *     (device+=STRING id+=STRING)
 	 */
 	protected void sequence_device(ISerializationContext context, device semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -220,7 +220,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	
 	/**
 	 * Contexts:
-	 *     mqtt_data returns protocol_data
+	 *     mqtt_data returns mqtt_data
 	 *
 	 * Constraint:
 	 *     (
@@ -229,10 +229,13 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *         broker_password+=STRING | 
 	 *         broker+=STRING | 
 	 *         mqtt_network_data+=mqtt_network_data | 
-	 *         topics+=STRING
+	 *         subtopics+=STRING | 
+	 *         pubtopics+=STRING | 
+	 *         value+=STRING | 
+	 *         value+=variable
 	 *     )*
 	 */
-	protected void sequence_mqtt_data(ISerializationContext context, protocol_data semanticObject) {
+	protected void sequence_mqtt_data(ISerializationContext context, mqtt_data semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -242,7 +245,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     mqtt_device returns mqtt_device
 	 *
 	 * Constraint:
-	 *     protocol_device+=mqtt_sensor_data
+	 *     dname+=STRING
 	 */
 	protected void sequence_mqtt_device(ISerializationContext context, mqtt_device semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -266,7 +269,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     protocol returns protocol
 	 *
 	 * Constraint:
-	 *     (mqtt_data+=mqtt_data mqtt_device+=mqtt_device)
+	 *     (pname+='MQTT' mqtt_data+=mqtt_data mqtt_device+=mqtt_device)
 	 */
 	protected void sequence_protocol(ISerializationContext context, protocol semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -278,7 +281,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     sensor_data returns sensor_data
 	 *
 	 * Constraint:
-	 *     (pname+=STRING | type+=STRING | pins+=STRING)*
+	 *     (pname+=STRING | pins+=STRING | sensor_id+=STRING)*
 	 */
 	protected void sequence_sensor_data(ISerializationContext context, sensor_data semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -290,7 +293,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     sensor returns sensor
 	 *
 	 * Constraint:
-	 *     sensor+=sensor_data
+	 *     ((sname+='TEMPERATURE' sensor+=sensor_data) | (sname+='DISTANCE' sensor+=sensor_data))
 	 */
 	protected void sequence_sensor(ISerializationContext context, sensor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

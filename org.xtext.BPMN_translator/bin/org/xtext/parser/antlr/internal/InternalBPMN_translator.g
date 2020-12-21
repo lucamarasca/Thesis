@@ -342,10 +342,20 @@ rulecontent returns [EObject current=null]
 		)
 		(
 			(
-				otherlv_1='TRANSLATE'
-				{
-					newLeafNode(otherlv_1, grammarAccess.getContentAccess().getTRANSLATEKeyword_1_0_0());
-				}
+				(
+					(
+						lv_type_1_0='_TASK'
+						{
+							newLeafNode(lv_type_1_0, grammarAccess.getContentAccess().getType_TASKKeyword_1_0_0_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getContentRule());
+							}
+							addWithLastConsumed($current, "type", lv_type_1_0, "_TASK");
+						}
+					)
+				)
 				otherlv_2='{'
 				{
 					newLeafNode(otherlv_2, grammarAccess.getContentAccess().getLeftCurlyBracketKeyword_1_0_1());
@@ -867,6 +877,32 @@ ruledevice returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_3='NAMEID'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getDeviceAccess().getNAMEIDKeyword_3());
+		}
+		otherlv_4=':'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getDeviceAccess().getColonKeyword_4());
+		}
+		(
+			(
+				lv_id_5_0=RULE_STRING
+				{
+					newLeafNode(lv_id_5_0, grammarAccess.getDeviceAccess().getIdSTRINGTerminalRuleCall_5_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDeviceRule());
+					}
+					addWithLastConsumed(
+						$current,
+						"id",
+						lv_id_5_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
 	)
 ;
 
@@ -886,10 +922,20 @@ ruleprotocol returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='MQTT'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getProtocolAccess().getMQTTKeyword_0());
-		}
+		(
+			(
+				lv_pname_0_0='MQTT'
+				{
+					newLeafNode(lv_pname_0_0, grammarAccess.getProtocolAccess().getPnameMQTTKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getProtocolRule());
+					}
+					addWithLastConsumed($current, "pname", lv_pname_0_0, "MQTT");
+				}
+			)
+		)
 		otherlv_1='{'
 		{
 			newLeafNode(otherlv_1, grammarAccess.getProtocolAccess().getLeftCurlyBracketKeyword_1());
@@ -960,7 +1006,7 @@ rulemqtt_data returns [EObject current=null]
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getMqtt_dataAccess().getProtocol_dataAction_0(),
+					grammarAccess.getMqtt_dataAccess().getMqtt_dataAction_0(),
 					$current);
 			}
 		)
@@ -1116,35 +1162,137 @@ rulemqtt_data returns [EObject current=null]
 			)
 			    |
 			(
-				otherlv_17='TOPICS'
+				otherlv_17='SUBTOPICS'
 				{
-					newLeafNode(otherlv_17, grammarAccess.getMqtt_dataAccess().getTOPICSKeyword_1_5_0());
+					newLeafNode(otherlv_17, grammarAccess.getMqtt_dataAccess().getSUBTOPICSKeyword_1_5_0());
 				}
 				otherlv_18='{'
 				{
 					newLeafNode(otherlv_18, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_5_1());
 				}
 				(
+					otherlv_19='TOPIC_NAME'
+					{
+						newLeafNode(otherlv_19, grammarAccess.getMqtt_dataAccess().getTOPIC_NAMEKeyword_1_5_2_0());
+					}
+					otherlv_20='='
+					{
+						newLeafNode(otherlv_20, grammarAccess.getMqtt_dataAccess().getEqualsSignKeyword_1_5_2_1());
+					}
 					(
-						lv_topics_19_0=RULE_STRING
-						{
-							newLeafNode(lv_topics_19_0, grammarAccess.getMqtt_dataAccess().getTopicsSTRINGTerminalRuleCall_1_5_2_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getMqtt_dataRule());
+						(
+							lv_subtopics_21_0=RULE_STRING
+							{
+								newLeafNode(lv_subtopics_21_0, grammarAccess.getMqtt_dataAccess().getSubtopicsSTRINGTerminalRuleCall_1_5_2_2_0());
 							}
-							addWithLastConsumed(
-								$current,
-								"topics",
-								lv_topics_19_0,
-								"org.eclipse.xtext.common.Terminals.STRING");
-						}
+							{
+								if ($current==null) {
+									$current = createModelElement(grammarAccess.getMqtt_dataRule());
+								}
+								addWithLastConsumed(
+									$current,
+									"subtopics",
+									lv_subtopics_21_0,
+									"org.eclipse.xtext.common.Terminals.STRING");
+							}
+						)
 					)
 				)*
-				otherlv_20='}'
+				otherlv_22='}'
 				{
-					newLeafNode(otherlv_20, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3());
+					newLeafNode(otherlv_22, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_5_3());
+				}
+			)
+			    |
+			(
+				otherlv_23='PUBTOPICS'
+				{
+					newLeafNode(otherlv_23, grammarAccess.getMqtt_dataAccess().getPUBTOPICSKeyword_1_6_0());
+				}
+				otherlv_24='{'
+				{
+					newLeafNode(otherlv_24, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_6_1());
+				}
+				(
+					(
+						otherlv_25='TOPIC_NAME'
+						{
+							newLeafNode(otherlv_25, grammarAccess.getMqtt_dataAccess().getTOPIC_NAMEKeyword_1_6_2_0_0());
+						}
+						otherlv_26='='
+						{
+							newLeafNode(otherlv_26, grammarAccess.getMqtt_dataAccess().getEqualsSignKeyword_1_6_2_0_1());
+						}
+						(
+							(
+								lv_pubtopics_27_0=RULE_STRING
+								{
+									newLeafNode(lv_pubtopics_27_0, grammarAccess.getMqtt_dataAccess().getPubtopicsSTRINGTerminalRuleCall_1_6_2_0_2_0());
+								}
+								{
+									if ($current==null) {
+										$current = createModelElement(grammarAccess.getMqtt_dataRule());
+									}
+									addWithLastConsumed(
+										$current,
+										"pubtopics",
+										lv_pubtopics_27_0,
+										"org.eclipse.xtext.common.Terminals.STRING");
+								}
+							)
+						)*
+					)
+					    |
+					(
+						otherlv_28='DATA'
+						{
+							newLeafNode(otherlv_28, grammarAccess.getMqtt_dataAccess().getDATAKeyword_1_6_2_1_0());
+						}
+						otherlv_29='='
+						{
+							newLeafNode(otherlv_29, grammarAccess.getMqtt_dataAccess().getEqualsSignKeyword_1_6_2_1_1());
+						}
+						(
+							(
+								(
+									lv_value_30_1=RULE_STRING
+									{
+										newLeafNode(lv_value_30_1, grammarAccess.getMqtt_dataAccess().getValueSTRINGTerminalRuleCall_1_6_2_1_2_0_0());
+									}
+									{
+										if ($current==null) {
+											$current = createModelElement(grammarAccess.getMqtt_dataRule());
+										}
+										addWithLastConsumed(
+											$current,
+											"value",
+											lv_value_30_1,
+											"org.eclipse.xtext.common.Terminals.STRING");
+									}
+									    |
+									{
+										newCompositeNode(grammarAccess.getMqtt_dataAccess().getValueVariableParserRuleCall_1_6_2_1_2_0_1());
+									}
+									lv_value_30_2=rulevariable
+									{
+										if ($current==null) {
+											$current = createModelElementForParent(grammarAccess.getMqtt_dataRule());
+										}
+										add(
+											$current,
+											"value",
+											lv_value_30_2,
+											"org.xtext.BPMN_translator.variable");
+										afterParserOrEnumRuleCall();
+									}
+								)
+							)
+						)
+					)
+				)*
+				otherlv_31='}'
+				{
+					newLeafNode(otherlv_31, grammarAccess.getMqtt_dataAccess().getRightCurlyBracketKeyword_1_6_3());
 				}
 			)
 		)*
@@ -1246,64 +1394,35 @@ rulemqtt_device returns [EObject current=null]
 		{
 			newLeafNode(otherlv_1, grammarAccess.getMqtt_deviceAccess().getLeftCurlyBracketKeyword_1());
 		}
+		otherlv_2='NAME'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getMqtt_deviceAccess().getNAMEKeyword_2());
+		}
+		otherlv_3='='
+		{
+			newLeafNode(otherlv_3, grammarAccess.getMqtt_deviceAccess().getEqualsSignKeyword_3());
+		}
 		(
 			(
+				lv_dname_4_0=RULE_STRING
 				{
-					newCompositeNode(grammarAccess.getMqtt_deviceAccess().getProtocol_deviceMqtt_sensor_dataParserRuleCall_2_0());
+					newLeafNode(lv_dname_4_0, grammarAccess.getMqtt_deviceAccess().getDnameSTRINGTerminalRuleCall_4_0());
 				}
-				lv_protocol_device_2_0=rulemqtt_sensor_data
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getMqtt_deviceRule());
+						$current = createModelElement(grammarAccess.getMqtt_deviceRule());
 					}
-					add(
+					addWithLastConsumed(
 						$current,
-						"protocol_device",
-						lv_protocol_device_2_0,
-						"org.xtext.BPMN_translator.mqtt_sensor_data");
-					afterParserOrEnumRuleCall();
+						"dname",
+						lv_dname_4_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
-		otherlv_3='}'
+		otherlv_5='}'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getMqtt_deviceAccess().getRightCurlyBracketKeyword_3());
-		}
-	)
-;
-
-// Entry rule entryRulemqtt_sensor_data
-entryRulemqtt_sensor_data returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getMqtt_sensor_dataRule()); }
-	iv_rulemqtt_sensor_data=rulemqtt_sensor_data
-	{ $current=$iv_rulemqtt_sensor_data.current.getText(); }
-	EOF;
-
-// Rule mqtt_sensor_data
-rulemqtt_sensor_data returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		kw='NAME'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getMqtt_sensor_dataAccess().getNAMEKeyword_0());
-		}
-		kw='='
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getMqtt_sensor_dataAccess().getEqualsSignKeyword_1());
-		}
-		this_STRING_2=RULE_STRING
-		{
-			$current.merge(this_STRING_2);
-		}
-		{
-			newLeafNode(this_STRING_2, grammarAccess.getMqtt_sensor_dataAccess().getSTRINGTerminalRuleCall_2());
+			newLeafNode(otherlv_5, grammarAccess.getMqtt_deviceAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
@@ -1324,37 +1443,93 @@ rulesensor returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='SENSOR'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getSensorAccess().getSENSORKeyword_0());
-		}
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getSensorAccess().getLeftCurlyBracketKeyword_1());
-		}
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getSensorAccess().getSensorSensor_dataParserRuleCall_2_0());
-				}
-				lv_sensor_2_0=rulesensor_data
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSensorRule());
+				(
+					lv_sname_0_0='TEMPERATURE'
+					{
+						newLeafNode(lv_sname_0_0, grammarAccess.getSensorAccess().getSnameTEMPERATUREKeyword_0_0_0());
 					}
-					add(
-						$current,
-						"sensor",
-						lv_sensor_2_0,
-						"org.xtext.BPMN_translator.sensor_data");
-					afterParserOrEnumRuleCall();
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSensorRule());
+						}
+						addWithLastConsumed($current, "sname", lv_sname_0_0, "TEMPERATURE");
+					}
+				)
 			)
+			otherlv_1='{'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getSensorAccess().getLeftCurlyBracketKeyword_0_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSensorAccess().getSensorSensor_dataParserRuleCall_0_2_0());
+					}
+					lv_sensor_2_0=rulesensor_data
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSensorRule());
+						}
+						add(
+							$current,
+							"sensor",
+							lv_sensor_2_0,
+							"org.xtext.BPMN_translator.sensor_data");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_3='}'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_0_3());
+			}
 		)
-		otherlv_3='}'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_3());
-		}
+		    |
+		(
+			(
+				(
+					lv_sname_4_0='DISTANCE'
+					{
+						newLeafNode(lv_sname_4_0, grammarAccess.getSensorAccess().getSnameDISTANCEKeyword_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSensorRule());
+						}
+						addWithLastConsumed($current, "sname", lv_sname_4_0, "DISTANCE");
+					}
+				)
+			)
+			otherlv_5='{'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getSensorAccess().getLeftCurlyBracketKeyword_1_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSensorAccess().getSensorSensor_dataParserRuleCall_1_2_0());
+					}
+					lv_sensor_6_0=rulesensor_data
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSensorRule());
+						}
+						add(
+							$current,
+							"sensor",
+							lv_sensor_6_0,
+							"org.xtext.BPMN_translator.sensor_data");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_7='}'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_1_3());
+			}
+		)
 	)
 ;
 
@@ -1412,9 +1587,9 @@ rulesensor_data returns [EObject current=null]
 			)
 			    |
 			(
-				otherlv_4='TYPE'
+				otherlv_4='PINS'
 				{
-					newLeafNode(otherlv_4, grammarAccess.getSensor_dataAccess().getTYPEKeyword_1_1_0());
+					newLeafNode(otherlv_4, grammarAccess.getSensor_dataAccess().getPINSKeyword_1_1_0());
 				}
 				otherlv_5='='
 				{
@@ -1422,38 +1597,9 @@ rulesensor_data returns [EObject current=null]
 				}
 				(
 					(
-						lv_type_6_0=RULE_STRING
+						lv_pins_6_0=RULE_STRING
 						{
-							newLeafNode(lv_type_6_0, grammarAccess.getSensor_dataAccess().getTypeSTRINGTerminalRuleCall_1_1_2_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getSensor_dataRule());
-							}
-							addWithLastConsumed(
-								$current,
-								"type",
-								lv_type_6_0,
-								"org.eclipse.xtext.common.Terminals.STRING");
-						}
-					)
-				)
-			)
-			    |
-			(
-				otherlv_7='PINS'
-				{
-					newLeafNode(otherlv_7, grammarAccess.getSensor_dataAccess().getPINSKeyword_1_2_0());
-				}
-				otherlv_8='='
-				{
-					newLeafNode(otherlv_8, grammarAccess.getSensor_dataAccess().getEqualsSignKeyword_1_2_1());
-				}
-				(
-					(
-						lv_pins_9_0=RULE_STRING
-						{
-							newLeafNode(lv_pins_9_0, grammarAccess.getSensor_dataAccess().getPinsSTRINGTerminalRuleCall_1_2_2_0());
+							newLeafNode(lv_pins_6_0, grammarAccess.getSensor_dataAccess().getPinsSTRINGTerminalRuleCall_1_1_2_0());
 						}
 						{
 							if ($current==null) {
@@ -1462,13 +1608,72 @@ rulesensor_data returns [EObject current=null]
 							addWithLastConsumed(
 								$current,
 								"pins",
-								lv_pins_9_0,
+								lv_pins_6_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_7='SENSOR_ID'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getSensor_dataAccess().getSENSOR_IDKeyword_1_2_0());
+				}
+				otherlv_8='='
+				{
+					newLeafNode(otherlv_8, grammarAccess.getSensor_dataAccess().getEqualsSignKeyword_1_2_1());
+				}
+				(
+					(
+						lv_sensor_id_9_0=RULE_STRING
+						{
+							newLeafNode(lv_sensor_id_9_0, grammarAccess.getSensor_dataAccess().getSensor_idSTRINGTerminalRuleCall_1_2_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSensor_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"sensor_id",
+								lv_sensor_id_9_0,
 								"org.eclipse.xtext.common.Terminals.STRING");
 						}
 					)
 				)
 			)
 		)*
+	)
+;
+
+// Entry rule entryRulevariable
+entryRulevariable returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getVariableRule()); }
+	iv_rulevariable=rulevariable
+	{ $current=$iv_rulevariable.current.getText(); }
+	EOF;
+
+// Rule variable
+rulevariable returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='TEMPERATURE'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getVariableAccess().getTEMPERATUREKeyword_0());
+		}
+		    |
+		kw='DISTANCE'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getVariableAccess().getDISTANCEKeyword_1());
+		}
 	)
 ;
 

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -29,6 +30,7 @@ import org.xtext.bPMN_translator.sensor_data;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.bPMN_translator.impl.sensorImpl#getSname <em>Sname</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.sensorImpl#getSensor <em>Sensor</em>}</li>
  * </ul>
  *
@@ -36,6 +38,16 @@ import org.xtext.bPMN_translator.sensor_data;
  */
 public class sensorImpl extends MinimalEObjectImpl.Container implements sensor
 {
+  /**
+   * The cached value of the '{@link #getSname() <em>Sname</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSname()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> sname;
+
   /**
    * The cached value of the '{@link #getSensor() <em>Sensor</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -65,6 +77,21 @@ public class sensorImpl extends MinimalEObjectImpl.Container implements sensor
   protected EClass eStaticClass()
   {
     return BPMN_translatorPackage.Literals.SENSOR;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getSname()
+  {
+    if (sname == null)
+    {
+      sname = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.SENSOR__SNAME);
+    }
+    return sname;
   }
 
   /**
@@ -108,6 +135,8 @@ public class sensorImpl extends MinimalEObjectImpl.Container implements sensor
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.SENSOR__SNAME:
+        return getSname();
       case BPMN_translatorPackage.SENSOR__SENSOR:
         return getSensor();
     }
@@ -125,6 +154,10 @@ public class sensorImpl extends MinimalEObjectImpl.Container implements sensor
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.SENSOR__SNAME:
+        getSname().clear();
+        getSname().addAll((Collection<? extends String>)newValue);
+        return;
       case BPMN_translatorPackage.SENSOR__SENSOR:
         getSensor().clear();
         getSensor().addAll((Collection<? extends sensor_data>)newValue);
@@ -143,6 +176,9 @@ public class sensorImpl extends MinimalEObjectImpl.Container implements sensor
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.SENSOR__SNAME:
+        getSname().clear();
+        return;
       case BPMN_translatorPackage.SENSOR__SENSOR:
         getSensor().clear();
         return;
@@ -160,10 +196,29 @@ public class sensorImpl extends MinimalEObjectImpl.Container implements sensor
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.SENSOR__SNAME:
+        return sname != null && !sname.isEmpty();
       case BPMN_translatorPackage.SENSOR__SENSOR:
         return sensor != null && !sensor.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (sname: ");
+    result.append(sname);
+    result.append(')');
+    return result.toString();
   }
 
 } //sensorImpl

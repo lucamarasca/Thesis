@@ -26,7 +26,7 @@ element     :   (open += Open
 
 content:
 	{content}
-	( "TRANSLATE" "{" codex += codex "}"| element+=element |   body+=BODY |   keywords+=KEYWORDS  |  data+=STRING  )*
+	(( type += "_TASK") "{" codex += codex "}"| element+=element |   body+=BODY |   keywords+=KEYWORDS  |  data+=STRING  )*
 ;
 
 Open:
@@ -51,36 +51,43 @@ codex:
 ;
 device:
 	"DEVICE" ":" device += STRING
+	"NAMEID" ":" id += STRING
 ;
 protocol:
-	 (("MQTT") "{" (mqtt_data += mqtt_data
+	 ((pname += ("MQTT") ) "{" (mqtt_data += mqtt_data
 	 	mqtt_device += mqtt_device) "}")
 ;
 mqtt_data:
-	
-	{protocol_data}("NAME" "="  pname+=STRING |  "BROKER_USER" "=" broker_user+=STRING 
+	{mqtt_data}
+	("NAME" "="  pname+=STRING |  "BROKER_USER" "=" broker_user+=STRING 
 		| "BROKER_PASSWORD" "=" broker_password+=STRING | "BROKER" "=" broker += STRING
 		| "NETWORK" "{" mqtt_network_data += mqtt_network_data* "}" 
-		| "TOPICS" "{" topics += STRING* "}"
+		| "SUBTOPICS" "{" ("TOPIC_NAME" "=" subtopics += STRING)* "}" 
+		| "PUBTOPICS" "{" ("TOPIC_NAME" "=" pubtopics += STRING* 
+		| "DATA" "=" value+=(STRING|variable))*"}"
 	)*
 ;
+
 mqtt_network_data:
 	"SSID" "=" ssid+=STRING
 	"PASSWORD" "=" password+=STRING
 ;
 mqtt_device:
-	"PROTOCOL_DEVICE" "{" protocol_device += mqtt_sensor_data "}"
+	"PROTOCOL_DEVICE" "{" "NAME" "=" dname += STRING "}"
 ;
-mqtt_sensor_data:
-	"NAME" "=" STRING
-;
+
 sensor:
-	"SENSOR" "{" sensor += sensor_data "}"
+	
+	(sname += "TEMPERATURE" "{" sensor += sensor_data "}")|
+	(sname += "DISTANCE" "{" sensor += sensor_data "}")
 ;
 sensor_data:
-	{sensor_data}("NAME" "="  pname+=STRING |  "TYPE" "=" type+=STRING 
-		| "PINS" "=" pins+=STRING 
+	{sensor_data}("NAME" "="  pname+=STRING 
+		| "PINS" "=" pins+=STRING | "SENSOR_ID" "=" sensor_id += STRING
 	)*
+;
+variable:
+	"TEMPERATURE" | "DISTANCE"
 ;
 //++++++++++++++++END MY GRAMMAR+++++++++++++++++++
 terminal HEAD:

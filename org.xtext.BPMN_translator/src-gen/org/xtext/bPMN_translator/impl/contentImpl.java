@@ -31,6 +31,7 @@ import org.xtext.bPMN_translator.element;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.bPMN_translator.impl.contentImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.contentImpl#getCodex <em>Codex</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.contentImpl#getElement <em>Element</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.contentImpl#getBody <em>Body</em>}</li>
@@ -42,6 +43,16 @@ import org.xtext.bPMN_translator.element;
  */
 public class contentImpl extends MinimalEObjectImpl.Container implements content
 {
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> type;
+
   /**
    * The cached value of the '{@link #getCodex() <em>Codex</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -111,6 +122,21 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   protected EClass eStaticClass()
   {
     return BPMN_translatorPackage.Literals.CONTENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getType()
+  {
+    if (type == null)
+    {
+      type = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.CONTENT__TYPE);
+    }
+    return type;
   }
 
   /**
@@ -216,6 +242,8 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.CONTENT__TYPE:
+        return getType();
       case BPMN_translatorPackage.CONTENT__CODEX:
         return getCodex();
       case BPMN_translatorPackage.CONTENT__ELEMENT:
@@ -241,6 +269,10 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.CONTENT__TYPE:
+        getType().clear();
+        getType().addAll((Collection<? extends String>)newValue);
+        return;
       case BPMN_translatorPackage.CONTENT__CODEX:
         getCodex().clear();
         getCodex().addAll((Collection<? extends codex>)newValue);
@@ -275,6 +307,9 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.CONTENT__TYPE:
+        getType().clear();
+        return;
       case BPMN_translatorPackage.CONTENT__CODEX:
         getCodex().clear();
         return;
@@ -304,6 +339,8 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.CONTENT__TYPE:
+        return type != null && !type.isEmpty();
       case BPMN_translatorPackage.CONTENT__CODEX:
         return codex != null && !codex.isEmpty();
       case BPMN_translatorPackage.CONTENT__ELEMENT:
@@ -329,7 +366,9 @@ public class contentImpl extends MinimalEObjectImpl.Container implements content
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (body: ");
+    result.append(" (type: ");
+    result.append(type);
+    result.append(", body: ");
     result.append(body);
     result.append(", keywords: ");
     result.append(keywords);

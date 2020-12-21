@@ -8,9 +8,12 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.bPMN_translator.*
-
+import network.protocols.*;
 import java.util.ArrayList
 import javax.swing.text.html.parser.Entity
+import org.xtext.bPMN_translator.mqtt_data
+import org.xtext.bPMN_translator.codex
+import sensor.devices.TemperatureSensor
 
 /**
  * Generates code from your model files on save.
@@ -21,22 +24,39 @@ class BPMN_translatorGenerator extends AbstractGenerator {
 //++++++++++++++++++++++++++++++Costants++++++++++++++++++++++++++++++++++
 ArrayList<String> task_type;
 ArrayList<String> gateway_type;
-String app;
-Resource r;
-int i;
-String incoming_arrow;
-String outgoing_arrow;
-SensorsCodeGenerator s;
+
+ArrayList <String> ids;
+
+
+String cpp_code;
 ArduinoCPPCodeGenerator cpp_gen;
-DefineCodeGenerator define;
-	
-	String return_value
+String h_code;
+ArduinoHCodeGenerator h_gen;
+ArrayList<String> ino_code;
+ArduinoInoCodeGenerator ino_gen;
+MQTT netdata;
+TemperatureSensor s;
+ArrayList<Elements> elements;
+ArrayList<String> generated_elements;
+int iterations;
+
+int i = 0;
+
 	
 def Initialize(Resource resource){
+	ino_gen = new ArduinoInoCodeGenerator();
+	ino_code = new ArrayList<String>();
+	elements = new ArrayList<Elements>();
+	generated_elements = new ArrayList<String>();
+	iterations = 0;
+	cpp_code = "";
+	h_code = "";
+	generated_elements.add("")
+	ino_code.add("");
 	FillTaskType();
 	FillGatewayType();
 	setDatas(resource);
-	r=resource
+	
 }
 
 def FillTaskType(){
@@ -55,109 +75,216 @@ def FillGatewayType(){
 }
 //++++++++++++++++++++++++++++++Generation++++++++++++++++++++++++++++++++
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		ids = new ArrayList<String>();
+		
 		
 		if (resource !== null)
 		{
 			
 			//THIS MEANS THAT I'VE SELECTED A BPMN
 			Initialize(resource);
-			//Main file generation
-			fsa.generateFile("Main.ino", StaticMainFileStart() + StaticMainFileEnd())
+			
+			
+			ino_code = ArduinoCodeGenerationIno();
+			//Main files generation
+			for(file : ino_code)
+			{
+				fsa.generateFile("Main"+iterations+".ino", file )
+				iterations++;
+			}
 			//.h lib file generation
-			fsa.generateFile("GeneratedLib.h" , StaticLibHStart() + StaticLibHEnd())
+			fsa.generateFile("GeneratedLib.h" ,  cpp_code)
 	        //.cpp lib file generation
-	        fsa.generateFile("GeneratedLib.cpp" ,ArduinoGenerationCodeCPP())
+	        fsa.generateFile("GeneratedLib.cpp" ,cpp_code)
 	        
 	        
         }
         else
         {
+        	
         	//THIS MEANS THAT NO SOURCE BPMN HAS BEEN SELECTED
         	//I need to generate generic code using my datas
-        	
-			//Main file generation
-			fsa.generateFile("Main.ino", StaticMainFileStart() + StaticMainFileEnd())
 			
 			//.h lib file generation
-			fsa.generateFile("GeneratedLib.h" , StaticLibHStart() +
-				ArduinoCodeGenerationH() +
-				StaticLibHEnd())
-
+			h_gen = new ArduinoHCodeGenerator(Parameters.selected_sensor,Parameters.selected_protocol,Parameters.selected_wifisensor);			
+			fsa.generateFile("GeneratedLib.h" , "//+++++++++NO SOURCE BPMN SELECTED"+ 
+				ArduinoCodeGenerationH())
+			
 	        //.cpp lib file generation
-	        fsa.generateFile("GeneratedLib.cpp" ,ArduinoGenerationCodeCPP())
+	        cpp_gen = new ArduinoCPPCodeGenerator(Parameters.selected_device , Parameters.selected_protocol, Parameters.selected_wifisensor, Parameters.selected_sensor); 
+	        fsa.generateFile("GeneratedLib.cpp" ,"//+++++++++NO SOURCE BPMN SELECTED"+
+	        	ArduinoCodeGenerationCPP()
+	        )
         }
         
        
 		        
 	}
 	
+	
+
+def ArduinoCodeGenerationIno(){
+	return ino_gen.Generation(elements)
+}
+
+
 //library.h
 def ArduinoCodeGenerationH(){
-	define = new DefineCodeGenerator(Parameters.selected_sensor,Parameters.selected_protocol,Parameters.selected_wifisensor);
-	define.generateHCode();
+	return h_gen.Generation();
 }	
 
 //library.cpp
-def ArduinoGenerationCodeCPP(){
-	cpp_gen = new ArduinoCPPCodeGenerator(Parameters.selected_device , Parameters.selected_protocol, Parameters.selected_wifisensor, Parameters.selected_sensor); 
+def ArduinoCodeGenerationCPP(){
 	return cpp_gen.Generation();
 }
 
 def setDatas(Resource r){
+	cpp_gen = new ArduinoCPPCodeGenerator();
+	h_gen = new ArduinoHCodeGenerator();
 	setNetworkProtocolDatas(r);
+	cpp_gen.setProtocol(netdata);
+	
+	h_gen.setProtocol(netdata);
 }
 
 def setNetworkProtocolDatas(Resource r){
+	
 	for (Element : r.allContents.toIterable.filter(element))
 	{
 		for(Content : Element.contents)
 		{
 			for(Codex : Content.codex)
 			{
-				for(Device : Codex.device_code)
-					System.out.println("DEVICE=" + Device.device);
+				for(Protocol : Codex.protocol)
+				{
+					if (Protocol.pname.get(0).toLowerCase().replaceAll("\\s+","").equals("mqtt"))
+					{
+						netdata = new MQTT();
+						elements.add(netdata);
+						netdata.setType("mqtt");
+						netdata.setName(getName(Element));
+						for(Device : Codex.device_code)
+						{ 
+							netdata.getDatas().setDevice(Device.device.get(0));
+							cpp_gen.setDevice(Device.device.get(0));
+							netdata.setId(Device.id.get(0));
+						}
+						for(MQTTData : Protocol.mqtt_data)
+						{
+							h_gen.setNetwork_protocol(MQTTData.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+							cpp_gen.setNetwork_protocol(MQTTData.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+							
+							netdata.getDatas().setName(MQTTData.pname.get(0));
+							netdata.getDatas().setBroker_user(MQTTData.broker_user.get(0));
+							netdata.getDatas().setBroker_password(MQTTData.broker_password.get(0));
+							netdata.getDatas().setBroker(MQTTData.broker.get(0));
+							
+	
+	
+	
+							netdata.getDatas().wifi_ssid.clear();
+							netdata.getDatas().wifi_pass.clear();
+							for(MQTT_network_data : MQTTData.mqtt_network_data)
+							{
+								
+								netdata.getDatas().wifi_ssid.add(MQTT_network_data.ssid.get(0))
+								netdata.getDatas().wifi_pass.add(MQTT_network_data.password.get(0))
+							}
+							//CHECK
+							netdata.getDatas().pubTopics.clear();
+							for(MQTT_topic_pub : MQTTData.pubtopics)
+							{
+								if(!netdata.getDatas().pubTopics.contains(MQTT_topic_pub.toString()))
+									netdata.getDatas().pubTopics.add(MQTT_topic_pub.toString());
+							}
+							netdata.getDatas().subTopics.clear();
+							for(MQTT_topic_sub : MQTTData.subtopics)
+							{
+								if(!netdata.getDatas().subTopics.contains(MQTT_topic_sub.toString()))
+								netdata.getDatas().subTopics.add(MQTT_topic_sub.toString());
+							}
+						}
+						for(MQTTDevice : Protocol.mqtt_device)
+						{
+							h_gen.setWifi_sensor(MQTTDevice.dname.get(0).toLowerCase().replaceAll("\\s+",""));
+							cpp_gen.setWifi_sensor(MQTTDevice.dname.get(0).toLowerCase().replaceAll("\\s+",""));
+							netdata.setWifi_module(MQTTDevice.dname.get(0));
+						}
+						if (!generated_elements.contains("mqtt"))
+						{
+							cpp_code += cpp_gen.generateProtocolCode(netdata);
+							generated_elements.add("mqtt")
+						}
+					}
+				}
+				for (sensor : Codex.sensor_code)
+				{
+					if (sensor.sname.get(0).toLowerCase().replaceAll("\\s+","").equals("temperature"))
+					{
+						s = new TemperatureSensor();
+						elements.add(s);
+						s.setType("dht22");
+						for (sensdata : sensor.sensor)
+						{
+							s.setModule(sensdata.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+							s.setId(sensdata.sensor_id.get(0));
+							for(pins : sensdata.pins)
+							{
+								s.getPins().add(pins);
+							}
+						}
+						if (!generated_elements.contains("dht22"))
+						{
+							cpp_code += cpp_gen.generateSensorCode(s);
+							generated_elements.add("dht22")
+						}
+					}
+				}	
 			}
 		}
 	}
 }
+
+
+
 //++++++++++++++++++++++++++++++++STATIC PART OF THE GENERATED CODE++++++++++++++++++++++++++++++++++++	
-def StaticLibHStart(){
-	return
-	"
-#include \"Arduino.h\"        //includes the library Arduino.h
-#include \"SoftwareSerial.h\" //Includes the library SoftwareSerial.h \n
-"
-}
-
-def StaticLibHEnd(){
-	return "}"
-}
-
-
-
 
 
 def StaticMainFileStart(){
 	return 
-	"#include <GeneratedLib.h>\n" +
+	
+	"GeneratedLib gen;\n"+
 	"void setup()\n" +
-	"{" +
+	"{\n" +
   		"\tSerial.begin(9600);\n // opens serial port, sets data rate to 9600 bps"+
 
-  		"\twhile (!Serial);";
+  		"\twhile (!Serial);\n";
     
 }
-def StaticMainFileEnd(){
+def StaticMainFileSecond(){
 return 
 "
 }
 void loop()
 {
 
-}
+
 "
 }
-
+def getName(element e){
+	
+	for(Open : e.open)
+	{
+		for(Keywords : Open.keywords1)
+		{
+			if (Keywords.equals("name"))
+			{
+				return Open.value.get(i);
+			}
+			i++;
+		}
+	}
+}
 
 
 
@@ -221,5 +348,223 @@ def write(Object o){
 //+++++++++++++++++++++++++++++++++OTHER METHODS++++++++++++++++++++++++++++++++++++
 def int getNamePosition(Open open_tag){
 	return open_tag.keywords1.lastIndexOf("name");
-}	 */	
+	* 
+	* 
+def getName(element e){
+	
+	for(Open : e.open)
+	{
+		for(Keywords : Open.keywords1)
+		{
+			if (Keywords.equals("name"))
+			{
+				return Open.value.get(i);
+			}
+			i++;
+		}
+	}
+}
+def GenerateVariables(codex codex) {
+	
+	for(Protocol : codex.protocol)
+	{
+		if (Protocol.pname.get(0).toLowerCase().replaceAll("\\s+","").equals("mqtt"))
+		{
+			for(MQTTData : Protocol.mqtt_data)
+			{
+				if (temp.equals(""))
+				{
+					temp += "#include <GeneratedLib.h>\n"+
+					"\tchar* brokerUser = \""+MQTTData.broker_user.get(0)+"\";\n"+
+					"\tchar* brokerPass = \""+MQTTData.broker_password.get(0)+"\";\n";
+					for(MQTT_topic_pub : MQTTData.pubtopics)					
+					{
+						temp += "\tchar* pubTopic"+iterations +" = \""+MQTT_topic_pub.toString()+"\";\n";
+						iterations++;
+					}
+					
+					for(MQTT_topic_sub : MQTTData.subtopics)
+					{
+						temp += "\tchar* subTopic"+iterations +" = \""+MQTT_topic_sub.toString()+"\";\n";
+						iterations++;
+					}	
+					
+				}
+				if (!temp.contains(MQTTData.broker.get(0)))
+				{
+					temp += "char* broker"+iterations +"= \""MQTTData.broker.get(0)+"\";\n";
+				}
+				if (!temp.contains(MQTTData.broker_user.get(0)))
+				{
+					temp += "char* brokerUser"+iterations +"= \""MQTTData.broker_user.get(0)+"\";\n";
+				}
+				if (!temp.contains(MQTTData.broker_password.get(0)))
+				{
+					temp += "char* brokerPass"+iterations +"= \""+MQTTData.broker_password.get(0)+"\";\n";
+				}
+				for(MQTT_topic_pub : MQTTData.pubtopics)					
+				{
+					if (!temp.contains(MQTT_topic_pub.toString()))
+					{
+						temp += "char* pubTopic"+iterations +"= \""+MQTT_topic_pub.toString()+"\";\n";
+					}
+				}
+				for(MQTT_topic_sub : MQTTData.subtopics)					
+				{
+					if (!temp.contains(MQTT_topic_sub.toString()))
+					{
+						temp += "char* subTopic"+iterations +"= \""+MQTT_topic_sub.toString()+"\";\n";
+					}
+				}
+			}
+		}	
+	}
+	iterations++;
+	
+	
+}
+	
+
+def GenerateInoCode(codex codex, String name){
+	
+	for(Protocol : codex.protocol)
+	{
+		if (Protocol.pname.get(0).toLowerCase().replaceAll("\\s+","").equals("mqtt"))
+		{
+			for(MQTTData : Protocol.mqtt_data)
+			{
+				if (temp1.equals(""))
+				{
+					
+					temp1+="\tGeneratedLib.InitNetwork(broker);\n"
+						+ "GeneratedLib.reconnect(\"device id\", brokerUser, brokerPassword, broker);\n"
+						+"}\n"+StaticMainFileSecond() +"\n"
+					for(MQTT_topic_pub : MQTTData.pubtopics)					
+					{
+						temp1 += "\tGeneratedLib.sendInPubTopic(char* pubTopic"+iterations1 +" );\n";
+						iterations1++;
+					}
+					
+					for(MQTT_topic_sub : MQTTData.subtopics)
+					{
+						temp1 += "\tGeneratedLib.Subscribe(char* subTopic"+iterations1 +" );\n";
+						iterations1++;
+					}	
+					
+				}
+				if (!temp1.contains(MQTTData.broker.get(0)) && 
+					temp1.contains(MQTTData.broker_user.get(0)) &&
+					temp1.contains(MQTTData.broker_password.get(0))	
+					)
+				{
+					temp1 += "GeneratedLib.reconnect(\"device id\", brokerUser, brokerPassword, broker"+iterations1+");\n";
+				}
+				if (temp1.contains(MQTTData.broker.get(0)) && 
+					!temp1.contains(MQTTData.broker_user.get(0)) &&
+					temp1.contains(MQTTData.broker_password.get(0))	
+					)
+				{
+					temp1 += "GeneratedLib.reconnect(\"device id\", brokerUser"+iterations1+", brokerPassword, broker);\n";
+				}
+				if (temp1.contains(MQTTData.broker.get(0)) && 
+					temp1.contains(MQTTData.broker_user.get(0)) &&
+					!temp1.contains(MQTTData.broker_password.get(0))	
+					)
+				{
+					temp1 += "GeneratedLib.reconnect(\"device id\", brokerUser, brokerPassword"+iterations1+", broker);\n";
+				}
+				if (temp1.contains(MQTTData.broker.get(0)) && 
+					!temp1.contains(MQTTData.broker_user.get(0)) &&
+					!temp1.contains(MQTTData.broker_password.get(0))	
+					)
+				{
+					temp1 += "GeneratedLib.reconnect(\"device id\", brokerUser"+iterations1+", brokerPassword"+iterations1+", broker);\n";
+				}
+				if (!temp1.contains(MQTTData.broker.get(0)) && 
+					temp1.contains(MQTTData.broker_user.get(0)) &&
+					!temp1.contains(MQTTData.broker_password.get(0))	
+					)
+				{
+					temp1 += "GeneratedLib.reconnect(\"device id\", brokerUser, brokerPassword"+iterations1+", broker"+iterations1+");\n";
+				}
+				if (!temp1.contains(MQTTData.broker.get(0)) && 
+					!temp1.contains(MQTTData.broker_user.get(0)) &&
+					temp1.contains(MQTTData.broker_password.get(0))	
+					)
+				{
+					temp1 += "GeneratedLib.reconnect(\"device id\", brokerUser"+iterations1+", brokerPassword, broker"+iterations1+");\n";
+				}
+				if (!temp1.contains(MQTTData.broker.get(0)) && 
+					!temp1.contains(MQTTData.broker_user.get(0)) &&
+					!temp1.contains(MQTTData.broker_password.get(0))	
+					)
+				{
+					temp1 += "GeneratedLib.reconnect(\"device id\", brokerUser"+iterations1+", brokerPassword"+iterations1+", broker"+iterations1+");\n";
+				}
+				
+				
+				
+				
+			}
+		}	
+	}
+	iterations1++;
+}
+}	 
+* 
+* def ArduinoCodeGenerationIno(Resource r, IFileSystemAccess2 fsa){
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Open : Element.open)
+		{
+			if (Open.keywords.get(0).toLowerCase().contains("gateway"))
+			{
+				System.out.println("SI");
+			}
+		}
+	}
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Content : Element.contents)
+		{
+			//If i need to generate code for a task
+			if(Content.type.contains("_TASK"))
+			{
+				for(Codex : Content.codex)
+				{
+					for(Device : Codex.device_code)
+					{ 
+						if (!ids.contains(Device.id.get(0)))
+						{
+							for (Element1 : r.allContents.toIterable.filter(element))
+							{
+								for(Content1 : Element1.contents)
+								{
+									for(Codex1: Content1.codex)
+									{
+										for(Device1 : Codex1.device_code)
+										{ 
+											if (Device1.id.get(0).equals(Device.id.get(0)))
+											{
+												System.out.println("stessa famiglia");
+												GenerateVariables(Codex1);
+												GenerateInoCode(Codex1);
+												iterations++;
+											}
+										}
+									}
+									
+								}
+								
+							}
+							ino_code.add(temp + StaticMainFileStart() + temp1);
+							ids.add(Device.id.get(0));
+						}
+					}	
+					
+				}
+			}
+		}
+	}
+}*/	
 }

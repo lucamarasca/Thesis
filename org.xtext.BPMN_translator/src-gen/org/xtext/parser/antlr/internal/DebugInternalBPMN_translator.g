@@ -40,7 +40,7 @@ ruleelement:
 // Rule content
 rulecontent:
 	(
-		'TRANSLATE'
+		'_TASK'
 		'{'
 		rulecodex
 		'}'
@@ -116,6 +116,9 @@ ruledevice:
 	'DEVICE'
 	':'
 	RULE_STRING
+	'NAMEID'
+	':'
+	RULE_STRING
 ;
 
 // Rule protocol
@@ -152,10 +155,30 @@ rulemqtt_data:
 		*
 		'}'
 		    |
-		'TOPICS'
+		'SUBTOPICS'
 		'{'
-		RULE_STRING
-		*
+		(
+			'TOPIC_NAME'
+			'='
+			RULE_STRING
+		)*
+		'}'
+		    |
+		'PUBTOPICS'
+		'{'
+		(
+			'TOPIC_NAME'
+			'='
+			RULE_STRING
+			*
+			    |
+			'DATA'
+			'='
+			(
+				RULE_STRING
+				    |rulevariable
+			)
+		)*
 		'}'
 	)*
 ;
@@ -174,23 +197,25 @@ rulemqtt_network_data:
 rulemqtt_device:
 	'PROTOCOL_DEVICE'
 	'{'
-	rulemqtt_sensor_data
-	'}'
-;
-
-// Rule mqtt_sensor_data
-rulemqtt_sensor_data:
 	'NAME'
 	'='
 	RULE_STRING
+	'}'
 ;
 
 // Rule sensor
 rulesensor:
-	'SENSOR'
-	'{'
-	rulesensor_data
-	'}'
+	(
+		'TEMPERATURE'
+		'{'
+		rulesensor_data
+		'}'
+		    |
+		'DISTANCE'
+		'{'
+		rulesensor_data
+		'}'
+	)
 ;
 
 // Rule sensor_data
@@ -200,14 +225,23 @@ rulesensor_data:
 		'='
 		RULE_STRING
 		    |
-		'TYPE'
-		'='
-		RULE_STRING
-		    |
 		'PINS'
 		'='
 		RULE_STRING
+		    |
+		'SENSOR_ID'
+		'='
+		RULE_STRING
 	)*
+;
+
+// Rule variable
+rulevariable:
+	(
+		'TEMPERATURE'
+		    |
+		'DISTANCE'
+	)
 ;
 
 RULE_HEAD : ('bpmn'|'bpmndi'|'camunda'|'xsi'|'xml'|'xmlns'|'dc'|'di');

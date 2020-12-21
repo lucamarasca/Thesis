@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.bPMN_translator.content#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.content#getCodex <em>Codex</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.content#getElement <em>Element</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.content#getBody <em>Body</em>}</li>
@@ -29,6 +30,18 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface content extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getcontent_Type()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getType();
+
   /**
    * Returns the value of the '<em><b>Codex</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.bPMN_translator.codex}.

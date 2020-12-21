@@ -19,6 +19,8 @@
         eType="#//Close" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="content">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="codex" upperBound="-1"
         eType="#//codex" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" upperBound="-1"
@@ -58,41 +60,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="device">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="device" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="protocol">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pname" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mqtt_data" upperBound="-1"
         eType="#//mqtt_data" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mqtt_device" upperBound="-1"
         eType="#//mqtt_device" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="mqtt_data"/>
-  <eClassifiers xsi:type="ecore:EClass" name="mqtt_network_data">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ssid" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="mqtt_device">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocol_device" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="sensor">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" upperBound="-1"
-        eType="#//sensor_data" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="sensor_data">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pname" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pins" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="element_value" eSuperTypes="#//element">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="singleton_tag" upperBound="-1"
-        eType="#//Singleton" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="protocol_data" eSuperTypes="#//mqtt_data">
+  <eClassifiers xsi:type="ecore:EClass" name="mqtt_data">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pname" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="broker_user" unique="false"
@@ -103,7 +82,39 @@
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mqtt_network_data" upperBound="-1"
         eType="#//mqtt_network_data" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topics" unique="false"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subtopics" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pubtopics" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="mqtt_network_data">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ssid" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="mqtt_device">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dname" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="sensor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sname" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" upperBound="-1"
+        eType="#//sensor_data" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="sensor_data">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pname" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pins" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sensor_id" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="element_value" eSuperTypes="#//element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="singleton_tag" upperBound="-1"
+        eType="#//Singleton" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

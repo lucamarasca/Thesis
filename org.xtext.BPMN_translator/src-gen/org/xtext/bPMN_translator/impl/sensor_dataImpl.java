@@ -25,8 +25,8 @@ import org.xtext.bPMN_translator.sensor_data;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.bPMN_translator.impl.sensor_dataImpl#getPname <em>Pname</em>}</li>
- *   <li>{@link org.xtext.bPMN_translator.impl.sensor_dataImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.sensor_dataImpl#getPins <em>Pins</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.sensor_dataImpl#getSensor_id <em>Sensor id</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,16 +44,6 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
   protected EList<String> pname;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> type;
-
-  /**
    * The cached value of the '{@link #getPins() <em>Pins</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -62,6 +52,16 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
    * @ordered
    */
   protected EList<String> pins;
+
+  /**
+   * The cached value of the '{@link #getSensor_id() <em>Sensor id</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSensor_id()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> sensor_id;
 
   /**
    * <!-- begin-user-doc -->
@@ -105,21 +105,6 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
    * @generated
    */
   @Override
-  public EList<String> getType()
-  {
-    if (type == null)
-    {
-      type = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.SENSOR_DATA__TYPE);
-    }
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EList<String> getPins()
   {
     if (pins == null)
@@ -135,16 +120,31 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
    * @generated
    */
   @Override
+  public EList<String> getSensor_id()
+  {
+    if (sensor_id == null)
+    {
+      sensor_id = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.SENSOR_DATA__SENSOR_ID);
+    }
+    return sensor_id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case BPMN_translatorPackage.SENSOR_DATA__PNAME:
         return getPname();
-      case BPMN_translatorPackage.SENSOR_DATA__TYPE:
-        return getType();
       case BPMN_translatorPackage.SENSOR_DATA__PINS:
         return getPins();
+      case BPMN_translatorPackage.SENSOR_DATA__SENSOR_ID:
+        return getSensor_id();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -164,13 +164,13 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
         getPname().clear();
         getPname().addAll((Collection<? extends String>)newValue);
         return;
-      case BPMN_translatorPackage.SENSOR_DATA__TYPE:
-        getType().clear();
-        getType().addAll((Collection<? extends String>)newValue);
-        return;
       case BPMN_translatorPackage.SENSOR_DATA__PINS:
         getPins().clear();
         getPins().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.SENSOR_DATA__SENSOR_ID:
+        getSensor_id().clear();
+        getSensor_id().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -189,11 +189,11 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
       case BPMN_translatorPackage.SENSOR_DATA__PNAME:
         getPname().clear();
         return;
-      case BPMN_translatorPackage.SENSOR_DATA__TYPE:
-        getType().clear();
-        return;
       case BPMN_translatorPackage.SENSOR_DATA__PINS:
         getPins().clear();
+        return;
+      case BPMN_translatorPackage.SENSOR_DATA__SENSOR_ID:
+        getSensor_id().clear();
         return;
     }
     super.eUnset(featureID);
@@ -211,10 +211,10 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
     {
       case BPMN_translatorPackage.SENSOR_DATA__PNAME:
         return pname != null && !pname.isEmpty();
-      case BPMN_translatorPackage.SENSOR_DATA__TYPE:
-        return type != null && !type.isEmpty();
       case BPMN_translatorPackage.SENSOR_DATA__PINS:
         return pins != null && !pins.isEmpty();
+      case BPMN_translatorPackage.SENSOR_DATA__SENSOR_ID:
+        return sensor_id != null && !sensor_id.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -232,10 +232,10 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (pname: ");
     result.append(pname);
-    result.append(", type: ");
-    result.append(type);
     result.append(", pins: ");
     result.append(pins);
+    result.append(", sensor_id: ");
+    result.append(sensor_id);
     result.append(')');
     return result.toString();
   }

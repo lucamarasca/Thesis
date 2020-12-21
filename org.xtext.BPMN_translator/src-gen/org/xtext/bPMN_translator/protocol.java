@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.bPMN_translator.protocol#getPname <em>Pname</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.protocol#getMqtt_data <em>Mqtt data</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.protocol#getMqtt_device <em>Mqtt device</em>}</li>
  * </ul>
@@ -26,6 +27,18 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface protocol extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Pname</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pname</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_Pname()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getPname();
+
   /**
    * Returns the value of the '<em><b>Mqtt data</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.bPMN_translator.mqtt_data}.

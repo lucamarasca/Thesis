@@ -3,22 +3,127 @@
  */
 package org.xtext.bPMN_translator.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
 import org.xtext.bPMN_translator.mqtt_data;
+import org.xtext.bPMN_translator.mqtt_network_data;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>mqtt data</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.bPMN_translator.impl.mqtt_dataImpl#getPname <em>Pname</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.mqtt_dataImpl#getBroker_user <em>Broker user</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.mqtt_dataImpl#getBroker_password <em>Broker password</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.mqtt_dataImpl#getBroker <em>Broker</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.mqtt_dataImpl#getMqtt_network_data <em>Mqtt network data</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.mqtt_dataImpl#getSubtopics <em>Subtopics</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.mqtt_dataImpl#getPubtopics <em>Pubtopics</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.mqtt_dataImpl#getValue <em>Value</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class mqtt_dataImpl extends MinimalEObjectImpl.Container implements mqtt_data
 {
+  /**
+   * The cached value of the '{@link #getPname() <em>Pname</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPname()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> pname;
+
+  /**
+   * The cached value of the '{@link #getBroker_user() <em>Broker user</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBroker_user()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> broker_user;
+
+  /**
+   * The cached value of the '{@link #getBroker_password() <em>Broker password</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBroker_password()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> broker_password;
+
+  /**
+   * The cached value of the '{@link #getBroker() <em>Broker</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBroker()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> broker;
+
+  /**
+   * The cached value of the '{@link #getMqtt_network_data() <em>Mqtt network data</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMqtt_network_data()
+   * @generated
+   * @ordered
+   */
+  protected EList<mqtt_network_data> mqtt_network_data;
+
+  /**
+   * The cached value of the '{@link #getSubtopics() <em>Subtopics</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSubtopics()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> subtopics;
+
+  /**
+   * The cached value of the '{@link #getPubtopics() <em>Pubtopics</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPubtopics()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> pubtopics;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> value;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +143,316 @@ public class mqtt_dataImpl extends MinimalEObjectImpl.Container implements mqtt_
   protected EClass eStaticClass()
   {
     return BPMN_translatorPackage.Literals.MQTT_DATA;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getPname()
+  {
+    if (pname == null)
+    {
+      pname = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.MQTT_DATA__PNAME);
+    }
+    return pname;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getBroker_user()
+  {
+    if (broker_user == null)
+    {
+      broker_user = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.MQTT_DATA__BROKER_USER);
+    }
+    return broker_user;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getBroker_password()
+  {
+    if (broker_password == null)
+    {
+      broker_password = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.MQTT_DATA__BROKER_PASSWORD);
+    }
+    return broker_password;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getBroker()
+  {
+    if (broker == null)
+    {
+      broker = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.MQTT_DATA__BROKER);
+    }
+    return broker;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<mqtt_network_data> getMqtt_network_data()
+  {
+    if (mqtt_network_data == null)
+    {
+      mqtt_network_data = new EObjectContainmentEList<mqtt_network_data>(mqtt_network_data.class, this, BPMN_translatorPackage.MQTT_DATA__MQTT_NETWORK_DATA);
+    }
+    return mqtt_network_data;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getSubtopics()
+  {
+    if (subtopics == null)
+    {
+      subtopics = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.MQTT_DATA__SUBTOPICS);
+    }
+    return subtopics;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getPubtopics()
+  {
+    if (pubtopics == null)
+    {
+      pubtopics = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.MQTT_DATA__PUBTOPICS);
+    }
+    return pubtopics;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getValue()
+  {
+    if (value == null)
+    {
+      value = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.MQTT_DATA__VALUE);
+    }
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case BPMN_translatorPackage.MQTT_DATA__MQTT_NETWORK_DATA:
+        return ((InternalEList<?>)getMqtt_network_data()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case BPMN_translatorPackage.MQTT_DATA__PNAME:
+        return getPname();
+      case BPMN_translatorPackage.MQTT_DATA__BROKER_USER:
+        return getBroker_user();
+      case BPMN_translatorPackage.MQTT_DATA__BROKER_PASSWORD:
+        return getBroker_password();
+      case BPMN_translatorPackage.MQTT_DATA__BROKER:
+        return getBroker();
+      case BPMN_translatorPackage.MQTT_DATA__MQTT_NETWORK_DATA:
+        return getMqtt_network_data();
+      case BPMN_translatorPackage.MQTT_DATA__SUBTOPICS:
+        return getSubtopics();
+      case BPMN_translatorPackage.MQTT_DATA__PUBTOPICS:
+        return getPubtopics();
+      case BPMN_translatorPackage.MQTT_DATA__VALUE:
+        return getValue();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case BPMN_translatorPackage.MQTT_DATA__PNAME:
+        getPname().clear();
+        getPname().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.MQTT_DATA__BROKER_USER:
+        getBroker_user().clear();
+        getBroker_user().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.MQTT_DATA__BROKER_PASSWORD:
+        getBroker_password().clear();
+        getBroker_password().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.MQTT_DATA__BROKER:
+        getBroker().clear();
+        getBroker().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.MQTT_DATA__MQTT_NETWORK_DATA:
+        getMqtt_network_data().clear();
+        getMqtt_network_data().addAll((Collection<? extends mqtt_network_data>)newValue);
+        return;
+      case BPMN_translatorPackage.MQTT_DATA__SUBTOPICS:
+        getSubtopics().clear();
+        getSubtopics().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.MQTT_DATA__PUBTOPICS:
+        getPubtopics().clear();
+        getPubtopics().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.MQTT_DATA__VALUE:
+        getValue().clear();
+        getValue().addAll((Collection<? extends String>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case BPMN_translatorPackage.MQTT_DATA__PNAME:
+        getPname().clear();
+        return;
+      case BPMN_translatorPackage.MQTT_DATA__BROKER_USER:
+        getBroker_user().clear();
+        return;
+      case BPMN_translatorPackage.MQTT_DATA__BROKER_PASSWORD:
+        getBroker_password().clear();
+        return;
+      case BPMN_translatorPackage.MQTT_DATA__BROKER:
+        getBroker().clear();
+        return;
+      case BPMN_translatorPackage.MQTT_DATA__MQTT_NETWORK_DATA:
+        getMqtt_network_data().clear();
+        return;
+      case BPMN_translatorPackage.MQTT_DATA__SUBTOPICS:
+        getSubtopics().clear();
+        return;
+      case BPMN_translatorPackage.MQTT_DATA__PUBTOPICS:
+        getPubtopics().clear();
+        return;
+      case BPMN_translatorPackage.MQTT_DATA__VALUE:
+        getValue().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case BPMN_translatorPackage.MQTT_DATA__PNAME:
+        return pname != null && !pname.isEmpty();
+      case BPMN_translatorPackage.MQTT_DATA__BROKER_USER:
+        return broker_user != null && !broker_user.isEmpty();
+      case BPMN_translatorPackage.MQTT_DATA__BROKER_PASSWORD:
+        return broker_password != null && !broker_password.isEmpty();
+      case BPMN_translatorPackage.MQTT_DATA__BROKER:
+        return broker != null && !broker.isEmpty();
+      case BPMN_translatorPackage.MQTT_DATA__MQTT_NETWORK_DATA:
+        return mqtt_network_data != null && !mqtt_network_data.isEmpty();
+      case BPMN_translatorPackage.MQTT_DATA__SUBTOPICS:
+        return subtopics != null && !subtopics.isEmpty();
+      case BPMN_translatorPackage.MQTT_DATA__PUBTOPICS:
+        return pubtopics != null && !pubtopics.isEmpty();
+      case BPMN_translatorPackage.MQTT_DATA__VALUE:
+        return value != null && !value.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (pname: ");
+    result.append(pname);
+    result.append(", broker_user: ");
+    result.append(broker_user);
+    result.append(", broker_password: ");
+    result.append(broker_password);
+    result.append(", broker: ");
+    result.append(broker);
+    result.append(", subtopics: ");
+    result.append(subtopics);
+    result.append(", pubtopics: ");
+    result.append(pubtopics);
+    result.append(", value: ");
+    result.append(value);
+    result.append(')');
+    return result.toString();
   }
 
 } //mqtt_dataImpl

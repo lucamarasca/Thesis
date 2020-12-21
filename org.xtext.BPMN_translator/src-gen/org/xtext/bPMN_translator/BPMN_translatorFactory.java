@@ -168,15 +168,6 @@ public interface BPMN_translatorFactory extends EFactory
   element_value createelement_value();
 
   /**
-   * Returns a new object of class '<em>protocol data</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>protocol data</em>'.
-   * @generated
-   */
-  protocol_data createprotocol_data();
-
-  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

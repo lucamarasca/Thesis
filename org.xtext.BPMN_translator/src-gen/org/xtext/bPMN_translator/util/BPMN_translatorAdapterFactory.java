@@ -156,11 +156,6 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
         return createelement_valueAdapter();
       }
       @Override
-      public Adapter caseprotocol_data(protocol_data object)
-      {
-        return createprotocol_dataAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -418,21 +413,6 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createelement_valueAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.protocol_data <em>protocol data</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.bPMN_translator.protocol_data
-   * @generated
-   */
-  public Adapter createprotocol_dataAdapter()
   {
     return null;
   }

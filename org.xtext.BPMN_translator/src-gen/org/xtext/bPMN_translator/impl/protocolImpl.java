@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -30,6 +31,7 @@ import org.xtext.bPMN_translator.protocol;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.bPMN_translator.impl.protocolImpl#getPname <em>Pname</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.protocolImpl#getMqtt_data <em>Mqtt data</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.protocolImpl#getMqtt_device <em>Mqtt device</em>}</li>
  * </ul>
@@ -38,6 +40,16 @@ import org.xtext.bPMN_translator.protocol;
  */
 public class protocolImpl extends MinimalEObjectImpl.Container implements protocol
 {
+  /**
+   * The cached value of the '{@link #getPname() <em>Pname</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPname()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> pname;
+
   /**
    * The cached value of the '{@link #getMqtt_data() <em>Mqtt data</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -77,6 +89,21 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
   protected EClass eStaticClass()
   {
     return BPMN_translatorPackage.Literals.PROTOCOL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getPname()
+  {
+    if (pname == null)
+    {
+      pname = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.PROTOCOL__PNAME);
+    }
+    return pname;
   }
 
   /**
@@ -137,6 +164,8 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.PROTOCOL__PNAME:
+        return getPname();
       case BPMN_translatorPackage.PROTOCOL__MQTT_DATA:
         return getMqtt_data();
       case BPMN_translatorPackage.PROTOCOL__MQTT_DEVICE:
@@ -156,6 +185,10 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.PROTOCOL__PNAME:
+        getPname().clear();
+        getPname().addAll((Collection<? extends String>)newValue);
+        return;
       case BPMN_translatorPackage.PROTOCOL__MQTT_DATA:
         getMqtt_data().clear();
         getMqtt_data().addAll((Collection<? extends mqtt_data>)newValue);
@@ -178,6 +211,9 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.PROTOCOL__PNAME:
+        getPname().clear();
+        return;
       case BPMN_translatorPackage.PROTOCOL__MQTT_DATA:
         getMqtt_data().clear();
         return;
@@ -198,12 +234,31 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.PROTOCOL__PNAME:
+        return pname != null && !pname.isEmpty();
       case BPMN_translatorPackage.PROTOCOL__MQTT_DATA:
         return mqtt_data != null && !mqtt_data.isEmpty();
       case BPMN_translatorPackage.PROTOCOL__MQTT_DEVICE:
         return mqtt_device != null && !mqtt_device.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (pname: ");
+    result.append(pname);
+    result.append(')');
+    return result.toString();
   }
 
 } //protocolImpl

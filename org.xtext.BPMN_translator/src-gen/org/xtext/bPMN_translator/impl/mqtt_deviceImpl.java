@@ -24,7 +24,7 @@ import org.xtext.bPMN_translator.mqtt_device;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.bPMN_translator.impl.mqtt_deviceImpl#getProtocol_device <em>Protocol device</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.mqtt_deviceImpl#getDname <em>Dname</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,14 +32,14 @@ import org.xtext.bPMN_translator.mqtt_device;
 public class mqtt_deviceImpl extends MinimalEObjectImpl.Container implements mqtt_device
 {
   /**
-   * The cached value of the '{@link #getProtocol_device() <em>Protocol device</em>}' attribute list.
+   * The cached value of the '{@link #getDname() <em>Dname</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProtocol_device()
+   * @see #getDname()
    * @generated
    * @ordered
    */
-  protected EList<String> protocol_device;
+  protected EList<String> dname;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,13 +68,13 @@ public class mqtt_deviceImpl extends MinimalEObjectImpl.Container implements mqt
    * @generated
    */
   @Override
-  public EList<String> getProtocol_device()
+  public EList<String> getDname()
   {
-    if (protocol_device == null)
+    if (dname == null)
     {
-      protocol_device = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.MQTT_DEVICE__PROTOCOL_DEVICE);
+      dname = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.MQTT_DEVICE__DNAME);
     }
-    return protocol_device;
+    return dname;
   }
 
   /**
@@ -87,8 +87,8 @@ public class mqtt_deviceImpl extends MinimalEObjectImpl.Container implements mqt
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.MQTT_DEVICE__PROTOCOL_DEVICE:
-        return getProtocol_device();
+      case BPMN_translatorPackage.MQTT_DEVICE__DNAME:
+        return getDname();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -104,9 +104,9 @@ public class mqtt_deviceImpl extends MinimalEObjectImpl.Container implements mqt
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.MQTT_DEVICE__PROTOCOL_DEVICE:
-        getProtocol_device().clear();
-        getProtocol_device().addAll((Collection<? extends String>)newValue);
+      case BPMN_translatorPackage.MQTT_DEVICE__DNAME:
+        getDname().clear();
+        getDname().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -122,8 +122,8 @@ public class mqtt_deviceImpl extends MinimalEObjectImpl.Container implements mqt
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.MQTT_DEVICE__PROTOCOL_DEVICE:
-        getProtocol_device().clear();
+      case BPMN_translatorPackage.MQTT_DEVICE__DNAME:
+        getDname().clear();
         return;
     }
     super.eUnset(featureID);
@@ -139,8 +139,8 @@ public class mqtt_deviceImpl extends MinimalEObjectImpl.Container implements mqt
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.MQTT_DEVICE__PROTOCOL_DEVICE:
-        return protocol_device != null && !protocol_device.isEmpty();
+      case BPMN_translatorPackage.MQTT_DEVICE__DNAME:
+        return dname != null && !dname.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -156,8 +156,8 @@ public class mqtt_deviceImpl extends MinimalEObjectImpl.Container implements mqt
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (protocol_device: ");
-    result.append(protocol_device);
+    result.append(" (dname: ");
+    result.append(dname);
     result.append(')');
     return result.toString();
   }
