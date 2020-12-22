@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.bPMN_translator.element#getOpen <em>Open</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.element#getContents <em>Contents</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.element#getClose_tag <em>Close tag</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.element#getSingleton_tag <em>Singleton tag</em>}</li>
  * </ul>
  *
  * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getelement()
@@ -62,5 +63,17 @@ public interface element extends EObject
    * @generated
    */
   EList<Close> getClose_tag();
+
+  /**
+   * Returns the value of the '<em><b>Singleton tag</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.bPMN_translator.Singleton}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Singleton tag</em>' containment reference list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getelement_Singleton_tag()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Singleton> getSingleton_tag();
 
 } // element

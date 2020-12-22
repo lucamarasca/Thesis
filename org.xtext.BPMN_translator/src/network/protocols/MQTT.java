@@ -1,6 +1,6 @@
 package network.protocols;
 
-import org.xtext.generator.Elements;
+import elements.Elements;
 
 public class MQTT extends Elements{
 	String wifi_module;

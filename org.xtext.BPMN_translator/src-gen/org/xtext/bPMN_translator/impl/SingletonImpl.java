@@ -24,6 +24,8 @@ import org.xtext.bPMN_translator.Singleton;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.bPMN_translator.impl.SingletonImpl#getKeywords <em>Keywords</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.SingletonImpl#getKeywords1 <em>Keywords1</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.SingletonImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -31,6 +33,26 @@ import org.xtext.bPMN_translator.Singleton;
  */
 public class SingletonImpl extends MinimalEObjectImpl.Container implements Singleton
 {
+  /**
+   * The cached value of the '{@link #getKeywords() <em>Keywords</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKeywords()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> keywords;
+
+  /**
+   * The cached value of the '{@link #getKeywords1() <em>Keywords1</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKeywords1()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> keywords1;
+
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' attribute list.
    * <!-- begin-user-doc -->
@@ -68,6 +90,36 @@ public class SingletonImpl extends MinimalEObjectImpl.Container implements Singl
    * @generated
    */
   @Override
+  public EList<String> getKeywords()
+  {
+    if (keywords == null)
+    {
+      keywords = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.SINGLETON__KEYWORDS);
+    }
+    return keywords;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getKeywords1()
+  {
+    if (keywords1 == null)
+    {
+      keywords1 = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.SINGLETON__KEYWORDS1);
+    }
+    return keywords1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<String> getValue()
   {
     if (value == null)
@@ -87,6 +139,10 @@ public class SingletonImpl extends MinimalEObjectImpl.Container implements Singl
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.SINGLETON__KEYWORDS:
+        return getKeywords();
+      case BPMN_translatorPackage.SINGLETON__KEYWORDS1:
+        return getKeywords1();
       case BPMN_translatorPackage.SINGLETON__VALUE:
         return getValue();
     }
@@ -104,6 +160,14 @@ public class SingletonImpl extends MinimalEObjectImpl.Container implements Singl
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.SINGLETON__KEYWORDS:
+        getKeywords().clear();
+        getKeywords().addAll((Collection<? extends String>)newValue);
+        return;
+      case BPMN_translatorPackage.SINGLETON__KEYWORDS1:
+        getKeywords1().clear();
+        getKeywords1().addAll((Collection<? extends String>)newValue);
+        return;
       case BPMN_translatorPackage.SINGLETON__VALUE:
         getValue().clear();
         getValue().addAll((Collection<? extends String>)newValue);
@@ -122,6 +186,12 @@ public class SingletonImpl extends MinimalEObjectImpl.Container implements Singl
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.SINGLETON__KEYWORDS:
+        getKeywords().clear();
+        return;
+      case BPMN_translatorPackage.SINGLETON__KEYWORDS1:
+        getKeywords1().clear();
+        return;
       case BPMN_translatorPackage.SINGLETON__VALUE:
         getValue().clear();
         return;
@@ -139,6 +209,10 @@ public class SingletonImpl extends MinimalEObjectImpl.Container implements Singl
   {
     switch (featureID)
     {
+      case BPMN_translatorPackage.SINGLETON__KEYWORDS:
+        return keywords != null && !keywords.isEmpty();
+      case BPMN_translatorPackage.SINGLETON__KEYWORDS1:
+        return keywords1 != null && !keywords1.isEmpty();
       case BPMN_translatorPackage.SINGLETON__VALUE:
         return value != null && !value.isEmpty();
     }
@@ -156,7 +230,11 @@ public class SingletonImpl extends MinimalEObjectImpl.Container implements Singl
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (value: ");
+    result.append(" (keywords: ");
+    result.append(keywords);
+    result.append(", keywords1: ");
+    result.append(keywords1);
+    result.append(", value: ");
     result.append(value);
     result.append(')');
     return result.toString();

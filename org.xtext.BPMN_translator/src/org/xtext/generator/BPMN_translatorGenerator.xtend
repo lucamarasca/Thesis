@@ -9,11 +9,13 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.bPMN_translator.*
 import network.protocols.*;
+import elements.*;
 import java.util.ArrayList
 import javax.swing.text.html.parser.Entity
 import org.xtext.bPMN_translator.mqtt_data
 import org.xtext.bPMN_translator.codex
 import sensor.devices.TemperatureSensor
+import org.xtext.bPMN_translator.Singleton
 
 /**
  * Generates code from your model files on save.
@@ -25,7 +27,7 @@ class BPMN_translatorGenerator extends AbstractGenerator {
 ArrayList<String> task_type;
 ArrayList<String> gateway_type;
 
-ArrayList <String> ids;
+ArrayList<String> start_events;
 
 
 String cpp_code;
@@ -39,7 +41,8 @@ TemperatureSensor s;
 ArrayList<Elements> elements;
 ArrayList<String> generated_elements;
 int iterations;
-
+int n = 0;
+int j = 0;
 int i = 0;
 
 	
@@ -48,6 +51,7 @@ def Initialize(Resource resource){
 	ino_code = new ArrayList<String>();
 	elements = new ArrayList<Elements>();
 	generated_elements = new ArrayList<String>();
+	start_events = new ArrayList<String>();
 	iterations = 0;
 	cpp_code = "";
 	h_code = "";
@@ -75,7 +79,7 @@ def FillGatewayType(){
 }
 //++++++++++++++++++++++++++++++Generation++++++++++++++++++++++++++++++++
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		ids = new ArrayList<String>();
+		
 		
 		
 		if (resource !== null)
@@ -83,8 +87,12 @@ def FillGatewayType(){
 			
 			//THIS MEANS THAT I'VE SELECTED A BPMN
 			Initialize(resource);
-			
-			
+			FillEvent(resource);
+			FindSuccessors("ExclusiveGateway_1tz8rou", resource);
+			for(start : start_events)
+			{
+				System.out.println(start)
+			}
 			ino_code = ArduinoCodeGenerationIno();
 			//Main files generation
 			for(file : ino_code)
@@ -121,7 +129,111 @@ def FillGatewayType(){
 		        
 	}
 	
+def FillEvent(Resource r){
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Open : Element.open)
+		{
+			if (Open.keywords.get(0).equals("startEvent"))
+			{
+				start_events.add(getID(Open));
+			}
+		}
+	}
+}
+def getID(Open open){
+	i=0;
+	for (keywords : open.keywords1)
+	{
+		if (keywords.equals("id"))
+		{
+			return open.value.get(i);
+		}
+		i++;
+	}
+}
+def getID(Singleton tag){
+	i=0;
+	for (keywords : tag.keywords)
+	{
+		if (keywords.equals("id"))
+		{
+			return tag.value.get(i);
+		}
+		i++;
+	}
+}
 	
+	
+	
+def FindSuccessors(String my_id, Resource r){
+	i=0;
+	n=0;
+	j=0;
+	
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Singleton : Element.singleton_tag)
+		{
+			if (Singleton.keywords.get(0).equals("sequenceFlow"))
+			{
+				for(keywords : Singleton.keywords1)
+				{
+					if (keywords.equals("sourceRef"))
+					{
+						if (Singleton.value.get(n).equals(my_id))
+						{
+							for(keywords1 : Singleton.keywords1)
+							{
+								if (keywords1.equals("targetRef"))
+								{
+									System.out.println(Singleton.value.get(j))
+								}
+								j++;
+							}
+							j=0;
+						}
+					}
+					n++;
+				}
+				n=0;
+			}
+			i++;
+		}
+		i=0;
+	}
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Open : Element.open)
+		{
+			if (Open.keywords.get(0).equals("sequenceFlow"))
+			{
+				for(keywords : Open.keywords1)
+				{
+					if (keywords.equals("sourceRef"))
+					{
+						if (Open.value.get(n).equals(my_id))
+						{
+							for(keywords1 : Open.keywords1)
+							{
+								if (keywords1.equals("targetRef"))
+								{
+									System.out.println(Open.value.get(j))
+								}
+								j++;
+							}
+							j=0;
+						}
+					}
+					n++;
+				}
+				n=0;
+			}
+			i++;
+		}
+		i=0;
+	}
+}
 
 def ArduinoCodeGenerationIno(){
 	return ino_gen.Generation(elements)
@@ -155,91 +267,104 @@ def setNetworkProtocolDatas(Resource r){
 		{
 			for(Codex : Content.codex)
 			{
-				for(Protocol : Codex.protocol)
-				{
-					if (Protocol.pname.get(0).toLowerCase().replaceAll("\\s+","").equals("mqtt"))
+				if (Content.type.get(0).equals("_TASK"))
+				{	
+					for(Protocol : Codex.protocol)
 					{
-						netdata = new MQTT();
-						elements.add(netdata);
-						netdata.setType("mqtt");
-						netdata.setName(getName(Element));
-						for(Device : Codex.device_code)
-						{ 
-							netdata.getDatas().setDevice(Device.device.get(0));
-							cpp_gen.setDevice(Device.device.get(0));
-							netdata.setId(Device.id.get(0));
-						}
-						for(MQTTData : Protocol.mqtt_data)
+						if (Protocol.pname.get(0).toLowerCase().replaceAll("\\s+","").equals("mqtt"))
 						{
-							h_gen.setNetwork_protocol(MQTTData.pname.get(0).toLowerCase().replaceAll("\\s+",""));
-							cpp_gen.setNetwork_protocol(MQTTData.pname.get(0).toLowerCase().replaceAll("\\s+",""));
-							
-							netdata.getDatas().setName(MQTTData.pname.get(0));
-							netdata.getDatas().setBroker_user(MQTTData.broker_user.get(0));
-							netdata.getDatas().setBroker_password(MQTTData.broker_password.get(0));
-							netdata.getDatas().setBroker(MQTTData.broker.get(0));
-							
-	
-	
-	
-							netdata.getDatas().wifi_ssid.clear();
-							netdata.getDatas().wifi_pass.clear();
-							for(MQTT_network_data : MQTTData.mqtt_network_data)
+							netdata = new MQTT();
+							elements.add(netdata);
+							netdata.setType("mqtt");
+							netdata.setName(getName(Element));
+							for(Device : Codex.device_code)
+							{ 
+								netdata.getDatas().setDevice(Device.device.get(0));
+								cpp_gen.setDevice(Device.device.get(0));
+								netdata.setId(Device.id.get(0));
+							}
+							for(MQTTData : Protocol.mqtt_data)
 							{
+								h_gen.setNetwork_protocol(MQTTData.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+								cpp_gen.setNetwork_protocol(MQTTData.pname.get(0).toLowerCase().replaceAll("\\s+",""));
 								
-								netdata.getDatas().wifi_ssid.add(MQTT_network_data.ssid.get(0))
-								netdata.getDatas().wifi_pass.add(MQTT_network_data.password.get(0))
+								netdata.getDatas().setName(MQTTData.pname.get(0));
+								netdata.getDatas().setBroker_user(MQTTData.broker_user.get(0));
+								netdata.getDatas().setBroker_password(MQTTData.broker_password.get(0));
+								netdata.getDatas().setBroker(MQTTData.broker.get(0));
+								
+		
+		
+		
+								netdata.getDatas().wifi_ssid.clear();
+								netdata.getDatas().wifi_pass.clear();
+								for(MQTT_network_data : MQTTData.mqtt_network_data)
+								{
+									
+									netdata.getDatas().wifi_ssid.add(MQTT_network_data.ssid.get(0))
+									netdata.getDatas().wifi_pass.add(MQTT_network_data.password.get(0))
+								}
+								//CHECK
+								netdata.getDatas().pubTopics.clear();
+								for(MQTT_topic_pub : MQTTData.pubtopics)
+								{
+									if(!netdata.getDatas().pubTopics.contains(MQTT_topic_pub.toString()))
+										netdata.getDatas().pubTopics.add(MQTT_topic_pub.toString());
+								}
+								netdata.getDatas().subTopics.clear();
+								for(MQTT_topic_sub : MQTTData.subtopics)
+								{
+									if(!netdata.getDatas().subTopics.contains(MQTT_topic_sub.toString()))
+									netdata.getDatas().subTopics.add(MQTT_topic_sub.toString());
+								}
 							}
-							//CHECK
-							netdata.getDatas().pubTopics.clear();
-							for(MQTT_topic_pub : MQTTData.pubtopics)
+							for(MQTTDevice : Protocol.mqtt_device)
 							{
-								if(!netdata.getDatas().pubTopics.contains(MQTT_topic_pub.toString()))
-									netdata.getDatas().pubTopics.add(MQTT_topic_pub.toString());
+								h_gen.setWifi_sensor(MQTTDevice.dname.get(0).toLowerCase().replaceAll("\\s+",""));
+								cpp_gen.setWifi_sensor(MQTTDevice.dname.get(0).toLowerCase().replaceAll("\\s+",""));
+								netdata.setWifi_module(MQTTDevice.dname.get(0));
 							}
-							netdata.getDatas().subTopics.clear();
-							for(MQTT_topic_sub : MQTTData.subtopics)
+							if (!generated_elements.contains("mqtt"))
 							{
-								if(!netdata.getDatas().subTopics.contains(MQTT_topic_sub.toString()))
-								netdata.getDatas().subTopics.add(MQTT_topic_sub.toString());
+								cpp_code += cpp_gen.generateProtocolCode(netdata);
+								generated_elements.add("mqtt")
 							}
-						}
-						for(MQTTDevice : Protocol.mqtt_device)
-						{
-							h_gen.setWifi_sensor(MQTTDevice.dname.get(0).toLowerCase().replaceAll("\\s+",""));
-							cpp_gen.setWifi_sensor(MQTTDevice.dname.get(0).toLowerCase().replaceAll("\\s+",""));
-							netdata.setWifi_module(MQTTDevice.dname.get(0));
-						}
-						if (!generated_elements.contains("mqtt"))
-						{
-							cpp_code += cpp_gen.generateProtocolCode(netdata);
-							generated_elements.add("mqtt")
 						}
 					}
-				}
-				for (sensor : Codex.sensor_code)
-				{
-					if (sensor.sname.get(0).toLowerCase().replaceAll("\\s+","").equals("temperature"))
+					for (sensor : Codex.sensor_code)
 					{
-						s = new TemperatureSensor();
-						elements.add(s);
-						s.setType("dht22");
-						for (sensdata : sensor.sensor)
+						if (sensor.sname.get(0).toLowerCase().replaceAll("\\s+","").equals("temperature"))
 						{
-							s.setModule(sensdata.pname.get(0).toLowerCase().replaceAll("\\s+",""));
-							s.setId(sensdata.sensor_id.get(0));
-							for(pins : sensdata.pins)
+							s = new TemperatureSensor();
+							for(Device : Codex.device_code)
+							{ 
+								cpp_gen.setDevice(Device.device.get(0));
+								s.setId(Device.id.get(0));
+							}
+							elements.add(s);
+							s.setType("dht22");
+							
+							for (sensdata : sensor.sensor)
 							{
-								s.getPins().add(pins);
+								s.setModule(sensdata.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+								s.setSensorId(sensdata.sensor_id.get(0));
+								for(pins : sensdata.pins)
+								{
+									s.getPins().add(pins);
+								}
+							}
+							if (!generated_elements.contains("dht22"))
+							{
+								cpp_code += cpp_gen.generateSensorCode(s);
+								generated_elements.add("dht22")
 							}
 						}
-						if (!generated_elements.contains("dht22"))
-						{
-							cpp_code += cpp_gen.generateSensorCode(s);
-							generated_elements.add("dht22")
-						}
-					}
-				}	
+					}	
+				}
+				if(Content.type.get(0).equals("_GATEWAY"))
+				{
+					System.out.println("Qui c'è un gateway");
+				}
 			}
 		}
 	}

@@ -2,6 +2,7 @@ package org.xtext.generator;
 
 import java.util.ArrayList;
 
+import elements.Elements;
 import network.protocols.MQTT;
 import sensor.devices.TemperatureSensor;
 
@@ -20,8 +21,9 @@ public class ArduinoInoCodeGenerator {
 	String includes;
 	String intestation;
 	String variables;
-	String code;
-	String setup;
+	String sens_variables;
+	String loop_code;
+	String setup_code;
 	
 	ArduinoInoCodeGenerator(String device, String network_protocol, String wifi_sensor, String sensor){
 		this.device = device.toLowerCase().replaceAll("\\s+","");
@@ -36,19 +38,16 @@ public class ArduinoInoCodeGenerator {
 		temp = "";
 		ino_code = "";
 		variables = "";
-		setup = "";
-		code = "";
+		setup_code = "";
+		loop_code = "";
 		includes = "";
 		intestation = "";
+		sens_variables = "";
 		result = new ArrayList<String>();
 	}
 	
 	public ArrayList<String> Generation(ArrayList<Elements> elements) {
-		includes+="#include<GeneratedLib.ino>\n\nGeneratedLib my_lib\n\n";
-		intestation+= "void setup()\n{";
-		intestation+= setup;
-		intestation+= "\n}\n\n";
-		intestation+="void loop()\n{\n";
+		
 		for (int i = 0; i < elements.size();i++)
 		{
 			if (!ids.contains(elements.get(i).getId()))
@@ -58,14 +57,20 @@ public class ArduinoInoCodeGenerator {
 				
 				
 				GenerateVariables(elements,i);
-				
-				GenerateCode(elements,i);
-				code+="\n}\n";
+				GenerateSetupCode(elements,i);
+				GenerateLoopCode(elements,i);
+				includes+="#include<GeneratedLib.ino>\n\nGeneratedLib my_lib\n\n";
+				intestation+= "void setup()\n{\n\n";
+				intestation+= setup_code;
+				intestation+= "\n}\n\n";
+				intestation+="void loop()\n{\n";
+				loop_code+="\n}\n";
 				ids.add(elements.get(i).getId());
-				result.add(includes+variables+intestation+code);
+				result.add(includes+variables+intestation+loop_code);
 				temp = "";
 				variables = "";
-				code = "";
+				sens_variables = "";
+				loop_code = "";
 			}
 		}
 		return result;
@@ -74,13 +79,15 @@ public class ArduinoInoCodeGenerator {
 	//This method is used for generate the variables to use in the ino file
 	private void GenerateVariables(ArrayList<Elements> elements, int i) 
 	{
-		if (elements.get(i).getType().equals("mqtt"))
+		
+		for (int n = 0; n < elements.size(); n++)
 		{
-			for (int n = 0; n < elements.size(); n++)
+			//if they are in the same family
+			if (elements.get(n).getId().equals(elements.get(i).getId()))
 			{
-				//if they are in the same family
-				if (elements.get(n).getId().equals(elements.get(i).getId()))
+				if (elements.get(n).getType().equals("mqtt"))
 				{
+				
 					MQTT app = (MQTT) elements.get(n);
 					
 					if (!variables.contains(app.getDatas().getBroker()))
@@ -100,53 +107,80 @@ public class ArduinoInoCodeGenerator {
 						if (!temp.contains(app.getDatas().getSubTopics().get(j)))
 							temp += "char* subtopic"+n+j+"= \""+app.getDatas().getSubTopics().get(j)+"\";\n"; 
 					}
-					variables += temp;
+					
+				}
+			
+				
+				if (elements.get(n).getType().equals("dht22"))
+				{
+					TemperatureSensor app = (TemperatureSensor) elements.get(n);
+					
+					if (!sens_variables.contains("float hum"+ app.getSensorId()))
+						sens_variables += "float hum"+app.getSensorId()+"; //Stores humidity value\r\n";
+					if (!sens_variables.contains("float temp"+ app.getSensorId()))
+						sens_variables += "float temp"+app.getSensorId()+"; //Stores temperature value value\r\n";
+						
+					
+					
+					
+					if (!sens_variables.contains("int pin"+ app.getSensorId()))
+						sens_variables += "int pin"+ app.getSensorId()  + "= " + app.getPins().get(0)+"\n";
+					
 				}
 			}
-		}
-		if (elements.get(i).getType().equals("dht22"))
+		}	
+		variables += temp;
+		variables += sens_variables;
+	}
+	private void GenerateSetupCode(ArrayList<Elements> elements, int i) {
+		for (int n = 0; n < elements.size(); n++)
 		{
-			for (int n = 0; n < elements.size(); n++)
+			if (elements.get(n).getType().equals("dht22"))
 			{
-				//if they are in the same family
 				if (elements.get(n).getId().equals(elements.get(i).getId()))
 				{
 					TemperatureSensor app = (TemperatureSensor) elements.get(n);
 					
-					variables += "float hum;  //Stores humidity value\r\n"
-							  + "float temp; //Stores temperature value\n";
+					if (!setup_code.contains("Serial.begin(9600);"))
+						setup_code+="\tSerial.begin(9600);\n";
+					if (!setup_code.contains("InitDHT22("))
+						setup_code+="\tInitDHT22("+getIntVariableName(app.getPins().get(0))+");\n";
+				
 					
-					for(int j = 0; j < app.getPins().size();j++)
-					{
-						if (!temp.contains(app.getPins().get(j)))
-							temp += "int DHTpin" + j + "= " + app.getPins().get(j);
-					}
-					variables += temp;
 				}
 			}
-		}		
+		}
 	}
-	
 	//This method is used for generate the method of the ino file
-	private void GenerateCode(ArrayList<Elements> elements, int i) 
+	private void GenerateLoopCode(ArrayList<Elements> elements, int i) 
 	{
-		if (elements.get(i).getType().equals("mqtt"))
+		for (int n = 0; n < elements.size(); n++)
 		{
-			for (int n = 0; n < elements.size(); n++)
+			if (elements.get(n).getId().equals(elements.get(i).getId()))
 			{
-				if (elements.get(n).getId().equals(elements.get(i).getId()))
+				if (elements.get(n).getType().equals("mqtt"))
 				{
 					MQTT app = (MQTT) elements.get(n);
-					if (!code.contains("my_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+");\n"));
-						code+=("\tmy_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+");\n");
-					if(!code.contains("my_lib.reconnect(\"device id\", "+getVariableName(app.getDatas().getBroker_user())+", "+getVariableName(app.getDatas().getBroker_password())+", "+getVariableName(app.getDatas().getBroker())+");\n"))
-						code += "\tmy_lib.reconnect(\"device id\", "+getVariableName(app.getDatas().getBroker_user())+", "+getVariableName(app.getDatas().getBroker_password())+", "+getVariableName(app.getDatas().getBroker())+");\n";							
+					if (!loop_code.contains("my_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+");\n"));
+					loop_code+=("\tmy_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+");\n");
+					if(!loop_code.contains("my_lib.reconnect(\"device id\", "+getVariableName(app.getDatas().getBroker_user())+", "+getVariableName(app.getDatas().getBroker_password())+", "+getVariableName(app.getDatas().getBroker())+");\n"))
+						loop_code += "\tmy_lib.reconnect(\"device id\", "+getVariableName(app.getDatas().getBroker_user())+", "+getVariableName(app.getDatas().getBroker_password())+", "+getVariableName(app.getDatas().getBroker())+");\n";							
 					for(String pubtopic : app.getDatas().getPubTopics())
 					{
-						code += ("\tmy_lib.sendInPubTopic("+getVariableName(pubtopic)+");\n"); 
+						loop_code += ("\tmy_lib.sendInPubTopic("+getVariableName(pubtopic)+");\n"); 
 					}
 				}
+				if (elements.get(n).getType().equals("dht22"))
+				{
+					TemperatureSensor app = (TemperatureSensor) elements.get(n);
+					loop_code+= "\tdelay(2000);\r\n"
+							+ "\t//Read data and store it to variables\r\n"
+							+ "\thum"+app.getSensorId()+"= dht.readHumidity();\r\n"
+							+ "\ttemp"+app.getSensorId()+"= dht.readTemperature();\n";
+					
+				}
 			}
+			
 		}
 	}
 	public String getVariableName(String value) {
@@ -154,7 +188,10 @@ public class ArduinoInoCodeGenerator {
 		String [] values1 = values[0].split(" ");
 		return values1[values1.length-1];
 	}
-	public void GenerateSetup() {
-		
+	public String getIntVariableName( String value) {
+		String [] values = variables.split("= "+value);
+		String [] values1 = values[0].split(" ");
+		return values1[values1.length-1];
 	}
+	
 }

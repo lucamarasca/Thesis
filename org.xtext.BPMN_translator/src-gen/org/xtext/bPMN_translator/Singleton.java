@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.bPMN_translator.Singleton#getKeywords <em>Keywords</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.Singleton#getKeywords1 <em>Keywords1</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.Singleton#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -25,6 +27,30 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Singleton extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Keywords</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Keywords</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getSingleton_Keywords()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getKeywords();
+
+  /**
+   * Returns the value of the '<em><b>Keywords1</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Keywords1</em>' attribute list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getSingleton_Keywords1()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getKeywords1();
+
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.

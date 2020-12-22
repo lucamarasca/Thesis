@@ -1,9 +1,9 @@
-package org.xtext.generator;
+package elements;
 
 public abstract class Elements {
-	 String id ;
-	 String type;
-	 String name;
+	 public String id ;
+	 public String type;
+	 public String name;
 
 	public String getId() {
 		return id;

@@ -21,12 +21,12 @@ prolog:
 
 element     :   (open += Open 
 				contents+=content close_tag+=Close)
-            |  	{element_value} singleton_tag+=Singleton
+            |  	singleton_tag+=Singleton
             ;
 
 content:
 	{content}
-	(( type += "_TASK") "{" codex += codex "}"| element+=element |   body+=BODY |   keywords+=KEYWORDS  |  data+=STRING  )*
+	( type += ("_TASK"|"_GATEWAY") "{" codex += codex "}"| element+=element |   body+=BODY |   keywords+=KEYWORDS  |  data+=STRING  )*
 ;
 
 Open:
@@ -37,7 +37,7 @@ Open:
 ;
 
 Singleton:
-	{Singleton} ("<" HEAD ":" KEYWORDS  ((HEAD ":") | (KEYWORDS "=" value+=STRING))*)  
+	{Singleton} ("<" HEAD ":" keywords+=KEYWORDS  ((HEAD ":") | (keywords1+= KEYWORDS "=" value+=STRING))*)  
 	"/>"
 ;
 
@@ -48,6 +48,7 @@ Close:
 //+++++++++++++++MY GRAMMAR +++++++++++++++      
 codex:
 	  ( device_code += device protocol += protocol* sensor_code += sensor* ) 
+	  
 ;
 device:
 	"DEVICE" ":" device += STRING

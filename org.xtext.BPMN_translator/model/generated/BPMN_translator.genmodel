@@ -16,6 +16,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//element/open"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//element/contents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//element/close_tag"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//element/singleton_tag"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//content">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//content/type"/>
@@ -33,6 +34,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Open/value"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//Singleton">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Singleton/keywords"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Singleton/keywords1"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//Singleton/value"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//Close"/>
@@ -75,9 +78,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//sensor_data/pname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//sensor_data/pins"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//sensor_data/sensor_id"/>
-    </genClasses>
-    <genClasses ecoreClass="BPMN_translator.ecore#//element_value">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//element_value/singleton_tag"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

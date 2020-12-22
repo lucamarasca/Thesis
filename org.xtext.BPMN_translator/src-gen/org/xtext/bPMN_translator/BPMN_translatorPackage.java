@@ -151,13 +151,22 @@ public interface BPMN_translatorPackage extends EPackage
   int ELEMENT__CLOSE_TAG = 2;
 
   /**
+   * The feature id for the '<em><b>Singleton tag</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__SINGLETON_TAG = 3;
+
+  /**
    * The number of structural features of the '<em>element</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ELEMENT_FEATURE_COUNT = 3;
+  int ELEMENT_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.bPMN_translator.impl.contentImpl <em>content</em>}' class.
@@ -307,13 +316,31 @@ public interface BPMN_translatorPackage extends EPackage
   int SINGLETON = 5;
 
   /**
+   * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SINGLETON__KEYWORDS = 0;
+
+  /**
+   * The feature id for the '<em><b>Keywords1</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SINGLETON__KEYWORDS1 = 1;
+
+  /**
    * The feature id for the '<em><b>Value</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SINGLETON__VALUE = 0;
+  int SINGLETON__VALUE = 2;
 
   /**
    * The number of structural features of the '<em>Singleton</em>' class.
@@ -322,7 +349,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SINGLETON_FEATURE_COUNT = 1;
+  int SINGLETON_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.bPMN_translator.impl.CloseImpl <em>Close</em>}' class.
@@ -711,61 +738,6 @@ public interface BPMN_translatorPackage extends EPackage
    */
   int SENSOR_DATA_FEATURE_COUNT = 3;
 
-  /**
-   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.element_valueImpl <em>element value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.bPMN_translator.impl.element_valueImpl
-   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getelement_value()
-   * @generated
-   */
-  int ELEMENT_VALUE = 15;
-
-  /**
-   * The feature id for the '<em><b>Open</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_VALUE__OPEN = ELEMENT__OPEN;
-
-  /**
-   * The feature id for the '<em><b>Contents</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_VALUE__CONTENTS = ELEMENT__CONTENTS;
-
-  /**
-   * The feature id for the '<em><b>Close tag</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_VALUE__CLOSE_TAG = ELEMENT__CLOSE_TAG;
-
-  /**
-   * The feature id for the '<em><b>Singleton tag</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_VALUE__SINGLETON_TAG = ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>element value</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_VALUE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
-
 
   /**
    * Returns the meta object for class '{@link org.xtext.bPMN_translator.Model <em>Model</em>}'.
@@ -851,6 +823,17 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    */
   EReference getelement_Close_tag();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.element#getSingleton_tag <em>Singleton tag</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Singleton tag</em>'.
+   * @see org.xtext.bPMN_translator.element#getSingleton_tag()
+   * @see #getelement()
+   * @generated
+   */
+  EReference getelement_Singleton_tag();
 
   /**
    * Returns the meta object for class '{@link org.xtext.bPMN_translator.content <em>content</em>}'.
@@ -1002,6 +985,28 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    */
   EClass getSingleton();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.Singleton#getKeywords <em>Keywords</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Keywords</em>'.
+   * @see org.xtext.bPMN_translator.Singleton#getKeywords()
+   * @see #getSingleton()
+   * @generated
+   */
+  EAttribute getSingleton_Keywords();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.Singleton#getKeywords1 <em>Keywords1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Keywords1</em>'.
+   * @see org.xtext.bPMN_translator.Singleton#getKeywords1()
+   * @see #getSingleton()
+   * @generated
+   */
+  EAttribute getSingleton_Keywords1();
 
   /**
    * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.Singleton#getValue <em>Value</em>}'.
@@ -1369,27 +1374,6 @@ public interface BPMN_translatorPackage extends EPackage
   EAttribute getsensor_data_Sensor_id();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.bPMN_translator.element_value <em>element value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>element value</em>'.
-   * @see org.xtext.bPMN_translator.element_value
-   * @generated
-   */
-  EClass getelement_value();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.element_value#getSingleton_tag <em>Singleton tag</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Singleton tag</em>'.
-   * @see org.xtext.bPMN_translator.element_value#getSingleton_tag()
-   * @see #getelement_value()
-   * @generated
-   */
-  EReference getelement_value_Singleton_tag();
-
-  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1481,6 +1465,14 @@ public interface BPMN_translatorPackage extends EPackage
      * @generated
      */
     EReference ELEMENT__CLOSE_TAG = eINSTANCE.getelement_Close_tag();
+
+    /**
+     * The meta object literal for the '<em><b>Singleton tag</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELEMENT__SINGLETON_TAG = eINSTANCE.getelement_Singleton_tag();
 
     /**
      * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.contentImpl <em>content</em>}' class.
@@ -1599,6 +1591,22 @@ public interface BPMN_translatorPackage extends EPackage
      * @generated
      */
     EClass SINGLETON = eINSTANCE.getSingleton();
+
+    /**
+     * The meta object literal for the '<em><b>Keywords</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SINGLETON__KEYWORDS = eINSTANCE.getSingleton_Keywords();
+
+    /**
+     * The meta object literal for the '<em><b>Keywords1</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SINGLETON__KEYWORDS1 = eINSTANCE.getSingleton_Keywords1();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute list feature.
@@ -1889,24 +1897,6 @@ public interface BPMN_translatorPackage extends EPackage
      * @generated
      */
     EAttribute SENSOR_DATA__SENSOR_ID = eINSTANCE.getsensor_data_Sensor_id();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.element_valueImpl <em>element value</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.bPMN_translator.impl.element_valueImpl
-     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getelement_value()
-     * @generated
-     */
-    EClass ELEMENT_VALUE = eINSTANCE.getelement_value();
-
-    /**
-     * The meta object literal for the '<em><b>Singleton tag</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ELEMENT_VALUE__SINGLETON_TAG = eINSTANCE.getelement_value_Singleton_tag();
 
   }
 

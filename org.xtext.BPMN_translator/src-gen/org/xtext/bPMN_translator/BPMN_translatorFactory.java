@@ -159,15 +159,6 @@ public interface BPMN_translatorFactory extends EFactory
   sensor_data createsensor_data();
 
   /**
-   * Returns a new object of class '<em>element value</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>element value</em>'.
-   * @generated
-   */
-  element_value createelement_value();
-
-  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

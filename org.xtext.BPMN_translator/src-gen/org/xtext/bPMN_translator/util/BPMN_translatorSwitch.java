@@ -178,14 +178,6 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BPMN_translatorPackage.ELEMENT_VALUE:
-      {
-        element_value element_value = (element_value)theEObject;
-        T result = caseelement_value(element_value);
-        if (result == null) result = caseelement(element_value);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       default: return defaultCase(theEObject);
     }
   }
@@ -426,22 +418,6 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
    * @generated
    */
   public T casesensor_data(sensor_data object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>element value</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>element value</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseelement_value(element_value object)
   {
     return null;
   }

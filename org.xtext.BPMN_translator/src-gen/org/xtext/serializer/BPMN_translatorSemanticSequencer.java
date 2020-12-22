@@ -22,7 +22,6 @@ import org.xtext.bPMN_translator.codex;
 import org.xtext.bPMN_translator.content;
 import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
-import org.xtext.bPMN_translator.element_value;
 import org.xtext.bPMN_translator.mqtt_data;
 import org.xtext.bPMN_translator.mqtt_device;
 import org.xtext.bPMN_translator.mqtt_network_data;
@@ -71,9 +70,6 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 				return; 
 			case BPMN_translatorPackage.ELEMENT:
 				sequence_element(context, (element) semanticObject); 
-				return; 
-			case BPMN_translatorPackage.ELEMENT_VALUE:
-				sequence_element(context, (element_value) semanticObject); 
 				return; 
 			case BPMN_translatorPackage.MQTT_DATA:
 				sequence_mqtt_data(context, (mqtt_data) semanticObject); 
@@ -139,7 +135,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     Singleton returns Singleton
 	 *
 	 * Constraint:
-	 *     value+=STRING*
+	 *     (keywords+=KEYWORDS (keywords1+=KEYWORDS value+=STRING)*)
 	 */
 	protected void sequence_Singleton(ISerializationContext context, Singleton semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -175,7 +171,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     content returns content
 	 *
 	 * Constraint:
-	 *     ((element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)? (type+='_TASK' codex+=codex)?)+
+	 *     ((element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)? ((type+='_TASK' | type+='_GATEWAY') codex+=codex)?)+
 	 */
 	protected void sequence_content(ISerializationContext context, content semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -199,21 +195,9 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     element returns element
 	 *
 	 * Constraint:
-	 *     (open+=Open contents+=content close_tag+=Close)
+	 *     ((open+=Open contents+=content close_tag+=Close) | singleton_tag+=Singleton)
 	 */
 	protected void sequence_element(ISerializationContext context, element semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     element returns element_value
-	 *
-	 * Constraint:
-	 *     singleton_tag+=Singleton
-	 */
-	protected void sequence_element(ISerializationContext context, element_value semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

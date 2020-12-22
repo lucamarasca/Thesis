@@ -21,7 +21,6 @@ import org.xtext.bPMN_translator.codex;
 import org.xtext.bPMN_translator.content;
 import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
-import org.xtext.bPMN_translator.element_value;
 import org.xtext.bPMN_translator.mqtt_data;
 import org.xtext.bPMN_translator.mqtt_device;
 import org.xtext.bPMN_translator.mqtt_network_data;
@@ -141,13 +140,6 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   private EClass sensor_dataEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass element_valueEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -298,6 +290,17 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
   public EReference getelement_Close_tag()
   {
     return (EReference)elementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getelement_Singleton_tag()
+  {
+    return (EReference)elementEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -460,9 +463,31 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EAttribute getSingleton_Value()
+  public EAttribute getSingleton_Keywords()
   {
     return (EAttribute)singletonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSingleton_Keywords1()
+  {
+    return (EAttribute)singletonEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSingleton_Value()
+  {
+    return (EAttribute)singletonEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -834,28 +859,6 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EClass getelement_value()
-  {
-    return element_valueEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getelement_value_Singleton_tag()
-  {
-    return (EReference)element_valueEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public BPMN_translatorFactory getBPMN_translatorFactory()
   {
     return (BPMN_translatorFactory)getEFactoryInstance();
@@ -891,6 +894,7 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     createEReference(elementEClass, ELEMENT__OPEN);
     createEReference(elementEClass, ELEMENT__CONTENTS);
     createEReference(elementEClass, ELEMENT__CLOSE_TAG);
+    createEReference(elementEClass, ELEMENT__SINGLETON_TAG);
 
     contentEClass = createEClass(CONTENT);
     createEAttribute(contentEClass, CONTENT__TYPE);
@@ -908,6 +912,8 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     createEAttribute(openEClass, OPEN__VALUE);
 
     singletonEClass = createEClass(SINGLETON);
+    createEAttribute(singletonEClass, SINGLETON__KEYWORDS);
+    createEAttribute(singletonEClass, SINGLETON__KEYWORDS1);
     createEAttribute(singletonEClass, SINGLETON__VALUE);
 
     closeEClass = createEClass(CLOSE);
@@ -951,9 +957,6 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     createEAttribute(sensor_dataEClass, SENSOR_DATA__PNAME);
     createEAttribute(sensor_dataEClass, SENSOR_DATA__PINS);
     createEAttribute(sensor_dataEClass, SENSOR_DATA__SENSOR_ID);
-
-    element_valueEClass = createEClass(ELEMENT_VALUE);
-    createEReference(element_valueEClass, ELEMENT_VALUE__SINGLETON_TAG);
   }
 
   /**
@@ -985,7 +988,6 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    element_valueEClass.getESuperTypes().add(this.getelement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -998,6 +1000,7 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     initEReference(getelement_Open(), this.getOpen(), null, "open", null, 0, -1, element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getelement_Contents(), this.getcontent(), null, "contents", null, 0, -1, element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getelement_Close_tag(), this.getClose(), null, "close_tag", null, 0, -1, element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getelement_Singleton_tag(), this.getSingleton(), null, "singleton_tag", null, 0, -1, element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contentEClass, content.class, "content", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getcontent_Type(), ecorePackage.getEString(), "type", null, 0, -1, content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1015,6 +1018,8 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     initEAttribute(getOpen_Value(), ecorePackage.getEString(), "value", null, 0, -1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(singletonEClass, Singleton.class, "Singleton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSingleton_Keywords(), ecorePackage.getEString(), "keywords", null, 0, -1, Singleton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSingleton_Keywords1(), ecorePackage.getEString(), "keywords1", null, 0, -1, Singleton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSingleton_Value(), ecorePackage.getEString(), "value", null, 0, -1, Singleton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(closeEClass, Close.class, "Close", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1058,9 +1063,6 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     initEAttribute(getsensor_data_Pname(), ecorePackage.getEString(), "pname", null, 0, -1, sensor_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getsensor_data_Pins(), ecorePackage.getEString(), "pins", null, 0, -1, sensor_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getsensor_data_Sensor_id(), ecorePackage.getEString(), "sensor_id", null, 0, -1, sensor_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(element_valueEClass, element_value.class, "element_value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getelement_value_Singleton_tag(), this.getSingleton(), null, "singleton_tag", null, 0, -1, element_value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

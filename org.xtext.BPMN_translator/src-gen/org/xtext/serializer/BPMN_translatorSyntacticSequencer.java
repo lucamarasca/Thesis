@@ -215,10 +215,10 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *     (HEAD ':')*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) '<' HEAD ':' KEYWORDS (ambiguity) '/>' (rule start)
-	 *     (rule start) '<' HEAD ':' KEYWORDS (ambiguity) KEYWORDS '=' value+=STRING
+	 *     keywords+=KEYWORDS (ambiguity) '/>' (rule end)
+	 *     keywords+=KEYWORDS (ambiguity) keywords1+=KEYWORDS
 	 *     value+=STRING (ambiguity) '/>' (rule end)
-	 *     value+=STRING (ambiguity) KEYWORDS '=' value+=STRING
+	 *     value+=STRING (ambiguity) keywords1+=KEYWORDS
 	 */
 	protected void emit_Singleton___HEADTerminalRuleCall_1_4_0_0_ColonKeyword_1_4_0_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

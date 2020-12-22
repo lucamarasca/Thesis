@@ -17,6 +17,8 @@
         eType="#//content" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="close_tag" upperBound="-1"
         eType="#//Close" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="singleton_tag" upperBound="-1"
+        eType="#//Singleton" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="content">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" unique="false" upperBound="-1"
@@ -45,6 +47,10 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Singleton">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keywords" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keywords1" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -112,9 +118,5 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sensor_id" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="element_value" eSuperTypes="#//element">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="singleton_tag" upperBound="-1"
-        eType="#//Singleton" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

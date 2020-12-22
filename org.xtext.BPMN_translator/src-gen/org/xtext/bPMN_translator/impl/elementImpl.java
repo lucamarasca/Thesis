@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
 import org.xtext.bPMN_translator.Close;
 import org.xtext.bPMN_translator.Open;
+import org.xtext.bPMN_translator.Singleton;
 import org.xtext.bPMN_translator.content;
 import org.xtext.bPMN_translator.element;
 
@@ -34,6 +35,7 @@ import org.xtext.bPMN_translator.element;
  *   <li>{@link org.xtext.bPMN_translator.impl.elementImpl#getOpen <em>Open</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.elementImpl#getContents <em>Contents</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.elementImpl#getClose_tag <em>Close tag</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.elementImpl#getSingleton_tag <em>Singleton tag</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,6 +71,16 @@ public class elementImpl extends MinimalEObjectImpl.Container implements element
    * @ordered
    */
   protected EList<Close> close_tag;
+
+  /**
+   * The cached value of the '{@link #getSingleton_tag() <em>Singleton tag</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSingleton_tag()
+   * @generated
+   * @ordered
+   */
+  protected EList<Singleton> singleton_tag;
 
   /**
    * <!-- begin-user-doc -->
@@ -142,6 +154,21 @@ public class elementImpl extends MinimalEObjectImpl.Container implements element
    * @generated
    */
   @Override
+  public EList<Singleton> getSingleton_tag()
+  {
+    if (singleton_tag == null)
+    {
+      singleton_tag = new EObjectContainmentEList<Singleton>(Singleton.class, this, BPMN_translatorPackage.ELEMENT__SINGLETON_TAG);
+    }
+    return singleton_tag;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -152,6 +179,8 @@ public class elementImpl extends MinimalEObjectImpl.Container implements element
         return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
       case BPMN_translatorPackage.ELEMENT__CLOSE_TAG:
         return ((InternalEList<?>)getClose_tag()).basicRemove(otherEnd, msgs);
+      case BPMN_translatorPackage.ELEMENT__SINGLETON_TAG:
+        return ((InternalEList<?>)getSingleton_tag()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -172,6 +201,8 @@ public class elementImpl extends MinimalEObjectImpl.Container implements element
         return getContents();
       case BPMN_translatorPackage.ELEMENT__CLOSE_TAG:
         return getClose_tag();
+      case BPMN_translatorPackage.ELEMENT__SINGLETON_TAG:
+        return getSingleton_tag();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -199,6 +230,10 @@ public class elementImpl extends MinimalEObjectImpl.Container implements element
         getClose_tag().clear();
         getClose_tag().addAll((Collection<? extends Close>)newValue);
         return;
+      case BPMN_translatorPackage.ELEMENT__SINGLETON_TAG:
+        getSingleton_tag().clear();
+        getSingleton_tag().addAll((Collection<? extends Singleton>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -222,6 +257,9 @@ public class elementImpl extends MinimalEObjectImpl.Container implements element
       case BPMN_translatorPackage.ELEMENT__CLOSE_TAG:
         getClose_tag().clear();
         return;
+      case BPMN_translatorPackage.ELEMENT__SINGLETON_TAG:
+        getSingleton_tag().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -242,6 +280,8 @@ public class elementImpl extends MinimalEObjectImpl.Container implements element
         return contents != null && !contents.isEmpty();
       case BPMN_translatorPackage.ELEMENT__CLOSE_TAG:
         return close_tag != null && !close_tag.isEmpty();
+      case BPMN_translatorPackage.ELEMENT__SINGLETON_TAG:
+        return singleton_tag != null && !singleton_tag.isEmpty();
     }
     return super.eIsSet(featureID);
   }

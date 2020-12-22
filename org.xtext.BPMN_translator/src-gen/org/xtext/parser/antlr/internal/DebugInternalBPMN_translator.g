@@ -40,7 +40,11 @@ ruleelement:
 // Rule content
 rulecontent:
 	(
-		'_TASK'
+		(
+			'_TASK'
+			    |
+			'_GATEWAY'
+		)
 		'{'
 		rulecodex
 		'}'

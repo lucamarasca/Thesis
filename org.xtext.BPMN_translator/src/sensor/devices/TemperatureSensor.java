@@ -2,15 +2,15 @@ package sensor.devices;
 
 import java.util.ArrayList;
 
-import org.xtext.generator.Elements;
+import elements.Elements;
 
 public class TemperatureSensor extends Elements {
 	String module;
 	ArrayList <String> pins ;
-	String id;
+	String sensor_id ;
 	
 	public TemperatureSensor(){
-		id = "device id";
+		
 		module = "module name";
 		pins = new ArrayList<String>();
 	}
@@ -42,10 +42,10 @@ public class TemperatureSensor extends Elements {
 	public void setPins(ArrayList<String> pins) {
 		this.pins = pins;
 	}
-	public String getId() {
-		return id;
+	public String getSensorId() {
+		return sensor_id;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setSensorId(String id) {
+		this.sensor_id = id;
 	}
 }
