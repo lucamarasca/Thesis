@@ -266,11 +266,6 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *     value+=STRING ('TOPIC_NAME' '=')* '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* (ambiguity) 'BROKER_USER' '=' broker_user+=STRING
 	 *     value+=STRING ('TOPIC_NAME' '=')* '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* (ambiguity) 'NAME' '=' pname+=STRING
 	 *     value+=STRING ('TOPIC_NAME' '=')* '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* (ambiguity) (rule end)
-	 *     value+=variable ('TOPIC_NAME' '=')* '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* (ambiguity) 'BROKER' '=' broker+=STRING
-	 *     value+=variable ('TOPIC_NAME' '=')* '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* (ambiguity) 'BROKER_PASSWORD' '=' broker_password+=STRING
-	 *     value+=variable ('TOPIC_NAME' '=')* '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* (ambiguity) 'BROKER_USER' '=' broker_user+=STRING
-	 *     value+=variable ('TOPIC_NAME' '=')* '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* (ambiguity) 'NAME' '=' pname+=STRING
-	 *     value+=variable ('TOPIC_NAME' '=')* '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* (ambiguity) (rule end)
 	 */
 	protected void emit_mqtt_data___PUBTOPICSKeyword_1_6_0_LeftCurlyBracketKeyword_1_6_1___TOPIC_NAMEKeyword_1_6_2_0_0_EqualsSignKeyword_1_6_2_0_1__a_RightCurlyBracketKeyword_1_6_3_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___or___SUBTOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -283,7 +278,6 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 * This ambiguous syntax occurs at:
 	 *     pubtopics+=STRING ('TOPIC_NAME' '=')* '}' (('NETWORK' '{' '}')? ('SUBTOPICS' '{' '}')?)+ (ambiguity) 'SUBTOPICS' '{' 'TOPIC_NAME' '=' subtopics+=STRING
 	 *     value+=STRING ('TOPIC_NAME' '=')* '}' (('NETWORK' '{' '}')? ('SUBTOPICS' '{' '}')?)+ (ambiguity) 'SUBTOPICS' '{' 'TOPIC_NAME' '=' subtopics+=STRING
-	 *     value+=variable ('TOPIC_NAME' '=')* '}' (('NETWORK' '{' '}')? ('SUBTOPICS' '{' '}')?)+ (ambiguity) 'SUBTOPICS' '{' 'TOPIC_NAME' '=' subtopics+=STRING
 	 */
 	protected void emit_mqtt_data___PUBTOPICSKeyword_1_6_0_LeftCurlyBracketKeyword_1_6_1___TOPIC_NAMEKeyword_1_6_2_0_0_EqualsSignKeyword_1_6_2_0_1__a_RightCurlyBracketKeyword_1_6_3_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__q___SUBTOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__q__p__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -296,7 +290,6 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 * This ambiguous syntax occurs at:
 	 *     pubtopics+=STRING ('TOPIC_NAME' '=')* '}' (('SUBTOPICS' '{' '}')? ('NETWORK' '{' '}')?)+ (ambiguity) 'NETWORK' '{' mqtt_network_data+=mqtt_network_data
 	 *     value+=STRING ('TOPIC_NAME' '=')* '}' (('SUBTOPICS' '{' '}')? ('NETWORK' '{' '}')?)+ (ambiguity) 'NETWORK' '{' mqtt_network_data+=mqtt_network_data
-	 *     value+=variable ('TOPIC_NAME' '=')* '}' (('SUBTOPICS' '{' '}')? ('NETWORK' '{' '}')?)+ (ambiguity) 'NETWORK' '{' mqtt_network_data+=mqtt_network_data
 	 */
 	protected void emit_mqtt_data___PUBTOPICSKeyword_1_6_0_LeftCurlyBracketKeyword_1_6_1___TOPIC_NAMEKeyword_1_6_2_0_0_EqualsSignKeyword_1_6_2_0_1__a_RightCurlyBracketKeyword_1_6_3_____SUBTOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__q___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__q__p__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -362,15 +355,10 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* (ambiguity) 'DATA' '=' value+=STRING
-	 *     (rule start) (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* (ambiguity) 'DATA' '=' value+=variable
 	 *     broker+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* (ambiguity) 'DATA' '=' value+=STRING
-	 *     broker+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* (ambiguity) 'DATA' '=' value+=variable
 	 *     broker_password+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* (ambiguity) 'DATA' '=' value+=STRING
-	 *     broker_password+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* (ambiguity) 'DATA' '=' value+=variable
 	 *     broker_user+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* (ambiguity) 'DATA' '=' value+=STRING
-	 *     broker_user+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* (ambiguity) 'DATA' '=' value+=variable
 	 *     pname+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* (ambiguity) 'DATA' '=' value+=STRING
-	 *     pname+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* (ambiguity) 'DATA' '=' value+=variable
 	 */
 	protected void emit_mqtt_data___RightCurlyBracketKeyword_1_6_3_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___or___SUBTOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3____a_PUBTOPICSKeyword_1_6_0_LeftCurlyBracketKeyword_1_6_1___TOPIC_NAMEKeyword_1_6_2_0_0_EqualsSignKeyword_1_6_2_0_1__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -382,7 +370,6 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     subtopics+=STRING '}' (('NETWORK' '{' '}')? ('SUBTOPICS' '{' '}')?)+ 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* (ambiguity) 'DATA' '=' value+=STRING
-	 *     subtopics+=STRING '}' (('NETWORK' '{' '}')? ('SUBTOPICS' '{' '}')?)+ 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* (ambiguity) 'DATA' '=' value+=variable
 	 */
 	protected void emit_mqtt_data___RightCurlyBracketKeyword_1_6_3_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__q___SUBTOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__q__p_PUBTOPICSKeyword_1_6_0_LeftCurlyBracketKeyword_1_6_1___TOPIC_NAMEKeyword_1_6_2_0_0_EqualsSignKeyword_1_6_2_0_1__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -394,7 +381,6 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     mqtt_network_data+=mqtt_network_data '}' (('SUBTOPICS' '{' '}')? ('NETWORK' '{' '}')?)+ 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* (ambiguity) 'DATA' '=' value+=STRING
-	 *     mqtt_network_data+=mqtt_network_data '}' (('SUBTOPICS' '{' '}')? ('NETWORK' '{' '}')?)+ 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* (ambiguity) 'DATA' '=' value+=variable
 	 */
 	protected void emit_mqtt_data___RightCurlyBracketKeyword_1_6_3_____SUBTOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__q___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__q__p_PUBTOPICSKeyword_1_6_0_LeftCurlyBracketKeyword_1_6_1___TOPIC_NAMEKeyword_1_6_2_0_0_EqualsSignKeyword_1_6_2_0_1__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -421,7 +407,6 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     value+=STRING (ambiguity) pubtopics+=STRING
-	 *     value+=variable (ambiguity) pubtopics+=STRING
 	 */
 	protected void emit_mqtt_data___TOPIC_NAMEKeyword_1_6_2_0_0_EqualsSignKeyword_1_6_2_0_1___RightCurlyBracketKeyword_1_6_3_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___or___SUBTOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3____a_PUBTOPICSKeyword_1_6_0_LeftCurlyBracketKeyword_1_6_1__a__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -443,18 +428,6 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *         'DATA' 
 	 *         '=' 
 	 *         value+=STRING
-	 *     )
-	 *     (
-	 *         mqtt_network_data+=mqtt_network_data 
-	 *         '}' 
-	 *         (('SUBTOPICS' '{' '}')? ('NETWORK' '{' '}')?)+ 
-	 *         'PUBTOPICS' 
-	 *         '{' 
-	 *         (ambiguity) 
-	 *         ('}' (('SUBTOPICS' '{' '}')? ('NETWORK' '{' '}')?)+ 'PUBTOPICS' '{' (ambiguity))* 
-	 *         'DATA' 
-	 *         '=' 
-	 *         value+=variable
 	 *     )
 	 *     (
 	 *         pubtopics+=STRING 
@@ -498,55 +471,22 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *         '{' 
 	 *         mqtt_network_data+=mqtt_network_data
 	 *     )
-	 *     (
-	 *         value+=variable 
-	 *         (ambiguity) 
-	 *         '}' 
-	 *         (('NETWORK' '{' '}')? ('SUBTOPICS' '{' '}')?)+ 
-	 *         ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}')? ('SUBTOPICS' '{' '}')?)+)* 
-	 *         'SUBTOPICS' 
-	 *         '{' 
-	 *         'TOPIC_NAME' 
-	 *         '=' 
-	 *         subtopics+=STRING
-	 *     )
-	 *     (
-	 *         value+=variable 
-	 *         (ambiguity) 
-	 *         '}' 
-	 *         (('SUBTOPICS' '{' '}')? ('NETWORK' '{' '}')?)+ 
-	 *         ('PUBTOPICS' '{' (ambiguity) '}' (('SUBTOPICS' '{' '}')? ('NETWORK' '{' '}')?)+)* 
-	 *         'NETWORK' 
-	 *         '{' 
-	 *         mqtt_network_data+=mqtt_network_data
-	 *     )
 	 *     (rule start) (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity) ('}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity))* 'DATA' '=' value+=STRING
-	 *     (rule start) (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity) ('}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity))* 'DATA' '=' value+=variable
 	 *     broker+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity) ('}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity))* 'DATA' '=' value+=STRING
-	 *     broker+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity) ('}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity))* 'DATA' '=' value+=variable
 	 *     broker_password+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity) ('}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity))* 'DATA' '=' value+=STRING
-	 *     broker_password+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity) ('}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity))* 'DATA' '=' value+=variable
 	 *     broker_user+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity) ('}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity))* 'DATA' '=' value+=STRING
-	 *     broker_user+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity) ('}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity))* 'DATA' '=' value+=variable
 	 *     pname+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity) ('}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity))* 'DATA' '=' value+=STRING
-	 *     pname+=STRING (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity) ('}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* 'PUBTOPICS' '{' (ambiguity))* 'DATA' '=' value+=variable
 	 *     pubtopics+=STRING (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))*)* 'BROKER' '=' broker+=STRING
 	 *     pubtopics+=STRING (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))*)* 'BROKER_USER' '=' broker_user+=STRING
 	 *     pubtopics+=STRING (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))*)* 'NAME' '=' pname+=STRING
 	 *     pubtopics+=STRING (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))*)* (rule end)
 	 *     subtopics+=STRING '}' (('NETWORK' '{' '}')? ('SUBTOPICS' '{' '}')?)+ 'PUBTOPICS' '{' (ambiguity) ('}' (('NETWORK' '{' '}')? ('SUBTOPICS' '{' '}')?)+ 'PUBTOPICS' '{' (ambiguity))* 'DATA' '=' value+=STRING
-	 *     subtopics+=STRING '}' (('NETWORK' '{' '}')? ('SUBTOPICS' '{' '}')?)+ 'PUBTOPICS' '{' (ambiguity) ('}' (('NETWORK' '{' '}')? ('SUBTOPICS' '{' '}')?)+ 'PUBTOPICS' '{' (ambiguity))* 'DATA' '=' value+=variable
 	 *     value+=STRING (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))*)* 'BROKER' '=' broker+=STRING
 	 *     value+=STRING (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))*)* 'BROKER_PASSWORD' '=' broker_password+=STRING
 	 *     value+=STRING (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))*)* 'BROKER_USER' '=' broker_user+=STRING
 	 *     value+=STRING (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))*)* 'NAME' '=' pname+=STRING
 	 *     value+=STRING (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))*)* (rule end)
 	 *     value+=STRING (ambiguity) '}' (('NETWORK' '{' '}')? ('SUBTOPICS' '{' '}')?)+ ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}')? ('SUBTOPICS' '{' '}')?)+)* 'SUBTOPICS' '{' 'TOPIC_NAME' '=' subtopics+=STRING
-	 *     value+=variable (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))*)* 'BROKER' '=' broker+=STRING
-	 *     value+=variable (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))*)* 'BROKER_PASSWORD' '=' broker_password+=STRING
-	 *     value+=variable (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))*)* 'BROKER_USER' '=' broker_user+=STRING
-	 *     value+=variable (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))*)* 'NAME' '=' pname+=STRING
-	 *     value+=variable (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))* ('PUBTOPICS' '{' (ambiguity) '}' (('NETWORK' '{' '}') | ('SUBTOPICS' '{' '}'))*)* (rule end)
 	 */
 	protected void emit_mqtt_data___TOPIC_NAMEKeyword_1_6_2_0_0_EqualsSignKeyword_1_6_2_0_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -592,19 +532,14 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* ('}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')*)* 'DATA' '=' value+=STRING
-	 *     (rule start) (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* ('}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')*)* 'DATA' '=' value+=variable
 	 *     (rule start) (ambiguity) 'PUBTOPICS' '{' (((('TOPIC_NAME' '=')+ '}') | '}') (ambiguity) 'PUBTOPICS' '{')* ('TOPIC_NAME' '=')+ pubtopics+=STRING
 	 *     broker+=STRING (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* ('}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')*)* 'DATA' '=' value+=STRING
-	 *     broker+=STRING (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* ('}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')*)* 'DATA' '=' value+=variable
 	 *     broker+=STRING (ambiguity) 'PUBTOPICS' '{' (((('TOPIC_NAME' '=')+ '}') | '}') (ambiguity) 'PUBTOPICS' '{')* ('TOPIC_NAME' '=')+ pubtopics+=STRING
 	 *     broker_password+=STRING (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* ('}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')*)* 'DATA' '=' value+=STRING
-	 *     broker_password+=STRING (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* ('}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')*)* 'DATA' '=' value+=variable
 	 *     broker_password+=STRING (ambiguity) 'PUBTOPICS' '{' (((('TOPIC_NAME' '=')+ '}') | '}') (ambiguity) 'PUBTOPICS' '{')* ('TOPIC_NAME' '=')+ pubtopics+=STRING
 	 *     broker_user+=STRING (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* ('}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')*)* 'DATA' '=' value+=STRING
-	 *     broker_user+=STRING (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* ('}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')*)* 'DATA' '=' value+=variable
 	 *     broker_user+=STRING (ambiguity) 'PUBTOPICS' '{' (((('TOPIC_NAME' '=')+ '}') | '}') (ambiguity) 'PUBTOPICS' '{')* ('TOPIC_NAME' '=')+ pubtopics+=STRING
 	 *     pname+=STRING (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* ('}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')*)* 'DATA' '=' value+=STRING
-	 *     pname+=STRING (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* ('}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')*)* 'DATA' '=' value+=variable
 	 *     pname+=STRING (ambiguity) 'PUBTOPICS' '{' (((('TOPIC_NAME' '=')+ '}') | '}') (ambiguity) 'PUBTOPICS' '{')* ('TOPIC_NAME' '=')+ pubtopics+=STRING
 	 *     pubtopics+=STRING ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* 'BROKER' '=' broker+=STRING
 	 *     pubtopics+=STRING ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* 'BROKER_PASSWORD' '=' broker_password+=STRING
@@ -616,11 +551,6 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *     value+=STRING ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* 'BROKER_USER' '=' broker_user+=STRING
 	 *     value+=STRING ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* 'NAME' '=' pname+=STRING
 	 *     value+=STRING ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* (rule end)
-	 *     value+=variable ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* 'BROKER' '=' broker+=STRING
-	 *     value+=variable ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* 'BROKER_PASSWORD' '=' broker_password+=STRING
-	 *     value+=variable ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* 'BROKER_USER' '=' broker_user+=STRING
-	 *     value+=variable ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* 'NAME' '=' pname+=STRING
-	 *     value+=variable ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* (rule end)
 	 */
 	protected void emit_mqtt_data_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___or___SUBTOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -653,10 +583,8 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 * This ambiguous syntax occurs at:
 	 *     pubtopics+=STRING ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* 'SUBTOPICS' '{' 'TOPIC_NAME' '=' subtopics+=STRING
 	 *     subtopics+=STRING '}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* ('}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')*)* 'DATA' '=' value+=STRING
-	 *     subtopics+=STRING '}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* ('}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')*)* 'DATA' '=' value+=variable
 	 *     subtopics+=STRING '}' (ambiguity) 'PUBTOPICS' '{' (((('TOPIC_NAME' '=')+ '}') | '}') (ambiguity) 'PUBTOPICS' '{')* ('TOPIC_NAME' '=')+ pubtopics+=STRING
 	 *     value+=STRING ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* 'SUBTOPICS' '{' 'TOPIC_NAME' '=' subtopics+=STRING
-	 *     value+=variable ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* 'SUBTOPICS' '{' 'TOPIC_NAME' '=' subtopics+=STRING
 	 */
 	protected void emit_mqtt_data_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__q___SUBTOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__q__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -727,11 +655,9 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* ('}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')*)* 'DATA' '=' value+=STRING
-	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')* ('}' (ambiguity) 'PUBTOPICS' '{' ('TOPIC_NAME' '=')*)* 'DATA' '=' value+=variable
 	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) 'PUBTOPICS' '{' (((('TOPIC_NAME' '=')+ '}') | '}') (ambiguity) 'PUBTOPICS' '{')* ('TOPIC_NAME' '=')+ pubtopics+=STRING
 	 *     pubtopics+=STRING ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* 'NETWORK' '{' mqtt_network_data+=mqtt_network_data
 	 *     value+=STRING ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* 'NETWORK' '{' mqtt_network_data+=mqtt_network_data
-	 *     value+=variable ('TOPIC_NAME' '=')* '}' (ambiguity) ('PUBTOPICS' '{' ('TOPIC_NAME' '=')* '}' (ambiguity))* 'NETWORK' '{' mqtt_network_data+=mqtt_network_data
 	 */
 	protected void emit_mqtt_data_____SUBTOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3__q___NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3__q__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -763,11 +689,7 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     pubtopics+=STRING (ambiguity) 'DATA' '=' value+=STRING
-	 *     pubtopics+=STRING (ambiguity) 'DATA' '=' value+=variable
 	 *     value+=STRING (ambiguity) 'DATA' '=' value+=STRING
-	 *     value+=STRING (ambiguity) 'DATA' '=' value+=variable
-	 *     value+=variable (ambiguity) 'DATA' '=' value+=STRING
-	 *     value+=variable (ambiguity) 'DATA' '=' value+=variable
 	 */
 	protected void emit_mqtt_data_____TOPIC_NAMEKeyword_1_6_2_0_0_EqualsSignKeyword_1_6_2_0_1__q___RightCurlyBracketKeyword_1_6_3_____NETWORKKeyword_1_4_0_LeftCurlyBracketKeyword_1_4_1_RightCurlyBracketKeyword_1_4_3___or___SUBTOPICSKeyword_1_5_0_LeftCurlyBracketKeyword_1_5_1_RightCurlyBracketKeyword_1_5_3____a_PUBTOPICSKeyword_1_6_0_LeftCurlyBracketKeyword_1_6_1__q__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

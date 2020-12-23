@@ -171,7 +171,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     content returns content
 	 *
 	 * Constraint:
-	 *     ((element+=element | body+=BODY | keywords+=KEYWORDS | data+=STRING)? ((type+='_TASK' | type+='_GATEWAY') codex+=codex)?)+
+	 *     ((element+=element | body+=BODY | body+=variables | keywords+=KEYWORDS | data+=STRING)? ((type+='_TASK' | type+='_GATEWAY') codex+=codex)?)+
 	 */
 	protected void sequence_content(ISerializationContext context, content semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -215,8 +215,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *         mqtt_network_data+=mqtt_network_data | 
 	 *         subtopics+=STRING | 
 	 *         pubtopics+=STRING | 
-	 *         value+=STRING | 
-	 *         value+=variable
+	 *         value+=STRING
 	 *     )*
 	 */
 	protected void sequence_mqtt_data(ISerializationContext context, mqtt_data semanticObject) {

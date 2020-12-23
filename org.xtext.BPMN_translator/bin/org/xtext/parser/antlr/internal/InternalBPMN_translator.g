@@ -411,20 +411,38 @@ rulecontent returns [EObject current=null]
 			    |
 			(
 				(
-					lv_body_6_0=RULE_BODY
-					{
-						newLeafNode(lv_body_6_0, grammarAccess.getContentAccess().getBodyBODYTerminalRuleCall_1_2_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getContentRule());
+					(
+						lv_body_6_1=RULE_BODY
+						{
+							newLeafNode(lv_body_6_1, grammarAccess.getContentAccess().getBodyBODYTerminalRuleCall_1_2_0_0());
 						}
-						addWithLastConsumed(
-							$current,
-							"body",
-							lv_body_6_0,
-							"org.xtext.BPMN_translator.BODY");
-					}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getContentRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"body",
+								lv_body_6_1,
+								"org.xtext.BPMN_translator.BODY");
+						}
+						    |
+						{
+							newCompositeNode(grammarAccess.getContentAccess().getBodyVariablesParserRuleCall_1_2_0_1());
+						}
+						lv_body_6_2=rulevariables
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getContentRule());
+							}
+							add(
+								$current,
+								"body",
+								lv_body_6_2,
+								"org.xtext.BPMN_translator.variables");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
 			)
 			    |
@@ -788,6 +806,68 @@ ruleClose returns [EObject current=null]
 				newLeafNode(otherlv_5, grammarAccess.getCloseAccess().getGreaterThanSignKeyword_1_4());
 			}
 		)
+	)
+;
+
+// Entry rule entryRulevariables
+entryRulevariables returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getVariablesRule()); }
+	iv_rulevariables=rulevariables
+	{ $current=$iv_rulevariables.current.getText(); }
+	EOF;
+
+// Rule variables
+rulevariables returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='TEMPERATURE'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getVariablesAccess().getTEMPERATUREKeyword_0());
+		}
+		(
+			kw='&lt;'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getLtKeyword_1_0());
+			}
+			    |
+			kw='&le;'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getLeKeyword_1_1());
+			}
+			    |
+			kw='&ge;'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getGeKeyword_1_2());
+			}
+			    |
+			kw='&gt;'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getGtKeyword_1_3());
+			}
+			    |
+			kw='='
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getEqualsSignKeyword_1_4());
+			}
+		)*
+		this_BODY_6=RULE_BODY
+		{
+			$current.merge(this_BODY_6);
+		}
+		{
+			newLeafNode(this_BODY_6, grammarAccess.getVariablesAccess().getBODYTerminalRuleCall_2());
+		}
 	)
 ;
 
@@ -1286,38 +1366,20 @@ rulemqtt_data returns [EObject current=null]
 						}
 						(
 							(
-								(
-									lv_value_30_1=RULE_STRING
-									{
-										newLeafNode(lv_value_30_1, grammarAccess.getMqtt_dataAccess().getValueSTRINGTerminalRuleCall_1_6_2_1_2_0_0());
+								lv_value_30_0=RULE_STRING
+								{
+									newLeafNode(lv_value_30_0, grammarAccess.getMqtt_dataAccess().getValueSTRINGTerminalRuleCall_1_6_2_1_2_0());
+								}
+								{
+									if ($current==null) {
+										$current = createModelElement(grammarAccess.getMqtt_dataRule());
 									}
-									{
-										if ($current==null) {
-											$current = createModelElement(grammarAccess.getMqtt_dataRule());
-										}
-										addWithLastConsumed(
-											$current,
-											"value",
-											lv_value_30_1,
-											"org.eclipse.xtext.common.Terminals.STRING");
-									}
-									    |
-									{
-										newCompositeNode(grammarAccess.getMqtt_dataAccess().getValueVariableParserRuleCall_1_6_2_1_2_0_1());
-									}
-									lv_value_30_2=rulevariable
-									{
-										if ($current==null) {
-											$current = createModelElementForParent(grammarAccess.getMqtt_dataRule());
-										}
-										add(
-											$current,
-											"value",
-											lv_value_30_2,
-											"org.xtext.BPMN_translator.variable");
-										afterParserOrEnumRuleCall();
-									}
-								)
+									addWithLastConsumed(
+										$current,
+										"value",
+										lv_value_30_0,
+										"org.eclipse.xtext.common.Terminals.STRING");
+								}
 							)
 						)
 					)
@@ -1676,36 +1738,6 @@ rulesensor_data returns [EObject current=null]
 				)
 			)
 		)*
-	)
-;
-
-// Entry rule entryRulevariable
-entryRulevariable returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getVariableRule()); }
-	iv_rulevariable=rulevariable
-	{ $current=$iv_rulevariable.current.getText(); }
-	EOF;
-
-// Rule variable
-rulevariable returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		kw='TEMPERATURE'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getVariableAccess().getTEMPERATUREKeyword_0());
-		}
-		    |
-		kw='DISTANCE'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getVariableAccess().getDISTANCEKeyword_1());
-		}
 	)
 ;
 

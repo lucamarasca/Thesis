@@ -2,6 +2,7 @@ package org.xtext.generator;
 
 import java.util.ArrayList;
 
+import elements.Condition;
 import elements.Elements;
 import network.protocols.MQTT;
 import sensor.devices.TemperatureSensor;
@@ -24,6 +25,7 @@ public class ArduinoInoCodeGenerator {
 	String sens_variables;
 	String loop_code;
 	String setup_code;
+	String condition;
 	
 	ArduinoInoCodeGenerator(String device, String network_protocol, String wifi_sensor, String sensor){
 		this.device = device.toLowerCase().replaceAll("\\s+","");
@@ -43,6 +45,7 @@ public class ArduinoInoCodeGenerator {
 		includes = "";
 		intestation = "";
 		sens_variables = "";
+		condition = "";
 		result = new ArrayList<String>();
 	}
 	
@@ -50,12 +53,17 @@ public class ArduinoInoCodeGenerator {
 		
 		for (int i = 0; i < elements.size();i++)
 		{
-			if (!ids.contains(elements.get(i).getId()))
+			if (elements.get(i).getId().equals("condition"))
 			{
 				
+				Condition cond = (Condition) elements.get(i);
+				condition = cond.generateCondition();
 				
-				
-				
+			}
+			
+			
+			if (!ids.contains(elements.get(i).getId()))
+			{			
 				GenerateVariables(elements,i);
 				GenerateSetupCode(elements,i);
 				GenerateLoopCode(elements,i);
@@ -66,11 +74,13 @@ public class ArduinoInoCodeGenerator {
 				intestation+="void loop()\n{\n";
 				loop_code+="\n}\n";
 				ids.add(elements.get(i).getId());
-				result.add(includes+variables+intestation+loop_code);
+				System.out.print(condition);
+				result.add(includes+variables+intestation+condition+loop_code);
 				temp = "";
 				variables = "";
 				sens_variables = "";
 				loop_code = "";
+				condition = "";
 			}
 		}
 		return result;

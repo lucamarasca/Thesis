@@ -51,7 +51,10 @@ rulecontent:
 		    |
 		ruleelement
 		    |
-		RULE_BODY
+		(
+			RULE_BODY
+			    |rulevariables
+		)
 		    |
 		RULE_KEYWORDS
 		    |
@@ -104,6 +107,23 @@ ruleClose:
 	':'
 	RULE_KEYWORDS
 	'>'
+;
+
+// Rule variables
+rulevariables:
+	'TEMPERATURE'
+	(
+		'&lt;'
+		    |
+		'&le;'
+		    |
+		'&ge;'
+		    |
+		'&gt;'
+		    |
+		'='
+	)*
+	RULE_BODY
 ;
 
 // Rule codex
@@ -178,10 +198,7 @@ rulemqtt_data:
 			    |
 			'DATA'
 			'='
-			(
-				RULE_STRING
-				    |rulevariable
-			)
+			RULE_STRING
 		)*
 		'}'
 	)*
@@ -237,15 +254,6 @@ rulesensor_data:
 		'='
 		RULE_STRING
 	)*
-;
-
-// Rule variable
-rulevariable:
-	(
-		'TEMPERATURE'
-		    |
-		'DISTANCE'
-	)
 ;
 
 RULE_HEAD : ('bpmn'|'bpmndi'|'camunda'|'xsi'|'xml'|'xmlns'|'dc'|'di');
