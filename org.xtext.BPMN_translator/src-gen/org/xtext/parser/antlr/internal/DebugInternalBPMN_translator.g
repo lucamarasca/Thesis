@@ -51,10 +51,14 @@ rulecontent:
 		    |
 		ruleelement
 		    |
+		rulepreconditions
+		*
 		(
 			RULE_BODY
 			    |rulevariables
 		)
+		ruleconditions
+		*
 		    |
 		RULE_KEYWORDS
 		    |
@@ -112,6 +116,15 @@ ruleClose:
 // Rule variables
 rulevariables:
 	'TEMPERATURE'
+	'['
+	RULE_BODY
+	','
+	RULE_BODY
+	']'
+;
+
+// Rule conditions
+ruleconditions:
 	(
 		'&lt;'
 		    |
@@ -122,8 +135,22 @@ rulevariables:
 		'&gt;'
 		    |
 		'='
-	)*
-	RULE_BODY
+		    |
+		'&&'
+		    |
+		'||'
+		    |
+		')'
+	)
+;
+
+// Rule preconditions
+rulepreconditions:
+	(
+		'!'
+		    |
+		'('
+	)
 ;
 
 // Rule codex

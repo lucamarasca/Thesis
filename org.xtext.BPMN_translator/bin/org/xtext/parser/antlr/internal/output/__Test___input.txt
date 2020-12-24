@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:process id="Process_1" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0n5szni</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1tz8rou">
+      <bpmn:documentation>_GATEWAY{
+		DEVICE : "arduino"
+		NAMEID : "LOWTEMP"
+	  }</bpmn:documentation>
+      <bpmn:incoming>Flow_02bn4r4</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0oca9fk</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1jdz8gt</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Task_0m428pj" name="increase temperature">
+      <bpmn:documentation>_TASK
+{
+DEVICE : "arduino"
+NAMEID : "LOWTEMP"
+	MQTT {
+		NAME = "MQTT"
+		BROKER_USER = "user"
+		BROKER_PASSWORD = "password"
+		BROKER = "server ip"
+		NETWORK{
+			SSID = "my_wifi"
+			PASSWORD = "my_password"
+			SSID = "second_wifi"
+			PASSWORD = "second_password"
+		}
+		SUBTOPICS{
+			TOPIC_NAME = "topic bello"
+			TOPIC_NAME = "secondo topic"
+		}
+		PUBTOPICS{
+			TOPIC_NAME = "primo topic"
+			DATA = "TEMPERATURE"
+			TOPIC_NAME = "secondo topic"
+			DATA = "DISTANCE"
+		}
+		PROTOCOL_DEVICE {
+			NAME = "ESP8266"
+		}
+	}
+	
+
+}</bpmn:documentation>
+      <bpmn:incoming>SequenceFlow_0oca9fk</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1ur8bqu</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_0oca9fk" sourceRef="ExclusiveGateway_1tz8rou" targetRef="Task_0m428pj">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">(TEMPERATURE [LOWTEMP , 2] &lt;= 15) </bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:task id="Task_0jbmril" name="Decrease temperature">
+      <bpmn:documentation>_TASK
+{
+DEVICE : "arduino"
+NAMEID : "LOWTEMP"
+	MQTT {
+		NAME = "MQTT"
+		BROKER_USER = "user"
+		BROKER_PASSWORD = "password"
+		BROKER = "server ip2"
+		NETWORK{
+			SSID = "my_wifi"
+			PASSWORD = "my_password"
+			SSID = "second_wifi"
+			PASSWORD = "second_password"
+		}
+		SUBTOPICS{
+			TOPIC_NAME = "primo topic"
+			TOPIC_NAME = "secondo topic"
+			TOPIC_NAME = "nuovo topic"
+		}
+		PUBTOPICS{
+			TOPIC_NAME = "primo topic"
+			DATA = "prova"
+			TOPIC_NAME = "secondo topic"
+			DATA = "prova"
+		}
+		PROTOCOL_DEVICE {
+			NAME = "ESP8266"
+		}
+		
+	}
+	
+
+}</bpmn:documentation>
+      <bpmn:incoming>SequenceFlow_1jdz8gt</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1d0j3xu</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_1jdz8gt" sourceRef="ExclusiveGateway_1tz8rou" targetRef="Task_0jbmril">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">espressione2</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:endEvent id="EndEvent_1mo0nxh">
+      <bpmn:incoming>SequenceFlow_1ur8bqu</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1ur8bqu" sourceRef="Task_0m428pj" targetRef="EndEvent_1mo0nxh" />
+    <bpmn:endEvent id="EndEvent_11htrib">
+      <bpmn:incoming>SequenceFlow_1d0j3xu</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1d0j3xu" sourceRef="Task_0jbmril" targetRef="EndEvent_11htrib" />
+    <bpmn:task id="Activity_0c778p0" name="Read Temp">
+      <bpmn:documentation>_TASK{
+	DEVICE : "arduino"
+	NAMEID : "LOWTEMP"
+		TEMPERATURE{
+		NAME = "DHT22"
+		PINS = "7"
+		SENSOR_ID = "2"
+	}
+	}</bpmn:documentation>
+      <bpmn:incoming>Flow_0n5szni</bpmn:incoming>
+      <bpmn:outgoing>Flow_02bn4r4</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0n5szni" sourceRef="StartEvent_1" targetRef="Activity_0c778p0" />
+    <bpmn:sequenceFlow id="Flow_02bn4r4" sourceRef="Activity_0c778p0" targetRef="ExclusiveGateway_1tz8rou" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNEdge id="Flow_02bn4r4_di" bpmnElement="Flow_02bn4r4">
+        <di:waypoint x="360" y="199" />
+        <di:waypoint x="398" y="199" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0n5szni_di" bpmnElement="Flow_0n5szni">
+        <di:waypoint x="204" y="199" />
+        <di:waypoint x="260" y="199" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1d0j3xu_di" bpmnElement="SequenceFlow_1d0j3xu">
+        <di:waypoint x="577" y="293" />
+        <di:waypoint x="639" y="293" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="600.5" y="411" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1ur8bqu_di" bpmnElement="SequenceFlow_1ur8bqu">
+        <di:waypoint x="577" y="120" />
+        <di:waypoint x="639" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="608" y="238" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1jdz8gt_di" bpmnElement="SequenceFlow_1jdz8gt">
+        <di:waypoint x="423" y="224" />
+        <di:waypoint x="423" y="293" />
+        <di:waypoint x="477" y="293" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="438" y="391.5" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0oca9fk_di" bpmnElement="SequenceFlow_0oca9fk">
+        <di:waypoint x="423" y="174" />
+        <di:waypoint x="423" y="120" />
+        <di:waypoint x="477" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="438" y="280" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="168" y="181" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="141" y="357" width="90" height="20" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1tz8rou_di" bpmnElement="ExclusiveGateway_1tz8rou" isMarkerVisible="true">
+        <dc:Bounds x="398" y="174" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="423" y="367" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_0m428pj_di" bpmnElement="Task_0m428pj">
+        <dc:Bounds x="477" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_0jbmril_di" bpmnElement="Task_0jbmril">
+        <dc:Bounds x="477" y="253" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1mo0nxh_di" bpmnElement="EndEvent_1mo0nxh">
+        <dc:Bounds x="639" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="657" y="281" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_11htrib_di" bpmnElement="EndEvent_11htrib">
+        <dc:Bounds x="639" y="275" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="642" y="454" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0c778p0_di" bpmnElement="Activity_0c778p0">
+        <dc:Bounds x="260" y="159" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

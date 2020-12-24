@@ -26,9 +26,9 @@ class BPMN_translatorGenerator extends AbstractGenerator {
 //++++++++++++++++++++++++++++++Costants++++++++++++++++++++++++++++++++++
 ArrayList<String> task_type;
 ArrayList<String> gateway_type;
-
+boolean end_event = false;
 ArrayList<String> start_events;
-
+String str;
 Condition cond 
 String cpp_code;
 ArduinoCPPCodeGenerator cpp_gen;
@@ -45,7 +45,7 @@ int n = 0;
 int j = 0;
 int i = 0;
 int k = 0;
-	
+int conditions = 0;
 ArrayList<String> successors
 
 	
@@ -59,6 +59,7 @@ def Initialize(Resource resource){
 	iterations = 0;
 	cpp_code = "";
 	h_code = "";
+	str = "";
 	generated_elements.add("")
 	ino_code.add("");
 	FillTaskType();
@@ -176,7 +177,7 @@ def fillSuccessors(String my_id, Resource r){
 	i=0;
 	n=0;
 	j=0;
-	
+	end_event = true;
 	for (Element : r.allContents.toIterable.filter(element))
 	{
 		for(Singleton : Element.singleton_tag)
@@ -195,6 +196,7 @@ def fillSuccessors(String my_id, Resource r){
 								{
 									successors.add(Singleton.value.get(j))
 									fillSuccessors(Singleton.value.get(j),r);
+									end_event = false;
 								}
 								j++;
 							}
@@ -209,6 +211,7 @@ def fillSuccessors(String my_id, Resource r){
 		}
 		i=0;
 	}
+	
 	for (Element : r.allContents.toIterable.filter(element))
 	{
 		for(Open : Element.open)
@@ -227,11 +230,24 @@ def fillSuccessors(String my_id, Resource r){
 								{
 									if (!getCondition(Element).equals(""))
 									{
-										successors.add("condition="+getCondition(Element));
+										conditions++;
+										successors.add(getGatewayType(my_id,r)+"="+getCondition(Element));
 									}
-									successors.add(Open.value.get(j))
-									fillSuccessors(Open.value.get(j),r);
 									
+									successors.add(Open.value.get(j))
+									end_event = false;
+									if (NextIsEndEvent(Open.value.get(j),r))
+									{
+										for (element : successors)
+										{
+											if (element.contains("condition"))
+											{
+												successors.add(element + "_end");
+											}
+										}
+											
+									}
+									fillSuccessors(Open.value.get(j),r);
 								}
 								j++;
 							}
@@ -246,6 +262,7 @@ def fillSuccessors(String my_id, Resource r){
 		}
 		i=0;
 	}
+	
 }
 def getCondition(element e)
 {
@@ -265,8 +282,14 @@ def getCondition(element e)
 							{
 								return "";
 							}
+							str = "";
+							for(data : conditions.body)
+							{
+								str += data
+							}
+							
 							//DA CONTROLLARE CHE SIA UNA CONDIZIONE VALIDA
-							return conditions.body.toString();
+							return str
 						}
 					}
 				}
@@ -274,6 +297,57 @@ def getCondition(element e)
 		}
 	}
 	return "";
+}
+def getGatewayType(String id, Resource r){
+	k=0;
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Open : Element.open)
+		{
+			for(keywords : Open.keywords1)
+			{
+				if (keywords.equals("id"))
+				{
+					if (Open.value.get(k).equals(id))
+					{
+						if (Open.keywords.get(0).contains("exclusive"))
+						{
+							return "exclusive_condition";
+						}
+						else if (Open.keywords.get(0).contains("inclusive"))
+						{
+							return "inclusive_condition";
+						}
+						else return "condition";						
+					}
+				}
+				k++;
+			}
+			k=0;
+		}
+	}	
+}
+def NextIsEndEvent(String id, Resource r){
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Open : Element.open)
+		{
+			for(keywords : Open.keywords1)
+			{
+				if (keywords.equals("id"))
+				{
+					if (Open.value.get(k).equals(id))
+					{
+						if (Open.keywords.get(0).contains("endEvent"))
+						{
+							return true;
+						}
+					}
+				}
+			}
+		}
+	}
+	return false;
 }
 def ArduinoCodeGenerationIno(){
 	return ino_gen.Generation(elements)
@@ -310,11 +384,11 @@ def setDataStructure(Resource r){
 def setDatas(Resource r, String successor_id){
 	if (successor_id.contains("condition="))
 	{
+		
 		cond = new Condition (successor_id);
-		cond.setId("condition");
 		elements.add(cond);
 		//QUI DEVO AGGIUNGERE NELLA STRUTTURA DATI LA CONDIZIONE
-		System.out.println("C'è una condizione");
+		
 		return;
 	}
 	for (Element : r.allContents.toIterable.filter(element))
@@ -424,10 +498,6 @@ def setDatas(Resource r, String successor_id){
 											}
 										}
 									}	
-								}
-								if(c.type.get(0).equals("_GATEWAY"))
-								{
-									
 								}
 							}
 						}

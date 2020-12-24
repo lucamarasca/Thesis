@@ -16,6 +16,8 @@ public class ArduinoInoCodeGenerator {
 	String ino_code;
 	String device_ID;
 	Object o;
+	int inclusive_conditions;
+	int exclusive_conditions;
 	ArrayList <String> result;
 	ArrayList <String> ids;
 	String temp;
@@ -25,7 +27,7 @@ public class ArduinoInoCodeGenerator {
 	String sens_variables;
 	String loop_code;
 	String setup_code;
-	String condition;
+	
 	
 	ArduinoInoCodeGenerator(String device, String network_protocol, String wifi_sensor, String sensor){
 		this.device = device.toLowerCase().replaceAll("\\s+","");
@@ -45,7 +47,8 @@ public class ArduinoInoCodeGenerator {
 		includes = "";
 		intestation = "";
 		sens_variables = "";
-		condition = "";
+		inclusive_conditions = 0;
+		exclusive_conditions = 0;
 		result = new ArrayList<String>();
 	}
 	
@@ -53,13 +56,6 @@ public class ArduinoInoCodeGenerator {
 		
 		for (int i = 0; i < elements.size();i++)
 		{
-			if (elements.get(i).getId().equals("condition"))
-			{
-				
-				Condition cond = (Condition) elements.get(i);
-				condition = cond.generateCondition();
-				
-			}
 			
 			
 			if (!ids.contains(elements.get(i).getId()))
@@ -67,20 +63,22 @@ public class ArduinoInoCodeGenerator {
 				GenerateVariables(elements,i);
 				GenerateSetupCode(elements,i);
 				GenerateLoopCode(elements,i);
-				includes+="#include<GeneratedLib.ino>\n\nGeneratedLib my_lib\n\n";
+				includes+="#include<GeneratedLib.ino>\n\nGeneratedLib my_lib;\n\n";
 				intestation+= "void setup()\n{\n\n";
 				intestation+= setup_code;
 				intestation+= "\n}\n\n";
 				intestation+="void loop()\n{\n";
 				loop_code+="\n}\n";
+				
 				ids.add(elements.get(i).getId());
-				System.out.print(condition);
-				result.add(includes+variables+intestation+condition+loop_code);
+				
+				result.add(includes+variables+intestation+loop_code);
 				temp = "";
 				variables = "";
 				sens_variables = "";
 				loop_code = "";
-				condition = "";
+				
+				
 			}
 		}
 		return result;
@@ -168,6 +166,8 @@ public class ArduinoInoCodeGenerator {
 		{
 			if (elements.get(n).getId().equals(elements.get(i).getId()))
 			{
+				System.out.println("n id: " + elements.get(n).getId()
+						+ "i id: " + elements.get(i).getId());
 				if (elements.get(n).getType().equals("mqtt"))
 				{
 					MQTT app = (MQTT) elements.get(n);
@@ -179,6 +179,29 @@ public class ArduinoInoCodeGenerator {
 					{
 						loop_code += ("\tmy_lib.sendInPubTopic("+getVariableName(pubtopic)+");\n"); 
 					}
+				}
+				if (elements.get(n).getType().equals("exclusive_condition") || elements.get(n).getType().equals("inclusive_condition"))
+				{
+					
+					Condition cond = (Condition) elements.get(n);
+					loop_code += "if("+cond.getMapped_condition() + ")\n{\n";
+					inclusive_conditions++;
+					
+				}
+				if (elements.get(n).getType().equals("exclusive_condition_end"))
+				{
+					loop_code += "}\nelse";
+					if (n+1 < elements.size())
+					{
+						if (!elements.get(n+1).equals("exclusive_condition"))
+						{
+							loop_code += "{\n";
+						}
+					}
+				}
+				if (elements.get(n).getType().equals("inclusive_condition_end"))
+				{
+					loop_code+= "}\n";
 				}
 				if (elements.get(n).getType().equals("dht22"))
 				{
@@ -192,6 +215,8 @@ public class ArduinoInoCodeGenerator {
 			}
 			
 		}
+		inclusive_conditions = 0;
+		exclusive_conditions = 0;
 	}
 	public String getVariableName(String value) {
 		String [] values = variables.split("= "+"\""+value+"\"");

@@ -26,7 +26,7 @@ element     :   (open += Open
 
 content:
 	{content}
-	( type += ("_TASK"|"_GATEWAY") "{" codex += codex "}"| element+=element |   body+=(BODY|variables) |   keywords+=KEYWORDS  |  data+=STRING  )*
+	( type += ("_TASK"|"_GATEWAY") "{" codex += codex "}"| element+=element | body+=preconditions*  body+=(BODY |variables) body+= conditions* |   keywords+=KEYWORDS  |  data+=STRING  )*
 ;
 
 Open:
@@ -47,9 +47,14 @@ Close:
 ;
 //+++++++++++++++MY GRAMMAR +++++++++++++++   
 variables:
-	"TEMPERATURE" ("&lt;" | "&le;" | "&ge;" | "&gt;" | "=")* BODY
+	("TEMPERATURE" "[" BODY "," BODY "]") 
 ;
-  
+conditions:
+	("&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&&" | "||" | ")")
+;
+preconditions:
+	("!"|"(")
+;
 codex:
 	  ( device_code += device protocol += protocol* sensor_code += sensor* ) 
 	  

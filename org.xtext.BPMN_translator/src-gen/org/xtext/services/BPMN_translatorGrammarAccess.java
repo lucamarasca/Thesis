@@ -170,29 +170,34 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final Keyword cRightCurlyBracketKeyword_1_0_3 = (Keyword)cGroup_1_0.eContents().get(3);
 		private final Assignment cElementAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
 		private final RuleCall cElementElementParserRuleCall_1_1_0 = (RuleCall)cElementAssignment_1_1.eContents().get(0);
-		private final Assignment cBodyAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
-		private final Alternatives cBodyAlternatives_1_2_0 = (Alternatives)cBodyAssignment_1_2.eContents().get(0);
-		private final RuleCall cBodyBODYTerminalRuleCall_1_2_0_0 = (RuleCall)cBodyAlternatives_1_2_0.eContents().get(0);
-		private final RuleCall cBodyVariablesParserRuleCall_1_2_0_1 = (RuleCall)cBodyAlternatives_1_2_0.eContents().get(1);
+		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
+		private final Assignment cBodyAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
+		private final RuleCall cBodyPreconditionsParserRuleCall_1_2_0_0 = (RuleCall)cBodyAssignment_1_2_0.eContents().get(0);
+		private final Assignment cBodyAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final Alternatives cBodyAlternatives_1_2_1_0 = (Alternatives)cBodyAssignment_1_2_1.eContents().get(0);
+		private final RuleCall cBodyBODYTerminalRuleCall_1_2_1_0_0 = (RuleCall)cBodyAlternatives_1_2_1_0.eContents().get(0);
+		private final RuleCall cBodyVariablesParserRuleCall_1_2_1_0_1 = (RuleCall)cBodyAlternatives_1_2_1_0.eContents().get(1);
+		private final Assignment cBodyAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cBodyConditionsParserRuleCall_1_2_2_0 = (RuleCall)cBodyAssignment_1_2_2.eContents().get(0);
 		private final Assignment cKeywordsAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
 		private final RuleCall cKeywordsKEYWORDSTerminalRuleCall_1_3_0 = (RuleCall)cKeywordsAssignment_1_3.eContents().get(0);
 		private final Assignment cDataAssignment_1_4 = (Assignment)cAlternatives_1.eContents().get(4);
 		private final RuleCall cDataSTRINGTerminalRuleCall_1_4_0 = (RuleCall)cDataAssignment_1_4.eContents().get(0);
 		
 		//content:
-		//	{content} (type+=("_TASK" | "_GATEWAY") "{" codex+=codex "}" | element+=element | body+=(BODY | variables) |
-		//	keywords+=KEYWORDS | data+=STRING)*;
+		//	{content} (type+=("_TASK" | "_GATEWAY") "{" codex+=codex "}" | element+=element | body+=preconditions* body+=(BODY |
+		//	variables) body+=conditions* | keywords+=KEYWORDS | data+=STRING)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{content} (type+=("_TASK" | "_GATEWAY") "{" codex+=codex "}" | element+=element | body+=(BODY | variables) |
-		//keywords+=KEYWORDS | data+=STRING)*
+		//{content} (type+=("_TASK" | "_GATEWAY") "{" codex+=codex "}" | element+=element | body+=preconditions* body+=(BODY |
+		//variables) body+=conditions* | keywords+=KEYWORDS | data+=STRING)*
 		public Group getGroup() { return cGroup; }
 		
 		//{content}
 		public Action getContentAction_0() { return cContentAction_0; }
 		
-		//(type+=("_TASK" | "_GATEWAY") "{" codex+=codex "}" | element+=element | body+=(BODY | variables) | keywords+=KEYWORDS |
-		//data+=STRING)*
+		//(type+=("_TASK" | "_GATEWAY") "{" codex+=codex "}" | element+=element | body+=preconditions* body+=(BODY | variables)
+		//body+=conditions* | keywords+=KEYWORDS | data+=STRING)*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//type+=("_TASK" | "_GATEWAY") "{" codex+=codex "}"
@@ -228,17 +233,32 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//element
 		public RuleCall getElementElementParserRuleCall_1_1_0() { return cElementElementParserRuleCall_1_1_0; }
 		
+		//body+=preconditions* body+=(BODY | variables) body+=conditions*
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//body+=preconditions*
+		public Assignment getBodyAssignment_1_2_0() { return cBodyAssignment_1_2_0; }
+		
+		//preconditions
+		public RuleCall getBodyPreconditionsParserRuleCall_1_2_0_0() { return cBodyPreconditionsParserRuleCall_1_2_0_0; }
+		
 		//body+=(BODY | variables)
-		public Assignment getBodyAssignment_1_2() { return cBodyAssignment_1_2; }
+		public Assignment getBodyAssignment_1_2_1() { return cBodyAssignment_1_2_1; }
 		
 		//(BODY | variables)
-		public Alternatives getBodyAlternatives_1_2_0() { return cBodyAlternatives_1_2_0; }
+		public Alternatives getBodyAlternatives_1_2_1_0() { return cBodyAlternatives_1_2_1_0; }
 		
 		//BODY
-		public RuleCall getBodyBODYTerminalRuleCall_1_2_0_0() { return cBodyBODYTerminalRuleCall_1_2_0_0; }
+		public RuleCall getBodyBODYTerminalRuleCall_1_2_1_0_0() { return cBodyBODYTerminalRuleCall_1_2_1_0_0; }
 		
 		//variables
-		public RuleCall getBodyVariablesParserRuleCall_1_2_0_1() { return cBodyVariablesParserRuleCall_1_2_0_1; }
+		public RuleCall getBodyVariablesParserRuleCall_1_2_1_0_1() { return cBodyVariablesParserRuleCall_1_2_1_0_1; }
+		
+		//body+=conditions*
+		public Assignment getBodyAssignment_1_2_2() { return cBodyAssignment_1_2_2; }
+		
+		//conditions
+		public RuleCall getBodyConditionsParserRuleCall_1_2_2_0() { return cBodyConditionsParserRuleCall_1_2_2_0; }
 		
 		//keywords+=KEYWORDS
 		public Assignment getKeywordsAssignment_1_3() { return cKeywordsAssignment_1_3; }
@@ -474,45 +494,99 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.variables");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cTEMPERATUREKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Keyword cLtKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
-		private final Keyword cLeKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
-		private final Keyword cGeKeyword_1_2 = (Keyword)cAlternatives_1.eContents().get(2);
-		private final Keyword cGtKeyword_1_3 = (Keyword)cAlternatives_1.eContents().get(3);
-		private final Keyword cEqualsSignKeyword_1_4 = (Keyword)cAlternatives_1.eContents().get(4);
+		private final Keyword cLeftSquareBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final RuleCall cBODYTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cBODYTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Keyword cRightSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		////+++++++++++++++MY GRAMMAR +++++++++++++++   
 		//variables:
-		//	"TEMPERATURE" ("&lt;" | "&le;" | "&ge;" | "&gt;" | "=")* BODY;
+		//	"TEMPERATURE" "[" BODY "," BODY "]";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"TEMPERATURE" ("&lt;" | "&le;" | "&ge;" | "&gt;" | "=")* BODY
+		//"TEMPERATURE" "[" BODY "," BODY "]"
 		public Group getGroup() { return cGroup; }
 		
 		//"TEMPERATURE"
 		public Keyword getTEMPERATUREKeyword_0() { return cTEMPERATUREKeyword_0; }
 		
-		//("&lt;" | "&le;" | "&ge;" | "&gt;" | "=")*
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
-		//"&lt;"
-		public Keyword getLtKeyword_1_0() { return cLtKeyword_1_0; }
-		
-		//"&le;"
-		public Keyword getLeKeyword_1_1() { return cLeKeyword_1_1; }
-		
-		//"&ge;"
-		public Keyword getGeKeyword_1_2() { return cGeKeyword_1_2; }
-		
-		//"&gt;"
-		public Keyword getGtKeyword_1_3() { return cGtKeyword_1_3; }
-		
-		//"="
-		public Keyword getEqualsSignKeyword_1_4() { return cEqualsSignKeyword_1_4; }
+		//"["
+		public Keyword getLeftSquareBracketKeyword_1() { return cLeftSquareBracketKeyword_1; }
 		
 		//BODY
 		public RuleCall getBODYTerminalRuleCall_2() { return cBODYTerminalRuleCall_2; }
+		
+		//","
+		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
+		
+		//BODY
+		public RuleCall getBODYTerminalRuleCall_4() { return cBODYTerminalRuleCall_4; }
+		
+		//"]"
+		public Keyword getRightSquareBracketKeyword_5() { return cRightSquareBracketKeyword_5; }
+	}
+	public class ConditionsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.conditions");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cLtKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cLeKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cGeKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cGtKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cEqualsSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cAmpersandAmpersandKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cVerticalLineVerticalLineKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		
+		//conditions:
+		//	"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&&" | "||" | ")";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&&" | "||" | ")"
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//"&lt;"
+		public Keyword getLtKeyword_0() { return cLtKeyword_0; }
+		
+		//"&le;"
+		public Keyword getLeKeyword_1() { return cLeKeyword_1; }
+		
+		//"&ge;"
+		public Keyword getGeKeyword_2() { return cGeKeyword_2; }
+		
+		//"&gt;"
+		public Keyword getGtKeyword_3() { return cGtKeyword_3; }
+		
+		//"="
+		public Keyword getEqualsSignKeyword_4() { return cEqualsSignKeyword_4; }
+		
+		//"&&"
+		public Keyword getAmpersandAmpersandKeyword_5() { return cAmpersandAmpersandKeyword_5; }
+		
+		//"||"
+		public Keyword getVerticalLineVerticalLineKeyword_6() { return cVerticalLineVerticalLineKeyword_6; }
+		
+		//")"
+		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+	}
+	public class PreconditionsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.preconditions");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cExclamationMarkKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//preconditions:
+		//	"!" | "(";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"!" | "("
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//"!"
+		public Keyword getExclamationMarkKeyword_0() { return cExclamationMarkKeyword_0; }
+		
+		//"("
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 	}
 	public class CodexElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.codex");
@@ -1111,6 +1185,8 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	private final SingletonElements pSingleton;
 	private final CloseElements pClose;
 	private final VariablesElements pVariables;
+	private final ConditionsElements pConditions;
+	private final PreconditionsElements pPreconditions;
 	private final CodexElements pCodex;
 	private final DeviceElements pDevice;
 	private final ProtocolElements pProtocol;
@@ -1141,6 +1217,8 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		this.pSingleton = new SingletonElements();
 		this.pClose = new CloseElements();
 		this.pVariables = new VariablesElements();
+		this.pConditions = new ConditionsElements();
+		this.pPreconditions = new PreconditionsElements();
 		this.pCodex = new CodexElements();
 		this.pDevice = new DeviceElements();
 		this.pProtocol = new ProtocolElements();
@@ -1225,8 +1303,8 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	}
 	
 	//content:
-	//	{content} (type+=("_TASK" | "_GATEWAY") "{" codex+=codex "}" | element+=element | body+=(BODY | variables) |
-	//	keywords+=KEYWORDS | data+=STRING)*;
+	//	{content} (type+=("_TASK" | "_GATEWAY") "{" codex+=codex "}" | element+=element | body+=preconditions* body+=(BODY |
+	//	variables) body+=conditions* | keywords+=KEYWORDS | data+=STRING)*;
 	public ContentElements getContentAccess() {
 		return pContent;
 	}
@@ -1268,13 +1346,33 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	
 	////+++++++++++++++MY GRAMMAR +++++++++++++++   
 	//variables:
-	//	"TEMPERATURE" ("&lt;" | "&le;" | "&ge;" | "&gt;" | "=")* BODY;
+	//	"TEMPERATURE" "[" BODY "," BODY "]";
 	public VariablesElements getVariablesAccess() {
 		return pVariables;
 	}
 	
 	public ParserRule getVariablesRule() {
 		return getVariablesAccess().getRule();
+	}
+	
+	//conditions:
+	//	"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&&" | "||" | ")";
+	public ConditionsElements getConditionsAccess() {
+		return pConditions;
+	}
+	
+	public ParserRule getConditionsRule() {
+		return getConditionsAccess().getRule();
+	}
+	
+	//preconditions:
+	//	"!" | "(";
+	public PreconditionsElements getPreconditionsAccess() {
+		return pPreconditions;
+	}
+	
+	public ParserRule getPreconditionsRule() {
+		return getPreconditionsAccess().getRule();
 	}
 	
 	//codex:

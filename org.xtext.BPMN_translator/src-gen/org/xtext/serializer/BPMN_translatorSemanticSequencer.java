@@ -171,7 +171,11 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     content returns content
 	 *
 	 * Constraint:
-	 *     ((element+=element | body+=BODY | body+=variables | keywords+=KEYWORDS | data+=STRING)? ((type+='_TASK' | type+='_GATEWAY') codex+=codex)?)+
+	 *     (
+	 *         (element+=element | keywords+=KEYWORDS | data+=STRING)? 
+	 *         ((type+='_TASK' | type+='_GATEWAY') codex+=codex)? 
+	 *         (body+=preconditions* (body+=BODY | body+=variables) body+=conditions*)?
+	 *     )+
 	 */
 	protected void sequence_content(ISerializationContext context, content semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

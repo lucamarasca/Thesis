@@ -45,7 +45,11 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   
   private ArrayList<String> gateway_type;
   
+  private boolean end_event = false;
+  
   private ArrayList<String> start_events;
+  
+  private String str;
   
   private Condition cond;
   
@@ -79,6 +83,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   
   private int k = 0;
   
+  private int conditions = 0;
+  
   private ArrayList<String> successors;
   
   public void Initialize(final Resource resource) {
@@ -97,6 +103,7 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     this.iterations = 0;
     this.cpp_code = "";
     this.h_code = "";
+    this.str = "";
     this.generated_elements.add("");
     this.ino_code.add("");
     this.FillTaskType();
@@ -202,6 +209,7 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     this.i = 0;
     this.n = 0;
     this.j = 0;
+    this.end_event = true;
     Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
     for (final element Element : _filter) {
       {
@@ -224,6 +232,7 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                           if (_equals_3) {
                             this.successors.add(Singleton.getValue().get(this.j));
                             this.fillSuccessors(Singleton.getValue().get(this.j), r);
+                            this.end_event = false;
                           }
                           this.j++;
                         }
@@ -265,11 +274,24 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                             boolean _equals_4 = this.getCondition(Element_1).equals("");
                             boolean _not = (!_equals_4);
                             if (_not) {
+                              this.conditions++;
+                              String _gatewayType = this.getGatewayType(my_id, r);
+                              String _plus = (_gatewayType + "=");
                               String _condition = this.getCondition(Element_1);
-                              String _plus = ("condition=" + _condition);
-                              this.successors.add(_plus);
+                              String _plus_1 = (_plus + _condition);
+                              this.successors.add(_plus_1);
                             }
                             this.successors.add(Open.getValue().get(this.j));
+                            this.end_event = false;
+                            boolean _NextIsEndEvent = this.NextIsEndEvent(Open.getValue().get(this.j), r);
+                            if (_NextIsEndEvent) {
+                              for (final String element : this.successors) {
+                                boolean _contains = element.contains("condition");
+                                if (_contains) {
+                                  this.successors.add((element + "_end"));
+                                }
+                              }
+                            }
                             this.fillSuccessors(Open.getValue().get(this.j), r);
                           }
                           this.j++;
@@ -309,7 +331,13 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                   if (_isEmpty) {
                     return "";
                   }
-                  return conditions.getBody().toString();
+                  this.str = "";
+                  EList<String> _body = conditions.getBody();
+                  for (final String data : _body) {
+                    String _str = this.str;
+                    this.str = (_str + data);
+                  }
+                  return this.str;
                 }
               }
             }
@@ -318,6 +346,66 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
       }
     }
     return "";
+  }
+  
+  public String getGatewayType(final String id, final Resource r) {
+    this.k = 0;
+    Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
+    for (final element Element : _filter) {
+      EList<Open> _open = Element.getOpen();
+      for (final Open Open : _open) {
+        {
+          EList<String> _keywords1 = Open.getKeywords1();
+          for (final String keywords : _keywords1) {
+            {
+              boolean _equals = keywords.equals("id");
+              if (_equals) {
+                boolean _equals_1 = Open.getValue().get(this.k).equals(id);
+                if (_equals_1) {
+                  boolean _contains = Open.getKeywords().get(0).contains("exclusive");
+                  if (_contains) {
+                    return "exclusive_condition";
+                  } else {
+                    boolean _contains_1 = Open.getKeywords().get(0).contains("inclusive");
+                    if (_contains_1) {
+                      return "inclusive_condition";
+                    } else {
+                      return "condition";
+                    }
+                  }
+                }
+              }
+              this.k++;
+            }
+          }
+          this.k = 0;
+        }
+      }
+    }
+    return null;
+  }
+  
+  public boolean NextIsEndEvent(final String id, final Resource r) {
+    Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
+    for (final element Element : _filter) {
+      EList<Open> _open = Element.getOpen();
+      for (final Open Open : _open) {
+        EList<String> _keywords1 = Open.getKeywords1();
+        for (final String keywords : _keywords1) {
+          boolean _equals = keywords.equals("id");
+          if (_equals) {
+            boolean _equals_1 = Open.getValue().get(this.k).equals(id);
+            if (_equals_1) {
+              boolean _contains = Open.getKeywords().get(0).contains("endEvent");
+              if (_contains) {
+                return true;
+              }
+            }
+          }
+        }
+      }
+    }
+    return false;
   }
   
   public ArrayList<String> ArduinoCodeGenerationIno() {
@@ -358,9 +446,7 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     if (_contains) {
       Condition _condition = new Condition(successor_id);
       this.cond = _condition;
-      this.cond.setId("condition");
       this.elements.add(this.cond);
-      System.out.println("C\'è una condizione");
       return;
     }
     Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
@@ -377,121 +463,116 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
               for (final content c : _contents_1) {
                 EList<codex> _codex = c.getCodex();
                 for (final codex Codex : _codex) {
-                  {
-                    boolean _equals_1 = c.getType().get(0).equals("_TASK");
-                    if (_equals_1) {
-                      EList<protocol> _protocol = Codex.getProtocol();
-                      for (final protocol Protocol : _protocol) {
-                        boolean _equals_2 = Protocol.getPname().get(0).toLowerCase().replaceAll("\\s+", "").equals("mqtt");
-                        if (_equals_2) {
-                          MQTT _mQTT = new MQTT();
-                          this.netdata = _mQTT;
-                          this.elements.add(this.netdata);
-                          this.netdata.setType("mqtt");
-                          this.netdata.setName(this.getName(Element));
-                          EList<device> _device_code = Codex.getDevice_code();
-                          for (final device Device : _device_code) {
-                            {
-                              this.netdata.getDatas().setDevice(Device.getDevice().get(0));
-                              this.cpp_gen.setDevice(Device.getDevice().get(0));
-                              this.netdata.setId(Device.getId().get(0));
-                            }
-                          }
-                          EList<mqtt_data> _mqtt_data = Protocol.getMqtt_data();
-                          for (final mqtt_data MQTTData : _mqtt_data) {
-                            {
-                              this.h_gen.setNetwork_protocol(MQTTData.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
-                              this.cpp_gen.setNetwork_protocol(MQTTData.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
-                              this.netdata.getDatas().setName(MQTTData.getPname().get(0));
-                              this.netdata.getDatas().setBroker_user(MQTTData.getBroker_user().get(0));
-                              this.netdata.getDatas().setBroker_password(MQTTData.getBroker_password().get(0));
-                              this.netdata.getDatas().setBroker(MQTTData.getBroker().get(0));
-                              this.netdata.getDatas().getWifi_ssid().clear();
-                              this.netdata.getDatas().getWifi_pass().clear();
-                              EList<mqtt_network_data> _mqtt_network_data = MQTTData.getMqtt_network_data();
-                              for (final mqtt_network_data MQTT_network_data : _mqtt_network_data) {
-                                {
-                                  this.netdata.getDatas().getWifi_ssid().add(MQTT_network_data.getSsid().get(0));
-                                  this.netdata.getDatas().getWifi_pass().add(MQTT_network_data.getPassword().get(0));
-                                }
-                              }
-                              this.netdata.getDatas().getPubTopics().clear();
-                              EList<String> _pubtopics = MQTTData.getPubtopics();
-                              for (final String MQTT_topic_pub : _pubtopics) {
-                                boolean _contains_1 = this.netdata.getDatas().getPubTopics().contains(MQTT_topic_pub.toString());
-                                boolean _not = (!_contains_1);
-                                if (_not) {
-                                  this.netdata.getDatas().getPubTopics().add(MQTT_topic_pub.toString());
-                                }
-                              }
-                              this.netdata.getDatas().getSubTopics().clear();
-                              EList<String> _subtopics = MQTTData.getSubtopics();
-                              for (final String MQTT_topic_sub : _subtopics) {
-                                boolean _contains_2 = this.netdata.getDatas().getSubTopics().contains(MQTT_topic_sub.toString());
-                                boolean _not_1 = (!_contains_2);
-                                if (_not_1) {
-                                  this.netdata.getDatas().getSubTopics().add(MQTT_topic_sub.toString());
-                                }
-                              }
-                            }
-                          }
-                          EList<mqtt_device> _mqtt_device = Protocol.getMqtt_device();
-                          for (final mqtt_device MQTTDevice : _mqtt_device) {
-                            {
-                              this.h_gen.setWifi_sensor(MQTTDevice.getDname().get(0).toLowerCase().replaceAll("\\s+", ""));
-                              this.cpp_gen.setWifi_sensor(MQTTDevice.getDname().get(0).toLowerCase().replaceAll("\\s+", ""));
-                              this.netdata.setWifi_module(MQTTDevice.getDname().get(0));
-                            }
-                          }
-                          boolean _contains_1 = this.generated_elements.contains("mqtt");
-                          boolean _not = (!_contains_1);
-                          if (_not) {
-                            String _cpp_code = this.cpp_code;
-                            String _generateProtocolCode = this.cpp_gen.generateProtocolCode(this.netdata);
-                            this.cpp_code = (_cpp_code + _generateProtocolCode);
-                            this.generated_elements.add("mqtt");
+                  boolean _equals_1 = c.getType().get(0).equals("_TASK");
+                  if (_equals_1) {
+                    EList<protocol> _protocol = Codex.getProtocol();
+                    for (final protocol Protocol : _protocol) {
+                      boolean _equals_2 = Protocol.getPname().get(0).toLowerCase().replaceAll("\\s+", "").equals("mqtt");
+                      if (_equals_2) {
+                        MQTT _mQTT = new MQTT();
+                        this.netdata = _mQTT;
+                        this.elements.add(this.netdata);
+                        this.netdata.setType("mqtt");
+                        this.netdata.setName(this.getName(Element));
+                        EList<device> _device_code = Codex.getDevice_code();
+                        for (final device Device : _device_code) {
+                          {
+                            this.netdata.getDatas().setDevice(Device.getDevice().get(0));
+                            this.cpp_gen.setDevice(Device.getDevice().get(0));
+                            this.netdata.setId(Device.getId().get(0));
                           }
                         }
-                      }
-                      EList<sensor> _sensor_code = Codex.getSensor_code();
-                      for (final sensor sensor : _sensor_code) {
-                        boolean _equals_3 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("temperature");
-                        if (_equals_3) {
-                          TemperatureSensor _temperatureSensor = new TemperatureSensor();
-                          this.s = _temperatureSensor;
-                          EList<device> _device_code_1 = Codex.getDevice_code();
-                          for (final device Device_1 : _device_code_1) {
-                            {
-                              this.cpp_gen.setDevice(Device_1.getDevice().get(0));
-                              this.s.setId(Device_1.getId().get(0));
+                        EList<mqtt_data> _mqtt_data = Protocol.getMqtt_data();
+                        for (final mqtt_data MQTTData : _mqtt_data) {
+                          {
+                            this.h_gen.setNetwork_protocol(MQTTData.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                            this.cpp_gen.setNetwork_protocol(MQTTData.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                            this.netdata.getDatas().setName(MQTTData.getPname().get(0));
+                            this.netdata.getDatas().setBroker_user(MQTTData.getBroker_user().get(0));
+                            this.netdata.getDatas().setBroker_password(MQTTData.getBroker_password().get(0));
+                            this.netdata.getDatas().setBroker(MQTTData.getBroker().get(0));
+                            this.netdata.getDatas().getWifi_ssid().clear();
+                            this.netdata.getDatas().getWifi_pass().clear();
+                            EList<mqtt_network_data> _mqtt_network_data = MQTTData.getMqtt_network_data();
+                            for (final mqtt_network_data MQTT_network_data : _mqtt_network_data) {
+                              {
+                                this.netdata.getDatas().getWifi_ssid().add(MQTT_network_data.getSsid().get(0));
+                                this.netdata.getDatas().getWifi_pass().add(MQTT_network_data.getPassword().get(0));
+                              }
                             }
-                          }
-                          this.elements.add(this.s);
-                          this.s.setType("dht22");
-                          EList<sensor_data> _sensor = sensor.getSensor();
-                          for (final sensor_data sensdata : _sensor) {
-                            {
-                              this.s.setModule(sensdata.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
-                              this.s.setSensorId(sensdata.getSensor_id().get(0));
-                              EList<String> _pins = sensdata.getPins();
-                              for (final String pins : _pins) {
-                                this.s.getPins().add(pins);
+                            this.netdata.getDatas().getPubTopics().clear();
+                            EList<String> _pubtopics = MQTTData.getPubtopics();
+                            for (final String MQTT_topic_pub : _pubtopics) {
+                              boolean _contains_1 = this.netdata.getDatas().getPubTopics().contains(MQTT_topic_pub.toString());
+                              boolean _not = (!_contains_1);
+                              if (_not) {
+                                this.netdata.getDatas().getPubTopics().add(MQTT_topic_pub.toString());
+                              }
+                            }
+                            this.netdata.getDatas().getSubTopics().clear();
+                            EList<String> _subtopics = MQTTData.getSubtopics();
+                            for (final String MQTT_topic_sub : _subtopics) {
+                              boolean _contains_2 = this.netdata.getDatas().getSubTopics().contains(MQTT_topic_sub.toString());
+                              boolean _not_1 = (!_contains_2);
+                              if (_not_1) {
+                                this.netdata.getDatas().getSubTopics().add(MQTT_topic_sub.toString());
                               }
                             }
                           }
-                          boolean _contains_2 = this.generated_elements.contains("dht22");
-                          boolean _not_1 = (!_contains_2);
-                          if (_not_1) {
-                            String _cpp_code_1 = this.cpp_code;
-                            String _generateSensorCode = this.cpp_gen.generateSensorCode(this.s);
-                            this.cpp_code = (_cpp_code_1 + _generateSensorCode);
-                            this.generated_elements.add("dht22");
+                        }
+                        EList<mqtt_device> _mqtt_device = Protocol.getMqtt_device();
+                        for (final mqtt_device MQTTDevice : _mqtt_device) {
+                          {
+                            this.h_gen.setWifi_sensor(MQTTDevice.getDname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                            this.cpp_gen.setWifi_sensor(MQTTDevice.getDname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                            this.netdata.setWifi_module(MQTTDevice.getDname().get(0));
                           }
+                        }
+                        boolean _contains_1 = this.generated_elements.contains("mqtt");
+                        boolean _not = (!_contains_1);
+                        if (_not) {
+                          String _cpp_code = this.cpp_code;
+                          String _generateProtocolCode = this.cpp_gen.generateProtocolCode(this.netdata);
+                          this.cpp_code = (_cpp_code + _generateProtocolCode);
+                          this.generated_elements.add("mqtt");
                         }
                       }
                     }
-                    boolean _equals_4 = c.getType().get(0).equals("_GATEWAY");
-                    if (_equals_4) {
+                    EList<sensor> _sensor_code = Codex.getSensor_code();
+                    for (final sensor sensor : _sensor_code) {
+                      boolean _equals_3 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("temperature");
+                      if (_equals_3) {
+                        TemperatureSensor _temperatureSensor = new TemperatureSensor();
+                        this.s = _temperatureSensor;
+                        EList<device> _device_code_1 = Codex.getDevice_code();
+                        for (final device Device_1 : _device_code_1) {
+                          {
+                            this.cpp_gen.setDevice(Device_1.getDevice().get(0));
+                            this.s.setId(Device_1.getId().get(0));
+                          }
+                        }
+                        this.elements.add(this.s);
+                        this.s.setType("dht22");
+                        EList<sensor_data> _sensor = sensor.getSensor();
+                        for (final sensor_data sensdata : _sensor) {
+                          {
+                            this.s.setModule(sensdata.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                            this.s.setSensorId(sensdata.getSensor_id().get(0));
+                            EList<String> _pins = sensdata.getPins();
+                            for (final String pins : _pins) {
+                              this.s.getPins().add(pins);
+                            }
+                          }
+                        }
+                        boolean _contains_2 = this.generated_elements.contains("dht22");
+                        boolean _not_1 = (!_contains_2);
+                        if (_not_1) {
+                          String _cpp_code_1 = this.cpp_code;
+                          String _generateSensorCode = this.cpp_gen.generateSensorCode(this.s);
+                          this.cpp_code = (_cpp_code_1 + _generateSensorCode);
+                          this.generated_elements.add("dht22");
+                        }
+                      }
                     }
                   }
                 }
