@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class Condition extends Elements{
+	public Boolean isElse;
+	public Boolean isEnd;
 	String target_variable;
 	String operator;
 	String value;
@@ -14,6 +16,14 @@ public class Condition extends Elements{
 	String mapped_condition ;
 	Map<String, String> conditions_dictionary;
 	Map<String, String> variables_dictionary;
+	
+	public Condition(Boolean isEnd, String id) {
+		this.setId(id);
+		this.setType("end_condition");
+		this.isEnd = true;
+		this.isElse = false;
+	}
+	
 	public Condition(String condition) {
 		System.out.println("im in the condition " + condition);
 		conditions_dictionary = new HashMap<String, String>();
@@ -28,6 +38,8 @@ public class Condition extends Elements{
 		this.sensor_id = "";
 		this.type = "";
 		this.id = "";
+		this.isElse = false;
+		this.isEnd = false;
 		CreateCondition(condition);
 		
 		
@@ -38,9 +50,10 @@ public class Condition extends Elements{
 	public void setMapped_condition(String mapped_condition) {
 		this.mapped_condition = mapped_condition;
 	}
+	
 	public void CreateCondition(String condition) {
 		
-		System.out.println("before:" +condition);
+		
 		String datas;
 		if (condition.contains("[") && condition.contains("]") && condition.contains(","))
 		{
@@ -68,9 +81,22 @@ public class Condition extends Elements{
 		String [] values = condition.split("condition=");
 		this.type = values[0] + "condition";
 		this.type = this.type.replaceAll("\\s","");
-		System.out.println(this.type);
-		mapped_condition = values[1];
-		System.out.println(mapped_condition);
+		
+		if (values[1].contains("_else"))
+		{
+			values = values[1].split("_");
+			mapped_condition = values[0];
+			if (values[1].equals("else")){
+				isElse = true;
+				isEnd = false;
+			}
+		}
+		else
+		{
+			mapped_condition = values[1];
+			
+		}
+		
 		
 		   
 	}

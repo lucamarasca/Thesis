@@ -1486,7 +1486,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	//	| "executionListener" | "timerEventDefinition" | "timeDuration" | "width" | "dataInputAssociation"
 	//	| "parallelGateway" | "collaboration" | "participant" | "targetNamespace" | "dataObject" | "signalEventDefinition"
 	//	| "BPMNDiagram" | "exporter" | "exporterVersion" | "x" | "y" | "isHorizontal" | "attachedToRef"
-	//	| "conditionExpression" | "receiveTask" | "messageRef" | "initiator" | "message";
+	//	| "conditionExpression" | "receiveTask" | "messageRef" | "initiator" | "message" | "inclusiveGateway";
 	public TerminalRule getKEYWORDSRule() {
 		return tKEYWORDS;
 	}

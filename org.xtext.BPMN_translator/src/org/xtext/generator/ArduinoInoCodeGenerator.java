@@ -16,19 +16,23 @@ public class ArduinoInoCodeGenerator {
 	String ino_code;
 	String device_ID;
 	Object o;
-	int inclusive_conditions;
-	int exclusive_conditions;
+	int tabulations;
 	ArrayList <String> result;
 	ArrayList <String> ids;
 	String temp;
+	String temp1;
+	String temp2;
+	String temp3;
+	String temp4;
+	String temp5;
 	String includes;
 	String intestation;
 	String variables;
 	String sens_variables;
 	String loop_code;
 	String setup_code;
-	
-	
+	ArrayList <String> opened_conditions;
+	int else_number;
 	ArduinoInoCodeGenerator(String device, String network_protocol, String wifi_sensor, String sensor){
 		this.device = device.toLowerCase().replaceAll("\\s+","");
 		this.network_protocol = network_protocol.toLowerCase().replaceAll("\\s+","");
@@ -37,9 +41,15 @@ public class ArduinoInoCodeGenerator {
 		ino_code = "";
 	}
 	ArduinoInoCodeGenerator(){
-		
+		else_number = 0;
 		ids = new ArrayList<String>();
+		opened_conditions = new ArrayList<String>();
 		temp = "";
+		temp1 = "";
+		temp2 = "";
+		temp3 = "";
+		temp4 = "";
+		temp5 = "";
 		ino_code = "";
 		variables = "";
 		setup_code = "";
@@ -47,8 +57,7 @@ public class ArduinoInoCodeGenerator {
 		includes = "";
 		intestation = "";
 		sens_variables = "";
-		inclusive_conditions = 0;
-		exclusive_conditions = 0;
+		tabulations = 0;
 		result = new ArrayList<String>();
 	}
 	
@@ -98,22 +107,24 @@ public class ArduinoInoCodeGenerator {
 				
 					MQTT app = (MQTT) elements.get(n);
 					
-					if (!variables.contains(app.getDatas().getBroker()))
-						variables += "char* broker"+n +"= \""+app.getDatas().getBroker()+"\";\n"; 
-					if (!variables.contains(app.getDatas().getBroker_user()))
-						variables += "char* broker_user"+n +"= \""+app.getDatas().getBroker_user()+"\";\n"; 
-					if (!variables.contains(app.getDatas().getBroker_password()))
-						variables += "char* broker_password"+n +"= \""+app.getDatas().getBroker_password()+"\";\n"; 
+					if (!temp1.contains("\"" +app.getDatas().getBroker()+ "\";"))
+						temp1 += "char* broker"+n +"= \""+app.getDatas().getBroker()+"\";\n"; 
+					if (!temp2.contains("\"" +app.getDatas().getBroker_user()+ "\";"))
+						temp2 += "char* broker_user"+n +"= \""+app.getDatas().getBroker_user()+"\";\n"; 
+					if (!temp3.contains("\"" +app.getDatas().getBroker_password()+ "\";"))
+						temp3 += "char* broker_password"+n +"= \""+app.getDatas().getBroker_password()+"\";\n"; 
 					for(int j = 0; j < app.getDatas().getPubTopics().size();j++)
 					{
-						if (!variables.contains(app.getDatas().getPubTopics().get(j)))
-							variables += "char* pubtopic"+n+j+"= \""+app.getDatas().getPubTopics().get(j)+"\";\n"; 
+						if (!temp4.contains("\"" + app.getDatas().getPubTopics().get(j) + "\";"))
+							temp4 += "char* pubtopic"+n+j+"= \""+app.getDatas().getPubTopics().get(j)+"\";\n"; 
+						if (!temp4.contains("\"" + app.getDatas().getPublish_data().get(j) + "\";"))
+							temp4 += "char* pubtopicdata"+n+j+"= \""+app.getDatas().getPublish_data().get(j)+"\";\n"; 
 						
 					}
 					for(int j = 0; j < app.getDatas().getSubTopics().size();j++)
 					{
-						if (!temp.contains(app.getDatas().getSubTopics().get(j)))
-							temp += "char* subtopic"+n+j+"= \""+app.getDatas().getSubTopics().get(j)+"\";\n"; 
+						if (!temp5.contains("\"" + app.getDatas().getSubTopics().get(j) + "\";"))
+							temp5 += "char* subtopic"+n+j+"= \""+app.getDatas().getSubTopics().get(j)+"\";\n"; 
 					}
 					
 				}
@@ -137,10 +148,15 @@ public class ArduinoInoCodeGenerator {
 				}
 			}
 		}	
-		variables += temp;
+		variables += temp1;
+		variables += temp2;
+		variables += temp3;
+		variables += temp4;
+		variables += temp5;
 		variables += sens_variables;
 	}
 	private void GenerateSetupCode(ArrayList<Elements> elements, int i) {
+		
 		for (int n = 0; n < elements.size(); n++)
 		{
 			if (elements.get(n).getType().equals("dht22"))
@@ -162,6 +178,7 @@ public class ArduinoInoCodeGenerator {
 	//This method is used for generate the method of the ino file
 	private void GenerateLoopCode(ArrayList<Elements> elements, int i) 
 	{
+		temp = "";
 		for (int n = 0; n < elements.size(); n++)
 		{
 			if (elements.get(n).getId().equals(elements.get(i).getId()))
@@ -172,51 +189,128 @@ public class ArduinoInoCodeGenerator {
 				{
 					MQTT app = (MQTT) elements.get(n);
 					if (!loop_code.contains("my_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+");\n"));
-					loop_code+=("\tmy_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+");\n");
+					temp+=("\tmy_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+");\n");
 					if(!loop_code.contains("my_lib.reconnect(\"device id\", "+getVariableName(app.getDatas().getBroker_user())+", "+getVariableName(app.getDatas().getBroker_password())+", "+getVariableName(app.getDatas().getBroker())+");\n"))
-						loop_code += "\tmy_lib.reconnect(\"device id\", "+getVariableName(app.getDatas().getBroker_user())+", "+getVariableName(app.getDatas().getBroker_password())+", "+getVariableName(app.getDatas().getBroker())+");\n";							
+						temp += "\tmy_lib.reconnect(\"device id\", "+getVariableName(app.getDatas().getBroker_user())+", "+getVariableName(app.getDatas().getBroker_password())+", "+getVariableName(app.getDatas().getBroker())+");\n";							
+					int k = 0;
 					for(String pubtopic : app.getDatas().getPubTopics())
 					{
-						loop_code += ("\tmy_lib.sendInPubTopic("+getVariableName(pubtopic)+");\n"); 
+						String str = app.getDatas().getPublish_data().get(k);
+						temp += ("\tmy_lib.sendInPubTopic("+getVariableName(pubtopic)+", "+getVariableName(str)+");\n"); 
+						k++;
 					}
-				}
-				if (elements.get(n).getType().equals("exclusive_condition") || elements.get(n).getType().equals("inclusive_condition"))
-				{
-					
-					Condition cond = (Condition) elements.get(n);
-					loop_code += "if("+cond.getMapped_condition() + ")\n{\n";
-					inclusive_conditions++;
-					
-				}
-				if (elements.get(n).getType().equals("exclusive_condition_end"))
-				{
-					loop_code += "}\nelse";
-					if (n+1 < elements.size())
+					for (k = 0; k < tabulations;k++)
 					{
-						if (!elements.get(n+1).equals("exclusive_condition"))
+						temp = temp.replaceAll("(?m)^", "\t");
+					}
+					loop_code+= temp;
+					temp = "";
+				}
+				if (elements.get(n).getType().equals("exclusive_condition"))
+				{
+					Condition con = (Condition) elements.get(n);
+					if (!con.isElse && !con.isEnd)
+					{
+						opened_conditions.add(elements.get(n).getType());
+						Condition cond = (Condition) elements.get(n);
+						temp += "\tif("+cond.getMapped_condition() + ")\n\t{\n";
+						for (int k = 0; k < tabulations;k++)
 						{
-							loop_code += "{\n";
+							temp = temp.replaceAll("(?m)^", "\t");
 						}
+						loop_code+= temp;
+						temp = "";
+						tabulations++;
+					}
+					else if(con.isElse)
+					{
+						temp += "\n}\nelse ";
+						Condition cond = (Condition) elements.get(n);
+						temp += "if("+cond.getMapped_condition() + ")\n";
+						temp += "{\n";
+						for (int k = 0; k < tabulations;k++)
+						{
+							temp = temp.replaceAll("(?m)^", "\t");
+						}
+						loop_code+= temp;
+						temp = "";
 					}
 				}
-				if (elements.get(n).getType().equals("inclusive_condition_end"))
+				if( elements.get(n).getType().equals("end_condition"))
 				{
-					loop_code+= "}\n";
+					Condition cond = (Condition) elements.get(n);
+					if (cond.isEnd)
+					{
+						temp+= "}\n";
+					}
+					for (int k = 0; k < tabulations;k++)
+					{
+						temp = temp.replaceAll("(?m)^", "\t");
+					}
+					loop_code+= temp;
+					temp = "";
+					tabulations --;
 				}
+				if( elements.get(n).getType().equals("inclusive_condition"))
+				{
+					Condition con = (Condition) elements.get(n);
+					if (!con.isElse && !con.isEnd)
+					{
+						opened_conditions.add(elements.get(n).getType());
+						Condition cond = (Condition) elements.get(n);
+						temp += "\tif("+cond.getMapped_condition() + ")\n\t{\n";
+						for (int k = 0; k < tabulations;k++)
+						{
+							temp = temp.replaceAll("(?m)^", "\t");
+						}
+						loop_code+= temp;
+						temp = "";
+						tabulations++;
+					}
+					else if(con.isElse)
+					{
+						Condition cond = (Condition) elements.get(n);
+						temp += "if("+cond.getMapped_condition() + ")\n{\n";
+						for (int k = 0; k < tabulations;k++)
+						{
+							temp = temp.replaceAll("(?m)^", "\t");
+						}
+						loop_code+= temp;
+						temp = "";
+					}
+				}
+				
+				
 				if (elements.get(n).getType().equals("dht22"))
 				{
 					TemperatureSensor app = (TemperatureSensor) elements.get(n);
-					loop_code+= "\tdelay(2000);\r\n"
+					temp+= "\tdelay(2000);\r\n"
 							+ "\t//Read data and store it to variables\r\n"
 							+ "\thum"+app.getSensorId()+"= dht.readHumidity();\r\n"
 							+ "\ttemp"+app.getSensorId()+"= dht.readTemperature();\n";
-					
+					for (int k = 0; k < tabulations;k++)
+					{
+						temp = temp.replaceAll("(?m)^", "\t");
+					}
+					loop_code+= temp;
+					temp = "";
 				}
 			}
 			
 		}
-		inclusive_conditions = 0;
-		exclusive_conditions = 0;
+		for (int k = 0; k < else_number; k++)
+		{
+			temp += "\t}\n";
+		}
+		for (int k = 0; k < tabulations;k++)
+		{
+			temp = temp.replaceAll("(?m)^", "\t");
+		}
+		loop_code+= temp;
+		temp = "";
+		tabulations = 0;
+		
+		else_number = 0;
 	}
 	public String getVariableName(String value) {
 		String [] values = variables.split("= "+"\""+value+"\"");

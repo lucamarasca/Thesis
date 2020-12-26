@@ -66,6 +66,15 @@ public class ArduinoCPPCodeGenerator {
 				return "no protocol";
 		}
 	}
+	public String generateProtocolVariables(Elements e)
+	{
+		switch (e.type) {
+		case "mqtt":
+			MQTT protocol = (MQTT) e;
+			return protocol.getCPPVariables();
+		}
+		return "";
+	}
 	public String generateProtocolCode(Elements e) {
 		switch (e.type) {
 		case "mqtt":

@@ -36,18 +36,20 @@ public class MQTT extends Elements{
 			return "no wifi module";
 		}
 	}
+	public String getCPPVariables() {
+		return 	"ESP8266WiFiMulti wifiMulti;\r\n"
+				+ "WiFiClient espClient;\r\n"
+				+ "PubSubClient client(espClient);\r\n"
+				+ "\r\n"
+				+ "\r\n"
+				+ "long currentTime, lastTime;\r\n"
+				+ "\r\n";
+	}
 	public String getCPPCodeESP() {
 		String result = "";
 		
 		result +=		
-		"ESP8266WiFiMulti wifiMulti;\r\n"
-		+ "WiFiClient espClient;\r\n"
-		+ "PubSubClient client(espClient);\r\n"
-		+ "\r\n"
-		+ "\r\n"
-		+ "long currentTime, lastTime;\r\n"
-		+ "\r\n"
-		+ "void setupWiFi()\r\n"
+		  "void setupWiFi()\r\n"
 		+ "{\r\n"
 		+ "\tdelay(100);\r\n"
 		+ "\r\n";
@@ -117,7 +119,7 @@ public class MQTT extends Elements{
 		+ "\tclient.setCallback(callback);\r\n"
 		+ "}\r\n"
 		+ "\r\n"
-		+ "void sendInPubTopic(char* pubTopic)\r\n"
+		+ "void sendInPubTopic(char* pubTopic, char* datas)\r\n"
 		+ "{\r\n"
 		+ "\tif(!client.connected())\r\n"
 		+ "\t{\r\n"
@@ -134,11 +136,11 @@ public class MQTT extends Elements{
 	public String getHCodeESP() {
 		String result = "";
 		result+= "void setupWiFi();\n"
-		+ "void reconnect();\n"
+		+ "void Subscribe(Char* topic);\n"
+		+ "void reconnect(int id, char* brokerUser, char* brokerPass,char* broker);\n"
 		+ "void callback(char* topic, byte* payload, unsigned int len);\n"
-		+ "void InitNetwork();\n";
-		for (int i = 0; i < datas.getPubTopics().size();i++)
-			result+= "void client.sendInPubTopic"+i+"();\r\n";
+		+ "void InitNetwork(char* broker);\n"
+		+ "void sendInPubTopic(char* pubTopic, char* datas);\n";
 		return result;
 	}
 	public String getWifi_module() {

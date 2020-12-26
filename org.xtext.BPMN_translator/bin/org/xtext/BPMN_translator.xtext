@@ -119,7 +119,7 @@ terminal KEYWORDS: "id" | "name" |  "isExecutable" | "sourceRef" | "processRef" 
 	| "executionListener" | "timerEventDefinition" | "timeDuration" | "width" | "dataInputAssociation"
 	| "parallelGateway" | "collaboration" | "participant" | "targetNamespace" | "dataObject" | "signalEventDefinition"
 	| "BPMNDiagram"		| "exporter" | "exporterVersion" | "x" | "y"| "isHorizontal" | "attachedToRef"
-	| "conditionExpression" | "receiveTask" | "messageRef" | "initiator" | "message";
+	| "conditionExpression" | "receiveTask" | "messageRef" | "initiator" | "message" | "inclusiveGateway";
 
 
 terminal BODY returns ecore::EString : ('a'..'z'|'A'..'Z'|'è'|'ò'|INT|'_')* ;

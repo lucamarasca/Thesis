@@ -1,6 +1,7 @@
 package org.xtext.generator;
 
 import network.protocols.MQTT;
+import sensor.devices.TemperatureSensor;
 
 
 public class ArduinoHCodeGenerator {
@@ -19,8 +20,9 @@ public class ArduinoHCodeGenerator {
 		
 	}
 	ArduinoHCodeGenerator() {
-		
-		sensor = ""; //DA MODIFICARE
+		this.protocol = "";
+		this.wifi_module = "";
+		this.sensor = ""; 
 	}
 	public String Generation() {
 		String result="";
@@ -90,7 +92,15 @@ public class ArduinoHCodeGenerator {
 				
 				result += ((MQTT) protocol).getHCode();	
 		}
-		result+="};\n#endif";
+		switch(sensor)
+		{
+		case "dht22":
+			Object sensor;
+			
+			sensor = new TemperatureSensor();
+			result+= ((TemperatureSensor)sensor).GetDHT22HCode();
+			
+		}
 		return result;
 	}
 	public void setProtocol(Object o) {

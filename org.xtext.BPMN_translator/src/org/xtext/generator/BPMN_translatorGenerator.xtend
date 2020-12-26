@@ -26,12 +26,17 @@ class BPMN_translatorGenerator extends AbstractGenerator {
 //++++++++++++++++++++++++++++++Costants++++++++++++++++++++++++++++++++++
 ArrayList<String> task_type;
 ArrayList<String> gateway_type;
-boolean end_event = false;
+ArrayList <String> temp_array_list;
+boolean imInLoop = false;
+String loop_variable;
 ArrayList<String> start_events;
 String str;
-Condition cond 
+String str1;
+Condition cond;
+String cpp_variables;
 String cpp_code;
 ArduinoCPPCodeGenerator cpp_gen;
+String h_variables;
 String h_code;
 ArduinoHCodeGenerator h_gen;
 ArrayList<String> ino_code;
@@ -47,19 +52,24 @@ int i = 0;
 int k = 0;
 int conditions = 0;
 ArrayList<String> successors
-
+ArrayList<String> opened_conditions;
 	
 def Initialize(Resource resource){
 	ino_gen = new ArduinoInoCodeGenerator();
+	opened_conditions = new ArrayList<String>();
 	ino_code = new ArrayList<String>();
 	elements = new ArrayList<Elements>();
+	temp_array_list = new ArrayList<String>();
 	generated_elements = new ArrayList<String>();
 	start_events = new ArrayList<String>();
 	successors = new ArrayList<String>();
 	iterations = 0;
+	cpp_variables = "";
 	cpp_code = "";
+	h_variables = "";
 	h_code = "";
 	str = "";
+	loop_variable = "";
 	generated_elements.add("")
 	ino_code.add("");
 	FillTaskType();
@@ -104,9 +114,9 @@ def FillGatewayType(){
 				iterations++;
 			}
 			//.h lib file generation
-			fsa.generateFile("GeneratedLib.h" ,  cpp_code)
+			fsa.generateFile("GeneratedLib.h" ,  h_variables + h_code + "};\n#endif")
 	        //.cpp lib file generation
-	        fsa.generateFile("GeneratedLib.cpp" ,cpp_code)
+	        fsa.generateFile("GeneratedLib.cpp" ,cpp_variables + cpp_code)
 	        
 	        
         }
@@ -177,7 +187,8 @@ def fillSuccessors(String my_id, Resource r){
 	i=0;
 	n=0;
 	j=0;
-	end_event = true;
+	
+	var str2 = "";
 	for (Element : r.allContents.toIterable.filter(element))
 	{
 		for(Singleton : Element.singleton_tag)
@@ -194,9 +205,60 @@ def fillSuccessors(String my_id, Resource r){
 							{
 								if (keywords1.equals("targetRef"))
 								{
-									successors.add(Singleton.value.get(j))
-									fillSuccessors(Singleton.value.get(j),r);
-									end_event = false;
+									if (!getCondition(Element).equals(""))
+									{
+										
+										if (str2.equals(""))
+										{
+											str2+=getGatewayType(my_id,r)+"="+getCondition(Element);
+											successors.add(str2);
+										}
+										else
+										{
+											str2 = getGatewayType(my_id,r)+"="+getCondition(Element)+"_else";
+											successors.add(str2);
+										}
+										
+										
+									}
+									if (hasLoop(my_id,r))
+									{
+										imInLoop = true;
+										if (!getCondition(Element).equals(""))
+										{
+											var str3 = "";
+											if (str2.equals(""))
+											{
+												str3+=getGatewayType(my_id,r)+"="+getCondition(Element);
+												for (var y = successors.size()-1; y < 0; y--)
+												{
+													if(successors.get(y).equals(str3))
+													{
+														successors.set(y,getGatewayType(my_id,r)+"_loop"+"="+getCondition(Element))
+														y=0;
+													}
+												}
+											}
+											else
+											{
+												str3 = getGatewayType(my_id,r)+"="+getCondition(Element)+"_else";
+												for (var y = successors.size()-1; y < 0; y--)
+												{
+													if(successors.get(y).equals(str3))
+													{
+														successors.set(y,getGatewayType(my_id,r)+"_loop"+"="+getCondition(Element)+"_else");
+														y=0;
+													}
+												}
+											}	
+										}											
+									}
+									else
+									{
+										successors.add(Singleton.value.get(j));
+										fillSuccessors(Singleton.value.get(j),r);
+									
+									}
 								}
 								j++;
 							}
@@ -224,30 +286,65 @@ def fillSuccessors(String my_id, Resource r){
 					{
 						if (Open.value.get(n).equals(my_id))
 						{
+	
 							for(keywords1 : Open.keywords1)
 							{
 								if (keywords1.equals("targetRef"))
 								{
+									
 									if (!getCondition(Element).equals(""))
 									{
-										conditions++;
-										successors.add(getGatewayType(my_id,r)+"="+getCondition(Element));
-									}
-									
-									successors.add(Open.value.get(j))
-									end_event = false;
-									if (NextIsEndEvent(Open.value.get(j),r))
-									{
-										for (element : successors)
+										
+										if (str2.equals(""))
 										{
-											if (element.contains("condition"))
-											{
-												successors.add(element + "_end");
-											}
+											str2+=getGatewayType(my_id,r)+"="+getCondition(Element);
+											successors.add(str2);
 										}
-											
+										else
+										{
+											str2 = getGatewayType(my_id,r)+"="+getCondition(Element)+"_else";
+											successors.add(str2);
+										}	
+										
 									}
-									fillSuccessors(Open.value.get(j),r);
+									if (hasLoop(my_id,r))
+									{
+										imInLoop = true;
+										if (!getCondition(Element).equals(""))
+										{
+											
+											var str3 = "";
+											if (str2.equals(""))
+											{
+												str3+=getGatewayType(my_id,r)+"="+getCondition(Element);
+												for (var y = successors.size()-1; y > 0; y--)
+												{
+													if(successors.get(y).equals(str3))
+													{
+														successors.set(y,getGatewayType(my_id,r)+"_loop"+"="+getCondition(Element))
+														y=0;
+													}
+												}
+											}
+											else
+											{
+												str3 = getGatewayType(my_id,r)+"="+getCondition(Element)+"_else";
+												for (var y = successors.size()-1; y > 0; y--)
+												{
+													if(successors.get(y).equals(str3))
+													{
+														successors.set(y,getGatewayType(my_id,r)+"_loop"+"="+getCondition(Element)+"_else");
+														y=0;
+													}
+												}
+											}	
+										}
+									}
+									else
+									{
+										successors.add(Open.value.get(j));
+										fillSuccessors(Open.value.get(j),r);
+									}
 								}
 								j++;
 							}
@@ -262,7 +359,88 @@ def fillSuccessors(String my_id, Resource r){
 		}
 		i=0;
 	}
+	if (!str2.equals(""))
+	{
+		successors.add("end_condition");
+	}
+	imInLoop = false;
 	
+}
+def hasLoop(String id, Resource r){
+	temp_array_list.add(id);
+	if (temp_array_list.contains(getNext(id,r) ))
+	{
+		temp_array_list.clear();
+		return true;
+	}
+	if (NextIsEndEvent(id,r))
+	{
+			temp_array_list.clear();
+			return false;
+	}
+	return false;
+}
+def getNext(String id, Resource r){
+	var y = 0;
+	var h = 0;
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Open : Element.open)
+		{
+			if (Open.keywords.get(0).equals("sequenceFlow"))
+			{
+				for(keywords : Open.keywords1)
+				{
+					if (keywords.equals("sourceRef"))
+					{
+						if (Open.value.get(h).equals(id))
+						{
+							for(keywords1 : Open.keywords1)
+							{
+								if (keywords1.equals("targetRef"))
+								{
+									return Open.value.get(y);
+								}
+								y++;
+							}
+							y = 0;
+						}
+					}
+					h++;
+				}
+				h = 0;
+			}
+		}
+	}
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Singleton : Element.singleton_tag)
+		{
+			if (Singleton.keywords.get(0).equals("sequenceFlow"))
+			{
+				for(keywords : Singleton.keywords1)
+				{
+					if (keywords.equals("sourceRef"))
+					{
+						if (Singleton.value.get(h).equals(id))
+						{
+							for(keywords1 : Singleton.keywords1)
+							{
+								if (keywords1.equals("targetRef"))
+								{
+									return Singleton.value.get(y);
+								}
+								y++;
+							}
+							y = 0;
+						}
+					}
+					h++;
+				}
+				h = 0;
+			}
+		}
+	}
 }
 def getCondition(element e)
 {
@@ -282,14 +460,13 @@ def getCondition(element e)
 							{
 								return "";
 							}
-							str = "";
+							str1 = "";
 							for(data : conditions.body)
 							{
-								str += data
+								str1 += data
 							}
 							
-							//DA CONTROLLARE CHE SIA UNA CONDIZIONE VALIDA
-							return str
+							return str1
 						}
 					}
 				}
@@ -328,6 +505,7 @@ def getGatewayType(String id, Resource r){
 	}	
 }
 def NextIsEndEvent(String id, Resource r){
+	k=0;
 	for (Element : r.allContents.toIterable.filter(element))
 	{
 		for(Open : Element.open)
@@ -347,6 +525,7 @@ def NextIsEndEvent(String id, Resource r){
 			}
 		}
 	}
+	
 	return false;
 }
 def ArduinoCodeGenerationIno(){
@@ -384,12 +563,17 @@ def setDataStructure(Resource r){
 def setDatas(Resource r, String successor_id){
 	if (successor_id.contains("condition="))
 	{
-		
+		conditions++;
 		cond = new Condition (successor_id);
+		opened_conditions.add(cond.getId());
 		elements.add(cond);
-		//QUI DEVO AGGIUNGERE NELLA STRUTTURA DATI LA CONDIZIONE
-		
 		return;
+	}
+	if (successor_id.equals("end_condition"))
+	{
+		cond = new Condition(true, opened_conditions.get(opened_conditions.size()-1));
+		opened_conditions.remove(opened_conditions.size()-1);
+		elements.add(cond);
 	}
 	for (Element : r.allContents.toIterable.filter(element))
 	{
@@ -444,10 +628,16 @@ def setDatas(Resource r, String successor_id){
 												}
 												//CHECK
 												netdata.getDatas().pubTopics.clear();
+												netdata.getDatas().getPublish_data.clear();
+												var h = 0;
 												for(MQTT_topic_pub : MQTTData.pubtopics)
 												{
 													if(!netdata.getDatas().pubTopics.contains(MQTT_topic_pub.toString()))
+													{
 														netdata.getDatas().pubTopics.add(MQTT_topic_pub.toString());
+														netdata.getDatas().getPublish_data.add(MQTTData.value.get(h).toString());
+														h++;
+													}
 												}
 												netdata.getDatas().subTopics.clear();
 												for(MQTT_topic_sub : MQTTData.subtopics)
@@ -464,6 +654,9 @@ def setDatas(Resource r, String successor_id){
 											}
 											if (!generated_elements.contains("mqtt"))
 											{
+												h_variables += h_gen.generateDefineCode();
+												h_code += h_gen.generateMethodsCode();
+												cpp_variables += cpp_gen.generateProtocolVariables(netdata);
 												cpp_code += cpp_gen.generateProtocolCode(netdata);
 												generated_elements.add("mqtt")
 											}
@@ -493,6 +686,9 @@ def setDatas(Resource r, String successor_id){
 											}
 											if (!generated_elements.contains("dht22"))
 											{
+												h_gen.sensor = "dht22";
+												h_variables += h_gen.generateDefineCode();
+												h_code += h_gen.generateMethodsCode();
 												cpp_code += cpp_gen.generateSensorCode(s);
 												generated_elements.add("dht22")
 											}

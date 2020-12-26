@@ -123,7 +123,7 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 * 	| "executionListener" | "timerEventDefinition" | "timeDuration" | "width" | "dataInputAssociation"
 	 * 	| "parallelGateway" | "collaboration" | "participant" | "targetNamespace" | "dataObject" | "signalEventDefinition"
 	 * 	| "BPMNDiagram"		| "exporter" | "exporterVersion" | "x" | "y"| "isHorizontal" | "attachedToRef"
-	 * 	| "conditionExpression" | "receiveTask" | "messageRef" | "initiator" | "message";
+	 * 	| "conditionExpression" | "receiveTask" | "messageRef" | "initiator" | "message" | "inclusiveGateway";
 	 */
 	protected String getKEYWORDSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)

@@ -12,6 +12,31 @@ public class MQTTDatas {
 	ArrayList <String> wifi_ssid = new ArrayList<String>();
 	ArrayList <String> wifi_pass = new ArrayList<String>();
 	ArrayList <String> publish_topics = new ArrayList<String>();
+	ArrayList <String> publish_data =  new ArrayList<String>();
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public ArrayList<String> getPublish_topics() {
+		return publish_topics;
+	}
+	public void setPublish_topics(ArrayList<String> publish_topics) {
+		this.publish_topics = publish_topics;
+	}
+	public ArrayList<String> getPublish_data() {
+		return publish_data;
+	}
+	public void setPublish_data(ArrayList<String> publish_data) {
+		this.publish_data = publish_data;
+	}
+	public ArrayList<String> getSubscribed_topics() {
+		return subscribed_topics;
+	}
+	public void setSubscribed_topics(ArrayList<String> subscribed_topics) {
+		this.subscribed_topics = subscribed_topics;
+	}
 	ArrayList <String> subscribed_topics = new ArrayList<String>();
 	public MQTTDatas(){
 		id = "deviceid";

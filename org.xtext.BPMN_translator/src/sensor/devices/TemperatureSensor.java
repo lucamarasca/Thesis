@@ -30,6 +30,9 @@ public class TemperatureSensor extends Elements {
 		+ "\tdht.begin();\n"
 		+ "}\n";
 	}
+	public String GetDHT22HCode() {
+		return "void InitDHT22(int pin);\n";
+	}
 	public String getModule() {
 		return module;
 	}

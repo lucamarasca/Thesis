@@ -45,17 +45,27 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   
   private ArrayList<String> gateway_type;
   
-  private boolean end_event = false;
+  private ArrayList<String> temp_array_list;
+  
+  private boolean imInLoop = false;
+  
+  private String loop_variable;
   
   private ArrayList<String> start_events;
   
   private String str;
   
+  private String str1;
+  
   private Condition cond;
+  
+  private String cpp_variables;
   
   private String cpp_code;
   
   private ArduinoCPPCodeGenerator cpp_gen;
+  
+  private String h_variables;
   
   private String h_code;
   
@@ -87,23 +97,32 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   
   private ArrayList<String> successors;
   
+  private ArrayList<String> opened_conditions;
+  
   public void Initialize(final Resource resource) {
     ArduinoInoCodeGenerator _arduinoInoCodeGenerator = new ArduinoInoCodeGenerator();
     this.ino_gen = _arduinoInoCodeGenerator;
     ArrayList<String> _arrayList = new ArrayList<String>();
-    this.ino_code = _arrayList;
-    ArrayList<Elements> _arrayList_1 = new ArrayList<Elements>();
-    this.elements = _arrayList_1;
-    ArrayList<String> _arrayList_2 = new ArrayList<String>();
-    this.generated_elements = _arrayList_2;
+    this.opened_conditions = _arrayList;
+    ArrayList<String> _arrayList_1 = new ArrayList<String>();
+    this.ino_code = _arrayList_1;
+    ArrayList<Elements> _arrayList_2 = new ArrayList<Elements>();
+    this.elements = _arrayList_2;
     ArrayList<String> _arrayList_3 = new ArrayList<String>();
-    this.start_events = _arrayList_3;
+    this.temp_array_list = _arrayList_3;
     ArrayList<String> _arrayList_4 = new ArrayList<String>();
-    this.successors = _arrayList_4;
+    this.generated_elements = _arrayList_4;
+    ArrayList<String> _arrayList_5 = new ArrayList<String>();
+    this.start_events = _arrayList_5;
+    ArrayList<String> _arrayList_6 = new ArrayList<String>();
+    this.successors = _arrayList_6;
     this.iterations = 0;
+    this.cpp_variables = "";
     this.cpp_code = "";
+    this.h_variables = "";
     this.h_code = "";
     this.str = "";
+    this.loop_variable = "";
     this.generated_elements.add("");
     this.ino_code.add("");
     this.FillTaskType();
@@ -146,8 +165,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
           this.iterations++;
         }
       }
-      fsa.generateFile("GeneratedLib.h", this.cpp_code);
-      fsa.generateFile("GeneratedLib.cpp", this.cpp_code);
+      fsa.generateFile("GeneratedLib.h", ((this.h_variables + this.h_code) + "};\n#endif"));
+      fsa.generateFile("GeneratedLib.cpp", (this.cpp_variables + this.cpp_code));
     } else {
       ArduinoHCodeGenerator _arduinoHCodeGenerator = new ArduinoHCodeGenerator(Parameters.selected_sensor, Parameters.selected_protocol, Parameters.selected_wifisensor);
       this.h_gen = _arduinoHCodeGenerator;
@@ -205,112 +224,334 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     return "";
   }
   
-  public void fillSuccessors(final String my_id, final Resource r) {
-    this.i = 0;
-    this.n = 0;
-    this.j = 0;
-    this.end_event = true;
+  public boolean fillSuccessors(final String my_id, final Resource r) {
+    boolean _xblockexpression = false;
+    {
+      this.i = 0;
+      this.n = 0;
+      this.j = 0;
+      String str2 = "";
+      Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
+      for (final element Element : _filter) {
+        {
+          EList<Singleton> _singleton_tag = Element.getSingleton_tag();
+          for (final Singleton Singleton : _singleton_tag) {
+            {
+              boolean _equals = Singleton.getKeywords().get(0).equals("sequenceFlow");
+              if (_equals) {
+                EList<String> _keywords1 = Singleton.getKeywords1();
+                for (final String keywords : _keywords1) {
+                  {
+                    boolean _equals_1 = keywords.equals("sourceRef");
+                    if (_equals_1) {
+                      boolean _equals_2 = Singleton.getValue().get(this.n).equals(my_id);
+                      if (_equals_2) {
+                        EList<String> _keywords1_1 = Singleton.getKeywords1();
+                        for (final String keywords1 : _keywords1_1) {
+                          {
+                            boolean _equals_3 = keywords1.equals("targetRef");
+                            if (_equals_3) {
+                              boolean _equals_4 = this.getCondition(Element).equals("");
+                              boolean _not = (!_equals_4);
+                              if (_not) {
+                                boolean _equals_5 = str2.equals("");
+                                if (_equals_5) {
+                                  String _str2 = str2;
+                                  String _gatewayType = this.getGatewayType(my_id, r);
+                                  String _plus = (_gatewayType + "=");
+                                  String _condition = this.getCondition(Element);
+                                  String _plus_1 = (_plus + _condition);
+                                  str2 = (_str2 + _plus_1);
+                                  this.successors.add(str2);
+                                } else {
+                                  String _gatewayType_1 = this.getGatewayType(my_id, r);
+                                  String _plus_2 = (_gatewayType_1 + "=");
+                                  String _condition_1 = this.getCondition(Element);
+                                  String _plus_3 = (_plus_2 + _condition_1);
+                                  String _plus_4 = (_plus_3 + "_else");
+                                  str2 = _plus_4;
+                                  this.successors.add(str2);
+                                }
+                              }
+                              boolean _hasLoop = this.hasLoop(my_id, r);
+                              if (_hasLoop) {
+                                this.imInLoop = true;
+                                boolean _equals_6 = this.getCondition(Element).equals("");
+                                boolean _not_1 = (!_equals_6);
+                                if (_not_1) {
+                                  String str3 = "";
+                                  boolean _equals_7 = str2.equals("");
+                                  if (_equals_7) {
+                                    String _str3 = str3;
+                                    String _gatewayType_2 = this.getGatewayType(my_id, r);
+                                    String _plus_5 = (_gatewayType_2 + "=");
+                                    String _condition_2 = this.getCondition(Element);
+                                    String _plus_6 = (_plus_5 + _condition_2);
+                                    str3 = (_str3 + _plus_6);
+                                    for (int y = (this.successors.size() - 1); (y < 0); y--) {
+                                      boolean _equals_8 = this.successors.get(y).equals(str3);
+                                      if (_equals_8) {
+                                        String _gatewayType_3 = this.getGatewayType(my_id, r);
+                                        String _plus_7 = (_gatewayType_3 + "_loop");
+                                        String _plus_8 = (_plus_7 + "=");
+                                        String _condition_3 = this.getCondition(Element);
+                                        String _plus_9 = (_plus_8 + _condition_3);
+                                        this.successors.set(y, _plus_9);
+                                        y = 0;
+                                      }
+                                    }
+                                  } else {
+                                    String _gatewayType_3 = this.getGatewayType(my_id, r);
+                                    String _plus_7 = (_gatewayType_3 + "=");
+                                    String _condition_3 = this.getCondition(Element);
+                                    String _plus_8 = (_plus_7 + _condition_3);
+                                    String _plus_9 = (_plus_8 + "_else");
+                                    str3 = _plus_9;
+                                    for (int y = (this.successors.size() - 1); (y < 0); y--) {
+                                      boolean _equals_8 = this.successors.get(y).equals(str3);
+                                      if (_equals_8) {
+                                        String _gatewayType_4 = this.getGatewayType(my_id, r);
+                                        String _plus_10 = (_gatewayType_4 + "_loop");
+                                        String _plus_11 = (_plus_10 + "=");
+                                        String _condition_4 = this.getCondition(Element);
+                                        String _plus_12 = (_plus_11 + _condition_4);
+                                        String _plus_13 = (_plus_12 + "_else");
+                                        this.successors.set(y, _plus_13);
+                                        y = 0;
+                                      }
+                                    }
+                                  }
+                                }
+                              } else {
+                                this.successors.add(Singleton.getValue().get(this.j));
+                                this.fillSuccessors(Singleton.getValue().get(this.j), r);
+                              }
+                            }
+                            this.j++;
+                          }
+                        }
+                        this.j = 0;
+                      }
+                    }
+                    this.n++;
+                  }
+                }
+                this.n = 0;
+              }
+              this.i++;
+            }
+          }
+          this.i = 0;
+        }
+      }
+      Iterable<element> _filter_1 = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
+      for (final element Element_1 : _filter_1) {
+        {
+          EList<Open> _open = Element_1.getOpen();
+          for (final Open Open : _open) {
+            {
+              boolean _equals = Open.getKeywords().get(0).equals("sequenceFlow");
+              if (_equals) {
+                EList<String> _keywords1 = Open.getKeywords1();
+                for (final String keywords : _keywords1) {
+                  {
+                    boolean _equals_1 = keywords.equals("sourceRef");
+                    if (_equals_1) {
+                      boolean _equals_2 = Open.getValue().get(this.n).equals(my_id);
+                      if (_equals_2) {
+                        EList<String> _keywords1_1 = Open.getKeywords1();
+                        for (final String keywords1 : _keywords1_1) {
+                          {
+                            boolean _equals_3 = keywords1.equals("targetRef");
+                            if (_equals_3) {
+                              boolean _equals_4 = this.getCondition(Element_1).equals("");
+                              boolean _not = (!_equals_4);
+                              if (_not) {
+                                boolean _equals_5 = str2.equals("");
+                                if (_equals_5) {
+                                  String _str2 = str2;
+                                  String _gatewayType = this.getGatewayType(my_id, r);
+                                  String _plus = (_gatewayType + "=");
+                                  String _condition = this.getCondition(Element_1);
+                                  String _plus_1 = (_plus + _condition);
+                                  str2 = (_str2 + _plus_1);
+                                  this.successors.add(str2);
+                                } else {
+                                  String _gatewayType_1 = this.getGatewayType(my_id, r);
+                                  String _plus_2 = (_gatewayType_1 + "=");
+                                  String _condition_1 = this.getCondition(Element_1);
+                                  String _plus_3 = (_plus_2 + _condition_1);
+                                  String _plus_4 = (_plus_3 + "_else");
+                                  str2 = _plus_4;
+                                  this.successors.add(str2);
+                                }
+                              }
+                              boolean _hasLoop = this.hasLoop(my_id, r);
+                              if (_hasLoop) {
+                                this.imInLoop = true;
+                                boolean _equals_6 = this.getCondition(Element_1).equals("");
+                                boolean _not_1 = (!_equals_6);
+                                if (_not_1) {
+                                  String str3 = "";
+                                  boolean _equals_7 = str2.equals("");
+                                  if (_equals_7) {
+                                    String _str3 = str3;
+                                    String _gatewayType_2 = this.getGatewayType(my_id, r);
+                                    String _plus_5 = (_gatewayType_2 + "=");
+                                    String _condition_2 = this.getCondition(Element_1);
+                                    String _plus_6 = (_plus_5 + _condition_2);
+                                    str3 = (_str3 + _plus_6);
+                                    for (int y = (this.successors.size() - 1); (y > 0); y--) {
+                                      boolean _equals_8 = this.successors.get(y).equals(str3);
+                                      if (_equals_8) {
+                                        String _gatewayType_3 = this.getGatewayType(my_id, r);
+                                        String _plus_7 = (_gatewayType_3 + "_loop");
+                                        String _plus_8 = (_plus_7 + "=");
+                                        String _condition_3 = this.getCondition(Element_1);
+                                        String _plus_9 = (_plus_8 + _condition_3);
+                                        this.successors.set(y, _plus_9);
+                                        y = 0;
+                                      }
+                                    }
+                                  } else {
+                                    String _gatewayType_3 = this.getGatewayType(my_id, r);
+                                    String _plus_7 = (_gatewayType_3 + "=");
+                                    String _condition_3 = this.getCondition(Element_1);
+                                    String _plus_8 = (_plus_7 + _condition_3);
+                                    String _plus_9 = (_plus_8 + "_else");
+                                    str3 = _plus_9;
+                                    for (int y = (this.successors.size() - 1); (y > 0); y--) {
+                                      boolean _equals_8 = this.successors.get(y).equals(str3);
+                                      if (_equals_8) {
+                                        String _gatewayType_4 = this.getGatewayType(my_id, r);
+                                        String _plus_10 = (_gatewayType_4 + "_loop");
+                                        String _plus_11 = (_plus_10 + "=");
+                                        String _condition_4 = this.getCondition(Element_1);
+                                        String _plus_12 = (_plus_11 + _condition_4);
+                                        String _plus_13 = (_plus_12 + "_else");
+                                        this.successors.set(y, _plus_13);
+                                        y = 0;
+                                      }
+                                    }
+                                  }
+                                }
+                              } else {
+                                this.successors.add(Open.getValue().get(this.j));
+                                this.fillSuccessors(Open.getValue().get(this.j), r);
+                              }
+                            }
+                            this.j++;
+                          }
+                        }
+                        this.j = 0;
+                      }
+                    }
+                    this.n++;
+                  }
+                }
+                this.n = 0;
+              }
+              this.i++;
+            }
+          }
+          this.i = 0;
+        }
+      }
+      boolean _equals = str2.equals("");
+      boolean _not = (!_equals);
+      if (_not) {
+        this.successors.add("end_condition");
+      }
+      _xblockexpression = this.imInLoop = false;
+    }
+    return _xblockexpression;
+  }
+  
+  public boolean hasLoop(final String id, final Resource r) {
+    this.temp_array_list.add(id);
+    boolean _contains = this.temp_array_list.contains(this.getNext(id, r));
+    if (_contains) {
+      this.temp_array_list.clear();
+      return true;
+    }
+    boolean _NextIsEndEvent = this.NextIsEndEvent(id, r);
+    if (_NextIsEndEvent) {
+      this.temp_array_list.clear();
+      return false;
+    }
+    return false;
+  }
+  
+  public String getNext(final String id, final Resource r) {
+    int y = 0;
+    int h = 0;
     Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
     for (final element Element : _filter) {
-      {
-        EList<Singleton> _singleton_tag = Element.getSingleton_tag();
-        for (final Singleton Singleton : _singleton_tag) {
-          {
-            boolean _equals = Singleton.getKeywords().get(0).equals("sequenceFlow");
-            if (_equals) {
-              EList<String> _keywords1 = Singleton.getKeywords1();
-              for (final String keywords : _keywords1) {
-                {
-                  boolean _equals_1 = keywords.equals("sourceRef");
-                  if (_equals_1) {
-                    boolean _equals_2 = Singleton.getValue().get(this.n).equals(my_id);
-                    if (_equals_2) {
-                      EList<String> _keywords1_1 = Singleton.getKeywords1();
-                      for (final String keywords1 : _keywords1_1) {
-                        {
-                          boolean _equals_3 = keywords1.equals("targetRef");
-                          if (_equals_3) {
-                            this.successors.add(Singleton.getValue().get(this.j));
-                            this.fillSuccessors(Singleton.getValue().get(this.j), r);
-                            this.end_event = false;
-                          }
-                          this.j++;
-                        }
+      EList<Open> _open = Element.getOpen();
+      for (final Open Open : _open) {
+        boolean _equals = Open.getKeywords().get(0).equals("sequenceFlow");
+        if (_equals) {
+          EList<String> _keywords1 = Open.getKeywords1();
+          for (final String keywords : _keywords1) {
+            {
+              boolean _equals_1 = keywords.equals("sourceRef");
+              if (_equals_1) {
+                boolean _equals_2 = Open.getValue().get(h).equals(id);
+                if (_equals_2) {
+                  EList<String> _keywords1_1 = Open.getKeywords1();
+                  for (final String keywords1 : _keywords1_1) {
+                    {
+                      boolean _equals_3 = keywords1.equals("targetRef");
+                      if (_equals_3) {
+                        return Open.getValue().get(y);
                       }
-                      this.j = 0;
+                      y++;
                     }
                   }
-                  this.n++;
+                  y = 0;
                 }
               }
-              this.n = 0;
+              h++;
             }
-            this.i++;
           }
+          h = 0;
         }
-        this.i = 0;
       }
     }
     Iterable<element> _filter_1 = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
     for (final element Element_1 : _filter_1) {
-      {
-        EList<Open> _open = Element_1.getOpen();
-        for (final Open Open : _open) {
-          {
-            boolean _equals = Open.getKeywords().get(0).equals("sequenceFlow");
-            if (_equals) {
-              EList<String> _keywords1 = Open.getKeywords1();
-              for (final String keywords : _keywords1) {
-                {
-                  boolean _equals_1 = keywords.equals("sourceRef");
-                  if (_equals_1) {
-                    boolean _equals_2 = Open.getValue().get(this.n).equals(my_id);
-                    if (_equals_2) {
-                      EList<String> _keywords1_1 = Open.getKeywords1();
-                      for (final String keywords1 : _keywords1_1) {
-                        {
-                          boolean _equals_3 = keywords1.equals("targetRef");
-                          if (_equals_3) {
-                            boolean _equals_4 = this.getCondition(Element_1).equals("");
-                            boolean _not = (!_equals_4);
-                            if (_not) {
-                              this.conditions++;
-                              String _gatewayType = this.getGatewayType(my_id, r);
-                              String _plus = (_gatewayType + "=");
-                              String _condition = this.getCondition(Element_1);
-                              String _plus_1 = (_plus + _condition);
-                              this.successors.add(_plus_1);
-                            }
-                            this.successors.add(Open.getValue().get(this.j));
-                            this.end_event = false;
-                            boolean _NextIsEndEvent = this.NextIsEndEvent(Open.getValue().get(this.j), r);
-                            if (_NextIsEndEvent) {
-                              for (final String element : this.successors) {
-                                boolean _contains = element.contains("condition");
-                                if (_contains) {
-                                  this.successors.add((element + "_end"));
-                                }
-                              }
-                            }
-                            this.fillSuccessors(Open.getValue().get(this.j), r);
-                          }
-                          this.j++;
-                        }
+      EList<Singleton> _singleton_tag = Element_1.getSingleton_tag();
+      for (final Singleton Singleton : _singleton_tag) {
+        boolean _equals_1 = Singleton.getKeywords().get(0).equals("sequenceFlow");
+        if (_equals_1) {
+          EList<String> _keywords1_1 = Singleton.getKeywords1();
+          for (final String keywords_1 : _keywords1_1) {
+            {
+              boolean _equals_2 = keywords_1.equals("sourceRef");
+              if (_equals_2) {
+                boolean _equals_3 = Singleton.getValue().get(h).equals(id);
+                if (_equals_3) {
+                  EList<String> _keywords1_2 = Singleton.getKeywords1();
+                  for (final String keywords1 : _keywords1_2) {
+                    {
+                      boolean _equals_4 = keywords1.equals("targetRef");
+                      if (_equals_4) {
+                        return Singleton.getValue().get(y);
                       }
-                      this.j = 0;
+                      y++;
                     }
                   }
-                  this.n++;
+                  y = 0;
                 }
               }
-              this.n = 0;
+              h++;
             }
-            this.i++;
           }
+          h = 0;
         }
-        this.i = 0;
       }
     }
+    return null;
   }
   
   public String getCondition(final element e) {
@@ -331,13 +572,13 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                   if (_isEmpty) {
                     return "";
                   }
-                  this.str = "";
+                  this.str1 = "";
                   EList<String> _body = conditions.getBody();
                   for (final String data : _body) {
-                    String _str = this.str;
-                    this.str = (_str + data);
+                    String _str1 = this.str1;
+                    this.str1 = (_str1 + data);
                   }
-                  return this.str;
+                  return this.str1;
                 }
               }
             }
@@ -386,6 +627,7 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   }
   
   public boolean NextIsEndEvent(final String id, final Resource r) {
+    this.k = 0;
     Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
     for (final element Element : _filter) {
       EList<Open> _open = Element.getOpen();
@@ -444,17 +686,31 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   public void setDatas(final Resource r, final String successor_id) {
     boolean _contains = successor_id.contains("condition=");
     if (_contains) {
+      this.conditions++;
       Condition _condition = new Condition(successor_id);
       this.cond = _condition;
+      this.opened_conditions.add(this.cond.getId());
       this.elements.add(this.cond);
       return;
+    }
+    boolean _equals = successor_id.equals("end_condition");
+    if (_equals) {
+      int _size = this.opened_conditions.size();
+      int _minus = (_size - 1);
+      String _get = this.opened_conditions.get(_minus);
+      Condition _condition_1 = new Condition(Boolean.valueOf(true), _get);
+      this.cond = _condition_1;
+      int _size_1 = this.opened_conditions.size();
+      int _minus_1 = (_size_1 - 1);
+      this.opened_conditions.remove(_minus_1);
+      this.elements.add(this.cond);
     }
     Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
     for (final element Element : _filter) {
       EList<Open> _open = Element.getOpen();
       for (final Open Open : _open) {
-        boolean _equals = this.getID(Open).equals(successor_id);
-        if (_equals) {
+        boolean _equals_1 = this.getID(Open).equals(successor_id);
+        if (_equals_1) {
           EList<content> _contents = Element.getContents();
           for (final content Content : _contents) {
             EList<element> _element = Content.getElement();
@@ -463,12 +719,12 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
               for (final content c : _contents_1) {
                 EList<codex> _codex = c.getCodex();
                 for (final codex Codex : _codex) {
-                  boolean _equals_1 = c.getType().get(0).equals("_TASK");
-                  if (_equals_1) {
+                  boolean _equals_2 = c.getType().get(0).equals("_TASK");
+                  if (_equals_2) {
                     EList<protocol> _protocol = Codex.getProtocol();
                     for (final protocol Protocol : _protocol) {
-                      boolean _equals_2 = Protocol.getPname().get(0).toLowerCase().replaceAll("\\s+", "").equals("mqtt");
-                      if (_equals_2) {
+                      boolean _equals_3 = Protocol.getPname().get(0).toLowerCase().replaceAll("\\s+", "").equals("mqtt");
+                      if (_equals_3) {
                         MQTT _mQTT = new MQTT();
                         this.netdata = _mQTT;
                         this.elements.add(this.netdata);
@@ -501,12 +757,16 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                               }
                             }
                             this.netdata.getDatas().getPubTopics().clear();
+                            this.netdata.getDatas().getPublish_data().clear();
+                            int h = 0;
                             EList<String> _pubtopics = MQTTData.getPubtopics();
                             for (final String MQTT_topic_pub : _pubtopics) {
                               boolean _contains_1 = this.netdata.getDatas().getPubTopics().contains(MQTT_topic_pub.toString());
                               boolean _not = (!_contains_1);
                               if (_not) {
                                 this.netdata.getDatas().getPubTopics().add(MQTT_topic_pub.toString());
+                                this.netdata.getDatas().getPublish_data().add(MQTTData.getValue().get(h).toString());
+                                h++;
                               }
                             }
                             this.netdata.getDatas().getSubTopics().clear();
@@ -531,6 +791,15 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                         boolean _contains_1 = this.generated_elements.contains("mqtt");
                         boolean _not = (!_contains_1);
                         if (_not) {
+                          String _h_variables = this.h_variables;
+                          String _generateDefineCode = this.h_gen.generateDefineCode();
+                          this.h_variables = (_h_variables + _generateDefineCode);
+                          String _h_code = this.h_code;
+                          String _generateMethodsCode = this.h_gen.generateMethodsCode();
+                          this.h_code = (_h_code + _generateMethodsCode);
+                          String _cpp_variables = this.cpp_variables;
+                          String _generateProtocolVariables = this.cpp_gen.generateProtocolVariables(this.netdata);
+                          this.cpp_variables = (_cpp_variables + _generateProtocolVariables);
                           String _cpp_code = this.cpp_code;
                           String _generateProtocolCode = this.cpp_gen.generateProtocolCode(this.netdata);
                           this.cpp_code = (_cpp_code + _generateProtocolCode);
@@ -540,8 +809,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                     }
                     EList<sensor> _sensor_code = Codex.getSensor_code();
                     for (final sensor sensor : _sensor_code) {
-                      boolean _equals_3 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("temperature");
-                      if (_equals_3) {
+                      boolean _equals_4 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("temperature");
+                      if (_equals_4) {
                         TemperatureSensor _temperatureSensor = new TemperatureSensor();
                         this.s = _temperatureSensor;
                         EList<device> _device_code_1 = Codex.getDevice_code();
@@ -567,6 +836,13 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                         boolean _contains_2 = this.generated_elements.contains("dht22");
                         boolean _not_1 = (!_contains_2);
                         if (_not_1) {
+                          this.h_gen.sensor = "dht22";
+                          String _h_variables_1 = this.h_variables;
+                          String _generateDefineCode_1 = this.h_gen.generateDefineCode();
+                          this.h_variables = (_h_variables_1 + _generateDefineCode_1);
+                          String _h_code_1 = this.h_code;
+                          String _generateMethodsCode_1 = this.h_gen.generateMethodsCode();
+                          this.h_code = (_h_code_1 + _generateMethodsCode_1);
                           String _cpp_code_1 = this.cpp_code;
                           String _generateSensorCode = this.cpp_gen.generateSensorCode(this.s);
                           this.cpp_code = (_cpp_code_1 + _generateSensorCode);
