@@ -865,40 +865,69 @@ rulevariables returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken
 	leaveRule();
 }:
 	(
-		kw='TEMPERATURE'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getVariablesAccess().getTEMPERATUREKeyword_0());
-		}
-		kw='['
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getVariablesAccess().getLeftSquareBracketKeyword_1());
-		}
-		this_BODY_2=RULE_BODY
-		{
-			$current.merge(this_BODY_2);
-		}
-		{
-			newLeafNode(this_BODY_2, grammarAccess.getVariablesAccess().getBODYTerminalRuleCall_2());
-		}
-		kw=','
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getVariablesAccess().getCommaKeyword_3());
-		}
-		this_BODY_4=RULE_BODY
-		{
-			$current.merge(this_BODY_4);
-		}
-		{
-			newLeafNode(this_BODY_4, grammarAccess.getVariablesAccess().getBODYTerminalRuleCall_4());
-		}
-		kw=']'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getVariablesAccess().getRightSquareBracketKeyword_5());
-		}
+		(
+			kw='TEMPERATURE'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getTEMPERATUREKeyword_0_0());
+			}
+			kw='['
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getLeftSquareBracketKeyword_0_1());
+			}
+			this_BODY_2=RULE_BODY
+			{
+				$current.merge(this_BODY_2);
+			}
+			{
+				newLeafNode(this_BODY_2, grammarAccess.getVariablesAccess().getBODYTerminalRuleCall_0_2());
+			}
+			kw=','
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getCommaKeyword_0_3());
+			}
+			this_BODY_4=RULE_BODY
+			{
+				$current.merge(this_BODY_4);
+			}
+			{
+				newLeafNode(this_BODY_4, grammarAccess.getVariablesAccess().getBODYTerminalRuleCall_0_4());
+			}
+			kw=']'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getRightSquareBracketKeyword_0_5());
+			}
+		)
+		    |
+		(
+			this_BODY_6=RULE_BODY
+			{
+				$current.merge(this_BODY_6);
+			}
+			{
+				newLeafNode(this_BODY_6, grammarAccess.getVariablesAccess().getBODYTerminalRuleCall_1_0());
+			}
+			kw='['
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getLeftSquareBracketKeyword_1_1());
+			}
+			this_BODY_8=RULE_BODY
+			{
+				$current.merge(this_BODY_8);
+			}
+			{
+				newLeafNode(this_BODY_8, grammarAccess.getVariablesAccess().getBODYTerminalRuleCall_1_2());
+			}
+			kw=']'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getRightSquareBracketKeyword_1_3());
+			}
+		)
 	)
 ;
 

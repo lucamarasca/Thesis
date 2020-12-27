@@ -47,7 +47,7 @@ Close:
 ;
 //+++++++++++++++MY GRAMMAR +++++++++++++++   
 variables:
-	("TEMPERATURE" "[" BODY "," BODY "]") 
+	("TEMPERATURE" "[" BODY "," BODY "]") | (BODY "["BODY"]")
 ;
 conditions:
 	("&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&&" | "||" | ")")

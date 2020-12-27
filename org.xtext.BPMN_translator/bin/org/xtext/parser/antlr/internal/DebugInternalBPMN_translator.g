@@ -115,12 +115,19 @@ ruleClose:
 
 // Rule variables
 rulevariables:
-	'TEMPERATURE'
-	'['
-	RULE_BODY
-	','
-	RULE_BODY
-	']'
+	(
+		'TEMPERATURE'
+		'['
+		RULE_BODY
+		','
+		RULE_BODY
+		']'
+		    |
+		RULE_BODY
+		'['
+		RULE_BODY
+		']'
+	)
 ;
 
 // Rule conditions

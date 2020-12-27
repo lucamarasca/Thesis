@@ -38,6 +38,7 @@ String cpp_code;
 ArduinoCPPCodeGenerator cpp_gen;
 String h_variables;
 String h_code;
+String [] values;
 ArduinoHCodeGenerator h_gen;
 ArrayList<String> ino_code;
 ArduinoInoCodeGenerator ino_gen;
@@ -211,54 +212,31 @@ def fillSuccessors(String my_id, Resource r){
 										if (str2.equals(""))
 										{
 											str2+=getGatewayType(my_id,r)+"="+getCondition(Element);
-											successors.add(str2);
+											
 										}
 										else
 										{
 											str2 = getGatewayType(my_id,r)+"="+getCondition(Element)+"_else";
+											
+										}
+										if (hasLoop(my_id,r,str2))
+										{
+											setLoop(loop_variable);
+											System.out.println("La condizione: " + loop_variable + " è in loop");
+											return;
+										}
+										else
+										{
 											successors.add(str2);
 										}
-										
-										
 									}
-									if (hasLoop(my_id,r))
-									{
-										imInLoop = true;
-										if (!getCondition(Element).equals(""))
-										{
-											var str3 = "";
-											if (str2.equals(""))
-											{
-												str3+=getGatewayType(my_id,r)+"="+getCondition(Element);
-												for (var y = successors.size()-1; y < 0; y--)
-												{
-													if(successors.get(y).equals(str3))
-													{
-														successors.set(y,getGatewayType(my_id,r)+"_loop"+"="+getCondition(Element))
-														y=0;
-													}
-												}
-											}
-											else
-											{
-												str3 = getGatewayType(my_id,r)+"="+getCondition(Element)+"_else";
-												for (var y = successors.size()-1; y < 0; y--)
-												{
-													if(successors.get(y).equals(str3))
-													{
-														successors.set(y,getGatewayType(my_id,r)+"_loop"+"="+getCondition(Element)+"_else");
-														y=0;
-													}
-												}
-											}	
-										}											
-									}
-									else
+									
+									if (!hasLoop(my_id,r,""))
 									{
 										successors.add(Singleton.value.get(j));
 										fillSuccessors(Singleton.value.get(j),r);
-									
 									}
+									
 								}
 								j++;
 							}
@@ -286,65 +264,44 @@ def fillSuccessors(String my_id, Resource r){
 					{
 						if (Open.value.get(n).equals(my_id))
 						{
-	
 							for(keywords1 : Open.keywords1)
 							{
 								if (keywords1.equals("targetRef"))
 								{
-									
 									if (!getCondition(Element).equals(""))
 									{
 										
 										if (str2.equals(""))
 										{
 											str2+=getGatewayType(my_id,r)+"="+getCondition(Element);
-											successors.add(str2);
+											
 										}
 										else
 										{
 											str2 = getGatewayType(my_id,r)+"="+getCondition(Element)+"_else";
+											
+											
+										
+										}
+										if (hasLoop(my_id,r,str2))
+										{
+											setLoop(loop_variable);
+											System.out.println("La condizione: " + loop_variable + " è in loop");
+											return;
+										}
+										else
+										{
 											successors.add(str2);
-										}	
+										}
 										
 									}
-									if (hasLoop(my_id,r))
-									{
-										imInLoop = true;
-										if (!getCondition(Element).equals(""))
-										{
-											
-											var str3 = "";
-											if (str2.equals(""))
-											{
-												str3+=getGatewayType(my_id,r)+"="+getCondition(Element);
-												for (var y = successors.size()-1; y > 0; y--)
-												{
-													if(successors.get(y).equals(str3))
-													{
-														successors.set(y,getGatewayType(my_id,r)+"_loop"+"="+getCondition(Element))
-														y=0;
-													}
-												}
-											}
-											else
-											{
-												str3 = getGatewayType(my_id,r)+"="+getCondition(Element)+"_else";
-												for (var y = successors.size()-1; y > 0; y--)
-												{
-													if(successors.get(y).equals(str3))
-													{
-														successors.set(y,getGatewayType(my_id,r)+"_loop"+"="+getCondition(Element)+"_else");
-														y=0;
-													}
-												}
-											}	
-										}
-									}
-									else
+									if (!hasLoop(my_id,r,""))
 									{
 										successors.add(Open.value.get(j));
 										fillSuccessors(Open.value.get(j),r);
 									}
+			
+									
 								}
 								j++;
 							}
@@ -366,18 +323,48 @@ def fillSuccessors(String my_id, Resource r){
 	imInLoop = false;
 	
 }
-def hasLoop(String id, Resource r){
-	temp_array_list.add(id);
-	if (temp_array_list.contains(getNext(id,r) ))
+def setLoop(String condition){
+	for (var y = successors.size()-1; y > 0; y--)
 	{
+		if(successors.get(y).equals(condition))
+		{
+			val String[] x = condition.split("condition=");
+			
+			var result = "loop_condition=" + x.get(1).toString() ;
+			successors.set(y,result)
+			y=0;
+		}
+	}
+}
+def hasLoop(String id, Resource r, String condition){
+	
+	
+	if (temp_array_list.contains(id))
+	{
+		for (var y = 0; y < temp_array_list.size(); y++)
+		{
+			if (temp_array_list.get(y).equals(id))
+				loop_variable = temp_array_list.get(y-1);
+		}
 		temp_array_list.clear();
 		return true;
 	}
-	if (NextIsEndEvent(id,r))
+	if (!condition.equals(""))
 	{
-			temp_array_list.clear();
-			return false;
+		temp_array_list.add(condition);
 	}
+	else
+	{
+		temp_array_list.add(id);
+	}
+	
+	if (NextIsEndEvent(getNext(id,r),r))
+	{
+		temp_array_list.clear();
+		return false;
+	}
+	
+	
 	return false;
 }
 def getNext(String id, Resource r){
@@ -514,7 +501,7 @@ def NextIsEndEvent(String id, Resource r){
 			{
 				if (keywords.equals("id"))
 				{
-					if (Open.value.get(k).equals(id))
+					if (Open.value.get(k).equals(getNext(id,r)))
 					{
 						if (Open.keywords.get(0).contains("endEvent"))
 						{
@@ -522,7 +509,9 @@ def NextIsEndEvent(String id, Resource r){
 						}
 					}
 				}
+				k++;
 			}
+			k=0;
 		}
 	}
 	

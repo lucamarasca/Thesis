@@ -41,24 +41,10 @@ public class ArduinoInoCodeGenerator {
 		ino_code = "";
 	}
 	ArduinoInoCodeGenerator(){
-		else_number = 0;
-		ids = new ArrayList<String>();
-		opened_conditions = new ArrayList<String>();
-		temp = "";
-		temp1 = "";
-		temp2 = "";
-		temp3 = "";
-		temp4 = "";
-		temp5 = "";
-		ino_code = "";
-		variables = "";
-		setup_code = "";
-		loop_code = "";
-		includes = "";
-		intestation = "";
-		sens_variables = "";
-		tabulations = 0;
 		result = new ArrayList<String>();
+		ids = new ArrayList<String>();
+		Initialize();
+		
 	}
 	
 	public ArrayList<String> Generation(ArrayList<Elements> elements) {
@@ -82,15 +68,32 @@ public class ArduinoInoCodeGenerator {
 				ids.add(elements.get(i).getId());
 				
 				result.add(includes+variables+intestation+loop_code);
-				temp = "";
-				variables = "";
-				sens_variables = "";
-				loop_code = "";
+				Initialize();
+				
 				
 				
 			}
 		}
 		return result;
+		
+	}
+	private void Initialize() {
+		else_number = 0;
+		opened_conditions = new ArrayList<String>();
+		temp = "";
+		temp1 = "";
+		temp2 = "";
+		temp3 = "";
+		temp4 = "";
+		temp5 = "";
+		ino_code = "";
+		variables = "";
+		setup_code = "";
+		loop_code = "";
+		includes = "";
+		intestation = "";
+		sens_variables = "";
+		tabulations = 0;
 		
 	}
 	//This method is used for generate the variables to use in the ino file
@@ -199,6 +202,12 @@ public class ArduinoInoCodeGenerator {
 						temp += ("\tmy_lib.sendInPubTopic("+getVariableName(pubtopic)+", "+getVariableName(str)+");\n"); 
 						k++;
 					}
+					k=0;
+					for(String subtopic : app.getDatas().getSubTopics())
+					{
+						temp += ("\tmy_lib.Subscribe("+getVariableName(subtopic)+");\n"); 
+						k++;
+					}
 					for (k = 0; k < tabulations;k++)
 					{
 						temp = temp.replaceAll("(?m)^", "\t");
@@ -279,7 +288,34 @@ public class ArduinoInoCodeGenerator {
 						temp = "";
 					}
 				}
-				
+				if( elements.get(n).getType().equals("loop_condition"))
+				{
+					Condition con = (Condition) elements.get(n);
+					if (!con.isElse && !con.isEnd)
+					{
+						opened_conditions.add(elements.get(n).getType());
+						Condition cond = (Condition) elements.get(n);
+						temp += "\twhile("+cond.getMapped_condition() + ")\n\t{\n";
+						for (int k = 0; k < tabulations;k++)
+						{
+							temp = temp.replaceAll("(?m)^", "\t");
+						}
+						loop_code+= temp;
+						temp = "";
+						tabulations++;
+					}
+					else if(con.isElse)
+					{
+						Condition cond = (Condition) elements.get(n);
+						temp += "while("+cond.getMapped_condition() + ")\n{\n";
+						for (int k = 0; k < tabulations;k++)
+						{
+							temp = temp.replaceAll("(?m)^", "\t");
+						}
+						loop_code+= temp;
+						temp = "";
+					}
+				}
 				
 				if (elements.get(n).getType().equals("dht22"))
 				{

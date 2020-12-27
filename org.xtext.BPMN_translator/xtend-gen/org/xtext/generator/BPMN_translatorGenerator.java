@@ -69,6 +69,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   
   private String h_code;
   
+  private String[] values;
+  
   private ArduinoHCodeGenerator h_gen;
   
   private ArrayList<String> ino_code;
@@ -224,257 +226,196 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     return "";
   }
   
-  public boolean fillSuccessors(final String my_id, final Resource r) {
-    boolean _xblockexpression = false;
-    {
-      this.i = 0;
-      this.n = 0;
-      this.j = 0;
-      String str2 = "";
-      Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
-      for (final element Element : _filter) {
-        {
-          EList<Singleton> _singleton_tag = Element.getSingleton_tag();
-          for (final Singleton Singleton : _singleton_tag) {
-            {
-              boolean _equals = Singleton.getKeywords().get(0).equals("sequenceFlow");
-              if (_equals) {
-                EList<String> _keywords1 = Singleton.getKeywords1();
-                for (final String keywords : _keywords1) {
-                  {
-                    boolean _equals_1 = keywords.equals("sourceRef");
-                    if (_equals_1) {
-                      boolean _equals_2 = Singleton.getValue().get(this.n).equals(my_id);
-                      if (_equals_2) {
-                        EList<String> _keywords1_1 = Singleton.getKeywords1();
-                        for (final String keywords1 : _keywords1_1) {
-                          {
-                            boolean _equals_3 = keywords1.equals("targetRef");
-                            if (_equals_3) {
-                              boolean _equals_4 = this.getCondition(Element).equals("");
-                              boolean _not = (!_equals_4);
-                              if (_not) {
-                                boolean _equals_5 = str2.equals("");
-                                if (_equals_5) {
-                                  String _str2 = str2;
-                                  String _gatewayType = this.getGatewayType(my_id, r);
-                                  String _plus = (_gatewayType + "=");
-                                  String _condition = this.getCondition(Element);
-                                  String _plus_1 = (_plus + _condition);
-                                  str2 = (_str2 + _plus_1);
-                                  this.successors.add(str2);
-                                } else {
-                                  String _gatewayType_1 = this.getGatewayType(my_id, r);
-                                  String _plus_2 = (_gatewayType_1 + "=");
-                                  String _condition_1 = this.getCondition(Element);
-                                  String _plus_3 = (_plus_2 + _condition_1);
-                                  String _plus_4 = (_plus_3 + "_else");
-                                  str2 = _plus_4;
-                                  this.successors.add(str2);
-                                }
-                              }
-                              boolean _hasLoop = this.hasLoop(my_id, r);
-                              if (_hasLoop) {
-                                this.imInLoop = true;
-                                boolean _equals_6 = this.getCondition(Element).equals("");
-                                boolean _not_1 = (!_equals_6);
-                                if (_not_1) {
-                                  String str3 = "";
-                                  boolean _equals_7 = str2.equals("");
-                                  if (_equals_7) {
-                                    String _str3 = str3;
-                                    String _gatewayType_2 = this.getGatewayType(my_id, r);
-                                    String _plus_5 = (_gatewayType_2 + "=");
-                                    String _condition_2 = this.getCondition(Element);
-                                    String _plus_6 = (_plus_5 + _condition_2);
-                                    str3 = (_str3 + _plus_6);
-                                    for (int y = (this.successors.size() - 1); (y < 0); y--) {
-                                      boolean _equals_8 = this.successors.get(y).equals(str3);
-                                      if (_equals_8) {
-                                        String _gatewayType_3 = this.getGatewayType(my_id, r);
-                                        String _plus_7 = (_gatewayType_3 + "_loop");
-                                        String _plus_8 = (_plus_7 + "=");
-                                        String _condition_3 = this.getCondition(Element);
-                                        String _plus_9 = (_plus_8 + _condition_3);
-                                        this.successors.set(y, _plus_9);
-                                        y = 0;
-                                      }
-                                    }
-                                  } else {
-                                    String _gatewayType_3 = this.getGatewayType(my_id, r);
-                                    String _plus_7 = (_gatewayType_3 + "=");
-                                    String _condition_3 = this.getCondition(Element);
-                                    String _plus_8 = (_plus_7 + _condition_3);
-                                    String _plus_9 = (_plus_8 + "_else");
-                                    str3 = _plus_9;
-                                    for (int y = (this.successors.size() - 1); (y < 0); y--) {
-                                      boolean _equals_8 = this.successors.get(y).equals(str3);
-                                      if (_equals_8) {
-                                        String _gatewayType_4 = this.getGatewayType(my_id, r);
-                                        String _plus_10 = (_gatewayType_4 + "_loop");
-                                        String _plus_11 = (_plus_10 + "=");
-                                        String _condition_4 = this.getCondition(Element);
-                                        String _plus_12 = (_plus_11 + _condition_4);
-                                        String _plus_13 = (_plus_12 + "_else");
-                                        this.successors.set(y, _plus_13);
-                                        y = 0;
-                                      }
-                                    }
-                                  }
-                                }
+  public void fillSuccessors(final String my_id, final Resource r) {
+    this.i = 0;
+    this.n = 0;
+    this.j = 0;
+    String str2 = "";
+    Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
+    for (final element Element : _filter) {
+      {
+        EList<Singleton> _singleton_tag = Element.getSingleton_tag();
+        for (final Singleton Singleton : _singleton_tag) {
+          {
+            boolean _equals = Singleton.getKeywords().get(0).equals("sequenceFlow");
+            if (_equals) {
+              EList<String> _keywords1 = Singleton.getKeywords1();
+              for (final String keywords : _keywords1) {
+                {
+                  boolean _equals_1 = keywords.equals("sourceRef");
+                  if (_equals_1) {
+                    boolean _equals_2 = Singleton.getValue().get(this.n).equals(my_id);
+                    if (_equals_2) {
+                      EList<String> _keywords1_1 = Singleton.getKeywords1();
+                      for (final String keywords1 : _keywords1_1) {
+                        {
+                          boolean _equals_3 = keywords1.equals("targetRef");
+                          if (_equals_3) {
+                            boolean _equals_4 = this.getCondition(Element).equals("");
+                            boolean _not = (!_equals_4);
+                            if (_not) {
+                              boolean _equals_5 = str2.equals("");
+                              if (_equals_5) {
+                                String _str2 = str2;
+                                String _gatewayType = this.getGatewayType(my_id, r);
+                                String _plus = (_gatewayType + "=");
+                                String _condition = this.getCondition(Element);
+                                String _plus_1 = (_plus + _condition);
+                                str2 = (_str2 + _plus_1);
                               } else {
-                                this.successors.add(Singleton.getValue().get(this.j));
-                                this.fillSuccessors(Singleton.getValue().get(this.j), r);
+                                String _gatewayType_1 = this.getGatewayType(my_id, r);
+                                String _plus_2 = (_gatewayType_1 + "=");
+                                String _condition_1 = this.getCondition(Element);
+                                String _plus_3 = (_plus_2 + _condition_1);
+                                String _plus_4 = (_plus_3 + "_else");
+                                str2 = _plus_4;
+                              }
+                              boolean _hasLoop = this.hasLoop(my_id, r, str2);
+                              if (_hasLoop) {
+                                this.setLoop(this.loop_variable);
+                                System.out.println((("La condizione: " + this.loop_variable) + " è in loop"));
+                                return;
+                              } else {
+                                this.successors.add(str2);
                               }
                             }
-                            this.j++;
-                          }
-                        }
-                        this.j = 0;
-                      }
-                    }
-                    this.n++;
-                  }
-                }
-                this.n = 0;
-              }
-              this.i++;
-            }
-          }
-          this.i = 0;
-        }
-      }
-      Iterable<element> _filter_1 = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
-      for (final element Element_1 : _filter_1) {
-        {
-          EList<Open> _open = Element_1.getOpen();
-          for (final Open Open : _open) {
-            {
-              boolean _equals = Open.getKeywords().get(0).equals("sequenceFlow");
-              if (_equals) {
-                EList<String> _keywords1 = Open.getKeywords1();
-                for (final String keywords : _keywords1) {
-                  {
-                    boolean _equals_1 = keywords.equals("sourceRef");
-                    if (_equals_1) {
-                      boolean _equals_2 = Open.getValue().get(this.n).equals(my_id);
-                      if (_equals_2) {
-                        EList<String> _keywords1_1 = Open.getKeywords1();
-                        for (final String keywords1 : _keywords1_1) {
-                          {
-                            boolean _equals_3 = keywords1.equals("targetRef");
-                            if (_equals_3) {
-                              boolean _equals_4 = this.getCondition(Element_1).equals("");
-                              boolean _not = (!_equals_4);
-                              if (_not) {
-                                boolean _equals_5 = str2.equals("");
-                                if (_equals_5) {
-                                  String _str2 = str2;
-                                  String _gatewayType = this.getGatewayType(my_id, r);
-                                  String _plus = (_gatewayType + "=");
-                                  String _condition = this.getCondition(Element_1);
-                                  String _plus_1 = (_plus + _condition);
-                                  str2 = (_str2 + _plus_1);
-                                  this.successors.add(str2);
-                                } else {
-                                  String _gatewayType_1 = this.getGatewayType(my_id, r);
-                                  String _plus_2 = (_gatewayType_1 + "=");
-                                  String _condition_1 = this.getCondition(Element_1);
-                                  String _plus_3 = (_plus_2 + _condition_1);
-                                  String _plus_4 = (_plus_3 + "_else");
-                                  str2 = _plus_4;
-                                  this.successors.add(str2);
-                                }
-                              }
-                              boolean _hasLoop = this.hasLoop(my_id, r);
-                              if (_hasLoop) {
-                                this.imInLoop = true;
-                                boolean _equals_6 = this.getCondition(Element_1).equals("");
-                                boolean _not_1 = (!_equals_6);
-                                if (_not_1) {
-                                  String str3 = "";
-                                  boolean _equals_7 = str2.equals("");
-                                  if (_equals_7) {
-                                    String _str3 = str3;
-                                    String _gatewayType_2 = this.getGatewayType(my_id, r);
-                                    String _plus_5 = (_gatewayType_2 + "=");
-                                    String _condition_2 = this.getCondition(Element_1);
-                                    String _plus_6 = (_plus_5 + _condition_2);
-                                    str3 = (_str3 + _plus_6);
-                                    for (int y = (this.successors.size() - 1); (y > 0); y--) {
-                                      boolean _equals_8 = this.successors.get(y).equals(str3);
-                                      if (_equals_8) {
-                                        String _gatewayType_3 = this.getGatewayType(my_id, r);
-                                        String _plus_7 = (_gatewayType_3 + "_loop");
-                                        String _plus_8 = (_plus_7 + "=");
-                                        String _condition_3 = this.getCondition(Element_1);
-                                        String _plus_9 = (_plus_8 + _condition_3);
-                                        this.successors.set(y, _plus_9);
-                                        y = 0;
-                                      }
-                                    }
-                                  } else {
-                                    String _gatewayType_3 = this.getGatewayType(my_id, r);
-                                    String _plus_7 = (_gatewayType_3 + "=");
-                                    String _condition_3 = this.getCondition(Element_1);
-                                    String _plus_8 = (_plus_7 + _condition_3);
-                                    String _plus_9 = (_plus_8 + "_else");
-                                    str3 = _plus_9;
-                                    for (int y = (this.successors.size() - 1); (y > 0); y--) {
-                                      boolean _equals_8 = this.successors.get(y).equals(str3);
-                                      if (_equals_8) {
-                                        String _gatewayType_4 = this.getGatewayType(my_id, r);
-                                        String _plus_10 = (_gatewayType_4 + "_loop");
-                                        String _plus_11 = (_plus_10 + "=");
-                                        String _condition_4 = this.getCondition(Element_1);
-                                        String _plus_12 = (_plus_11 + _condition_4);
-                                        String _plus_13 = (_plus_12 + "_else");
-                                        this.successors.set(y, _plus_13);
-                                        y = 0;
-                                      }
-                                    }
-                                  }
-                                }
-                              } else {
-                                this.successors.add(Open.getValue().get(this.j));
-                                this.fillSuccessors(Open.getValue().get(this.j), r);
-                              }
+                            boolean _hasLoop_1 = this.hasLoop(my_id, r, "");
+                            boolean _not_1 = (!_hasLoop_1);
+                            if (_not_1) {
+                              this.successors.add(Singleton.getValue().get(this.j));
+                              this.fillSuccessors(Singleton.getValue().get(this.j), r);
                             }
-                            this.j++;
                           }
+                          this.j++;
                         }
-                        this.j = 0;
                       }
+                      this.j = 0;
                     }
-                    this.n++;
                   }
+                  this.n++;
                 }
-                this.n = 0;
               }
-              this.i++;
+              this.n = 0;
             }
+            this.i++;
           }
-          this.i = 0;
         }
+        this.i = 0;
       }
-      boolean _equals = str2.equals("");
-      boolean _not = (!_equals);
-      if (_not) {
-        this.successors.add("end_condition");
-      }
-      _xblockexpression = this.imInLoop = false;
     }
-    return _xblockexpression;
+    Iterable<element> _filter_1 = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
+    for (final element Element_1 : _filter_1) {
+      {
+        EList<Open> _open = Element_1.getOpen();
+        for (final Open Open : _open) {
+          {
+            boolean _equals = Open.getKeywords().get(0).equals("sequenceFlow");
+            if (_equals) {
+              EList<String> _keywords1 = Open.getKeywords1();
+              for (final String keywords : _keywords1) {
+                {
+                  boolean _equals_1 = keywords.equals("sourceRef");
+                  if (_equals_1) {
+                    boolean _equals_2 = Open.getValue().get(this.n).equals(my_id);
+                    if (_equals_2) {
+                      EList<String> _keywords1_1 = Open.getKeywords1();
+                      for (final String keywords1 : _keywords1_1) {
+                        {
+                          boolean _equals_3 = keywords1.equals("targetRef");
+                          if (_equals_3) {
+                            boolean _equals_4 = this.getCondition(Element_1).equals("");
+                            boolean _not = (!_equals_4);
+                            if (_not) {
+                              boolean _equals_5 = str2.equals("");
+                              if (_equals_5) {
+                                String _str2 = str2;
+                                String _gatewayType = this.getGatewayType(my_id, r);
+                                String _plus = (_gatewayType + "=");
+                                String _condition = this.getCondition(Element_1);
+                                String _plus_1 = (_plus + _condition);
+                                str2 = (_str2 + _plus_1);
+                              } else {
+                                String _gatewayType_1 = this.getGatewayType(my_id, r);
+                                String _plus_2 = (_gatewayType_1 + "=");
+                                String _condition_1 = this.getCondition(Element_1);
+                                String _plus_3 = (_plus_2 + _condition_1);
+                                String _plus_4 = (_plus_3 + "_else");
+                                str2 = _plus_4;
+                              }
+                              boolean _hasLoop = this.hasLoop(my_id, r, str2);
+                              if (_hasLoop) {
+                                this.setLoop(this.loop_variable);
+                                System.out.println((("La condizione: " + this.loop_variable) + " è in loop"));
+                                return;
+                              } else {
+                                this.successors.add(str2);
+                              }
+                            }
+                            boolean _hasLoop_1 = this.hasLoop(my_id, r, "");
+                            boolean _not_1 = (!_hasLoop_1);
+                            if (_not_1) {
+                              this.successors.add(Open.getValue().get(this.j));
+                              this.fillSuccessors(Open.getValue().get(this.j), r);
+                            }
+                          }
+                          this.j++;
+                        }
+                      }
+                      this.j = 0;
+                    }
+                  }
+                  this.n++;
+                }
+              }
+              this.n = 0;
+            }
+            this.i++;
+          }
+        }
+        this.i = 0;
+      }
+    }
+    boolean _equals = str2.equals("");
+    boolean _not = (!_equals);
+    if (_not) {
+      this.successors.add("end_condition");
+    }
+    this.imInLoop = false;
   }
   
-  public boolean hasLoop(final String id, final Resource r) {
-    this.temp_array_list.add(id);
-    boolean _contains = this.temp_array_list.contains(this.getNext(id, r));
+  public void setLoop(final String condition) {
+    for (int y = (this.successors.size() - 1); (y > 0); y--) {
+      boolean _equals = this.successors.get(y).equals(condition);
+      if (_equals) {
+        final String[] x = condition.split("condition=");
+        String _string = (x[1]).toString();
+        String result = ("loop_condition=" + _string);
+        this.successors.set(y, result);
+        y = 0;
+      }
+    }
+  }
+  
+  public boolean hasLoop(final String id, final Resource r, final String condition) {
+    boolean _contains = this.temp_array_list.contains(id);
     if (_contains) {
+      for (int y = 0; (y < this.temp_array_list.size()); y++) {
+        boolean _equals = this.temp_array_list.get(y).equals(id);
+        if (_equals) {
+          this.loop_variable = this.temp_array_list.get((y - 1));
+        }
+      }
       this.temp_array_list.clear();
       return true;
     }
-    boolean _NextIsEndEvent = this.NextIsEndEvent(id, r);
+    boolean _equals = condition.equals("");
+    boolean _not = (!_equals);
+    if (_not) {
+      this.temp_array_list.add(condition);
+    } else {
+      this.temp_array_list.add(id);
+    }
+    boolean _NextIsEndEvent = this.NextIsEndEvent(this.getNext(id, r), r);
     if (_NextIsEndEvent) {
       this.temp_array_list.clear();
       return false;
@@ -632,18 +573,24 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     for (final element Element : _filter) {
       EList<Open> _open = Element.getOpen();
       for (final Open Open : _open) {
-        EList<String> _keywords1 = Open.getKeywords1();
-        for (final String keywords : _keywords1) {
-          boolean _equals = keywords.equals("id");
-          if (_equals) {
-            boolean _equals_1 = Open.getValue().get(this.k).equals(id);
-            if (_equals_1) {
-              boolean _contains = Open.getKeywords().get(0).contains("endEvent");
-              if (_contains) {
-                return true;
+        {
+          EList<String> _keywords1 = Open.getKeywords1();
+          for (final String keywords : _keywords1) {
+            {
+              boolean _equals = keywords.equals("id");
+              if (_equals) {
+                boolean _equals_1 = Open.getValue().get(this.k).equals(this.getNext(id, r));
+                if (_equals_1) {
+                  boolean _contains = Open.getKeywords().get(0).contains("endEvent");
+                  if (_contains) {
+                    return true;
+                  }
+                }
               }
+              this.k++;
             }
           }
+          this.k = 0;
         }
       }
     }
