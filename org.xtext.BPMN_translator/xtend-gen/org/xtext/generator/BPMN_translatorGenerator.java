@@ -6,6 +6,7 @@ package org.xtext.generator;
 import com.google.common.collect.Iterables;
 import elements.Condition;
 import elements.Elements;
+import elements.Parallel;
 import java.util.ArrayList;
 import network.protocols.MQTT;
 import org.eclipse.emf.common.util.EList;
@@ -46,6 +47,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   private ArrayList<String> gateway_type;
   
   private ArrayList<String> temp_array_list;
+  
+  private Parallel thread;
   
   private boolean imInLoop = false;
   
@@ -231,6 +234,7 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     this.n = 0;
     this.j = 0;
     String str2 = "";
+    String str3 = "";
     Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
     for (final element Element : _filter) {
       {
@@ -282,6 +286,24 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                             boolean _hasLoop_1 = this.hasLoop(my_id, r, "");
                             boolean _not_1 = (!_hasLoop_1);
                             if (_not_1) {
+                              boolean _equals_6 = this.getGatewayType(my_id, r).equals("parallel_condition");
+                              if (_equals_6) {
+                                boolean _isForkParallel = this.isForkParallel(my_id, r);
+                                if (_isForkParallel) {
+                                  this.successors.add("end_parallel");
+                                  this.successors.add(str3);
+                                  str3 = "";
+                                } else {
+                                  boolean _equals_7 = str3.equals("");
+                                  if (_equals_7) {
+                                    str3 = "parallel_condition";
+                                    this.successors.add(str3);
+                                  } else {
+                                    this.successors.add("end_parallel");
+                                    this.successors.add(str3);
+                                  }
+                                }
+                              }
                               this.successors.add(Singleton.getValue().get(this.j));
                               this.fillSuccessors(Singleton.getValue().get(this.j), r);
                             }
@@ -345,7 +367,6 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                               boolean _hasLoop = this.hasLoop(my_id, r, str2);
                               if (_hasLoop) {
                                 this.setLoop(this.loop_variable);
-                                System.out.println((("La condizione: " + this.loop_variable) + " è in loop"));
                                 return;
                               } else {
                                 this.successors.add(str2);
@@ -354,6 +375,24 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                             boolean _hasLoop_1 = this.hasLoop(my_id, r, "");
                             boolean _not_1 = (!_hasLoop_1);
                             if (_not_1) {
+                              boolean _equals_6 = this.getGatewayType(my_id, r).equals("parallel_condition");
+                              if (_equals_6) {
+                                boolean _isForkParallel = this.isForkParallel(my_id, r);
+                                if (_isForkParallel) {
+                                  this.successors.add("end_parallel");
+                                  this.successors.add(str3);
+                                  str3 = "";
+                                } else {
+                                  boolean _equals_7 = str3.equals("");
+                                  if (_equals_7) {
+                                    str3 = "parallel_condition";
+                                    this.successors.add(str3);
+                                  } else {
+                                    this.successors.add("end_parallel");
+                                    this.successors.add(str3);
+                                  }
+                                }
+                              }
                               this.successors.add(Open.getValue().get(this.j));
                               this.fillSuccessors(Open.getValue().get(this.j), r);
                             }
@@ -380,7 +419,88 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     if (_not) {
       this.successors.add("end_condition");
     }
+    boolean _equals_1 = str3.equals("");
+    boolean _not_1 = (!_equals_1);
+    if (_not_1) {
+      this.successors.add("end_parallel");
+    }
     this.imInLoop = false;
+  }
+  
+  public boolean isForkParallel(final String id, final Resource r) {
+    int outgoing = 0;
+    int y = 0;
+    int h = 0;
+    Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
+    for (final element Element : _filter) {
+      EList<Open> _open = Element.getOpen();
+      for (final Open Open : _open) {
+        boolean _equals = Open.getKeywords().get(0).equals("sequenceFlow");
+        if (_equals) {
+          EList<String> _keywords1 = Open.getKeywords1();
+          for (final String keywords : _keywords1) {
+            {
+              boolean _equals_1 = keywords.equals("sourceRef");
+              if (_equals_1) {
+                boolean _equals_2 = Open.getValue().get(h).equals(id);
+                if (_equals_2) {
+                  EList<String> _keywords1_1 = Open.getKeywords1();
+                  for (final String keywords1 : _keywords1_1) {
+                    {
+                      boolean _equals_3 = keywords1.equals("targetRef");
+                      if (_equals_3) {
+                        outgoing++;
+                      }
+                      y++;
+                    }
+                  }
+                  y = 0;
+                }
+              }
+              h++;
+            }
+          }
+          h = 0;
+        }
+      }
+    }
+    Iterable<element> _filter_1 = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
+    for (final element Element_1 : _filter_1) {
+      EList<Singleton> _singleton_tag = Element_1.getSingleton_tag();
+      for (final Singleton Singleton : _singleton_tag) {
+        boolean _equals_1 = Singleton.getKeywords().get(0).equals("sequenceFlow");
+        if (_equals_1) {
+          EList<String> _keywords1_1 = Singleton.getKeywords1();
+          for (final String keywords_1 : _keywords1_1) {
+            {
+              boolean _equals_2 = keywords_1.equals("sourceRef");
+              if (_equals_2) {
+                boolean _equals_3 = Singleton.getValue().get(h).equals(id);
+                if (_equals_3) {
+                  EList<String> _keywords1_2 = Singleton.getKeywords1();
+                  for (final String keywords1 : _keywords1_2) {
+                    {
+                      boolean _equals_4 = keywords1.equals("targetRef");
+                      if (_equals_4) {
+                        outgoing++;
+                      }
+                      y++;
+                    }
+                  }
+                  y = 0;
+                }
+              }
+              h++;
+            }
+          }
+          h = 0;
+        }
+      }
+    }
+    if ((outgoing <= 1)) {
+      return true;
+    }
+    return false;
   }
   
   public void setLoop(final String condition) {
@@ -552,7 +672,12 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                     if (_contains_1) {
                       return "inclusive_condition";
                     } else {
-                      return "condition";
+                      boolean _contains_2 = Open.getKeywords().get(0).contains("parallel");
+                      if (_contains_2) {
+                        return "parallel_condition";
+                      } else {
+                        return "condition";
+                      }
                     }
                   }
                 }
@@ -631,8 +756,20 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   }
   
   public void setDatas(final Resource r, final String successor_id) {
-    boolean _contains = successor_id.contains("condition=");
+    boolean _contains = successor_id.contains("parallel_condition");
     if (_contains) {
+      Parallel _parallel = new Parallel();
+      this.thread = _parallel;
+      this.elements.add(this.thread);
+    }
+    boolean _contains_1 = successor_id.contains("end_parallel");
+    if (_contains_1) {
+      Parallel _parallel_1 = new Parallel(Boolean.valueOf(true));
+      this.thread = _parallel_1;
+      this.elements.add(this.thread);
+    }
+    boolean _contains_2 = successor_id.contains("condition=");
+    if (_contains_2) {
       this.conditions++;
       Condition _condition = new Condition(successor_id);
       this.cond = _condition;
@@ -708,8 +845,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                             int h = 0;
                             EList<String> _pubtopics = MQTTData.getPubtopics();
                             for (final String MQTT_topic_pub : _pubtopics) {
-                              boolean _contains_1 = this.netdata.getDatas().getPubTopics().contains(MQTT_topic_pub.toString());
-                              boolean _not = (!_contains_1);
+                              boolean _contains_3 = this.netdata.getDatas().getPubTopics().contains(MQTT_topic_pub.toString());
+                              boolean _not = (!_contains_3);
                               if (_not) {
                                 this.netdata.getDatas().getPubTopics().add(MQTT_topic_pub.toString());
                                 this.netdata.getDatas().getPublish_data().add(MQTTData.getValue().get(h).toString());
@@ -719,8 +856,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                             this.netdata.getDatas().getSubTopics().clear();
                             EList<String> _subtopics = MQTTData.getSubtopics();
                             for (final String MQTT_topic_sub : _subtopics) {
-                              boolean _contains_2 = this.netdata.getDatas().getSubTopics().contains(MQTT_topic_sub.toString());
-                              boolean _not_1 = (!_contains_2);
+                              boolean _contains_4 = this.netdata.getDatas().getSubTopics().contains(MQTT_topic_sub.toString());
+                              boolean _not_1 = (!_contains_4);
                               if (_not_1) {
                                 this.netdata.getDatas().getSubTopics().add(MQTT_topic_sub.toString());
                               }
@@ -735,8 +872,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                             this.netdata.setWifi_module(MQTTDevice.getDname().get(0));
                           }
                         }
-                        boolean _contains_1 = this.generated_elements.contains("mqtt");
-                        boolean _not = (!_contains_1);
+                        boolean _contains_3 = this.generated_elements.contains("mqtt");
+                        boolean _not = (!_contains_3);
                         if (_not) {
                           String _h_variables = this.h_variables;
                           String _generateDefineCode = this.h_gen.generateDefineCode();
@@ -780,8 +917,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                             }
                           }
                         }
-                        boolean _contains_2 = this.generated_elements.contains("dht22");
-                        boolean _not_1 = (!_contains_2);
+                        boolean _contains_4 = this.generated_elements.contains("dht22");
+                        boolean _not_1 = (!_contains_4);
                         if (_not_1) {
                           this.h_gen.sensor = "dht22";
                           String _h_variables_1 = this.h_variables;

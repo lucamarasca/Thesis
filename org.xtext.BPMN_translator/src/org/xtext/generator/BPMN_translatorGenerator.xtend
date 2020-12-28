@@ -27,6 +27,7 @@ class BPMN_translatorGenerator extends AbstractGenerator {
 ArrayList<String> task_type;
 ArrayList<String> gateway_type;
 ArrayList <String> temp_array_list;
+Parallel thread;
 boolean imInLoop = false;
 String loop_variable;
 ArrayList<String> start_events;
@@ -190,6 +191,7 @@ def fillSuccessors(String my_id, Resource r){
 	j=0;
 	
 	var str2 = "";
+	var str3 = "";
 	for (Element : r.allContents.toIterable.filter(element))
 	{
 		for(Singleton : Element.singleton_tag)
@@ -233,6 +235,30 @@ def fillSuccessors(String my_id, Resource r){
 									
 									if (!hasLoop(my_id,r,""))
 									{
+										if (getGatewayType(my_id,r).equals("parallel_condition"))
+										{
+											if (isForkParallel(my_id,r))
+											{
+												successors.add("end_parallel");
+												successors.add(str3);
+												str3 = "";
+												
+											}
+											else
+											{
+												if (str3.equals(""))
+												{
+													str3 = "parallel_condition";
+													successors.add(str3);
+												}
+												else
+												{
+													successors.add("end_parallel");
+													successors.add(str3);
+												}
+											}
+										}
+										
 										successors.add(Singleton.value.get(j));
 										fillSuccessors(Singleton.value.get(j),r);
 									}
@@ -279,14 +305,10 @@ def fillSuccessors(String my_id, Resource r){
 										else
 										{
 											str2 = getGatewayType(my_id,r)+"="+getCondition(Element)+"_else";
-											
-											
-										
 										}
 										if (hasLoop(my_id,r,str2))
 										{
 											setLoop(loop_variable);
-											System.out.println("La condizione: " + loop_variable + " è in loop");
 											return;
 										}
 										else
@@ -297,6 +319,30 @@ def fillSuccessors(String my_id, Resource r){
 									}
 									if (!hasLoop(my_id,r,""))
 									{
+										if (getGatewayType(my_id,r).equals("parallel_condition"))
+										{
+											if (isForkParallel(my_id,r))
+											{
+												successors.add("end_parallel");
+												successors.add(str3);
+												str3 = "";
+												
+											}
+											else
+											{
+												if (str3.equals(""))
+												{
+													str3 = "parallel_condition";
+													successors.add(str3);
+												}
+												else
+												{
+													successors.add("end_parallel");
+													successors.add(str3);
+												}
+											}
+										}
+										
 										successors.add(Open.value.get(j));
 										fillSuccessors(Open.value.get(j),r);
 									}
@@ -320,8 +366,80 @@ def fillSuccessors(String my_id, Resource r){
 	{
 		successors.add("end_condition");
 	}
+	if (!str3.equals(""))
+	{
+		successors.add("end_parallel");
+	}
 	imInLoop = false;
 	
+}
+def isForkParallel(String id, Resource r){
+	var outgoing = 0;
+	var y = 0;
+	var h = 0;
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Open : Element.open)
+		{
+			if (Open.keywords.get(0).equals("sequenceFlow"))
+			{
+				for(keywords : Open.keywords1)
+				{
+					if (keywords.equals("sourceRef"))
+					{
+						if (Open.value.get(h).equals(id))
+						{
+							for(keywords1 : Open.keywords1)
+							{
+								if (keywords1.equals("targetRef"))
+								{
+									outgoing++;
+								}
+								y++;
+							}
+							y = 0;
+						}
+					}
+					h++;
+				}
+				h = 0;
+			}
+		}
+	}
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Singleton : Element.singleton_tag)
+		{
+			if (Singleton.keywords.get(0).equals("sequenceFlow"))
+			{
+				for(keywords : Singleton.keywords1)
+				{
+					if (keywords.equals("sourceRef"))
+					{
+						if (Singleton.value.get(h).equals(id))
+						{
+							for(keywords1 : Singleton.keywords1)
+							{
+								if (keywords1.equals("targetRef"))
+								{
+									outgoing++;
+								}
+								y++;
+							}
+							y = 0;
+						}
+					}
+					h++;
+				}
+				h = 0;
+			}
+		}
+	}
+	if (outgoing <= 1)
+	{
+		return true;
+	}
+	return false;
 }
 def setLoop(String condition){
 	for (var y = successors.size()-1; y > 0; y--)
@@ -482,6 +600,10 @@ def getGatewayType(String id, Resource r){
 						{
 							return "inclusive_condition";
 						}
+						else if (Open.keywords.get(0).contains("parallel"))
+						{
+							return "parallel_condition";
+						}
 						else return "condition";						
 					}
 				}
@@ -550,6 +672,16 @@ def setDataStructure(Resource r){
 	}
 }
 def setDatas(Resource r, String successor_id){
+	if (successor_id.contains("parallel_condition"))
+	{
+		thread = new Parallel();
+		elements.add(thread);
+	}
+	if (successor_id.contains("end_parallel"))
+	{
+		thread = new Parallel(true);
+		elements.add(thread);
+	}
 	if (successor_id.contains("condition="))
 	{
 		conditions++;
