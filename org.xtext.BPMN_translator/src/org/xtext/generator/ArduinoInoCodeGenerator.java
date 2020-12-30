@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import elements.Condition;
 import elements.Elements;
+import elements.Parallel;
 import network.protocols.MQTT;
 import sensor.devices.TemperatureSensor;
 
@@ -15,10 +16,11 @@ public class ArduinoInoCodeGenerator {
 	String sensor;
 	String ino_code;
 	String device_ID;
-	int thread_number;
+	Boolean schedule;
 	Object o;
 	int tabulations;
-	int opened_threads;
+	ArrayList <Parallel> closed_threads;
+	ArrayList <Parallel> opened_threads;
 	ArrayList <String> result;
 	ArrayList <String> ids;
 	String temp;
@@ -27,7 +29,7 @@ public class ArduinoInoCodeGenerator {
 	String temp3;
 	String temp4;
 	String temp5;
-	String threads;
+	String threads_code;
 	String includes;
 	String intestation;
 	String variables;
@@ -67,10 +69,17 @@ public class ArduinoInoCodeGenerator {
 				intestation+= "\n}\n\n";
 				intestation+="void loop()\n{\n";
 				loop_code+="\n}\n";
-				if (!ids.equals("global_id"))
+				if (!elements.get(i).getId().equals("global_id"))
 					ids.add(elements.get(i).getId());
-				
-				result.add(includes+variables+threads+intestation+loop_code);
+				for (int j = 0; j < closed_threads.size();j++)
+				{
+					
+					threads_code += "void task" + closed_threads.get(j).getNumber()+ "(void *pvParameters)\n"
+							+ "{\n"
+							+ closed_threads.get(j).getBody()
+							+ "}\n";
+				}
+				result.add(includes+variables+threads_code+intestation+loop_code);
 				Initialize();
 				
 				
@@ -89,6 +98,7 @@ public class ArduinoInoCodeGenerator {
 		temp3 = "";
 		temp4 = "";
 		temp5 = "";
+		schedule = false;
 		ino_code = "";
 		variables = "";
 		setup_code = "";
@@ -96,10 +106,10 @@ public class ArduinoInoCodeGenerator {
 		includes = "";
 		intestation = "";
 		sens_variables = "";
-		threads = "";
+		threads_code = "";
 		tabulations = 0;
-		thread_number = 0;
-		opened_threads = 0;
+		closed_threads = new ArrayList<Parallel>();
+		opened_threads = new ArrayList<Parallel>();
 		
 	}
 	//This method is used for generate the variables to use in the ino file
@@ -192,8 +202,7 @@ public class ArduinoInoCodeGenerator {
 		{
 			if (elements.get(n).getId().equals(elements.get(i).getId()) || elements.get(n).getId().equals("global_id"))
 			{
-				System.out.println("n id: " + elements.get(n).getId()
-						+ "i id: " + elements.get(i).getId());
+				
 				if (elements.get(n).getType().equals("mqtt"))
 				{
 					MQTT app = (MQTT) elements.get(n);
@@ -218,8 +227,8 @@ public class ArduinoInoCodeGenerator {
 					{
 						temp = temp.replaceAll("(?m)^", "\t");
 					}
-					if (opened_threads > 0)
-						threads+=temp;
+					if (opened_threads.size() > 0)
+						opened_threads.get(opened_threads.size()-1).addBody(temp);
 					else
 						loop_code+= temp;
 					temp = "";
@@ -236,8 +245,8 @@ public class ArduinoInoCodeGenerator {
 						{
 							temp = temp.replaceAll("(?m)^", "\t");
 						}
-						if (opened_threads > 0)
-							threads+=temp;
+						if (opened_threads.size() > 0)
+							opened_threads.get(opened_threads.size()-1).addBody(temp);
 						else
 							loop_code+= temp;
 						temp = "";
@@ -245,7 +254,7 @@ public class ArduinoInoCodeGenerator {
 					}
 					else if(con.isElse)
 					{
-						temp += "\n}\nelse ";
+						temp += "\nelse ";
 						Condition cond = (Condition) elements.get(n);
 						temp += "if("+cond.getMapped_condition() + ")\n";
 						temp += "{\n";
@@ -253,15 +262,16 @@ public class ArduinoInoCodeGenerator {
 						{
 							temp = temp.replaceAll("(?m)^", "\t");
 						}
-						if (opened_threads > 0)
-							threads+=temp;
+						if (opened_threads.size() > 0)
+							opened_threads.get(opened_threads.size()-1).addBody(temp);
 						else
 							loop_code+= temp;
 						temp = "";
 					}
 				}
-				if( elements.get(n).getType().equals("end_condition"))
+				if( elements.get(n).getType().equals("end_condition") || elements.get(n).getType().equals("end_condition_end"))
 				{
+					
 					Condition cond = (Condition) elements.get(n);
 					if (cond.isEnd)
 					{
@@ -271,16 +281,17 @@ public class ArduinoInoCodeGenerator {
 					{
 						temp = temp.replaceAll("(?m)^", "\t");
 					}
-					if (opened_threads > 0)
-						threads+=temp;
+					if (opened_threads.size() > 0)
+						opened_threads.get(opened_threads.size()-1).addBody(temp);
 					else
 						loop_code+= temp;
 					temp = "";
-					tabulations --;
+					if (tabulations > 1 && elements.get(n).getType().equals("end_condition_end") )
+						tabulations --;
 				}
 				if( elements.get(n).getType().equals("inclusive_condition"))
 				{
-					threads += "codice del thread\n";
+					
 					Condition con = (Condition) elements.get(n);
 					if (!con.isElse && !con.isEnd)
 					{
@@ -291,8 +302,8 @@ public class ArduinoInoCodeGenerator {
 						{
 							temp = temp.replaceAll("(?m)^", "\t");
 						}
-						if (opened_threads > 0)
-							threads+=temp;
+						if (opened_threads.size() > 0)
+							opened_threads.get(opened_threads.size()-1).addBody(temp);
 						else
 							loop_code+= temp;
 						temp = "";
@@ -306,8 +317,8 @@ public class ArduinoInoCodeGenerator {
 						{
 							temp = temp.replaceAll("(?m)^", "\t");
 						}
-						if (opened_threads > 0)
-							threads+=temp;
+						if (opened_threads.size() > 0)
+							opened_threads.get(opened_threads.size()-1).addBody(temp);
 						else
 							loop_code+= temp;
 						temp = "";
@@ -325,8 +336,8 @@ public class ArduinoInoCodeGenerator {
 						{
 							temp = temp.replaceAll("(?m)^", "\t");
 						}
-						if (opened_threads > 0)
-							threads+=temp;
+						if (opened_threads.size() > 0)
+							opened_threads.get(opened_threads.size()-1).addBody(temp);
 						else
 							loop_code+= temp;
 						temp = "";
@@ -340,8 +351,8 @@ public class ArduinoInoCodeGenerator {
 						{
 							temp = temp.replaceAll("(?m)^", "\t");
 						}
-						if (opened_threads > 0)
-							threads+=temp;
+						if (opened_threads.size() > 0)
+							opened_threads.get(opened_threads.size()-1).addBody(temp);
 						else
 							loop_code+= temp;
 						temp = "";
@@ -349,64 +360,37 @@ public class ArduinoInoCodeGenerator {
 				}
 				if( elements.get(n).getType().equals("thread"))
 				{
-					temp = "";
-					if (opened_threads == 0)
-						threads += "void task"+thread_number+"(void *pvParameters)\r\n"+"{\n";		
-					else
+					
+					schedule = true;
+					if (opened_threads.size() == 0)
 					{
-						temp += "void task"+thread_number+"(void *pvParameters)\r\n";
-						temp += "{\r\n";
-						temp1 += "\txTaskCreate(task" + thread_number + ", \"task"+thread_number+"\"," + "128, "+ "NULL, "+ "1, "+"NULL);\n";
-						tabulations++;
+						
+						opened_threads.add((Parallel) elements.get(n));
+						temp = "\txTaskCreate(task"+opened_threads.get(opened_threads.size()-1).getNumber()+", \"task"+opened_threads.get(opened_threads.size()-1).getNumber()+"\", 128, NULL, 1, NULL);\n";
 						for (int k = 0; k < tabulations;k++)
 						{
 							temp = temp.replaceAll("(?m)^", "\t");
 						}
+						loop_code += temp;
 					}
-					
-					if (opened_threads > 0)
+					else if (opened_threads.size() > 0)
 					{
-						threads+=temp1 + temp;
+						opened_threads.add((Parallel) elements.get(n));
+						temp = "\txTaskCreate(task"+opened_threads.get(opened_threads.size()-1).getNumber()+", \"task"+opened_threads.get(opened_threads.size()-1).getNumber()+"\", 128, NULL, 1, NULL);\n";
+						for (int k = 0; k < tabulations;k++)
+						{
+							temp = temp.replaceAll("(?m)^", "\t");
+						}
+						opened_threads.get(opened_threads.size()-2).addBody(temp);
 					}
-					else
-					{
-						loop_code+= temp1;
-					}
-					
-					thread_number++;
-					temp1 = "";
 					temp = "";
-					opened_threads ++;
-					
-							
 				}
-				if( elements.get(n).getType().equals("end_thread"))
+				if( elements.get(n).getType().equals("end_thread") && opened_threads.size() > 0)
 				{
-					if (opened_threads > 0)
-						temp += "\n}\n";
-					
-					for (int k = 0; k < tabulations;k++)
-					{
-						temp = temp.replaceAll("(?m)^", "\t");
-					}
-					threads += temp;
-					if (opened_threads == 0)
-						threads += "\n}\n";
-					opened_threads--;
-					if (opened_threads > 0)
-						tabulations--;
-					temp = "";
-					
+					closed_threads.add(opened_threads.get(opened_threads.size()-1));
+					opened_threads.remove(opened_threads.size()-1);
 				}
-				/*
-				if( elements.get(n).getType().equals("fork"))
-				{
-					imInThread = false;
-					threads += "\n}\n";
-					loop_code += "xTaskCreate(task" + thread_number + ", \"task"+thread_number+"\"," + "128, "+ "NULL, "+ "1, "+"NULL);";
-					
-				}
-				*/
+				
 				if (elements.get(n).getType().equals("dht22"))
 				{
 					TemperatureSensor app = (TemperatureSensor) elements.get(n);
@@ -418,8 +402,8 @@ public class ArduinoInoCodeGenerator {
 					{
 						temp = temp.replaceAll("(?m)^", "\t");
 					}
-					if (opened_threads > 0)
-						threads+=temp;
+					if (opened_threads.size() > 0)
+						opened_threads.get(opened_threads.size()-1).addBody(temp);
 					else
 						loop_code+= temp;
 					temp = "";
@@ -435,8 +419,8 @@ public class ArduinoInoCodeGenerator {
 		{
 			temp = temp.replaceAll("(?m)^", "\t");
 		}
-		if (opened_threads > 0)
-			threads+=temp;
+		if (opened_threads.size() > 0)
+			opened_threads.get(opened_threads.size()-1).addBody(temp);
 		else
 			loop_code+= temp;
 		temp = "";

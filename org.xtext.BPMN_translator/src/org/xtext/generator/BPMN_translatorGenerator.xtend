@@ -27,8 +27,10 @@ class BPMN_translatorGenerator extends AbstractGenerator {
 ArrayList<String> task_type;
 ArrayList<String> gateway_type;
 ArrayList <String> temp_array_list;
+//ArrayList <String> temporal;
 Parallel thread;
-boolean imInLoop = false;
+boolean fork = false;
+int threadNumber;
 String loop_variable;
 ArrayList<String> start_events;
 String str;
@@ -39,7 +41,7 @@ String cpp_code;
 ArduinoCPPCodeGenerator cpp_gen;
 String h_variables;
 String h_code;
-String [] values;
+ArrayList<ArrayList<String>> subStarts;
 ArduinoHCodeGenerator h_gen;
 ArrayList<String> ino_code;
 ArduinoInoCodeGenerator ino_gen;
@@ -53,6 +55,8 @@ int j = 0;
 int i = 0;
 int k = 0;
 int conditions = 0;
+int thread_conditions = 0;
+int false_closure = 0;
 ArrayList<String> successors
 ArrayList<String> opened_conditions;
 	
@@ -65,6 +69,7 @@ def Initialize(Resource resource){
 	generated_elements = new ArrayList<String>();
 	start_events = new ArrayList<String>();
 	successors = new ArrayList<String>();
+	subStarts = new ArrayList<ArrayList<String>>();
 	iterations = 0;
 	cpp_variables = "";
 	cpp_code = "";
@@ -72,6 +77,7 @@ def Initialize(Resource resource){
 	h_code = "";
 	str = "";
 	loop_variable = "";
+	threadNumber = 0;
 	generated_elements.add("")
 	ino_code.add("");
 	FillTaskType();
@@ -80,7 +86,23 @@ def Initialize(Resource resource){
 	setDatas(resource);
 	
 }
-
+def Reset(){
+	ino_gen = new ArduinoInoCodeGenerator();
+	opened_conditions = new ArrayList<String>();
+	ino_code = new ArrayList<String>();
+	temp_array_list = new ArrayList<String>();
+	iterations = 0;
+	cpp_variables = "";
+	cpp_code = "";
+	h_variables = "";
+	h_code = "";
+	str = "";
+	loop_variable = "";
+	threadNumber = 0;
+	conditions = 0;
+	thread_conditions = 0;
+	false_closure = 0;
+}
 def FillTaskType(){
 	task_type = new ArrayList<String>();
 	task_type.addAll("task","sendTask", "receiveTask" , "userTask",
@@ -143,7 +165,60 @@ def FillGatewayType(){
        
 		        
 	}
-	
+def InSubProcess(String id, Resource r){
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Open : Element.open)
+		{
+			if (Open.keywords.get(0).equals("subProcess"))
+			{
+				for (Content : Element.contents)
+				{
+					for (SubElement : Content.element)
+					{
+						for(SubOpen : SubElement.open)
+						{
+							if (SubOpen.keywords.get(0).equals("startEvent"))
+							{
+								var y = 0;
+								for (keywords : SubOpen.keywords1)
+								{
+									if (keywords.equals("id"))
+									{
+										if (SubOpen.value.get(y).equals(id))
+										{
+											return true;
+										}
+									}
+								}
+								y++;
+							}
+						}
+						for(SubSingleton : SubElement.singleton_tag)
+						{
+							if (SubSingleton.keywords.get(0).equals("startEvent"))
+							{
+								var y = 0;
+								for (keywords : SubSingleton.keywords1)
+								{
+									if (keywords.equals("id"))
+									{
+										if (SubSingleton.value.get(y).equals(id))
+										{
+											return true;
+										}
+									}
+								}
+								y++;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	return false;
+}
 def FillEvent(Resource r){
 	for (Element : r.allContents.toIterable.filter(element))
 	{
@@ -151,7 +226,10 @@ def FillEvent(Resource r){
 		{
 			if (Open.keywords.get(0).equals("startEvent"))
 			{
-				start_events.add(getID(Open));
+				if (InSubProcess(getID(Open),r) == false)
+				{
+					start_events.add(getID(Open));
+				}
 			}
 		}
 	}
@@ -183,8 +261,158 @@ def getID(Singleton tag){
 	return "";
 }
 	
-	
-	
+def getSubStartEvents(String id , Resource r)
+{
+	subStarts.add(new ArrayList<String>());
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Open : Element.open)
+		{
+			if (Open.keywords.get(0).equals("subProcess"))
+			{
+				var y = 0;
+				for (keywords : Open.keywords1)
+				{
+					if (keywords.equals("id"))
+					{
+						if (Open.value.get(y).equals(id))
+						{
+							for (Content : Element.contents)
+							{
+								for (SubElement : Content.element)
+								{
+									for(SubOpen : SubElement.open)
+									{
+										if (SubOpen.keywords.get(0).equals("startEvent"))
+										{
+											subStarts.get(subStarts.size()-1).add(SubOpen.value.get(y));
+											
+										}
+									}
+									for(SubSingleton : SubElement.singleton_tag)
+									{
+										if (SubSingleton.keywords.get(0).equals("startEvent"))
+										{
+											subStarts.get(subStarts.size()-1).add(SubSingleton.value.get(y));
+										}
+									}
+								}
+								
+							}
+						}
+					y++;
+					}
+				}
+			}
+		}
+	}
+}
+def isSubProcess(String id, Resource r){
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Open : Element.open)
+		{
+			if (Open.keywords.get(0).equals("subProcess"))
+			{
+				var y = 0;
+				for (keywords1 : Open.keywords1)
+				{
+					if (keywords1.equals("id"))
+					{
+						if (Open.value.get(y).equals(id))
+							return true;
+					}
+				}
+				y++;
+			}
+		}
+		for(Singleton : Element.singleton_tag)
+		{
+			if (Singleton.keywords.get(0).equals("subProcess"))
+			{
+				var y = 0;
+				for (keywords1 : Singleton.keywords1)
+				{
+					if (keywords1.equals("id"))
+					{
+						if (Singleton.value.get(y).equals(id))
+							return true;
+					}
+				}
+				y++;
+			}
+		}
+	}
+	return false;
+}
+def isForkGateway(String id, Resource r){
+	var outgoing = 0;
+	var y = 0;
+	var h = 0;
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Open : Element.open)
+		{
+			if (Open.keywords.get(0).equals("sequenceFlow"))
+			{
+				for(keywords : Open.keywords1)
+				{
+					if (keywords.equals("sourceRef"))
+					{
+						if (Open.value.get(h).equals(id))
+						{
+							for(keywords1 : Open.keywords1)
+							{
+								if (keywords1.equals("targetRef"))
+								{
+									outgoing++;
+								}
+								y++;
+							}
+							y = 0;
+						}
+					}
+					h++;
+				}
+				h = 0;
+			}
+		}
+	}
+	for (Element : r.allContents.toIterable.filter(element))
+	{
+		for(Singleton : Element.singleton_tag)
+		{
+			if (Singleton.keywords.get(0).equals("sequenceFlow"))
+			{
+				for(keywords : Singleton.keywords1)
+				{
+					if (keywords.equals("sourceRef"))
+					{
+						if (Singleton.value.get(h).equals(id))
+						{
+							for(keywords1 : Singleton.keywords1)
+							{
+								if (keywords1.equals("targetRef"))
+								{
+									outgoing++;
+								}
+								y++;
+							}
+							y = 0;
+						}
+					}
+					h++;
+				}
+				h = 0;
+			}
+		}
+	}
+	if (outgoing <= 1)
+	{
+		return true;
+	}
+	return false;
+}
 def fillSuccessors(String my_id, Resource r){
 	i=0;
 	n=0;
@@ -208,9 +436,32 @@ def fillSuccessors(String my_id, Resource r){
 							{
 								if (keywords1.equals("targetRef"))
 								{
+									if(isSubProcess(Singleton.value.get(j),r))
+									{
+										System.out.println("subprocess");
+										
+										getSubStartEvents(Singleton.value.get(j),r);
+										var app = j;
+										for (subStart : subStarts.get(subStarts.size()-1))
+											fillSuccessors(subStart,r);
+										j=app;
+									}
+									if (getGatewayType(my_id,r).equals("exclusive_condition") || getGatewayType(my_id,r).equals("inclusive_condition"))
+									{
+										if (isForkGateway(my_id,r) && getCondition(Element).equals(""))
+										{
+											false_closure++;
+											successors.add("end_condition");
+											
+										}
+									}
 									if (!getCondition(Element).equals(""))
 									{
-										
+										if (threadNumber > 0)
+										{
+											thread_conditions++;
+											
+										}
 										if (str2.equals(""))
 										{
 											str2+=getGatewayType(my_id,r)+"="+getCondition(Element);
@@ -218,49 +469,68 @@ def fillSuccessors(String my_id, Resource r){
 										}
 										else
 										{
+											if (false_closure > 0)
+											{
+												false_closure--;
+											}
+											else
+												successors.add("end_condition");
 											str2 = getGatewayType(my_id,r)+"="+getCondition(Element)+"_else";
-											
 										}
 										if (hasLoop(my_id,r,str2))
 										{
 											setLoop(loop_variable);
-											System.out.println("La condizione: " + loop_variable + " è in loop");
 											return;
 										}
 										else
 										{
 											successors.add(str2);
-										}
+										}	
+											
 									}
 									
 									if (!hasLoop(my_id,r,""))
 									{
 										if (getGatewayType(my_id,r).equals("parallel_condition"))
 										{
+											
 											if (isForkParallel(my_id,r))
 											{
-												successors.add("end_parallel");
-												successors.add(str3);
-												str3 = "";
-												
+												if (thread_conditions <= 0)
+												{
+													successors.add("end_parallel");
+													str3 = "";
+													fork = true;
+													threadNumber--;
+												}		
 											}
 											else
 											{
-												if (str3.equals(""))
+												if (str3.equals("") || fork)
 												{
+													fork = false;
 													str3 = "parallel_condition";
 													successors.add(str3);
-												}
-												else
-												{
-													successors.add("end_parallel");
-													successors.add(str3);
+													threadNumber++;
+													if (thread_conditions > 0)
+														thread_conditions--;
+													if (thread_conditions == 0 && successors.get(successors.size()-1).equals("end_condition_end"))
+													{
+														successors.add("end_parallel");
+														successors.add(str3);
+														threadNumber--;
+													}
 												}
 											}
 										}
 										
-										successors.add(Singleton.value.get(j));
-										fillSuccessors(Singleton.value.get(j),r);
+										if (!successors.contains(Singleton.value.get(j)) || getGatewayType(Singleton.value.get(j),r).contains("_condition"))
+										{
+											
+											successors.add(Singleton.value.get(j));
+											fillSuccessors(Singleton.value.get(j),r);
+										}
+										
 									}
 									
 								}
@@ -294,9 +564,34 @@ def fillSuccessors(String my_id, Resource r){
 							{
 								if (keywords1.equals("targetRef"))
 								{
+									if(isSubProcess(Open.value.get(j),r))
+									{
+										System.out.println("subprocess");
+										
+										getSubStartEvents(Open.value.get(j),r);
+										var app = j;
+										for (subStart : subStarts.get(subStarts.size()-1))
+											fillSuccessors(subStart,r);
+										j=app;
+									}
+									if (getGatewayType(my_id,r).equals("exclusive_condition") || getGatewayType(my_id,r).equals("inclusive_condition"))
+									{
+										if (isForkGateway(my_id,r) && getCondition(Element).equals(""))
+										{
+											successors.add("end_condition");
+											false_closure++;
+											if (threadNumber > 0)
+											{
+												thread_conditions--;
+											}
+										}
+									}
 									if (!getCondition(Element).equals(""))
 									{
-										
+										if (threadNumber > 0)
+										{
+											thread_conditions++;
+										}
 										if (str2.equals(""))
 										{
 											str2+=getGatewayType(my_id,r)+"="+getCondition(Element);
@@ -304,6 +599,12 @@ def fillSuccessors(String my_id, Resource r){
 										}
 										else
 										{
+											if (false_closure > 0)
+											{
+												false_closure--;
+											}
+											else
+												successors.add("end_condition");
 											str2 = getGatewayType(my_id,r)+"="+getCondition(Element)+"_else";
 										}
 										if (hasLoop(my_id,r,str2))
@@ -323,31 +624,39 @@ def fillSuccessors(String my_id, Resource r){
 										{
 											if (isForkParallel(my_id,r))
 											{
-												successors.add("end_parallel");
-												successors.add(str3);
-												str3 = "";
+												if (thread_conditions <= 0)
+												{
+													successors.add("end_parallel");
+													str3 = "";
+													fork = true;
+													threadNumber--;
+												}
 												
 											}
 											else
 											{
-												if (str3.equals(""))
+												if (str3.equals("") || fork)
 												{
+													fork = false;
 													str3 = "parallel_condition";
 													successors.add(str3);
+													threadNumber++;
 												}
 												else
 												{
 													successors.add("end_parallel");
 													successors.add(str3);
+													threadNumber--;
 												}
 											}
 										}
-										
-										successors.add(Open.value.get(j));
-										fillSuccessors(Open.value.get(j),r);
-									}
-			
-									
+										if (!successors.contains(Open.value.get(j)) || getGatewayType(Open.value.get(j),r).contains("_condition"))
+										{
+											successors.add(Open.value.get(j));
+											fillSuccessors(Open.value.get(j),r);
+										}
+							
+									}	
 								}
 								j++;
 							}
@@ -362,17 +671,31 @@ def fillSuccessors(String my_id, Resource r){
 		}
 		i=0;
 	}
+	
 	if (!str2.equals(""))
 	{
-		successors.add("end_condition");
+		if (false_closure > 0)
+		{
+			false_closure--;
+		}
+		else
+		{
+			successors.add("end_condition_end");
+			if (threadNumber > 0 && thread_conditions == 0)
+				successors.add("end_parallel");
+			
+		}
+		
 	}
 	if (!str3.equals(""))
 	{
+		
 		successors.add("end_parallel");
 	}
-	imInLoop = false;
+	
 	
 }
+
 def isForkParallel(String id, Resource r){
 	var outgoing = 0;
 	var y = 0;
@@ -657,19 +980,24 @@ def ArduinoCodeGenerationCPP(){
 def setDatas(Resource r){
 	cpp_gen = new ArduinoCPPCodeGenerator();
 	h_gen = new ArduinoHCodeGenerator();
+	Reset();
 	setDataStructure(r);
 	cpp_gen.setProtocol(netdata);
 	
 	h_gen.setProtocol(netdata);
 }
+
+
 def setDataStructure(Resource r){
+	
 	for (start : start_events)
 	{
 		fillSuccessors(start,r);
-		
+		Reset();
+	}
 		for (element : successors)
 			setDatas(r,element);
-	}
+	
 }
 def setDatas(Resource r, String successor_id){
 	if (successor_id.contains("parallel_condition"))
@@ -690,7 +1018,13 @@ def setDatas(Resource r, String successor_id){
 		elements.add(cond);
 		return;
 	}
-	if (successor_id.equals("end_condition"))
+	if (successor_id.equals("end_condition") )
+	{
+		cond = new Condition(false, opened_conditions.get(opened_conditions.size()-1));
+		opened_conditions.remove(opened_conditions.size()-1);
+		elements.add(cond);
+	}
+	if (successor_id.equals("end_condition_end") )
 	{
 		cond = new Condition(true, opened_conditions.get(opened_conditions.size()-1));
 		opened_conditions.remove(opened_conditions.size()-1);

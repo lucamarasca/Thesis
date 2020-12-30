@@ -50,7 +50,9 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   
   private Parallel thread;
   
-  private boolean imInLoop = false;
+  private boolean fork = false;
+  
+  private int threadNumber;
   
   private String loop_variable;
   
@@ -72,7 +74,7 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   
   private String h_code;
   
-  private String[] values;
+  private ArrayList<ArrayList<String>> subStarts;
   
   private ArduinoHCodeGenerator h_gen;
   
@@ -100,6 +102,10 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   
   private int conditions = 0;
   
+  private int thread_conditions = 0;
+  
+  private int false_closure = 0;
+  
   private ArrayList<String> successors;
   
   private ArrayList<String> opened_conditions;
@@ -121,6 +127,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     this.start_events = _arrayList_5;
     ArrayList<String> _arrayList_6 = new ArrayList<String>();
     this.successors = _arrayList_6;
+    ArrayList<ArrayList<String>> _arrayList_7 = new ArrayList<ArrayList<String>>();
+    this.subStarts = _arrayList_7;
     this.iterations = 0;
     this.cpp_variables = "";
     this.cpp_code = "";
@@ -128,12 +136,39 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     this.h_code = "";
     this.str = "";
     this.loop_variable = "";
+    this.threadNumber = 0;
     this.generated_elements.add("");
     this.ino_code.add("");
     this.FillTaskType();
     this.FillGatewayType();
     this.FillEvent(resource);
     this.setDatas(resource);
+  }
+  
+  public int Reset() {
+    int _xblockexpression = (int) 0;
+    {
+      ArduinoInoCodeGenerator _arduinoInoCodeGenerator = new ArduinoInoCodeGenerator();
+      this.ino_gen = _arduinoInoCodeGenerator;
+      ArrayList<String> _arrayList = new ArrayList<String>();
+      this.opened_conditions = _arrayList;
+      ArrayList<String> _arrayList_1 = new ArrayList<String>();
+      this.ino_code = _arrayList_1;
+      ArrayList<String> _arrayList_2 = new ArrayList<String>();
+      this.temp_array_list = _arrayList_2;
+      this.iterations = 0;
+      this.cpp_variables = "";
+      this.cpp_code = "";
+      this.h_variables = "";
+      this.h_code = "";
+      this.str = "";
+      this.loop_variable = "";
+      this.threadNumber = 0;
+      this.conditions = 0;
+      this.thread_conditions = 0;
+      _xblockexpression = this.false_closure = 0;
+    }
+    return _xblockexpression;
   }
   
   public boolean FillTaskType() {
@@ -186,6 +221,63 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     }
   }
   
+  public boolean InSubProcess(final String id, final Resource r) {
+    Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
+    for (final element Element : _filter) {
+      EList<Open> _open = Element.getOpen();
+      for (final Open Open : _open) {
+        boolean _equals = Open.getKeywords().get(0).equals("subProcess");
+        if (_equals) {
+          EList<content> _contents = Element.getContents();
+          for (final content Content : _contents) {
+            EList<element> _element = Content.getElement();
+            for (final element SubElement : _element) {
+              {
+                EList<org.xtext.bPMN_translator.Open> _open_1 = SubElement.getOpen();
+                for (final org.xtext.bPMN_translator.Open SubOpen : _open_1) {
+                  boolean _equals_1 = SubOpen.getKeywords().get(0).equals("startEvent");
+                  if (_equals_1) {
+                    int y = 0;
+                    EList<String> _keywords1 = SubOpen.getKeywords1();
+                    for (final String keywords : _keywords1) {
+                      boolean _equals_2 = keywords.equals("id");
+                      if (_equals_2) {
+                        boolean _equals_3 = SubOpen.getValue().get(y).equals(id);
+                        if (_equals_3) {
+                          return true;
+                        }
+                      }
+                    }
+                    y++;
+                  }
+                }
+                EList<Singleton> _singleton_tag = SubElement.getSingleton_tag();
+                for (final Singleton SubSingleton : _singleton_tag) {
+                  boolean _equals_4 = SubSingleton.getKeywords().get(0).equals("startEvent");
+                  if (_equals_4) {
+                    int y_1 = 0;
+                    EList<String> _keywords1_1 = SubSingleton.getKeywords1();
+                    for (final String keywords_1 : _keywords1_1) {
+                      boolean _equals_5 = keywords_1.equals("id");
+                      if (_equals_5) {
+                        boolean _equals_6 = SubSingleton.getValue().get(y_1).equals(id);
+                        if (_equals_6) {
+                          return true;
+                        }
+                      }
+                    }
+                    y_1++;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return false;
+  }
+  
   public void FillEvent(final Resource r) {
     Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
     for (final element Element : _filter) {
@@ -193,7 +285,11 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
       for (final Open Open : _open) {
         boolean _equals = Open.getKeywords().get(0).equals("startEvent");
         if (_equals) {
-          this.start_events.add(this.getID(Open));
+          boolean _InSubProcess = this.InSubProcess(this.getID(Open), r);
+          boolean _equals_1 = (_InSubProcess == false);
+          if (_equals_1) {
+            this.start_events.add(this.getID(Open));
+          }
         }
       }
     }
@@ -229,6 +325,178 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     return "";
   }
   
+  public void getSubStartEvents(final String id, final Resource r) {
+    ArrayList<String> _arrayList = new ArrayList<String>();
+    this.subStarts.add(_arrayList);
+    Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
+    for (final element Element : _filter) {
+      EList<Open> _open = Element.getOpen();
+      for (final Open Open : _open) {
+        boolean _equals = Open.getKeywords().get(0).equals("subProcess");
+        if (_equals) {
+          int y = 0;
+          EList<String> _keywords1 = Open.getKeywords1();
+          for (final String keywords : _keywords1) {
+            boolean _equals_1 = keywords.equals("id");
+            if (_equals_1) {
+              boolean _equals_2 = Open.getValue().get(y).equals(id);
+              if (_equals_2) {
+                EList<content> _contents = Element.getContents();
+                for (final content Content : _contents) {
+                  EList<element> _element = Content.getElement();
+                  for (final element SubElement : _element) {
+                    {
+                      EList<org.xtext.bPMN_translator.Open> _open_1 = SubElement.getOpen();
+                      for (final org.xtext.bPMN_translator.Open SubOpen : _open_1) {
+                        boolean _equals_3 = SubOpen.getKeywords().get(0).equals("startEvent");
+                        if (_equals_3) {
+                          int _size = this.subStarts.size();
+                          int _minus = (_size - 1);
+                          this.subStarts.get(_minus).add(SubOpen.getValue().get(y));
+                        }
+                      }
+                      EList<Singleton> _singleton_tag = SubElement.getSingleton_tag();
+                      for (final Singleton SubSingleton : _singleton_tag) {
+                        boolean _equals_4 = SubSingleton.getKeywords().get(0).equals("startEvent");
+                        if (_equals_4) {
+                          int _size_1 = this.subStarts.size();
+                          int _minus_1 = (_size_1 - 1);
+                          this.subStarts.get(_minus_1).add(SubSingleton.getValue().get(y));
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              y++;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  public boolean isSubProcess(final String id, final Resource r) {
+    Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
+    for (final element Element : _filter) {
+      {
+        EList<Open> _open = Element.getOpen();
+        for (final Open Open : _open) {
+          boolean _equals = Open.getKeywords().get(0).equals("subProcess");
+          if (_equals) {
+            int y = 0;
+            EList<String> _keywords1 = Open.getKeywords1();
+            for (final String keywords1 : _keywords1) {
+              boolean _equals_1 = keywords1.equals("id");
+              if (_equals_1) {
+                boolean _equals_2 = Open.getValue().get(y).equals(id);
+                if (_equals_2) {
+                  return true;
+                }
+              }
+            }
+            y++;
+          }
+        }
+        EList<Singleton> _singleton_tag = Element.getSingleton_tag();
+        for (final Singleton Singleton : _singleton_tag) {
+          boolean _equals_3 = Singleton.getKeywords().get(0).equals("subProcess");
+          if (_equals_3) {
+            int y_1 = 0;
+            EList<String> _keywords1_1 = Singleton.getKeywords1();
+            for (final String keywords1_1 : _keywords1_1) {
+              boolean _equals_4 = keywords1_1.equals("id");
+              if (_equals_4) {
+                boolean _equals_5 = Singleton.getValue().get(y_1).equals(id);
+                if (_equals_5) {
+                  return true;
+                }
+              }
+            }
+            y_1++;
+          }
+        }
+      }
+    }
+    return false;
+  }
+  
+  public boolean isForkGateway(final String id, final Resource r) {
+    int outgoing = 0;
+    int y = 0;
+    int h = 0;
+    Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
+    for (final element Element : _filter) {
+      EList<Open> _open = Element.getOpen();
+      for (final Open Open : _open) {
+        boolean _equals = Open.getKeywords().get(0).equals("sequenceFlow");
+        if (_equals) {
+          EList<String> _keywords1 = Open.getKeywords1();
+          for (final String keywords : _keywords1) {
+            {
+              boolean _equals_1 = keywords.equals("sourceRef");
+              if (_equals_1) {
+                boolean _equals_2 = Open.getValue().get(h).equals(id);
+                if (_equals_2) {
+                  EList<String> _keywords1_1 = Open.getKeywords1();
+                  for (final String keywords1 : _keywords1_1) {
+                    {
+                      boolean _equals_3 = keywords1.equals("targetRef");
+                      if (_equals_3) {
+                        outgoing++;
+                      }
+                      y++;
+                    }
+                  }
+                  y = 0;
+                }
+              }
+              h++;
+            }
+          }
+          h = 0;
+        }
+      }
+    }
+    Iterable<element> _filter_1 = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
+    for (final element Element_1 : _filter_1) {
+      EList<Singleton> _singleton_tag = Element_1.getSingleton_tag();
+      for (final Singleton Singleton : _singleton_tag) {
+        boolean _equals_1 = Singleton.getKeywords().get(0).equals("sequenceFlow");
+        if (_equals_1) {
+          EList<String> _keywords1_1 = Singleton.getKeywords1();
+          for (final String keywords_1 : _keywords1_1) {
+            {
+              boolean _equals_2 = keywords_1.equals("sourceRef");
+              if (_equals_2) {
+                boolean _equals_3 = Singleton.getValue().get(h).equals(id);
+                if (_equals_3) {
+                  EList<String> _keywords1_2 = Singleton.getKeywords1();
+                  for (final String keywords1 : _keywords1_2) {
+                    {
+                      boolean _equals_4 = keywords1.equals("targetRef");
+                      if (_equals_4) {
+                        outgoing++;
+                      }
+                      y++;
+                    }
+                  }
+                  y = 0;
+                }
+              }
+              h++;
+            }
+          }
+          h = 0;
+        }
+      }
+    }
+    if ((outgoing <= 1)) {
+      return true;
+    }
+    return false;
+  }
+  
   public void fillSuccessors(final String my_id, final Resource r) {
     this.i = 0;
     this.n = 0;
@@ -255,9 +523,31 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                         {
                           boolean _equals_3 = keywords1.equals("targetRef");
                           if (_equals_3) {
+                            boolean _isSubProcess = this.isSubProcess(Singleton.getValue().get(this.j), r);
+                            if (_isSubProcess) {
+                              System.out.println("subprocess");
+                              this.getSubStartEvents(Singleton.getValue().get(this.j), r);
+                              int app = this.j;
+                              int _size = this.subStarts.size();
+                              int _minus = (_size - 1);
+                              ArrayList<String> _get = this.subStarts.get(_minus);
+                              for (final String subStart : _get) {
+                                this.fillSuccessors(subStart, r);
+                              }
+                              this.j = app;
+                            }
+                            if ((this.getGatewayType(my_id, r).equals("exclusive_condition") || this.getGatewayType(my_id, r).equals("inclusive_condition"))) {
+                              if ((this.isForkGateway(my_id, r) && this.getCondition(Element).equals(""))) {
+                                this.false_closure++;
+                                this.successors.add("end_condition");
+                              }
+                            }
                             boolean _equals_4 = this.getCondition(Element).equals("");
                             boolean _not = (!_equals_4);
                             if (_not) {
+                              if ((this.threadNumber > 0)) {
+                                this.thread_conditions++;
+                              }
                               boolean _equals_5 = str2.equals("");
                               if (_equals_5) {
                                 String _str2 = str2;
@@ -267,6 +557,11 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                                 String _plus_1 = (_plus + _condition);
                                 str2 = (_str2 + _plus_1);
                               } else {
+                                if ((this.false_closure > 0)) {
+                                  this.false_closure--;
+                                } else {
+                                  this.successors.add("end_condition");
+                                }
                                 String _gatewayType_1 = this.getGatewayType(my_id, r);
                                 String _plus_2 = (_gatewayType_1 + "=");
                                 String _condition_1 = this.getCondition(Element);
@@ -277,7 +572,6 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                               boolean _hasLoop = this.hasLoop(my_id, r, str2);
                               if (_hasLoop) {
                                 this.setLoop(this.loop_variable);
-                                System.out.println((("La condizione: " + this.loop_variable) + " è in loop"));
                                 return;
                               } else {
                                 this.successors.add(str2);
@@ -290,22 +584,33 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                               if (_equals_6) {
                                 boolean _isForkParallel = this.isForkParallel(my_id, r);
                                 if (_isForkParallel) {
-                                  this.successors.add("end_parallel");
-                                  this.successors.add(str3);
-                                  str3 = "";
+                                  if ((this.thread_conditions <= 0)) {
+                                    this.successors.add("end_parallel");
+                                    str3 = "";
+                                    this.fork = true;
+                                    this.threadNumber--;
+                                  }
                                 } else {
-                                  boolean _equals_7 = str3.equals("");
-                                  if (_equals_7) {
+                                  if ((str3.equals("") || this.fork)) {
+                                    this.fork = false;
                                     str3 = "parallel_condition";
                                     this.successors.add(str3);
-                                  } else {
-                                    this.successors.add("end_parallel");
-                                    this.successors.add(str3);
+                                    this.threadNumber++;
+                                    if ((this.thread_conditions > 0)) {
+                                      this.thread_conditions--;
+                                    }
+                                    if (((this.thread_conditions == 0) && this.successors.get((this.successors.size() - 1)).equals("end_condition_end"))) {
+                                      this.successors.add("end_parallel");
+                                      this.successors.add(str3);
+                                      this.threadNumber--;
+                                    }
                                   }
                                 }
                               }
-                              this.successors.add(Singleton.getValue().get(this.j));
-                              this.fillSuccessors(Singleton.getValue().get(this.j), r);
+                              if (((!this.successors.contains(Singleton.getValue().get(this.j))) || this.getGatewayType(Singleton.getValue().get(this.j), r).contains("_condition"))) {
+                                this.successors.add(Singleton.getValue().get(this.j));
+                                this.fillSuccessors(Singleton.getValue().get(this.j), r);
+                              }
                             }
                           }
                           this.j++;
@@ -345,9 +650,34 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                         {
                           boolean _equals_3 = keywords1.equals("targetRef");
                           if (_equals_3) {
+                            boolean _isSubProcess = this.isSubProcess(Open.getValue().get(this.j), r);
+                            if (_isSubProcess) {
+                              System.out.println("subprocess");
+                              this.getSubStartEvents(Open.getValue().get(this.j), r);
+                              int app = this.j;
+                              int _size = this.subStarts.size();
+                              int _minus = (_size - 1);
+                              ArrayList<String> _get = this.subStarts.get(_minus);
+                              for (final String subStart : _get) {
+                                this.fillSuccessors(subStart, r);
+                              }
+                              this.j = app;
+                            }
+                            if ((this.getGatewayType(my_id, r).equals("exclusive_condition") || this.getGatewayType(my_id, r).equals("inclusive_condition"))) {
+                              if ((this.isForkGateway(my_id, r) && this.getCondition(Element_1).equals(""))) {
+                                this.successors.add("end_condition");
+                                this.false_closure++;
+                                if ((this.threadNumber > 0)) {
+                                  this.thread_conditions--;
+                                }
+                              }
+                            }
                             boolean _equals_4 = this.getCondition(Element_1).equals("");
                             boolean _not = (!_equals_4);
                             if (_not) {
+                              if ((this.threadNumber > 0)) {
+                                this.thread_conditions++;
+                              }
                               boolean _equals_5 = str2.equals("");
                               if (_equals_5) {
                                 String _str2 = str2;
@@ -357,6 +687,11 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                                 String _plus_1 = (_plus + _condition);
                                 str2 = (_str2 + _plus_1);
                               } else {
+                                if ((this.false_closure > 0)) {
+                                  this.false_closure--;
+                                } else {
+                                  this.successors.add("end_condition");
+                                }
                                 String _gatewayType_1 = this.getGatewayType(my_id, r);
                                 String _plus_2 = (_gatewayType_1 + "=");
                                 String _condition_1 = this.getCondition(Element_1);
@@ -379,22 +714,29 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                               if (_equals_6) {
                                 boolean _isForkParallel = this.isForkParallel(my_id, r);
                                 if (_isForkParallel) {
-                                  this.successors.add("end_parallel");
-                                  this.successors.add(str3);
-                                  str3 = "";
+                                  if ((this.thread_conditions <= 0)) {
+                                    this.successors.add("end_parallel");
+                                    str3 = "";
+                                    this.fork = true;
+                                    this.threadNumber--;
+                                  }
                                 } else {
-                                  boolean _equals_7 = str3.equals("");
-                                  if (_equals_7) {
+                                  if ((str3.equals("") || this.fork)) {
+                                    this.fork = false;
                                     str3 = "parallel_condition";
                                     this.successors.add(str3);
+                                    this.threadNumber++;
                                   } else {
                                     this.successors.add("end_parallel");
                                     this.successors.add(str3);
+                                    this.threadNumber--;
                                   }
                                 }
                               }
-                              this.successors.add(Open.getValue().get(this.j));
-                              this.fillSuccessors(Open.getValue().get(this.j), r);
+                              if (((!this.successors.contains(Open.getValue().get(this.j))) || this.getGatewayType(Open.getValue().get(this.j), r).contains("_condition"))) {
+                                this.successors.add(Open.getValue().get(this.j));
+                                this.fillSuccessors(Open.getValue().get(this.j), r);
+                              }
                             }
                           }
                           this.j++;
@@ -417,14 +759,20 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     boolean _equals = str2.equals("");
     boolean _not = (!_equals);
     if (_not) {
-      this.successors.add("end_condition");
+      if ((this.false_closure > 0)) {
+        this.false_closure--;
+      } else {
+        this.successors.add("end_condition_end");
+        if (((this.threadNumber > 0) && (this.thread_conditions == 0))) {
+          this.successors.add("end_parallel");
+        }
+      }
     }
     boolean _equals_1 = str3.equals("");
     boolean _not_1 = (!_equals_1);
     if (_not_1) {
       this.successors.add("end_parallel");
     }
-    this.imInLoop = false;
   }
   
   public boolean isForkParallel(final String id, final Resource r) {
@@ -739,6 +1087,7 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     this.cpp_gen = _arduinoCPPCodeGenerator;
     ArduinoHCodeGenerator _arduinoHCodeGenerator = new ArduinoHCodeGenerator();
     this.h_gen = _arduinoHCodeGenerator;
+    this.Reset();
     this.setDataStructure(r);
     this.cpp_gen.setProtocol(this.netdata);
     this.h_gen.setProtocol(this.netdata);
@@ -748,10 +1097,11 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     for (final String start : this.start_events) {
       {
         this.fillSuccessors(start, r);
-        for (final String element : this.successors) {
-          this.setDatas(r, element);
-        }
+        this.Reset();
       }
+    }
+    for (final String element : this.successors) {
+      this.setDatas(r, element);
     }
   }
   
@@ -782,19 +1132,31 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
       int _size = this.opened_conditions.size();
       int _minus = (_size - 1);
       String _get = this.opened_conditions.get(_minus);
-      Condition _condition_1 = new Condition(Boolean.valueOf(true), _get);
+      Condition _condition_1 = new Condition(Boolean.valueOf(false), _get);
       this.cond = _condition_1;
       int _size_1 = this.opened_conditions.size();
       int _minus_1 = (_size_1 - 1);
       this.opened_conditions.remove(_minus_1);
       this.elements.add(this.cond);
     }
+    boolean _equals_1 = successor_id.equals("end_condition_end");
+    if (_equals_1) {
+      int _size_2 = this.opened_conditions.size();
+      int _minus_2 = (_size_2 - 1);
+      String _get_1 = this.opened_conditions.get(_minus_2);
+      Condition _condition_2 = new Condition(Boolean.valueOf(true), _get_1);
+      this.cond = _condition_2;
+      int _size_3 = this.opened_conditions.size();
+      int _minus_3 = (_size_3 - 1);
+      this.opened_conditions.remove(_minus_3);
+      this.elements.add(this.cond);
+    }
     Iterable<element> _filter = Iterables.<element>filter(IteratorExtensions.<EObject>toIterable(r.getAllContents()), element.class);
     for (final element Element : _filter) {
       EList<Open> _open = Element.getOpen();
       for (final Open Open : _open) {
-        boolean _equals_1 = this.getID(Open).equals(successor_id);
-        if (_equals_1) {
+        boolean _equals_2 = this.getID(Open).equals(successor_id);
+        if (_equals_2) {
           EList<content> _contents = Element.getContents();
           for (final content Content : _contents) {
             EList<element> _element = Content.getElement();
@@ -803,12 +1165,12 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
               for (final content c : _contents_1) {
                 EList<codex> _codex = c.getCodex();
                 for (final codex Codex : _codex) {
-                  boolean _equals_2 = c.getType().get(0).equals("_TASK");
-                  if (_equals_2) {
+                  boolean _equals_3 = c.getType().get(0).equals("_TASK");
+                  if (_equals_3) {
                     EList<protocol> _protocol = Codex.getProtocol();
                     for (final protocol Protocol : _protocol) {
-                      boolean _equals_3 = Protocol.getPname().get(0).toLowerCase().replaceAll("\\s+", "").equals("mqtt");
-                      if (_equals_3) {
+                      boolean _equals_4 = Protocol.getPname().get(0).toLowerCase().replaceAll("\\s+", "").equals("mqtt");
+                      if (_equals_4) {
                         MQTT _mQTT = new MQTT();
                         this.netdata = _mQTT;
                         this.elements.add(this.netdata);
@@ -893,8 +1255,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                     }
                     EList<sensor> _sensor_code = Codex.getSensor_code();
                     for (final sensor sensor : _sensor_code) {
-                      boolean _equals_4 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("temperature");
-                      if (_equals_4) {
+                      boolean _equals_5 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("temperature");
+                      if (_equals_5) {
                         TemperatureSensor _temperatureSensor = new TemperatureSensor();
                         this.s = _temperatureSensor;
                         EList<device> _device_code_1 = Codex.getDevice_code();

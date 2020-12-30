@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g 2020-12-24 15:42:49
+// $ANTLR 3.5.1 C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g 2020-12-30 15:46:06
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -87,17 +87,17 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 	public static final String[] ruleNames = new String[] {
-		"invalidRule", "rulecontent", "rulemqtt_data", "ruleOpen", "ruleXml", 
-		"rulesensor_data", "rulemqtt_device", "rulemqtt_network_data", "rulecodex", 
-		"ruleClose", "ruleprotocol", "ruleModel", "ruledevice", "ruleconditions", 
-		"rulesensor", "ruleelement", "ruleSingleton", "rulevariables", "rulepreconditions", 
-		"ruleprolog"
+		"invalidRule", "ruleconditions", "ruleprotocol", "ruleXml", "ruleSingleton", 
+		"ruleModel", "rulemqtt_data", "rulesensor", "ruleelement", "rulesensor_data", 
+		"ruleprolog", "rulecontent", "rulemqtt_device", "ruleClose", "rulevariables", 
+		"rulepreconditions", "ruleOpen", "ruledevice", "rulemqtt_network_data", 
+		"rulecodex"
 	};
 
 	public static final boolean[] decisionCanBacktrack = new boolean[] {
 		false, // invalid decision
 		false, false, false, false, false, false, false, false, false, false, 
-		    false, false, false, false, false, false, false, false
+		    false, false, false, false, false, false, false, false, false
 	};
 
  
@@ -558,7 +558,27 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 					int LA5_0 = input.LA(1);
 					if ( (LA5_0==RULE_BODY) ) {
-						alt5=1;
+						int LA5_1 = input.LA(2);
+						if ( (LA5_1==50) ) {
+							alt5=2;
+						}
+						else if ( (LA5_1==RULE_BODY||LA5_1==RULE_KEYWORDS||LA5_1==RULE_STRING||(LA5_1 >= 14 && LA5_1 <= 21)||(LA5_1 >= 25 && LA5_1 <= 26)||LA5_1==28||LA5_1==48||(LA5_1 >= 52 && LA5_1 <= 53)||LA5_1==57) ) {
+							alt5=1;
+						}
+
+						else {
+							int nvaeMark = input.mark();
+							try {
+								input.consume();
+								NoViableAltException nvae =
+									new NoViableAltException("", 5, 1, input);
+								dbg.recognitionException(nvae);
+								throw nvae;
+							} finally {
+								input.rewind(nvaeMark);
+							}
+						}
+
 					}
 					else if ( (LA5_0==48) ) {
 						alt5=2;
@@ -927,7 +947,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 	// $ANTLR start "rulevariables"
-	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:117:1: rulevariables : 'TEMPERATURE' '[' RULE_BODY ',' RULE_BODY ']' ;
+	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:117:1: rulevariables : ( 'TEMPERATURE' '[' RULE_BODY ',' RULE_BODY ']' | RULE_BODY '[' RULE_BODY ']' ) ;
 	public final void rulevariables() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "rulevariables");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
@@ -935,18 +955,65 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		dbg.location(117, 0);
 
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:117:14: ( 'TEMPERATURE' '[' RULE_BODY ',' RULE_BODY ']' )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:117:14: ( ( 'TEMPERATURE' '[' RULE_BODY ',' RULE_BODY ']' | RULE_BODY '[' RULE_BODY ']' ) )
 			dbg.enterAlt(1);
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:118:2: 'TEMPERATURE' '[' RULE_BODY ',' RULE_BODY ']'
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:118:2: ( 'TEMPERATURE' '[' RULE_BODY ',' RULE_BODY ']' | RULE_BODY '[' RULE_BODY ']' )
 			{
 			dbg.location(118,2);
-			match(input,48,FOLLOW_48_in_rulevariables400); dbg.location(119,2);
-			match(input,50,FOLLOW_50_in_rulevariables403); dbg.location(120,2);
-			match(input,RULE_BODY,FOLLOW_RULE_BODY_in_rulevariables406); dbg.location(121,2);
-			match(input,22,FOLLOW_22_in_rulevariables409); dbg.location(122,2);
-			match(input,RULE_BODY,FOLLOW_RULE_BODY_in_rulevariables412); dbg.location(123,2);
-			match(input,51,FOLLOW_51_in_rulevariables415); 
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:118:2: ( 'TEMPERATURE' '[' RULE_BODY ',' RULE_BODY ']' | RULE_BODY '[' RULE_BODY ']' )
+			int alt10=2;
+			try { dbg.enterSubRule(10);
+			try { dbg.enterDecision(10, decisionCanBacktrack[10]);
+
+			int LA10_0 = input.LA(1);
+			if ( (LA10_0==48) ) {
+				alt10=1;
+			}
+			else if ( (LA10_0==RULE_BODY) ) {
+				alt10=2;
+			}
+
+			else {
+				NoViableAltException nvae =
+					new NoViableAltException("", 10, 0, input);
+				dbg.recognitionException(nvae);
+				throw nvae;
+			}
+
+			} finally {dbg.exitDecision(10);}
+
+			switch (alt10) {
+				case 1 :
+					dbg.enterAlt(1);
+
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:119:3: 'TEMPERATURE' '[' RULE_BODY ',' RULE_BODY ']'
+					{
+					dbg.location(119,3);
+					match(input,48,FOLLOW_48_in_rulevariables404); dbg.location(120,3);
+					match(input,50,FOLLOW_50_in_rulevariables408); dbg.location(121,3);
+					match(input,RULE_BODY,FOLLOW_RULE_BODY_in_rulevariables412); dbg.location(122,3);
+					match(input,22,FOLLOW_22_in_rulevariables416); dbg.location(123,3);
+					match(input,RULE_BODY,FOLLOW_RULE_BODY_in_rulevariables420); dbg.location(124,3);
+					match(input,51,FOLLOW_51_in_rulevariables424); 
+					}
+					break;
+				case 2 :
+					dbg.enterAlt(2);
+
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:126:3: RULE_BODY '[' RULE_BODY ']'
+					{
+					dbg.location(126,3);
+					match(input,RULE_BODY,FOLLOW_RULE_BODY_in_rulevariables436); dbg.location(127,3);
+					match(input,50,FOLLOW_50_in_rulevariables440); dbg.location(128,3);
+					match(input,RULE_BODY,FOLLOW_RULE_BODY_in_rulevariables444); dbg.location(129,3);
+					match(input,51,FOLLOW_51_in_rulevariables448); 
+					}
+					break;
+
+			}
+			} finally {dbg.exitSubRule(10);}
+
 			}
 
 		}
@@ -957,7 +1024,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(124, 0);
+		dbg.location(131, 0);
 
 		}
 		finally {
@@ -972,20 +1039,20 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 	// $ANTLR start "ruleconditions"
-	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:127:1: ruleconditions : ( '&lt;' | '&le;' | '&ge;' | '&gt;' | '=' | '&&' | '||' | ')' ) ;
+	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:134:1: ruleconditions : ( '&lt;' | '&le;' | '&ge;' | '&gt;' | '=' | '&&' | '||' | ')' ) ;
 	public final void ruleconditions() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "ruleconditions");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(127, 0);
+		dbg.location(134, 0);
 
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:127:15: ( ( '&lt;' | '&le;' | '&ge;' | '&gt;' | '=' | '&&' | '||' | ')' ) )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:134:15: ( ( '&lt;' | '&le;' | '&ge;' | '&gt;' | '=' | '&&' | '||' | ')' ) )
 			dbg.enterAlt(1);
 
 			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:
 			{
-			dbg.location(127,15);
+			dbg.location(134,15);
 			if ( (input.LA(1) >= 15 && input.LA(1) <= 19)||input.LA(1)==21||input.LA(1)==28||input.LA(1)==57 ) {
 				input.consume();
 				state.errorRecovery=false;
@@ -1005,7 +1072,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(145, 0);
+		dbg.location(152, 0);
 
 		}
 		finally {
@@ -1020,20 +1087,20 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 	// $ANTLR start "rulepreconditions"
-	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:148:1: rulepreconditions : ( '!' | '(' ) ;
+	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:155:1: rulepreconditions : ( '!' | '(' ) ;
 	public final void rulepreconditions() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "rulepreconditions");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(148, 0);
+		dbg.location(155, 0);
 
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:148:18: ( ( '!' | '(' ) )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:155:18: ( ( '!' | '(' ) )
 			dbg.enterAlt(1);
 
 			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:
 			{
-			dbg.location(148,18);
+			dbg.location(155,18);
 			if ( input.LA(1)==14||input.LA(1)==20 ) {
 				input.consume();
 				state.errorRecovery=false;
@@ -1053,7 +1120,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(154, 0);
+		dbg.location(161, 0);
 
 		}
 		finally {
@@ -1068,60 +1135,25 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 	// $ANTLR start "rulecodex"
-	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:157:1: rulecodex : ruledevice ( ruleprotocol )* ( rulesensor )* ;
+	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:164:1: rulecodex : ruledevice ( ruleprotocol )* ( rulesensor )* ;
 	public final void rulecodex() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "rulecodex");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(157, 0);
+		dbg.location(164, 0);
 
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:157:10: ( ruledevice ( ruleprotocol )* ( rulesensor )* )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:164:10: ( ruledevice ( ruleprotocol )* ( rulesensor )* )
 			dbg.enterAlt(1);
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:158:2: ruledevice ( ruleprotocol )* ( rulesensor )*
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:165:2: ruledevice ( ruleprotocol )* ( rulesensor )*
 			{
-			dbg.location(158,2);
-			pushFollow(FOLLOW_ruledevice_in_rulecodex555);
+			dbg.location(165,2);
+			pushFollow(FOLLOW_ruledevice_in_rulecodex591);
 			ruledevice();
 			state._fsp--;
-			dbg.location(159,2);
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:159:2: ( ruleprotocol )*
-			try { dbg.enterSubRule(10);
-
-			loop10:
-			while (true) {
-				int alt10=2;
-				try { dbg.enterDecision(10, decisionCanBacktrack[10]);
-
-				int LA10_0 = input.LA(1);
-				if ( (LA10_0==37) ) {
-					alt10=1;
-				}
-
-				} finally {dbg.exitDecision(10);}
-
-				switch (alt10) {
-				case 1 :
-					dbg.enterAlt(1);
-
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:159:2: ruleprotocol
-					{
-					dbg.location(159,2);
-					pushFollow(FOLLOW_ruleprotocol_in_rulecodex558);
-					ruleprotocol();
-					state._fsp--;
-
-					}
-					break;
-
-				default :
-					break loop10;
-				}
-			}
-			} finally {dbg.exitSubRule(10);}
-			dbg.location(161,2);
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:161:2: ( rulesensor )*
+			dbg.location(166,2);
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:166:2: ( ruleprotocol )*
 			try { dbg.enterSubRule(11);
 
 			loop11:
@@ -1130,7 +1162,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 				try { dbg.enterDecision(11, decisionCanBacktrack[11]);
 
 				int LA11_0 = input.LA(1);
-				if ( (LA11_0==36||LA11_0==48) ) {
+				if ( (LA11_0==37) ) {
 					alt11=1;
 				}
 
@@ -1140,11 +1172,11 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:161:2: rulesensor
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:166:2: ruleprotocol
 					{
-					dbg.location(161,2);
-					pushFollow(FOLLOW_rulesensor_in_rulecodex564);
-					rulesensor();
+					dbg.location(166,2);
+					pushFollow(FOLLOW_ruleprotocol_in_rulecodex594);
+					ruleprotocol();
 					state._fsp--;
 
 					}
@@ -1155,6 +1187,41 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 				}
 			}
 			} finally {dbg.exitSubRule(11);}
+			dbg.location(168,2);
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:168:2: ( rulesensor )*
+			try { dbg.enterSubRule(12);
+
+			loop12:
+			while (true) {
+				int alt12=2;
+				try { dbg.enterDecision(12, decisionCanBacktrack[12]);
+
+				int LA12_0 = input.LA(1);
+				if ( (LA12_0==36||LA12_0==48) ) {
+					alt12=1;
+				}
+
+				} finally {dbg.exitDecision(12);}
+
+				switch (alt12) {
+				case 1 :
+					dbg.enterAlt(1);
+
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:168:2: rulesensor
+					{
+					dbg.location(168,2);
+					pushFollow(FOLLOW_rulesensor_in_rulecodex600);
+					rulesensor();
+					state._fsp--;
+
+					}
+					break;
+
+				default :
+					break loop12;
+				}
+			}
+			} finally {dbg.exitSubRule(12);}
 
 			}
 
@@ -1166,7 +1233,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(163, 0);
+		dbg.location(170, 0);
 
 		}
 		finally {
@@ -1181,26 +1248,26 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 	// $ANTLR start "ruledevice"
-	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:166:1: ruledevice : 'DEVICE' ':' RULE_STRING 'NAMEID' ':' RULE_STRING ;
+	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:173:1: ruledevice : 'DEVICE' ':' RULE_STRING 'NAMEID' ':' RULE_STRING ;
 	public final void ruledevice() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "ruledevice");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(166, 0);
+		dbg.location(173, 0);
 
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:166:11: ( 'DEVICE' ':' RULE_STRING 'NAMEID' ':' RULE_STRING )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:173:11: ( 'DEVICE' ':' RULE_STRING 'NAMEID' ':' RULE_STRING )
 			dbg.enterAlt(1);
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:167:2: 'DEVICE' ':' RULE_STRING 'NAMEID' ':' RULE_STRING
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:174:2: 'DEVICE' ':' RULE_STRING 'NAMEID' ':' RULE_STRING
 			{
-			dbg.location(167,2);
-			match(input,35,FOLLOW_35_in_ruledevice577); dbg.location(168,2);
-			match(input,24,FOLLOW_24_in_ruledevice580); dbg.location(169,2);
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruledevice583); dbg.location(170,2);
-			match(input,39,FOLLOW_39_in_ruledevice586); dbg.location(171,2);
-			match(input,24,FOLLOW_24_in_ruledevice589); dbg.location(172,2);
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruledevice592); 
+			dbg.location(174,2);
+			match(input,35,FOLLOW_35_in_ruledevice613); dbg.location(175,2);
+			match(input,24,FOLLOW_24_in_ruledevice616); dbg.location(176,2);
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruledevice619); dbg.location(177,2);
+			match(input,39,FOLLOW_39_in_ruledevice622); dbg.location(178,2);
+			match(input,24,FOLLOW_24_in_ruledevice625); dbg.location(179,2);
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruledevice628); 
 			}
 
 		}
@@ -1211,7 +1278,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(173, 0);
+		dbg.location(180, 0);
 
 		}
 		finally {
@@ -1226,31 +1293,31 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 	// $ANTLR start "ruleprotocol"
-	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:176:1: ruleprotocol : 'MQTT' '{' rulemqtt_data rulemqtt_device '}' ;
+	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:183:1: ruleprotocol : 'MQTT' '{' rulemqtt_data rulemqtt_device '}' ;
 	public final void ruleprotocol() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "ruleprotocol");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(176, 0);
+		dbg.location(183, 0);
 
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:176:13: ( 'MQTT' '{' rulemqtt_data rulemqtt_device '}' )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:183:13: ( 'MQTT' '{' rulemqtt_data rulemqtt_device '}' )
 			dbg.enterAlt(1);
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:177:2: 'MQTT' '{' rulemqtt_data rulemqtt_device '}'
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:184:2: 'MQTT' '{' rulemqtt_data rulemqtt_device '}'
 			{
-			dbg.location(177,2);
-			match(input,37,FOLLOW_37_in_ruleprotocol602); dbg.location(178,2);
-			match(input,56,FOLLOW_56_in_ruleprotocol605); dbg.location(179,2);
-			pushFollow(FOLLOW_rulemqtt_data_in_ruleprotocol608);
+			dbg.location(184,2);
+			match(input,37,FOLLOW_37_in_ruleprotocol638); dbg.location(185,2);
+			match(input,56,FOLLOW_56_in_ruleprotocol641); dbg.location(186,2);
+			pushFollow(FOLLOW_rulemqtt_data_in_ruleprotocol644);
 			rulemqtt_data();
 			state._fsp--;
-			dbg.location(180,2);
-			pushFollow(FOLLOW_rulemqtt_device_in_ruleprotocol611);
+			dbg.location(187,2);
+			pushFollow(FOLLOW_rulemqtt_device_in_ruleprotocol647);
 			rulemqtt_device();
 			state._fsp--;
-			dbg.location(181,2);
-			match(input,58,FOLLOW_58_in_ruleprotocol614); 
+			dbg.location(188,2);
+			match(input,58,FOLLOW_58_in_ruleprotocol650); 
 			}
 
 		}
@@ -1261,7 +1328,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(182, 0);
+		dbg.location(189, 0);
 
 		}
 		finally {
@@ -1276,167 +1343,121 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 	// $ANTLR start "rulemqtt_data"
-	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:185:1: rulemqtt_data : ( 'NAME' '=' RULE_STRING | 'BROKER_USER' '=' RULE_STRING | 'BROKER_PASSWORD' '=' RULE_STRING | 'BROKER' '=' RULE_STRING | 'NETWORK' '{' ( rulemqtt_network_data )* '}' | 'SUBTOPICS' '{' ( 'TOPIC_NAME' '=' RULE_STRING )* '}' | 'PUBTOPICS' '{' ( 'TOPIC_NAME' '=' ( RULE_STRING )* | 'DATA' '=' RULE_STRING )* '}' )* ;
+	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:192:1: rulemqtt_data : ( 'NAME' '=' RULE_STRING | 'BROKER_USER' '=' RULE_STRING | 'BROKER_PASSWORD' '=' RULE_STRING | 'BROKER' '=' RULE_STRING | 'NETWORK' '{' ( rulemqtt_network_data )* '}' | 'SUBTOPICS' '{' ( 'TOPIC_NAME' '=' RULE_STRING )* '}' | 'PUBTOPICS' '{' ( 'TOPIC_NAME' '=' ( RULE_STRING )* | 'DATA' '=' RULE_STRING )* '}' )* ;
 	public final void rulemqtt_data() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "rulemqtt_data");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(185, 0);
+		dbg.location(192, 0);
 
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:185:14: ( ( 'NAME' '=' RULE_STRING | 'BROKER_USER' '=' RULE_STRING | 'BROKER_PASSWORD' '=' RULE_STRING | 'BROKER' '=' RULE_STRING | 'NETWORK' '{' ( rulemqtt_network_data )* '}' | 'SUBTOPICS' '{' ( 'TOPIC_NAME' '=' RULE_STRING )* '}' | 'PUBTOPICS' '{' ( 'TOPIC_NAME' '=' ( RULE_STRING )* | 'DATA' '=' RULE_STRING )* '}' )* )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:192:14: ( ( 'NAME' '=' RULE_STRING | 'BROKER_USER' '=' RULE_STRING | 'BROKER_PASSWORD' '=' RULE_STRING | 'BROKER' '=' RULE_STRING | 'NETWORK' '{' ( rulemqtt_network_data )* '}' | 'SUBTOPICS' '{' ( 'TOPIC_NAME' '=' RULE_STRING )* '}' | 'PUBTOPICS' '{' ( 'TOPIC_NAME' '=' ( RULE_STRING )* | 'DATA' '=' RULE_STRING )* '}' )* )
 			dbg.enterAlt(1);
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:186:2: ( 'NAME' '=' RULE_STRING | 'BROKER_USER' '=' RULE_STRING | 'BROKER_PASSWORD' '=' RULE_STRING | 'BROKER' '=' RULE_STRING | 'NETWORK' '{' ( rulemqtt_network_data )* '}' | 'SUBTOPICS' '{' ( 'TOPIC_NAME' '=' RULE_STRING )* '}' | 'PUBTOPICS' '{' ( 'TOPIC_NAME' '=' ( RULE_STRING )* | 'DATA' '=' RULE_STRING )* '}' )*
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:193:2: ( 'NAME' '=' RULE_STRING | 'BROKER_USER' '=' RULE_STRING | 'BROKER_PASSWORD' '=' RULE_STRING | 'BROKER' '=' RULE_STRING | 'NETWORK' '{' ( rulemqtt_network_data )* '}' | 'SUBTOPICS' '{' ( 'TOPIC_NAME' '=' RULE_STRING )* '}' | 'PUBTOPICS' '{' ( 'TOPIC_NAME' '=' ( RULE_STRING )* | 'DATA' '=' RULE_STRING )* '}' )*
 			{
-			dbg.location(186,2);
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:186:2: ( 'NAME' '=' RULE_STRING | 'BROKER_USER' '=' RULE_STRING | 'BROKER_PASSWORD' '=' RULE_STRING | 'BROKER' '=' RULE_STRING | 'NETWORK' '{' ( rulemqtt_network_data )* '}' | 'SUBTOPICS' '{' ( 'TOPIC_NAME' '=' RULE_STRING )* '}' | 'PUBTOPICS' '{' ( 'TOPIC_NAME' '=' ( RULE_STRING )* | 'DATA' '=' RULE_STRING )* '}' )*
-			try { dbg.enterSubRule(16);
+			dbg.location(193,2);
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:193:2: ( 'NAME' '=' RULE_STRING | 'BROKER_USER' '=' RULE_STRING | 'BROKER_PASSWORD' '=' RULE_STRING | 'BROKER' '=' RULE_STRING | 'NETWORK' '{' ( rulemqtt_network_data )* '}' | 'SUBTOPICS' '{' ( 'TOPIC_NAME' '=' RULE_STRING )* '}' | 'PUBTOPICS' '{' ( 'TOPIC_NAME' '=' ( RULE_STRING )* | 'DATA' '=' RULE_STRING )* '}' )*
+			try { dbg.enterSubRule(17);
 
-			loop16:
+			loop17:
 			while (true) {
-				int alt16=8;
-				try { dbg.enterDecision(16, decisionCanBacktrack[16]);
+				int alt17=8;
+				try { dbg.enterDecision(17, decisionCanBacktrack[17]);
 
 				switch ( input.LA(1) ) {
 				case 38:
 					{
-					alt16=1;
+					alt17=1;
 					}
 					break;
 				case 33:
 					{
-					alt16=2;
+					alt17=2;
 					}
 					break;
 				case 32:
 					{
-					alt16=3;
+					alt17=3;
 					}
 					break;
 				case 31:
 					{
-					alt16=4;
+					alt17=4;
 					}
 					break;
 				case 40:
 					{
-					alt16=5;
+					alt17=5;
 					}
 					break;
 				case 47:
 					{
-					alt16=6;
+					alt17=6;
 					}
 					break;
 				case 44:
 					{
-					alt16=7;
+					alt17=7;
 					}
 					break;
 				}
-				} finally {dbg.exitDecision(16);}
+				} finally {dbg.exitDecision(17);}
 
-				switch (alt16) {
+				switch (alt17) {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:187:3: 'NAME' '=' RULE_STRING
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:194:3: 'NAME' '=' RULE_STRING
 					{
-					dbg.location(187,3);
-					match(input,38,FOLLOW_38_in_rulemqtt_data628); dbg.location(188,3);
-					match(input,28,FOLLOW_28_in_rulemqtt_data632); dbg.location(189,3);
-					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_data636); 
+					dbg.location(194,3);
+					match(input,38,FOLLOW_38_in_rulemqtt_data664); dbg.location(195,3);
+					match(input,28,FOLLOW_28_in_rulemqtt_data668); dbg.location(196,3);
+					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_data672); 
 					}
 					break;
 				case 2 :
 					dbg.enterAlt(2);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:191:3: 'BROKER_USER' '=' RULE_STRING
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:198:3: 'BROKER_USER' '=' RULE_STRING
 					{
-					dbg.location(191,3);
-					match(input,33,FOLLOW_33_in_rulemqtt_data648); dbg.location(192,3);
-					match(input,28,FOLLOW_28_in_rulemqtt_data652); dbg.location(193,3);
-					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_data656); 
+					dbg.location(198,3);
+					match(input,33,FOLLOW_33_in_rulemqtt_data684); dbg.location(199,3);
+					match(input,28,FOLLOW_28_in_rulemqtt_data688); dbg.location(200,3);
+					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_data692); 
 					}
 					break;
 				case 3 :
 					dbg.enterAlt(3);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:195:3: 'BROKER_PASSWORD' '=' RULE_STRING
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:202:3: 'BROKER_PASSWORD' '=' RULE_STRING
 					{
-					dbg.location(195,3);
-					match(input,32,FOLLOW_32_in_rulemqtt_data668); dbg.location(196,3);
-					match(input,28,FOLLOW_28_in_rulemqtt_data672); dbg.location(197,3);
-					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_data676); 
+					dbg.location(202,3);
+					match(input,32,FOLLOW_32_in_rulemqtt_data704); dbg.location(203,3);
+					match(input,28,FOLLOW_28_in_rulemqtt_data708); dbg.location(204,3);
+					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_data712); 
 					}
 					break;
 				case 4 :
 					dbg.enterAlt(4);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:199:3: 'BROKER' '=' RULE_STRING
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:206:3: 'BROKER' '=' RULE_STRING
 					{
-					dbg.location(199,3);
-					match(input,31,FOLLOW_31_in_rulemqtt_data688); dbg.location(200,3);
-					match(input,28,FOLLOW_28_in_rulemqtt_data692); dbg.location(201,3);
-					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_data696); 
+					dbg.location(206,3);
+					match(input,31,FOLLOW_31_in_rulemqtt_data724); dbg.location(207,3);
+					match(input,28,FOLLOW_28_in_rulemqtt_data728); dbg.location(208,3);
+					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_data732); 
 					}
 					break;
 				case 5 :
 					dbg.enterAlt(5);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:203:3: 'NETWORK' '{' ( rulemqtt_network_data )* '}'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:210:3: 'NETWORK' '{' ( rulemqtt_network_data )* '}'
 					{
-					dbg.location(203,3);
-					match(input,40,FOLLOW_40_in_rulemqtt_data708); dbg.location(204,3);
-					match(input,56,FOLLOW_56_in_rulemqtt_data712); dbg.location(205,3);
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:205:3: ( rulemqtt_network_data )*
-					try { dbg.enterSubRule(12);
-
-					loop12:
-					while (true) {
-						int alt12=2;
-						try { dbg.enterDecision(12, decisionCanBacktrack[12]);
-
-						int LA12_0 = input.LA(1);
-						if ( (LA12_0==46) ) {
-							alt12=1;
-						}
-
-						} finally {dbg.exitDecision(12);}
-
-						switch (alt12) {
-						case 1 :
-							dbg.enterAlt(1);
-
-							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:205:3: rulemqtt_network_data
-							{
-							dbg.location(205,3);
-							pushFollow(FOLLOW_rulemqtt_network_data_in_rulemqtt_data716);
-							rulemqtt_network_data();
-							state._fsp--;
-
-							}
-							break;
-
-						default :
-							break loop12;
-						}
-					}
-					} finally {dbg.exitSubRule(12);}
-					dbg.location(207,3);
-					match(input,58,FOLLOW_58_in_rulemqtt_data724); 
-					}
-					break;
-				case 6 :
-					dbg.enterAlt(6);
-
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:209:3: 'SUBTOPICS' '{' ( 'TOPIC_NAME' '=' RULE_STRING )* '}'
-					{
-					dbg.location(209,3);
-					match(input,47,FOLLOW_47_in_rulemqtt_data736); dbg.location(210,3);
-					match(input,56,FOLLOW_56_in_rulemqtt_data740); dbg.location(211,3);
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:211:3: ( 'TOPIC_NAME' '=' RULE_STRING )*
+					dbg.location(210,3);
+					match(input,40,FOLLOW_40_in_rulemqtt_data744); dbg.location(211,3);
+					match(input,56,FOLLOW_56_in_rulemqtt_data748); dbg.location(212,3);
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:212:3: ( rulemqtt_network_data )*
 					try { dbg.enterSubRule(13);
 
 					loop13:
@@ -1445,7 +1466,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 						try { dbg.enterDecision(13, decisionCanBacktrack[13]);
 
 						int LA13_0 = input.LA(1);
-						if ( (LA13_0==49) ) {
+						if ( (LA13_0==46) ) {
 							alt13=1;
 						}
 
@@ -1455,12 +1476,13 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 						case 1 :
 							dbg.enterAlt(1);
 
-							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:212:4: 'TOPIC_NAME' '=' RULE_STRING
+							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:212:3: rulemqtt_network_data
 							{
-							dbg.location(212,4);
-							match(input,49,FOLLOW_49_in_rulemqtt_data749); dbg.location(213,4);
-							match(input,28,FOLLOW_28_in_rulemqtt_data754); dbg.location(214,4);
-							match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_data759); 
+							dbg.location(212,3);
+							pushFollow(FOLLOW_rulemqtt_network_data_in_rulemqtt_data752);
+							rulemqtt_network_data();
+							state._fsp--;
+
 							}
 							break;
 
@@ -1469,106 +1491,151 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 						}
 					}
 					} finally {dbg.exitSubRule(13);}
+					dbg.location(214,3);
+					match(input,58,FOLLOW_58_in_rulemqtt_data760); 
+					}
+					break;
+				case 6 :
+					dbg.enterAlt(6);
+
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:216:3: 'SUBTOPICS' '{' ( 'TOPIC_NAME' '=' RULE_STRING )* '}'
+					{
 					dbg.location(216,3);
-					match(input,58,FOLLOW_58_in_rulemqtt_data768); 
+					match(input,47,FOLLOW_47_in_rulemqtt_data772); dbg.location(217,3);
+					match(input,56,FOLLOW_56_in_rulemqtt_data776); dbg.location(218,3);
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:218:3: ( 'TOPIC_NAME' '=' RULE_STRING )*
+					try { dbg.enterSubRule(14);
+
+					loop14:
+					while (true) {
+						int alt14=2;
+						try { dbg.enterDecision(14, decisionCanBacktrack[14]);
+
+						int LA14_0 = input.LA(1);
+						if ( (LA14_0==49) ) {
+							alt14=1;
+						}
+
+						} finally {dbg.exitDecision(14);}
+
+						switch (alt14) {
+						case 1 :
+							dbg.enterAlt(1);
+
+							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:219:4: 'TOPIC_NAME' '=' RULE_STRING
+							{
+							dbg.location(219,4);
+							match(input,49,FOLLOW_49_in_rulemqtt_data785); dbg.location(220,4);
+							match(input,28,FOLLOW_28_in_rulemqtt_data790); dbg.location(221,4);
+							match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_data795); 
+							}
+							break;
+
+						default :
+							break loop14;
+						}
+					}
+					} finally {dbg.exitSubRule(14);}
+					dbg.location(223,3);
+					match(input,58,FOLLOW_58_in_rulemqtt_data804); 
 					}
 					break;
 				case 7 :
 					dbg.enterAlt(7);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:218:3: 'PUBTOPICS' '{' ( 'TOPIC_NAME' '=' ( RULE_STRING )* | 'DATA' '=' RULE_STRING )* '}'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:225:3: 'PUBTOPICS' '{' ( 'TOPIC_NAME' '=' ( RULE_STRING )* | 'DATA' '=' RULE_STRING )* '}'
 					{
-					dbg.location(218,3);
-					match(input,44,FOLLOW_44_in_rulemqtt_data780); dbg.location(219,3);
-					match(input,56,FOLLOW_56_in_rulemqtt_data784); dbg.location(220,3);
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:220:3: ( 'TOPIC_NAME' '=' ( RULE_STRING )* | 'DATA' '=' RULE_STRING )*
-					try { dbg.enterSubRule(15);
+					dbg.location(225,3);
+					match(input,44,FOLLOW_44_in_rulemqtt_data816); dbg.location(226,3);
+					match(input,56,FOLLOW_56_in_rulemqtt_data820); dbg.location(227,3);
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:227:3: ( 'TOPIC_NAME' '=' ( RULE_STRING )* | 'DATA' '=' RULE_STRING )*
+					try { dbg.enterSubRule(16);
 
-					loop15:
+					loop16:
 					while (true) {
-						int alt15=3;
-						try { dbg.enterDecision(15, decisionCanBacktrack[15]);
+						int alt16=3;
+						try { dbg.enterDecision(16, decisionCanBacktrack[16]);
 
-						int LA15_0 = input.LA(1);
-						if ( (LA15_0==49) ) {
-							alt15=1;
+						int LA16_0 = input.LA(1);
+						if ( (LA16_0==49) ) {
+							alt16=1;
 						}
-						else if ( (LA15_0==34) ) {
-							alt15=2;
+						else if ( (LA16_0==34) ) {
+							alt16=2;
 						}
 
-						} finally {dbg.exitDecision(15);}
+						} finally {dbg.exitDecision(16);}
 
-						switch (alt15) {
+						switch (alt16) {
 						case 1 :
 							dbg.enterAlt(1);
 
-							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:221:4: 'TOPIC_NAME' '=' ( RULE_STRING )*
+							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:228:4: 'TOPIC_NAME' '=' ( RULE_STRING )*
 							{
-							dbg.location(221,4);
-							match(input,49,FOLLOW_49_in_rulemqtt_data793); dbg.location(222,4);
-							match(input,28,FOLLOW_28_in_rulemqtt_data798); dbg.location(223,4);
-							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:223:4: ( RULE_STRING )*
-							try { dbg.enterSubRule(14);
+							dbg.location(228,4);
+							match(input,49,FOLLOW_49_in_rulemqtt_data829); dbg.location(229,4);
+							match(input,28,FOLLOW_28_in_rulemqtt_data834); dbg.location(230,4);
+							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:230:4: ( RULE_STRING )*
+							try { dbg.enterSubRule(15);
 
-							loop14:
+							loop15:
 							while (true) {
-								int alt14=2;
-								try { dbg.enterDecision(14, decisionCanBacktrack[14]);
+								int alt15=2;
+								try { dbg.enterDecision(15, decisionCanBacktrack[15]);
 
-								int LA14_0 = input.LA(1);
-								if ( (LA14_0==RULE_STRING) ) {
-									alt14=1;
+								int LA15_0 = input.LA(1);
+								if ( (LA15_0==RULE_STRING) ) {
+									alt15=1;
 								}
 
-								} finally {dbg.exitDecision(14);}
+								} finally {dbg.exitDecision(15);}
 
-								switch (alt14) {
+								switch (alt15) {
 								case 1 :
 									dbg.enterAlt(1);
 
-									// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:223:4: RULE_STRING
+									// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:230:4: RULE_STRING
 									{
-									dbg.location(223,4);
-									match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_data803); 
+									dbg.location(230,4);
+									match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_data839); 
 									}
 									break;
 
 								default :
-									break loop14;
+									break loop15;
 								}
 							}
-							} finally {dbg.exitSubRule(14);}
+							} finally {dbg.exitSubRule(15);}
 
 							}
 							break;
 						case 2 :
 							dbg.enterAlt(2);
 
-							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:226:4: 'DATA' '=' RULE_STRING
+							// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:233:4: 'DATA' '=' RULE_STRING
 							{
-							dbg.location(226,4);
-							match(input,34,FOLLOW_34_in_rulemqtt_data822); dbg.location(227,4);
-							match(input,28,FOLLOW_28_in_rulemqtt_data827); dbg.location(228,4);
-							match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_data832); 
+							dbg.location(233,4);
+							match(input,34,FOLLOW_34_in_rulemqtt_data858); dbg.location(234,4);
+							match(input,28,FOLLOW_28_in_rulemqtt_data863); dbg.location(235,4);
+							match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_data868); 
 							}
 							break;
 
 						default :
-							break loop15;
+							break loop16;
 						}
 					}
-					} finally {dbg.exitSubRule(15);}
-					dbg.location(230,3);
-					match(input,58,FOLLOW_58_in_rulemqtt_data841); 
+					} finally {dbg.exitSubRule(16);}
+					dbg.location(237,3);
+					match(input,58,FOLLOW_58_in_rulemqtt_data877); 
 					}
 					break;
 
 				default :
-					break loop16;
+					break loop17;
 				}
 			}
-			} finally {dbg.exitSubRule(16);}
+			} finally {dbg.exitSubRule(17);}
 
 			}
 
@@ -1580,7 +1647,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(232, 0);
+		dbg.location(239, 0);
 
 		}
 		finally {
@@ -1595,26 +1662,26 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 	// $ANTLR start "rulemqtt_network_data"
-	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:235:1: rulemqtt_network_data : 'SSID' '=' RULE_STRING 'PASSWORD' '=' RULE_STRING ;
+	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:242:1: rulemqtt_network_data : 'SSID' '=' RULE_STRING 'PASSWORD' '=' RULE_STRING ;
 	public final void rulemqtt_network_data() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "rulemqtt_network_data");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(235, 0);
+		dbg.location(242, 0);
 
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:235:22: ( 'SSID' '=' RULE_STRING 'PASSWORD' '=' RULE_STRING )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:242:22: ( 'SSID' '=' RULE_STRING 'PASSWORD' '=' RULE_STRING )
 			dbg.enterAlt(1);
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:236:2: 'SSID' '=' RULE_STRING 'PASSWORD' '=' RULE_STRING
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:243:2: 'SSID' '=' RULE_STRING 'PASSWORD' '=' RULE_STRING
 			{
-			dbg.location(236,2);
-			match(input,46,FOLLOW_46_in_rulemqtt_network_data855); dbg.location(237,2);
-			match(input,28,FOLLOW_28_in_rulemqtt_network_data858); dbg.location(238,2);
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_network_data861); dbg.location(239,2);
-			match(input,41,FOLLOW_41_in_rulemqtt_network_data864); dbg.location(240,2);
-			match(input,28,FOLLOW_28_in_rulemqtt_network_data867); dbg.location(241,2);
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_network_data870); 
+			dbg.location(243,2);
+			match(input,46,FOLLOW_46_in_rulemqtt_network_data891); dbg.location(244,2);
+			match(input,28,FOLLOW_28_in_rulemqtt_network_data894); dbg.location(245,2);
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_network_data897); dbg.location(246,2);
+			match(input,41,FOLLOW_41_in_rulemqtt_network_data900); dbg.location(247,2);
+			match(input,28,FOLLOW_28_in_rulemqtt_network_data903); dbg.location(248,2);
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_network_data906); 
 			}
 
 		}
@@ -1625,7 +1692,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(242, 0);
+		dbg.location(249, 0);
 
 		}
 		finally {
@@ -1640,26 +1707,26 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 	// $ANTLR start "rulemqtt_device"
-	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:245:1: rulemqtt_device : 'PROTOCOL_DEVICE' '{' 'NAME' '=' RULE_STRING '}' ;
+	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:252:1: rulemqtt_device : 'PROTOCOL_DEVICE' '{' 'NAME' '=' RULE_STRING '}' ;
 	public final void rulemqtt_device() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "rulemqtt_device");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(245, 0);
+		dbg.location(252, 0);
 
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:245:16: ( 'PROTOCOL_DEVICE' '{' 'NAME' '=' RULE_STRING '}' )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:252:16: ( 'PROTOCOL_DEVICE' '{' 'NAME' '=' RULE_STRING '}' )
 			dbg.enterAlt(1);
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:246:2: 'PROTOCOL_DEVICE' '{' 'NAME' '=' RULE_STRING '}'
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:253:2: 'PROTOCOL_DEVICE' '{' 'NAME' '=' RULE_STRING '}'
 			{
-			dbg.location(246,2);
-			match(input,43,FOLLOW_43_in_rulemqtt_device880); dbg.location(247,2);
-			match(input,56,FOLLOW_56_in_rulemqtt_device883); dbg.location(248,2);
-			match(input,38,FOLLOW_38_in_rulemqtt_device886); dbg.location(249,2);
-			match(input,28,FOLLOW_28_in_rulemqtt_device889); dbg.location(250,2);
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_device892); dbg.location(251,2);
-			match(input,58,FOLLOW_58_in_rulemqtt_device895); 
+			dbg.location(253,2);
+			match(input,43,FOLLOW_43_in_rulemqtt_device916); dbg.location(254,2);
+			match(input,56,FOLLOW_56_in_rulemqtt_device919); dbg.location(255,2);
+			match(input,38,FOLLOW_38_in_rulemqtt_device922); dbg.location(256,2);
+			match(input,28,FOLLOW_28_in_rulemqtt_device925); dbg.location(257,2);
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulemqtt_device928); dbg.location(258,2);
+			match(input,58,FOLLOW_58_in_rulemqtt_device931); 
 			}
 
 		}
@@ -1670,7 +1737,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(252, 0);
+		dbg.location(259, 0);
 
 		}
 		finally {
@@ -1685,76 +1752,76 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 	// $ANTLR start "rulesensor"
-	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:255:1: rulesensor : ( 'TEMPERATURE' '{' rulesensor_data '}' | 'DISTANCE' '{' rulesensor_data '}' ) ;
+	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:262:1: rulesensor : ( 'TEMPERATURE' '{' rulesensor_data '}' | 'DISTANCE' '{' rulesensor_data '}' ) ;
 	public final void rulesensor() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "rulesensor");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(255, 0);
+		dbg.location(262, 0);
 
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:255:11: ( ( 'TEMPERATURE' '{' rulesensor_data '}' | 'DISTANCE' '{' rulesensor_data '}' ) )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:262:11: ( ( 'TEMPERATURE' '{' rulesensor_data '}' | 'DISTANCE' '{' rulesensor_data '}' ) )
 			dbg.enterAlt(1);
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:256:2: ( 'TEMPERATURE' '{' rulesensor_data '}' | 'DISTANCE' '{' rulesensor_data '}' )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:263:2: ( 'TEMPERATURE' '{' rulesensor_data '}' | 'DISTANCE' '{' rulesensor_data '}' )
 			{
-			dbg.location(256,2);
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:256:2: ( 'TEMPERATURE' '{' rulesensor_data '}' | 'DISTANCE' '{' rulesensor_data '}' )
-			int alt17=2;
-			try { dbg.enterSubRule(17);
-			try { dbg.enterDecision(17, decisionCanBacktrack[17]);
+			dbg.location(263,2);
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:263:2: ( 'TEMPERATURE' '{' rulesensor_data '}' | 'DISTANCE' '{' rulesensor_data '}' )
+			int alt18=2;
+			try { dbg.enterSubRule(18);
+			try { dbg.enterDecision(18, decisionCanBacktrack[18]);
 
-			int LA17_0 = input.LA(1);
-			if ( (LA17_0==48) ) {
-				alt17=1;
+			int LA18_0 = input.LA(1);
+			if ( (LA18_0==48) ) {
+				alt18=1;
 			}
-			else if ( (LA17_0==36) ) {
-				alt17=2;
+			else if ( (LA18_0==36) ) {
+				alt18=2;
 			}
 
 			else {
 				NoViableAltException nvae =
-					new NoViableAltException("", 17, 0, input);
+					new NoViableAltException("", 18, 0, input);
 				dbg.recognitionException(nvae);
 				throw nvae;
 			}
 
-			} finally {dbg.exitDecision(17);}
+			} finally {dbg.exitDecision(18);}
 
-			switch (alt17) {
+			switch (alt18) {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:257:3: 'TEMPERATURE' '{' rulesensor_data '}'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:264:3: 'TEMPERATURE' '{' rulesensor_data '}'
 					{
-					dbg.location(257,3);
-					match(input,48,FOLLOW_48_in_rulesensor909); dbg.location(258,3);
-					match(input,56,FOLLOW_56_in_rulesensor913); dbg.location(259,3);
-					pushFollow(FOLLOW_rulesensor_data_in_rulesensor917);
+					dbg.location(264,3);
+					match(input,48,FOLLOW_48_in_rulesensor945); dbg.location(265,3);
+					match(input,56,FOLLOW_56_in_rulesensor949); dbg.location(266,3);
+					pushFollow(FOLLOW_rulesensor_data_in_rulesensor953);
 					rulesensor_data();
 					state._fsp--;
-					dbg.location(260,3);
-					match(input,58,FOLLOW_58_in_rulesensor921); 
+					dbg.location(267,3);
+					match(input,58,FOLLOW_58_in_rulesensor957); 
 					}
 					break;
 				case 2 :
 					dbg.enterAlt(2);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:262:3: 'DISTANCE' '{' rulesensor_data '}'
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:269:3: 'DISTANCE' '{' rulesensor_data '}'
 					{
-					dbg.location(262,3);
-					match(input,36,FOLLOW_36_in_rulesensor933); dbg.location(263,3);
-					match(input,56,FOLLOW_56_in_rulesensor937); dbg.location(264,3);
-					pushFollow(FOLLOW_rulesensor_data_in_rulesensor941);
+					dbg.location(269,3);
+					match(input,36,FOLLOW_36_in_rulesensor969); dbg.location(270,3);
+					match(input,56,FOLLOW_56_in_rulesensor973); dbg.location(271,3);
+					pushFollow(FOLLOW_rulesensor_data_in_rulesensor977);
 					rulesensor_data();
 					state._fsp--;
-					dbg.location(265,3);
-					match(input,58,FOLLOW_58_in_rulesensor945); 
+					dbg.location(272,3);
+					match(input,58,FOLLOW_58_in_rulesensor981); 
 					}
 					break;
 
 			}
-			} finally {dbg.exitSubRule(17);}
+			} finally {dbg.exitSubRule(18);}
 
 			}
 
@@ -1766,7 +1833,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(267, 0);
+		dbg.location(274, 0);
 
 		}
 		finally {
@@ -1781,87 +1848,87 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 
 
 	// $ANTLR start "rulesensor_data"
-	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:270:1: rulesensor_data : ( 'NAME' '=' RULE_STRING | 'PINS' '=' RULE_STRING | 'SENSOR_ID' '=' RULE_STRING )* ;
+	// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:277:1: rulesensor_data : ( 'NAME' '=' RULE_STRING | 'PINS' '=' RULE_STRING | 'SENSOR_ID' '=' RULE_STRING )* ;
 	public final void rulesensor_data() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "rulesensor_data");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(270, 0);
+		dbg.location(277, 0);
 
 		try {
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:270:16: ( ( 'NAME' '=' RULE_STRING | 'PINS' '=' RULE_STRING | 'SENSOR_ID' '=' RULE_STRING )* )
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:277:16: ( ( 'NAME' '=' RULE_STRING | 'PINS' '=' RULE_STRING | 'SENSOR_ID' '=' RULE_STRING )* )
 			dbg.enterAlt(1);
 
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:271:2: ( 'NAME' '=' RULE_STRING | 'PINS' '=' RULE_STRING | 'SENSOR_ID' '=' RULE_STRING )*
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:278:2: ( 'NAME' '=' RULE_STRING | 'PINS' '=' RULE_STRING | 'SENSOR_ID' '=' RULE_STRING )*
 			{
-			dbg.location(271,2);
-			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:271:2: ( 'NAME' '=' RULE_STRING | 'PINS' '=' RULE_STRING | 'SENSOR_ID' '=' RULE_STRING )*
-			try { dbg.enterSubRule(18);
+			dbg.location(278,2);
+			// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:278:2: ( 'NAME' '=' RULE_STRING | 'PINS' '=' RULE_STRING | 'SENSOR_ID' '=' RULE_STRING )*
+			try { dbg.enterSubRule(19);
 
-			loop18:
+			loop19:
 			while (true) {
-				int alt18=4;
-				try { dbg.enterDecision(18, decisionCanBacktrack[18]);
+				int alt19=4;
+				try { dbg.enterDecision(19, decisionCanBacktrack[19]);
 
 				switch ( input.LA(1) ) {
 				case 38:
 					{
-					alt18=1;
+					alt19=1;
 					}
 					break;
 				case 42:
 					{
-					alt18=2;
+					alt19=2;
 					}
 					break;
 				case 45:
 					{
-					alt18=3;
+					alt19=3;
 					}
 					break;
 				}
-				} finally {dbg.exitDecision(18);}
+				} finally {dbg.exitDecision(19);}
 
-				switch (alt18) {
+				switch (alt19) {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:272:3: 'NAME' '=' RULE_STRING
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:279:3: 'NAME' '=' RULE_STRING
 					{
-					dbg.location(272,3);
-					match(input,38,FOLLOW_38_in_rulesensor_data962); dbg.location(273,3);
-					match(input,28,FOLLOW_28_in_rulesensor_data966); dbg.location(274,3);
-					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulesensor_data970); 
+					dbg.location(279,3);
+					match(input,38,FOLLOW_38_in_rulesensor_data998); dbg.location(280,3);
+					match(input,28,FOLLOW_28_in_rulesensor_data1002); dbg.location(281,3);
+					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulesensor_data1006); 
 					}
 					break;
 				case 2 :
 					dbg.enterAlt(2);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:276:3: 'PINS' '=' RULE_STRING
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:283:3: 'PINS' '=' RULE_STRING
 					{
-					dbg.location(276,3);
-					match(input,42,FOLLOW_42_in_rulesensor_data982); dbg.location(277,3);
-					match(input,28,FOLLOW_28_in_rulesensor_data986); dbg.location(278,3);
-					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulesensor_data990); 
+					dbg.location(283,3);
+					match(input,42,FOLLOW_42_in_rulesensor_data1018); dbg.location(284,3);
+					match(input,28,FOLLOW_28_in_rulesensor_data1022); dbg.location(285,3);
+					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulesensor_data1026); 
 					}
 					break;
 				case 3 :
 					dbg.enterAlt(3);
 
-					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:280:3: 'SENSOR_ID' '=' RULE_STRING
+					// C:\\Users\\Luca\\eclipse-workspace\\org.xtext.BPMN_translator\\bin\\org\\xtext\\parser\\antlr\\internal\\DebugInternalBPMN_translator.g:287:3: 'SENSOR_ID' '=' RULE_STRING
 					{
-					dbg.location(280,3);
-					match(input,45,FOLLOW_45_in_rulesensor_data1002); dbg.location(281,3);
-					match(input,28,FOLLOW_28_in_rulesensor_data1006); dbg.location(282,3);
-					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulesensor_data1010); 
+					dbg.location(287,3);
+					match(input,45,FOLLOW_45_in_rulesensor_data1038); dbg.location(288,3);
+					match(input,28,FOLLOW_28_in_rulesensor_data1042); dbg.location(289,3);
+					match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rulesensor_data1046); 
 					}
 					break;
 
 				default :
-					break loop18;
+					break loop19;
 				}
 			}
-			} finally {dbg.exitSubRule(18);}
+			} finally {dbg.exitSubRule(19);}
 
 			}
 
@@ -1873,7 +1940,7 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(284, 0);
+		dbg.location(291, 0);
 
 		}
 		finally {
@@ -2004,84 +2071,88 @@ public class DebugInternalBPMN_translatorParser extends DebugParser {
 	public static final BitSet FOLLOW_24_in_ruleClose384 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_RULE_KEYWORDS_in_ruleClose387 = new BitSet(new long[]{0x0000000020000000L});
 	public static final BitSet FOLLOW_29_in_ruleClose390 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_48_in_rulevariables400 = new BitSet(new long[]{0x0004000000000000L});
-	public static final BitSet FOLLOW_50_in_rulevariables403 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_RULE_BODY_in_rulevariables406 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_rulevariables409 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_RULE_BODY_in_rulevariables412 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_51_in_rulevariables415 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ruledevice_in_rulecodex555 = new BitSet(new long[]{0x0001003000000002L});
-	public static final BitSet FOLLOW_ruleprotocol_in_rulecodex558 = new BitSet(new long[]{0x0001003000000002L});
-	public static final BitSet FOLLOW_rulesensor_in_rulecodex564 = new BitSet(new long[]{0x0001001000000002L});
-	public static final BitSet FOLLOW_35_in_ruledevice577 = new BitSet(new long[]{0x0000000001000000L});
-	public static final BitSet FOLLOW_24_in_ruledevice580 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_ruledevice583 = new BitSet(new long[]{0x0000008000000000L});
-	public static final BitSet FOLLOW_39_in_ruledevice586 = new BitSet(new long[]{0x0000000001000000L});
-	public static final BitSet FOLLOW_24_in_ruledevice589 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_ruledevice592 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_37_in_ruleprotocol602 = new BitSet(new long[]{0x0100000000000000L});
-	public static final BitSet FOLLOW_56_in_ruleprotocol605 = new BitSet(new long[]{0x0000994380000000L});
-	public static final BitSet FOLLOW_rulemqtt_data_in_ruleprotocol608 = new BitSet(new long[]{0x0000080000000000L});
-	public static final BitSet FOLLOW_rulemqtt_device_in_ruleprotocol611 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_58_in_ruleprotocol614 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_38_in_rulemqtt_data628 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_rulemqtt_data632 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_data636 = new BitSet(new long[]{0x0000914380000002L});
-	public static final BitSet FOLLOW_33_in_rulemqtt_data648 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_rulemqtt_data652 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_data656 = new BitSet(new long[]{0x0000914380000002L});
-	public static final BitSet FOLLOW_32_in_rulemqtt_data668 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_rulemqtt_data672 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_data676 = new BitSet(new long[]{0x0000914380000002L});
-	public static final BitSet FOLLOW_31_in_rulemqtt_data688 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_rulemqtt_data692 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_data696 = new BitSet(new long[]{0x0000914380000002L});
-	public static final BitSet FOLLOW_40_in_rulemqtt_data708 = new BitSet(new long[]{0x0100000000000000L});
-	public static final BitSet FOLLOW_56_in_rulemqtt_data712 = new BitSet(new long[]{0x0400400000000000L});
-	public static final BitSet FOLLOW_rulemqtt_network_data_in_rulemqtt_data716 = new BitSet(new long[]{0x0400400000000000L});
-	public static final BitSet FOLLOW_58_in_rulemqtt_data724 = new BitSet(new long[]{0x0000914380000002L});
-	public static final BitSet FOLLOW_47_in_rulemqtt_data736 = new BitSet(new long[]{0x0100000000000000L});
-	public static final BitSet FOLLOW_56_in_rulemqtt_data740 = new BitSet(new long[]{0x0402000000000000L});
-	public static final BitSet FOLLOW_49_in_rulemqtt_data749 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_rulemqtt_data754 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_data759 = new BitSet(new long[]{0x0402000000000000L});
-	public static final BitSet FOLLOW_58_in_rulemqtt_data768 = new BitSet(new long[]{0x0000914380000002L});
-	public static final BitSet FOLLOW_44_in_rulemqtt_data780 = new BitSet(new long[]{0x0100000000000000L});
-	public static final BitSet FOLLOW_56_in_rulemqtt_data784 = new BitSet(new long[]{0x0402000400000000L});
-	public static final BitSet FOLLOW_49_in_rulemqtt_data793 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_rulemqtt_data798 = new BitSet(new long[]{0x0402000400001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_data803 = new BitSet(new long[]{0x0402000400001000L});
-	public static final BitSet FOLLOW_34_in_rulemqtt_data822 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_rulemqtt_data827 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_data832 = new BitSet(new long[]{0x0402000400000000L});
-	public static final BitSet FOLLOW_58_in_rulemqtt_data841 = new BitSet(new long[]{0x0000914380000002L});
-	public static final BitSet FOLLOW_46_in_rulemqtt_network_data855 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_rulemqtt_network_data858 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_network_data861 = new BitSet(new long[]{0x0000020000000000L});
-	public static final BitSet FOLLOW_41_in_rulemqtt_network_data864 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_rulemqtt_network_data867 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_network_data870 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_43_in_rulemqtt_device880 = new BitSet(new long[]{0x0100000000000000L});
-	public static final BitSet FOLLOW_56_in_rulemqtt_device883 = new BitSet(new long[]{0x0000004000000000L});
-	public static final BitSet FOLLOW_38_in_rulemqtt_device886 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_rulemqtt_device889 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_device892 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_58_in_rulemqtt_device895 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_48_in_rulesensor909 = new BitSet(new long[]{0x0100000000000000L});
-	public static final BitSet FOLLOW_56_in_rulesensor913 = new BitSet(new long[]{0x0400244000000000L});
-	public static final BitSet FOLLOW_rulesensor_data_in_rulesensor917 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_58_in_rulesensor921 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_36_in_rulesensor933 = new BitSet(new long[]{0x0100000000000000L});
-	public static final BitSet FOLLOW_56_in_rulesensor937 = new BitSet(new long[]{0x0400244000000000L});
-	public static final BitSet FOLLOW_rulesensor_data_in_rulesensor941 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_58_in_rulesensor945 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_38_in_rulesensor_data962 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_rulesensor_data966 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rulesensor_data970 = new BitSet(new long[]{0x0000244000000002L});
-	public static final BitSet FOLLOW_42_in_rulesensor_data982 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_rulesensor_data986 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rulesensor_data990 = new BitSet(new long[]{0x0000244000000002L});
-	public static final BitSet FOLLOW_45_in_rulesensor_data1002 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_rulesensor_data1006 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rulesensor_data1010 = new BitSet(new long[]{0x0000244000000002L});
+	public static final BitSet FOLLOW_48_in_rulevariables404 = new BitSet(new long[]{0x0004000000000000L});
+	public static final BitSet FOLLOW_50_in_rulevariables408 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_BODY_in_rulevariables412 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_22_in_rulevariables416 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_BODY_in_rulevariables420 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_51_in_rulevariables424 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_BODY_in_rulevariables436 = new BitSet(new long[]{0x0004000000000000L});
+	public static final BitSet FOLLOW_50_in_rulevariables440 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_BODY_in_rulevariables444 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_51_in_rulevariables448 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruledevice_in_rulecodex591 = new BitSet(new long[]{0x0001003000000002L});
+	public static final BitSet FOLLOW_ruleprotocol_in_rulecodex594 = new BitSet(new long[]{0x0001003000000002L});
+	public static final BitSet FOLLOW_rulesensor_in_rulecodex600 = new BitSet(new long[]{0x0001001000000002L});
+	public static final BitSet FOLLOW_35_in_ruledevice613 = new BitSet(new long[]{0x0000000001000000L});
+	public static final BitSet FOLLOW_24_in_ruledevice616 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_ruledevice619 = new BitSet(new long[]{0x0000008000000000L});
+	public static final BitSet FOLLOW_39_in_ruledevice622 = new BitSet(new long[]{0x0000000001000000L});
+	public static final BitSet FOLLOW_24_in_ruledevice625 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_ruledevice628 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_37_in_ruleprotocol638 = new BitSet(new long[]{0x0100000000000000L});
+	public static final BitSet FOLLOW_56_in_ruleprotocol641 = new BitSet(new long[]{0x0000994380000000L});
+	public static final BitSet FOLLOW_rulemqtt_data_in_ruleprotocol644 = new BitSet(new long[]{0x0000080000000000L});
+	public static final BitSet FOLLOW_rulemqtt_device_in_ruleprotocol647 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_58_in_ruleprotocol650 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_38_in_rulemqtt_data664 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_rulemqtt_data668 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_data672 = new BitSet(new long[]{0x0000914380000002L});
+	public static final BitSet FOLLOW_33_in_rulemqtt_data684 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_rulemqtt_data688 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_data692 = new BitSet(new long[]{0x0000914380000002L});
+	public static final BitSet FOLLOW_32_in_rulemqtt_data704 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_rulemqtt_data708 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_data712 = new BitSet(new long[]{0x0000914380000002L});
+	public static final BitSet FOLLOW_31_in_rulemqtt_data724 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_rulemqtt_data728 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_data732 = new BitSet(new long[]{0x0000914380000002L});
+	public static final BitSet FOLLOW_40_in_rulemqtt_data744 = new BitSet(new long[]{0x0100000000000000L});
+	public static final BitSet FOLLOW_56_in_rulemqtt_data748 = new BitSet(new long[]{0x0400400000000000L});
+	public static final BitSet FOLLOW_rulemqtt_network_data_in_rulemqtt_data752 = new BitSet(new long[]{0x0400400000000000L});
+	public static final BitSet FOLLOW_58_in_rulemqtt_data760 = new BitSet(new long[]{0x0000914380000002L});
+	public static final BitSet FOLLOW_47_in_rulemqtt_data772 = new BitSet(new long[]{0x0100000000000000L});
+	public static final BitSet FOLLOW_56_in_rulemqtt_data776 = new BitSet(new long[]{0x0402000000000000L});
+	public static final BitSet FOLLOW_49_in_rulemqtt_data785 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_rulemqtt_data790 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_data795 = new BitSet(new long[]{0x0402000000000000L});
+	public static final BitSet FOLLOW_58_in_rulemqtt_data804 = new BitSet(new long[]{0x0000914380000002L});
+	public static final BitSet FOLLOW_44_in_rulemqtt_data816 = new BitSet(new long[]{0x0100000000000000L});
+	public static final BitSet FOLLOW_56_in_rulemqtt_data820 = new BitSet(new long[]{0x0402000400000000L});
+	public static final BitSet FOLLOW_49_in_rulemqtt_data829 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_rulemqtt_data834 = new BitSet(new long[]{0x0402000400001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_data839 = new BitSet(new long[]{0x0402000400001000L});
+	public static final BitSet FOLLOW_34_in_rulemqtt_data858 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_rulemqtt_data863 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_data868 = new BitSet(new long[]{0x0402000400000000L});
+	public static final BitSet FOLLOW_58_in_rulemqtt_data877 = new BitSet(new long[]{0x0000914380000002L});
+	public static final BitSet FOLLOW_46_in_rulemqtt_network_data891 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_rulemqtt_network_data894 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_network_data897 = new BitSet(new long[]{0x0000020000000000L});
+	public static final BitSet FOLLOW_41_in_rulemqtt_network_data900 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_rulemqtt_network_data903 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_network_data906 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_43_in_rulemqtt_device916 = new BitSet(new long[]{0x0100000000000000L});
+	public static final BitSet FOLLOW_56_in_rulemqtt_device919 = new BitSet(new long[]{0x0000004000000000L});
+	public static final BitSet FOLLOW_38_in_rulemqtt_device922 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_rulemqtt_device925 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulemqtt_device928 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_58_in_rulemqtt_device931 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_48_in_rulesensor945 = new BitSet(new long[]{0x0100000000000000L});
+	public static final BitSet FOLLOW_56_in_rulesensor949 = new BitSet(new long[]{0x0400244000000000L});
+	public static final BitSet FOLLOW_rulesensor_data_in_rulesensor953 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_58_in_rulesensor957 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_36_in_rulesensor969 = new BitSet(new long[]{0x0100000000000000L});
+	public static final BitSet FOLLOW_56_in_rulesensor973 = new BitSet(new long[]{0x0400244000000000L});
+	public static final BitSet FOLLOW_rulesensor_data_in_rulesensor977 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_58_in_rulesensor981 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_38_in_rulesensor_data998 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_rulesensor_data1002 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulesensor_data1006 = new BitSet(new long[]{0x0000244000000002L});
+	public static final BitSet FOLLOW_42_in_rulesensor_data1018 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_rulesensor_data1022 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulesensor_data1026 = new BitSet(new long[]{0x0000244000000002L});
+	public static final BitSet FOLLOW_45_in_rulesensor_data1038 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_rulesensor_data1042 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulesensor_data1046 = new BitSet(new long[]{0x0000244000000002L});
 }

@@ -19,7 +19,10 @@ public class Condition extends Elements{
 	
 	public Condition(Boolean isEnd, String id) {
 		this.setId(id);
-		this.setType("end_condition");
+		if (!isEnd)
+			this.setType("end_condition");
+		if (isEnd)
+			this.setType("end_condition_end");
 		this.isEnd = true;
 		this.isElse = false;
 	}
