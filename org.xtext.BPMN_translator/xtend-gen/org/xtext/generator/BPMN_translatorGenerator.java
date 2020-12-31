@@ -525,7 +525,6 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                           if (_equals_3) {
                             boolean _isSubProcess = this.isSubProcess(Singleton.getValue().get(this.j), r);
                             if (_isSubProcess) {
-                              System.out.println("subprocess");
                               this.getSubStartEvents(Singleton.getValue().get(this.j), r);
                               int app = this.j;
                               int _size = this.subStarts.size();
@@ -773,6 +772,32 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     if (_not_1) {
       this.successors.add("end_parallel");
     }
+  }
+  
+  public Object AdjustOrder() {
+    Object _xblockexpression = null;
+    {
+      String element = "";
+      boolean ok = false;
+      for (int y = 0; (y < this.successors.size()); y++) {
+        if ((this.successors.get(y).contains("_else") && (!this.successors.get((y - 1)).equals("end_condition")))) {
+          ok = true;
+          element = this.successors.get((y - 1));
+          this.successors.remove((y - 1));
+          int k = y;
+          for (k = y; (!this.successors.get(k).equals("end_condition")); k++) {
+            ok = true;
+          }
+          this.successors.add((k + 1), element);
+        }
+      }
+      Object _xifexpression = null;
+      if (ok) {
+        _xifexpression = this.AdjustOrder();
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
   }
   
   public boolean isForkParallel(final String id, final Resource r) {
@@ -1098,6 +1123,7 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
       {
         this.fillSuccessors(start, r);
         this.Reset();
+        this.AdjustOrder();
       }
     }
     for (final String element : this.successors) {
@@ -1237,18 +1263,10 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                         boolean _contains_3 = this.generated_elements.contains("mqtt");
                         boolean _not = (!_contains_3);
                         if (_not) {
-                          String _h_variables = this.h_variables;
-                          String _generateDefineCode = this.h_gen.generateDefineCode();
-                          this.h_variables = (_h_variables + _generateDefineCode);
-                          String _h_code = this.h_code;
-                          String _generateMethodsCode = this.h_gen.generateMethodsCode();
-                          this.h_code = (_h_code + _generateMethodsCode);
-                          String _cpp_variables = this.cpp_variables;
-                          String _generateProtocolVariables = this.cpp_gen.generateProtocolVariables(this.netdata);
-                          this.cpp_variables = (_cpp_variables + _generateProtocolVariables);
-                          String _cpp_code = this.cpp_code;
-                          String _generateProtocolCode = this.cpp_gen.generateProtocolCode(this.netdata);
-                          this.cpp_code = (_cpp_code + _generateProtocolCode);
+                          this.h_variables = this.h_gen.generateDefineCode(this.h_variables);
+                          this.h_code = this.h_gen.generateMethodsCode(this.h_code);
+                          this.cpp_variables = this.cpp_gen.generateProtocolVariables(this.netdata, this.cpp_variables);
+                          this.cpp_code = this.cpp_gen.generateProtocolCode(this.netdata, this.cpp_code);
                           this.generated_elements.add("mqtt");
                         }
                       }
@@ -1283,15 +1301,9 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                         boolean _not_1 = (!_contains_4);
                         if (_not_1) {
                           this.h_gen.sensor = "dht22";
-                          String _h_variables_1 = this.h_variables;
-                          String _generateDefineCode_1 = this.h_gen.generateDefineCode();
-                          this.h_variables = (_h_variables_1 + _generateDefineCode_1);
-                          String _h_code_1 = this.h_code;
-                          String _generateMethodsCode_1 = this.h_gen.generateMethodsCode();
-                          this.h_code = (_h_code_1 + _generateMethodsCode_1);
-                          String _cpp_code_1 = this.cpp_code;
-                          String _generateSensorCode = this.cpp_gen.generateSensorCode(this.s);
-                          this.cpp_code = (_cpp_code_1 + _generateSensorCode);
+                          this.h_variables = this.h_gen.generateDefineCode(this.h_variables);
+                          this.h_code = this.h_gen.generateMethodsCode(this.h_code);
+                          this.cpp_code = this.cpp_gen.generateSensorCode(this.s, this.cpp_code);
                           this.generated_elements.add("dht22");
                         }
                       }

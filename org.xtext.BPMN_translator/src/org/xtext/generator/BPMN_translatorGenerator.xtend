@@ -438,7 +438,7 @@ def fillSuccessors(String my_id, Resource r){
 								{
 									if(isSubProcess(Singleton.value.get(j),r))
 									{
-										System.out.println("subprocess");
+										
 										
 										getSubStartEvents(Singleton.value.get(j),r);
 										var app = j;
@@ -530,6 +530,9 @@ def fillSuccessors(String my_id, Resource r){
 											successors.add(Singleton.value.get(j));
 											fillSuccessors(Singleton.value.get(j),r);
 										}
+										
+										
+										
 										
 									}
 									
@@ -655,7 +658,9 @@ def fillSuccessors(String my_id, Resource r){
 											successors.add(Open.value.get(j));
 											fillSuccessors(Open.value.get(j),r);
 										}
-							
+										
+										
+										
 									}	
 								}
 								j++;
@@ -695,7 +700,25 @@ def fillSuccessors(String my_id, Resource r){
 	
 	
 }
-
+def AdjustOrder(){
+	var element = "";
+	var ok = false;
+	for (var y = 0; y < successors.size(); y++)
+	{
+		if (successors.get(y).contains("_else") && !successors.get(y-1).equals("end_condition"))
+		{
+			ok = true;
+			element = successors.get(y-1);
+			successors.remove(y-1);
+			var k = y;
+			for (k = y; !successors.get(k).equals("end_condition"); k++)
+			 	ok = true;
+			successors.add(k+1,element);
+		}
+	}
+	if (ok)
+		AdjustOrder();
+}
 def isForkParallel(String id, Resource r){
 	var outgoing = 0;
 	var y = 0;
@@ -760,7 +783,9 @@ def isForkParallel(String id, Resource r){
 	}
 	if (outgoing <= 1)
 	{
+		
 		return true;
+		
 	}
 	return false;
 }
@@ -994,6 +1019,7 @@ def setDataStructure(Resource r){
 	{
 		fillSuccessors(start,r);
 		Reset();
+		AdjustOrder();
 	}
 		for (element : successors)
 			setDatas(r,element);
@@ -1109,10 +1135,10 @@ def setDatas(Resource r, String successor_id){
 											}
 											if (!generated_elements.contains("mqtt"))
 											{
-												h_variables += h_gen.generateDefineCode();
-												h_code += h_gen.generateMethodsCode();
-												cpp_variables += cpp_gen.generateProtocolVariables(netdata);
-												cpp_code += cpp_gen.generateProtocolCode(netdata);
+												h_variables = h_gen.generateDefineCode(h_variables);
+												h_code = h_gen.generateMethodsCode(h_code);
+												cpp_variables = cpp_gen.generateProtocolVariables(netdata, cpp_variables);
+												cpp_code = cpp_gen.generateProtocolCode(netdata, cpp_code);
 												generated_elements.add("mqtt")
 											}
 										}
@@ -1142,9 +1168,9 @@ def setDatas(Resource r, String successor_id){
 											if (!generated_elements.contains("dht22"))
 											{
 												h_gen.sensor = "dht22";
-												h_variables += h_gen.generateDefineCode();
-												h_code += h_gen.generateMethodsCode();
-												cpp_code += cpp_gen.generateSensorCode(s);
+												h_variables = h_gen.generateDefineCode(h_variables);
+												h_code = h_gen.generateMethodsCode(h_code);
+												cpp_code = cpp_gen.generateSensorCode(s, cpp_code);
 												generated_elements.add("dht22")
 											}
 										}

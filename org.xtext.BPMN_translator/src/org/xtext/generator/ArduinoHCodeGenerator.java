@@ -26,64 +26,80 @@ public class ArduinoHCodeGenerator {
 	}
 	public String Generation() {
 		String result="";
-		result += generateDefineCode();
-		result += generateMethodsCode();
+		result += generateDefineCode(result);
+		result += generateMethodsCode(result);
 		return result;
 	}
-	public String generateDefineCode(){
+	public String generateDefineCode(String code){
 		String result = "";
 		
 		result  +="#ifndef GeneratedLib_H //tests if RACom_H has not been defined\r\n"
 				+ "#define GeneratedLib_H //define GeneratedLib_H\n"
 				+ "#include \"Arduino.h\"        //includes the library Arduino.h\r\n"
 				+ "#include \"SoftwareSerial.h\" //Includes the library SoftwareSerial.h \n";
+		if (!code.contains(result))
+			code += result;
+		
 		switch (sensor) 
 		{
 			case "DHT22 (AM2302)":
+				result = "";
 				result += 
 				"#include <DHT.h>\\r\\n\"\r\n"
 				+ "//Costanti\\r\\n\"\r\n"
 				+ "#define DHTPIN 8   //Pin a cui è connesso il sensore\\r\\n\"\r\n"
-				+ "#define DHTTYPE DHT22   //Tipo di sensore che stiamo utilizzando (DHT22)\\r\n\"\r\n"
-				;
+				+ "#define DHTTYPE DHT22   //Tipo di sensore che stiamo utilizzando (DHT22)\\r\n\"\r\n";
+				if (!code.contains(result))
+					code+= result;
 				break;
 			default: 
-				System.out.println("No code generation for sensor: " + sensor);
+				break;
 		}
 		switch (protocol) 
 		{
 			case "mqtt":
+				result = "";
 				result += "#include <Ethernet.h>\r\n"
 						+ "#include <PubSubClient.h>\n"
 						+ "#include <WiFiClient.h>\n";
+				if (!code.contains(result))
+					code+= result;
 				break;
 			default: 
-				System.out.println("No code generation for protocol: " + protocol);
+				break;
 		}
 		switch (wifi_module)
 		{
 			case "esp8266":
+				result = "";
 				result += "#include <ESP8266WiFiMulti.h>\n"
 				+ "#include <ESP8266WiFi.h>\n";
+				if (!code.contains(result))
+					code+= result;
 				break;
 			case "esp32":
+				result = "";
 				result += "#include <Wire.h>\n";
+				if (!code.contains(result))
+					code+= result;
 				break;
 			default: 
-				System.out.println("No code generation for this module");
+				break;
 		}
 		
-		return result;
+		return code;
 	}
-	String generateMethodsCode() {
+	String generateMethodsCode(String code) {
 		String result = "";
 		result+="\nclass GeneratedLib\n"
 		+ "{\n"
 		+ "private:\n";
-		
+		if (!code.contains(result))
+			code+= result;
 		switch(protocol)
 		{
 			case "mqtt":
+				result = "";
 				Object protocol;
 				if (o == null)
 					protocol = new MQTT(wifi_module);
@@ -91,17 +107,21 @@ public class ArduinoHCodeGenerator {
 					protocol = o;
 				
 				result += ((MQTT) protocol).getHCode();	
+				if (!code.contains(result))
+					code+= result;
 		}
 		switch(sensor)
 		{
 		case "dht22":
+			result = "";
 			Object sensor;
 			
 			sensor = new TemperatureSensor();
 			result+= ((TemperatureSensor)sensor).GetDHT22HCode();
-			
+			if (!code.contains(result))
+				code+= result;
 		}
-		return result;
+		return code;
 	}
 	public void setProtocol(Object o) {
 		this.o = o;

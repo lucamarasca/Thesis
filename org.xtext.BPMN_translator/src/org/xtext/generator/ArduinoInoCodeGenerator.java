@@ -63,7 +63,7 @@ public class ArduinoInoCodeGenerator {
 				GenerateVariables(elements,i);
 				GenerateSetupCode(elements,i);
 				GenerateLoopCode(elements,i);
-				includes+="#include<GeneratedLib.ino>\n\nGeneratedLib my_lib;\n\n";
+				includes+="#include<GeneratedLib.h>\n\nGeneratedLib my_lib;\n\n";
 				intestation+= "void setup()\n{\n\n";
 				intestation+= setup_code;
 				intestation+= "\n}\n\n";
@@ -254,6 +254,7 @@ public class ArduinoInoCodeGenerator {
 					}
 					else if(con.isElse)
 					{
+						tabulations++;
 						temp += "\nelse ";
 						Condition cond = (Condition) elements.get(n);
 						temp += "if("+cond.getMapped_condition() + ")\n";
@@ -286,7 +287,7 @@ public class ArduinoInoCodeGenerator {
 					else
 						loop_code+= temp;
 					temp = "";
-					if (tabulations > 1 && elements.get(n).getType().equals("end_condition_end") )
+					if (tabulations > 0 )
 						tabulations --;
 				}
 				if( elements.get(n).getType().equals("inclusive_condition"))
@@ -322,6 +323,7 @@ public class ArduinoInoCodeGenerator {
 						else
 							loop_code+= temp;
 						temp = "";
+						tabulations++;
 					}
 				}
 				if( elements.get(n).getType().equals("loop_condition"))
@@ -356,6 +358,7 @@ public class ArduinoInoCodeGenerator {
 						else
 							loop_code+= temp;
 						temp = "";
+						tabulations++;
 					}
 				}
 				if( elements.get(n).getType().equals("thread"))
@@ -371,7 +374,15 @@ public class ArduinoInoCodeGenerator {
 						{
 							temp = temp.replaceAll("(?m)^", "\t");
 						}
-						loop_code += temp;
+						if (!loop_code.contains("xTaskCreate") || loop_code.lastIndexOf("if(") > loop_code.lastIndexOf("128, NULL, 1, NULL);")+20 || loop_code.lastIndexOf("while(") > loop_code.lastIndexOf("128, NULL, 1, NULL);")+20)
+							loop_code += temp;
+						else
+						{
+						
+							
+							String str = new StringBuilder(loop_code).insert(loop_code.lastIndexOf("128, NULL, 1, NULL);")+20,"\n"+temp).toString();
+							loop_code = str;
+						}
 					}
 					else if (opened_threads.size() > 0)
 					{
@@ -381,7 +392,17 @@ public class ArduinoInoCodeGenerator {
 						{
 							temp = temp.replaceAll("(?m)^", "\t");
 						}
-						opened_threads.get(opened_threads.size()-2).addBody(temp);
+						if (!loop_code.contains("xTaskCreate") || loop_code.lastIndexOf("if(") > loop_code.lastIndexOf("128, NULL, 1, NULL);")+20 || loop_code.lastIndexOf("while(") > loop_code.lastIndexOf("128, NULL, 1, NULL);")+20)
+
+						if (!opened_threads.get(opened_threads.size()-2).getBody().contains("xTaskCreate") || opened_threads.get(opened_threads.size()-2).getBody().lastIndexOf("if(") > loop_code.lastIndexOf("128, NULL, 1, NULL);")+20 || opened_threads.get(opened_threads.size()-2).getBody().lastIndexOf("while(") > loop_code.lastIndexOf("128, NULL, 1, NULL);")+20 )
+							opened_threads.get(opened_threads.size()-2).addBody(temp);
+						else
+						{
+							
+							String str = new StringBuilder(opened_threads.get(opened_threads.size()-2).getBody()).insert(opened_threads.get(opened_threads.size()-2).getBody().indexOf("\txTaskCreate"),temp).toString();
+							opened_threads.get(opened_threads.size()-2).addBody(str);
+						}
+						
 					}
 					temp = "";
 				}

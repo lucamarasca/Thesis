@@ -66,29 +66,32 @@ public class ArduinoCPPCodeGenerator {
 				return "no protocol";
 		}
 	}
-	public String generateProtocolVariables(Elements e)
+	public String generateProtocolVariables(Elements e, String variables_code)
 	{
 		switch (e.type) {
 		case "mqtt":
 			MQTT protocol = (MQTT) e;
-			return protocol.getCPPVariables();
+			if (!variables_code.contains(protocol.getCPPVariables())) 
+					return protocol.getCPPVariables();
 		}
 		return "";
 	}
-	public String generateProtocolCode(Elements e) {
+	public String generateProtocolCode(Elements e, String protocol_code) {
 		switch (e.type) {
 		case "mqtt":
 			MQTT protocol = (MQTT) e;
-			return protocol.getCPPCode();
+			if (!protocol_code.contains(protocol.getCPPCode())) 
+				return protocol.getCPPCode();
 		}
 		return "";
 	}
-	public String generateSensorCode(Elements e)
+	public String generateSensorCode(Elements e, String sensor_code)
 	{
 		switch (e.type) {
 		case "dht22":
 			TemperatureSensor sensor= (TemperatureSensor) e;
-			return sensor.getCPPCode();
+			if (!sensor_code.contains(sensor.getCPPCode())) 
+				return sensor.getCPPCode();
 		}
 		return "";
 	}

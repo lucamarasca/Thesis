@@ -15,6 +15,7 @@ import java.io.File;
 import java.util.Vector;
 
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -323,7 +324,7 @@ public class Gui implements ActionListener, DocumentListener {
 	   
 	    frame.setContentPane(main_view);
 	    
-	    
+	   
 	    frame.setVisible(true);
 	}
 	
