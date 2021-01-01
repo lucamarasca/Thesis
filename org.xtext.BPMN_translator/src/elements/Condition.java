@@ -34,6 +34,7 @@ public class Condition extends Elements{
 		conditions_dictionary.put("&gt;",">");
 		conditions_dictionary.put("&le;","<=");
 		conditions_dictionary.put("&ge;",">=");
+		conditions_dictionary.put("&amp;","&");
 		variables_dictionary = new HashMap<String, String>();
 		variables_dictionary.put("TEMPERATURE", "temp");
 		variables_dictionary.put("HUMIDITY", "hum");

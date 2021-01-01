@@ -1,5 +1,6 @@
 package org.xtext.generator;
 
+import network.protocols.HTTP;
 import network.protocols.MQTT;
 import sensor.devices.TemperatureSensor;
 
@@ -25,10 +26,10 @@ public class ArduinoHCodeGenerator {
 		this.sensor = ""; 
 	}
 	public String Generation() {
-		String result="";
-		result += generateDefineCode(result);
-		result += generateMethodsCode(result);
-		return result;
+		String return_value="";
+		return_value = generateDefineCode(return_value);
+		return_value = generateMethodsCode(return_value);
+		return return_value;
 	}
 	public String generateDefineCode(String code){
 		String result = "";
@@ -65,6 +66,12 @@ public class ArduinoHCodeGenerator {
 				if (!code.contains(result))
 					code+= result;
 				break;
+			case "http":
+				result = "";
+				result += "#include <Ethernet.h>\r\n"
+						+ "#include <HTTPClient.h>\n"
+						+ "#include <WiFiClient.h>\n";
+				break;
 			default: 
 				break;
 		}
@@ -79,7 +86,9 @@ public class ArduinoHCodeGenerator {
 				break;
 			case "esp32":
 				result = "";
-				result += "#include <Wire.h>\n";
+				result += "#include <Wire.h>\n"
+						+ "#include <WiFi.h>\n"
+						+ "#include <WiFiMulti.h>\n";
 				if (!code.contains(result))
 					code+= result;
 				break;
@@ -109,6 +118,19 @@ public class ArduinoHCodeGenerator {
 				result += ((MQTT) protocol).getHCode();	
 				if (!code.contains(result))
 					code+= result;
+				break;
+			case "http":
+				result = "";
+				Object http_protocol;
+				if (o == null)
+					http_protocol = new HTTP(wifi_module);
+				else 
+					http_protocol = o;
+				
+				result += ((HTTP) http_protocol).getHCode();	
+				if (!code.contains(result))
+					code+= result;
+				break;
 		}
 		switch(sensor)
 		{
@@ -120,6 +142,7 @@ public class ArduinoHCodeGenerator {
 			result+= ((TemperatureSensor)sensor).GetDHT22HCode();
 			if (!code.contains(result))
 				code+= result;
+			break;
 		}
 		return code;
 	}

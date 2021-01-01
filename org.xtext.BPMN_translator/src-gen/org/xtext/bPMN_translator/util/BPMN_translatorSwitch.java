@@ -143,6 +143,13 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case BPMN_translatorPackage.HTTP_DATA:
+      {
+        http_data http_data = (http_data)theEObject;
+        T result = casehttp_data(http_data);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case BPMN_translatorPackage.MQTT_DATA:
       {
         mqtt_data mqtt_data = (mqtt_data)theEObject;
@@ -338,6 +345,22 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseprotocol(protocol object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>http data</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>http data</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casehttp_data(http_data object)
   {
     return null;
   }

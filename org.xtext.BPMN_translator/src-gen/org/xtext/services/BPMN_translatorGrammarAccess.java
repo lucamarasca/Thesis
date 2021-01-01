@@ -558,15 +558,15 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final Keyword cGeKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		private final Keyword cGtKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		private final Keyword cEqualsSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
-		private final Keyword cAmpersandAmpersandKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cAmpKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
 		private final Keyword cVerticalLineVerticalLineKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
 		
 		//conditions:
-		//	"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&&" | "||" | ")";
+		//	"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&amp;" | "||" | ")";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&&" | "||" | ")"
+		//"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&amp;" | "||" | ")"
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//"&lt;"
@@ -584,8 +584,8 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//"="
 		public Keyword getEqualsSignKeyword_4() { return cEqualsSignKeyword_4; }
 		
-		//"&&"
-		public Keyword getAmpersandAmpersandKeyword_5() { return cAmpersandAmpersandKeyword_5; }
+		//"&amp;"
+		public Keyword getAmpKeyword_5() { return cAmpKeyword_5; }
 		
 		//"||"
 		public Keyword getVerticalLineVerticalLineKeyword_6() { return cVerticalLineVerticalLineKeyword_6; }
@@ -693,51 +693,257 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	}
 	public class ProtocolElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.protocol");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cPnameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cPnameMQTTKeyword_0_0 = (Keyword)cPnameAssignment_0.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cMqtt_dataAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final RuleCall cMqtt_dataMqtt_dataParserRuleCall_2_0_0 = (RuleCall)cMqtt_dataAssignment_2_0.eContents().get(0);
-		private final Assignment cMqtt_deviceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cMqtt_deviceMqtt_deviceParserRuleCall_2_1_0 = (RuleCall)cMqtt_deviceAssignment_2_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cPnameAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final Keyword cPnameMQTTKeyword_0_0_0 = (Keyword)cPnameAssignment_0_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Group cGroup_0_2 = (Group)cGroup_0.eContents().get(2);
+		private final Assignment cMqtt_dataAssignment_0_2_0 = (Assignment)cGroup_0_2.eContents().get(0);
+		private final RuleCall cMqtt_dataMqtt_dataParserRuleCall_0_2_0_0 = (RuleCall)cMqtt_dataAssignment_0_2_0.eContents().get(0);
+		private final Assignment cMqtt_deviceAssignment_0_2_1 = (Assignment)cGroup_0_2.eContents().get(1);
+		private final RuleCall cMqtt_deviceMqtt_deviceParserRuleCall_0_2_1_0 = (RuleCall)cMqtt_deviceAssignment_0_2_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cPnameAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cPnameHTTPKeyword_1_0_0 = (Keyword)cPnameAssignment_1_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
+		private final Assignment cHttp_dataAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
+		private final RuleCall cHttp_dataHttp_dataParserRuleCall_1_2_0_0 = (RuleCall)cHttp_dataAssignment_1_2_0.eContents().get(0);
+		private final Assignment cMqtt_deviceAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cMqtt_deviceMqtt_deviceParserRuleCall_1_2_1_0 = (RuleCall)cMqtt_deviceAssignment_1_2_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
 		
 		//protocol:
 		//	pname+="MQTT" "{" (mqtt_data+=mqtt_data
+		//	mqtt_device+=mqtt_device) "}" | pname+="HTTP" "{" (http_data+=http_data
 		//	mqtt_device+=mqtt_device) "}";
 		@Override public ParserRule getRule() { return rule; }
 		
+		//pname+="MQTT" "{" (mqtt_data+=mqtt_data mqtt_device+=mqtt_device) "}" | pname+="HTTP" "{" (http_data+=http_data
+		//mqtt_device+=mqtt_device) "}"
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
 		//pname+="MQTT" "{" (mqtt_data+=mqtt_data mqtt_device+=mqtt_device) "}"
-		public Group getGroup() { return cGroup; }
+		public Group getGroup_0() { return cGroup_0; }
 		
 		//pname+="MQTT"
-		public Assignment getPnameAssignment_0() { return cPnameAssignment_0; }
+		public Assignment getPnameAssignment_0_0() { return cPnameAssignment_0_0; }
 		
 		//"MQTT"
-		public Keyword getPnameMQTTKeyword_0_0() { return cPnameMQTTKeyword_0_0; }
+		public Keyword getPnameMQTTKeyword_0_0_0() { return cPnameMQTTKeyword_0_0_0; }
 		
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		public Keyword getLeftCurlyBracketKeyword_0_1() { return cLeftCurlyBracketKeyword_0_1; }
 		
 		//(mqtt_data+=mqtt_data mqtt_device+=mqtt_device)
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_0_2() { return cGroup_0_2; }
 		
 		//mqtt_data+=mqtt_data
-		public Assignment getMqtt_dataAssignment_2_0() { return cMqtt_dataAssignment_2_0; }
+		public Assignment getMqtt_dataAssignment_0_2_0() { return cMqtt_dataAssignment_0_2_0; }
 		
 		//mqtt_data
-		public RuleCall getMqtt_dataMqtt_dataParserRuleCall_2_0_0() { return cMqtt_dataMqtt_dataParserRuleCall_2_0_0; }
+		public RuleCall getMqtt_dataMqtt_dataParserRuleCall_0_2_0_0() { return cMqtt_dataMqtt_dataParserRuleCall_0_2_0_0; }
 		
 		//mqtt_device+=mqtt_device
-		public Assignment getMqtt_deviceAssignment_2_1() { return cMqtt_deviceAssignment_2_1; }
+		public Assignment getMqtt_deviceAssignment_0_2_1() { return cMqtt_deviceAssignment_0_2_1; }
 		
 		//mqtt_device
-		public RuleCall getMqtt_deviceMqtt_deviceParserRuleCall_2_1_0() { return cMqtt_deviceMqtt_deviceParserRuleCall_2_1_0; }
+		public RuleCall getMqtt_deviceMqtt_deviceParserRuleCall_0_2_1_0() { return cMqtt_deviceMqtt_deviceParserRuleCall_0_2_1_0; }
 		
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+		public Keyword getRightCurlyBracketKeyword_0_3() { return cRightCurlyBracketKeyword_0_3; }
+		
+		//pname+="HTTP" "{" (http_data+=http_data mqtt_device+=mqtt_device) "}"
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//pname+="HTTP"
+		public Assignment getPnameAssignment_1_0() { return cPnameAssignment_1_0; }
+		
+		//"HTTP"
+		public Keyword getPnameHTTPKeyword_1_0_0() { return cPnameHTTPKeyword_1_0_0; }
+		
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1_1() { return cLeftCurlyBracketKeyword_1_1; }
+		
+		//(http_data+=http_data mqtt_device+=mqtt_device)
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//http_data+=http_data
+		public Assignment getHttp_dataAssignment_1_2_0() { return cHttp_dataAssignment_1_2_0; }
+		
+		//http_data
+		public RuleCall getHttp_dataHttp_dataParserRuleCall_1_2_0_0() { return cHttp_dataHttp_dataParserRuleCall_1_2_0_0; }
+		
+		//mqtt_device+=mqtt_device
+		public Assignment getMqtt_deviceAssignment_1_2_1() { return cMqtt_deviceAssignment_1_2_1; }
+		
+		//mqtt_device
+		public RuleCall getMqtt_deviceMqtt_deviceParserRuleCall_1_2_1_0() { return cMqtt_deviceMqtt_deviceParserRuleCall_1_2_1_0; }
+		
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_1_3() { return cRightCurlyBracketKeyword_1_3; }
+	}
+	public class Http_dataElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.http_data");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cHttp_dataAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Keyword cNAMEKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cPnameAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cPnameSTRINGTerminalRuleCall_1_0_2_0 = (RuleCall)cPnameAssignment_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Keyword cSERVER_IPKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Assignment cServer_ipAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cServer_ipSTRINGTerminalRuleCall_1_1_2_0 = (RuleCall)cServer_ipAssignment_1_1_2.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
+		private final Keyword cREQUEST_TYPEKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
+		private final Assignment cRequest_typeAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cRequest_typeSTRINGTerminalRuleCall_1_2_2_0 = (RuleCall)cRequest_typeAssignment_1_2_2.eContents().get(0);
+		private final Group cGroup_1_3 = (Group)cAlternatives_1.eContents().get(3);
+		private final Keyword cCONTENT_TYPEKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Assignment cContent_typeAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
+		private final RuleCall cContent_typeSTRINGTerminalRuleCall_1_3_1_0 = (RuleCall)cContent_typeAssignment_1_3_1.eContents().get(0);
+		private final Group cGroup_1_4 = (Group)cAlternatives_1.eContents().get(4);
+		private final Keyword cHEADERKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
+		private final Assignment cHeaderAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
+		private final RuleCall cHeaderSTRINGTerminalRuleCall_1_4_1_0 = (RuleCall)cHeaderAssignment_1_4_1.eContents().get(0);
+		private final Group cGroup_1_5 = (Group)cAlternatives_1.eContents().get(5);
+		private final Keyword cDATAKeyword_1_5_0 = (Keyword)cGroup_1_5.eContents().get(0);
+		private final Assignment cDataAssignment_1_5_1 = (Assignment)cGroup_1_5.eContents().get(1);
+		private final RuleCall cDataSTRINGTerminalRuleCall_1_5_1_0 = (RuleCall)cDataAssignment_1_5_1.eContents().get(0);
+		private final Group cGroup_1_6 = (Group)cAlternatives_1.eContents().get(6);
+		private final Keyword cNETWORKKeyword_1_6_0 = (Keyword)cGroup_1_6.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1_6_1 = (Keyword)cGroup_1_6.eContents().get(1);
+		private final Assignment cMqtt_network_dataAssignment_1_6_2 = (Assignment)cGroup_1_6.eContents().get(2);
+		private final RuleCall cMqtt_network_dataMqtt_network_dataParserRuleCall_1_6_2_0 = (RuleCall)cMqtt_network_dataAssignment_1_6_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_6_3 = (Keyword)cGroup_1_6.eContents().get(3);
+		
+		//http_data:
+		//	{http_data} ("NAME" "=" pname+=STRING | "SERVER_IP" "=" server_ip+=STRING
+		//	| "REQUEST_TYPE" "=" request_type+=STRING
+		//	| "CONTENT_TYPE" content_type+=STRING
+		//	| "HEADER" header+=STRING
+		//	| "DATA" data+=STRING
+		//	| "NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}")*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{http_data} ("NAME" "=" pname+=STRING | "SERVER_IP" "=" server_ip+=STRING | "REQUEST_TYPE" "=" request_type+=STRING |
+		//"CONTENT_TYPE" content_type+=STRING | "HEADER" header+=STRING | "DATA" data+=STRING | "NETWORK" "{"
+		//mqtt_network_data+=mqtt_network_data* "}")*
+		public Group getGroup() { return cGroup; }
+		
+		//{http_data}
+		public Action getHttp_dataAction_0() { return cHttp_dataAction_0; }
+		
+		//("NAME" "=" pname+=STRING | "SERVER_IP" "=" server_ip+=STRING | "REQUEST_TYPE" "=" request_type+=STRING | "CONTENT_TYPE"
+		//content_type+=STRING | "HEADER" header+=STRING | "DATA" data+=STRING | "NETWORK" "{"
+		//mqtt_network_data+=mqtt_network_data* "}")*
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//"NAME" "=" pname+=STRING
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//"NAME"
+		public Keyword getNAMEKeyword_1_0_0() { return cNAMEKeyword_1_0_0; }
+		
+		//"="
+		public Keyword getEqualsSignKeyword_1_0_1() { return cEqualsSignKeyword_1_0_1; }
+		
+		//pname+=STRING
+		public Assignment getPnameAssignment_1_0_2() { return cPnameAssignment_1_0_2; }
+		
+		//STRING
+		public RuleCall getPnameSTRINGTerminalRuleCall_1_0_2_0() { return cPnameSTRINGTerminalRuleCall_1_0_2_0; }
+		
+		//"SERVER_IP" "=" server_ip+=STRING
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//"SERVER_IP"
+		public Keyword getSERVER_IPKeyword_1_1_0() { return cSERVER_IPKeyword_1_1_0; }
+		
+		//"="
+		public Keyword getEqualsSignKeyword_1_1_1() { return cEqualsSignKeyword_1_1_1; }
+		
+		//server_ip+=STRING
+		public Assignment getServer_ipAssignment_1_1_2() { return cServer_ipAssignment_1_1_2; }
+		
+		//STRING
+		public RuleCall getServer_ipSTRINGTerminalRuleCall_1_1_2_0() { return cServer_ipSTRINGTerminalRuleCall_1_1_2_0; }
+		
+		//"REQUEST_TYPE" "=" request_type+=STRING
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//"REQUEST_TYPE"
+		public Keyword getREQUEST_TYPEKeyword_1_2_0() { return cREQUEST_TYPEKeyword_1_2_0; }
+		
+		//"="
+		public Keyword getEqualsSignKeyword_1_2_1() { return cEqualsSignKeyword_1_2_1; }
+		
+		//request_type+=STRING
+		public Assignment getRequest_typeAssignment_1_2_2() { return cRequest_typeAssignment_1_2_2; }
+		
+		//STRING
+		public RuleCall getRequest_typeSTRINGTerminalRuleCall_1_2_2_0() { return cRequest_typeSTRINGTerminalRuleCall_1_2_2_0; }
+		
+		//"CONTENT_TYPE" content_type+=STRING
+		public Group getGroup_1_3() { return cGroup_1_3; }
+		
+		//"CONTENT_TYPE"
+		public Keyword getCONTENT_TYPEKeyword_1_3_0() { return cCONTENT_TYPEKeyword_1_3_0; }
+		
+		//content_type+=STRING
+		public Assignment getContent_typeAssignment_1_3_1() { return cContent_typeAssignment_1_3_1; }
+		
+		//STRING
+		public RuleCall getContent_typeSTRINGTerminalRuleCall_1_3_1_0() { return cContent_typeSTRINGTerminalRuleCall_1_3_1_0; }
+		
+		//"HEADER" header+=STRING
+		public Group getGroup_1_4() { return cGroup_1_4; }
+		
+		//"HEADER"
+		public Keyword getHEADERKeyword_1_4_0() { return cHEADERKeyword_1_4_0; }
+		
+		//header+=STRING
+		public Assignment getHeaderAssignment_1_4_1() { return cHeaderAssignment_1_4_1; }
+		
+		//STRING
+		public RuleCall getHeaderSTRINGTerminalRuleCall_1_4_1_0() { return cHeaderSTRINGTerminalRuleCall_1_4_1_0; }
+		
+		//"DATA" data+=STRING
+		public Group getGroup_1_5() { return cGroup_1_5; }
+		
+		//"DATA"
+		public Keyword getDATAKeyword_1_5_0() { return cDATAKeyword_1_5_0; }
+		
+		//data+=STRING
+		public Assignment getDataAssignment_1_5_1() { return cDataAssignment_1_5_1; }
+		
+		//STRING
+		public RuleCall getDataSTRINGTerminalRuleCall_1_5_1_0() { return cDataSTRINGTerminalRuleCall_1_5_1_0; }
+		
+		//"NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}"
+		public Group getGroup_1_6() { return cGroup_1_6; }
+		
+		//"NETWORK"
+		public Keyword getNETWORKKeyword_1_6_0() { return cNETWORKKeyword_1_6_0; }
+		
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1_6_1() { return cLeftCurlyBracketKeyword_1_6_1; }
+		
+		//mqtt_network_data+=mqtt_network_data*
+		public Assignment getMqtt_network_dataAssignment_1_6_2() { return cMqtt_network_dataAssignment_1_6_2; }
+		
+		//mqtt_network_data
+		public RuleCall getMqtt_network_dataMqtt_network_dataParserRuleCall_1_6_2_0() { return cMqtt_network_dataMqtt_network_dataParserRuleCall_1_6_2_0; }
+		
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_1_6_3() { return cRightCurlyBracketKeyword_1_6_3; }
 	}
 	public class Mqtt_dataElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.mqtt_data");
@@ -1214,6 +1420,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	private final CodexElements pCodex;
 	private final DeviceElements pDevice;
 	private final ProtocolElements pProtocol;
+	private final Http_dataElements pHttp_data;
 	private final Mqtt_dataElements pMqtt_data;
 	private final Mqtt_network_dataElements pMqtt_network_data;
 	private final Mqtt_deviceElements pMqtt_device;
@@ -1246,6 +1453,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		this.pCodex = new CodexElements();
 		this.pDevice = new DeviceElements();
 		this.pProtocol = new ProtocolElements();
+		this.pHttp_data = new Http_dataElements();
 		this.pMqtt_data = new Mqtt_dataElements();
 		this.pMqtt_network_data = new Mqtt_network_dataElements();
 		this.pMqtt_device = new Mqtt_deviceElements();
@@ -1380,7 +1588,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	}
 	
 	//conditions:
-	//	"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&&" | "||" | ")";
+	//	"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&amp;" | "||" | ")";
 	public ConditionsElements getConditionsAccess() {
 		return pConditions;
 	}
@@ -1422,6 +1630,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	
 	//protocol:
 	//	pname+="MQTT" "{" (mqtt_data+=mqtt_data
+	//	mqtt_device+=mqtt_device) "}" | pname+="HTTP" "{" (http_data+=http_data
 	//	mqtt_device+=mqtt_device) "}";
 	public ProtocolElements getProtocolAccess() {
 		return pProtocol;
@@ -1429,6 +1638,21 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	
 	public ParserRule getProtocolRule() {
 		return getProtocolAccess().getRule();
+	}
+	
+	//http_data:
+	//	{http_data} ("NAME" "=" pname+=STRING | "SERVER_IP" "=" server_ip+=STRING
+	//	| "REQUEST_TYPE" "=" request_type+=STRING
+	//	| "CONTENT_TYPE" content_type+=STRING
+	//	| "HEADER" header+=STRING
+	//	| "DATA" data+=STRING
+	//	| "NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}")*;
+	public Http_dataElements getHttp_dataAccess() {
+		return pHttp_data;
+	}
+	
+	public ParserRule getHttp_dataRule() {
+		return getHttp_dataAccess().getRule();
 	}
 	
 	//mqtt_data:

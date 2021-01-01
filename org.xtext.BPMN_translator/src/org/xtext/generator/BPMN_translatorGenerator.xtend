@@ -138,9 +138,9 @@ def FillGatewayType(){
 				iterations++;
 			}
 			//.h lib file generation
-			fsa.generateFile("GeneratedLib.h" ,  h_variables + h_code + "};\n#endif")
+			fsa.generateFile("GeneratedLib.h" , h_variables + h_code + "};\n#endif")
 	        //.cpp lib file generation
-	        fsa.generateFile("GeneratedLib.cpp" ,cpp_variables + cpp_code)
+	        fsa.generateFile("GeneratedLib.cpp" , "#include<GeneratedLib.h>\n" + cpp_variables + cpp_code)
 	        
 	        
         }
@@ -152,13 +152,13 @@ def FillGatewayType(){
 			
 			//.h lib file generation
 			h_gen = new ArduinoHCodeGenerator(Parameters.selected_sensor,Parameters.selected_protocol,Parameters.selected_wifisensor);			
-			fsa.generateFile("GeneratedLib.h" , "//+++++++++NO SOURCE BPMN SELECTED"+ 
-				ArduinoCodeGenerationH())
+			fsa.generateFile("GeneratedLib.h" , "//+++++++++NO SOURCE BPMN SELECTED++++++++++++++++++++++\n"+ 
+				ArduinoCodeGenerationH() + "};\n#endif")
 			
 	        //.cpp lib file generation
 	        cpp_gen = new ArduinoCPPCodeGenerator(Parameters.selected_device , Parameters.selected_protocol, Parameters.selected_wifisensor, Parameters.selected_sensor); 
-	        fsa.generateFile("GeneratedLib.cpp" ,"//+++++++++NO SOURCE BPMN SELECTED"+
-	        	ArduinoCodeGenerationCPP()
+	        fsa.generateFile("GeneratedLib.cpp" ,"//+++++++++NO SOURCE BPMN SELECTED+++++++++++++++++++++\n"+
+	        	"#include<GeneratedLib.h>\n" +ArduinoCodeGenerationCPP()
 	        )
         }
         

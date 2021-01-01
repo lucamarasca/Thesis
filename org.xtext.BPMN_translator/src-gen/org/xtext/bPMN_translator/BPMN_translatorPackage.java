@@ -491,13 +491,104 @@ public interface BPMN_translatorPackage extends EPackage
   int PROTOCOL__MQTT_DEVICE = 2;
 
   /**
+   * The feature id for the '<em><b>Http data</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL__HTTP_DATA = 3;
+
+  /**
    * The number of structural features of the '<em>protocol</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROTOCOL_FEATURE_COUNT = 3;
+  int PROTOCOL_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.http_dataImpl <em>http data</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.bPMN_translator.impl.http_dataImpl
+   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#gethttp_data()
+   * @generated
+   */
+  int HTTP_DATA = 10;
+
+  /**
+   * The feature id for the '<em><b>Pname</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HTTP_DATA__PNAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Server ip</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HTTP_DATA__SERVER_IP = 1;
+
+  /**
+   * The feature id for the '<em><b>Request type</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HTTP_DATA__REQUEST_TYPE = 2;
+
+  /**
+   * The feature id for the '<em><b>Content type</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HTTP_DATA__CONTENT_TYPE = 3;
+
+  /**
+   * The feature id for the '<em><b>Header</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HTTP_DATA__HEADER = 4;
+
+  /**
+   * The feature id for the '<em><b>Data</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HTTP_DATA__DATA = 5;
+
+  /**
+   * The feature id for the '<em><b>Mqtt network data</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HTTP_DATA__MQTT_NETWORK_DATA = 6;
+
+  /**
+   * The number of structural features of the '<em>http data</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HTTP_DATA_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link org.xtext.bPMN_translator.impl.mqtt_dataImpl <em>mqtt data</em>}' class.
@@ -507,7 +598,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getmqtt_data()
    * @generated
    */
-  int MQTT_DATA = 10;
+  int MQTT_DATA = 11;
 
   /**
    * The feature id for the '<em><b>Pname</b></em>' attribute list.
@@ -598,7 +689,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getmqtt_network_data()
    * @generated
    */
-  int MQTT_NETWORK_DATA = 11;
+  int MQTT_NETWORK_DATA = 12;
 
   /**
    * The feature id for the '<em><b>Ssid</b></em>' attribute list.
@@ -635,7 +726,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getmqtt_device()
    * @generated
    */
-  int MQTT_DEVICE = 12;
+  int MQTT_DEVICE = 13;
 
   /**
    * The feature id for the '<em><b>Dname</b></em>' attribute list.
@@ -663,7 +754,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getsensor()
    * @generated
    */
-  int SENSOR = 13;
+  int SENSOR = 14;
 
   /**
    * The feature id for the '<em><b>Sname</b></em>' attribute list.
@@ -700,7 +791,7 @@ public interface BPMN_translatorPackage extends EPackage
    * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getsensor_data()
    * @generated
    */
-  int SENSOR_DATA = 14;
+  int SENSOR_DATA = 15;
 
   /**
    * The feature id for the '<em><b>Pname</b></em>' attribute list.
@@ -1146,6 +1237,104 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    */
   EReference getprotocol_Mqtt_device();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.protocol#getHttp_data <em>Http data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Http data</em>'.
+   * @see org.xtext.bPMN_translator.protocol#getHttp_data()
+   * @see #getprotocol()
+   * @generated
+   */
+  EReference getprotocol_Http_data();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.bPMN_translator.http_data <em>http data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>http data</em>'.
+   * @see org.xtext.bPMN_translator.http_data
+   * @generated
+   */
+  EClass gethttp_data();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.http_data#getPname <em>Pname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Pname</em>'.
+   * @see org.xtext.bPMN_translator.http_data#getPname()
+   * @see #gethttp_data()
+   * @generated
+   */
+  EAttribute gethttp_data_Pname();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.http_data#getServer_ip <em>Server ip</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Server ip</em>'.
+   * @see org.xtext.bPMN_translator.http_data#getServer_ip()
+   * @see #gethttp_data()
+   * @generated
+   */
+  EAttribute gethttp_data_Server_ip();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.http_data#getRequest_type <em>Request type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Request type</em>'.
+   * @see org.xtext.bPMN_translator.http_data#getRequest_type()
+   * @see #gethttp_data()
+   * @generated
+   */
+  EAttribute gethttp_data_Request_type();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.http_data#getContent_type <em>Content type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Content type</em>'.
+   * @see org.xtext.bPMN_translator.http_data#getContent_type()
+   * @see #gethttp_data()
+   * @generated
+   */
+  EAttribute gethttp_data_Content_type();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.http_data#getHeader <em>Header</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Header</em>'.
+   * @see org.xtext.bPMN_translator.http_data#getHeader()
+   * @see #gethttp_data()
+   * @generated
+   */
+  EAttribute gethttp_data_Header();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.http_data#getData <em>Data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Data</em>'.
+   * @see org.xtext.bPMN_translator.http_data#getData()
+   * @see #gethttp_data()
+   * @generated
+   */
+  EAttribute gethttp_data_Data();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.http_data#getMqtt_network_data <em>Mqtt network data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mqtt network data</em>'.
+   * @see org.xtext.bPMN_translator.http_data#getMqtt_network_data()
+   * @see #gethttp_data()
+   * @generated
+   */
+  EReference gethttp_data_Mqtt_network_data();
 
   /**
    * Returns the meta object for class '{@link org.xtext.bPMN_translator.mqtt_data <em>mqtt data</em>}'.
@@ -1719,6 +1908,80 @@ public interface BPMN_translatorPackage extends EPackage
      * @generated
      */
     EReference PROTOCOL__MQTT_DEVICE = eINSTANCE.getprotocol_Mqtt_device();
+
+    /**
+     * The meta object literal for the '<em><b>Http data</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROTOCOL__HTTP_DATA = eINSTANCE.getprotocol_Http_data();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.http_dataImpl <em>http data</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.bPMN_translator.impl.http_dataImpl
+     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#gethttp_data()
+     * @generated
+     */
+    EClass HTTP_DATA = eINSTANCE.gethttp_data();
+
+    /**
+     * The meta object literal for the '<em><b>Pname</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute HTTP_DATA__PNAME = eINSTANCE.gethttp_data_Pname();
+
+    /**
+     * The meta object literal for the '<em><b>Server ip</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute HTTP_DATA__SERVER_IP = eINSTANCE.gethttp_data_Server_ip();
+
+    /**
+     * The meta object literal for the '<em><b>Request type</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute HTTP_DATA__REQUEST_TYPE = eINSTANCE.gethttp_data_Request_type();
+
+    /**
+     * The meta object literal for the '<em><b>Content type</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute HTTP_DATA__CONTENT_TYPE = eINSTANCE.gethttp_data_Content_type();
+
+    /**
+     * The meta object literal for the '<em><b>Header</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute HTTP_DATA__HEADER = eINSTANCE.gethttp_data_Header();
+
+    /**
+     * The meta object literal for the '<em><b>Data</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute HTTP_DATA__DATA = eINSTANCE.gethttp_data_Data();
+
+    /**
+     * The meta object literal for the '<em><b>Mqtt network data</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference HTTP_DATA__MQTT_NETWORK_DATA = eINSTANCE.gethttp_data_Mqtt_network_data();
 
     /**
      * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.mqtt_dataImpl <em>mqtt data</em>}' class.

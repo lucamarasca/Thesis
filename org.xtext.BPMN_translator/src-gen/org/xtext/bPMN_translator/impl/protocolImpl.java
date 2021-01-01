@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
+import org.xtext.bPMN_translator.http_data;
 import org.xtext.bPMN_translator.mqtt_data;
 import org.xtext.bPMN_translator.mqtt_device;
 import org.xtext.bPMN_translator.protocol;
@@ -34,6 +35,7 @@ import org.xtext.bPMN_translator.protocol;
  *   <li>{@link org.xtext.bPMN_translator.impl.protocolImpl#getPname <em>Pname</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.protocolImpl#getMqtt_data <em>Mqtt data</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.protocolImpl#getMqtt_device <em>Mqtt device</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.protocolImpl#getHttp_data <em>Http data</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,6 +71,16 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
    * @ordered
    */
   protected EList<mqtt_device> mqtt_device;
+
+  /**
+   * The cached value of the '{@link #getHttp_data() <em>Http data</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHttp_data()
+   * @generated
+   * @ordered
+   */
+  protected EList<http_data> http_data;
 
   /**
    * <!-- begin-user-doc -->
@@ -142,6 +154,21 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
    * @generated
    */
   @Override
+  public EList<http_data> getHttp_data()
+  {
+    if (http_data == null)
+    {
+      http_data = new EObjectContainmentEList<http_data>(http_data.class, this, BPMN_translatorPackage.PROTOCOL__HTTP_DATA);
+    }
+    return http_data;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -150,6 +177,8 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
         return ((InternalEList<?>)getMqtt_data()).basicRemove(otherEnd, msgs);
       case BPMN_translatorPackage.PROTOCOL__MQTT_DEVICE:
         return ((InternalEList<?>)getMqtt_device()).basicRemove(otherEnd, msgs);
+      case BPMN_translatorPackage.PROTOCOL__HTTP_DATA:
+        return ((InternalEList<?>)getHttp_data()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -170,6 +199,8 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
         return getMqtt_data();
       case BPMN_translatorPackage.PROTOCOL__MQTT_DEVICE:
         return getMqtt_device();
+      case BPMN_translatorPackage.PROTOCOL__HTTP_DATA:
+        return getHttp_data();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -197,6 +228,10 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
         getMqtt_device().clear();
         getMqtt_device().addAll((Collection<? extends mqtt_device>)newValue);
         return;
+      case BPMN_translatorPackage.PROTOCOL__HTTP_DATA:
+        getHttp_data().clear();
+        getHttp_data().addAll((Collection<? extends http_data>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -220,6 +255,9 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
       case BPMN_translatorPackage.PROTOCOL__MQTT_DEVICE:
         getMqtt_device().clear();
         return;
+      case BPMN_translatorPackage.PROTOCOL__HTTP_DATA:
+        getHttp_data().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -240,6 +278,8 @@ public class protocolImpl extends MinimalEObjectImpl.Container implements protoc
         return mqtt_data != null && !mqtt_data.isEmpty();
       case BPMN_translatorPackage.PROTOCOL__MQTT_DEVICE:
         return mqtt_device != null && !mqtt_device.isEmpty();
+      case BPMN_translatorPackage.PROTOCOL__HTTP_DATA:
+        return http_data != null && !http_data.isEmpty();
     }
     return super.eIsSet(featureID);
   }

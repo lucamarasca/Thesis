@@ -47,10 +47,10 @@ Close:
 ;
 //+++++++++++++++MY GRAMMAR +++++++++++++++   
 variables:
-	("TEMPERATURE" "[" BODY "," BODY "]") | (BODY "["BODY"]")
+	("TEMPERATURE" "[" BODY "," BODY "]") | (BODY "["BODY"]") 
 ;
 conditions:
-	("&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&&" | "||" | ")")
+	("&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&amp;" | "||" | ")")
 ;
 preconditions:
 	("!"|"(")
@@ -65,7 +65,20 @@ device:
 ;
 protocol:
 	 ((pname += ("MQTT") ) "{" (mqtt_data += mqtt_data
+	 	mqtt_device += mqtt_device) "}") | 
+	((pname += ("HTTP") ) "{" (http_data += http_data
 	 	mqtt_device += mqtt_device) "}")
+;
+
+http_data:
+	{http_data}
+	("NAME" "="  pname+=STRING |  "SERVER_IP" "=" server_ip+=STRING 
+		| "REQUEST_TYPE" "=" request_type+=STRING 
+		| "CONTENT_TYPE" content_type += STRING 
+		| "HEADER" header += STRING 
+		| "DATA" data += STRING
+		| "NETWORK" "{" mqtt_network_data += mqtt_network_data* "}"
+	)*
 ;
 mqtt_data:
 	{mqtt_data}
@@ -122,5 +135,5 @@ terminal KEYWORDS: "id" | "name" |  "isExecutable" | "sourceRef" | "processRef" 
 	| "conditionExpression" | "receiveTask" | "messageRef" | "initiator" | "message" | "inclusiveGateway";
 
 
-terminal BODY returns ecore::EString : ('a'..'z'|'A'..'Z'|'è'|'ò'|INT|'_')* ;
+terminal BODY returns ecore::EString : ('a'..'z'|'A'..'Z'|'è'|'ò'|INT|'_' )* ;
 

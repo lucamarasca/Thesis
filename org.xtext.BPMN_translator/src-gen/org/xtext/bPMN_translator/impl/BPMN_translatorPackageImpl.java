@@ -21,6 +21,7 @@ import org.xtext.bPMN_translator.codex;
 import org.xtext.bPMN_translator.content;
 import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
+import org.xtext.bPMN_translator.http_data;
 import org.xtext.bPMN_translator.mqtt_data;
 import org.xtext.bPMN_translator.mqtt_device;
 import org.xtext.bPMN_translator.mqtt_network_data;
@@ -105,6 +106,13 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   private EClass protocolEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass http_dataEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -628,6 +636,105 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
+  public EReference getprotocol_Http_data()
+  {
+    return (EReference)protocolEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass gethttp_data()
+  {
+    return http_dataEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute gethttp_data_Pname()
+  {
+    return (EAttribute)http_dataEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute gethttp_data_Server_ip()
+  {
+    return (EAttribute)http_dataEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute gethttp_data_Request_type()
+  {
+    return (EAttribute)http_dataEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute gethttp_data_Content_type()
+  {
+    return (EAttribute)http_dataEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute gethttp_data_Header()
+  {
+    return (EAttribute)http_dataEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute gethttp_data_Data()
+  {
+    return (EAttribute)http_dataEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference gethttp_data_Mqtt_network_data()
+  {
+    return (EReference)http_dataEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getmqtt_data()
   {
     return mqtt_dataEClass;
@@ -931,6 +1038,16 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     createEAttribute(protocolEClass, PROTOCOL__PNAME);
     createEReference(protocolEClass, PROTOCOL__MQTT_DATA);
     createEReference(protocolEClass, PROTOCOL__MQTT_DEVICE);
+    createEReference(protocolEClass, PROTOCOL__HTTP_DATA);
+
+    http_dataEClass = createEClass(HTTP_DATA);
+    createEAttribute(http_dataEClass, HTTP_DATA__PNAME);
+    createEAttribute(http_dataEClass, HTTP_DATA__SERVER_IP);
+    createEAttribute(http_dataEClass, HTTP_DATA__REQUEST_TYPE);
+    createEAttribute(http_dataEClass, HTTP_DATA__CONTENT_TYPE);
+    createEAttribute(http_dataEClass, HTTP_DATA__HEADER);
+    createEAttribute(http_dataEClass, HTTP_DATA__DATA);
+    createEReference(http_dataEClass, HTTP_DATA__MQTT_NETWORK_DATA);
 
     mqtt_dataEClass = createEClass(MQTT_DATA);
     createEAttribute(mqtt_dataEClass, MQTT_DATA__PNAME);
@@ -1037,6 +1154,16 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     initEAttribute(getprotocol_Pname(), ecorePackage.getEString(), "pname", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getprotocol_Mqtt_data(), this.getmqtt_data(), null, "mqtt_data", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getprotocol_Mqtt_device(), this.getmqtt_device(), null, "mqtt_device", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getprotocol_Http_data(), this.gethttp_data(), null, "http_data", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(http_dataEClass, http_data.class, "http_data", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(gethttp_data_Pname(), ecorePackage.getEString(), "pname", null, 0, -1, http_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(gethttp_data_Server_ip(), ecorePackage.getEString(), "server_ip", null, 0, -1, http_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(gethttp_data_Request_type(), ecorePackage.getEString(), "request_type", null, 0, -1, http_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(gethttp_data_Content_type(), ecorePackage.getEString(), "content_type", null, 0, -1, http_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(gethttp_data_Header(), ecorePackage.getEString(), "header", null, 0, -1, http_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(gethttp_data_Data(), ecorePackage.getEString(), "data", null, 0, -1, http_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(gethttp_data_Mqtt_network_data(), this.getmqtt_network_data(), null, "mqtt_network_data", null, 0, -1, http_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mqtt_dataEClass, mqtt_data.class, "mqtt_data", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getmqtt_data_Pname(), ecorePackage.getEString(), "pname", null, 0, -1, mqtt_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

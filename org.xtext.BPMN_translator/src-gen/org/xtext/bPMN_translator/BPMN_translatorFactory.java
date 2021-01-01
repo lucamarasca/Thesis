@@ -114,6 +114,15 @@ public interface BPMN_translatorFactory extends EFactory
   protocol createprotocol();
 
   /**
+   * Returns a new object of class '<em>http data</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>http data</em>'.
+   * @generated
+   */
+  http_data createhttp_data();
+
+  /**
    * Returns a new object of class '<em>mqtt data</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

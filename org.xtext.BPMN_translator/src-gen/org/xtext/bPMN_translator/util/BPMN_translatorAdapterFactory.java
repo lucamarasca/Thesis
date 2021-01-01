@@ -126,6 +126,11 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
         return createprotocolAdapter();
       }
       @Override
+      public Adapter casehttp_data(http_data object)
+      {
+        return createhttp_dataAdapter();
+      }
+      @Override
       public Adapter casemqtt_data(mqtt_data object)
       {
         return createmqtt_dataAdapter();
@@ -318,6 +323,21 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createprotocolAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.http_data <em>http data</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.bPMN_translator.http_data
+   * @generated
+   */
+  public Adapter createhttp_dataAdapter()
   {
     return null;
   }

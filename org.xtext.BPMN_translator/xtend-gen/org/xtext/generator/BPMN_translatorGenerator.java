@@ -206,18 +206,20 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
         }
       }
       fsa.generateFile("GeneratedLib.h", ((this.h_variables + this.h_code) + "};\n#endif"));
-      fsa.generateFile("GeneratedLib.cpp", (this.cpp_variables + this.cpp_code));
+      fsa.generateFile("GeneratedLib.cpp", (("#include<GeneratedLib.h>\n" + this.cpp_variables) + this.cpp_code));
     } else {
       ArduinoHCodeGenerator _arduinoHCodeGenerator = new ArduinoHCodeGenerator(Parameters.selected_sensor, Parameters.selected_protocol, Parameters.selected_wifisensor);
       this.h_gen = _arduinoHCodeGenerator;
       String _ArduinoCodeGenerationH = this.ArduinoCodeGenerationH();
-      String _plus = ("//+++++++++NO SOURCE BPMN SELECTED" + _ArduinoCodeGenerationH);
-      fsa.generateFile("GeneratedLib.h", _plus);
+      String _plus = ("//+++++++++NO SOURCE BPMN SELECTED++++++++++++++++++++++\n" + _ArduinoCodeGenerationH);
+      String _plus_1 = (_plus + "};\n#endif");
+      fsa.generateFile("GeneratedLib.h", _plus_1);
       ArduinoCPPCodeGenerator _arduinoCPPCodeGenerator = new ArduinoCPPCodeGenerator(Parameters.selected_device, Parameters.selected_protocol, Parameters.selected_wifisensor, Parameters.selected_sensor);
       this.cpp_gen = _arduinoCPPCodeGenerator;
       String _ArduinoCodeGenerationCPP = this.ArduinoCodeGenerationCPP();
-      String _plus_1 = ("//+++++++++NO SOURCE BPMN SELECTED" + _ArduinoCodeGenerationCPP);
-      fsa.generateFile("GeneratedLib.cpp", _plus_1);
+      String _plus_2 = (("//+++++++++NO SOURCE BPMN SELECTED+++++++++++++++++++++\n" + 
+        "#include<GeneratedLib.h>\n") + _ArduinoCodeGenerationCPP);
+      fsa.generateFile("GeneratedLib.cpp", _plus_2);
     }
   }
   

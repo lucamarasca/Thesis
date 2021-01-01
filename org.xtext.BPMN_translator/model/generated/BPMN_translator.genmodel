@@ -52,6 +52,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol/pname"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol/mqtt_data"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol/mqtt_device"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol/http_data"/>
+    </genClasses>
+    <genClasses ecoreClass="BPMN_translator.ecore#//http_data">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//http_data/pname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//http_data/server_ip"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//http_data/request_type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//http_data/content_type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//http_data/header"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//http_data/data"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//http_data/mqtt_network_data"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//mqtt_data">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//mqtt_data/pname"/>

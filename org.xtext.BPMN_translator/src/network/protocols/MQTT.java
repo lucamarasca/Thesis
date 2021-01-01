@@ -12,15 +12,29 @@ public class MQTT extends Elements{
 	public MQTT() {
 		this.datas = new MQTTDatas();
 	}
-	
+	public String getCPPVariables() {
+		switch (wifi_module)
+		{
+		case "esp32":
+			return getCPPVariablesESP32();
+		case "esp8266":
+			return getCPPVariablesESP8266();
+		case "samd":
+			return getCPPVariablesESP8266();
+		default:
+			return "no wifi module";
+		}
+	}
 	
 	public String getCPPCode() {
 		switch (wifi_module)
 		{
 		case "esp32":
+			return getCPPCodeESP32();
 		case "esp8266":
+			return getCPPCodeESP8266();
 		case "samd":
-			return getCPPCodeESP();
+			return getCPPCodeESP8266();
 		default:
 			return "no wifi module";
 		}
@@ -36,7 +50,8 @@ public class MQTT extends Elements{
 			return "no wifi module";
 		}
 	}
-	public String getCPPVariables() {
+	public String getCPPVariablesESP8266() {
+		
 		return 	"ESP8266WiFiMulti wifiMulti;\r\n"
 				+ "WiFiClient espClient;\r\n"
 				+ "PubSubClient client(espClient);\r\n"
@@ -45,18 +60,25 @@ public class MQTT extends Elements{
 				+ "long currentTime, lastTime;\r\n"
 				+ "\r\n";
 	}
-	public String getCPPCodeESP() {
-		String result = "";
+	public String getCPPVariablesESP32() {
 		
+		return 	"WiFiMulti wifiMulti;\r\n"
+				+ "WiFiClient espClient;\r\n"
+				+ "PubSubClient client(espClient);\r\n"
+				+ "\r\n"
+				+ "\r\n"
+				+ "long currentTime, lastTime;\r\n"
+				+ "\r\n";
+	}
+	public String getCPPCodeESP8266() {
+		String result = "";
 		result +=		
-		  "void setupWiFi()\r\n"
+		  "void setupWiFi(char* ssid, char* password)\r\n"
 		+ "{\r\n"
 		+ "\tdelay(100);\r\n"
-		+ "\r\n";
-		
-		for(int i = 0; i < datas.getWifi_ssid().size();i++)
-			result +="\twifiMulti.addAP("+"\""+datas.getWifi_ssid().get(i)+"\""+","+"\""+datas.getWifi_pass().get(i)+"\""+");\n";
-		result+="\n"
+		+ "\r\n"
+		+"\twifiMulti.addAP(ssid, password);"
+		+"\n"
 		+ "\tSerial.println(\"Connecting ...\");\r\n"
 		+ "\twhile (wifiMulti.run() != WL_CONNECTED) \r\n"
 		+ "\t{\r\n"
@@ -111,10 +133,95 @@ public class MQTT extends Elements{
 		+ "\tSerial.println();\r\n"
 		+ "}\r\n"
 		+ "\r\n"
-		+ "void InitNetwork(char* broker)\r\n"
+		+ "void InitNetwork(char* broker, char* ssid, char* password)\r\n"
 		+ "{\r\n"
 		+ "\tSerial.begin(115200);\r\n"
-		+ "\tsetupWiFi();\r\n"
+		+ "\tsetupWiFi(ssid, password);\r\n"
+		+ "\tclient.setServer(broker, 1883);\r\n"
+		+ "\tclient.setCallback(callback);\r\n"
+		+ "}\r\n"
+		+ "\r\n"
+		+ "void sendInPubTopic(char* pubTopic, char* datas)\r\n"
+		+ "{\r\n"
+		+ "\tif(!client.connected())\r\n"
+		+ "\t{\r\n"
+		+ "\t\treconnect();\r\n"
+		+ "\t}\r\n"
+		+ "\r\n"
+		+ "\tcurrentTime = millis();\r\n"
+		+ "\tclient.publish(pubTopic, \"datas to publish\");\r\n"
+		+ "\r\n"
+		+ "\tlastTime = millis();\r\n"
+		+ "}\n";
+		return result;
+	}
+	public String getCPPCodeESP32() {
+		String result = "";
+		result +=		
+		  "void setupWiFi(char* ssid, char* password)\r\n"
+		+ "{\r\n"
+		+ "\tdelay(100);\r\n"
+		+ "\r\n"
+		+"\tWiFi.begin(ssid, password);"
+		+"\n"
+		+ "\tSerial.println(\"Connecting ...\");\r\n"
+		+ "\twhile(WiFi.status() != WL_CONNECTED)\r\n"
+		+ "\t{\r\n"
+		+ "\t\tdelay(250);\r\n"
+		+ "\t\tSerial.print('.');\r\n"
+		+ "\t}\r\n"
+		+ "\r\n"
+		+ "\tSerial.println('\\n');\r\n"
+		+ "\tSerial.print(\"Connected to:\\t\");\r\n"
+		+ "\tSerial.println(WiFi.SSID());\r\n"
+		+ "\r\n"
+		+ "\tSerial.print(\"IP address:\\t\");\r\n"
+		+ "\tSerial.println(WiFi.localIP());\r\n"
+		+ "}\r\n"
+		+ "\r\n"
+		+"void Subscribe(Char* topic)\r\n"
+		+ "{\r\n"
+		+ "\tif(!client.connected())\r\n"
+		+ "\t{\r\n"
+		+ "\t\treconnect(id, brokerUser, brokerPass, broker);\r\n"
+		+ "\t}\r\n"
+		+ "\tclient.subscribe(topic);\r\n"
+		+ "}\n"
+		+ "void reconnect(int id, char* brokerUser, char* brokerPass,char* broker)\r\n"
+		+ "{\r\n"
+		+ "\twhile(!client.connected())\r\n"
+		+ "\t{\r\n"
+		+ "\t\tSerial.print(\"\\nConnecting to \");\r\n"
+		+ "\t\tSerial.println(broker);\r\n"
+		+ "\r\n"
+		+ "\t\tif(client.connect(id, brokerUser, brokerPass))\r\n"
+		+ "\t\t{\r\n"
+		+ "\t\t\tSerial.print(\"\\nConnected to \");\r\n"
+		+ "\t\t\tSerial.println(broker);\r\n"
+		+ "\t\t}\r\n"
+		+ "\t\telse\r\n"
+		+ "\t\t{\r\n"
+		+ "\t\t\tSerial.println(\"Connecting\");\r\n"
+		+ "\t\t\tdelay(2500);\r\n"
+		+ "\t\t}\r\n"
+		+ "\t}\r\n"
+		+ "}\r\n"
+		+ "\r\n"
+		+ "void callback(char* topic, byte* payload, unsigned int len)\r\n"
+		+ "{\r\n"
+		+ "\tSerial.print(\"Received messages: \");\r\n"
+		+ "\tSerial.println(topic);\r\n"
+		+ "\tfor(unsigned int i=0; i<len; i++)\r\n"
+		+ "\t{\r\n"
+		+ "\t\tSerial.print((char) payload[i]);\r\n"
+		+ "\t}\r\n"
+		+ "\tSerial.println();\r\n"
+		+ "}\r\n"
+		+ "\r\n"
+		+ "void InitNetwork(char* broker, char* ssid, char* password)\r\n"
+		+ "{\r\n"
+		+ "\tSerial.begin(115200);\r\n"
+		+ "\tsetupWiFi(ssid, password);\r\n"
 		+ "\tclient.setServer(broker, 1883);\r\n"
 		+ "\tclient.setCallback(callback);\r\n"
 		+ "}\r\n"
@@ -135,11 +242,11 @@ public class MQTT extends Elements{
 	}
 	public String getHCodeESP() {
 		String result = "";
-		result+= "void setupWiFi();\n"
-		+ "void Subscribe(Char* topic);\n"
+		result+= "void setupWiFi(char* ssid, char* password);\n"
+		+ "void Subscribe(char* topic);\n"
 		+ "void reconnect(int id, char* brokerUser, char* brokerPass,char* broker);\n"
 		+ "void callback(char* topic, byte* payload, unsigned int len);\n"
-		+ "void InitNetwork(char* broker);\n"
+		+ "void InitNetwork(char* broker, char* ssid, char* password);\n"
 		+ "void sendInPubTopic(char* pubTopic, char* datas);\n";
 		return result;
 	}

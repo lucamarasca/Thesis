@@ -76,6 +76,24 @@
         eType="#//mqtt_data" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mqtt_device" upperBound="-1"
         eType="#//mqtt_device" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="http_data" upperBound="-1"
+        eType="#//http_data" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="http_data">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pname" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="server_ip" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="request_type" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content_type" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mqtt_network_data" upperBound="-1"
+        eType="#//mqtt_network_data" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="mqtt_data">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pname" unique="false" upperBound="-1"

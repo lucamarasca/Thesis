@@ -24,11 +24,14 @@ public class ArduinoInoCodeGenerator {
 	ArrayList <String> result;
 	ArrayList <String> ids;
 	String temp;
-	String temp1;
-	String temp2;
-	String temp3;
-	String temp4;
-	String temp5;
+	String ssid;
+	String wifi_password;
+	String brokers;
+	String broker_users;
+	String broker_passwords;
+	String pub_topics;
+	String pub_datas;
+	String sub_topics;
 	String threads_code;
 	String includes;
 	String intestation;
@@ -93,11 +96,14 @@ public class ArduinoInoCodeGenerator {
 		else_number = 0;
 		opened_conditions = new ArrayList<String>();
 		temp = "";
-		temp1 = "";
-		temp2 = "";
-		temp3 = "";
-		temp4 = "";
-		temp5 = "";
+		ssid = "";
+		wifi_password = "";
+		brokers = "";
+		broker_users = "";
+		broker_passwords = "";
+		pub_topics = "";
+		pub_datas = "";
+		sub_topics = "";
 		schedule = false;
 		ino_code = "";
 		variables = "";
@@ -125,25 +131,28 @@ public class ArduinoInoCodeGenerator {
 				{
 				
 					MQTT app = (MQTT) elements.get(n);
-					
-					if (!temp1.contains("\"" +app.getDatas().getBroker()+ "\";"))
-						temp1 += "char* broker"+n +"= \""+app.getDatas().getBroker()+"\";\n"; 
-					if (!temp2.contains("\"" +app.getDatas().getBroker_user()+ "\";"))
-						temp2 += "char* broker_user"+n +"= \""+app.getDatas().getBroker_user()+"\";\n"; 
-					if (!temp3.contains("\"" +app.getDatas().getBroker_password()+ "\";"))
-						temp3 += "char* broker_password"+n +"= \""+app.getDatas().getBroker_password()+"\";\n"; 
+					if (!ssid.contains("\"" +app.getDatas().getWifi_ssid().get(0)+ "\";"))
+						ssid += "char* ssid"+n +"= \""+app.getDatas().getWifi_ssid().get(0)+"\";\n";
+					if (!wifi_password.contains("\"" +app.getDatas().getWifi_pass().get(0)+ "\";"))
+						wifi_password += "char* wifi_password"+n +"= \""+app.getDatas().getWifi_pass().get(0)+"\";\n"; 
+					if (!brokers.contains("\"" +app.getDatas().getBroker()+ "\";"))
+						brokers += "char* broker"+n +"= \""+app.getDatas().getBroker()+"\";\n"; 
+					if (!broker_users.contains("\"" +app.getDatas().getBroker_user()+ "\";"))
+						broker_users += "char* broker_user"+n +"= \""+app.getDatas().getBroker_user()+"\";\n"; 
+					if (!broker_passwords.contains("\"" +app.getDatas().getBroker_password()+ "\";"))
+						broker_passwords += "char* broker_password"+n +"= \""+app.getDatas().getBroker_password()+"\";\n"; 
 					for(int j = 0; j < app.getDatas().getPubTopics().size();j++)
 					{
-						if (!temp4.contains("\"" + app.getDatas().getPubTopics().get(j) + "\";"))
-							temp4 += "char* pubtopic"+n+j+"= \""+app.getDatas().getPubTopics().get(j)+"\";\n"; 
-						if (!temp4.contains("\"" + app.getDatas().getPublish_data().get(j) + "\";"))
-							temp4 += "char* pubtopicdata"+n+j+"= \""+app.getDatas().getPublish_data().get(j)+"\";\n"; 
+						if (!pub_topics.contains("\"" + app.getDatas().getPubTopics().get(j) + "\";"))
+							pub_topics += "char* pubtopic"+n+j+"= \""+app.getDatas().getPubTopics().get(j)+"\";\n"; 
+						if (!pub_datas.contains("\"" + app.getDatas().getPublish_data().get(j) + "\";"))
+							pub_datas += "char* pubtopicdata"+n+j+"= \""+app.getDatas().getPublish_data().get(j)+"\";\n"; 
 						
 					}
 					for(int j = 0; j < app.getDatas().getSubTopics().size();j++)
 					{
-						if (!temp5.contains("\"" + app.getDatas().getSubTopics().get(j) + "\";"))
-							temp5 += "char* subtopic"+n+j+"= \""+app.getDatas().getSubTopics().get(j)+"\";\n"; 
+						if (!sub_topics.contains("\"" + app.getDatas().getSubTopics().get(j) + "\";"))
+							sub_topics += "char* subtopic"+n+j+"= \""+app.getDatas().getSubTopics().get(j)+"\";\n"; 
 					}
 					
 				}
@@ -167,11 +176,14 @@ public class ArduinoInoCodeGenerator {
 				}
 			}
 		}	
-		variables += temp1;
-		variables += temp2;
-		variables += temp3;
-		variables += temp4;
-		variables += temp5;
+		variables += ssid;
+		variables += wifi_password;
+		variables += brokers;
+		variables += broker_users;
+		variables += broker_passwords;
+		variables += pub_topics;
+		variables += pub_datas;
+		variables += sub_topics;
 		variables += sens_variables;
 	}
 	private void GenerateSetupCode(ArrayList<Elements> elements, int i) {
@@ -206,11 +218,12 @@ public class ArduinoInoCodeGenerator {
 				if (elements.get(n).getType().equals("mqtt"))
 				{
 					MQTT app = (MQTT) elements.get(n);
-					if (!loop_code.contains("my_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+");\n"));
-					temp+=("\tmy_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+");\n");
+					if (!loop_code.contains("my_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+"," + getVariableName(app.getDatas().getWifi_ssid().get(0)) + "," + getVariableName(app.getDatas().getWifi_pass().get(0))+");\n"))
+					temp+=("\tmy_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+"," + getVariableName(app.getDatas().getWifi_ssid().get(0)) + "," + getVariableName(app.getDatas().getWifi_pass().get(0))+");\n");
 					if(!loop_code.contains("my_lib.reconnect(\"device id\", "+getVariableName(app.getDatas().getBroker_user())+", "+getVariableName(app.getDatas().getBroker_password())+", "+getVariableName(app.getDatas().getBroker())+");\n"))
 						temp += "\tmy_lib.reconnect(\"device id\", "+getVariableName(app.getDatas().getBroker_user())+", "+getVariableName(app.getDatas().getBroker_password())+", "+getVariableName(app.getDatas().getBroker())+");\n";							
 					int k = 0;
+					
 					for(String pubtopic : app.getDatas().getPubTopics())
 					{
 						String str = app.getDatas().getPublish_data().get(k);
@@ -218,6 +231,7 @@ public class ArduinoInoCodeGenerator {
 						k++;
 					}
 					k=0;
+					
 					for(String subtopic : app.getDatas().getSubTopics())
 					{
 						temp += ("\tmy_lib.Subscribe("+getVariableName(subtopic)+");\n"); 

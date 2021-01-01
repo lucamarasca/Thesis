@@ -977,10 +977,10 @@ ruleconditions returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 			newLeafNode(kw, grammarAccess.getConditionsAccess().getEqualsSignKeyword_4());
 		}
 		    |
-		kw='&&'
+		kw='&amp;'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getConditionsAccess().getAmpersandAmpersandKeyword_5());
+			newLeafNode(kw, grammarAccess.getConditionsAccess().getAmpKeyword_5());
 		}
 		    |
 		kw='||'
@@ -1192,66 +1192,356 @@ ruleprotocol returns [EObject current=null]
 	(
 		(
 			(
-				lv_pname_0_0='MQTT'
-				{
-					newLeafNode(lv_pname_0_0, grammarAccess.getProtocolAccess().getPnameMQTTKeyword_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getProtocolRule());
+				(
+					lv_pname_0_0='MQTT'
+					{
+						newLeafNode(lv_pname_0_0, grammarAccess.getProtocolAccess().getPnameMQTTKeyword_0_0_0());
 					}
-					addWithLastConsumed($current, "pname", lv_pname_0_0, "MQTT");
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getProtocolRule());
+						}
+						addWithLastConsumed($current, "pname", lv_pname_0_0, "MQTT");
+					}
+				)
 			)
+			otherlv_1='{'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getProtocolAccess().getLeftCurlyBracketKeyword_0_1());
+			}
+			(
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getProtocolAccess().getMqtt_dataMqtt_dataParserRuleCall_0_2_0_0());
+						}
+						lv_mqtt_data_2_0=rulemqtt_data
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getProtocolRule());
+							}
+							add(
+								$current,
+								"mqtt_data",
+								lv_mqtt_data_2_0,
+								"org.xtext.BPMN_translator.mqtt_data");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getProtocolAccess().getMqtt_deviceMqtt_deviceParserRuleCall_0_2_1_0());
+						}
+						lv_mqtt_device_3_0=rulemqtt_device
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getProtocolRule());
+							}
+							add(
+								$current,
+								"mqtt_device",
+								lv_mqtt_device_3_0,
+								"org.xtext.BPMN_translator.mqtt_device");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			otherlv_4='}'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getProtocolAccess().getRightCurlyBracketKeyword_0_3());
+			}
 		)
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getProtocolAccess().getLeftCurlyBracketKeyword_1());
-		}
+		    |
 		(
 			(
 				(
+					lv_pname_5_0='HTTP'
 					{
-						newCompositeNode(grammarAccess.getProtocolAccess().getMqtt_dataMqtt_dataParserRuleCall_2_0_0());
+						newLeafNode(lv_pname_5_0, grammarAccess.getProtocolAccess().getPnameHTTPKeyword_1_0_0());
 					}
-					lv_mqtt_data_2_0=rulemqtt_data
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getProtocolRule());
+							$current = createModelElement(grammarAccess.getProtocolRule());
 						}
-						add(
-							$current,
-							"mqtt_data",
-							lv_mqtt_data_2_0,
-							"org.xtext.BPMN_translator.mqtt_data");
-						afterParserOrEnumRuleCall();
+						addWithLastConsumed($current, "pname", lv_pname_5_0, "HTTP");
 					}
 				)
 			)
+			otherlv_6='{'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getProtocolAccess().getLeftCurlyBracketKeyword_1_1());
+			}
 			(
 				(
-					{
-						newCompositeNode(grammarAccess.getProtocolAccess().getMqtt_deviceMqtt_deviceParserRuleCall_2_1_0());
-					}
-					lv_mqtt_device_3_0=rulemqtt_device
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getProtocolRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getProtocolAccess().getHttp_dataHttp_dataParserRuleCall_1_2_0_0());
 						}
-						add(
-							$current,
-							"mqtt_device",
-							lv_mqtt_device_3_0,
-							"org.xtext.BPMN_translator.mqtt_device");
-						afterParserOrEnumRuleCall();
-					}
+						lv_http_data_7_0=rulehttp_data
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getProtocolRule());
+							}
+							add(
+								$current,
+								"http_data",
+								lv_http_data_7_0,
+								"org.xtext.BPMN_translator.http_data");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getProtocolAccess().getMqtt_deviceMqtt_deviceParserRuleCall_1_2_1_0());
+						}
+						lv_mqtt_device_8_0=rulemqtt_device
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getProtocolRule());
+							}
+							add(
+								$current,
+								"mqtt_device",
+								lv_mqtt_device_8_0,
+								"org.xtext.BPMN_translator.mqtt_device");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
 			)
+			otherlv_9='}'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getProtocolAccess().getRightCurlyBracketKeyword_1_3());
+			}
 		)
-		otherlv_4='}'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getProtocolAccess().getRightCurlyBracketKeyword_3());
-		}
+	)
+;
+
+// Entry rule entryRulehttp_data
+entryRulehttp_data returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getHttp_dataRule()); }
+	iv_rulehttp_data=rulehttp_data
+	{ $current=$iv_rulehttp_data.current; }
+	EOF;
+
+// Rule http_data
+rulehttp_data returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getHttp_dataAccess().getHttp_dataAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				otherlv_1='NAME'
+				{
+					newLeafNode(otherlv_1, grammarAccess.getHttp_dataAccess().getNAMEKeyword_1_0_0());
+				}
+				otherlv_2='='
+				{
+					newLeafNode(otherlv_2, grammarAccess.getHttp_dataAccess().getEqualsSignKeyword_1_0_1());
+				}
+				(
+					(
+						lv_pname_3_0=RULE_STRING
+						{
+							newLeafNode(lv_pname_3_0, grammarAccess.getHttp_dataAccess().getPnameSTRINGTerminalRuleCall_1_0_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getHttp_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"pname",
+								lv_pname_3_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_4='SERVER_IP'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getHttp_dataAccess().getSERVER_IPKeyword_1_1_0());
+				}
+				otherlv_5='='
+				{
+					newLeafNode(otherlv_5, grammarAccess.getHttp_dataAccess().getEqualsSignKeyword_1_1_1());
+				}
+				(
+					(
+						lv_server_ip_6_0=RULE_STRING
+						{
+							newLeafNode(lv_server_ip_6_0, grammarAccess.getHttp_dataAccess().getServer_ipSTRINGTerminalRuleCall_1_1_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getHttp_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"server_ip",
+								lv_server_ip_6_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_7='REQUEST_TYPE'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getHttp_dataAccess().getREQUEST_TYPEKeyword_1_2_0());
+				}
+				otherlv_8='='
+				{
+					newLeafNode(otherlv_8, grammarAccess.getHttp_dataAccess().getEqualsSignKeyword_1_2_1());
+				}
+				(
+					(
+						lv_request_type_9_0=RULE_STRING
+						{
+							newLeafNode(lv_request_type_9_0, grammarAccess.getHttp_dataAccess().getRequest_typeSTRINGTerminalRuleCall_1_2_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getHttp_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"request_type",
+								lv_request_type_9_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_10='CONTENT_TYPE'
+				{
+					newLeafNode(otherlv_10, grammarAccess.getHttp_dataAccess().getCONTENT_TYPEKeyword_1_3_0());
+				}
+				(
+					(
+						lv_content_type_11_0=RULE_STRING
+						{
+							newLeafNode(lv_content_type_11_0, grammarAccess.getHttp_dataAccess().getContent_typeSTRINGTerminalRuleCall_1_3_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getHttp_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"content_type",
+								lv_content_type_11_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_12='HEADER'
+				{
+					newLeafNode(otherlv_12, grammarAccess.getHttp_dataAccess().getHEADERKeyword_1_4_0());
+				}
+				(
+					(
+						lv_header_13_0=RULE_STRING
+						{
+							newLeafNode(lv_header_13_0, grammarAccess.getHttp_dataAccess().getHeaderSTRINGTerminalRuleCall_1_4_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getHttp_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"header",
+								lv_header_13_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_14='DATA'
+				{
+					newLeafNode(otherlv_14, grammarAccess.getHttp_dataAccess().getDATAKeyword_1_5_0());
+				}
+				(
+					(
+						lv_data_15_0=RULE_STRING
+						{
+							newLeafNode(lv_data_15_0, grammarAccess.getHttp_dataAccess().getDataSTRINGTerminalRuleCall_1_5_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getHttp_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"data",
+								lv_data_15_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_16='NETWORK'
+				{
+					newLeafNode(otherlv_16, grammarAccess.getHttp_dataAccess().getNETWORKKeyword_1_6_0());
+				}
+				otherlv_17='{'
+				{
+					newLeafNode(otherlv_17, grammarAccess.getHttp_dataAccess().getLeftCurlyBracketKeyword_1_6_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getHttp_dataAccess().getMqtt_network_dataMqtt_network_dataParserRuleCall_1_6_2_0());
+						}
+						lv_mqtt_network_data_18_0=rulemqtt_network_data
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getHttp_dataRule());
+							}
+							add(
+								$current,
+								"mqtt_network_data",
+								lv_mqtt_network_data_18_0,
+								"org.xtext.BPMN_translator.mqtt_network_data");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)*
+				otherlv_19='}'
+				{
+					newLeafNode(otherlv_19, grammarAccess.getHttp_dataAccess().getRightCurlyBracketKeyword_1_6_3());
+				}
+			)
+		)*
 	)
 ;
 

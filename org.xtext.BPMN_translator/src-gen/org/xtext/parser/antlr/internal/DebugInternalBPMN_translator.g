@@ -143,7 +143,7 @@ ruleconditions:
 		    |
 		'='
 		    |
-		'&&'
+		'&amp;'
 		    |
 		'||'
 		    |
@@ -181,11 +181,51 @@ ruledevice:
 
 // Rule protocol
 ruleprotocol:
-	'MQTT'
-	'{'
-	rulemqtt_data
-	rulemqtt_device
-	'}'
+	(
+		'MQTT'
+		'{'
+		rulemqtt_data
+		rulemqtt_device
+		'}'
+		    |
+		'HTTP'
+		'{'
+		rulehttp_data
+		rulemqtt_device
+		'}'
+	)
+;
+
+// Rule http_data
+rulehttp_data:
+	(
+		'NAME'
+		'='
+		RULE_STRING
+		    |
+		'SERVER_IP'
+		'='
+		RULE_STRING
+		    |
+		'REQUEST_TYPE'
+		'='
+		RULE_STRING
+		    |
+		'CONTENT_TYPE'
+		RULE_STRING
+		    |
+		'HEADER'
+		RULE_STRING
+		    |
+		'DATA'
+		RULE_STRING
+		    |
+		'NETWORK'
+		'{'
+		rulemqtt_network_data
+		*
+		'}'
+	)*
 ;
 
 // Rule mqtt_data

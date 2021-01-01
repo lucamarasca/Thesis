@@ -75,6 +75,7 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
       case BPMN_translatorPackage.CODEX: return createcodex();
       case BPMN_translatorPackage.DEVICE: return createdevice();
       case BPMN_translatorPackage.PROTOCOL: return createprotocol();
+      case BPMN_translatorPackage.HTTP_DATA: return createhttp_data();
       case BPMN_translatorPackage.MQTT_DATA: return createmqtt_data();
       case BPMN_translatorPackage.MQTT_NETWORK_DATA: return createmqtt_network_data();
       case BPMN_translatorPackage.MQTT_DEVICE: return createmqtt_device();
@@ -203,6 +204,18 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
   {
     protocolImpl protocol = new protocolImpl();
     return protocol;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public http_data createhttp_data()
+  {
+    http_dataImpl http_data = new http_dataImpl();
+    return http_data;
   }
 
   /**

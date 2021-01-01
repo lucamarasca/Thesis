@@ -22,6 +22,7 @@ import org.xtext.bPMN_translator.codex;
 import org.xtext.bPMN_translator.content;
 import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
+import org.xtext.bPMN_translator.http_data;
 import org.xtext.bPMN_translator.mqtt_data;
 import org.xtext.bPMN_translator.mqtt_device;
 import org.xtext.bPMN_translator.mqtt_network_data;
@@ -70,6 +71,9 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 				return; 
 			case BPMN_translatorPackage.ELEMENT:
 				sequence_element(context, (element) semanticObject); 
+				return; 
+			case BPMN_translatorPackage.HTTP_DATA:
+				sequence_http_data(context, (http_data) semanticObject); 
 				return; 
 			case BPMN_translatorPackage.MQTT_DATA:
 				sequence_mqtt_data(context, (mqtt_data) semanticObject); 
@@ -208,6 +212,26 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	
 	/**
 	 * Contexts:
+	 *     http_data returns http_data
+	 *
+	 * Constraint:
+	 *     (
+	 *         pname+=STRING | 
+	 *         server_ip+=STRING | 
+	 *         request_type+=STRING | 
+	 *         content_type+=STRING | 
+	 *         header+=STRING | 
+	 *         data+=STRING | 
+	 *         mqtt_network_data+=mqtt_network_data
+	 *     )*
+	 */
+	protected void sequence_http_data(ISerializationContext context, http_data semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     mqtt_data returns mqtt_data
 	 *
 	 * Constraint:
@@ -256,7 +280,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     protocol returns protocol
 	 *
 	 * Constraint:
-	 *     (pname+='MQTT' mqtt_data+=mqtt_data mqtt_device+=mqtt_device)
+	 *     ((pname+='MQTT' mqtt_data+=mqtt_data mqtt_device+=mqtt_device) | (pname+='HTTP' http_data+=http_data mqtt_device+=mqtt_device))
 	 */
 	protected void sequence_protocol(ISerializationContext context, protocol semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

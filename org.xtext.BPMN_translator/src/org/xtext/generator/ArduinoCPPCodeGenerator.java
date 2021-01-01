@@ -62,6 +62,15 @@ public class ArduinoCPPCodeGenerator {
 					protocol = o;
 				
 				return ((MQTT) protocol).getCPPCode();
+				
+			case "http":
+				Object http_protocol;
+				if (o == null)
+					http_protocol = new HTTP(wifi_sensor);
+				else 
+					http_protocol = o;
+				
+				return ((HTTP) http_protocol).getCPPCode();
 			default:
 				return "no protocol";
 		}
