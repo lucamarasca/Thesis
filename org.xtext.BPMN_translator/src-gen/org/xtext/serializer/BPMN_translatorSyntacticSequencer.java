@@ -249,58 +249,58 @@ public class BPMN_translatorSyntacticSequencer extends AbstractSyntacticSequence
 	 *     ('NETWORK' '{' '}')*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) 'CONTENT_TYPE' content_type+=STRING
-	 *     (rule start) (ambiguity) 'DATA' data+=STRING
-	 *     (rule start) (ambiguity) 'HEADER' header+=STRING
+	 *     (rule start) (ambiguity) 'CONTENT_TYPE' '=' content_type+=STRING
+	 *     (rule start) (ambiguity) 'DATA' '=' data+=STRING
+	 *     (rule start) (ambiguity) 'HEADER' '=' header+=STRING
 	 *     (rule start) (ambiguity) 'NAME' '=' pname+=STRING
 	 *     (rule start) (ambiguity) 'REQUEST_TYPE' '=' request_type+=STRING
 	 *     (rule start) (ambiguity) 'SERVER_IP' '=' server_ip+=STRING
 	 *     (rule start) (ambiguity) (rule start)
-	 *     content_type+=STRING (ambiguity) 'CONTENT_TYPE' content_type+=STRING
-	 *     content_type+=STRING (ambiguity) 'DATA' data+=STRING
-	 *     content_type+=STRING (ambiguity) 'HEADER' header+=STRING
+	 *     content_type+=STRING (ambiguity) 'CONTENT_TYPE' '=' content_type+=STRING
+	 *     content_type+=STRING (ambiguity) 'DATA' '=' data+=STRING
+	 *     content_type+=STRING (ambiguity) 'HEADER' '=' header+=STRING
 	 *     content_type+=STRING (ambiguity) 'NAME' '=' pname+=STRING
 	 *     content_type+=STRING (ambiguity) 'REQUEST_TYPE' '=' request_type+=STRING
 	 *     content_type+=STRING (ambiguity) 'SERVER_IP' '=' server_ip+=STRING
 	 *     content_type+=STRING (ambiguity) (rule end)
-	 *     data+=STRING (ambiguity) 'CONTENT_TYPE' content_type+=STRING
-	 *     data+=STRING (ambiguity) 'DATA' data+=STRING
-	 *     data+=STRING (ambiguity) 'HEADER' header+=STRING
+	 *     data+=STRING (ambiguity) 'CONTENT_TYPE' '=' content_type+=STRING
+	 *     data+=STRING (ambiguity) 'DATA' '=' data+=STRING
+	 *     data+=STRING (ambiguity) 'HEADER' '=' header+=STRING
 	 *     data+=STRING (ambiguity) 'NAME' '=' pname+=STRING
 	 *     data+=STRING (ambiguity) 'REQUEST_TYPE' '=' request_type+=STRING
 	 *     data+=STRING (ambiguity) 'SERVER_IP' '=' server_ip+=STRING
 	 *     data+=STRING (ambiguity) (rule end)
-	 *     header+=STRING (ambiguity) 'CONTENT_TYPE' content_type+=STRING
-	 *     header+=STRING (ambiguity) 'DATA' data+=STRING
-	 *     header+=STRING (ambiguity) 'HEADER' header+=STRING
+	 *     header+=STRING (ambiguity) 'CONTENT_TYPE' '=' content_type+=STRING
+	 *     header+=STRING (ambiguity) 'DATA' '=' data+=STRING
+	 *     header+=STRING (ambiguity) 'HEADER' '=' header+=STRING
 	 *     header+=STRING (ambiguity) 'NAME' '=' pname+=STRING
 	 *     header+=STRING (ambiguity) 'REQUEST_TYPE' '=' request_type+=STRING
 	 *     header+=STRING (ambiguity) 'SERVER_IP' '=' server_ip+=STRING
 	 *     header+=STRING (ambiguity) (rule end)
-	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) 'CONTENT_TYPE' content_type+=STRING
-	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) 'DATA' data+=STRING
-	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) 'HEADER' header+=STRING
+	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) 'CONTENT_TYPE' '=' content_type+=STRING
+	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) 'DATA' '=' data+=STRING
+	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) 'HEADER' '=' header+=STRING
 	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) 'NAME' '=' pname+=STRING
 	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) 'REQUEST_TYPE' '=' request_type+=STRING
 	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) 'SERVER_IP' '=' server_ip+=STRING
 	 *     mqtt_network_data+=mqtt_network_data '}' (ambiguity) (rule end)
-	 *     pname+=STRING (ambiguity) 'CONTENT_TYPE' content_type+=STRING
-	 *     pname+=STRING (ambiguity) 'DATA' data+=STRING
-	 *     pname+=STRING (ambiguity) 'HEADER' header+=STRING
+	 *     pname+=STRING (ambiguity) 'CONTENT_TYPE' '=' content_type+=STRING
+	 *     pname+=STRING (ambiguity) 'DATA' '=' data+=STRING
+	 *     pname+=STRING (ambiguity) 'HEADER' '=' header+=STRING
 	 *     pname+=STRING (ambiguity) 'NAME' '=' pname+=STRING
 	 *     pname+=STRING (ambiguity) 'REQUEST_TYPE' '=' request_type+=STRING
 	 *     pname+=STRING (ambiguity) 'SERVER_IP' '=' server_ip+=STRING
 	 *     pname+=STRING (ambiguity) (rule end)
-	 *     request_type+=STRING (ambiguity) 'CONTENT_TYPE' content_type+=STRING
-	 *     request_type+=STRING (ambiguity) 'DATA' data+=STRING
-	 *     request_type+=STRING (ambiguity) 'HEADER' header+=STRING
+	 *     request_type+=STRING (ambiguity) 'CONTENT_TYPE' '=' content_type+=STRING
+	 *     request_type+=STRING (ambiguity) 'DATA' '=' data+=STRING
+	 *     request_type+=STRING (ambiguity) 'HEADER' '=' header+=STRING
 	 *     request_type+=STRING (ambiguity) 'NAME' '=' pname+=STRING
 	 *     request_type+=STRING (ambiguity) 'REQUEST_TYPE' '=' request_type+=STRING
 	 *     request_type+=STRING (ambiguity) 'SERVER_IP' '=' server_ip+=STRING
 	 *     request_type+=STRING (ambiguity) (rule end)
-	 *     server_ip+=STRING (ambiguity) 'CONTENT_TYPE' content_type+=STRING
-	 *     server_ip+=STRING (ambiguity) 'DATA' data+=STRING
-	 *     server_ip+=STRING (ambiguity) 'HEADER' header+=STRING
+	 *     server_ip+=STRING (ambiguity) 'CONTENT_TYPE' '=' content_type+=STRING
+	 *     server_ip+=STRING (ambiguity) 'DATA' '=' data+=STRING
+	 *     server_ip+=STRING (ambiguity) 'HEADER' '=' header+=STRING
 	 *     server_ip+=STRING (ambiguity) 'NAME' '=' pname+=STRING
 	 *     server_ip+=STRING (ambiguity) 'REQUEST_TYPE' '=' request_type+=STRING
 	 *     server_ip+=STRING (ambiguity) 'SERVER_IP' '=' server_ip+=STRING

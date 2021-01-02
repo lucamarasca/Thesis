@@ -68,7 +68,7 @@ public String getCPPVariablesESP32() {
 	public String getCPPCodeESP32() {
 		String result = "";
 		result +=		
-		  "void setupWiFi(char* ssid, char* password)\r\n"
+		  "void setupWiFiHTTP(char* ssid, char* password)\r\n"
 		+ "{\r\n"
 		+ "\tWiFi.begin(ssid, password);\r\n"
 		+ "\tSerial.println(\"Connecting\");\r\n"
@@ -78,8 +78,8 @@ public String getCPPVariablesESP32() {
 		+ "\t}\r\n"
 		+ "\tSerial.println(\"\");\r\n"
 		+ "\tSerial.print(\"Connected to WiFi network with IP Address: \");\r\n"
-		+ "\tSerial.println(WiFi.localIP());"
-		+ "}"
+		+ "\tSerial.println(WiFi.localIP());\n"
+		+ "}\n"
 		+ "void InitNetwork(char* ssid, char* password)\r\n"
 		+ "{\r\n"
 		+ "\tSerial.begin(115200);\r\n"
@@ -124,7 +124,7 @@ public String getCPPVariablesESP32() {
 	}
 	public String getHCodeESP() {
 		String result = "";
-		result+= "void setupWiFi(char* ssid, char* password);\n"
+		result+= "void setupWiFiHTTP(char* ssid, char* password);\n"
 		+ "void sendGetRequest(char* serverIP);\n"
 		+ "void sendPost(char* serverIP, char* content_type, char* header, char* data)\n";
 		return result;

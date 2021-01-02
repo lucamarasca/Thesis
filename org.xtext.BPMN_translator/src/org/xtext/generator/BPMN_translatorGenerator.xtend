@@ -17,6 +17,7 @@ import org.xtext.bPMN_translator.codex
 import sensor.devices.TemperatureSensor
 import org.xtext.bPMN_translator.Singleton
 
+
 /**
  * Generates code from your model files on save.
  * 
@@ -46,6 +47,7 @@ ArduinoHCodeGenerator h_gen;
 ArrayList<String> ino_code;
 ArduinoInoCodeGenerator ino_gen;
 MQTT netdata;
+HTTP netdata1;
 TemperatureSensor s;
 ArrayList<Elements> elements;
 ArrayList<String> generated_elements;
@@ -438,8 +440,6 @@ def fillSuccessors(String my_id, Resource r){
 								{
 									if(isSubProcess(Singleton.value.get(j),r))
 									{
-										
-										
 										getSubStartEvents(Singleton.value.get(j),r);
 										var app = j;
 										for (subStart : subStarts.get(subStarts.size()-1))
@@ -493,7 +493,6 @@ def fillSuccessors(String my_id, Resource r){
 									{
 										if (getGatewayType(my_id,r).equals("parallel_condition"))
 										{
-											
 											if (isForkParallel(my_id,r))
 											{
 												if (thread_conditions <= 0)
@@ -529,10 +528,7 @@ def fillSuccessors(String my_id, Resource r){
 											
 											successors.add(Singleton.value.get(j));
 											fillSuccessors(Singleton.value.get(j),r);
-										}
-										
-										
-										
+										}	
 										
 									}
 									
@@ -1007,9 +1003,8 @@ def setDatas(Resource r){
 	h_gen = new ArduinoHCodeGenerator();
 	Reset();
 	setDataStructure(r);
-	cpp_gen.setProtocol(netdata);
 	
-	h_gen.setProtocol(netdata);
+	
 }
 
 
@@ -1074,6 +1069,56 @@ def setDatas(Resource r, String successor_id){
 								{	
 									for(Protocol : Codex.protocol)
 									{
+										if (Protocol.pname.get(0).toLowerCase().replaceAll("\\s+","").equals("http"))
+										{
+											netdata1 = new HTTP();
+											elements.add(netdata1);
+											netdata1.setType("http-get");
+											netdata1.setName(getName(Element));
+											for(Device : Codex.device_code)
+											{ 
+												netdata1.getDatas().setDevice(Device.device.get(0));
+												cpp_gen.setDevice(Device.device.get(0));
+												netdata1.setId(Device.id.get(0));
+											}
+											for(http : Protocol.http_data)
+											{
+												h_gen.setNetwork_protocol(http.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+												cpp_gen.setNetwork_protocol(http.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+												netdata1.getDatas().setServer_ip(http.server_ip.get(0));
+												netdata1.getDatas().wifi_ssid.clear();
+												netdata1.getDatas().wifi_pass.clear();
+												for(http_network_data : http.mqtt_network_data)
+												{
+													
+													netdata1.getDatas().wifi_ssid.add(http_network_data.ssid.get(0))
+													netdata1.getDatas().wifi_pass.add(http_network_data.password.get(0))
+												}
+												if (http.request_type.get(0).replaceAll("\\s+","").toLowerCase().equals("post"))
+												{
+													netdata1.setType("http-post");
+													netdata1.getDatas().setContent_type(http.content_type.get(0))
+													netdata1.getDatas().setHeader(http.header.get(0));
+													netdata1.getDatas().getDatas().clear();
+													for (data : http.data)
+														netdata1.getDatas().getDatas().add(data);
+												}
+											}
+											for(httpDevice : Protocol.mqtt_device)
+											{
+												h_gen.setWifi_sensor(httpDevice.dname.get(0).toLowerCase().replaceAll("\\s+",""));
+												cpp_gen.setWifi_sensor(httpDevice.dname.get(0).toLowerCase().replaceAll("\\s+",""));
+												netdata1.setWifi_module(httpDevice.dname.get(0));
+											}
+											if (!generated_elements.contains("http"))
+											{
+												h_variables = h_gen.generateDefineCode(h_variables);
+												h_code = h_gen.generateMethodsCode(h_code);
+												cpp_variables = cpp_gen.generateProtocolVariables(netdata1, cpp_variables);
+												cpp_code = cpp_gen.generateProtocolCode(netdata1, cpp_code);
+												generated_elements.add("http")
+											}
+										}
 										if (Protocol.pname.get(0).toLowerCase().replaceAll("\\s+","").equals("mqtt"))
 										{
 											netdata = new MQTT();
@@ -1154,18 +1199,19 @@ def setDatas(Resource r, String successor_id){
 												s.setId(Device.id.get(0));
 											}
 											elements.add(s);
-											s.setType("dht22");
+											
 											
 											for (sensdata : sensor.sensor)
 											{
+												s.setType(sensdata.pname.get(0).toLowerCase().replaceAll("\\s+",""));
 												s.setModule(sensdata.pname.get(0).toLowerCase().replaceAll("\\s+",""));
-												s.setSensorId(sensdata.sensor_id.get(0));
+												s.setSensorId(sensdata.sensor_id.get(0).toLowerCase().replaceAll("\\s+",""));
 												for(pins : sensdata.pins)
 												{
 													s.getPins().add(pins);
 												}
 											}
-											if (!generated_elements.contains("dht22"))
+											if (!generated_elements.contains("dht22") && s.getType().equals("dht22"))
 											{
 												h_gen.sensor = "dht22";
 												h_variables = h_gen.generateDefineCode(h_variables);

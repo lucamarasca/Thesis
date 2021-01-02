@@ -148,6 +148,8 @@ ruleconditions:
 		'||'
 		    |
 		')'
+		    |
+		'!='
 	)
 ;
 
@@ -212,12 +214,15 @@ rulehttp_data:
 		RULE_STRING
 		    |
 		'CONTENT_TYPE'
+		'='
 		RULE_STRING
 		    |
 		'HEADER'
+		'='
 		RULE_STRING
 		    |
 		'DATA'
+		'='
 		RULE_STRING
 		    |
 		'NETWORK'

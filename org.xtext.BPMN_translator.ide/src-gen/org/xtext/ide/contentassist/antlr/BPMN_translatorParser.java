@@ -134,9 +134,9 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getHttp_dataAccess().getPnameAssignment_1_0_2(), "rule__Http_data__PnameAssignment_1_0_2");
 			builder.put(grammarAccess.getHttp_dataAccess().getServer_ipAssignment_1_1_2(), "rule__Http_data__Server_ipAssignment_1_1_2");
 			builder.put(grammarAccess.getHttp_dataAccess().getRequest_typeAssignment_1_2_2(), "rule__Http_data__Request_typeAssignment_1_2_2");
-			builder.put(grammarAccess.getHttp_dataAccess().getContent_typeAssignment_1_3_1(), "rule__Http_data__Content_typeAssignment_1_3_1");
-			builder.put(grammarAccess.getHttp_dataAccess().getHeaderAssignment_1_4_1(), "rule__Http_data__HeaderAssignment_1_4_1");
-			builder.put(grammarAccess.getHttp_dataAccess().getDataAssignment_1_5_1(), "rule__Http_data__DataAssignment_1_5_1");
+			builder.put(grammarAccess.getHttp_dataAccess().getContent_typeAssignment_1_3_2(), "rule__Http_data__Content_typeAssignment_1_3_2");
+			builder.put(grammarAccess.getHttp_dataAccess().getHeaderAssignment_1_4_2(), "rule__Http_data__HeaderAssignment_1_4_2");
+			builder.put(grammarAccess.getHttp_dataAccess().getDataAssignment_1_5_2(), "rule__Http_data__DataAssignment_1_5_2");
 			builder.put(grammarAccess.getHttp_dataAccess().getMqtt_network_dataAssignment_1_6_2(), "rule__Http_data__Mqtt_network_dataAssignment_1_6_2");
 			builder.put(grammarAccess.getMqtt_dataAccess().getPnameAssignment_1_0_2(), "rule__Mqtt_data__PnameAssignment_1_0_2");
 			builder.put(grammarAccess.getMqtt_dataAccess().getBroker_userAssignment_1_1_2(), "rule__Mqtt_data__Broker_userAssignment_1_1_2");

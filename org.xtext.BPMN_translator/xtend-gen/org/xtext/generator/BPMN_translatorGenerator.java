@@ -8,6 +8,7 @@ import elements.Condition;
 import elements.Elements;
 import elements.Parallel;
 import java.util.ArrayList;
+import network.protocols.HTTP;
 import network.protocols.MQTT;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -23,6 +24,7 @@ import org.xtext.bPMN_translator.codex;
 import org.xtext.bPMN_translator.content;
 import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
+import org.xtext.bPMN_translator.http_data;
 import org.xtext.bPMN_translator.mqtt_data;
 import org.xtext.bPMN_translator.mqtt_device;
 import org.xtext.bPMN_translator.mqtt_network_data;
@@ -83,6 +85,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
   private ArduinoInoCodeGenerator ino_gen;
   
   private MQTT netdata;
+  
+  private HTTP netdata1;
   
   private TemperatureSensor s;
   
@@ -1116,8 +1120,6 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     this.h_gen = _arduinoHCodeGenerator;
     this.Reset();
     this.setDataStructure(r);
-    this.cpp_gen.setProtocol(this.netdata);
-    this.h_gen.setProtocol(this.netdata);
   }
   
   public void setDataStructure(final Resource r) {
@@ -1197,111 +1199,172 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                   if (_equals_3) {
                     EList<protocol> _protocol = Codex.getProtocol();
                     for (final protocol Protocol : _protocol) {
-                      boolean _equals_4 = Protocol.getPname().get(0).toLowerCase().replaceAll("\\s+", "").equals("mqtt");
-                      if (_equals_4) {
-                        MQTT _mQTT = new MQTT();
-                        this.netdata = _mQTT;
-                        this.elements.add(this.netdata);
-                        this.netdata.setType("mqtt");
-                        this.netdata.setName(this.getName(Element));
-                        EList<device> _device_code = Codex.getDevice_code();
-                        for (final device Device : _device_code) {
-                          {
-                            this.netdata.getDatas().setDevice(Device.getDevice().get(0));
-                            this.cpp_gen.setDevice(Device.getDevice().get(0));
-                            this.netdata.setId(Device.getId().get(0));
+                      {
+                        boolean _equals_4 = Protocol.getPname().get(0).toLowerCase().replaceAll("\\s+", "").equals("http");
+                        if (_equals_4) {
+                          HTTP _hTTP = new HTTP();
+                          this.netdata1 = _hTTP;
+                          this.elements.add(this.netdata1);
+                          this.netdata1.setType("http-get");
+                          this.netdata1.setName(this.getName(Element));
+                          EList<device> _device_code = Codex.getDevice_code();
+                          for (final device Device : _device_code) {
+                            {
+                              this.netdata1.getDatas().setDevice(Device.getDevice().get(0));
+                              this.cpp_gen.setDevice(Device.getDevice().get(0));
+                              this.netdata1.setId(Device.getId().get(0));
+                            }
                           }
-                        }
-                        EList<mqtt_data> _mqtt_data = Protocol.getMqtt_data();
-                        for (final mqtt_data MQTTData : _mqtt_data) {
-                          {
-                            this.h_gen.setNetwork_protocol(MQTTData.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
-                            this.cpp_gen.setNetwork_protocol(MQTTData.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
-                            this.netdata.getDatas().setName(MQTTData.getPname().get(0));
-                            this.netdata.getDatas().setBroker_user(MQTTData.getBroker_user().get(0));
-                            this.netdata.getDatas().setBroker_password(MQTTData.getBroker_password().get(0));
-                            this.netdata.getDatas().setBroker(MQTTData.getBroker().get(0));
-                            this.netdata.getDatas().getWifi_ssid().clear();
-                            this.netdata.getDatas().getWifi_pass().clear();
-                            EList<mqtt_network_data> _mqtt_network_data = MQTTData.getMqtt_network_data();
-                            for (final mqtt_network_data MQTT_network_data : _mqtt_network_data) {
-                              {
-                                this.netdata.getDatas().getWifi_ssid().add(MQTT_network_data.getSsid().get(0));
-                                this.netdata.getDatas().getWifi_pass().add(MQTT_network_data.getPassword().get(0));
+                          EList<http_data> _http_data = Protocol.getHttp_data();
+                          for (final http_data http : _http_data) {
+                            {
+                              this.h_gen.setNetwork_protocol(http.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              this.cpp_gen.setNetwork_protocol(http.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              this.netdata1.getDatas().setServer_ip(http.getServer_ip().get(0));
+                              this.netdata1.getDatas().getWifi_ssid().clear();
+                              this.netdata1.getDatas().getWifi_pass().clear();
+                              EList<mqtt_network_data> _mqtt_network_data = http.getMqtt_network_data();
+                              for (final mqtt_network_data http_network_data : _mqtt_network_data) {
+                                {
+                                  this.netdata1.getDatas().getWifi_ssid().add(http_network_data.getSsid().get(0));
+                                  this.netdata1.getDatas().getWifi_pass().add(http_network_data.getPassword().get(0));
+                                }
                               }
-                            }
-                            this.netdata.getDatas().getPubTopics().clear();
-                            this.netdata.getDatas().getPublish_data().clear();
-                            int h = 0;
-                            EList<String> _pubtopics = MQTTData.getPubtopics();
-                            for (final String MQTT_topic_pub : _pubtopics) {
-                              boolean _contains_3 = this.netdata.getDatas().getPubTopics().contains(MQTT_topic_pub.toString());
-                              boolean _not = (!_contains_3);
-                              if (_not) {
-                                this.netdata.getDatas().getPubTopics().add(MQTT_topic_pub.toString());
-                                this.netdata.getDatas().getPublish_data().add(MQTTData.getValue().get(h).toString());
-                                h++;
-                              }
-                            }
-                            this.netdata.getDatas().getSubTopics().clear();
-                            EList<String> _subtopics = MQTTData.getSubtopics();
-                            for (final String MQTT_topic_sub : _subtopics) {
-                              boolean _contains_4 = this.netdata.getDatas().getSubTopics().contains(MQTT_topic_sub.toString());
-                              boolean _not_1 = (!_contains_4);
-                              if (_not_1) {
-                                this.netdata.getDatas().getSubTopics().add(MQTT_topic_sub.toString());
+                              boolean _equals_5 = http.getRequest_type().get(0).replaceAll("\\s+", "").toLowerCase().equals("post");
+                              if (_equals_5) {
+                                this.netdata1.setType("http-post");
+                                this.netdata1.getDatas().setContent_type(http.getContent_type().get(0));
+                                this.netdata1.getDatas().setHeader(http.getHeader().get(0));
+                                this.netdata1.getDatas().getDatas().clear();
+                                EList<String> _data = http.getData();
+                                for (final String data : _data) {
+                                  this.netdata1.getDatas().getDatas().add(data);
+                                }
                               }
                             }
                           }
-                        }
-                        EList<mqtt_device> _mqtt_device = Protocol.getMqtt_device();
-                        for (final mqtt_device MQTTDevice : _mqtt_device) {
-                          {
-                            this.h_gen.setWifi_sensor(MQTTDevice.getDname().get(0).toLowerCase().replaceAll("\\s+", ""));
-                            this.cpp_gen.setWifi_sensor(MQTTDevice.getDname().get(0).toLowerCase().replaceAll("\\s+", ""));
-                            this.netdata.setWifi_module(MQTTDevice.getDname().get(0));
+                          EList<mqtt_device> _mqtt_device = Protocol.getMqtt_device();
+                          for (final mqtt_device httpDevice : _mqtt_device) {
+                            {
+                              this.h_gen.setWifi_sensor(httpDevice.getDname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              this.cpp_gen.setWifi_sensor(httpDevice.getDname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              this.netdata1.setWifi_module(httpDevice.getDname().get(0));
+                            }
+                          }
+                          boolean _contains_3 = this.generated_elements.contains("http");
+                          boolean _not = (!_contains_3);
+                          if (_not) {
+                            this.h_variables = this.h_gen.generateDefineCode(this.h_variables);
+                            this.h_code = this.h_gen.generateMethodsCode(this.h_code);
+                            this.cpp_variables = this.cpp_gen.generateProtocolVariables(this.netdata1, this.cpp_variables);
+                            this.cpp_code = this.cpp_gen.generateProtocolCode(this.netdata1, this.cpp_code);
+                            this.generated_elements.add("http");
                           }
                         }
-                        boolean _contains_3 = this.generated_elements.contains("mqtt");
-                        boolean _not = (!_contains_3);
-                        if (_not) {
-                          this.h_variables = this.h_gen.generateDefineCode(this.h_variables);
-                          this.h_code = this.h_gen.generateMethodsCode(this.h_code);
-                          this.cpp_variables = this.cpp_gen.generateProtocolVariables(this.netdata, this.cpp_variables);
-                          this.cpp_code = this.cpp_gen.generateProtocolCode(this.netdata, this.cpp_code);
-                          this.generated_elements.add("mqtt");
+                        boolean _equals_5 = Protocol.getPname().get(0).toLowerCase().replaceAll("\\s+", "").equals("mqtt");
+                        if (_equals_5) {
+                          MQTT _mQTT = new MQTT();
+                          this.netdata = _mQTT;
+                          this.elements.add(this.netdata);
+                          this.netdata.setType("mqtt");
+                          this.netdata.setName(this.getName(Element));
+                          EList<device> _device_code_1 = Codex.getDevice_code();
+                          for (final device Device_1 : _device_code_1) {
+                            {
+                              this.netdata.getDatas().setDevice(Device_1.getDevice().get(0));
+                              this.cpp_gen.setDevice(Device_1.getDevice().get(0));
+                              this.netdata.setId(Device_1.getId().get(0));
+                            }
+                          }
+                          EList<mqtt_data> _mqtt_data = Protocol.getMqtt_data();
+                          for (final mqtt_data MQTTData : _mqtt_data) {
+                            {
+                              this.h_gen.setNetwork_protocol(MQTTData.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              this.cpp_gen.setNetwork_protocol(MQTTData.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              this.netdata.getDatas().setName(MQTTData.getPname().get(0));
+                              this.netdata.getDatas().setBroker_user(MQTTData.getBroker_user().get(0));
+                              this.netdata.getDatas().setBroker_password(MQTTData.getBroker_password().get(0));
+                              this.netdata.getDatas().setBroker(MQTTData.getBroker().get(0));
+                              this.netdata.getDatas().getWifi_ssid().clear();
+                              this.netdata.getDatas().getWifi_pass().clear();
+                              EList<mqtt_network_data> _mqtt_network_data = MQTTData.getMqtt_network_data();
+                              for (final mqtt_network_data MQTT_network_data : _mqtt_network_data) {
+                                {
+                                  this.netdata.getDatas().getWifi_ssid().add(MQTT_network_data.getSsid().get(0));
+                                  this.netdata.getDatas().getWifi_pass().add(MQTT_network_data.getPassword().get(0));
+                                }
+                              }
+                              this.netdata.getDatas().getPubTopics().clear();
+                              this.netdata.getDatas().getPublish_data().clear();
+                              int h = 0;
+                              EList<String> _pubtopics = MQTTData.getPubtopics();
+                              for (final String MQTT_topic_pub : _pubtopics) {
+                                boolean _contains_4 = this.netdata.getDatas().getPubTopics().contains(MQTT_topic_pub.toString());
+                                boolean _not_1 = (!_contains_4);
+                                if (_not_1) {
+                                  this.netdata.getDatas().getPubTopics().add(MQTT_topic_pub.toString());
+                                  this.netdata.getDatas().getPublish_data().add(MQTTData.getValue().get(h).toString());
+                                  h++;
+                                }
+                              }
+                              this.netdata.getDatas().getSubTopics().clear();
+                              EList<String> _subtopics = MQTTData.getSubtopics();
+                              for (final String MQTT_topic_sub : _subtopics) {
+                                boolean _contains_5 = this.netdata.getDatas().getSubTopics().contains(MQTT_topic_sub.toString());
+                                boolean _not_2 = (!_contains_5);
+                                if (_not_2) {
+                                  this.netdata.getDatas().getSubTopics().add(MQTT_topic_sub.toString());
+                                }
+                              }
+                            }
+                          }
+                          EList<mqtt_device> _mqtt_device_1 = Protocol.getMqtt_device();
+                          for (final mqtt_device MQTTDevice : _mqtt_device_1) {
+                            {
+                              this.h_gen.setWifi_sensor(MQTTDevice.getDname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              this.cpp_gen.setWifi_sensor(MQTTDevice.getDname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              this.netdata.setWifi_module(MQTTDevice.getDname().get(0));
+                            }
+                          }
+                          boolean _contains_4 = this.generated_elements.contains("mqtt");
+                          boolean _not_1 = (!_contains_4);
+                          if (_not_1) {
+                            this.h_variables = this.h_gen.generateDefineCode(this.h_variables);
+                            this.h_code = this.h_gen.generateMethodsCode(this.h_code);
+                            this.cpp_variables = this.cpp_gen.generateProtocolVariables(this.netdata, this.cpp_variables);
+                            this.cpp_code = this.cpp_gen.generateProtocolCode(this.netdata, this.cpp_code);
+                            this.generated_elements.add("mqtt");
+                          }
                         }
                       }
                     }
                     EList<sensor> _sensor_code = Codex.getSensor_code();
                     for (final sensor sensor : _sensor_code) {
-                      boolean _equals_5 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("temperature");
-                      if (_equals_5) {
+                      boolean _equals_4 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("temperature");
+                      if (_equals_4) {
                         TemperatureSensor _temperatureSensor = new TemperatureSensor();
                         this.s = _temperatureSensor;
-                        EList<device> _device_code_1 = Codex.getDevice_code();
-                        for (final device Device_1 : _device_code_1) {
+                        EList<device> _device_code = Codex.getDevice_code();
+                        for (final device Device : _device_code) {
                           {
-                            this.cpp_gen.setDevice(Device_1.getDevice().get(0));
-                            this.s.setId(Device_1.getId().get(0));
+                            this.cpp_gen.setDevice(Device.getDevice().get(0));
+                            this.s.setId(Device.getId().get(0));
                           }
                         }
                         this.elements.add(this.s);
-                        this.s.setType("dht22");
                         EList<sensor_data> _sensor = sensor.getSensor();
                         for (final sensor_data sensdata : _sensor) {
                           {
+                            this.s.setType(sensdata.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
                             this.s.setModule(sensdata.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
-                            this.s.setSensorId(sensdata.getSensor_id().get(0));
+                            this.s.setSensorId(sensdata.getSensor_id().get(0).toLowerCase().replaceAll("\\s+", ""));
                             EList<String> _pins = sensdata.getPins();
                             for (final String pins : _pins) {
                               this.s.getPins().add(pins);
                             }
                           }
                         }
-                        boolean _contains_4 = this.generated_elements.contains("dht22");
-                        boolean _not_1 = (!_contains_4);
-                        if (_not_1) {
+                        if (((!this.generated_elements.contains("dht22")) && this.s.getType().equals("dht22"))) {
                           this.h_gen.sensor = "dht22";
                           this.h_variables = this.h_gen.generateDefineCode(this.h_variables);
                           this.h_code = this.h_gen.generateMethodsCode(this.h_code);

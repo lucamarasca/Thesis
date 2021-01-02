@@ -994,6 +994,12 @@ ruleconditions returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getConditionsAccess().getRightParenthesisKeyword_7());
 		}
+		    |
+		kw='!='
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getConditionsAccess().getExclamationMarkEqualsSignKeyword_8());
+		}
 	)
 ;
 
@@ -1438,11 +1444,15 @@ rulehttp_data returns [EObject current=null]
 				{
 					newLeafNode(otherlv_10, grammarAccess.getHttp_dataAccess().getCONTENT_TYPEKeyword_1_3_0());
 				}
+				otherlv_11='='
+				{
+					newLeafNode(otherlv_11, grammarAccess.getHttp_dataAccess().getEqualsSignKeyword_1_3_1());
+				}
 				(
 					(
-						lv_content_type_11_0=RULE_STRING
+						lv_content_type_12_0=RULE_STRING
 						{
-							newLeafNode(lv_content_type_11_0, grammarAccess.getHttp_dataAccess().getContent_typeSTRINGTerminalRuleCall_1_3_1_0());
+							newLeafNode(lv_content_type_12_0, grammarAccess.getHttp_dataAccess().getContent_typeSTRINGTerminalRuleCall_1_3_2_0());
 						}
 						{
 							if ($current==null) {
@@ -1451,7 +1461,7 @@ rulehttp_data returns [EObject current=null]
 							addWithLastConsumed(
 								$current,
 								"content_type",
-								lv_content_type_11_0,
+								lv_content_type_12_0,
 								"org.eclipse.xtext.common.Terminals.STRING");
 						}
 					)
@@ -1459,15 +1469,19 @@ rulehttp_data returns [EObject current=null]
 			)
 			    |
 			(
-				otherlv_12='HEADER'
+				otherlv_13='HEADER'
 				{
-					newLeafNode(otherlv_12, grammarAccess.getHttp_dataAccess().getHEADERKeyword_1_4_0());
+					newLeafNode(otherlv_13, grammarAccess.getHttp_dataAccess().getHEADERKeyword_1_4_0());
+				}
+				otherlv_14='='
+				{
+					newLeafNode(otherlv_14, grammarAccess.getHttp_dataAccess().getEqualsSignKeyword_1_4_1());
 				}
 				(
 					(
-						lv_header_13_0=RULE_STRING
+						lv_header_15_0=RULE_STRING
 						{
-							newLeafNode(lv_header_13_0, grammarAccess.getHttp_dataAccess().getHeaderSTRINGTerminalRuleCall_1_4_1_0());
+							newLeafNode(lv_header_15_0, grammarAccess.getHttp_dataAccess().getHeaderSTRINGTerminalRuleCall_1_4_2_0());
 						}
 						{
 							if ($current==null) {
@@ -1476,7 +1490,7 @@ rulehttp_data returns [EObject current=null]
 							addWithLastConsumed(
 								$current,
 								"header",
-								lv_header_13_0,
+								lv_header_15_0,
 								"org.eclipse.xtext.common.Terminals.STRING");
 						}
 					)
@@ -1484,15 +1498,19 @@ rulehttp_data returns [EObject current=null]
 			)
 			    |
 			(
-				otherlv_14='DATA'
+				otherlv_16='DATA'
 				{
-					newLeafNode(otherlv_14, grammarAccess.getHttp_dataAccess().getDATAKeyword_1_5_0());
+					newLeafNode(otherlv_16, grammarAccess.getHttp_dataAccess().getDATAKeyword_1_5_0());
+				}
+				otherlv_17='='
+				{
+					newLeafNode(otherlv_17, grammarAccess.getHttp_dataAccess().getEqualsSignKeyword_1_5_1());
 				}
 				(
 					(
-						lv_data_15_0=RULE_STRING
+						lv_data_18_0=RULE_STRING
 						{
-							newLeafNode(lv_data_15_0, grammarAccess.getHttp_dataAccess().getDataSTRINGTerminalRuleCall_1_5_1_0());
+							newLeafNode(lv_data_18_0, grammarAccess.getHttp_dataAccess().getDataSTRINGTerminalRuleCall_1_5_2_0());
 						}
 						{
 							if ($current==null) {
@@ -1501,7 +1519,7 @@ rulehttp_data returns [EObject current=null]
 							addWithLastConsumed(
 								$current,
 								"data",
-								lv_data_15_0,
+								lv_data_18_0,
 								"org.eclipse.xtext.common.Terminals.STRING");
 						}
 					)
@@ -1509,20 +1527,20 @@ rulehttp_data returns [EObject current=null]
 			)
 			    |
 			(
-				otherlv_16='NETWORK'
+				otherlv_19='NETWORK'
 				{
-					newLeafNode(otherlv_16, grammarAccess.getHttp_dataAccess().getNETWORKKeyword_1_6_0());
+					newLeafNode(otherlv_19, grammarAccess.getHttp_dataAccess().getNETWORKKeyword_1_6_0());
 				}
-				otherlv_17='{'
+				otherlv_20='{'
 				{
-					newLeafNode(otherlv_17, grammarAccess.getHttp_dataAccess().getLeftCurlyBracketKeyword_1_6_1());
+					newLeafNode(otherlv_20, grammarAccess.getHttp_dataAccess().getLeftCurlyBracketKeyword_1_6_1());
 				}
 				(
 					(
 						{
 							newCompositeNode(grammarAccess.getHttp_dataAccess().getMqtt_network_dataMqtt_network_dataParserRuleCall_1_6_2_0());
 						}
-						lv_mqtt_network_data_18_0=rulemqtt_network_data
+						lv_mqtt_network_data_21_0=rulemqtt_network_data
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getHttp_dataRule());
@@ -1530,15 +1548,15 @@ rulehttp_data returns [EObject current=null]
 							add(
 								$current,
 								"mqtt_network_data",
-								lv_mqtt_network_data_18_0,
+								lv_mqtt_network_data_21_0,
 								"org.xtext.BPMN_translator.mqtt_network_data");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)*
-				otherlv_19='}'
+				otherlv_22='}'
 				{
-					newLeafNode(otherlv_19, grammarAccess.getHttp_dataAccess().getRightCurlyBracketKeyword_1_6_3());
+					newLeafNode(otherlv_22, grammarAccess.getHttp_dataAccess().getRightCurlyBracketKeyword_1_6_3());
 				}
 			)
 		)*

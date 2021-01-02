@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import elements.Condition;
 import elements.Elements;
 import elements.Parallel;
+import network.protocols.HTTP;
 import network.protocols.MQTT;
 import sensor.devices.TemperatureSensor;
 
@@ -29,6 +30,10 @@ public class ArduinoInoCodeGenerator {
 	String brokers;
 	String broker_users;
 	String broker_passwords;
+	String server_ip;
+	String header;
+	String content_type;
+	String datas;
 	String pub_topics;
 	String pub_datas;
 	String sub_topics;
@@ -116,6 +121,10 @@ public class ArduinoInoCodeGenerator {
 		tabulations = 0;
 		closed_threads = new ArrayList<Parallel>();
 		opened_threads = new ArrayList<Parallel>();
+		server_ip = "";
+		header = "";
+		content_type = "";
+		datas = "";
 		
 	}
 	//This method is used for generate the variables to use in the ino file
@@ -156,20 +165,51 @@ public class ArduinoInoCodeGenerator {
 					}
 					
 				}
-			
+				if (elements.get(n).getType().equals("http-get"))
+				{
 				
-				if (elements.get(n).getType().equals("dht22"))
+					HTTP app = (HTTP) elements.get(n);
+					if (!ssid.contains("\"" +app.getDatas().getWifi_ssid().get(0)+ "\";"))
+						ssid += "char* ssid"+n +"= \""+app.getDatas().getWifi_ssid().get(0)+"\";\n";
+					if (!wifi_password.contains("\"" +app.getDatas().getWifi_pass().get(0)+ "\";"))
+						wifi_password += "char* wifi_password"+n +"= \""+app.getDatas().getWifi_pass().get(0)+"\";\n"; 
+					if (!server_ip.contains("\"" +app.getDatas().getServer_ip()+ "\";"))
+						server_ip += "char* server_ip"+n +"= \""+app.getDatas().getServer_ip()+"\";\n"; 
+				}
+				if (elements.get(n).getType().equals("http-post"))
+				{
+				
+					HTTP app = (HTTP) elements.get(n);
+					if (!ssid.contains("\"" +app.getDatas().getWifi_ssid().get(0)+ "\";"))
+						ssid += "char* ssid"+n +"= \""+app.getDatas().getWifi_ssid().get(0)+"\";\n";
+					if (!wifi_password.contains("\"" +app.getDatas().getWifi_pass().get(0)+ "\";"))
+						wifi_password += "char* wifi_password"+n +"= \""+app.getDatas().getWifi_pass().get(0)+"\";\n"; 
+					if (!server_ip.contains("\"" +app.getDatas().getServer_ip()+ "\";"))
+						server_ip += "char* server_ip"+n +"= \""+app.getDatas().getServer_ip()+"\";\n"; 
+					if (!header.contains("\"" +app.getDatas().getHeader()+ "\";"))
+						header += "char* header"+n +"= \""+app.getDatas().getHeader()+"\";\n"; 
+					if (!content_type.contains("\"" +app.getDatas().getContent_type()+ "\";"))
+						content_type += "char* content_type"+n +"= \""+app.getDatas().getContent_type()+"\";\n"; 
+					
+					for(int j = 0; j < app.getDatas().getDatas().size();j++)
+					{
+						if (!datas.contains("\"" + app.getDatas().getDatas().get(j) + "\";"))
+							datas += "char* send_data"+n+j+"= \""+app.getDatas().getDatas().get(j)+"\";\n"; 
+						
+					}	
+				}
+				if (elements.get(n).getType().equals("dht22") || elements.get(n).getType().equals("dht11"))
 				{
 					TemperatureSensor app = (TemperatureSensor) elements.get(n);
-					
+					if (elements.get(n).getType().equals("dht11"))
+					{
+						if (!sens_variables.contains("dht DHT"+ app.getSensorId()))
+							sens_variables += "dht DHT"+app.getSensorId()+"; //used for work with the sensor\r\n";
+					}
 					if (!sens_variables.contains("float hum"+ app.getSensorId()))
 						sens_variables += "float hum"+app.getSensorId()+"; //Stores humidity value\r\n";
 					if (!sens_variables.contains("float temp"+ app.getSensorId()))
 						sens_variables += "float temp"+app.getSensorId()+"; //Stores temperature value value\r\n";
-						
-					
-					
-					
 					if (!sens_variables.contains("int pin"+ app.getSensorId()))
 						sens_variables += "int pin"+ app.getSensorId()  + "= " + app.getPins().get(0)+"\n";
 					
@@ -184,6 +224,10 @@ public class ArduinoInoCodeGenerator {
 		variables += pub_topics;
 		variables += pub_datas;
 		variables += sub_topics;
+		variables += server_ip;
+		variables += header;
+		variables += content_type;
+		variables += datas;
 		variables += sens_variables;
 	}
 	private void GenerateSetupCode(ArrayList<Elements> elements, int i) {
@@ -218,10 +262,8 @@ public class ArduinoInoCodeGenerator {
 				if (elements.get(n).getType().equals("mqtt"))
 				{
 					MQTT app = (MQTT) elements.get(n);
-					if (!loop_code.contains("my_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+"," + getVariableName(app.getDatas().getWifi_ssid().get(0)) + "," + getVariableName(app.getDatas().getWifi_pass().get(0))+");\n"))
 					temp+=("\tmy_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+"," + getVariableName(app.getDatas().getWifi_ssid().get(0)) + "," + getVariableName(app.getDatas().getWifi_pass().get(0))+");\n");
-					if(!loop_code.contains("my_lib.reconnect(\"device id\", "+getVariableName(app.getDatas().getBroker_user())+", "+getVariableName(app.getDatas().getBroker_password())+", "+getVariableName(app.getDatas().getBroker())+");\n"))
-						temp += "\tmy_lib.reconnect(\"device id\", "+getVariableName(app.getDatas().getBroker_user())+", "+getVariableName(app.getDatas().getBroker_password())+", "+getVariableName(app.getDatas().getBroker())+");\n";							
+					temp += "\tmy_lib.reconnect(\"device id\", "+getVariableName(app.getDatas().getBroker_user())+", "+getVariableName(app.getDatas().getBroker_password())+", "+getVariableName(app.getDatas().getBroker())+");\n";							
 					int k = 0;
 					
 					for(String pubtopic : app.getDatas().getPubTopics())
@@ -238,6 +280,41 @@ public class ArduinoInoCodeGenerator {
 						k++;
 					}
 					for (k = 0; k < tabulations;k++)
+					{
+						temp = temp.replaceAll("(?m)^", "\t");
+					}
+					if (opened_threads.size() > 0)
+						opened_threads.get(opened_threads.size()-1).addBody(temp);
+					else
+						loop_code+= temp;
+					temp = "";
+				}
+				if (elements.get(n).getType().equals("http-get"))
+				{
+					HTTP app = (HTTP) elements.get(n);
+					
+					temp+=("\tmy_lib.setupWiFiHTTP("+getVariableName(app.getDatas().getWifi_ssid().get(0))+"," + getVariableName(app.getDatas().getWifi_pass().get(0))+");\n");
+					temp += "\tmy_lib.sendGetRequest("+getVariableName(app.getDatas().getServer_ip())+");\n";
+					
+					for (int k = 0; k < tabulations;k++)
+					{
+						temp = temp.replaceAll("(?m)^", "\t");
+					}
+					if (opened_threads.size() > 0)
+						opened_threads.get(opened_threads.size()-1).addBody(temp);
+					else
+						loop_code+= temp;
+					temp = "";
+				}
+				if (elements.get(n).getType().equals("http-post"))
+				{
+					HTTP app = (HTTP) elements.get(n);
+					
+					temp+=("\tmy_lib.setupWiFiHTTP("+getVariableName(app.getDatas().getWifi_ssid().get(0))+"," + getVariableName(app.getDatas().getWifi_pass().get(0))+");\n");
+					for (int k = 0; k < app.getDatas().getDatas().size();k++)
+						temp += "\tmy_lib.sendPost("+getVariableName(app.getDatas().getServer_ip())+","+getVariableName(app.getDatas().getContent_type())+","+getVariableName(app.getDatas().getHeader())+","+getVariableName(app.getDatas().getDatas().get(k))+");\n";
+						
+					for (int k = 0; k < tabulations;k++)
 					{
 						temp = temp.replaceAll("(?m)^", "\t");
 					}
@@ -433,6 +510,24 @@ public class ArduinoInoCodeGenerator {
 							+ "\t//Read data and store it to variables\r\n"
 							+ "\thum"+app.getSensorId()+"= dht.readHumidity();\r\n"
 							+ "\ttemp"+app.getSensorId()+"= dht.readTemperature();\n";
+					for (int k = 0; k < tabulations;k++)
+					{
+						temp = temp.replaceAll("(?m)^", "\t");
+					}
+					if (opened_threads.size() > 0)
+						opened_threads.get(opened_threads.size()-1).addBody(temp);
+					else
+						loop_code+= temp;
+					temp = "";
+				}
+				if (elements.get(n).getType().equals("dht11"))
+				{
+					TemperatureSensor app = (TemperatureSensor) elements.get(n);
+					temp+= "\tdelay(2000);\r\n"
+							+ "\t//Read data and store it to variables\r\n"
+							+ "\tDHT"+ app.getSensorId()+".read11(pin"+app.getSensorId()+");\n"
+							+ "\thum"+app.getSensorId()+"= DHT"+ app.getSensorId()+".temperature;\n"
+							+ "\ttemp"+app.getSensorId()+"= DHT"+ app.getSensorId()+".humidity;\n";
 					for (int k = 0; k < tabulations;k++)
 					{
 						temp = temp.replaceAll("(?m)^", "\t");

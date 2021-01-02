@@ -58,19 +58,36 @@ public class ArduinoHCodeGenerator {
 		}
 		switch (protocol) 
 		{
+			
 			case "mqtt":
 				result = "";
-				result += "#include <Ethernet.h>\r\n"
-						+ "#include <PubSubClient.h>\n"
-						+ "#include <WiFiClient.h>\n";
+				result += "#include <Ethernet.h>\r\n";
 				if (!code.contains(result))
 					code+= result;
+				result = "";
+				result += "#include <PubSubClient.h>\n";
+				if (!code.contains(result))
+					code+= result;
+				result = "";
+				result += "#include <WiFiClient.h>\n";
+				if (!code.contains(result))
+					code+= result;
+				result = "";
 				break;
 			case "http":
 				result = "";
-				result += "#include <Ethernet.h>\r\n"
-						+ "#include <HTTPClient.h>\n"
-						+ "#include <WiFiClient.h>\n";
+				result += "#include <Ethernet.h>\r\n";
+				if (!code.contains(result))
+					code+= result;
+				result = "";
+				result += "#include <HTTPClient.h>\n";
+				if (!code.contains(result))
+					code+= result;
+				result = "";
+				result += "#include <WiFiClient.h>\n";
+				if (!code.contains(result))
+					code+= result;
+				result = "";
 				break;
 			default: 
 				break;

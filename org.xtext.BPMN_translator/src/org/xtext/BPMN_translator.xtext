@@ -50,7 +50,7 @@ variables:
 	("TEMPERATURE" "[" BODY "," BODY "]") | (BODY "["BODY"]") 
 ;
 conditions:
-	("&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&amp;" | "||" | ")")
+	("&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&amp;" | "||" | ")" | "!=")
 ;
 preconditions:
 	("!"|"(")
@@ -74,9 +74,9 @@ http_data:
 	{http_data}
 	("NAME" "="  pname+=STRING |  "SERVER_IP" "=" server_ip+=STRING 
 		| "REQUEST_TYPE" "=" request_type+=STRING 
-		| "CONTENT_TYPE" content_type += STRING 
-		| "HEADER" header += STRING 
-		| "DATA" data += STRING
+		| "CONTENT_TYPE" "=" content_type += STRING 
+		| "HEADER" "=" header += STRING 
+		| "DATA" "=" data += STRING
 		| "NETWORK" "{" mqtt_network_data += mqtt_network_data* "}"
 	)*
 ;

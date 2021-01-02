@@ -561,12 +561,13 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final Keyword cAmpKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
 		private final Keyword cVerticalLineVerticalLineKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cExclamationMarkEqualsSignKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
 		
 		//conditions:
-		//	"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&amp;" | "||" | ")";
+		//	"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&amp;" | "||" | ")" | "!=";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&amp;" | "||" | ")"
+		//"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&amp;" | "||" | ")" | "!="
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//"&lt;"
@@ -592,6 +593,9 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		
 		//")"
 		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+		
+		//"!="
+		public Keyword getExclamationMarkEqualsSignKeyword_8() { return cExclamationMarkEqualsSignKeyword_8; }
 	}
 	public class PreconditionsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.preconditions");
@@ -807,16 +811,19 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final RuleCall cRequest_typeSTRINGTerminalRuleCall_1_2_2_0 = (RuleCall)cRequest_typeAssignment_1_2_2.eContents().get(0);
 		private final Group cGroup_1_3 = (Group)cAlternatives_1.eContents().get(3);
 		private final Keyword cCONTENT_TYPEKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
-		private final Assignment cContent_typeAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
-		private final RuleCall cContent_typeSTRINGTerminalRuleCall_1_3_1_0 = (RuleCall)cContent_typeAssignment_1_3_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
+		private final Assignment cContent_typeAssignment_1_3_2 = (Assignment)cGroup_1_3.eContents().get(2);
+		private final RuleCall cContent_typeSTRINGTerminalRuleCall_1_3_2_0 = (RuleCall)cContent_typeAssignment_1_3_2.eContents().get(0);
 		private final Group cGroup_1_4 = (Group)cAlternatives_1.eContents().get(4);
 		private final Keyword cHEADERKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
-		private final Assignment cHeaderAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
-		private final RuleCall cHeaderSTRINGTerminalRuleCall_1_4_1_0 = (RuleCall)cHeaderAssignment_1_4_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_4_1 = (Keyword)cGroup_1_4.eContents().get(1);
+		private final Assignment cHeaderAssignment_1_4_2 = (Assignment)cGroup_1_4.eContents().get(2);
+		private final RuleCall cHeaderSTRINGTerminalRuleCall_1_4_2_0 = (RuleCall)cHeaderAssignment_1_4_2.eContents().get(0);
 		private final Group cGroup_1_5 = (Group)cAlternatives_1.eContents().get(5);
 		private final Keyword cDATAKeyword_1_5_0 = (Keyword)cGroup_1_5.eContents().get(0);
-		private final Assignment cDataAssignment_1_5_1 = (Assignment)cGroup_1_5.eContents().get(1);
-		private final RuleCall cDataSTRINGTerminalRuleCall_1_5_1_0 = (RuleCall)cDataAssignment_1_5_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_5_1 = (Keyword)cGroup_1_5.eContents().get(1);
+		private final Assignment cDataAssignment_1_5_2 = (Assignment)cGroup_1_5.eContents().get(2);
+		private final RuleCall cDataSTRINGTerminalRuleCall_1_5_2_0 = (RuleCall)cDataAssignment_1_5_2.eContents().get(0);
 		private final Group cGroup_1_6 = (Group)cAlternatives_1.eContents().get(6);
 		private final Keyword cNETWORKKeyword_1_6_0 = (Keyword)cGroup_1_6.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1_6_1 = (Keyword)cGroup_1_6.eContents().get(1);
@@ -827,14 +834,14 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//http_data:
 		//	{http_data} ("NAME" "=" pname+=STRING | "SERVER_IP" "=" server_ip+=STRING
 		//	| "REQUEST_TYPE" "=" request_type+=STRING
-		//	| "CONTENT_TYPE" content_type+=STRING
-		//	| "HEADER" header+=STRING
-		//	| "DATA" data+=STRING
+		//	| "CONTENT_TYPE" "=" content_type+=STRING
+		//	| "HEADER" "=" header+=STRING
+		//	| "DATA" "=" data+=STRING
 		//	| "NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}")*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{http_data} ("NAME" "=" pname+=STRING | "SERVER_IP" "=" server_ip+=STRING | "REQUEST_TYPE" "=" request_type+=STRING |
-		//"CONTENT_TYPE" content_type+=STRING | "HEADER" header+=STRING | "DATA" data+=STRING | "NETWORK" "{"
+		//"CONTENT_TYPE" "=" content_type+=STRING | "HEADER" "=" header+=STRING | "DATA" "=" data+=STRING | "NETWORK" "{"
 		//mqtt_network_data+=mqtt_network_data* "}")*
 		public Group getGroup() { return cGroup; }
 		
@@ -842,7 +849,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		public Action getHttp_dataAction_0() { return cHttp_dataAction_0; }
 		
 		//("NAME" "=" pname+=STRING | "SERVER_IP" "=" server_ip+=STRING | "REQUEST_TYPE" "=" request_type+=STRING | "CONTENT_TYPE"
-		//content_type+=STRING | "HEADER" header+=STRING | "DATA" data+=STRING | "NETWORK" "{"
+		//"=" content_type+=STRING | "HEADER" "=" header+=STRING | "DATA" "=" data+=STRING | "NETWORK" "{"
 		//mqtt_network_data+=mqtt_network_data* "}")*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
@@ -891,41 +898,50 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//STRING
 		public RuleCall getRequest_typeSTRINGTerminalRuleCall_1_2_2_0() { return cRequest_typeSTRINGTerminalRuleCall_1_2_2_0; }
 		
-		//"CONTENT_TYPE" content_type+=STRING
+		//"CONTENT_TYPE" "=" content_type+=STRING
 		public Group getGroup_1_3() { return cGroup_1_3; }
 		
 		//"CONTENT_TYPE"
 		public Keyword getCONTENT_TYPEKeyword_1_3_0() { return cCONTENT_TYPEKeyword_1_3_0; }
 		
+		//"="
+		public Keyword getEqualsSignKeyword_1_3_1() { return cEqualsSignKeyword_1_3_1; }
+		
 		//content_type+=STRING
-		public Assignment getContent_typeAssignment_1_3_1() { return cContent_typeAssignment_1_3_1; }
+		public Assignment getContent_typeAssignment_1_3_2() { return cContent_typeAssignment_1_3_2; }
 		
 		//STRING
-		public RuleCall getContent_typeSTRINGTerminalRuleCall_1_3_1_0() { return cContent_typeSTRINGTerminalRuleCall_1_3_1_0; }
+		public RuleCall getContent_typeSTRINGTerminalRuleCall_1_3_2_0() { return cContent_typeSTRINGTerminalRuleCall_1_3_2_0; }
 		
-		//"HEADER" header+=STRING
+		//"HEADER" "=" header+=STRING
 		public Group getGroup_1_4() { return cGroup_1_4; }
 		
 		//"HEADER"
 		public Keyword getHEADERKeyword_1_4_0() { return cHEADERKeyword_1_4_0; }
 		
+		//"="
+		public Keyword getEqualsSignKeyword_1_4_1() { return cEqualsSignKeyword_1_4_1; }
+		
 		//header+=STRING
-		public Assignment getHeaderAssignment_1_4_1() { return cHeaderAssignment_1_4_1; }
+		public Assignment getHeaderAssignment_1_4_2() { return cHeaderAssignment_1_4_2; }
 		
 		//STRING
-		public RuleCall getHeaderSTRINGTerminalRuleCall_1_4_1_0() { return cHeaderSTRINGTerminalRuleCall_1_4_1_0; }
+		public RuleCall getHeaderSTRINGTerminalRuleCall_1_4_2_0() { return cHeaderSTRINGTerminalRuleCall_1_4_2_0; }
 		
-		//"DATA" data+=STRING
+		//"DATA" "=" data+=STRING
 		public Group getGroup_1_5() { return cGroup_1_5; }
 		
 		//"DATA"
 		public Keyword getDATAKeyword_1_5_0() { return cDATAKeyword_1_5_0; }
 		
+		//"="
+		public Keyword getEqualsSignKeyword_1_5_1() { return cEqualsSignKeyword_1_5_1; }
+		
 		//data+=STRING
-		public Assignment getDataAssignment_1_5_1() { return cDataAssignment_1_5_1; }
+		public Assignment getDataAssignment_1_5_2() { return cDataAssignment_1_5_2; }
 		
 		//STRING
-		public RuleCall getDataSTRINGTerminalRuleCall_1_5_1_0() { return cDataSTRINGTerminalRuleCall_1_5_1_0; }
+		public RuleCall getDataSTRINGTerminalRuleCall_1_5_2_0() { return cDataSTRINGTerminalRuleCall_1_5_2_0; }
 		
 		//"NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}"
 		public Group getGroup_1_6() { return cGroup_1_6; }
@@ -1588,7 +1604,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	}
 	
 	//conditions:
-	//	"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&amp;" | "||" | ")";
+	//	"&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&amp;" | "||" | ")" | "!=";
 	public ConditionsElements getConditionsAccess() {
 		return pConditions;
 	}
@@ -1643,9 +1659,9 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	//http_data:
 	//	{http_data} ("NAME" "=" pname+=STRING | "SERVER_IP" "=" server_ip+=STRING
 	//	| "REQUEST_TYPE" "=" request_type+=STRING
-	//	| "CONTENT_TYPE" content_type+=STRING
-	//	| "HEADER" header+=STRING
-	//	| "DATA" data+=STRING
+	//	| "CONTENT_TYPE" "=" content_type+=STRING
+	//	| "HEADER" "=" header+=STRING
+	//	| "DATA" "=" data+=STRING
 	//	| "NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}")*;
 	public Http_dataElements getHttp_dataAccess() {
 		return pHttp_data;
