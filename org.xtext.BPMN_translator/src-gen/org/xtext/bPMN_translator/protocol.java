@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.bPMN_translator.protocol#getMqtt_data <em>Mqtt data</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.protocol#getMqtt_device <em>Mqtt device</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.protocol#getHttp_data <em>Http data</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.protocol#getHttp_device <em>Http device</em>}</li>
  * </ul>
  *
  * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol()
@@ -54,7 +55,7 @@ public interface protocol extends EObject
 
   /**
    * Returns the value of the '<em><b>Mqtt device</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.bPMN_translator.mqtt_device}.
+   * The list contents are of type {@link org.xtext.bPMN_translator.protocol_device}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Mqtt device</em>' containment reference list.
@@ -62,7 +63,7 @@ public interface protocol extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<mqtt_device> getMqtt_device();
+  EList<protocol_device> getMqtt_device();
 
   /**
    * Returns the value of the '<em><b>Http data</b></em>' containment reference list.
@@ -74,6 +75,18 @@ public interface protocol extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<http_data> getHttp_data();
+  EList<http_data> getHttp_data(); 
+
+  /**
+   * Returns the value of the '<em><b>Http device</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.bPMN_translator.protocol_device}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Http device</em>' containment reference list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getprotocol_Http_device()
+   * @model containment="true"
+   * @generated
+   */
+  EList<protocol_device> getHttp_device();
 
 } // protocol

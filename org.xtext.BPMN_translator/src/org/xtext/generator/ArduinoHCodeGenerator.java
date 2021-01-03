@@ -60,10 +60,43 @@ public class ArduinoHCodeGenerator {
 		{
 			
 			case "mqtt":
-				result = "";
-				result += "#include <Ethernet.h>\r\n";
-				if (!code.contains(result))
-					code+= result;
+				switch (wifi_module)
+				{
+					case "sim900":
+						result = "";
+						result += "#include <GSM.h>";
+					case "esp8266":
+						result = "";
+						result += "#include <ESP8266WiFiMulti.h>\n";
+						if (!code.contains(result))
+							code+= result;
+						result += "#include <ESP8266WiFi.h>\n";
+						if (!code.contains(result))
+							code+= result;
+						break;
+					case "w5100":
+						result = "";
+						result +=" #include <Ethernet.h>\n";
+						if (!code.contains(result))
+							code+= result;
+						result = "";
+						result += "#include <PubSubClient.h>\n";
+						if (!code.contains(result))
+							code+= result;
+						break;
+					case "mkr1010":
+					case "esp32":
+						result = "";
+						result += "#include <WiFi.h>\n";
+						if (!code.contains(result))
+							code+= result;
+						result += "#include <WiFiMulti.h>\n";
+						if (!code.contains(result))
+							code+= result;
+						break;
+					default: 
+						break;
+				}
 				result = "";
 				result += "#include <PubSubClient.h>\n";
 				if (!code.contains(result))
@@ -74,44 +107,53 @@ public class ArduinoHCodeGenerator {
 					code+= result;
 				result = "";
 				break;
+				
 			case "http":
-				result = "";
-				result += "#include <Ethernet.h>\r\n";
-				if (!code.contains(result))
-					code+= result;
-				result = "";
-				result += "#include <HTTPClient.h>\n";
-				if (!code.contains(result))
-					code+= result;
-				result = "";
-				result += "#include <WiFiClient.h>\n";
-				if (!code.contains(result))
-					code+= result;
-				result = "";
+				switch (wifi_module)
+				{
+					case "esp8266":
+						result = "";
+						result += "#include <ESP8266WiFi.h>\n";
+						if (!code.contains(result))
+							code+= result;
+						result += "#include <ESP8266HTTPClient.h>\n";
+						if (!code.contains(result))
+							code+= result;
+						break;
+					case "w5100":
+						result = "";
+						result += "#include <SPI.h>\n" ;
+						if (!code.contains(result))
+							code+= result;
+						result = "";
+						result += "#include <Ethernet.h>\n";
+						if (!code.contains(result))
+							code+= result;
+					case "mkr1010":
+					case "esp32":
+						result = "";
+						result += "#include <WiFi.h>\n";	
+						if (!code.contains(result))
+							code+= result;
+						result = "";
+						result += "#include <HTTPClient.h>\n";
+						if (!code.contains(result))
+							code+= result;
+						result = "";
+						result += "#include <WiFiClient.h>\n";
+						if (!code.contains(result))
+							code+= result;
+						result = "";
+						break;
+					default: 
+						break;
+				}
+				
 				break;
 			default: 
 				break;
 		}
-		switch (wifi_module)
-		{
-			case "esp8266":
-				result = "";
-				result += "#include <ESP8266WiFiMulti.h>\n"
-				+ "#include <ESP8266WiFi.h>\n";
-				if (!code.contains(result))
-					code+= result;
-				break;
-			case "esp32":
-				result = "";
-				result += "#include <Wire.h>\n"
-						+ "#include <WiFi.h>\n"
-						+ "#include <WiFiMulti.h>\n";
-				if (!code.contains(result))
-					code+= result;
-				break;
-			default: 
-				break;
-		}
+		
 		
 		return code;
 	}

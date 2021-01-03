@@ -1238,9 +1238,9 @@ ruleprotocol returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getProtocolAccess().getMqtt_deviceMqtt_deviceParserRuleCall_0_2_1_0());
+							newCompositeNode(grammarAccess.getProtocolAccess().getMqtt_deviceProtocol_deviceParserRuleCall_0_2_1_0());
 						}
-						lv_mqtt_device_3_0=rulemqtt_device
+						lv_mqtt_device_3_0=ruleprotocol_device
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getProtocolRule());
@@ -1249,7 +1249,7 @@ ruleprotocol returns [EObject current=null]
 								$current,
 								"mqtt_device",
 								lv_mqtt_device_3_0,
-								"org.xtext.BPMN_translator.mqtt_device");
+								"org.xtext.BPMN_translator.protocol_device");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -1303,18 +1303,18 @@ ruleprotocol returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getProtocolAccess().getMqtt_deviceMqtt_deviceParserRuleCall_1_2_1_0());
+							newCompositeNode(grammarAccess.getProtocolAccess().getHttp_deviceProtocol_deviceParserRuleCall_1_2_1_0());
 						}
-						lv_mqtt_device_8_0=rulemqtt_device
+						lv_http_device_8_0=ruleprotocol_device
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getProtocolRule());
 							}
 							add(
 								$current,
-								"mqtt_device",
-								lv_mqtt_device_8_0,
-								"org.xtext.BPMN_translator.mqtt_device");
+								"http_device",
+								lv_http_device_8_0,
+								"org.xtext.BPMN_translator.protocol_device");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -1928,15 +1928,15 @@ rulemqtt_network_data returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRulemqtt_device
-entryRulemqtt_device returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getMqtt_deviceRule()); }
-	iv_rulemqtt_device=rulemqtt_device
-	{ $current=$iv_rulemqtt_device.current; }
+// Entry rule entryRuleprotocol_device
+entryRuleprotocol_device returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getProtocol_deviceRule()); }
+	iv_ruleprotocol_device=ruleprotocol_device
+	{ $current=$iv_ruleprotocol_device.current; }
 	EOF;
 
-// Rule mqtt_device
-rulemqtt_device returns [EObject current=null]
+// Rule protocol_device
+ruleprotocol_device returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -1946,29 +1946,29 @@ rulemqtt_device returns [EObject current=null]
 	(
 		otherlv_0='PROTOCOL_DEVICE'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getMqtt_deviceAccess().getPROTOCOL_DEVICEKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getProtocol_deviceAccess().getPROTOCOL_DEVICEKeyword_0());
 		}
 		otherlv_1='{'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getMqtt_deviceAccess().getLeftCurlyBracketKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getProtocol_deviceAccess().getLeftCurlyBracketKeyword_1());
 		}
 		otherlv_2='NAME'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getMqtt_deviceAccess().getNAMEKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getProtocol_deviceAccess().getNAMEKeyword_2());
 		}
 		otherlv_3='='
 		{
-			newLeafNode(otherlv_3, grammarAccess.getMqtt_deviceAccess().getEqualsSignKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getProtocol_deviceAccess().getEqualsSignKeyword_3());
 		}
 		(
 			(
 				lv_dname_4_0=RULE_STRING
 				{
-					newLeafNode(lv_dname_4_0, grammarAccess.getMqtt_deviceAccess().getDnameSTRINGTerminalRuleCall_4_0());
+					newLeafNode(lv_dname_4_0, grammarAccess.getProtocol_deviceAccess().getDnameSTRINGTerminalRuleCall_4_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getMqtt_deviceRule());
+						$current = createModelElement(grammarAccess.getProtocol_deviceRule());
 					}
 					addWithLastConsumed(
 						$current,
@@ -1980,7 +1980,7 @@ rulemqtt_device returns [EObject current=null]
 		)
 		otherlv_5='}'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getMqtt_deviceAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_5, grammarAccess.getProtocol_deviceAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;

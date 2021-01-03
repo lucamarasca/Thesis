@@ -90,7 +90,7 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMqtt_dataAccess().getGroup_1_6_2_0(), "rule__Mqtt_data__Group_1_6_2_0__0");
 			builder.put(grammarAccess.getMqtt_dataAccess().getGroup_1_6_2_1(), "rule__Mqtt_data__Group_1_6_2_1__0");
 			builder.put(grammarAccess.getMqtt_network_dataAccess().getGroup(), "rule__Mqtt_network_data__Group__0");
-			builder.put(grammarAccess.getMqtt_deviceAccess().getGroup(), "rule__Mqtt_device__Group__0");
+			builder.put(grammarAccess.getProtocol_deviceAccess().getGroup(), "rule__Protocol_device__Group__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup_0(), "rule__Sensor__Group_0__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup_1(), "rule__Sensor__Group_1__0");
 			builder.put(grammarAccess.getSensor_dataAccess().getGroup(), "rule__Sensor_data__Group__0");
@@ -130,7 +130,7 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getProtocolAccess().getMqtt_deviceAssignment_0_2_1(), "rule__Protocol__Mqtt_deviceAssignment_0_2_1");
 			builder.put(grammarAccess.getProtocolAccess().getPnameAssignment_1_0(), "rule__Protocol__PnameAssignment_1_0");
 			builder.put(grammarAccess.getProtocolAccess().getHttp_dataAssignment_1_2_0(), "rule__Protocol__Http_dataAssignment_1_2_0");
-			builder.put(grammarAccess.getProtocolAccess().getMqtt_deviceAssignment_1_2_1(), "rule__Protocol__Mqtt_deviceAssignment_1_2_1");
+			builder.put(grammarAccess.getProtocolAccess().getHttp_deviceAssignment_1_2_1(), "rule__Protocol__Http_deviceAssignment_1_2_1");
 			builder.put(grammarAccess.getHttp_dataAccess().getPnameAssignment_1_0_2(), "rule__Http_data__PnameAssignment_1_0_2");
 			builder.put(grammarAccess.getHttp_dataAccess().getServer_ipAssignment_1_1_2(), "rule__Http_data__Server_ipAssignment_1_1_2");
 			builder.put(grammarAccess.getHttp_dataAccess().getRequest_typeAssignment_1_2_2(), "rule__Http_data__Request_typeAssignment_1_2_2");
@@ -148,7 +148,7 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMqtt_dataAccess().getValueAssignment_1_6_2_1_2(), "rule__Mqtt_data__ValueAssignment_1_6_2_1_2");
 			builder.put(grammarAccess.getMqtt_network_dataAccess().getSsidAssignment_2(), "rule__Mqtt_network_data__SsidAssignment_2");
 			builder.put(grammarAccess.getMqtt_network_dataAccess().getPasswordAssignment_5(), "rule__Mqtt_network_data__PasswordAssignment_5");
-			builder.put(grammarAccess.getMqtt_deviceAccess().getDnameAssignment_4(), "rule__Mqtt_device__DnameAssignment_4");
+			builder.put(grammarAccess.getProtocol_deviceAccess().getDnameAssignment_4(), "rule__Protocol_device__DnameAssignment_4");
 			builder.put(grammarAccess.getSensorAccess().getSnameAssignment_0_0(), "rule__Sensor__SnameAssignment_0_0");
 			builder.put(grammarAccess.getSensorAccess().getSensorAssignment_0_2(), "rule__Sensor__SensorAssignment_0_2");
 			builder.put(grammarAccess.getSensorAccess().getSnameAssignment_1_0(), "rule__Sensor__SnameAssignment_1_0");

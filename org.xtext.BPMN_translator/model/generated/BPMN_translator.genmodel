@@ -53,6 +53,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol/mqtt_data"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol/mqtt_device"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol/http_data"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BPMN_translator.ecore#//protocol/http_device"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//http_data">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//http_data/pname"/>
@@ -77,8 +78,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//mqtt_network_data/ssid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//mqtt_network_data/password"/>
     </genClasses>
-    <genClasses ecoreClass="BPMN_translator.ecore#//mqtt_device">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//mqtt_device/dname"/>
+    <genClasses ecoreClass="BPMN_translator.ecore#//protocol_device">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//protocol_device/dname"/>
     </genClasses>
     <genClasses ecoreClass="BPMN_translator.ecore#//sensor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//sensor/sname"/>

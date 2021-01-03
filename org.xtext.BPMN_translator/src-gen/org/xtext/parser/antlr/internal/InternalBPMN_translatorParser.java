@@ -2918,7 +2918,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleprotocol"
-    // InternalBPMN_translator.g:1191:1: ruleprotocol returns [EObject current=null] : ( ( ( (lv_pname_0_0= 'MQTT' ) ) otherlv_1= '{' ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= rulemqtt_device ) ) ) otherlv_4= '}' ) | ( ( (lv_pname_5_0= 'HTTP' ) ) otherlv_6= '{' ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_mqtt_device_8_0= rulemqtt_device ) ) ) otherlv_9= '}' ) ) ;
+    // InternalBPMN_translator.g:1191:1: ruleprotocol returns [EObject current=null] : ( ( ( (lv_pname_0_0= 'MQTT' ) ) otherlv_1= '{' ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= ruleprotocol_device ) ) ) otherlv_4= '}' ) | ( ( (lv_pname_5_0= 'HTTP' ) ) otherlv_6= '{' ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_http_device_8_0= ruleprotocol_device ) ) ) otherlv_9= '}' ) ) ;
     public final EObject ruleprotocol() throws RecognitionException {
         EObject current = null;
 
@@ -2934,17 +2934,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
         EObject lv_http_data_7_0 = null;
 
-        EObject lv_mqtt_device_8_0 = null;
+        EObject lv_http_device_8_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalBPMN_translator.g:1197:2: ( ( ( ( (lv_pname_0_0= 'MQTT' ) ) otherlv_1= '{' ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= rulemqtt_device ) ) ) otherlv_4= '}' ) | ( ( (lv_pname_5_0= 'HTTP' ) ) otherlv_6= '{' ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_mqtt_device_8_0= rulemqtt_device ) ) ) otherlv_9= '}' ) ) )
-            // InternalBPMN_translator.g:1198:2: ( ( ( (lv_pname_0_0= 'MQTT' ) ) otherlv_1= '{' ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= rulemqtt_device ) ) ) otherlv_4= '}' ) | ( ( (lv_pname_5_0= 'HTTP' ) ) otherlv_6= '{' ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_mqtt_device_8_0= rulemqtt_device ) ) ) otherlv_9= '}' ) )
+            // InternalBPMN_translator.g:1197:2: ( ( ( ( (lv_pname_0_0= 'MQTT' ) ) otherlv_1= '{' ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= ruleprotocol_device ) ) ) otherlv_4= '}' ) | ( ( (lv_pname_5_0= 'HTTP' ) ) otherlv_6= '{' ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_http_device_8_0= ruleprotocol_device ) ) ) otherlv_9= '}' ) ) )
+            // InternalBPMN_translator.g:1198:2: ( ( ( (lv_pname_0_0= 'MQTT' ) ) otherlv_1= '{' ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= ruleprotocol_device ) ) ) otherlv_4= '}' ) | ( ( (lv_pname_5_0= 'HTTP' ) ) otherlv_6= '{' ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_http_device_8_0= ruleprotocol_device ) ) ) otherlv_9= '}' ) )
             {
-            // InternalBPMN_translator.g:1198:2: ( ( ( (lv_pname_0_0= 'MQTT' ) ) otherlv_1= '{' ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= rulemqtt_device ) ) ) otherlv_4= '}' ) | ( ( (lv_pname_5_0= 'HTTP' ) ) otherlv_6= '{' ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_mqtt_device_8_0= rulemqtt_device ) ) ) otherlv_9= '}' ) )
+            // InternalBPMN_translator.g:1198:2: ( ( ( (lv_pname_0_0= 'MQTT' ) ) otherlv_1= '{' ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= ruleprotocol_device ) ) ) otherlv_4= '}' ) | ( ( (lv_pname_5_0= 'HTTP' ) ) otherlv_6= '{' ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_http_device_8_0= ruleprotocol_device ) ) ) otherlv_9= '}' ) )
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -2962,10 +2962,10 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             }
             switch (alt17) {
                 case 1 :
-                    // InternalBPMN_translator.g:1199:3: ( ( (lv_pname_0_0= 'MQTT' ) ) otherlv_1= '{' ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= rulemqtt_device ) ) ) otherlv_4= '}' )
+                    // InternalBPMN_translator.g:1199:3: ( ( (lv_pname_0_0= 'MQTT' ) ) otherlv_1= '{' ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= ruleprotocol_device ) ) ) otherlv_4= '}' )
                     {
-                    // InternalBPMN_translator.g:1199:3: ( ( (lv_pname_0_0= 'MQTT' ) ) otherlv_1= '{' ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= rulemqtt_device ) ) ) otherlv_4= '}' )
-                    // InternalBPMN_translator.g:1200:4: ( (lv_pname_0_0= 'MQTT' ) ) otherlv_1= '{' ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= rulemqtt_device ) ) ) otherlv_4= '}'
+                    // InternalBPMN_translator.g:1199:3: ( ( (lv_pname_0_0= 'MQTT' ) ) otherlv_1= '{' ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= ruleprotocol_device ) ) ) otherlv_4= '}' )
+                    // InternalBPMN_translator.g:1200:4: ( (lv_pname_0_0= 'MQTT' ) ) otherlv_1= '{' ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= ruleprotocol_device ) ) ) otherlv_4= '}'
                     {
                     // InternalBPMN_translator.g:1200:4: ( (lv_pname_0_0= 'MQTT' ) )
                     // InternalBPMN_translator.g:1201:5: (lv_pname_0_0= 'MQTT' )
@@ -2993,8 +2993,8 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_1, grammarAccess.getProtocolAccess().getLeftCurlyBracketKeyword_0_1());
                     			
-                    // InternalBPMN_translator.g:1218:4: ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= rulemqtt_device ) ) )
-                    // InternalBPMN_translator.g:1219:5: ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= rulemqtt_device ) )
+                    // InternalBPMN_translator.g:1218:4: ( ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= ruleprotocol_device ) ) )
+                    // InternalBPMN_translator.g:1219:5: ( (lv_mqtt_data_2_0= rulemqtt_data ) ) ( (lv_mqtt_device_3_0= ruleprotocol_device ) )
                     {
                     // InternalBPMN_translator.g:1219:5: ( (lv_mqtt_data_2_0= rulemqtt_data ) )
                     // InternalBPMN_translator.g:1220:6: (lv_mqtt_data_2_0= rulemqtt_data )
@@ -3027,17 +3027,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBPMN_translator.g:1238:5: ( (lv_mqtt_device_3_0= rulemqtt_device ) )
-                    // InternalBPMN_translator.g:1239:6: (lv_mqtt_device_3_0= rulemqtt_device )
+                    // InternalBPMN_translator.g:1238:5: ( (lv_mqtt_device_3_0= ruleprotocol_device ) )
+                    // InternalBPMN_translator.g:1239:6: (lv_mqtt_device_3_0= ruleprotocol_device )
                     {
-                    // InternalBPMN_translator.g:1239:6: (lv_mqtt_device_3_0= rulemqtt_device )
-                    // InternalBPMN_translator.g:1240:7: lv_mqtt_device_3_0= rulemqtt_device
+                    // InternalBPMN_translator.g:1239:6: (lv_mqtt_device_3_0= ruleprotocol_device )
+                    // InternalBPMN_translator.g:1240:7: lv_mqtt_device_3_0= ruleprotocol_device
                     {
 
-                    							newCompositeNode(grammarAccess.getProtocolAccess().getMqtt_deviceMqtt_deviceParserRuleCall_0_2_1_0());
+                    							newCompositeNode(grammarAccess.getProtocolAccess().getMqtt_deviceProtocol_deviceParserRuleCall_0_2_1_0());
                     						
                     pushFollow(FOLLOW_12);
-                    lv_mqtt_device_3_0=rulemqtt_device();
+                    lv_mqtt_device_3_0=ruleprotocol_device();
 
                     state._fsp--;
 
@@ -3049,7 +3049,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
                     								current,
                     								"mqtt_device",
                     								lv_mqtt_device_3_0,
-                    								"org.xtext.BPMN_translator.mqtt_device");
+                    								"org.xtext.BPMN_translator.protocol_device");
                     							afterParserOrEnumRuleCall();
                     						
 
@@ -3072,10 +3072,10 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBPMN_translator.g:1264:3: ( ( (lv_pname_5_0= 'HTTP' ) ) otherlv_6= '{' ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_mqtt_device_8_0= rulemqtt_device ) ) ) otherlv_9= '}' )
+                    // InternalBPMN_translator.g:1264:3: ( ( (lv_pname_5_0= 'HTTP' ) ) otherlv_6= '{' ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_http_device_8_0= ruleprotocol_device ) ) ) otherlv_9= '}' )
                     {
-                    // InternalBPMN_translator.g:1264:3: ( ( (lv_pname_5_0= 'HTTP' ) ) otherlv_6= '{' ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_mqtt_device_8_0= rulemqtt_device ) ) ) otherlv_9= '}' )
-                    // InternalBPMN_translator.g:1265:4: ( (lv_pname_5_0= 'HTTP' ) ) otherlv_6= '{' ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_mqtt_device_8_0= rulemqtt_device ) ) ) otherlv_9= '}'
+                    // InternalBPMN_translator.g:1264:3: ( ( (lv_pname_5_0= 'HTTP' ) ) otherlv_6= '{' ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_http_device_8_0= ruleprotocol_device ) ) ) otherlv_9= '}' )
+                    // InternalBPMN_translator.g:1265:4: ( (lv_pname_5_0= 'HTTP' ) ) otherlv_6= '{' ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_http_device_8_0= ruleprotocol_device ) ) ) otherlv_9= '}'
                     {
                     // InternalBPMN_translator.g:1265:4: ( (lv_pname_5_0= 'HTTP' ) )
                     // InternalBPMN_translator.g:1266:5: (lv_pname_5_0= 'HTTP' )
@@ -3103,8 +3103,8 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_6, grammarAccess.getProtocolAccess().getLeftCurlyBracketKeyword_1_1());
                     			
-                    // InternalBPMN_translator.g:1283:4: ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_mqtt_device_8_0= rulemqtt_device ) ) )
-                    // InternalBPMN_translator.g:1284:5: ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_mqtt_device_8_0= rulemqtt_device ) )
+                    // InternalBPMN_translator.g:1283:4: ( ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_http_device_8_0= ruleprotocol_device ) ) )
+                    // InternalBPMN_translator.g:1284:5: ( (lv_http_data_7_0= rulehttp_data ) ) ( (lv_http_device_8_0= ruleprotocol_device ) )
                     {
                     // InternalBPMN_translator.g:1284:5: ( (lv_http_data_7_0= rulehttp_data ) )
                     // InternalBPMN_translator.g:1285:6: (lv_http_data_7_0= rulehttp_data )
@@ -3137,17 +3137,17 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBPMN_translator.g:1303:5: ( (lv_mqtt_device_8_0= rulemqtt_device ) )
-                    // InternalBPMN_translator.g:1304:6: (lv_mqtt_device_8_0= rulemqtt_device )
+                    // InternalBPMN_translator.g:1303:5: ( (lv_http_device_8_0= ruleprotocol_device ) )
+                    // InternalBPMN_translator.g:1304:6: (lv_http_device_8_0= ruleprotocol_device )
                     {
-                    // InternalBPMN_translator.g:1304:6: (lv_mqtt_device_8_0= rulemqtt_device )
-                    // InternalBPMN_translator.g:1305:7: lv_mqtt_device_8_0= rulemqtt_device
+                    // InternalBPMN_translator.g:1304:6: (lv_http_device_8_0= ruleprotocol_device )
+                    // InternalBPMN_translator.g:1305:7: lv_http_device_8_0= ruleprotocol_device
                     {
 
-                    							newCompositeNode(grammarAccess.getProtocolAccess().getMqtt_deviceMqtt_deviceParserRuleCall_1_2_1_0());
+                    							newCompositeNode(grammarAccess.getProtocolAccess().getHttp_deviceProtocol_deviceParserRuleCall_1_2_1_0());
                     						
                     pushFollow(FOLLOW_12);
-                    lv_mqtt_device_8_0=rulemqtt_device();
+                    lv_http_device_8_0=ruleprotocol_device();
 
                     state._fsp--;
 
@@ -3157,9 +3157,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
                     							}
                     							add(
                     								current,
-                    								"mqtt_device",
-                    								lv_mqtt_device_8_0,
-                    								"org.xtext.BPMN_translator.mqtt_device");
+                    								"http_device",
+                    								lv_http_device_8_0,
+                    								"org.xtext.BPMN_translator.protocol_device");
                     							afterParserOrEnumRuleCall();
                     						
 
@@ -4519,25 +4519,25 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
     // $ANTLR end "rulemqtt_network_data"
 
 
-    // $ANTLR start "entryRulemqtt_device"
-    // InternalBPMN_translator.g:1932:1: entryRulemqtt_device returns [EObject current=null] : iv_rulemqtt_device= rulemqtt_device EOF ;
-    public final EObject entryRulemqtt_device() throws RecognitionException {
+    // $ANTLR start "entryRuleprotocol_device"
+    // InternalBPMN_translator.g:1932:1: entryRuleprotocol_device returns [EObject current=null] : iv_ruleprotocol_device= ruleprotocol_device EOF ;
+    public final EObject entryRuleprotocol_device() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_rulemqtt_device = null;
+        EObject iv_ruleprotocol_device = null;
 
 
         try {
-            // InternalBPMN_translator.g:1932:52: (iv_rulemqtt_device= rulemqtt_device EOF )
-            // InternalBPMN_translator.g:1933:2: iv_rulemqtt_device= rulemqtt_device EOF
+            // InternalBPMN_translator.g:1932:56: (iv_ruleprotocol_device= ruleprotocol_device EOF )
+            // InternalBPMN_translator.g:1933:2: iv_ruleprotocol_device= ruleprotocol_device EOF
             {
-             newCompositeNode(grammarAccess.getMqtt_deviceRule()); 
+             newCompositeNode(grammarAccess.getProtocol_deviceRule()); 
             pushFollow(FOLLOW_1);
-            iv_rulemqtt_device=rulemqtt_device();
+            iv_ruleprotocol_device=ruleprotocol_device();
 
             state._fsp--;
 
-             current =iv_rulemqtt_device; 
+             current =iv_ruleprotocol_device; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -4552,12 +4552,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRulemqtt_device"
+    // $ANTLR end "entryRuleprotocol_device"
 
 
-    // $ANTLR start "rulemqtt_device"
-    // InternalBPMN_translator.g:1939:1: rulemqtt_device returns [EObject current=null] : (otherlv_0= 'PROTOCOL_DEVICE' otherlv_1= '{' otherlv_2= 'NAME' otherlv_3= '=' ( (lv_dname_4_0= RULE_STRING ) ) otherlv_5= '}' ) ;
-    public final EObject rulemqtt_device() throws RecognitionException {
+    // $ANTLR start "ruleprotocol_device"
+    // InternalBPMN_translator.g:1939:1: ruleprotocol_device returns [EObject current=null] : (otherlv_0= 'PROTOCOL_DEVICE' otherlv_1= '{' otherlv_2= 'NAME' otherlv_3= '=' ( (lv_dname_4_0= RULE_STRING ) ) otherlv_5= '}' ) ;
+    public final EObject ruleprotocol_device() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -4579,19 +4579,19 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             {
             otherlv_0=(Token)match(input,61,FOLLOW_10); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getMqtt_deviceAccess().getPROTOCOL_DEVICEKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getProtocol_deviceAccess().getPROTOCOL_DEVICEKeyword_0());
             		
             otherlv_1=(Token)match(input,20,FOLLOW_38); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getMqtt_deviceAccess().getLeftCurlyBracketKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getProtocol_deviceAccess().getLeftCurlyBracketKeyword_1());
             		
             otherlv_2=(Token)match(input,46,FOLLOW_19); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getMqtt_deviceAccess().getNAMEKeyword_2());
+            			newLeafNode(otherlv_2, grammarAccess.getProtocol_deviceAccess().getNAMEKeyword_2());
             		
             otherlv_3=(Token)match(input,24,FOLLOW_6); 
 
-            			newLeafNode(otherlv_3, grammarAccess.getMqtt_deviceAccess().getEqualsSignKeyword_3());
+            			newLeafNode(otherlv_3, grammarAccess.getProtocol_deviceAccess().getEqualsSignKeyword_3());
             		
             // InternalBPMN_translator.g:1963:3: ( (lv_dname_4_0= RULE_STRING ) )
             // InternalBPMN_translator.g:1964:4: (lv_dname_4_0= RULE_STRING )
@@ -4601,11 +4601,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             {
             lv_dname_4_0=(Token)match(input,RULE_STRING,FOLLOW_12); 
 
-            					newLeafNode(lv_dname_4_0, grammarAccess.getMqtt_deviceAccess().getDnameSTRINGTerminalRuleCall_4_0());
+            					newLeafNode(lv_dname_4_0, grammarAccess.getProtocol_deviceAccess().getDnameSTRINGTerminalRuleCall_4_0());
             				
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getMqtt_deviceRule());
+            						current = createModelElement(grammarAccess.getProtocol_deviceRule());
             					}
             					addWithLastConsumed(
             						current,
@@ -4621,7 +4621,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             otherlv_5=(Token)match(input,21,FOLLOW_2); 
 
-            			newLeafNode(otherlv_5, grammarAccess.getMqtt_deviceAccess().getRightCurlyBracketKeyword_5());
+            			newLeafNode(otherlv_5, grammarAccess.getProtocol_deviceAccess().getRightCurlyBracketKeyword_5());
             		
 
             }
@@ -4642,7 +4642,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "rulemqtt_device"
+    // $ANTLR end "ruleprotocol_device"
 
 
     // $ANTLR start "entryRulesensor"

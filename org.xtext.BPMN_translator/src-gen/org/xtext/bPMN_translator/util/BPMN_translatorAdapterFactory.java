@@ -141,9 +141,9 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
         return createmqtt_network_dataAdapter();
       }
       @Override
-      public Adapter casemqtt_device(mqtt_device object)
+      public Adapter caseprotocol_device(protocol_device object)
       {
-        return createmqtt_deviceAdapter();
+        return createprotocol_deviceAdapter();
       }
       @Override
       public Adapter casesensor(sensor object)
@@ -373,16 +373,16 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.mqtt_device <em>mqtt device</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.protocol_device <em>protocol device</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.bPMN_translator.mqtt_device
+   * @see org.xtext.bPMN_translator.protocol_device
    * @generated
    */
-  public Adapter createmqtt_deviceAdapter()
+  public Adapter createprotocol_deviceAdapter()
   {
     return null;
   }

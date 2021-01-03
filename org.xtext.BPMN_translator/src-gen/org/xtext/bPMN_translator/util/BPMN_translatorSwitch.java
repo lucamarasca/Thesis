@@ -164,10 +164,10 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BPMN_translatorPackage.MQTT_DEVICE:
+      case BPMN_translatorPackage.PROTOCOL_DEVICE:
       {
-        mqtt_device mqtt_device = (mqtt_device)theEObject;
-        T result = casemqtt_device(mqtt_device);
+        protocol_device protocol_device = (protocol_device)theEObject;
+        T result = caseprotocol_device(protocol_device);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -398,17 +398,17 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>mqtt device</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>protocol device</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>mqtt device</em>'.
+   * @return the result of interpreting the object as an instance of '<em>protocol device</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casemqtt_device(mqtt_device object)
+  public T caseprotocol_device(protocol_device object)
   {
     return null;
   }

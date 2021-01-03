@@ -187,13 +187,13 @@ ruleprotocol:
 		'MQTT'
 		'{'
 		rulemqtt_data
-		rulemqtt_device
+		ruleprotocol_device
 		'}'
 		    |
 		'HTTP'
 		'{'
 		rulehttp_data
-		rulemqtt_device
+		ruleprotocol_device
 		'}'
 	)
 ;
@@ -293,8 +293,8 @@ rulemqtt_network_data:
 	RULE_STRING
 ;
 
-// Rule mqtt_device
-rulemqtt_device:
+// Rule protocol_device
+ruleprotocol_device:
 	'PROTOCOL_DEVICE'
 	'{'
 	'NAME'

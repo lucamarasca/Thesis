@@ -262,22 +262,43 @@ public class ArduinoInoCodeGenerator {
 				if (elements.get(n).getType().equals("mqtt"))
 				{
 					MQTT app = (MQTT) elements.get(n);
-					temp+=("\tmy_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+"," + getVariableName(app.getDatas().getWifi_ssid().get(0)) + "," + getVariableName(app.getDatas().getWifi_pass().get(0))+");\n");
-					temp += "\tmy_lib.reconnect(\"device id\", "+getVariableName(app.getDatas().getBroker_user())+", "+getVariableName(app.getDatas().getBroker_password())+", "+getVariableName(app.getDatas().getBroker())+");\n";							
 					int k = 0;
-					
-					for(String pubtopic : app.getDatas().getPubTopics())
+					if(app.getWifi_module().equals("w5100"))
 					{
-						String str = app.getDatas().getPublish_data().get(k);
-						temp += ("\tmy_lib.sendInPubTopic("+getVariableName(pubtopic)+", "+getVariableName(str)+");\n"); 
-						k++;
+						temp+=("\tmy_lib.InitMQTTConnectionW5100("+getVariableName(app.getDatas().getBroker())+", \"your mac address\");\n");
+						for(String pubtopic : app.getDatas().getPubTopics())
+						{
+							String str = app.getDatas().getPublish_data().get(k);
+							temp += ("\tmy_lib.sendInPubTopicW5100("+getVariableName(pubtopic)+", "+getVariableName(str)+");\n"); 
+							k++;
+						}
+						k=0;
+						
+						for(String subtopic : app.getDatas().getSubTopics())
+						{
+							temp += ("\tmy_lib.SubscribeW5100("+getVariableName(subtopic)+");\n"); 
+							k++;
+						}
 					}
-					k=0;
+					else {
 					
-					for(String subtopic : app.getDatas().getSubTopics())
-					{
-						temp += ("\tmy_lib.Subscribe("+getVariableName(subtopic)+");\n"); 
-						k++;
+						temp+=("\tmy_lib.InitNetwork("+getVariableName(app.getDatas().getBroker())+"," + getVariableName(app.getDatas().getWifi_ssid().get(0)) + "," + getVariableName(app.getDatas().getWifi_pass().get(0))+");\n");
+						temp += "\tmy_lib.reconnect(\"device id\", "+getVariableName(app.getDatas().getBroker_user())+", "+getVariableName(app.getDatas().getBroker_password())+", "+getVariableName(app.getDatas().getBroker())+");\n";							
+						
+						
+						for(String pubtopic : app.getDatas().getPubTopics())
+						{
+							String str = app.getDatas().getPublish_data().get(k);
+							temp += ("\tmy_lib.sendInPubTopic("+getVariableName(pubtopic)+", "+getVariableName(str)+");\n"); 
+							k++;
+						}
+						k=0;
+						
+						for(String subtopic : app.getDatas().getSubTopics())
+						{
+							temp += ("\tmy_lib.Subscribe("+getVariableName(subtopic)+");\n"); 
+							k++;
+						}
 					}
 					for (k = 0; k < tabulations;k++)
 					{
@@ -292,10 +313,17 @@ public class ArduinoInoCodeGenerator {
 				if (elements.get(n).getType().equals("http-get"))
 				{
 					HTTP app = (HTTP) elements.get(n);
-					
-					temp+=("\tmy_lib.setupWiFiHTTP("+getVariableName(app.getDatas().getWifi_ssid().get(0))+"," + getVariableName(app.getDatas().getWifi_pass().get(0))+");\n");
-					temp += "\tmy_lib.sendGetRequest("+getVariableName(app.getDatas().getServer_ip())+");\n";
-					
+					if(app.getWifi_module().equals("w5100"))
+					{
+						temp+=("\tmy_lib.initConnectionW5100({ 0x00, 0xAB, 0xBC, 0xCC, 0xDE, 0x01 };,"+app.getDatas().getServer_ip()+", \"your mac address\", \"your dns\");\n");
+						temp += "\tmy_lib.sendGetRequestW5100();\n";	
+					 
+					}
+					else 
+					{
+						temp+=("\tmy_lib.setupWiFiHTTP("+getVariableName(app.getDatas().getWifi_ssid().get(0))+"," + getVariableName(app.getDatas().getWifi_pass().get(0))+");\n");
+						temp += "\tmy_lib.sendGetRequest("+getVariableName(app.getDatas().getServer_ip())+");\n";	
+					}
 					for (int k = 0; k < tabulations;k++)
 					{
 						temp = temp.replaceAll("(?m)^", "\t");
@@ -309,11 +337,18 @@ public class ArduinoInoCodeGenerator {
 				if (elements.get(n).getType().equals("http-post"))
 				{
 					HTTP app = (HTTP) elements.get(n);
-					
-					temp+=("\tmy_lib.setupWiFiHTTP("+getVariableName(app.getDatas().getWifi_ssid().get(0))+"," + getVariableName(app.getDatas().getWifi_pass().get(0))+");\n");
-					for (int k = 0; k < app.getDatas().getDatas().size();k++)
-						temp += "\tmy_lib.sendPost("+getVariableName(app.getDatas().getServer_ip())+","+getVariableName(app.getDatas().getContent_type())+","+getVariableName(app.getDatas().getHeader())+","+getVariableName(app.getDatas().getDatas().get(k))+");\n";
-						
+					if(app.getWifi_module().equals("w5100"))
+					{
+						temp+=("\tmy_lib.initConnectionW5100({ 0x00, 0xAB, 0xBC, 0xCC, 0xDE, 0x01 },"+app.getDatas().getServer_ip()+", \"your mac address\", \"your dns\");\n");
+						for (int k = 0; k < app.getDatas().getDatas().size();k++)
+							temp += "\tmy_lib.sendPostRequestW5100("+getVariableName(app.getDatas().getServer_ip())+","+getVariableName(app.getDatas().getContent_type())+","+getVariableName(app.getDatas().getHeader())+","+getVariableName(app.getDatas().getDatas().get(k))+");\n";
+					}
+					else 
+					{
+						temp+=("\tmy_lib.setupWiFiHTTP("+getVariableName(app.getDatas().getWifi_ssid().get(0))+"," + getVariableName(app.getDatas().getWifi_pass().get(0))+");\n");
+						for (int k = 0; k < app.getDatas().getDatas().size();k++)
+							temp += "\tmy_lib.sendPost("+getVariableName(app.getDatas().getServer_ip())+","+getVariableName(app.getDatas().getContent_type())+","+getVariableName(app.getDatas().getHeader())+","+getVariableName(app.getDatas().getDatas().get(k))+");\n";
+					}
 					for (int k = 0; k < tabulations;k++)
 					{
 						temp = temp.replaceAll("(?m)^", "\t");
@@ -383,7 +418,6 @@ public class ArduinoInoCodeGenerator {
 				}
 				if( elements.get(n).getType().equals("inclusive_condition"))
 				{
-					
 					Condition con = (Condition) elements.get(n);
 					if (!con.isElse && !con.isEnd)
 					{

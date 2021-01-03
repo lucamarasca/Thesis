@@ -65,9 +65,9 @@ device:
 ;
 protocol:
 	 ((pname += ("MQTT") ) "{" (mqtt_data += mqtt_data
-	 	mqtt_device += mqtt_device) "}") | 
+	 	mqtt_device += protocol_device) "}") | 
 	((pname += ("HTTP") ) "{" (http_data += http_data
-	 	mqtt_device += mqtt_device) "}")
+	 	http_device += protocol_device) "}")
 ;
 
 http_data:
@@ -95,7 +95,7 @@ mqtt_network_data:
 	"SSID" "=" ssid+=STRING
 	"PASSWORD" "=" password+=STRING
 ;
-mqtt_device:
+protocol_device:
 	"PROTOCOL_DEVICE" "{" "NAME" "=" dname += STRING "}"
 ;
 

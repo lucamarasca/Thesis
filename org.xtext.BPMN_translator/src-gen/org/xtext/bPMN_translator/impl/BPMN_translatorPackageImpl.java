@@ -23,9 +23,9 @@ import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
 import org.xtext.bPMN_translator.http_data;
 import org.xtext.bPMN_translator.mqtt_data;
-import org.xtext.bPMN_translator.mqtt_device;
 import org.xtext.bPMN_translator.mqtt_network_data;
 import org.xtext.bPMN_translator.protocol;
+import org.xtext.bPMN_translator.protocol_device;
 import org.xtext.bPMN_translator.sensor;
 import org.xtext.bPMN_translator.sensor_data;
 
@@ -133,7 +133,7 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass mqtt_deviceEClass = null;
+  private EClass protocol_deviceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -647,6 +647,17 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
+  public EReference getprotocol_Http_device()
+  {
+    return (EReference)protocolEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass gethttp_data()
   {
     return http_dataEClass;
@@ -867,9 +878,9 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EClass getmqtt_device()
+  public EClass getprotocol_device()
   {
-    return mqtt_deviceEClass;
+    return protocol_deviceEClass;
   }
 
   /**
@@ -878,9 +889,9 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public EAttribute getmqtt_device_Dname()
+  public EAttribute getprotocol_device_Dname()
   {
-    return (EAttribute)mqtt_deviceEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)protocol_deviceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1039,6 +1050,7 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     createEReference(protocolEClass, PROTOCOL__MQTT_DATA);
     createEReference(protocolEClass, PROTOCOL__MQTT_DEVICE);
     createEReference(protocolEClass, PROTOCOL__HTTP_DATA);
+    createEReference(protocolEClass, PROTOCOL__HTTP_DEVICE);
 
     http_dataEClass = createEClass(HTTP_DATA);
     createEAttribute(http_dataEClass, HTTP_DATA__PNAME);
@@ -1063,8 +1075,8 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     createEAttribute(mqtt_network_dataEClass, MQTT_NETWORK_DATA__SSID);
     createEAttribute(mqtt_network_dataEClass, MQTT_NETWORK_DATA__PASSWORD);
 
-    mqtt_deviceEClass = createEClass(MQTT_DEVICE);
-    createEAttribute(mqtt_deviceEClass, MQTT_DEVICE__DNAME);
+    protocol_deviceEClass = createEClass(PROTOCOL_DEVICE);
+    createEAttribute(protocol_deviceEClass, PROTOCOL_DEVICE__DNAME);
 
     sensorEClass = createEClass(SENSOR);
     createEAttribute(sensorEClass, SENSOR__SNAME);
@@ -1153,8 +1165,9 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     initEClass(protocolEClass, protocol.class, "protocol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getprotocol_Pname(), ecorePackage.getEString(), "pname", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getprotocol_Mqtt_data(), this.getmqtt_data(), null, "mqtt_data", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getprotocol_Mqtt_device(), this.getmqtt_device(), null, "mqtt_device", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getprotocol_Mqtt_device(), this.getprotocol_device(), null, "mqtt_device", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getprotocol_Http_data(), this.gethttp_data(), null, "http_data", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getprotocol_Http_device(), this.getprotocol_device(), null, "http_device", null, 0, -1, protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(http_dataEClass, http_data.class, "http_data", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(gethttp_data_Pname(), ecorePackage.getEString(), "pname", null, 0, -1, http_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1179,8 +1192,8 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     initEAttribute(getmqtt_network_data_Ssid(), ecorePackage.getEString(), "ssid", null, 0, -1, mqtt_network_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getmqtt_network_data_Password(), ecorePackage.getEString(), "password", null, 0, -1, mqtt_network_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(mqtt_deviceEClass, mqtt_device.class, "mqtt_device", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getmqtt_device_Dname(), ecorePackage.getEString(), "dname", null, 0, -1, mqtt_device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(protocol_deviceEClass, protocol_device.class, "protocol_device", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getprotocol_device_Dname(), ecorePackage.getEString(), "dname", null, 0, -1, protocol_device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sensorEClass, sensor.class, "sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getsensor_Sname(), ecorePackage.getEString(), "sname", null, 0, -1, sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

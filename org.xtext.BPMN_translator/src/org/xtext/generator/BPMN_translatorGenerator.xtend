@@ -1104,7 +1104,7 @@ def setDatas(Resource r, String successor_id){
 														netdata1.getDatas().getDatas().add(data);
 												}
 											}
-											for(httpDevice : Protocol.mqtt_device)
+											for(httpDevice : Protocol.http_device)
 											{
 												h_gen.setWifi_sensor(httpDevice.dname.get(0).toLowerCase().replaceAll("\\s+",""));
 												cpp_gen.setWifi_sensor(httpDevice.dname.get(0).toLowerCase().replaceAll("\\s+",""));
@@ -1178,14 +1178,24 @@ def setDatas(Resource r, String successor_id){
 												cpp_gen.setWifi_sensor(MQTTDevice.dname.get(0).toLowerCase().replaceAll("\\s+",""));
 												netdata.setWifi_module(MQTTDevice.dname.get(0));
 											}
-											if (!generated_elements.contains("mqtt"))
-											{
-												h_variables = h_gen.generateDefineCode(h_variables);
-												h_code = h_gen.generateMethodsCode(h_code);
-												cpp_variables = cpp_gen.generateProtocolVariables(netdata, cpp_variables);
-												cpp_code = cpp_gen.generateProtocolCode(netdata, cpp_code);
-												generated_elements.add("mqtt")
-											}
+											if (h_gen.getWifi_sensor().equals("esp32") || h_gen.getWifi_sensor().equals("esp8266") || h_gen.getWifi_sensor().equals("mkr1010"))
+												if (!generated_elements.contains("mqtt"))
+												{
+													h_variables = h_gen.generateDefineCode(h_variables);
+													h_code = h_gen.generateMethodsCode(h_code);
+													cpp_variables = cpp_gen.generateProtocolVariables(netdata, cpp_variables);
+													cpp_code = cpp_gen.generateProtocolCode(netdata, cpp_code);
+													generated_elements.add("mqtt")
+												}
+											if (h_gen.getWifi_sensor().equals("w5100"))
+												if (!generated_elements.contains("mqtt" + h_gen.getWifi_sensor()) )
+												{
+													h_variables = h_gen.generateDefineCode(h_variables);
+													h_code = h_gen.generateMethodsCode(h_code);
+													cpp_variables = cpp_gen.generateProtocolVariables(netdata, cpp_variables);
+													cpp_code = cpp_gen.generateProtocolCode(netdata, cpp_code);
+													generated_elements.add("mqtt" +h_gen.getWifi_sensor())
+												}
 										}
 									}
 									for (sensor : Codex.sensor_code)

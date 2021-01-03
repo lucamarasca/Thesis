@@ -24,9 +24,9 @@ import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
 import org.xtext.bPMN_translator.http_data;
 import org.xtext.bPMN_translator.mqtt_data;
-import org.xtext.bPMN_translator.mqtt_device;
 import org.xtext.bPMN_translator.mqtt_network_data;
 import org.xtext.bPMN_translator.protocol;
+import org.xtext.bPMN_translator.protocol_device;
 import org.xtext.bPMN_translator.sensor;
 import org.xtext.bPMN_translator.sensor_data;
 import org.xtext.services.BPMN_translatorGrammarAccess;
@@ -78,14 +78,14 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 			case BPMN_translatorPackage.MQTT_DATA:
 				sequence_mqtt_data(context, (mqtt_data) semanticObject); 
 				return; 
-			case BPMN_translatorPackage.MQTT_DEVICE:
-				sequence_mqtt_device(context, (mqtt_device) semanticObject); 
-				return; 
 			case BPMN_translatorPackage.MQTT_NETWORK_DATA:
 				sequence_mqtt_network_data(context, (mqtt_network_data) semanticObject); 
 				return; 
 			case BPMN_translatorPackage.PROTOCOL:
 				sequence_protocol(context, (protocol) semanticObject); 
+				return; 
+			case BPMN_translatorPackage.PROTOCOL_DEVICE:
+				sequence_protocol_device(context, (protocol_device) semanticObject); 
 				return; 
 			case BPMN_translatorPackage.SENSOR:
 				sequence_sensor(context, (sensor) semanticObject); 
@@ -253,18 +253,6 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	
 	/**
 	 * Contexts:
-	 *     mqtt_device returns mqtt_device
-	 *
-	 * Constraint:
-	 *     dname+=STRING
-	 */
-	protected void sequence_mqtt_device(ISerializationContext context, mqtt_device semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     mqtt_network_data returns mqtt_network_data
 	 *
 	 * Constraint:
@@ -277,10 +265,22 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	
 	/**
 	 * Contexts:
+	 *     protocol_device returns protocol_device
+	 *
+	 * Constraint:
+	 *     dname+=STRING
+	 */
+	protected void sequence_protocol_device(ISerializationContext context, protocol_device semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     protocol returns protocol
 	 *
 	 * Constraint:
-	 *     ((pname+='MQTT' mqtt_data+=mqtt_data mqtt_device+=mqtt_device) | (pname+='HTTP' http_data+=http_data mqtt_device+=mqtt_device))
+	 *     ((pname+='MQTT' mqtt_data+=mqtt_data mqtt_device+=protocol_device) | (pname+='HTTP' http_data+=http_data http_device+=protocol_device))
 	 */
 	protected void sequence_protocol(ISerializationContext context, protocol semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

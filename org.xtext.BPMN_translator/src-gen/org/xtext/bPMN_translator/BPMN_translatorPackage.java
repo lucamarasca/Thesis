@@ -500,13 +500,22 @@ public interface BPMN_translatorPackage extends EPackage
   int PROTOCOL__HTTP_DATA = 3;
 
   /**
+   * The feature id for the '<em><b>Http device</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROTOCOL__HTTP_DEVICE = 4;
+
+  /**
    * The number of structural features of the '<em>protocol</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROTOCOL_FEATURE_COUNT = 4;
+  int PROTOCOL_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link org.xtext.bPMN_translator.impl.http_dataImpl <em>http data</em>}' class.
@@ -719,14 +728,14 @@ public interface BPMN_translatorPackage extends EPackage
   int MQTT_NETWORK_DATA_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.mqtt_deviceImpl <em>mqtt device</em>}' class.
+   * The meta object id for the '{@link org.xtext.bPMN_translator.impl.protocol_deviceImpl <em>protocol device</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.bPMN_translator.impl.mqtt_deviceImpl
-   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getmqtt_device()
+   * @see org.xtext.bPMN_translator.impl.protocol_deviceImpl
+   * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getprotocol_device()
    * @generated
    */
-  int MQTT_DEVICE = 13;
+  int PROTOCOL_DEVICE = 13;
 
   /**
    * The feature id for the '<em><b>Dname</b></em>' attribute list.
@@ -735,16 +744,16 @@ public interface BPMN_translatorPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MQTT_DEVICE__DNAME = 0;
+  int PROTOCOL_DEVICE__DNAME = 0;
 
   /**
-   * The number of structural features of the '<em>mqtt device</em>' class.
+   * The number of structural features of the '<em>protocol device</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MQTT_DEVICE_FEATURE_COUNT = 1;
+  int PROTOCOL_DEVICE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.bPMN_translator.impl.sensorImpl <em>sensor</em>}' class.
@@ -1250,6 +1259,17 @@ public interface BPMN_translatorPackage extends EPackage
   EReference getprotocol_Http_data();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.bPMN_translator.protocol#getHttp_device <em>Http device</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Http device</em>'.
+   * @see org.xtext.bPMN_translator.protocol#getHttp_device()
+   * @see #getprotocol()
+   * @generated
+   */
+  EReference getprotocol_Http_device();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.bPMN_translator.http_data <em>http data</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1467,25 +1487,25 @@ public interface BPMN_translatorPackage extends EPackage
   EAttribute getmqtt_network_data_Password();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.bPMN_translator.mqtt_device <em>mqtt device</em>}'.
+   * Returns the meta object for class '{@link org.xtext.bPMN_translator.protocol_device <em>protocol device</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>mqtt device</em>'.
-   * @see org.xtext.bPMN_translator.mqtt_device
+   * @return the meta object for class '<em>protocol device</em>'.
+   * @see org.xtext.bPMN_translator.protocol_device
    * @generated
    */
-  EClass getmqtt_device();
+  EClass getprotocol_device();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.mqtt_device#getDname <em>Dname</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.protocol_device#getDname <em>Dname</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute list '<em>Dname</em>'.
-   * @see org.xtext.bPMN_translator.mqtt_device#getDname()
-   * @see #getmqtt_device()
+   * @see org.xtext.bPMN_translator.protocol_device#getDname()
+   * @see #getprotocol_device()
    * @generated
    */
-  EAttribute getmqtt_device_Dname();
+  EAttribute getprotocol_device_Dname();
 
   /**
    * Returns the meta object for class '{@link org.xtext.bPMN_translator.sensor <em>sensor</em>}'.
@@ -1918,6 +1938,14 @@ public interface BPMN_translatorPackage extends EPackage
     EReference PROTOCOL__HTTP_DATA = eINSTANCE.getprotocol_Http_data();
 
     /**
+     * The meta object literal for the '<em><b>Http device</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROTOCOL__HTTP_DEVICE = eINSTANCE.getprotocol_Http_device();
+
+    /**
      * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.http_dataImpl <em>http data</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2084,14 +2112,14 @@ public interface BPMN_translatorPackage extends EPackage
     EAttribute MQTT_NETWORK_DATA__PASSWORD = eINSTANCE.getmqtt_network_data_Password();
 
     /**
-     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.mqtt_deviceImpl <em>mqtt device</em>}' class.
+     * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.protocol_deviceImpl <em>protocol device</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.bPMN_translator.impl.mqtt_deviceImpl
-     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getmqtt_device()
+     * @see org.xtext.bPMN_translator.impl.protocol_deviceImpl
+     * @see org.xtext.bPMN_translator.impl.BPMN_translatorPackageImpl#getprotocol_device()
      * @generated
      */
-    EClass MQTT_DEVICE = eINSTANCE.getmqtt_device();
+    EClass PROTOCOL_DEVICE = eINSTANCE.getprotocol_device();
 
     /**
      * The meta object literal for the '<em><b>Dname</b></em>' attribute list feature.
@@ -2099,7 +2127,7 @@ public interface BPMN_translatorPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MQTT_DEVICE__DNAME = eINSTANCE.getmqtt_device_Dname();
+    EAttribute PROTOCOL_DEVICE__DNAME = eINSTANCE.getprotocol_device_Dname();
 
     /**
      * The meta object literal for the '{@link org.xtext.bPMN_translator.impl.sensorImpl <em>sensor</em>}' class.

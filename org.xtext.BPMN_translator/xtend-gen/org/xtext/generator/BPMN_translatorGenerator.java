@@ -26,9 +26,9 @@ import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
 import org.xtext.bPMN_translator.http_data;
 import org.xtext.bPMN_translator.mqtt_data;
-import org.xtext.bPMN_translator.mqtt_device;
 import org.xtext.bPMN_translator.mqtt_network_data;
 import org.xtext.bPMN_translator.protocol;
+import org.xtext.bPMN_translator.protocol_device;
 import org.xtext.bPMN_translator.sensor;
 import org.xtext.bPMN_translator.sensor_data;
 import org.xtext.generator.ArduinoCPPCodeGenerator;
@@ -1243,8 +1243,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                               }
                             }
                           }
-                          EList<mqtt_device> _mqtt_device = Protocol.getMqtt_device();
-                          for (final mqtt_device httpDevice : _mqtt_device) {
+                          EList<protocol_device> _http_device = Protocol.getHttp_device();
+                          for (final protocol_device httpDevice : _http_device) {
                             {
                               this.h_gen.setWifi_sensor(httpDevice.getDname().get(0).toLowerCase().replaceAll("\\s+", ""));
                               this.cpp_gen.setWifi_sensor(httpDevice.getDname().get(0).toLowerCase().replaceAll("\\s+", ""));
@@ -1318,22 +1318,40 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                               }
                             }
                           }
-                          EList<mqtt_device> _mqtt_device_1 = Protocol.getMqtt_device();
-                          for (final mqtt_device MQTTDevice : _mqtt_device_1) {
+                          EList<protocol_device> _mqtt_device = Protocol.getMqtt_device();
+                          for (final protocol_device MQTTDevice : _mqtt_device) {
                             {
                               this.h_gen.setWifi_sensor(MQTTDevice.getDname().get(0).toLowerCase().replaceAll("\\s+", ""));
                               this.cpp_gen.setWifi_sensor(MQTTDevice.getDname().get(0).toLowerCase().replaceAll("\\s+", ""));
                               this.netdata.setWifi_module(MQTTDevice.getDname().get(0));
                             }
                           }
-                          boolean _contains_4 = this.generated_elements.contains("mqtt");
-                          boolean _not_1 = (!_contains_4);
-                          if (_not_1) {
-                            this.h_variables = this.h_gen.generateDefineCode(this.h_variables);
-                            this.h_code = this.h_gen.generateMethodsCode(this.h_code);
-                            this.cpp_variables = this.cpp_gen.generateProtocolVariables(this.netdata, this.cpp_variables);
-                            this.cpp_code = this.cpp_gen.generateProtocolCode(this.netdata, this.cpp_code);
-                            this.generated_elements.add("mqtt");
+                          if (((this.h_gen.getWifi_sensor().equals("esp32") || this.h_gen.getWifi_sensor().equals("esp8266")) || this.h_gen.getWifi_sensor().equals("mkr1010"))) {
+                            boolean _contains_4 = this.generated_elements.contains("mqtt");
+                            boolean _not_1 = (!_contains_4);
+                            if (_not_1) {
+                              this.h_variables = this.h_gen.generateDefineCode(this.h_variables);
+                              this.h_code = this.h_gen.generateMethodsCode(this.h_code);
+                              this.cpp_variables = this.cpp_gen.generateProtocolVariables(this.netdata, this.cpp_variables);
+                              this.cpp_code = this.cpp_gen.generateProtocolCode(this.netdata, this.cpp_code);
+                              this.generated_elements.add("mqtt");
+                            }
+                          }
+                          boolean _equals_6 = this.h_gen.getWifi_sensor().equals("w5100");
+                          if (_equals_6) {
+                            String _wifi_sensor = this.h_gen.getWifi_sensor();
+                            String _plus = ("mqtt" + _wifi_sensor);
+                            boolean _contains_5 = this.generated_elements.contains(_plus);
+                            boolean _not_2 = (!_contains_5);
+                            if (_not_2) {
+                              this.h_variables = this.h_gen.generateDefineCode(this.h_variables);
+                              this.h_code = this.h_gen.generateMethodsCode(this.h_code);
+                              this.cpp_variables = this.cpp_gen.generateProtocolVariables(this.netdata, this.cpp_variables);
+                              this.cpp_code = this.cpp_gen.generateProtocolCode(this.netdata, this.cpp_code);
+                              String _wifi_sensor_1 = this.h_gen.getWifi_sensor();
+                              String _plus_1 = ("mqtt" + _wifi_sensor_1);
+                              this.generated_elements.add(_plus_1);
+                            }
                           }
                         }
                       }

@@ -1431,20 +1431,20 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     // $ANTLR end "rulemqtt_network_data"
 
 
-    // $ANTLR start "entryRulemqtt_device"
-    // InternalBPMN_translator.g:478:1: entryRulemqtt_device : rulemqtt_device EOF ;
-    public final void entryRulemqtt_device() throws RecognitionException {
+    // $ANTLR start "entryRuleprotocol_device"
+    // InternalBPMN_translator.g:478:1: entryRuleprotocol_device : ruleprotocol_device EOF ;
+    public final void entryRuleprotocol_device() throws RecognitionException {
         try {
-            // InternalBPMN_translator.g:479:1: ( rulemqtt_device EOF )
-            // InternalBPMN_translator.g:480:1: rulemqtt_device EOF
+            // InternalBPMN_translator.g:479:1: ( ruleprotocol_device EOF )
+            // InternalBPMN_translator.g:480:1: ruleprotocol_device EOF
             {
-             before(grammarAccess.getMqtt_deviceRule()); 
+             before(grammarAccess.getProtocol_deviceRule()); 
             pushFollow(FOLLOW_1);
-            rulemqtt_device();
+            ruleprotocol_device();
 
             state._fsp--;
 
-             after(grammarAccess.getMqtt_deviceRule()); 
+             after(grammarAccess.getProtocol_deviceRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1458,35 +1458,35 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "entryRulemqtt_device"
+    // $ANTLR end "entryRuleprotocol_device"
 
 
-    // $ANTLR start "rulemqtt_device"
-    // InternalBPMN_translator.g:487:1: rulemqtt_device : ( ( rule__Mqtt_device__Group__0 ) ) ;
-    public final void rulemqtt_device() throws RecognitionException {
+    // $ANTLR start "ruleprotocol_device"
+    // InternalBPMN_translator.g:487:1: ruleprotocol_device : ( ( rule__Protocol_device__Group__0 ) ) ;
+    public final void ruleprotocol_device() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:491:2: ( ( ( rule__Mqtt_device__Group__0 ) ) )
-            // InternalBPMN_translator.g:492:2: ( ( rule__Mqtt_device__Group__0 ) )
+            // InternalBPMN_translator.g:491:2: ( ( ( rule__Protocol_device__Group__0 ) ) )
+            // InternalBPMN_translator.g:492:2: ( ( rule__Protocol_device__Group__0 ) )
             {
-            // InternalBPMN_translator.g:492:2: ( ( rule__Mqtt_device__Group__0 ) )
-            // InternalBPMN_translator.g:493:3: ( rule__Mqtt_device__Group__0 )
+            // InternalBPMN_translator.g:492:2: ( ( rule__Protocol_device__Group__0 ) )
+            // InternalBPMN_translator.g:493:3: ( rule__Protocol_device__Group__0 )
             {
-             before(grammarAccess.getMqtt_deviceAccess().getGroup()); 
-            // InternalBPMN_translator.g:494:3: ( rule__Mqtt_device__Group__0 )
-            // InternalBPMN_translator.g:494:4: rule__Mqtt_device__Group__0
+             before(grammarAccess.getProtocol_deviceAccess().getGroup()); 
+            // InternalBPMN_translator.g:494:3: ( rule__Protocol_device__Group__0 )
+            // InternalBPMN_translator.g:494:4: rule__Protocol_device__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__Mqtt_device__Group__0();
+            rule__Protocol_device__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMqtt_deviceAccess().getGroup()); 
+             after(grammarAccess.getProtocol_deviceAccess().getGroup()); 
 
             }
 
@@ -1505,7 +1505,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rulemqtt_device"
+    // $ANTLR end "ruleprotocol_device"
 
 
     // $ANTLR start "entryRulesensor"
@@ -10293,31 +10293,31 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Protocol__Group_1_2__1__Impl"
-    // InternalBPMN_translator.g:3266:1: rule__Protocol__Group_1_2__1__Impl : ( ( rule__Protocol__Mqtt_deviceAssignment_1_2_1 ) ) ;
+    // InternalBPMN_translator.g:3266:1: rule__Protocol__Group_1_2__1__Impl : ( ( rule__Protocol__Http_deviceAssignment_1_2_1 ) ) ;
     public final void rule__Protocol__Group_1_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:3270:1: ( ( ( rule__Protocol__Mqtt_deviceAssignment_1_2_1 ) ) )
-            // InternalBPMN_translator.g:3271:1: ( ( rule__Protocol__Mqtt_deviceAssignment_1_2_1 ) )
+            // InternalBPMN_translator.g:3270:1: ( ( ( rule__Protocol__Http_deviceAssignment_1_2_1 ) ) )
+            // InternalBPMN_translator.g:3271:1: ( ( rule__Protocol__Http_deviceAssignment_1_2_1 ) )
             {
-            // InternalBPMN_translator.g:3271:1: ( ( rule__Protocol__Mqtt_deviceAssignment_1_2_1 ) )
-            // InternalBPMN_translator.g:3272:2: ( rule__Protocol__Mqtt_deviceAssignment_1_2_1 )
+            // InternalBPMN_translator.g:3271:1: ( ( rule__Protocol__Http_deviceAssignment_1_2_1 ) )
+            // InternalBPMN_translator.g:3272:2: ( rule__Protocol__Http_deviceAssignment_1_2_1 )
             {
-             before(grammarAccess.getProtocolAccess().getMqtt_deviceAssignment_1_2_1()); 
-            // InternalBPMN_translator.g:3273:2: ( rule__Protocol__Mqtt_deviceAssignment_1_2_1 )
-            // InternalBPMN_translator.g:3273:3: rule__Protocol__Mqtt_deviceAssignment_1_2_1
+             before(grammarAccess.getProtocolAccess().getHttp_deviceAssignment_1_2_1()); 
+            // InternalBPMN_translator.g:3273:2: ( rule__Protocol__Http_deviceAssignment_1_2_1 )
+            // InternalBPMN_translator.g:3273:3: rule__Protocol__Http_deviceAssignment_1_2_1
             {
             pushFollow(FOLLOW_2);
-            rule__Protocol__Mqtt_deviceAssignment_1_2_1();
+            rule__Protocol__Http_deviceAssignment_1_2_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getProtocolAccess().getMqtt_deviceAssignment_1_2_1()); 
+             after(grammarAccess.getProtocolAccess().getHttp_deviceAssignment_1_2_1()); 
 
             }
 
@@ -15450,23 +15450,23 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     // $ANTLR end "rule__Mqtt_network_data__Group__5__Impl"
 
 
-    // $ANTLR start "rule__Mqtt_device__Group__0"
-    // InternalBPMN_translator.g:5037:1: rule__Mqtt_device__Group__0 : rule__Mqtt_device__Group__0__Impl rule__Mqtt_device__Group__1 ;
-    public final void rule__Mqtt_device__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_device__Group__0"
+    // InternalBPMN_translator.g:5037:1: rule__Protocol_device__Group__0 : rule__Protocol_device__Group__0__Impl rule__Protocol_device__Group__1 ;
+    public final void rule__Protocol_device__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5041:1: ( rule__Mqtt_device__Group__0__Impl rule__Mqtt_device__Group__1 )
-            // InternalBPMN_translator.g:5042:2: rule__Mqtt_device__Group__0__Impl rule__Mqtt_device__Group__1
+            // InternalBPMN_translator.g:5041:1: ( rule__Protocol_device__Group__0__Impl rule__Protocol_device__Group__1 )
+            // InternalBPMN_translator.g:5042:2: rule__Protocol_device__Group__0__Impl rule__Protocol_device__Group__1
             {
             pushFollow(FOLLOW_13);
-            rule__Mqtt_device__Group__0__Impl();
+            rule__Protocol_device__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Mqtt_device__Group__1();
+            rule__Protocol_device__Group__1();
 
             state._fsp--;
 
@@ -15485,12 +15485,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_device__Group__0"
+    // $ANTLR end "rule__Protocol_device__Group__0"
 
 
-    // $ANTLR start "rule__Mqtt_device__Group__0__Impl"
-    // InternalBPMN_translator.g:5049:1: rule__Mqtt_device__Group__0__Impl : ( 'PROTOCOL_DEVICE' ) ;
-    public final void rule__Mqtt_device__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_device__Group__0__Impl"
+    // InternalBPMN_translator.g:5049:1: rule__Protocol_device__Group__0__Impl : ( 'PROTOCOL_DEVICE' ) ;
+    public final void rule__Protocol_device__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -15501,9 +15501,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:5054:1: ( 'PROTOCOL_DEVICE' )
             // InternalBPMN_translator.g:5055:2: 'PROTOCOL_DEVICE'
             {
-             before(grammarAccess.getMqtt_deviceAccess().getPROTOCOL_DEVICEKeyword_0()); 
+             before(grammarAccess.getProtocol_deviceAccess().getPROTOCOL_DEVICEKeyword_0()); 
             match(input,59,FOLLOW_2); 
-             after(grammarAccess.getMqtt_deviceAccess().getPROTOCOL_DEVICEKeyword_0()); 
+             after(grammarAccess.getProtocol_deviceAccess().getPROTOCOL_DEVICEKeyword_0()); 
 
             }
 
@@ -15522,26 +15522,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_device__Group__0__Impl"
+    // $ANTLR end "rule__Protocol_device__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Mqtt_device__Group__1"
-    // InternalBPMN_translator.g:5064:1: rule__Mqtt_device__Group__1 : rule__Mqtt_device__Group__1__Impl rule__Mqtt_device__Group__2 ;
-    public final void rule__Mqtt_device__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_device__Group__1"
+    // InternalBPMN_translator.g:5064:1: rule__Protocol_device__Group__1 : rule__Protocol_device__Group__1__Impl rule__Protocol_device__Group__2 ;
+    public final void rule__Protocol_device__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5068:1: ( rule__Mqtt_device__Group__1__Impl rule__Mqtt_device__Group__2 )
-            // InternalBPMN_translator.g:5069:2: rule__Mqtt_device__Group__1__Impl rule__Mqtt_device__Group__2
+            // InternalBPMN_translator.g:5068:1: ( rule__Protocol_device__Group__1__Impl rule__Protocol_device__Group__2 )
+            // InternalBPMN_translator.g:5069:2: rule__Protocol_device__Group__1__Impl rule__Protocol_device__Group__2
             {
             pushFollow(FOLLOW_50);
-            rule__Mqtt_device__Group__1__Impl();
+            rule__Protocol_device__Group__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Mqtt_device__Group__2();
+            rule__Protocol_device__Group__2();
 
             state._fsp--;
 
@@ -15560,12 +15560,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_device__Group__1"
+    // $ANTLR end "rule__Protocol_device__Group__1"
 
 
-    // $ANTLR start "rule__Mqtt_device__Group__1__Impl"
-    // InternalBPMN_translator.g:5076:1: rule__Mqtt_device__Group__1__Impl : ( '{' ) ;
-    public final void rule__Mqtt_device__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_device__Group__1__Impl"
+    // InternalBPMN_translator.g:5076:1: rule__Protocol_device__Group__1__Impl : ( '{' ) ;
+    public final void rule__Protocol_device__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -15576,9 +15576,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:5081:1: ( '{' )
             // InternalBPMN_translator.g:5082:2: '{'
             {
-             before(grammarAccess.getMqtt_deviceAccess().getLeftCurlyBracketKeyword_1()); 
+             before(grammarAccess.getProtocol_deviceAccess().getLeftCurlyBracketKeyword_1()); 
             match(input,31,FOLLOW_2); 
-             after(grammarAccess.getMqtt_deviceAccess().getLeftCurlyBracketKeyword_1()); 
+             after(grammarAccess.getProtocol_deviceAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
 
@@ -15597,26 +15597,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_device__Group__1__Impl"
+    // $ANTLR end "rule__Protocol_device__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Mqtt_device__Group__2"
-    // InternalBPMN_translator.g:5091:1: rule__Mqtt_device__Group__2 : rule__Mqtt_device__Group__2__Impl rule__Mqtt_device__Group__3 ;
-    public final void rule__Mqtt_device__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_device__Group__2"
+    // InternalBPMN_translator.g:5091:1: rule__Protocol_device__Group__2 : rule__Protocol_device__Group__2__Impl rule__Protocol_device__Group__3 ;
+    public final void rule__Protocol_device__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5095:1: ( rule__Mqtt_device__Group__2__Impl rule__Mqtt_device__Group__3 )
-            // InternalBPMN_translator.g:5096:2: rule__Mqtt_device__Group__2__Impl rule__Mqtt_device__Group__3
+            // InternalBPMN_translator.g:5095:1: ( rule__Protocol_device__Group__2__Impl rule__Protocol_device__Group__3 )
+            // InternalBPMN_translator.g:5096:2: rule__Protocol_device__Group__2__Impl rule__Protocol_device__Group__3
             {
             pushFollow(FOLLOW_24);
-            rule__Mqtt_device__Group__2__Impl();
+            rule__Protocol_device__Group__2__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Mqtt_device__Group__3();
+            rule__Protocol_device__Group__3();
 
             state._fsp--;
 
@@ -15635,12 +15635,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_device__Group__2"
+    // $ANTLR end "rule__Protocol_device__Group__2"
 
 
-    // $ANTLR start "rule__Mqtt_device__Group__2__Impl"
-    // InternalBPMN_translator.g:5103:1: rule__Mqtt_device__Group__2__Impl : ( 'NAME' ) ;
-    public final void rule__Mqtt_device__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_device__Group__2__Impl"
+    // InternalBPMN_translator.g:5103:1: rule__Protocol_device__Group__2__Impl : ( 'NAME' ) ;
+    public final void rule__Protocol_device__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -15651,9 +15651,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:5108:1: ( 'NAME' )
             // InternalBPMN_translator.g:5109:2: 'NAME'
             {
-             before(grammarAccess.getMqtt_deviceAccess().getNAMEKeyword_2()); 
+             before(grammarAccess.getProtocol_deviceAccess().getNAMEKeyword_2()); 
             match(input,44,FOLLOW_2); 
-             after(grammarAccess.getMqtt_deviceAccess().getNAMEKeyword_2()); 
+             after(grammarAccess.getProtocol_deviceAccess().getNAMEKeyword_2()); 
 
             }
 
@@ -15672,26 +15672,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_device__Group__2__Impl"
+    // $ANTLR end "rule__Protocol_device__Group__2__Impl"
 
 
-    // $ANTLR start "rule__Mqtt_device__Group__3"
-    // InternalBPMN_translator.g:5118:1: rule__Mqtt_device__Group__3 : rule__Mqtt_device__Group__3__Impl rule__Mqtt_device__Group__4 ;
-    public final void rule__Mqtt_device__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_device__Group__3"
+    // InternalBPMN_translator.g:5118:1: rule__Protocol_device__Group__3 : rule__Protocol_device__Group__3__Impl rule__Protocol_device__Group__4 ;
+    public final void rule__Protocol_device__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5122:1: ( rule__Mqtt_device__Group__3__Impl rule__Mqtt_device__Group__4 )
-            // InternalBPMN_translator.g:5123:2: rule__Mqtt_device__Group__3__Impl rule__Mqtt_device__Group__4
+            // InternalBPMN_translator.g:5122:1: ( rule__Protocol_device__Group__3__Impl rule__Protocol_device__Group__4 )
+            // InternalBPMN_translator.g:5123:2: rule__Protocol_device__Group__3__Impl rule__Protocol_device__Group__4
             {
             pushFollow(FOLLOW_7);
-            rule__Mqtt_device__Group__3__Impl();
+            rule__Protocol_device__Group__3__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Mqtt_device__Group__4();
+            rule__Protocol_device__Group__4();
 
             state._fsp--;
 
@@ -15710,12 +15710,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_device__Group__3"
+    // $ANTLR end "rule__Protocol_device__Group__3"
 
 
-    // $ANTLR start "rule__Mqtt_device__Group__3__Impl"
-    // InternalBPMN_translator.g:5130:1: rule__Mqtt_device__Group__3__Impl : ( '=' ) ;
-    public final void rule__Mqtt_device__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_device__Group__3__Impl"
+    // InternalBPMN_translator.g:5130:1: rule__Protocol_device__Group__3__Impl : ( '=' ) ;
+    public final void rule__Protocol_device__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -15726,9 +15726,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:5135:1: ( '=' )
             // InternalBPMN_translator.g:5136:2: '='
             {
-             before(grammarAccess.getMqtt_deviceAccess().getEqualsSignKeyword_3()); 
+             before(grammarAccess.getProtocol_deviceAccess().getEqualsSignKeyword_3()); 
             match(input,20,FOLLOW_2); 
-             after(grammarAccess.getMqtt_deviceAccess().getEqualsSignKeyword_3()); 
+             after(grammarAccess.getProtocol_deviceAccess().getEqualsSignKeyword_3()); 
 
             }
 
@@ -15747,26 +15747,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_device__Group__3__Impl"
+    // $ANTLR end "rule__Protocol_device__Group__3__Impl"
 
 
-    // $ANTLR start "rule__Mqtt_device__Group__4"
-    // InternalBPMN_translator.g:5145:1: rule__Mqtt_device__Group__4 : rule__Mqtt_device__Group__4__Impl rule__Mqtt_device__Group__5 ;
-    public final void rule__Mqtt_device__Group__4() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_device__Group__4"
+    // InternalBPMN_translator.g:5145:1: rule__Protocol_device__Group__4 : rule__Protocol_device__Group__4__Impl rule__Protocol_device__Group__5 ;
+    public final void rule__Protocol_device__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5149:1: ( rule__Mqtt_device__Group__4__Impl rule__Mqtt_device__Group__5 )
-            // InternalBPMN_translator.g:5150:2: rule__Mqtt_device__Group__4__Impl rule__Mqtt_device__Group__5
+            // InternalBPMN_translator.g:5149:1: ( rule__Protocol_device__Group__4__Impl rule__Protocol_device__Group__5 )
+            // InternalBPMN_translator.g:5150:2: rule__Protocol_device__Group__4__Impl rule__Protocol_device__Group__5
             {
             pushFollow(FOLLOW_15);
-            rule__Mqtt_device__Group__4__Impl();
+            rule__Protocol_device__Group__4__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Mqtt_device__Group__5();
+            rule__Protocol_device__Group__5();
 
             state._fsp--;
 
@@ -15785,35 +15785,35 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_device__Group__4"
+    // $ANTLR end "rule__Protocol_device__Group__4"
 
 
-    // $ANTLR start "rule__Mqtt_device__Group__4__Impl"
-    // InternalBPMN_translator.g:5157:1: rule__Mqtt_device__Group__4__Impl : ( ( rule__Mqtt_device__DnameAssignment_4 ) ) ;
-    public final void rule__Mqtt_device__Group__4__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_device__Group__4__Impl"
+    // InternalBPMN_translator.g:5157:1: rule__Protocol_device__Group__4__Impl : ( ( rule__Protocol_device__DnameAssignment_4 ) ) ;
+    public final void rule__Protocol_device__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5161:1: ( ( ( rule__Mqtt_device__DnameAssignment_4 ) ) )
-            // InternalBPMN_translator.g:5162:1: ( ( rule__Mqtt_device__DnameAssignment_4 ) )
+            // InternalBPMN_translator.g:5161:1: ( ( ( rule__Protocol_device__DnameAssignment_4 ) ) )
+            // InternalBPMN_translator.g:5162:1: ( ( rule__Protocol_device__DnameAssignment_4 ) )
             {
-            // InternalBPMN_translator.g:5162:1: ( ( rule__Mqtt_device__DnameAssignment_4 ) )
-            // InternalBPMN_translator.g:5163:2: ( rule__Mqtt_device__DnameAssignment_4 )
+            // InternalBPMN_translator.g:5162:1: ( ( rule__Protocol_device__DnameAssignment_4 ) )
+            // InternalBPMN_translator.g:5163:2: ( rule__Protocol_device__DnameAssignment_4 )
             {
-             before(grammarAccess.getMqtt_deviceAccess().getDnameAssignment_4()); 
-            // InternalBPMN_translator.g:5164:2: ( rule__Mqtt_device__DnameAssignment_4 )
-            // InternalBPMN_translator.g:5164:3: rule__Mqtt_device__DnameAssignment_4
+             before(grammarAccess.getProtocol_deviceAccess().getDnameAssignment_4()); 
+            // InternalBPMN_translator.g:5164:2: ( rule__Protocol_device__DnameAssignment_4 )
+            // InternalBPMN_translator.g:5164:3: rule__Protocol_device__DnameAssignment_4
             {
             pushFollow(FOLLOW_2);
-            rule__Mqtt_device__DnameAssignment_4();
+            rule__Protocol_device__DnameAssignment_4();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMqtt_deviceAccess().getDnameAssignment_4()); 
+             after(grammarAccess.getProtocol_deviceAccess().getDnameAssignment_4()); 
 
             }
 
@@ -15832,21 +15832,21 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_device__Group__4__Impl"
+    // $ANTLR end "rule__Protocol_device__Group__4__Impl"
 
 
-    // $ANTLR start "rule__Mqtt_device__Group__5"
-    // InternalBPMN_translator.g:5172:1: rule__Mqtt_device__Group__5 : rule__Mqtt_device__Group__5__Impl ;
-    public final void rule__Mqtt_device__Group__5() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_device__Group__5"
+    // InternalBPMN_translator.g:5172:1: rule__Protocol_device__Group__5 : rule__Protocol_device__Group__5__Impl ;
+    public final void rule__Protocol_device__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5176:1: ( rule__Mqtt_device__Group__5__Impl )
-            // InternalBPMN_translator.g:5177:2: rule__Mqtt_device__Group__5__Impl
+            // InternalBPMN_translator.g:5176:1: ( rule__Protocol_device__Group__5__Impl )
+            // InternalBPMN_translator.g:5177:2: rule__Protocol_device__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Mqtt_device__Group__5__Impl();
+            rule__Protocol_device__Group__5__Impl();
 
             state._fsp--;
 
@@ -15865,12 +15865,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_device__Group__5"
+    // $ANTLR end "rule__Protocol_device__Group__5"
 
 
-    // $ANTLR start "rule__Mqtt_device__Group__5__Impl"
-    // InternalBPMN_translator.g:5183:1: rule__Mqtt_device__Group__5__Impl : ( '}' ) ;
-    public final void rule__Mqtt_device__Group__5__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_device__Group__5__Impl"
+    // InternalBPMN_translator.g:5183:1: rule__Protocol_device__Group__5__Impl : ( '}' ) ;
+    public final void rule__Protocol_device__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -15881,9 +15881,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:5188:1: ( '}' )
             // InternalBPMN_translator.g:5189:2: '}'
             {
-             before(grammarAccess.getMqtt_deviceAccess().getRightCurlyBracketKeyword_5()); 
+             before(grammarAccess.getProtocol_deviceAccess().getRightCurlyBracketKeyword_5()); 
             match(input,32,FOLLOW_2); 
-             after(grammarAccess.getMqtt_deviceAccess().getRightCurlyBracketKeyword_5()); 
+             after(grammarAccess.getProtocol_deviceAccess().getRightCurlyBracketKeyword_5()); 
 
             }
 
@@ -15902,7 +15902,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_device__Group__5__Impl"
+    // $ANTLR end "rule__Protocol_device__Group__5__Impl"
 
 
     // $ANTLR start "rule__Sensor__Group_0__0"
@@ -18593,25 +18593,25 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Protocol__Mqtt_deviceAssignment_0_2_1"
-    // InternalBPMN_translator.g:6166:1: rule__Protocol__Mqtt_deviceAssignment_0_2_1 : ( rulemqtt_device ) ;
+    // InternalBPMN_translator.g:6166:1: rule__Protocol__Mqtt_deviceAssignment_0_2_1 : ( ruleprotocol_device ) ;
     public final void rule__Protocol__Mqtt_deviceAssignment_0_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:6170:1: ( ( rulemqtt_device ) )
-            // InternalBPMN_translator.g:6171:2: ( rulemqtt_device )
+            // InternalBPMN_translator.g:6170:1: ( ( ruleprotocol_device ) )
+            // InternalBPMN_translator.g:6171:2: ( ruleprotocol_device )
             {
-            // InternalBPMN_translator.g:6171:2: ( rulemqtt_device )
-            // InternalBPMN_translator.g:6172:3: rulemqtt_device
+            // InternalBPMN_translator.g:6171:2: ( ruleprotocol_device )
+            // InternalBPMN_translator.g:6172:3: ruleprotocol_device
             {
-             before(grammarAccess.getProtocolAccess().getMqtt_deviceMqtt_deviceParserRuleCall_0_2_1_0()); 
+             before(grammarAccess.getProtocolAccess().getMqtt_deviceProtocol_deviceParserRuleCall_0_2_1_0()); 
             pushFollow(FOLLOW_2);
-            rulemqtt_device();
+            ruleprotocol_device();
 
             state._fsp--;
 
-             after(grammarAccess.getProtocolAccess().getMqtt_deviceMqtt_deviceParserRuleCall_0_2_1_0()); 
+             after(grammarAccess.getProtocolAccess().getMqtt_deviceProtocol_deviceParserRuleCall_0_2_1_0()); 
 
             }
 
@@ -18719,26 +18719,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     // $ANTLR end "rule__Protocol__Http_dataAssignment_1_2_0"
 
 
-    // $ANTLR start "rule__Protocol__Mqtt_deviceAssignment_1_2_1"
-    // InternalBPMN_translator.g:6215:1: rule__Protocol__Mqtt_deviceAssignment_1_2_1 : ( rulemqtt_device ) ;
-    public final void rule__Protocol__Mqtt_deviceAssignment_1_2_1() throws RecognitionException {
+    // $ANTLR start "rule__Protocol__Http_deviceAssignment_1_2_1"
+    // InternalBPMN_translator.g:6215:1: rule__Protocol__Http_deviceAssignment_1_2_1 : ( ruleprotocol_device ) ;
+    public final void rule__Protocol__Http_deviceAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:6219:1: ( ( rulemqtt_device ) )
-            // InternalBPMN_translator.g:6220:2: ( rulemqtt_device )
+            // InternalBPMN_translator.g:6219:1: ( ( ruleprotocol_device ) )
+            // InternalBPMN_translator.g:6220:2: ( ruleprotocol_device )
             {
-            // InternalBPMN_translator.g:6220:2: ( rulemqtt_device )
-            // InternalBPMN_translator.g:6221:3: rulemqtt_device
+            // InternalBPMN_translator.g:6220:2: ( ruleprotocol_device )
+            // InternalBPMN_translator.g:6221:3: ruleprotocol_device
             {
-             before(grammarAccess.getProtocolAccess().getMqtt_deviceMqtt_deviceParserRuleCall_1_2_1_0()); 
+             before(grammarAccess.getProtocolAccess().getHttp_deviceProtocol_deviceParserRuleCall_1_2_1_0()); 
             pushFollow(FOLLOW_2);
-            rulemqtt_device();
+            ruleprotocol_device();
 
             state._fsp--;
 
-             after(grammarAccess.getProtocolAccess().getMqtt_deviceMqtt_deviceParserRuleCall_1_2_1_0()); 
+             after(grammarAccess.getProtocolAccess().getHttp_deviceProtocol_deviceParserRuleCall_1_2_1_0()); 
 
             }
 
@@ -18757,7 +18757,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Protocol__Mqtt_deviceAssignment_1_2_1"
+    // $ANTLR end "rule__Protocol__Http_deviceAssignment_1_2_1"
 
 
     // $ANTLR start "rule__Http_data__PnameAssignment_1_0_2"
@@ -19397,9 +19397,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     // $ANTLR end "rule__Mqtt_network_data__PasswordAssignment_5"
 
 
-    // $ANTLR start "rule__Mqtt_device__DnameAssignment_4"
-    // InternalBPMN_translator.g:6485:1: rule__Mqtt_device__DnameAssignment_4 : ( RULE_STRING ) ;
-    public final void rule__Mqtt_device__DnameAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_device__DnameAssignment_4"
+    // InternalBPMN_translator.g:6485:1: rule__Protocol_device__DnameAssignment_4 : ( RULE_STRING ) ;
+    public final void rule__Protocol_device__DnameAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -19410,9 +19410,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:6490:2: ( RULE_STRING )
             // InternalBPMN_translator.g:6491:3: RULE_STRING
             {
-             before(grammarAccess.getMqtt_deviceAccess().getDnameSTRINGTerminalRuleCall_4_0()); 
+             before(grammarAccess.getProtocol_deviceAccess().getDnameSTRINGTerminalRuleCall_4_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getMqtt_deviceAccess().getDnameSTRINGTerminalRuleCall_4_0()); 
+             after(grammarAccess.getProtocol_deviceAccess().getDnameSTRINGTerminalRuleCall_4_0()); 
 
             }
 
@@ -19431,7 +19431,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_device__DnameAssignment_4"
+    // $ANTLR end "rule__Protocol_device__DnameAssignment_4"
 
 
     // $ANTLR start "rule__Sensor__SnameAssignment_0_0"

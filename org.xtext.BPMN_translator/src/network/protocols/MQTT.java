@@ -13,14 +13,19 @@ public class MQTT extends Elements{
 		this.datas = new MQTTDatas();
 	}
 	public String getCPPVariables() {
+		if (wifi_module.equals("w5100"))
+		{
+			System.out.println("ciao");
+		}
 		switch (wifi_module)
 		{
+		case "mkr1010":
 		case "esp32":
 			return getCPPVariablesESP32();
 		case "esp8266":
 			return getCPPVariablesESP8266();
-		case "samd":
-			return getCPPVariablesESP8266();
+		case "w5100":
+			return getCPPVariablesW5100();
 		default:
 			return "no wifi module";
 		}
@@ -29,12 +34,13 @@ public class MQTT extends Elements{
 	public String getCPPCode() {
 		switch (wifi_module)
 		{
+		case "mkr1010":
 		case "esp32":
 			return getCPPCodeESP32();
 		case "esp8266":
 			return getCPPCodeESP8266();
-		case "samd":
-			return getCPPCodeESP8266();
+		case "w5100":
+			return getCPPCodeW5100();
 		default:
 			return "no wifi module";
 		}
@@ -44,11 +50,18 @@ public class MQTT extends Elements{
 		{
 		case "esp32":
 		case "esp8266":
-		case "samd":
+		case "mkr1010":
 			return getHCodeESP();
+		case "w5100":
+			return getHCodeW5100();
 		default:
 			return "no wifi module";
 		}
+	}
+	public String getCPPVariablesW5100() {
+		return "EthernetClient ethClient;\r\n"
+				+ "PubSubClient mqttClient;\n"
+				+ "Boolean network_avaiable;\n";
 	}
 	public String getCPPVariablesESP8266() {
 		
@@ -69,6 +82,66 @@ public class MQTT extends Elements{
 				+ "\r\n"
 				+ "long currentTime, lastTime;\r\n"
 				+ "\r\n";
+	}
+	public String getHCodeW5100() {
+		String result = "";
+		result+= "void SubscribeW5100(char* topic);\n"
+		+ "void callbackW5100(char* topic, byte* payload, unsigned int len);\n"
+		+ "void InitMQTTConnectionW5100(char* broker, char* mac);\n"
+		+ "void sendInPubTopicW5100(char* pubTopic, char* datas);\n";
+		return result;
+	}
+	public String getCPPCodeW5100() {
+		String result = "";
+		result += "void InitMQTTConnectionW5100 (char* mac, char* broker){"
+				+ "\tif(network_avaiable)"
+				+ "\t\treturn;"
+				+ "\t//setup ethernet communication using DHCP\r\n"
+				+ "\tif (Ethernet.begin(mac) == 0) {\r\n"
+				+ "\t\t//Serial.println(F(\"Unable to configure Ethernet using DHCP\"));\r\n"
+				+ "\t\tfor (;;);\r\n"
+				+ "\t}\r\n"
+				+ "\r\n"
+				+ "\tSerial.println(F(\"Ethernet configured via DHCP\"));\r\n"
+				+ "\tSerial.print(\"IP address: \");\r\n"
+				+ "\tSerial.println(Ethernet.localIP());\r\n"
+				+ "\tSerial.println();\n"
+				+ "\t// setup mqtt client\r\n"
+				+ "\tmqttClient.setClient(ethClient);\r\n"
+				+ "\tmqttClient.setServer( broker); \r\n"
+				+ "\t//Serial.println(F(\"MQTT client configured\"));\r\n"
+				+ "\tmqttClient.setCallback(callback);"
+				+ "\tnetwork_avaiable=true;"
+				+ "}\n"
+				+ "void SubscribeW5100(Char* topic)\r\n"
+				+ "{\r\n"
+				+ "\tif(!client.connected())\r\n"
+				+ "\t{\r\n"
+				+ "\t\treconnect(id, brokerUser, brokerPass, broker);\r\n"
+				+ "\t}\r\n"
+				+ "\tclient.subscribe(topic);\r\n"
+				+ "}\n"
+				+ "void sendInPubTopicW5100(char* pubTopic, char* datas)\r\n"
+				+ "{\r\n"
+				+ "\tif(!client.connected())\r\n"
+				+ "\t{\r\n"
+				+ "\t\treconnect();\r\n"
+				+ "\t}\r\n"
+				+ "\tcurrentTime = millis();\r\n"
+				+ "\tclient.publish(pubTopic, \"datas to publish\");\r\n"
+				+ "\tlastTime = millis();\r\n"
+				+ "}\n"
+				+ "void callbackW5100(char* topic, byte* payload, unsigned int len)\r\n"
+				+ "{\r\n"
+				+ "\tSerial.print(\"Received messages: \");\r\n"
+				+ "\tSerial.println(topic);\r\n"
+				+ "\tfor(unsigned int i=0; i<len; i++)\r\n"
+				+ "\t{\r\n"
+				+ "\t\tSerial.print((char) payload[i]);\r\n"
+				+ "\t}\r\n"
+				+ "\tSerial.println();\r\n"
+				+ "}\n";
+		return result;
 	}
 	public String getCPPCodeESP8266() {
 		String result = "";

@@ -75,9 +75,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="mqtt_data" upperBound="-1"
         eType="#//mqtt_data" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mqtt_device" upperBound="-1"
-        eType="#//mqtt_device" containment="true"/>
+        eType="#//protocol_device" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="http_data" upperBound="-1"
         eType="#//http_data" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="http_device" upperBound="-1"
+        eType="#//protocol_device" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="http_data">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pname" unique="false" upperBound="-1"
@@ -119,7 +121,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="mqtt_device">
+  <eClassifiers xsi:type="ecore:EClass" name="protocol_device">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dname" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
