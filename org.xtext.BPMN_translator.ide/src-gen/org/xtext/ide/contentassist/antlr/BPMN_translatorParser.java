@@ -45,6 +45,7 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getHttp_dataAccess().getAlternatives_1(), "rule__Http_data__Alternatives_1");
 			builder.put(grammarAccess.getMqtt_dataAccess().getAlternatives_1(), "rule__Mqtt_data__Alternatives_1");
 			builder.put(grammarAccess.getMqtt_dataAccess().getAlternatives_1_6_2(), "rule__Mqtt_data__Alternatives_1_6_2");
+			builder.put(grammarAccess.getMqtt_dataAccess().getValueAlternatives_1_6_2_1_2_0(), "rule__Mqtt_data__ValueAlternatives_1_6_2_1_2_0");
 			builder.put(grammarAccess.getSensorAccess().getAlternatives(), "rule__Sensor__Alternatives");
 			builder.put(grammarAccess.getSensor_dataAccess().getAlternatives_1(), "rule__Sensor_data__Alternatives_1");
 			builder.put(grammarAccess.getXmlAccess().getGroup(), "rule__Xml__Group__0");
@@ -64,6 +65,7 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCloseAccess().getGroup_1(), "rule__Close__Group_1__0");
 			builder.put(grammarAccess.getVariablesAccess().getGroup_0(), "rule__Variables__Group_0__0");
 			builder.put(grammarAccess.getVariablesAccess().getGroup_1(), "rule__Variables__Group_1__0");
+			builder.put(grammarAccess.getVariablesAccess().getGroup_2(), "rule__Variables__Group_2__0");
 			builder.put(grammarAccess.getCodexAccess().getGroup(), "rule__Codex__Group__0");
 			builder.put(grammarAccess.getDeviceAccess().getGroup(), "rule__Device__Group__0");
 			builder.put(grammarAccess.getProtocolAccess().getGroup_0(), "rule__Protocol__Group_0__0");

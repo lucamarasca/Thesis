@@ -501,17 +501,24 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final RuleCall cBODYTerminalRuleCall_0_4 = (RuleCall)cGroup_0.eContents().get(4);
 		private final Keyword cRightSquareBracketKeyword_0_5 = (Keyword)cGroup_0.eContents().get(5);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final RuleCall cBODYTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Keyword cDISTANCEKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Keyword cLeftSquareBracketKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final RuleCall cBODYTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
-		private final Keyword cRightSquareBracketKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final Keyword cCommaKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final RuleCall cBODYTerminalRuleCall_1_4 = (RuleCall)cGroup_1.eContents().get(4);
+		private final Keyword cRightSquareBracketKeyword_1_5 = (Keyword)cGroup_1.eContents().get(5);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final RuleCall cBODYTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final RuleCall cBODYTerminalRuleCall_2_2 = (RuleCall)cGroup_2.eContents().get(2);
+		private final Keyword cRightSquareBracketKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
 		
 		////+++++++++++++++MY GRAMMAR +++++++++++++++   
 		//variables:
-		//	"TEMPERATURE" "[" BODY "," BODY "]" | BODY "[" BODY "]";
+		//	"TEMPERATURE" "[" BODY "," BODY "]" | "DISTANCE" "[" BODY "," BODY "]" | BODY "[" BODY "]";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"TEMPERATURE" "[" BODY "," BODY "]" | BODY "[" BODY "]"
+		//"TEMPERATURE" "[" BODY "," BODY "]" | "DISTANCE" "[" BODY "," BODY "]" | BODY "[" BODY "]"
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//"TEMPERATURE" "[" BODY "," BODY "]"
@@ -535,11 +542,11 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//"]"
 		public Keyword getRightSquareBracketKeyword_0_5() { return cRightSquareBracketKeyword_0_5; }
 		
-		//BODY "[" BODY "]"
+		//"DISTANCE" "[" BODY "," BODY "]"
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//BODY
-		public RuleCall getBODYTerminalRuleCall_1_0() { return cBODYTerminalRuleCall_1_0; }
+		//"DISTANCE"
+		public Keyword getDISTANCEKeyword_1_0() { return cDISTANCEKeyword_1_0; }
 		
 		//"["
 		public Keyword getLeftSquareBracketKeyword_1_1() { return cLeftSquareBracketKeyword_1_1; }
@@ -547,8 +554,29 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//BODY
 		public RuleCall getBODYTerminalRuleCall_1_2() { return cBODYTerminalRuleCall_1_2; }
 		
+		//","
+		public Keyword getCommaKeyword_1_3() { return cCommaKeyword_1_3; }
+		
+		//BODY
+		public RuleCall getBODYTerminalRuleCall_1_4() { return cBODYTerminalRuleCall_1_4; }
+		
 		//"]"
-		public Keyword getRightSquareBracketKeyword_1_3() { return cRightSquareBracketKeyword_1_3; }
+		public Keyword getRightSquareBracketKeyword_1_5() { return cRightSquareBracketKeyword_1_5; }
+		
+		//BODY "[" BODY "]"
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//BODY
+		public RuleCall getBODYTerminalRuleCall_2_0() { return cBODYTerminalRuleCall_2_0; }
+		
+		//"["
+		public Keyword getLeftSquareBracketKeyword_2_1() { return cLeftSquareBracketKeyword_2_1; }
+		
+		//BODY
+		public RuleCall getBODYTerminalRuleCall_2_2() { return cBODYTerminalRuleCall_2_2; }
+		
+		//"]"
+		public Keyword getRightSquareBracketKeyword_2_3() { return cRightSquareBracketKeyword_2_3; }
 	}
 	public class ConditionsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.conditions");
@@ -1014,7 +1042,9 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final Keyword cDATAKeyword_1_6_2_1_0 = (Keyword)cGroup_1_6_2_1.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1_6_2_1_1 = (Keyword)cGroup_1_6_2_1.eContents().get(1);
 		private final Assignment cValueAssignment_1_6_2_1_2 = (Assignment)cGroup_1_6_2_1.eContents().get(2);
-		private final RuleCall cValueSTRINGTerminalRuleCall_1_6_2_1_2_0 = (RuleCall)cValueAssignment_1_6_2_1_2.eContents().get(0);
+		private final Alternatives cValueAlternatives_1_6_2_1_2_0 = (Alternatives)cValueAssignment_1_6_2_1_2.eContents().get(0);
+		private final RuleCall cValueSTRINGTerminalRuleCall_1_6_2_1_2_0_0 = (RuleCall)cValueAlternatives_1_6_2_1_2_0.eContents().get(0);
+		private final RuleCall cValueVariablesParserRuleCall_1_6_2_1_2_0_1 = (RuleCall)cValueAlternatives_1_6_2_1_2_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_1_6_3 = (Keyword)cGroup_1_6.eContents().get(3);
 		
 		//mqtt_data:
@@ -1023,13 +1053,13 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//	| "NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}"
 		//	| "SUBTOPICS" "{" ("TOPIC_NAME" "=" subtopics+=STRING)* "}"
 		//	| "PUBTOPICS" "{" ("TOPIC_NAME" "=" pubtopics+=STRING*
-		//	| "DATA" "=" value+=STRING)* "}")*;
+		//	| "DATA" "=" value+=(STRING | variables))* "}")*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{mqtt_data} ("NAME" "=" pname+=STRING | "BROKER_USER" "=" broker_user+=STRING | "BROKER_PASSWORD" "="
 		//broker_password+=STRING | "BROKER" "=" broker+=STRING | "NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}" |
 		//"SUBTOPICS" "{" ("TOPIC_NAME" "=" subtopics+=STRING)* "}" | "PUBTOPICS" "{" ("TOPIC_NAME" "=" pubtopics+=STRING* |
-		//"DATA" "=" value+=STRING)* "}")*
+		//"DATA" "=" value+=(STRING | variables))* "}")*
 		public Group getGroup() { return cGroup; }
 		
 		//{mqtt_data}
@@ -1037,7 +1067,8 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		
 		//("NAME" "=" pname+=STRING | "BROKER_USER" "=" broker_user+=STRING | "BROKER_PASSWORD" "=" broker_password+=STRING |
 		//"BROKER" "=" broker+=STRING | "NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}" | "SUBTOPICS" "{" ("TOPIC_NAME"
-		//"=" subtopics+=STRING)* "}" | "PUBTOPICS" "{" ("TOPIC_NAME" "=" pubtopics+=STRING* | "DATA" "=" value+=STRING)* "}")*
+		//"=" subtopics+=STRING)* "}" | "PUBTOPICS" "{" ("TOPIC_NAME" "=" pubtopics+=STRING* | "DATA" "=" value+=(STRING |
+		//variables))* "}")*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//"NAME" "=" pname+=STRING
@@ -1145,7 +1176,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_1_5_3() { return cRightCurlyBracketKeyword_1_5_3; }
 		
-		//"PUBTOPICS" "{" ("TOPIC_NAME" "=" pubtopics+=STRING* | "DATA" "=" value+=STRING)* "}"
+		//"PUBTOPICS" "{" ("TOPIC_NAME" "=" pubtopics+=STRING* | "DATA" "=" value+=(STRING | variables))* "}"
 		public Group getGroup_1_6() { return cGroup_1_6; }
 		
 		//"PUBTOPICS"
@@ -1154,7 +1185,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_1_6_1() { return cLeftCurlyBracketKeyword_1_6_1; }
 		
-		//("TOPIC_NAME" "=" pubtopics+=STRING* | "DATA" "=" value+=STRING)*
+		//("TOPIC_NAME" "=" pubtopics+=STRING* | "DATA" "=" value+=(STRING | variables))*
 		public Alternatives getAlternatives_1_6_2() { return cAlternatives_1_6_2; }
 		
 		//"TOPIC_NAME" "=" pubtopics+=STRING*
@@ -1172,7 +1203,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//STRING
 		public RuleCall getPubtopicsSTRINGTerminalRuleCall_1_6_2_0_2_0() { return cPubtopicsSTRINGTerminalRuleCall_1_6_2_0_2_0; }
 		
-		//"DATA" "=" value+=STRING
+		//"DATA" "=" value+=(STRING | variables)
 		public Group getGroup_1_6_2_1() { return cGroup_1_6_2_1; }
 		
 		//"DATA"
@@ -1181,11 +1212,17 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//"="
 		public Keyword getEqualsSignKeyword_1_6_2_1_1() { return cEqualsSignKeyword_1_6_2_1_1; }
 		
-		//value+=STRING
+		//value+=(STRING | variables)
 		public Assignment getValueAssignment_1_6_2_1_2() { return cValueAssignment_1_6_2_1_2; }
 		
+		//(STRING | variables)
+		public Alternatives getValueAlternatives_1_6_2_1_2_0() { return cValueAlternatives_1_6_2_1_2_0; }
+		
 		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_1_6_2_1_2_0() { return cValueSTRINGTerminalRuleCall_1_6_2_1_2_0; }
+		public RuleCall getValueSTRINGTerminalRuleCall_1_6_2_1_2_0_0() { return cValueSTRINGTerminalRuleCall_1_6_2_1_2_0_0; }
+		
+		//variables
+		public RuleCall getValueVariablesParserRuleCall_1_6_2_1_2_0_1() { return cValueVariablesParserRuleCall_1_6_2_1_2_0_1; }
 		
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_1_6_3() { return cRightCurlyBracketKeyword_1_6_3; }
@@ -1594,7 +1631,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	
 	////+++++++++++++++MY GRAMMAR +++++++++++++++   
 	//variables:
-	//	"TEMPERATURE" "[" BODY "," BODY "]" | BODY "[" BODY "]";
+	//	"TEMPERATURE" "[" BODY "," BODY "]" | "DISTANCE" "[" BODY "," BODY "]" | BODY "[" BODY "]";
 	public VariablesElements getVariablesAccess() {
 		return pVariables;
 	}
@@ -1677,7 +1714,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	//	| "NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}"
 	//	| "SUBTOPICS" "{" ("TOPIC_NAME" "=" subtopics+=STRING)* "}"
 	//	| "PUBTOPICS" "{" ("TOPIC_NAME" "=" pubtopics+=STRING*
-	//	| "DATA" "=" value+=STRING)* "}")*;
+	//	| "DATA" "=" value+=(STRING | variables))* "}")*;
 	public Mqtt_dataElements getMqtt_dataAccess() {
 		return pMqtt_data;
 	}

@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import elements.*;
 import network.protocols.*;
+import sensor.devices.DistanceSensor;
 import sensor.devices.TemperatureSensor;
 public class ArduinoCPPCodeGenerator {
 	
@@ -115,7 +116,15 @@ public class ArduinoCPPCodeGenerator {
 			TemperatureSensor sensor= (TemperatureSensor) e;
 			if (!sensor_code.contains(sensor.getCPPCode())) 
 				return sensor_code + sensor.getCPPCode();
+		case "dht11":
+			break;
+		case "hy-srf05":
+		case "hc-sr04":
+			DistanceSensor sensor1= (DistanceSensor) e;
+			if (!sensor_code.contains(sensor1.getCPPCode())) 
+				return sensor_code + sensor1.getCPPCode();
 		}
+		
 		return "";
 	}
 	public void setProtocol(Object o) {

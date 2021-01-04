@@ -47,7 +47,7 @@ Close:
 ;
 //+++++++++++++++MY GRAMMAR +++++++++++++++   
 variables:
-	("TEMPERATURE" "[" BODY "," BODY "]") | (BODY "["BODY"]") 
+	("TEMPERATURE" "[" BODY "," BODY "]") | ("DISTANCE" "[" BODY "," BODY "]") | (BODY "["BODY"]") 
 ;
 conditions:
 	("&lt;" | "&le;" | "&ge;" | "&gt;" | "=" | "&amp;" | "||" | ")" | "!=")
@@ -86,8 +86,8 @@ mqtt_data:
 		| "BROKER_PASSWORD" "=" broker_password+=STRING | "BROKER" "=" broker += STRING
 		| "NETWORK" "{" mqtt_network_data += mqtt_network_data* "}" 
 		| "SUBTOPICS" "{" ("TOPIC_NAME" "=" subtopics += STRING)* "}" 
-		| "PUBTOPICS" "{" ("TOPIC_NAME" "=" pubtopics += STRING* 
-		| "DATA" "=" value+=(STRING))*"}"
+		| "PUBTOPICS" "{" ("TOPIC_NAME" "="  pubtopics += STRING* 
+		| "DATA" "=" value+=(STRING|variables))*"}"
 	)*
 ;
 

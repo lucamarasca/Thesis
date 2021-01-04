@@ -14,8 +14,8 @@ public class Condition extends Elements{
 	String sensor_id;
 	String device_id;
 	String mapped_condition ;
-	Map<String, String> conditions_dictionary;
-	Map<String, String> variables_dictionary;
+	public Map<String, String> conditions_dictionary;
+	public Map<String, String> variables_dictionary;
 	
 	public Condition(Boolean isEnd, String id) {
 		this.setId(id);
@@ -28,7 +28,6 @@ public class Condition extends Elements{
 	}
 	
 	public Condition(String condition) {
-		System.out.println("im in the condition " + condition);
 		conditions_dictionary = new HashMap<String, String>();
 		conditions_dictionary.put("&lt;","<");
 		conditions_dictionary.put("&gt;",">");
@@ -38,6 +37,7 @@ public class Condition extends Elements{
 		variables_dictionary = new HashMap<String, String>();
 		variables_dictionary.put("TEMPERATURE", "temp");
 		variables_dictionary.put("HUMIDITY", "hum");
+		variables_dictionary.put("DISTANCE", "distance");
 		mapped_condition = "";
 		this.sensor_id = "";
 		this.type = "";

@@ -243,7 +243,8 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *         mqtt_network_data+=mqtt_network_data | 
 	 *         subtopics+=STRING | 
 	 *         pubtopics+=STRING | 
-	 *         value+=STRING
+	 *         value+=STRING | 
+	 *         value+=variables
 	 *     )*
 	 */
 	protected void sequence_mqtt_data(ISerializationContext context, mqtt_data semanticObject) {

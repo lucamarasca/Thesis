@@ -75,7 +75,7 @@ public interface protocol extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<http_data> getHttp_data(); 
+  EList<http_data> getHttp_data();
 
   /**
    * Returns the value of the '<em><b>Http device</b></em>' containment reference list.

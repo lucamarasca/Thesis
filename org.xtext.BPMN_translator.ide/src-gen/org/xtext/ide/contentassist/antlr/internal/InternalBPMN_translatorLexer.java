@@ -47,7 +47,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
     public static final int T__20=20;
     public static final int T__64=64;
     public static final int T__21=21;
-    public static final int RULE_STRING=6;
+    public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=11;
     public static final int RULE_KEYWORDS=7;
     public static final int T__37=37;
@@ -61,7 +61,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
-    public static final int RULE_HEAD=5;
+    public static final int RULE_HEAD=6;
     public static final int RULE_WS=12;
     public static final int RULE_ANY_OTHER=13;
     public static final int T__48=48;
@@ -669,10 +669,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:39:7: ( 'DEVICE' )
-            // InternalBPMN_translator.g:39:9: 'DEVICE'
+            // InternalBPMN_translator.g:39:7: ( 'DISTANCE' )
+            // InternalBPMN_translator.g:39:9: 'DISTANCE'
             {
-            match("DEVICE"); 
+            match("DISTANCE"); 
 
 
             }
@@ -690,10 +690,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:40:7: ( 'NAMEID' )
-            // InternalBPMN_translator.g:40:9: 'NAMEID'
+            // InternalBPMN_translator.g:40:7: ( 'DEVICE' )
+            // InternalBPMN_translator.g:40:9: 'DEVICE'
             {
-            match("NAMEID"); 
+            match("DEVICE"); 
 
 
             }
@@ -711,10 +711,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:41:7: ( 'NAME' )
-            // InternalBPMN_translator.g:41:9: 'NAME'
+            // InternalBPMN_translator.g:41:7: ( 'NAMEID' )
+            // InternalBPMN_translator.g:41:9: 'NAMEID'
             {
-            match("NAME"); 
+            match("NAMEID"); 
 
 
             }
@@ -732,10 +732,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:42:7: ( 'SERVER_IP' )
-            // InternalBPMN_translator.g:42:9: 'SERVER_IP'
+            // InternalBPMN_translator.g:42:7: ( 'NAME' )
+            // InternalBPMN_translator.g:42:9: 'NAME'
             {
-            match("SERVER_IP"); 
+            match("NAME"); 
 
 
             }
@@ -753,10 +753,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:43:7: ( 'REQUEST_TYPE' )
-            // InternalBPMN_translator.g:43:9: 'REQUEST_TYPE'
+            // InternalBPMN_translator.g:43:7: ( 'SERVER_IP' )
+            // InternalBPMN_translator.g:43:9: 'SERVER_IP'
             {
-            match("REQUEST_TYPE"); 
+            match("SERVER_IP"); 
 
 
             }
@@ -774,10 +774,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:44:7: ( 'CONTENT_TYPE' )
-            // InternalBPMN_translator.g:44:9: 'CONTENT_TYPE'
+            // InternalBPMN_translator.g:44:7: ( 'REQUEST_TYPE' )
+            // InternalBPMN_translator.g:44:9: 'REQUEST_TYPE'
             {
-            match("CONTENT_TYPE"); 
+            match("REQUEST_TYPE"); 
 
 
             }
@@ -795,10 +795,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:45:7: ( 'HEADER' )
-            // InternalBPMN_translator.g:45:9: 'HEADER'
+            // InternalBPMN_translator.g:45:7: ( 'CONTENT_TYPE' )
+            // InternalBPMN_translator.g:45:9: 'CONTENT_TYPE'
             {
-            match("HEADER"); 
+            match("CONTENT_TYPE"); 
 
 
             }
@@ -816,10 +816,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:46:7: ( 'DATA' )
-            // InternalBPMN_translator.g:46:9: 'DATA'
+            // InternalBPMN_translator.g:46:7: ( 'HEADER' )
+            // InternalBPMN_translator.g:46:9: 'HEADER'
             {
-            match("DATA"); 
+            match("HEADER"); 
 
 
             }
@@ -837,10 +837,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:47:7: ( 'NETWORK' )
-            // InternalBPMN_translator.g:47:9: 'NETWORK'
+            // InternalBPMN_translator.g:47:7: ( 'DATA' )
+            // InternalBPMN_translator.g:47:9: 'DATA'
             {
-            match("NETWORK"); 
+            match("DATA"); 
 
 
             }
@@ -858,10 +858,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:48:7: ( 'BROKER_USER' )
-            // InternalBPMN_translator.g:48:9: 'BROKER_USER'
+            // InternalBPMN_translator.g:48:7: ( 'NETWORK' )
+            // InternalBPMN_translator.g:48:9: 'NETWORK'
             {
-            match("BROKER_USER"); 
+            match("NETWORK"); 
 
 
             }
@@ -879,10 +879,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:49:7: ( 'BROKER_PASSWORD' )
-            // InternalBPMN_translator.g:49:9: 'BROKER_PASSWORD'
+            // InternalBPMN_translator.g:49:7: ( 'BROKER_USER' )
+            // InternalBPMN_translator.g:49:9: 'BROKER_USER'
             {
-            match("BROKER_PASSWORD"); 
+            match("BROKER_USER"); 
 
 
             }
@@ -900,10 +900,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:50:7: ( 'BROKER' )
-            // InternalBPMN_translator.g:50:9: 'BROKER'
+            // InternalBPMN_translator.g:50:7: ( 'BROKER_PASSWORD' )
+            // InternalBPMN_translator.g:50:9: 'BROKER_PASSWORD'
             {
-            match("BROKER"); 
+            match("BROKER_PASSWORD"); 
 
 
             }
@@ -921,10 +921,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:51:7: ( 'SUBTOPICS' )
-            // InternalBPMN_translator.g:51:9: 'SUBTOPICS'
+            // InternalBPMN_translator.g:51:7: ( 'BROKER' )
+            // InternalBPMN_translator.g:51:9: 'BROKER'
             {
-            match("SUBTOPICS"); 
+            match("BROKER"); 
 
 
             }
@@ -942,10 +942,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:52:7: ( 'TOPIC_NAME' )
-            // InternalBPMN_translator.g:52:9: 'TOPIC_NAME'
+            // InternalBPMN_translator.g:52:7: ( 'SUBTOPICS' )
+            // InternalBPMN_translator.g:52:9: 'SUBTOPICS'
             {
-            match("TOPIC_NAME"); 
+            match("SUBTOPICS"); 
 
 
             }
@@ -963,10 +963,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:53:7: ( 'PUBTOPICS' )
-            // InternalBPMN_translator.g:53:9: 'PUBTOPICS'
+            // InternalBPMN_translator.g:53:7: ( 'TOPIC_NAME' )
+            // InternalBPMN_translator.g:53:9: 'TOPIC_NAME'
             {
-            match("PUBTOPICS"); 
+            match("TOPIC_NAME"); 
 
 
             }
@@ -984,10 +984,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:54:7: ( 'SSID' )
-            // InternalBPMN_translator.g:54:9: 'SSID'
+            // InternalBPMN_translator.g:54:7: ( 'PUBTOPICS' )
+            // InternalBPMN_translator.g:54:9: 'PUBTOPICS'
             {
-            match("SSID"); 
+            match("PUBTOPICS"); 
 
 
             }
@@ -1005,10 +1005,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:55:7: ( 'PASSWORD' )
-            // InternalBPMN_translator.g:55:9: 'PASSWORD'
+            // InternalBPMN_translator.g:55:7: ( 'SSID' )
+            // InternalBPMN_translator.g:55:9: 'SSID'
             {
-            match("PASSWORD"); 
+            match("SSID"); 
 
 
             }
@@ -1026,10 +1026,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:56:7: ( 'PROTOCOL_DEVICE' )
-            // InternalBPMN_translator.g:56:9: 'PROTOCOL_DEVICE'
+            // InternalBPMN_translator.g:56:7: ( 'PASSWORD' )
+            // InternalBPMN_translator.g:56:9: 'PASSWORD'
             {
-            match("PROTOCOL_DEVICE"); 
+            match("PASSWORD"); 
 
 
             }
@@ -1047,10 +1047,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:57:7: ( 'PINS' )
-            // InternalBPMN_translator.g:57:9: 'PINS'
+            // InternalBPMN_translator.g:57:7: ( 'PROTOCOL_DEVICE' )
+            // InternalBPMN_translator.g:57:9: 'PROTOCOL_DEVICE'
             {
-            match("PINS"); 
+            match("PROTOCOL_DEVICE"); 
 
 
             }
@@ -1068,10 +1068,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:58:7: ( 'SENSOR_ID' )
-            // InternalBPMN_translator.g:58:9: 'SENSOR_ID'
+            // InternalBPMN_translator.g:58:7: ( 'PINS' )
+            // InternalBPMN_translator.g:58:9: 'PINS'
             {
-            match("SENSOR_ID"); 
+            match("PINS"); 
 
 
             }
@@ -1089,10 +1089,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:59:7: ( 'MQTT' )
-            // InternalBPMN_translator.g:59:9: 'MQTT'
+            // InternalBPMN_translator.g:59:7: ( 'SENSOR_ID' )
+            // InternalBPMN_translator.g:59:9: 'SENSOR_ID'
             {
-            match("MQTT"); 
+            match("SENSOR_ID"); 
 
 
             }
@@ -1110,10 +1110,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:60:7: ( 'HTTP' )
-            // InternalBPMN_translator.g:60:9: 'HTTP'
+            // InternalBPMN_translator.g:60:7: ( 'MQTT' )
+            // InternalBPMN_translator.g:60:9: 'MQTT'
             {
-            match("HTTP"); 
+            match("MQTT"); 
 
 
             }
@@ -1131,10 +1131,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:61:7: ( 'DISTANCE' )
-            // InternalBPMN_translator.g:61:9: 'DISTANCE'
+            // InternalBPMN_translator.g:61:7: ( 'HTTP' )
+            // InternalBPMN_translator.g:61:9: 'HTTP'
             {
-            match("DISTANCE"); 
+            match("HTTP"); 
 
 
             }
@@ -1152,15 +1152,15 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = RULE_HEAD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:6613:11: ( ( 'bpmn' | 'bpmndi' | 'camunda' | 'xsi' | 'xml' | 'xmlns' | 'dc' | 'di' ) )
-            // InternalBPMN_translator.g:6613:13: ( 'bpmn' | 'bpmndi' | 'camunda' | 'xsi' | 'xml' | 'xmlns' | 'dc' | 'di' )
+            // InternalBPMN_translator.g:6802:11: ( ( 'bpmn' | 'bpmndi' | 'camunda' | 'xsi' | 'xml' | 'xmlns' | 'dc' | 'di' ) )
+            // InternalBPMN_translator.g:6802:13: ( 'bpmn' | 'bpmndi' | 'camunda' | 'xsi' | 'xml' | 'xmlns' | 'dc' | 'di' )
             {
-            // InternalBPMN_translator.g:6613:13: ( 'bpmn' | 'bpmndi' | 'camunda' | 'xsi' | 'xml' | 'xmlns' | 'dc' | 'di' )
+            // InternalBPMN_translator.g:6802:13: ( 'bpmn' | 'bpmndi' | 'camunda' | 'xsi' | 'xml' | 'xmlns' | 'dc' | 'di' )
             int alt1=8;
             alt1 = dfa1.predict(input);
             switch (alt1) {
                 case 1 :
-                    // InternalBPMN_translator.g:6613:14: 'bpmn'
+                    // InternalBPMN_translator.g:6802:14: 'bpmn'
                     {
                     match("bpmn"); 
 
@@ -1168,7 +1168,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalBPMN_translator.g:6613:21: 'bpmndi'
+                    // InternalBPMN_translator.g:6802:21: 'bpmndi'
                     {
                     match("bpmndi"); 
 
@@ -1176,7 +1176,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalBPMN_translator.g:6613:30: 'camunda'
+                    // InternalBPMN_translator.g:6802:30: 'camunda'
                     {
                     match("camunda"); 
 
@@ -1184,7 +1184,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalBPMN_translator.g:6613:40: 'xsi'
+                    // InternalBPMN_translator.g:6802:40: 'xsi'
                     {
                     match("xsi"); 
 
@@ -1192,7 +1192,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 5 :
-                    // InternalBPMN_translator.g:6613:46: 'xml'
+                    // InternalBPMN_translator.g:6802:46: 'xml'
                     {
                     match("xml"); 
 
@@ -1200,7 +1200,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 6 :
-                    // InternalBPMN_translator.g:6613:52: 'xmlns'
+                    // InternalBPMN_translator.g:6802:52: 'xmlns'
                     {
                     match("xmlns"); 
 
@@ -1208,7 +1208,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 7 :
-                    // InternalBPMN_translator.g:6613:60: 'dc'
+                    // InternalBPMN_translator.g:6802:60: 'dc'
                     {
                     match("dc"); 
 
@@ -1216,7 +1216,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 8 :
-                    // InternalBPMN_translator.g:6613:65: 'di'
+                    // InternalBPMN_translator.g:6802:65: 'di'
                     {
                     match("di"); 
 
@@ -1242,15 +1242,15 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = RULE_KEYWORDS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:6615:15: ( ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'intermediateThrowEvent' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'isExpanded' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'standardLoopCharacteristics' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'isMarkerVisible' | 'terminateEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'bpmnElement' | 'dataObjectReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'definitions' | 'userTask' | 'documentation' | 'dataOutputAssociation' | 'exclusiveGateway' | 'waypoint' | 'BPMNLabel' | 'diagramRelationId' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'height' | 'messageFlow' | 'dataObjectRef' | 'outputParameter' | 'properties' | 'property' | 'BPMNShape' | 'Bounds' | 'subProcess' | 'cancelActivity' | 'field' | 'string' | 'scriptTask' | 'script' | 'BPMNPlane' | 'BPMNEdge' | 'sendTask' | 'boundaryEvent' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'width' | 'dataInputAssociation' | 'parallelGateway' | 'collaboration' | 'participant' | 'targetNamespace' | 'dataObject' | 'signalEventDefinition' | 'BPMNDiagram' | 'exporter' | 'exporterVersion' | 'x' | 'y' | 'isHorizontal' | 'attachedToRef' | 'conditionExpression' | 'receiveTask' | 'messageRef' | 'initiator' | 'message' | 'inclusiveGateway' ) )
-            // InternalBPMN_translator.g:6615:17: ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'intermediateThrowEvent' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'isExpanded' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'standardLoopCharacteristics' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'isMarkerVisible' | 'terminateEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'bpmnElement' | 'dataObjectReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'definitions' | 'userTask' | 'documentation' | 'dataOutputAssociation' | 'exclusiveGateway' | 'waypoint' | 'BPMNLabel' | 'diagramRelationId' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'height' | 'messageFlow' | 'dataObjectRef' | 'outputParameter' | 'properties' | 'property' | 'BPMNShape' | 'Bounds' | 'subProcess' | 'cancelActivity' | 'field' | 'string' | 'scriptTask' | 'script' | 'BPMNPlane' | 'BPMNEdge' | 'sendTask' | 'boundaryEvent' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'width' | 'dataInputAssociation' | 'parallelGateway' | 'collaboration' | 'participant' | 'targetNamespace' | 'dataObject' | 'signalEventDefinition' | 'BPMNDiagram' | 'exporter' | 'exporterVersion' | 'x' | 'y' | 'isHorizontal' | 'attachedToRef' | 'conditionExpression' | 'receiveTask' | 'messageRef' | 'initiator' | 'message' | 'inclusiveGateway' )
+            // InternalBPMN_translator.g:6804:15: ( ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'intermediateThrowEvent' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'isExpanded' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'standardLoopCharacteristics' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'isMarkerVisible' | 'terminateEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'bpmnElement' | 'dataObjectReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'definitions' | 'userTask' | 'documentation' | 'dataOutputAssociation' | 'exclusiveGateway' | 'waypoint' | 'BPMNLabel' | 'diagramRelationId' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'height' | 'messageFlow' | 'dataObjectRef' | 'outputParameter' | 'properties' | 'property' | 'BPMNShape' | 'Bounds' | 'subProcess' | 'cancelActivity' | 'field' | 'string' | 'scriptTask' | 'script' | 'BPMNPlane' | 'BPMNEdge' | 'sendTask' | 'boundaryEvent' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'width' | 'dataInputAssociation' | 'parallelGateway' | 'collaboration' | 'participant' | 'targetNamespace' | 'dataObject' | 'signalEventDefinition' | 'BPMNDiagram' | 'exporter' | 'exporterVersion' | 'x' | 'y' | 'isHorizontal' | 'attachedToRef' | 'conditionExpression' | 'receiveTask' | 'messageRef' | 'initiator' | 'message' | 'inclusiveGateway' ) )
+            // InternalBPMN_translator.g:6804:17: ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'intermediateThrowEvent' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'isExpanded' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'standardLoopCharacteristics' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'isMarkerVisible' | 'terminateEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'bpmnElement' | 'dataObjectReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'definitions' | 'userTask' | 'documentation' | 'dataOutputAssociation' | 'exclusiveGateway' | 'waypoint' | 'BPMNLabel' | 'diagramRelationId' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'height' | 'messageFlow' | 'dataObjectRef' | 'outputParameter' | 'properties' | 'property' | 'BPMNShape' | 'Bounds' | 'subProcess' | 'cancelActivity' | 'field' | 'string' | 'scriptTask' | 'script' | 'BPMNPlane' | 'BPMNEdge' | 'sendTask' | 'boundaryEvent' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'width' | 'dataInputAssociation' | 'parallelGateway' | 'collaboration' | 'participant' | 'targetNamespace' | 'dataObject' | 'signalEventDefinition' | 'BPMNDiagram' | 'exporter' | 'exporterVersion' | 'x' | 'y' | 'isHorizontal' | 'attachedToRef' | 'conditionExpression' | 'receiveTask' | 'messageRef' | 'initiator' | 'message' | 'inclusiveGateway' )
             {
-            // InternalBPMN_translator.g:6615:17: ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'intermediateThrowEvent' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'isExpanded' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'standardLoopCharacteristics' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'isMarkerVisible' | 'terminateEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'bpmnElement' | 'dataObjectReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'definitions' | 'userTask' | 'documentation' | 'dataOutputAssociation' | 'exclusiveGateway' | 'waypoint' | 'BPMNLabel' | 'diagramRelationId' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'height' | 'messageFlow' | 'dataObjectRef' | 'outputParameter' | 'properties' | 'property' | 'BPMNShape' | 'Bounds' | 'subProcess' | 'cancelActivity' | 'field' | 'string' | 'scriptTask' | 'script' | 'BPMNPlane' | 'BPMNEdge' | 'sendTask' | 'boundaryEvent' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'width' | 'dataInputAssociation' | 'parallelGateway' | 'collaboration' | 'participant' | 'targetNamespace' | 'dataObject' | 'signalEventDefinition' | 'BPMNDiagram' | 'exporter' | 'exporterVersion' | 'x' | 'y' | 'isHorizontal' | 'attachedToRef' | 'conditionExpression' | 'receiveTask' | 'messageRef' | 'initiator' | 'message' | 'inclusiveGateway' )
+            // InternalBPMN_translator.g:6804:17: ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'intermediateThrowEvent' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'isExpanded' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'standardLoopCharacteristics' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'isMarkerVisible' | 'terminateEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'bpmnElement' | 'dataObjectReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'definitions' | 'userTask' | 'documentation' | 'dataOutputAssociation' | 'exclusiveGateway' | 'waypoint' | 'BPMNLabel' | 'diagramRelationId' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'height' | 'messageFlow' | 'dataObjectRef' | 'outputParameter' | 'properties' | 'property' | 'BPMNShape' | 'Bounds' | 'subProcess' | 'cancelActivity' | 'field' | 'string' | 'scriptTask' | 'script' | 'BPMNPlane' | 'BPMNEdge' | 'sendTask' | 'boundaryEvent' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'width' | 'dataInputAssociation' | 'parallelGateway' | 'collaboration' | 'participant' | 'targetNamespace' | 'dataObject' | 'signalEventDefinition' | 'BPMNDiagram' | 'exporter' | 'exporterVersion' | 'x' | 'y' | 'isHorizontal' | 'attachedToRef' | 'conditionExpression' | 'receiveTask' | 'messageRef' | 'initiator' | 'message' | 'inclusiveGateway' )
             int alt2=95;
             alt2 = dfa2.predict(input);
             switch (alt2) {
                 case 1 :
-                    // InternalBPMN_translator.g:6615:18: 'id'
+                    // InternalBPMN_translator.g:6804:18: 'id'
                     {
                     match("id"); 
 
@@ -1258,7 +1258,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalBPMN_translator.g:6615:23: 'name'
+                    // InternalBPMN_translator.g:6804:23: 'name'
                     {
                     match("name"); 
 
@@ -1266,7 +1266,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalBPMN_translator.g:6615:30: 'isExecutable'
+                    // InternalBPMN_translator.g:6804:30: 'isExecutable'
                     {
                     match("isExecutable"); 
 
@@ -1274,7 +1274,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalBPMN_translator.g:6615:45: 'sourceRef'
+                    // InternalBPMN_translator.g:6804:45: 'sourceRef'
                     {
                     match("sourceRef"); 
 
@@ -1282,7 +1282,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 5 :
-                    // InternalBPMN_translator.g:6615:57: 'processRef'
+                    // InternalBPMN_translator.g:6804:57: 'processRef'
                     {
                     match("processRef"); 
 
@@ -1290,7 +1290,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 6 :
-                    // InternalBPMN_translator.g:6615:70: 'targetRef'
+                    // InternalBPMN_translator.g:6804:70: 'targetRef'
                     {
                     match("targetRef"); 
 
@@ -1298,7 +1298,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 7 :
-                    // InternalBPMN_translator.g:6615:82: 'calledElement'
+                    // InternalBPMN_translator.g:6804:82: 'calledElement'
                     {
                     match("calledElement"); 
 
@@ -1306,7 +1306,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 8 :
-                    // InternalBPMN_translator.g:6615:98: 'type'
+                    // InternalBPMN_translator.g:6804:98: 'type'
                     {
                     match("type"); 
 
@@ -1314,7 +1314,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 9 :
-                    // InternalBPMN_translator.g:6615:105: 'expression'
+                    // InternalBPMN_translator.g:6804:105: 'expression'
                     {
                     match("expression"); 
 
@@ -1322,7 +1322,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 10 :
-                    // InternalBPMN_translator.g:6615:118: 'value'
+                    // InternalBPMN_translator.g:6804:118: 'value'
                     {
                     match("value"); 
 
@@ -1330,7 +1330,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 11 :
-                    // InternalBPMN_translator.g:6615:126: 'resultVariable'
+                    // InternalBPMN_translator.g:6804:126: 'resultVariable'
                     {
                     match("resultVariable"); 
 
@@ -1338,7 +1338,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 12 :
-                    // InternalBPMN_translator.g:6615:143: 'asyncBefore'
+                    // InternalBPMN_translator.g:6804:143: 'asyncBefore'
                     {
                     match("asyncBefore"); 
 
@@ -1346,7 +1346,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 13 :
-                    // InternalBPMN_translator.g:6615:157: 'intermediateThrowEvent'
+                    // InternalBPMN_translator.g:6804:157: 'intermediateThrowEvent'
                     {
                     match("intermediateThrowEvent"); 
 
@@ -1354,7 +1354,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 14 :
-                    // InternalBPMN_translator.g:6615:182: 'class'
+                    // InternalBPMN_translator.g:6804:182: 'class'
                     {
                     match("class"); 
 
@@ -1362,7 +1362,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 15 :
-                    // InternalBPMN_translator.g:6615:190: 'event'
+                    // InternalBPMN_translator.g:6804:190: 'event'
                     {
                     match("event"); 
 
@@ -1370,7 +1370,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 16 :
-                    // InternalBPMN_translator.g:6615:198: 'startEvent'
+                    // InternalBPMN_translator.g:6804:198: 'startEvent'
                     {
                     match("startEvent"); 
 
@@ -1378,7 +1378,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 17 :
-                    // InternalBPMN_translator.g:6615:211: 'task'
+                    // InternalBPMN_translator.g:6804:211: 'task'
                     {
                     match("task"); 
 
@@ -1386,7 +1386,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 18 :
-                    // InternalBPMN_translator.g:6615:218: 'messageEventDefinition'
+                    // InternalBPMN_translator.g:6804:218: 'messageEventDefinition'
                     {
                     match("messageEventDefinition"); 
 
@@ -1394,7 +1394,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 19 :
-                    // InternalBPMN_translator.g:6615:243: 'sequenceFlow'
+                    // InternalBPMN_translator.g:6804:243: 'sequenceFlow'
                     {
                     match("sequenceFlow"); 
 
@@ -1402,7 +1402,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 20 :
-                    // InternalBPMN_translator.g:6615:258: 'isExpanded'
+                    // InternalBPMN_translator.g:6804:258: 'isExpanded'
                     {
                     match("isExpanded"); 
 
@@ -1410,7 +1410,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 21 :
-                    // InternalBPMN_translator.g:6615:271: 'condition'
+                    // InternalBPMN_translator.g:6804:271: 'condition'
                     {
                     match("condition"); 
 
@@ -1418,7 +1418,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 22 :
-                    // InternalBPMN_translator.g:6615:283: 'association'
+                    // InternalBPMN_translator.g:6804:283: 'association'
                     {
                     match("association"); 
 
@@ -1426,7 +1426,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 23 :
-                    // InternalBPMN_translator.g:6615:297: 'outgoing'
+                    // InternalBPMN_translator.g:6804:297: 'outgoing'
                     {
                     match("outgoing"); 
 
@@ -1434,7 +1434,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 24 :
-                    // InternalBPMN_translator.g:6615:308: 'serviceTask'
+                    // InternalBPMN_translator.g:6804:308: 'serviceTask'
                     {
                     match("serviceTask"); 
 
@@ -1442,7 +1442,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 25 :
-                    // InternalBPMN_translator.g:6615:322: 'process'
+                    // InternalBPMN_translator.g:6804:322: 'process'
                     {
                     match("process"); 
 
@@ -1450,7 +1450,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 26 :
-                    // InternalBPMN_translator.g:6615:332: 'standardLoopCharacteristics'
+                    // InternalBPMN_translator.g:6804:332: 'standardLoopCharacteristics'
                     {
                     match("standardLoopCharacteristics"); 
 
@@ -1458,7 +1458,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 27 :
-                    // InternalBPMN_translator.g:6615:362: 'incoming'
+                    // InternalBPMN_translator.g:6804:362: 'incoming'
                     {
                     match("incoming"); 
 
@@ -1466,7 +1466,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 28 :
-                    // InternalBPMN_translator.g:6615:373: 'intermediateCatchEvent'
+                    // InternalBPMN_translator.g:6804:373: 'intermediateCatchEvent'
                     {
                     match("intermediateCatchEvent"); 
 
@@ -1474,7 +1474,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 29 :
-                    // InternalBPMN_translator.g:6615:398: 'conditionalEventDefinition'
+                    // InternalBPMN_translator.g:6804:398: 'conditionalEventDefinition'
                     {
                     match("conditionalEventDefinition"); 
 
@@ -1482,7 +1482,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 30 :
-                    // InternalBPMN_translator.g:6615:427: 'isMarkerVisible'
+                    // InternalBPMN_translator.g:6804:427: 'isMarkerVisible'
                     {
                     match("isMarkerVisible"); 
 
@@ -1490,7 +1490,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 31 :
-                    // InternalBPMN_translator.g:6615:445: 'terminateEventDefinition'
+                    // InternalBPMN_translator.g:6804:445: 'terminateEventDefinition'
                     {
                     match("terminateEventDefinition"); 
 
@@ -1498,7 +1498,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 32 :
-                    // InternalBPMN_translator.g:6615:472: 'endEvent'
+                    // InternalBPMN_translator.g:6804:472: 'endEvent'
                     {
                     match("endEvent"); 
 
@@ -1506,7 +1506,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 33 :
-                    // InternalBPMN_translator.g:6615:483: 'textAnnotation'
+                    // InternalBPMN_translator.g:6804:483: 'textAnnotation'
                     {
                     match("textAnnotation"); 
 
@@ -1514,7 +1514,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 34 :
-                    // InternalBPMN_translator.g:6615:500: 'text'
+                    // InternalBPMN_translator.g:6804:500: 'text'
                     {
                     match("text"); 
 
@@ -1522,7 +1522,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 35 :
-                    // InternalBPMN_translator.g:6615:507: 'dataStoreReference'
+                    // InternalBPMN_translator.g:6804:507: 'dataStoreReference'
                     {
                     match("dataStoreReference"); 
 
@@ -1530,7 +1530,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 36 :
-                    // InternalBPMN_translator.g:6615:528: 'bpmnElement'
+                    // InternalBPMN_translator.g:6804:528: 'bpmnElement'
                     {
                     match("bpmnElement"); 
 
@@ -1538,7 +1538,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 37 :
-                    // InternalBPMN_translator.g:6615:542: 'dataObjectReference'
+                    // InternalBPMN_translator.g:6804:542: 'dataObjectReference'
                     {
                     match("dataObjectReference"); 
 
@@ -1546,7 +1546,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 38 :
-                    // InternalBPMN_translator.g:6615:564: 'callActivity'
+                    // InternalBPMN_translator.g:6804:564: 'callActivity'
                     {
                     match("callActivity"); 
 
@@ -1554,7 +1554,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 39 :
-                    // InternalBPMN_translator.g:6615:579: 'laneSet'
+                    // InternalBPMN_translator.g:6804:579: 'laneSet'
                     {
                     match("laneSet"); 
 
@@ -1562,7 +1562,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 40 :
-                    // InternalBPMN_translator.g:6615:589: 'lane'
+                    // InternalBPMN_translator.g:6804:589: 'lane'
                     {
                     match("lane"); 
 
@@ -1570,7 +1570,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 41 :
-                    // InternalBPMN_translator.g:6615:596: 'flowNodeRef'
+                    // InternalBPMN_translator.g:6804:596: 'flowNodeRef'
                     {
                     match("flowNodeRef"); 
 
@@ -1578,7 +1578,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 42 :
-                    // InternalBPMN_translator.g:6615:610: 'definitions'
+                    // InternalBPMN_translator.g:6804:610: 'definitions'
                     {
                     match("definitions"); 
 
@@ -1586,7 +1586,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 43 :
-                    // InternalBPMN_translator.g:6615:624: 'userTask'
+                    // InternalBPMN_translator.g:6804:624: 'userTask'
                     {
                     match("userTask"); 
 
@@ -1594,7 +1594,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 44 :
-                    // InternalBPMN_translator.g:6615:635: 'documentation'
+                    // InternalBPMN_translator.g:6804:635: 'documentation'
                     {
                     match("documentation"); 
 
@@ -1602,7 +1602,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 45 :
-                    // InternalBPMN_translator.g:6615:651: 'dataOutputAssociation'
+                    // InternalBPMN_translator.g:6804:651: 'dataOutputAssociation'
                     {
                     match("dataOutputAssociation"); 
 
@@ -1610,7 +1610,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 46 :
-                    // InternalBPMN_translator.g:6615:675: 'exclusiveGateway'
+                    // InternalBPMN_translator.g:6804:675: 'exclusiveGateway'
                     {
                     match("exclusiveGateway"); 
 
@@ -1618,7 +1618,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 47 :
-                    // InternalBPMN_translator.g:6615:694: 'waypoint'
+                    // InternalBPMN_translator.g:6804:694: 'waypoint'
                     {
                     match("waypoint"); 
 
@@ -1626,7 +1626,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 48 :
-                    // InternalBPMN_translator.g:6615:705: 'BPMNLabel'
+                    // InternalBPMN_translator.g:6804:705: 'BPMNLabel'
                     {
                     match("BPMNLabel"); 
 
@@ -1634,7 +1634,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 49 :
-                    // InternalBPMN_translator.g:6615:717: 'diagramRelationId'
+                    // InternalBPMN_translator.g:6804:717: 'diagramRelationId'
                     {
                     match("diagramRelationId"); 
 
@@ -1642,7 +1642,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 50 :
-                    // InternalBPMN_translator.g:6615:737: 'extensionElements'
+                    // InternalBPMN_translator.g:6804:737: 'extensionElements'
                     {
                     match("extensionElements"); 
 
@@ -1650,7 +1650,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 51 :
-                    // InternalBPMN_translator.g:6615:757: 'inputOutput'
+                    // InternalBPMN_translator.g:6804:757: 'inputOutput'
                     {
                     match("inputOutput"); 
 
@@ -1658,7 +1658,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 52 :
-                    // InternalBPMN_translator.g:6615:771: 'list'
+                    // InternalBPMN_translator.g:6804:771: 'list'
                     {
                     match("list"); 
 
@@ -1666,7 +1666,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 53 :
-                    // InternalBPMN_translator.g:6615:778: 'inputParameter'
+                    // InternalBPMN_translator.g:6804:778: 'inputParameter'
                     {
                     match("inputParameter"); 
 
@@ -1674,7 +1674,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 54 :
-                    // InternalBPMN_translator.g:6615:795: 'height'
+                    // InternalBPMN_translator.g:6804:795: 'height'
                     {
                     match("height"); 
 
@@ -1682,7 +1682,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 55 :
-                    // InternalBPMN_translator.g:6615:804: 'messageFlow'
+                    // InternalBPMN_translator.g:6804:804: 'messageFlow'
                     {
                     match("messageFlow"); 
 
@@ -1690,7 +1690,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 56 :
-                    // InternalBPMN_translator.g:6615:818: 'dataObjectRef'
+                    // InternalBPMN_translator.g:6804:818: 'dataObjectRef'
                     {
                     match("dataObjectRef"); 
 
@@ -1698,7 +1698,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 57 :
-                    // InternalBPMN_translator.g:6615:834: 'outputParameter'
+                    // InternalBPMN_translator.g:6804:834: 'outputParameter'
                     {
                     match("outputParameter"); 
 
@@ -1706,7 +1706,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 58 :
-                    // InternalBPMN_translator.g:6615:852: 'properties'
+                    // InternalBPMN_translator.g:6804:852: 'properties'
                     {
                     match("properties"); 
 
@@ -1714,7 +1714,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 59 :
-                    // InternalBPMN_translator.g:6615:865: 'property'
+                    // InternalBPMN_translator.g:6804:865: 'property'
                     {
                     match("property"); 
 
@@ -1722,7 +1722,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 60 :
-                    // InternalBPMN_translator.g:6615:876: 'BPMNShape'
+                    // InternalBPMN_translator.g:6804:876: 'BPMNShape'
                     {
                     match("BPMNShape"); 
 
@@ -1730,7 +1730,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 61 :
-                    // InternalBPMN_translator.g:6615:888: 'Bounds'
+                    // InternalBPMN_translator.g:6804:888: 'Bounds'
                     {
                     match("Bounds"); 
 
@@ -1738,7 +1738,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 62 :
-                    // InternalBPMN_translator.g:6615:897: 'subProcess'
+                    // InternalBPMN_translator.g:6804:897: 'subProcess'
                     {
                     match("subProcess"); 
 
@@ -1746,7 +1746,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 63 :
-                    // InternalBPMN_translator.g:6615:910: 'cancelActivity'
+                    // InternalBPMN_translator.g:6804:910: 'cancelActivity'
                     {
                     match("cancelActivity"); 
 
@@ -1754,7 +1754,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 64 :
-                    // InternalBPMN_translator.g:6615:927: 'field'
+                    // InternalBPMN_translator.g:6804:927: 'field'
                     {
                     match("field"); 
 
@@ -1762,7 +1762,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 65 :
-                    // InternalBPMN_translator.g:6615:935: 'string'
+                    // InternalBPMN_translator.g:6804:935: 'string'
                     {
                     match("string"); 
 
@@ -1770,7 +1770,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 66 :
-                    // InternalBPMN_translator.g:6615:944: 'scriptTask'
+                    // InternalBPMN_translator.g:6804:944: 'scriptTask'
                     {
                     match("scriptTask"); 
 
@@ -1778,7 +1778,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 67 :
-                    // InternalBPMN_translator.g:6615:957: 'script'
+                    // InternalBPMN_translator.g:6804:957: 'script'
                     {
                     match("script"); 
 
@@ -1786,7 +1786,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 68 :
-                    // InternalBPMN_translator.g:6615:966: 'BPMNPlane'
+                    // InternalBPMN_translator.g:6804:966: 'BPMNPlane'
                     {
                     match("BPMNPlane"); 
 
@@ -1794,7 +1794,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 69 :
-                    // InternalBPMN_translator.g:6615:978: 'BPMNEdge'
+                    // InternalBPMN_translator.g:6804:978: 'BPMNEdge'
                     {
                     match("BPMNEdge"); 
 
@@ -1802,7 +1802,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 70 :
-                    // InternalBPMN_translator.g:6615:989: 'sendTask'
+                    // InternalBPMN_translator.g:6804:989: 'sendTask'
                     {
                     match("sendTask"); 
 
@@ -1810,7 +1810,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 71 :
-                    // InternalBPMN_translator.g:6615:1000: 'boundaryEvent'
+                    // InternalBPMN_translator.g:6804:1000: 'boundaryEvent'
                     {
                     match("boundaryEvent"); 
 
@@ -1818,7 +1818,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 72 :
-                    // InternalBPMN_translator.g:6615:1016: 'executionListener'
+                    // InternalBPMN_translator.g:6804:1016: 'executionListener'
                     {
                     match("executionListener"); 
 
@@ -1826,7 +1826,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 73 :
-                    // InternalBPMN_translator.g:6615:1036: 'timerEventDefinition'
+                    // InternalBPMN_translator.g:6804:1036: 'timerEventDefinition'
                     {
                     match("timerEventDefinition"); 
 
@@ -1834,7 +1834,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 74 :
-                    // InternalBPMN_translator.g:6615:1059: 'timeDuration'
+                    // InternalBPMN_translator.g:6804:1059: 'timeDuration'
                     {
                     match("timeDuration"); 
 
@@ -1842,7 +1842,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 75 :
-                    // InternalBPMN_translator.g:6615:1074: 'width'
+                    // InternalBPMN_translator.g:6804:1074: 'width'
                     {
                     match("width"); 
 
@@ -1850,7 +1850,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 76 :
-                    // InternalBPMN_translator.g:6615:1082: 'dataInputAssociation'
+                    // InternalBPMN_translator.g:6804:1082: 'dataInputAssociation'
                     {
                     match("dataInputAssociation"); 
 
@@ -1858,7 +1858,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 77 :
-                    // InternalBPMN_translator.g:6615:1105: 'parallelGateway'
+                    // InternalBPMN_translator.g:6804:1105: 'parallelGateway'
                     {
                     match("parallelGateway"); 
 
@@ -1866,7 +1866,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 78 :
-                    // InternalBPMN_translator.g:6615:1123: 'collaboration'
+                    // InternalBPMN_translator.g:6804:1123: 'collaboration'
                     {
                     match("collaboration"); 
 
@@ -1874,7 +1874,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 79 :
-                    // InternalBPMN_translator.g:6615:1139: 'participant'
+                    // InternalBPMN_translator.g:6804:1139: 'participant'
                     {
                     match("participant"); 
 
@@ -1882,7 +1882,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 80 :
-                    // InternalBPMN_translator.g:6615:1153: 'targetNamespace'
+                    // InternalBPMN_translator.g:6804:1153: 'targetNamespace'
                     {
                     match("targetNamespace"); 
 
@@ -1890,7 +1890,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 81 :
-                    // InternalBPMN_translator.g:6615:1171: 'dataObject'
+                    // InternalBPMN_translator.g:6804:1171: 'dataObject'
                     {
                     match("dataObject"); 
 
@@ -1898,7 +1898,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 82 :
-                    // InternalBPMN_translator.g:6615:1184: 'signalEventDefinition'
+                    // InternalBPMN_translator.g:6804:1184: 'signalEventDefinition'
                     {
                     match("signalEventDefinition"); 
 
@@ -1906,7 +1906,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 83 :
-                    // InternalBPMN_translator.g:6615:1208: 'BPMNDiagram'
+                    // InternalBPMN_translator.g:6804:1208: 'BPMNDiagram'
                     {
                     match("BPMNDiagram"); 
 
@@ -1914,7 +1914,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 84 :
-                    // InternalBPMN_translator.g:6615:1222: 'exporter'
+                    // InternalBPMN_translator.g:6804:1222: 'exporter'
                     {
                     match("exporter"); 
 
@@ -1922,7 +1922,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 85 :
-                    // InternalBPMN_translator.g:6615:1233: 'exporterVersion'
+                    // InternalBPMN_translator.g:6804:1233: 'exporterVersion'
                     {
                     match("exporterVersion"); 
 
@@ -1930,21 +1930,21 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 86 :
-                    // InternalBPMN_translator.g:6615:1251: 'x'
+                    // InternalBPMN_translator.g:6804:1251: 'x'
                     {
                     match('x'); 
 
                     }
                     break;
                 case 87 :
-                    // InternalBPMN_translator.g:6615:1255: 'y'
+                    // InternalBPMN_translator.g:6804:1255: 'y'
                     {
                     match('y'); 
 
                     }
                     break;
                 case 88 :
-                    // InternalBPMN_translator.g:6615:1259: 'isHorizontal'
+                    // InternalBPMN_translator.g:6804:1259: 'isHorizontal'
                     {
                     match("isHorizontal"); 
 
@@ -1952,7 +1952,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 89 :
-                    // InternalBPMN_translator.g:6615:1274: 'attachedToRef'
+                    // InternalBPMN_translator.g:6804:1274: 'attachedToRef'
                     {
                     match("attachedToRef"); 
 
@@ -1960,7 +1960,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 90 :
-                    // InternalBPMN_translator.g:6615:1290: 'conditionExpression'
+                    // InternalBPMN_translator.g:6804:1290: 'conditionExpression'
                     {
                     match("conditionExpression"); 
 
@@ -1968,7 +1968,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 91 :
-                    // InternalBPMN_translator.g:6615:1312: 'receiveTask'
+                    // InternalBPMN_translator.g:6804:1312: 'receiveTask'
                     {
                     match("receiveTask"); 
 
@@ -1976,7 +1976,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 92 :
-                    // InternalBPMN_translator.g:6615:1326: 'messageRef'
+                    // InternalBPMN_translator.g:6804:1326: 'messageRef'
                     {
                     match("messageRef"); 
 
@@ -1984,7 +1984,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 93 :
-                    // InternalBPMN_translator.g:6615:1339: 'initiator'
+                    // InternalBPMN_translator.g:6804:1339: 'initiator'
                     {
                     match("initiator"); 
 
@@ -1992,7 +1992,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 94 :
-                    // InternalBPMN_translator.g:6615:1351: 'message'
+                    // InternalBPMN_translator.g:6804:1351: 'message'
                     {
                     match("message"); 
 
@@ -2000,7 +2000,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 95 :
-                    // InternalBPMN_translator.g:6615:1361: 'inclusiveGateway'
+                    // InternalBPMN_translator.g:6804:1361: 'inclusiveGateway'
                     {
                     match("inclusiveGateway"); 
 
@@ -2026,10 +2026,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = RULE_BODY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:6617:11: ( ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00E8' | '\\u00F2' | RULE_INT | '_' )* )
-            // InternalBPMN_translator.g:6617:13: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00E8' | '\\u00F2' | RULE_INT | '_' )*
+            // InternalBPMN_translator.g:6806:11: ( ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00E8' | '\\u00F2' | RULE_INT | '_' )* )
+            // InternalBPMN_translator.g:6806:13: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00E8' | '\\u00F2' | RULE_INT | '_' )*
             {
-            // InternalBPMN_translator.g:6617:13: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00E8' | '\\u00F2' | RULE_INT | '_' )*
+            // InternalBPMN_translator.g:6806:13: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00E8' | '\\u00F2' | RULE_INT | '_' )*
             loop3:
             do {
                 int alt3=7;
@@ -2128,42 +2128,42 @@ public class InternalBPMN_translatorLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalBPMN_translator.g:6617:14: 'a' .. 'z'
+            	    // InternalBPMN_translator.g:6806:14: 'a' .. 'z'
             	    {
             	    matchRange('a','z'); 
 
             	    }
             	    break;
             	case 2 :
-            	    // InternalBPMN_translator.g:6617:23: 'A' .. 'Z'
+            	    // InternalBPMN_translator.g:6806:23: 'A' .. 'Z'
             	    {
             	    matchRange('A','Z'); 
 
             	    }
             	    break;
             	case 3 :
-            	    // InternalBPMN_translator.g:6617:32: '\\u00E8'
+            	    // InternalBPMN_translator.g:6806:32: '\\u00E8'
             	    {
             	    match('\u00E8'); 
 
             	    }
             	    break;
             	case 4 :
-            	    // InternalBPMN_translator.g:6617:41: '\\u00F2'
+            	    // InternalBPMN_translator.g:6806:41: '\\u00F2'
             	    {
             	    match('\u00F2'); 
 
             	    }
             	    break;
             	case 5 :
-            	    // InternalBPMN_translator.g:6617:50: RULE_INT
+            	    // InternalBPMN_translator.g:6806:50: RULE_INT
             	    {
             	    mRULE_INT(); 
 
             	    }
             	    break;
             	case 6 :
-            	    // InternalBPMN_translator.g:6617:59: '_'
+            	    // InternalBPMN_translator.g:6806:59: '_'
             	    {
             	    match('_'); 
 
@@ -2191,10 +2191,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:6619:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalBPMN_translator.g:6619:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalBPMN_translator.g:6808:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalBPMN_translator.g:6808:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalBPMN_translator.g:6619:11: ( '^' )?
+            // InternalBPMN_translator.g:6808:11: ( '^' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -2203,7 +2203,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalBPMN_translator.g:6619:11: '^'
+                    // InternalBPMN_translator.g:6808:11: '^'
                     {
                     match('^'); 
 
@@ -2221,7 +2221,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalBPMN_translator.g:6619:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalBPMN_translator.g:6808:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop5:
             do {
                 int alt5=2;
@@ -2268,10 +2268,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
     // $ANTLR start "RULE_INT"
     public final void mRULE_INT() throws RecognitionException {
         try {
-            // InternalBPMN_translator.g:6621:19: ( ( '0' .. '9' )+ )
-            // InternalBPMN_translator.g:6621:21: ( '0' .. '9' )+
+            // InternalBPMN_translator.g:6810:19: ( ( '0' .. '9' )+ )
+            // InternalBPMN_translator.g:6810:21: ( '0' .. '9' )+
             {
-            // InternalBPMN_translator.g:6621:21: ( '0' .. '9' )+
+            // InternalBPMN_translator.g:6810:21: ( '0' .. '9' )+
             int cnt6=0;
             loop6:
             do {
@@ -2285,7 +2285,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalBPMN_translator.g:6621:22: '0' .. '9'
+            	    // InternalBPMN_translator.g:6810:22: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2315,10 +2315,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:6623:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalBPMN_translator.g:6623:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalBPMN_translator.g:6812:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalBPMN_translator.g:6812:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalBPMN_translator.g:6623:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalBPMN_translator.g:6812:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -2336,10 +2336,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // InternalBPMN_translator.g:6623:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalBPMN_translator.g:6812:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalBPMN_translator.g:6623:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalBPMN_translator.g:6812:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -2355,7 +2355,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // InternalBPMN_translator.g:6623:21: '\\\\' .
+                    	    // InternalBPMN_translator.g:6812:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2363,7 +2363,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalBPMN_translator.g:6623:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalBPMN_translator.g:6812:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2388,10 +2388,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalBPMN_translator.g:6623:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalBPMN_translator.g:6812:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalBPMN_translator.g:6623:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalBPMN_translator.g:6812:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop8:
                     do {
                         int alt8=3;
@@ -2407,7 +2407,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // InternalBPMN_translator.g:6623:54: '\\\\' .
+                    	    // InternalBPMN_translator.g:6812:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2415,7 +2415,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalBPMN_translator.g:6623:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalBPMN_translator.g:6812:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2458,12 +2458,12 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:6625:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalBPMN_translator.g:6625:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalBPMN_translator.g:6814:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalBPMN_translator.g:6814:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalBPMN_translator.g:6625:24: ( options {greedy=false; } : . )*
+            // InternalBPMN_translator.g:6814:24: ( options {greedy=false; } : . )*
             loop10:
             do {
                 int alt10=2;
@@ -2488,7 +2488,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalBPMN_translator.g:6625:52: .
+            	    // InternalBPMN_translator.g:6814:52: .
             	    {
             	    matchAny(); 
 
@@ -2518,12 +2518,12 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:6627:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalBPMN_translator.g:6627:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalBPMN_translator.g:6816:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalBPMN_translator.g:6816:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalBPMN_translator.g:6627:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalBPMN_translator.g:6816:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop11:
             do {
                 int alt11=2;
@@ -2536,7 +2536,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // InternalBPMN_translator.g:6627:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalBPMN_translator.g:6816:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2556,7 +2556,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalBPMN_translator.g:6627:40: ( ( '\\r' )? '\\n' )?
+            // InternalBPMN_translator.g:6816:40: ( ( '\\r' )? '\\n' )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -2565,9 +2565,9 @@ public class InternalBPMN_translatorLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // InternalBPMN_translator.g:6627:41: ( '\\r' )? '\\n'
+                    // InternalBPMN_translator.g:6816:41: ( '\\r' )? '\\n'
                     {
-                    // InternalBPMN_translator.g:6627:41: ( '\\r' )?
+                    // InternalBPMN_translator.g:6816:41: ( '\\r' )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -2576,7 +2576,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
                     }
                     switch (alt12) {
                         case 1 :
-                            // InternalBPMN_translator.g:6627:41: '\\r'
+                            // InternalBPMN_translator.g:6816:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2608,10 +2608,10 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:6629:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalBPMN_translator.g:6629:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalBPMN_translator.g:6818:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalBPMN_translator.g:6818:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalBPMN_translator.g:6629:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalBPMN_translator.g:6818:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt14=0;
             loop14:
             do {
@@ -2665,8 +2665,8 @@ public class InternalBPMN_translatorLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBPMN_translator.g:6631:16: ( . )
-            // InternalBPMN_translator.g:6631:18: .
+            // InternalBPMN_translator.g:6820:16: ( . )
+            // InternalBPMN_translator.g:6820:18: .
             {
             matchAny(); 
 
@@ -3176,7 +3176,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
             this.transition = DFA1_transition;
         }
         public String getDescription() {
-            return "6613:13: ( 'bpmn' | 'bpmndi' | 'camunda' | 'xsi' | 'xml' | 'xmlns' | 'dc' | 'di' )";
+            return "6802:13: ( 'bpmn' | 'bpmndi' | 'camunda' | 'xsi' | 'xml' | 'xmlns' | 'dc' | 'di' )";
         }
     }
     static final String DFA2_eotS =
@@ -3431,19 +3431,19 @@ public class InternalBPMN_translatorLexer extends Lexer {
             this.transition = DFA2_transition;
         }
         public String getDescription() {
-            return "6615:17: ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'intermediateThrowEvent' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'isExpanded' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'standardLoopCharacteristics' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'isMarkerVisible' | 'terminateEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'bpmnElement' | 'dataObjectReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'definitions' | 'userTask' | 'documentation' | 'dataOutputAssociation' | 'exclusiveGateway' | 'waypoint' | 'BPMNLabel' | 'diagramRelationId' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'height' | 'messageFlow' | 'dataObjectRef' | 'outputParameter' | 'properties' | 'property' | 'BPMNShape' | 'Bounds' | 'subProcess' | 'cancelActivity' | 'field' | 'string' | 'scriptTask' | 'script' | 'BPMNPlane' | 'BPMNEdge' | 'sendTask' | 'boundaryEvent' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'width' | 'dataInputAssociation' | 'parallelGateway' | 'collaboration' | 'participant' | 'targetNamespace' | 'dataObject' | 'signalEventDefinition' | 'BPMNDiagram' | 'exporter' | 'exporterVersion' | 'x' | 'y' | 'isHorizontal' | 'attachedToRef' | 'conditionExpression' | 'receiveTask' | 'messageRef' | 'initiator' | 'message' | 'inclusiveGateway' )";
+            return "6804:17: ( 'id' | 'name' | 'isExecutable' | 'sourceRef' | 'processRef' | 'targetRef' | 'calledElement' | 'type' | 'expression' | 'value' | 'resultVariable' | 'asyncBefore' | 'intermediateThrowEvent' | 'class' | 'event' | 'startEvent' | 'task' | 'messageEventDefinition' | 'sequenceFlow' | 'isExpanded' | 'condition' | 'association' | 'outgoing' | 'serviceTask' | 'process' | 'standardLoopCharacteristics' | 'incoming' | 'intermediateCatchEvent' | 'conditionalEventDefinition' | 'isMarkerVisible' | 'terminateEventDefinition' | 'endEvent' | 'textAnnotation' | 'text' | 'dataStoreReference' | 'bpmnElement' | 'dataObjectReference' | 'callActivity' | 'laneSet' | 'lane' | 'flowNodeRef' | 'definitions' | 'userTask' | 'documentation' | 'dataOutputAssociation' | 'exclusiveGateway' | 'waypoint' | 'BPMNLabel' | 'diagramRelationId' | 'extensionElements' | 'inputOutput' | 'list' | 'inputParameter' | 'height' | 'messageFlow' | 'dataObjectRef' | 'outputParameter' | 'properties' | 'property' | 'BPMNShape' | 'Bounds' | 'subProcess' | 'cancelActivity' | 'field' | 'string' | 'scriptTask' | 'script' | 'BPMNPlane' | 'BPMNEdge' | 'sendTask' | 'boundaryEvent' | 'executionListener' | 'timerEventDefinition' | 'timeDuration' | 'width' | 'dataInputAssociation' | 'parallelGateway' | 'collaboration' | 'participant' | 'targetNamespace' | 'dataObject' | 'signalEventDefinition' | 'BPMNDiagram' | 'exporter' | 'exporterVersion' | 'x' | 'y' | 'isHorizontal' | 'attachedToRef' | 'conditionExpression' | 'receiveTask' | 'messageRef' | 'initiator' | 'message' | 'inclusiveGateway' )";
         }
     }
     static final String DFA15_eotS =
-        "\2\66\1\73\1\uffff\1\73\1\uffff\1\111\1\uffff\1\115\2\66\1\73\4\uffff\1\73\1\66\3\uffff\13\66\1\173\17\66\1\173\2\66\4\uffff\3\73\2\uffff\6\66\14\uffff\5\66\10\uffff\2\66\3\uffff\33\66\1\uffff\2\u00d1\3\66\1\173\34\66\3\uffff\2\66\4\uffff\50\66\2\u00d1\1\uffff\73\66\1\u016a\1\66\1\u016d\4\66\1\u0172\3\66\1\u0176\6\66\1\u0181\1\u0182\1\u00d1\24\66\1\173\17\66\2\173\1\66\1\173\11\66\2\173\6\66\1\u01bf\2\66\1\173\7\66\1\173\3\66\1\uffff\2\66\1\uffff\4\66\1\uffff\3\66\1\uffff\12\66\2\uffff\7\66\1\173\2\66\1\u00d1\54\66\1\173\2\66\1\173\1\66\1\uffff\13\66\1\u0224\1\66\1\u0226\6\66\1\u022d\1\u022f\5\66\1\173\3\66\1\u00d1\34\66\1\173\4\66\1\173\26\66\1\173\13\66\1\uffff\1\66\1\uffff\1\u027c\5\66\1\uffff\1\66\1\uffff\12\66\1\u00d1\37\66\1\173\16\66\1\173\2\66\1\173\3\66\1\u02c5\1\uffff\1\66\1\173\1\66\1\173\5\66\1\u02ce\1\uffff\12\66\1\173\2\66\1\u02db\24\66\1\173\11\66\1\173\5\66\1\173\20\66\1\173\2\66\2\173\2\uffff\7\66\1\uffff\1\u0317\1\u0318\1\u0319\4\66\3\173\1\66\1\u031f\1\uffff\6\66\1\173\20\66\2\173\13\66\1\173\17\66\1\173\5\66\1\u0357\3\uffff\5\66\1\uffff\13\66\1\173\5\66\1\173\6\66\1\173\3\66\2\173\1\66\2\173\16\66\1\173\6\66\1\u038c\1\uffff\2\66\1\u038f\1\66\1\173\1\66\1\173\14\66\1\173\6\66\1\173\3\66\1\173\2\66\1\173\6\66\3\173\2\66\1\173\1\66\1\173\4\66\1\uffff\1\u03b6\1\u03b7\1\uffff\4\66\1\173\12\66\1\173\1\66\1\173\4\66\1\173\6\66\1\173\10\66\2\uffff\2\66\2\173\3\66\1\173\2\66\1\173\2\66\1\173\15\66\1\173\10\66\1\173\13\66\1\173\5\66\1\173\1\66\1\173\2\66\1\173\3\66\1\u040f\1\u0410\7\66\1\173\5\66\2\173\3\66\2\173\2\66\2\uffff\11\66\1\173\5\66\2\173\2\66\1\173\15\66\1\173\13\66\2\173\13\66\1\173\5\66\1\173\2\66\1\173\3\66\1\173\3\66\2\173\2\66\1\173\5\66\1\173\2\66\1\173\1\66\1\173";
+        "\2\66\1\73\1\uffff\1\73\1\uffff\1\111\1\uffff\1\115\2\66\1\73\4\uffff\1\73\1\66\3\uffff\13\66\1\173\17\66\1\173\2\66\4\uffff\3\73\2\uffff\6\66\14\uffff\5\66\10\uffff\2\66\3\uffff\33\66\1\uffff\2\u00d1\3\66\1\173\34\66\3\uffff\2\66\4\uffff\50\66\2\u00d1\1\uffff\74\66\1\u016b\1\u016d\4\66\1\u0172\3\66\1\u0176\6\66\1\u0181\1\u0182\1\u00d1\24\66\1\173\17\66\2\173\1\66\1\173\11\66\2\173\6\66\1\u01bf\2\66\1\173\7\66\1\173\4\66\1\uffff\1\66\1\uffff\4\66\1\uffff\3\66\1\uffff\12\66\2\uffff\7\66\1\173\2\66\1\u00d1\54\66\1\173\2\66\1\173\1\66\1\uffff\14\66\1\u0225\1\u0226\6\66\1\u022d\1\u022f\5\66\1\173\3\66\1\u00d1\34\66\1\173\4\66\1\173\26\66\1\173\14\66\2\uffff\1\u027c\5\66\1\uffff\1\66\1\uffff\12\66\1\u00d1\37\66\1\173\16\66\1\173\2\66\1\173\3\66\1\u02c5\1\uffff\1\66\1\173\1\66\1\173\5\66\1\u02ce\1\uffff\12\66\1\173\2\66\1\u02db\24\66\1\173\11\66\1\173\5\66\1\173\20\66\1\173\2\66\2\173\2\uffff\7\66\1\uffff\1\u0317\1\u0318\1\u0319\4\66\3\173\1\66\1\u031f\1\uffff\6\66\1\173\20\66\2\173\13\66\1\173\17\66\1\173\5\66\1\u0357\3\uffff\5\66\1\uffff\13\66\1\173\5\66\1\173\6\66\1\173\3\66\2\173\1\66\2\173\16\66\1\173\6\66\1\u038c\1\uffff\2\66\1\u038f\1\66\1\173\1\66\1\173\14\66\1\173\6\66\1\173\3\66\1\173\2\66\1\173\6\66\3\173\2\66\1\173\1\66\1\173\4\66\1\uffff\1\u03b6\1\u03b7\1\uffff\4\66\1\173\12\66\1\173\1\66\1\173\4\66\1\173\6\66\1\173\10\66\2\uffff\2\66\2\173\3\66\1\173\2\66\1\173\2\66\1\173\15\66\1\173\10\66\1\173\13\66\1\173\5\66\1\173\1\66\1\173\2\66\1\173\3\66\1\u040f\1\u0410\7\66\1\173\5\66\2\173\3\66\2\173\2\66\2\uffff\11\66\1\173\5\66\2\173\2\66\1\173\15\66\1\173\13\66\2\173\13\66\1\173\5\66\1\173\2\66\1\173\3\66\1\173\3\66\2\173\2\66\1\173\5\66\1\173\2\66\1\173\1\66\1\173";
     static final String DFA15_eofS =
         "\u046c\uffff";
     static final String DFA15_minS =
-        "\1\0\1\60\1\141\1\uffff\1\174\1\uffff\1\75\1\uffff\1\57\2\60\1\76\4\uffff\1\52\1\60\3\uffff\36\60\4\uffff\1\101\2\0\2\uffff\6\60\2\145\12\uffff\5\60\10\uffff\2\60\3\uffff\33\60\1\uffff\42\60\3\uffff\2\60\4\uffff\52\60\1\uffff\u0098\60\1\uffff\2\60\1\uffff\4\60\1\uffff\3\60\1\uffff\12\60\2\uffff\74\60\1\uffff\144\60\1\uffff\1\60\1\uffff\6\60\1\uffff\1\60\1\uffff\101\60\1\uffff\12\60\1\uffff\110\60\2\uffff\7\60\1\uffff\14\60\1\uffff\73\60\3\uffff\5\60\1\uffff\67\60\1\uffff\64\60\1\uffff\2\60\1\uffff\46\60\2\uffff\127\60\2\uffff\133\60";
+        "\1\0\1\60\1\141\1\uffff\1\174\1\uffff\1\75\1\uffff\1\57\2\60\1\76\4\uffff\1\52\1\60\3\uffff\36\60\4\uffff\1\101\2\0\2\uffff\6\60\2\145\12\uffff\5\60\10\uffff\2\60\3\uffff\33\60\1\uffff\42\60\3\uffff\2\60\4\uffff\52\60\1\uffff\u0099\60\1\uffff\1\60\1\uffff\4\60\1\uffff\3\60\1\uffff\12\60\2\uffff\74\60\1\uffff\145\60\2\uffff\6\60\1\uffff\1\60\1\uffff\101\60\1\uffff\12\60\1\uffff\110\60\2\uffff\7\60\1\uffff\14\60\1\uffff\73\60\3\uffff\5\60\1\uffff\67\60\1\uffff\64\60\1\uffff\2\60\1\uffff\46\60\2\uffff\127\60\2\uffff\133\60";
     static final String DFA15_maxS =
-        "\1\uffff\1\172\1\154\1\uffff\1\174\1\uffff\1\75\1\uffff\1\77\2\172\1\76\4\uffff\1\76\1\172\3\uffff\13\172\1\u00f2\17\172\1\u00f2\2\172\4\uffff\1\172\2\uffff\2\uffff\6\172\2\164\12\uffff\5\172\10\uffff\2\172\3\uffff\33\172\1\uffff\2\u00f2\3\172\1\u00f2\34\172\3\uffff\2\172\4\uffff\50\172\2\u00f2\1\uffff\73\172\1\u00f2\1\172\1\u00f2\4\172\1\u00f2\3\172\1\u00f2\6\172\3\u00f2\24\172\1\u00f2\17\172\2\u00f2\1\172\1\u00f2\11\172\2\u00f2\6\172\1\u00f2\2\172\1\u00f2\7\172\1\u00f2\3\172\1\uffff\2\172\1\uffff\4\172\1\uffff\3\172\1\uffff\12\172\2\uffff\7\172\1\u00f2\2\172\1\u00f2\54\172\1\u00f2\2\172\1\u00f2\1\172\1\uffff\13\172\1\u00f2\1\172\1\u00f2\6\172\2\u00f2\5\172\1\u00f2\3\172\1\u00f2\34\172\1\u00f2\4\172\1\u00f2\26\172\1\u00f2\13\172\1\uffff\1\172\1\uffff\1\u00f2\5\172\1\uffff\1\172\1\uffff\12\172\1\u00f2\37\172\1\u00f2\16\172\1\u00f2\2\172\1\u00f2\3\172\1\u00f2\1\uffff\1\172\1\u00f2\1\172\1\u00f2\5\172\1\u00f2\1\uffff\12\172\1\u00f2\2\172\1\u00f2\24\172\1\u00f2\11\172\1\u00f2\5\172\1\u00f2\20\172\1\u00f2\2\172\2\u00f2\2\uffff\7\172\1\uffff\3\u00f2\4\172\3\u00f2\1\172\1\u00f2\1\uffff\6\172\1\u00f2\20\172\2\u00f2\13\172\1\u00f2\17\172\1\u00f2\5\172\1\u00f2\3\uffff\5\172\1\uffff\13\172\1\u00f2\5\172\1\u00f2\6\172\1\u00f2\3\172\2\u00f2\1\172\2\u00f2\16\172\1\u00f2\6\172\1\u00f2\1\uffff\2\172\1\u00f2\1\172\1\u00f2\1\172\1\u00f2\14\172\1\u00f2\6\172\1\u00f2\3\172\1\u00f2\2\172\1\u00f2\6\172\3\u00f2\2\172\1\u00f2\1\172\1\u00f2\4\172\1\uffff\2\u00f2\1\uffff\4\172\1\u00f2\12\172\1\u00f2\1\172\1\u00f2\4\172\1\u00f2\6\172\1\u00f2\10\172\2\uffff\2\172\2\u00f2\3\172\1\u00f2\2\172\1\u00f2\2\172\1\u00f2\15\172\1\u00f2\10\172\1\u00f2\13\172\1\u00f2\5\172\1\u00f2\1\172\1\u00f2\2\172\1\u00f2\3\172\2\u00f2\7\172\1\u00f2\5\172\2\u00f2\3\172\2\u00f2\2\172\2\uffff\11\172\1\u00f2\5\172\2\u00f2\2\172\1\u00f2\15\172\1\u00f2\13\172\2\u00f2\13\172\1\u00f2\5\172\1\u00f2\2\172\1\u00f2\3\172\1\u00f2\3\172\2\u00f2\2\172\1\u00f2\5\172\1\u00f2\2\172\1\u00f2\1\172\1\u00f2";
+        "\1\uffff\1\172\1\154\1\uffff\1\174\1\uffff\1\75\1\uffff\1\77\2\172\1\76\4\uffff\1\76\1\172\3\uffff\13\172\1\u00f2\17\172\1\u00f2\2\172\4\uffff\1\172\2\uffff\2\uffff\6\172\2\164\12\uffff\5\172\10\uffff\2\172\3\uffff\33\172\1\uffff\2\u00f2\3\172\1\u00f2\34\172\3\uffff\2\172\4\uffff\50\172\2\u00f2\1\uffff\74\172\2\u00f2\4\172\1\u00f2\3\172\1\u00f2\6\172\3\u00f2\24\172\1\u00f2\17\172\2\u00f2\1\172\1\u00f2\11\172\2\u00f2\6\172\1\u00f2\2\172\1\u00f2\7\172\1\u00f2\4\172\1\uffff\1\172\1\uffff\4\172\1\uffff\3\172\1\uffff\12\172\2\uffff\7\172\1\u00f2\2\172\1\u00f2\54\172\1\u00f2\2\172\1\u00f2\1\172\1\uffff\14\172\2\u00f2\6\172\2\u00f2\5\172\1\u00f2\3\172\1\u00f2\34\172\1\u00f2\4\172\1\u00f2\26\172\1\u00f2\14\172\2\uffff\1\u00f2\5\172\1\uffff\1\172\1\uffff\12\172\1\u00f2\37\172\1\u00f2\16\172\1\u00f2\2\172\1\u00f2\3\172\1\u00f2\1\uffff\1\172\1\u00f2\1\172\1\u00f2\5\172\1\u00f2\1\uffff\12\172\1\u00f2\2\172\1\u00f2\24\172\1\u00f2\11\172\1\u00f2\5\172\1\u00f2\20\172\1\u00f2\2\172\2\u00f2\2\uffff\7\172\1\uffff\3\u00f2\4\172\3\u00f2\1\172\1\u00f2\1\uffff\6\172\1\u00f2\20\172\2\u00f2\13\172\1\u00f2\17\172\1\u00f2\5\172\1\u00f2\3\uffff\5\172\1\uffff\13\172\1\u00f2\5\172\1\u00f2\6\172\1\u00f2\3\172\2\u00f2\1\172\2\u00f2\16\172\1\u00f2\6\172\1\u00f2\1\uffff\2\172\1\u00f2\1\172\1\u00f2\1\172\1\u00f2\14\172\1\u00f2\6\172\1\u00f2\3\172\1\u00f2\2\172\1\u00f2\6\172\3\u00f2\2\172\1\u00f2\1\172\1\u00f2\4\172\1\uffff\2\u00f2\1\uffff\4\172\1\u00f2\12\172\1\u00f2\1\172\1\u00f2\4\172\1\u00f2\6\172\1\u00f2\10\172\2\uffff\2\172\2\u00f2\3\172\1\u00f2\2\172\1\u00f2\2\172\1\u00f2\15\172\1\u00f2\10\172\1\u00f2\13\172\1\u00f2\5\172\1\u00f2\1\172\1\u00f2\2\172\1\u00f2\3\172\2\u00f2\7\172\1\u00f2\5\172\2\u00f2\3\172\2\u00f2\2\172\2\uffff\11\172\1\u00f2\5\172\2\u00f2\2\172\1\u00f2\15\172\1\u00f2\13\172\2\u00f2\13\172\1\u00f2\5\172\1\u00f2\2\172\1\u00f2\3\172\1\u00f2\3\172\2\u00f2\2\172\1\u00f2\5\172\1\u00f2\2\172\1\u00f2\1\172\1\u00f2";
     static final String DFA15_acceptS =
-        "\3\uffff\1\7\1\uffff\1\12\1\uffff\1\15\4\uffff\1\22\1\23\1\25\1\26\2\uffff\1\32\1\33\1\34\36\uffff\4\66\3\uffff\1\73\1\74\10\uffff\1\10\1\7\1\11\1\12\1\13\1\14\1\15\1\16\1\30\1\24\5\uffff\1\21\1\22\1\23\1\25\1\26\1\27\1\71\1\72\2\uffff\1\32\1\33\1\34\33\uffff\1\65\42\uffff\1\67\1\70\1\73\2\uffff\1\3\1\4\1\5\1\6\52\uffff\1\64\u0098\uffff\1\44\2\uffff\1\37\4\uffff\1\54\3\uffff\1\62\12\uffff\1\57\1\61\74\uffff\1\1\144\uffff\1\35\1\uffff\1\36\6\uffff\1\43\1\uffff\1\50\101\uffff\1\17\12\uffff\1\45\110\uffff\1\2\1\20\7\uffff\1\63\14\uffff\1\55\73\uffff\1\40\1\60\1\51\5\uffff\1\53\67\uffff\1\52\64\uffff\1\31\2\uffff\1\46\46\uffff\1\41\1\42\127\uffff\1\47\1\56\133\uffff";
+        "\3\uffff\1\7\1\uffff\1\12\1\uffff\1\15\4\uffff\1\22\1\23\1\25\1\26\2\uffff\1\32\1\33\1\34\36\uffff\4\66\3\uffff\1\73\1\74\10\uffff\1\10\1\7\1\11\1\12\1\13\1\14\1\15\1\16\1\30\1\24\5\uffff\1\21\1\22\1\23\1\25\1\26\1\27\1\71\1\72\2\uffff\1\32\1\33\1\34\33\uffff\1\65\42\uffff\1\67\1\70\1\73\2\uffff\1\3\1\4\1\5\1\6\52\uffff\1\64\u0099\uffff\1\45\1\uffff\1\40\4\uffff\1\55\3\uffff\1\63\12\uffff\1\60\1\62\74\uffff\1\1\145\uffff\1\36\1\37\6\uffff\1\44\1\uffff\1\51\101\uffff\1\17\12\uffff\1\46\110\uffff\1\2\1\20\7\uffff\1\35\14\uffff\1\56\73\uffff\1\41\1\61\1\52\5\uffff\1\54\67\uffff\1\53\64\uffff\1\31\2\uffff\1\47\46\uffff\1\42\1\43\127\uffff\1\50\1\57\133\uffff";
     static final String DFA15_specialS =
         "\1\0\67\uffff\1\1\1\2\u0432\uffff}>";
     static final String[] DFA15_transitionS = {
@@ -3468,7 +3468,7 @@ public class InternalBPMN_translatorLexer extends Lexer {
             "",
             "",
             "",
-            "\12\100\7\uffff\1\141\3\77\1\140\3\77\1\142\21\77\4\uffff\1\101\1\uffff\32\76",
+            "\12\100\7\uffff\1\142\3\77\1\141\3\77\1\140\21\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\1\143\3\77\1\144\25\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\4\77\1\145\15\77\1\147\1\77\1\146\5\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\4\77\1\150\25\77\4\uffff\1\101\1\uffff\32\76",
@@ -3543,9 +3543,9 @@ public class InternalBPMN_translatorLexer extends Lexer {
             "",
             "",
             "",
-            "\12\100\7\uffff\25\77\1\u00b2\4\77\4\uffff\1\101\1\uffff\32\76",
-            "\12\100\7\uffff\23\77\1\u00b3\6\77\4\uffff\1\101\1\uffff\32\76",
-            "\12\100\7\uffff\22\77\1\u00b4\7\77\4\uffff\1\101\1\uffff\32\76",
+            "\12\100\7\uffff\22\77\1\u00b2\7\77\4\uffff\1\101\1\uffff\32\76",
+            "\12\100\7\uffff\25\77\1\u00b3\4\77\4\uffff\1\101\1\uffff\32\76",
+            "\12\100\7\uffff\23\77\1\u00b4\6\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\14\77\1\u00b5\15\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\23\77\1\u00b6\6\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\15\77\1\u00b8\3\77\1\u00b7\10\77\4\uffff\1\101\1\uffff\32\76",
@@ -3625,9 +3625,9 @@ public class InternalBPMN_translatorLexer extends Lexer {
             "\12\100\7\uffff\32\77\4\uffff\1\101\1\uffff\15\76\1\u0109\14\76",
             "\12\100\7\uffff\17\77\1\u010a\12\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\10\77\1\u010b\21\77\4\uffff\1\101\1\uffff\32\76",
-            "\12\100\7\uffff\10\77\1\u010c\21\77\4\uffff\1\101\1\uffff\32\76",
-            "\12\100\7\uffff\1\u010d\31\77\4\uffff\1\101\1\uffff\32\76",
-            "\12\100\7\uffff\23\77\1\u010e\6\77\4\uffff\1\101\1\uffff\32\76",
+            "\12\100\7\uffff\23\77\1\u010c\6\77\4\uffff\1\101\1\uffff\32\76",
+            "\12\100\7\uffff\10\77\1\u010d\21\77\4\uffff\1\101\1\uffff\32\76",
+            "\12\100\7\uffff\1\u010e\31\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\4\77\1\u010f\25\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\26\77\1\u0110\3\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\25\77\1\u0111\4\77\4\uffff\1\101\1\uffff\32\76",
@@ -3715,9 +3715,9 @@ public class InternalBPMN_translatorLexer extends Lexer {
             "\12\100\7\uffff\32\77\4\uffff\1\101\1\uffff\23\76\1\u0166\6\76",
             "\12\100\7\uffff\4\77\1\u0167\25\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\2\77\1\u0168\27\77\4\uffff\1\101\1\uffff\32\76",
-            "\12\100\7\uffff\2\77\1\u0169\27\77\4\uffff\1\101\1\uffff\32\76",
+            "\12\100\7\uffff\1\u0169\31\77\4\uffff\1\101\1\uffff\32\76",
+            "\12\100\7\uffff\2\77\1\u016a\27\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\32\77\4\uffff\1\101\1\uffff\32\76\155\uffff\1\66\11\uffff\1\66",
-            "\12\100\7\uffff\1\u016b\31\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\10\77\1\u016c\21\77\4\uffff\1\101\1\uffff\32\76\155\uffff\1\66\11\uffff\1\66",
             "\12\100\7\uffff\16\77\1\u016e\13\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\4\77\1\u016f\25\77\4\uffff\1\101\1\uffff\32\76",
@@ -3808,9 +3808,9 @@ public class InternalBPMN_translatorLexer extends Lexer {
             "\12\100\7\uffff\32\77\4\uffff\1\101\1\uffff\32\76\155\uffff\1\66\11\uffff\1\66",
             "\12\100\7\uffff\21\77\1\u01c9\10\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\32\77\4\uffff\1\u01ca\1\uffff\32\76",
-            "\12\100\7\uffff\4\77\1\u01cb\25\77\4\uffff\1\101\1\uffff\32\76",
+            "\12\100\7\uffff\15\77\1\u01cb\14\77\4\uffff\1\101\1\uffff\32\76",
+            "\12\100\7\uffff\4\77\1\u01cc\25\77\4\uffff\1\101\1\uffff\32\76",
             "",
-            "\12\100\7\uffff\15\77\1\u01cc\14\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\3\77\1\u01cd\26\77\4\uffff\1\101\1\uffff\32\76",
             "",
             "\12\100\7\uffff\21\77\1\u01ce\10\77\4\uffff\1\101\1\uffff\32\76",
@@ -3906,8 +3906,8 @@ public class InternalBPMN_translatorLexer extends Lexer {
             "\12\100\7\uffff\32\77\4\uffff\1\101\1\uffff\10\76\1\u0221\21\76",
             "\12\100\7\uffff\1\u0222\31\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\15\77\1\u0223\14\77\4\uffff\1\101\1\uffff\32\76",
+            "\12\100\7\uffff\2\77\1\u0224\27\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\32\77\4\uffff\1\101\1\uffff\32\76\155\uffff\1\66\11\uffff\1\66",
-            "\12\100\7\uffff\2\77\1\u0225\27\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\32\77\4\uffff\1\101\1\uffff\32\76\155\uffff\1\66\11\uffff\1\66",
             "\12\100\7\uffff\12\77\1\u0227\17\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\32\77\4\uffff\1\u0228\1\uffff\32\76",
@@ -3995,8 +3995,8 @@ public class InternalBPMN_translatorLexer extends Lexer {
             "\12\100\7\uffff\32\77\4\uffff\1\101\1\uffff\16\76\1\u0278\13\76",
             "\12\100\7\uffff\23\77\1\u0279\6\77\4\uffff\1\101\1\uffff\32\76",
             "\12\100\7\uffff\1\u027a\31\77\4\uffff\1\101\1\uffff\32\76",
-            "",
             "\12\100\7\uffff\4\77\1\u027b\25\77\4\uffff\1\101\1\uffff\32\76",
+            "",
             "",
             "\12\100\7\uffff\32\77\4\uffff\1\101\1\uffff\32\76\155\uffff\1\66\11\uffff\1\66",
             "\12\100\7\uffff\10\77\1\u027d\21\77\4\uffff\1\101\1\uffff\32\76",

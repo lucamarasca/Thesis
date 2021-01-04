@@ -35,6 +35,7 @@ import org.xtext.generator.ArduinoCPPCodeGenerator;
 import org.xtext.generator.ArduinoHCodeGenerator;
 import org.xtext.generator.ArduinoInoCodeGenerator;
 import org.xtext.generator.Parameters;
+import sensor.devices.DistanceSensor;
 import sensor.devices.TemperatureSensor;
 
 /**
@@ -1358,36 +1359,69 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                     }
                     EList<sensor> _sensor_code = Codex.getSensor_code();
                     for (final sensor sensor : _sensor_code) {
-                      boolean _equals_4 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("temperature");
-                      if (_equals_4) {
-                        TemperatureSensor _temperatureSensor = new TemperatureSensor();
-                        this.s = _temperatureSensor;
-                        EList<device> _device_code = Codex.getDevice_code();
-                        for (final device Device : _device_code) {
-                          {
-                            this.cpp_gen.setDevice(Device.getDevice().get(0));
-                            this.s.setId(Device.getId().get(0));
-                          }
-                        }
-                        this.elements.add(this.s);
-                        EList<sensor_data> _sensor = sensor.getSensor();
-                        for (final sensor_data sensdata : _sensor) {
-                          {
-                            this.s.setType(sensdata.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
-                            this.s.setModule(sensdata.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
-                            this.s.setSensorId(sensdata.getSensor_id().get(0).toLowerCase().replaceAll("\\s+", ""));
-                            EList<String> _pins = sensdata.getPins();
-                            for (final String pins : _pins) {
-                              this.s.getPins().add(pins);
+                      {
+                        boolean _equals_4 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("temperature");
+                        if (_equals_4) {
+                          TemperatureSensor _temperatureSensor = new TemperatureSensor();
+                          this.s = _temperatureSensor;
+                          EList<device> _device_code = Codex.getDevice_code();
+                          for (final device Device : _device_code) {
+                            {
+                              this.cpp_gen.setDevice(Device.getDevice().get(0));
+                              this.s.setId(Device.getId().get(0));
                             }
                           }
+                          this.elements.add(this.s);
+                          EList<sensor_data> _sensor = sensor.getSensor();
+                          for (final sensor_data sensdata : _sensor) {
+                            {
+                              this.s.setType(sensdata.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              this.s.setModule(sensdata.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              this.s.setSensorId(sensdata.getSensor_id().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              EList<String> _pins = sensdata.getPins();
+                              for (final String pins : _pins) {
+                                this.s.getPins().add(pins);
+                              }
+                            }
+                          }
+                          if (((!this.generated_elements.contains("dht22")) && this.s.getType().equals("dht22"))) {
+                            this.h_gen.sensor = "dht22";
+                            this.h_variables = this.h_gen.generateDefineCode(this.h_variables);
+                            this.h_code = this.h_gen.generateMethodsCode(this.h_code);
+                            this.cpp_code = this.cpp_gen.generateSensorCode(this.s, this.cpp_code);
+                            this.generated_elements.add("dht22");
+                          }
                         }
-                        if (((!this.generated_elements.contains("dht22")) && this.s.getType().equals("dht22"))) {
-                          this.h_gen.sensor = "dht22";
-                          this.h_variables = this.h_gen.generateDefineCode(this.h_variables);
-                          this.h_code = this.h_gen.generateMethodsCode(this.h_code);
-                          this.cpp_code = this.cpp_gen.generateSensorCode(this.s, this.cpp_code);
-                          this.generated_elements.add("dht22");
+                        boolean _equals_5 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("distance");
+                        if (_equals_5) {
+                          DistanceSensor s = new DistanceSensor();
+                          EList<device> _device_code_1 = Codex.getDevice_code();
+                          for (final device Device_1 : _device_code_1) {
+                            {
+                              this.cpp_gen.setDevice(Device_1.getDevice().get(0));
+                              s.setId(Device_1.getId().get(0));
+                            }
+                          }
+                          this.elements.add(s);
+                          EList<sensor_data> _sensor_1 = sensor.getSensor();
+                          for (final sensor_data sensdata_1 : _sensor_1) {
+                            {
+                              s.setType(sensdata_1.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              s.setModule(sensdata_1.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              s.setSensorId(sensdata_1.getSensor_id().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              EList<String> _pins = sensdata_1.getPins();
+                              for (final String pins : _pins) {
+                                s.getPins().add(pins);
+                              }
+                            }
+                          }
+                          if (((!this.generated_elements.contains("hc-sr04")) && (s.getType().equals("hc-sr04") || s.getType().equals("hy-srf05")))) {
+                            this.h_gen.sensor = "hc-sr04";
+                            this.h_variables = this.h_gen.generateDefineCode(this.h_variables);
+                            this.h_code = this.h_gen.generateMethodsCode(this.h_code);
+                            this.cpp_code = this.cpp_gen.generateSensorCode(s, this.cpp_code);
+                            this.generated_elements.add("hc-sr04");
+                          }
                         }
                       }
                     }

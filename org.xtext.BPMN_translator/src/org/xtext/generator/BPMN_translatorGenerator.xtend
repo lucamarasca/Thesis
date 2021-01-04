@@ -16,7 +16,7 @@ import org.xtext.bPMN_translator.mqtt_data
 import org.xtext.bPMN_translator.codex
 import sensor.devices.TemperatureSensor
 import org.xtext.bPMN_translator.Singleton
-
+import sensor.devices.DistanceSensor
 
 /**
  * Generates code from your model files on save.
@@ -1228,6 +1228,34 @@ def setDatas(Resource r, String successor_id){
 												h_code = h_gen.generateMethodsCode(h_code);
 												cpp_code = cpp_gen.generateSensorCode(s, cpp_code);
 												generated_elements.add("dht22")
+											}
+										}
+										if (sensor.sname.get(0).toLowerCase().replaceAll("\\s+","").equals("distance"))
+										{
+											var s = new DistanceSensor();
+											for(Device : Codex.device_code)
+											{ 
+												cpp_gen.setDevice(Device.device.get(0));
+												s.setId(Device.id.get(0));
+											}
+											elements.add(s);
+											for (sensdata : sensor.sensor)
+											{
+												s.setType(sensdata.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+												s.setModule(sensdata.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+												s.setSensorId(sensdata.sensor_id.get(0).toLowerCase().replaceAll("\\s+",""));
+												for(pins : sensdata.pins)
+												{
+													s.getPins().add(pins);
+												}
+											}
+											if (!generated_elements.contains("hc-sr04") && (s.getType().equals("hc-sr04") || (s.getType().equals("hy-srf05"))))
+											{
+												h_gen.sensor = "hc-sr04";
+												h_variables = h_gen.generateDefineCode(h_variables);
+												h_code = h_gen.generateMethodsCode(h_code);
+												cpp_code = cpp_gen.generateSensorCode(s, cpp_code);
+												generated_elements.add("hc-sr04")
 											}
 										}
 									}	

@@ -123,6 +123,13 @@ rulevariables:
 		RULE_BODY
 		']'
 		    |
+		'DISTANCE'
+		'['
+		RULE_BODY
+		','
+		RULE_BODY
+		']'
+		    |
 		RULE_BODY
 		'['
 		RULE_BODY
@@ -277,7 +284,10 @@ rulemqtt_data:
 			    |
 			'DATA'
 			'='
-			RULE_STRING
+			(
+				RULE_STRING
+				    |rulevariables
+			)
 		)*
 		'}'
 	)*

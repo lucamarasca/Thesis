@@ -903,12 +903,10 @@ rulevariables returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken
 		)
 		    |
 		(
-			this_BODY_6=RULE_BODY
+			kw='DISTANCE'
 			{
-				$current.merge(this_BODY_6);
-			}
-			{
-				newLeafNode(this_BODY_6, grammarAccess.getVariablesAccess().getBODYTerminalRuleCall_1_0());
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getDISTANCEKeyword_1_0());
 			}
 			kw='['
 			{
@@ -922,10 +920,49 @@ rulevariables returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken
 			{
 				newLeafNode(this_BODY_8, grammarAccess.getVariablesAccess().getBODYTerminalRuleCall_1_2());
 			}
+			kw=','
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getCommaKeyword_1_3());
+			}
+			this_BODY_10=RULE_BODY
+			{
+				$current.merge(this_BODY_10);
+			}
+			{
+				newLeafNode(this_BODY_10, grammarAccess.getVariablesAccess().getBODYTerminalRuleCall_1_4());
+			}
 			kw=']'
 			{
 				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getVariablesAccess().getRightSquareBracketKeyword_1_3());
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getRightSquareBracketKeyword_1_5());
+			}
+		)
+		    |
+		(
+			this_BODY_12=RULE_BODY
+			{
+				$current.merge(this_BODY_12);
+			}
+			{
+				newLeafNode(this_BODY_12, grammarAccess.getVariablesAccess().getBODYTerminalRuleCall_2_0());
+			}
+			kw='['
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getLeftSquareBracketKeyword_2_1());
+			}
+			this_BODY_14=RULE_BODY
+			{
+				$current.merge(this_BODY_14);
+			}
+			{
+				newLeafNode(this_BODY_14, grammarAccess.getVariablesAccess().getBODYTerminalRuleCall_2_2());
+			}
+			kw=']'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getVariablesAccess().getRightSquareBracketKeyword_2_3());
 			}
 		)
 	)
@@ -1830,20 +1867,38 @@ rulemqtt_data returns [EObject current=null]
 						}
 						(
 							(
-								lv_value_30_0=RULE_STRING
-								{
-									newLeafNode(lv_value_30_0, grammarAccess.getMqtt_dataAccess().getValueSTRINGTerminalRuleCall_1_6_2_1_2_0());
-								}
-								{
-									if ($current==null) {
-										$current = createModelElement(grammarAccess.getMqtt_dataRule());
+								(
+									lv_value_30_1=RULE_STRING
+									{
+										newLeafNode(lv_value_30_1, grammarAccess.getMqtt_dataAccess().getValueSTRINGTerminalRuleCall_1_6_2_1_2_0_0());
 									}
-									addWithLastConsumed(
-										$current,
-										"value",
-										lv_value_30_0,
-										"org.eclipse.xtext.common.Terminals.STRING");
-								}
+									{
+										if ($current==null) {
+											$current = createModelElement(grammarAccess.getMqtt_dataRule());
+										}
+										addWithLastConsumed(
+											$current,
+											"value",
+											lv_value_30_1,
+											"org.eclipse.xtext.common.Terminals.STRING");
+									}
+									    |
+									{
+										newCompositeNode(grammarAccess.getMqtt_dataAccess().getValueVariablesParserRuleCall_1_6_2_1_2_0_1());
+									}
+									lv_value_30_2=rulevariables
+									{
+										if ($current==null) {
+											$current = createModelElementForParent(grammarAccess.getMqtt_dataRule());
+										}
+										add(
+											$current,
+											"value",
+											lv_value_30_2,
+											"org.xtext.BPMN_translator.variables");
+										afterParserOrEnumRuleCall();
+									}
+								)
 							)
 						)
 					)

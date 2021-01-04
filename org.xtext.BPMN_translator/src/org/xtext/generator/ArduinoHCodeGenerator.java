@@ -2,6 +2,7 @@ package org.xtext.generator;
 
 import network.protocols.HTTP;
 import network.protocols.MQTT;
+import sensor.devices.DistanceSensor;
 import sensor.devices.TemperatureSensor;
 
 
@@ -52,6 +53,9 @@ public class ArduinoHCodeGenerator {
 				+ "#define DHTTYPE DHT22   //Tipo di sensore che stiamo utilizzando (DHT22)\\r\n\"\r\n";
 				if (!code.contains(result))
 					code+= result;
+				break;
+			case "hy-srf05":
+			case "hc-sr04":
 				break;
 			default: 
 				break;
@@ -196,9 +200,17 @@ public class ArduinoHCodeGenerator {
 		case "dht22":
 			result = "";
 			Object sensor;
-			
 			sensor = new TemperatureSensor();
 			result+= ((TemperatureSensor)sensor).GetDHT22HCode();
+			if (!code.contains(result))
+				code+= result;
+			break;
+		case "hy-srf05":
+		case "hc-sr04":
+			result = "";
+			Object sensor1;
+			sensor1 = new DistanceSensor();
+			result+= ((DistanceSensor)sensor1).GetHCSR04HCode();
 			if (!code.contains(result))
 				code+= result;
 			break;
