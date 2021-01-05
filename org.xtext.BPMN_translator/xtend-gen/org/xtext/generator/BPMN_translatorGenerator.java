@@ -36,6 +36,8 @@ import org.xtext.generator.ArduinoHCodeGenerator;
 import org.xtext.generator.ArduinoInoCodeGenerator;
 import org.xtext.generator.Parameters;
 import sensor.devices.DistanceSensor;
+import sensor.devices.GasSensor;
+import sensor.devices.LightSensor;
 import sensor.devices.TemperatureSensor;
 
 /**
@@ -546,6 +548,9 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                               if ((this.isForkGateway(my_id, r) && this.getCondition(Element).equals(""))) {
                                 this.false_closure++;
                                 this.successors.add("end_condition");
+                                if ((this.threadNumber > 0)) {
+                                  this.thread_conditions--;
+                                }
                               }
                             }
                             boolean _equals_4 = this.getCondition(Element).equals("");
@@ -602,14 +607,10 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                                     str3 = "parallel_condition";
                                     this.successors.add(str3);
                                     this.threadNumber++;
-                                    if ((this.thread_conditions > 0)) {
-                                      this.thread_conditions--;
-                                    }
-                                    if (((this.thread_conditions == 0) && this.successors.get((this.successors.size() - 1)).equals("end_condition_end"))) {
-                                      this.successors.add("end_parallel");
-                                      this.successors.add(str3);
-                                      this.threadNumber--;
-                                    }
+                                  } else {
+                                    this.successors.add("end_parallel");
+                                    this.successors.add(str3);
+                                    this.threadNumber--;
                                   }
                                 }
                               }
@@ -1158,8 +1159,7 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
       this.elements.add(this.cond);
       return;
     }
-    boolean _equals = successor_id.equals("end_condition");
-    if (_equals) {
+    if ((successor_id.equals("end_condition") && (this.opened_conditions.size() > 0))) {
       int _size = this.opened_conditions.size();
       int _minus = (_size - 1);
       String _get = this.opened_conditions.get(_minus);
@@ -1170,8 +1170,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
       this.opened_conditions.remove(_minus_1);
       this.elements.add(this.cond);
     }
-    boolean _equals_1 = successor_id.equals("end_condition_end");
-    if (_equals_1) {
+    boolean _equals = successor_id.equals("end_condition_end");
+    if (_equals) {
       int _size_2 = this.opened_conditions.size();
       int _minus_2 = (_size_2 - 1);
       String _get_1 = this.opened_conditions.get(_minus_2);
@@ -1186,8 +1186,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     for (final element Element : _filter) {
       EList<Open> _open = Element.getOpen();
       for (final Open Open : _open) {
-        boolean _equals_2 = this.getID(Open).equals(successor_id);
-        if (_equals_2) {
+        boolean _equals_1 = this.getID(Open).equals(successor_id);
+        if (_equals_1) {
           EList<content> _contents = Element.getContents();
           for (final content Content : _contents) {
             EList<element> _element = Content.getElement();
@@ -1196,13 +1196,13 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
               for (final content c : _contents_1) {
                 EList<codex> _codex = c.getCodex();
                 for (final codex Codex : _codex) {
-                  boolean _equals_3 = c.getType().get(0).equals("_TASK");
-                  if (_equals_3) {
+                  boolean _equals_2 = c.getType().get(0).equals("_TASK");
+                  if (_equals_2) {
                     EList<protocol> _protocol = Codex.getProtocol();
                     for (final protocol Protocol : _protocol) {
                       {
-                        boolean _equals_4 = Protocol.getPname().get(0).toLowerCase().replaceAll("\\s+", "").equals("http");
-                        if (_equals_4) {
+                        boolean _equals_3 = Protocol.getPname().get(0).toLowerCase().replaceAll("\\s+", "").equals("http");
+                        if (_equals_3) {
                           HTTP _hTTP = new HTTP();
                           this.netdata1 = _hTTP;
                           this.elements.add(this.netdata1);
@@ -1231,8 +1231,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                                   this.netdata1.getDatas().getWifi_pass().add(http_network_data.getPassword().get(0));
                                 }
                               }
-                              boolean _equals_5 = http.getRequest_type().get(0).replaceAll("\\s+", "").toLowerCase().equals("post");
-                              if (_equals_5) {
+                              boolean _equals_4 = http.getRequest_type().get(0).replaceAll("\\s+", "").toLowerCase().equals("post");
+                              if (_equals_4) {
                                 this.netdata1.setType("http-post");
                                 this.netdata1.getDatas().setContent_type(http.getContent_type().get(0));
                                 this.netdata1.getDatas().setHeader(http.getHeader().get(0));
@@ -1262,8 +1262,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                             this.generated_elements.add("http");
                           }
                         }
-                        boolean _equals_5 = Protocol.getPname().get(0).toLowerCase().replaceAll("\\s+", "").equals("mqtt");
-                        if (_equals_5) {
+                        boolean _equals_4 = Protocol.getPname().get(0).toLowerCase().replaceAll("\\s+", "").equals("mqtt");
+                        if (_equals_4) {
                           MQTT _mQTT = new MQTT();
                           this.netdata = _mQTT;
                           this.elements.add(this.netdata);
@@ -1338,8 +1338,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                               this.generated_elements.add("mqtt");
                             }
                           }
-                          boolean _equals_6 = this.h_gen.getWifi_sensor().equals("w5100");
-                          if (_equals_6) {
+                          boolean _equals_5 = this.h_gen.getWifi_sensor().equals("w5100");
+                          if (_equals_5) {
                             String _wifi_sensor = this.h_gen.getWifi_sensor();
                             String _plus = ("mqtt" + _wifi_sensor);
                             boolean _contains_5 = this.generated_elements.contains(_plus);
@@ -1360,8 +1360,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                     EList<sensor> _sensor_code = Codex.getSensor_code();
                     for (final sensor sensor : _sensor_code) {
                       {
-                        boolean _equals_4 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("temperature");
-                        if (_equals_4) {
+                        boolean _equals_3 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("temperature");
+                        if (_equals_3) {
                           TemperatureSensor _temperatureSensor = new TemperatureSensor();
                           this.s = _temperatureSensor;
                           EList<device> _device_code = Codex.getDevice_code();
@@ -1392,8 +1392,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                             this.generated_elements.add("dht22");
                           }
                         }
-                        boolean _equals_5 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("distance");
-                        if (_equals_5) {
+                        boolean _equals_4 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("distance");
+                        if (_equals_4) {
                           DistanceSensor s = new DistanceSensor();
                           EList<device> _device_code_1 = Codex.getDevice_code();
                           for (final device Device_1 : _device_code_1) {
@@ -1421,6 +1421,72 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                             this.h_code = this.h_gen.generateMethodsCode(this.h_code);
                             this.cpp_code = this.cpp_gen.generateSensorCode(s, this.cpp_code);
                             this.generated_elements.add("hc-sr04");
+                          }
+                        }
+                        boolean _equals_5 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("gas");
+                        if (_equals_5) {
+                          GasSensor s_1 = new GasSensor();
+                          EList<device> _device_code_2 = Codex.getDevice_code();
+                          for (final device Device_2 : _device_code_2) {
+                            {
+                              this.cpp_gen.setDevice(Device_2.getDevice().get(0));
+                              s_1.setId(Device_2.getId().get(0));
+                            }
+                          }
+                          this.elements.add(s_1);
+                          EList<sensor_data> _sensor_2 = sensor.getSensor();
+                          for (final sensor_data sensdata_2 : _sensor_2) {
+                            {
+                              s_1.setType(sensdata_2.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              s_1.setModule(sensdata_2.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              s_1.setSensorId(sensdata_2.getSensor_id().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              EList<String> _pins = sensdata_2.getPins();
+                              for (final String pins : _pins) {
+                                s_1.getPins().add(pins);
+                              }
+                            }
+                          }
+                          boolean _contains_3 = this.generated_elements.contains("mq9");
+                          boolean _not = (!_contains_3);
+                          if (_not) {
+                            this.h_gen.sensor = "mq9";
+                            this.h_variables = this.h_gen.generateDefineCode(this.h_variables);
+                            this.h_code = this.h_gen.generateMethodsCode(this.h_code);
+                            this.cpp_code = this.cpp_gen.generateSensorCode(s_1, this.cpp_code);
+                            this.generated_elements.add("mq9");
+                          }
+                        }
+                        boolean _equals_6 = sensor.getSname().get(0).toLowerCase().replaceAll("\\s+", "").equals("light");
+                        if (_equals_6) {
+                          LightSensor s_2 = new LightSensor();
+                          EList<device> _device_code_3 = Codex.getDevice_code();
+                          for (final device Device_3 : _device_code_3) {
+                            {
+                              this.cpp_gen.setDevice(Device_3.getDevice().get(0));
+                              s_2.setId(Device_3.getId().get(0));
+                            }
+                          }
+                          this.elements.add(s_2);
+                          EList<sensor_data> _sensor_3 = sensor.getSensor();
+                          for (final sensor_data sensdata_3 : _sensor_3) {
+                            {
+                              s_2.setType(sensdata_3.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              s_2.setModule(sensdata_3.getPname().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              s_2.setSensorId(sensdata_3.getSensor_id().get(0).toLowerCase().replaceAll("\\s+", ""));
+                              EList<String> _pins = sensdata_3.getPins();
+                              for (final String pins : _pins) {
+                                s_2.getPins().add(pins);
+                              }
+                            }
+                          }
+                          boolean _contains_4 = this.generated_elements.contains("lm358");
+                          boolean _not_1 = (!_contains_4);
+                          if (_not_1) {
+                            this.h_gen.sensor = "lm358";
+                            this.h_variables = this.h_gen.generateDefineCode(this.h_variables);
+                            this.h_code = this.h_gen.generateMethodsCode(this.h_code);
+                            this.cpp_code = this.cpp_gen.generateSensorCode(s_2, this.cpp_code);
+                            this.generated_elements.add("lm358");
                           }
                         }
                       }

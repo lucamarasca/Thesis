@@ -11,6 +11,8 @@ import elements.Parallel;
 import network.protocols.HTTP;
 import network.protocols.MQTT;
 import sensor.devices.DistanceSensor;
+import sensor.devices.GasSensor;
+import sensor.devices.LightSensor;
 import sensor.devices.TemperatureSensor;
 
 
@@ -136,6 +138,8 @@ public class ArduinoInoCodeGenerator {
 		variables_dictionary.put("TEMPERATURE", "temp");
 		variables_dictionary.put("HUMIDITY", "hum");
 		variables_dictionary.put("DISTANCE", "distance");
+		variables_dictionary.put("LIGHT", "light");
+		variables_dictionary.put("GAS", "gas");
 		
 	}
 	//This method is used for generate the variables to use in the ino file
@@ -221,7 +225,7 @@ public class ArduinoInoCodeGenerator {
 						sens_variables += "float hum"+app.getSensorId()+"; //Stores humidity value\r\n";
 					if (!sens_variables.contains("float temp"+ app.getSensorId()))
 						sens_variables += "float temp"+app.getSensorId()+"; //Stores temperature value value\r\n";
-					if (!sens_variables.contains("int pin"+ app.getSensorId() + app.getPins().get(0)))
+					if (!sens_variables.contains("int pin"+ app.getSensorId() + "= "+ app.getPins().get(0)))
 						sens_variables += "int pin"+ app.getSensorId()  + "= " + app.getPins().get(0)+";\n";
 					
 				}
@@ -233,7 +237,33 @@ public class ArduinoInoCodeGenerator {
 						sens_variables += "int distance"+app.getSensorId()+"; //Stores distance value\r\n";
 					for (int y = 0; y < app.getPins().size() ; y++)
 					{
-						if (!sens_variables.contains("int pin"+ app.getSensorId() + app.getPins().get(y)))
+						if (!sens_variables.contains("int pin"+ app.getSensorId() + "= " + app.getPins().get(y)))
+							sens_variables += "int pin"+ app.getSensorId() + app.getPins().get(y)  + "= " + app.getPins().get(y)+";\n";
+					}
+					
+				}
+				if (elements.get(n).getType().equals("mq9"))
+				{
+					GasSensor app = (GasSensor) elements.get(n);
+					
+					if (!sens_variables.contains("float gas"+ app.getSensorId()))
+						sens_variables += "float gas"+app.getSensorId()+"; //Stores value\r\n";
+					for (int y = 0; y < app.getPins().size() ; y++)
+					{
+						if (!sens_variables.contains("int pin"+ app.getSensorId() + "= " + app.getPins().get(y)))
+							sens_variables += "int pin"+ app.getSensorId() + app.getPins().get(y)  + "= " + app.getPins().get(y)+";\n";
+					}
+					
+				}
+				if (elements.get(n).getType().equals("lm358"))
+				{
+					LightSensor app = (LightSensor) elements.get(n);
+					
+					if (!sens_variables.contains("float light"+ app.getSensorId()))
+						sens_variables += "float light"+app.getSensorId()+"; //Stores value\r\n";
+					for (int y = 0; y < app.getPins().size() ; y++)
+					{
+						if (!sens_variables.contains("int pin"+ app.getSensorId() + "= " + app.getPins().get(y)))
 							sens_variables += "int pin"+ app.getSensorId() + app.getPins().get(y)  + "= " + app.getPins().get(y)+";\n";
 					}
 					
@@ -295,6 +325,10 @@ public class ArduinoInoCodeGenerator {
 						for(String pubtopic : app.getDatas().getPubTopics())
 						{
 							String str = app.getDatas().getPublish_data().get(k);
+							if (str.contains("["))
+							{
+								temp += ("\tdtostrf("+getMappedVariable(str)+", 6, 2, "+getVariableName(str)+");\n");
+							}
 							temp += ("\tmy_lib.sendInPubTopicW5100("+getVariableName(pubtopic)+", "+getVariableName(str)+");\n"); 
 							k++;
 						}
@@ -315,6 +349,10 @@ public class ArduinoInoCodeGenerator {
 						for(String pubtopic : app.getDatas().getPubTopics())
 						{
 							String str = app.getDatas().getPublish_data().get(k);
+							if (str.contains("["))
+							{
+								temp += ("\tdtostrf("+getMappedVariable(str)+", 6, 2, "+getVariableName(str)+");\n");
+							}
 							temp += ("\tmy_lib.sendInPubTopic("+getVariableName(pubtopic)+", "+getVariableName(str)+");\n"); 
 							k++;
 						}
@@ -322,6 +360,7 @@ public class ArduinoInoCodeGenerator {
 						
 						for(String subtopic : app.getDatas().getSubTopics())
 						{
+							
 							temp += ("\tmy_lib.Subscribe("+getVariableName(subtopic)+");\n"); 
 							k++;
 						}
@@ -367,13 +406,22 @@ public class ArduinoInoCodeGenerator {
 					{
 						temp+=("\tmy_lib.initConnectionW5100({ 0x00, 0xAB, 0xBC, 0xCC, 0xDE, 0x01 },"+app.getDatas().getServer_ip()+", \"your mac address\", \"your dns\");\n");
 						for (int k = 0; k < app.getDatas().getDatas().size();k++)
+						{
+							if (app.getDatas().getDatas().get(k).contains("["))
+								temp += ("\tdtostrf("+getMappedVariable(app.getDatas().getDatas().get(k))+", 6, 2, "+getVariableName(app.getDatas().getDatas().get(k))+");\n");
 							temp += "\tmy_lib.sendPostRequestW5100("+getVariableName(app.getDatas().getServer_ip())+","+getVariableName(app.getDatas().getContent_type())+","+getVariableName(app.getDatas().getHeader())+","+getVariableName(app.getDatas().getDatas().get(k))+");\n";
+						}
 					}
 					else 
 					{
 						temp+=("\tmy_lib.setupWiFiHTTP("+getVariableName(app.getDatas().getWifi_ssid().get(0))+"," + getVariableName(app.getDatas().getWifi_pass().get(0))+");\n");
 						for (int k = 0; k < app.getDatas().getDatas().size();k++)
+						{
+							if (app.getDatas().getDatas().get(k).contains("["))
+								temp += ("\tdtostrf("+getMappedVariable(app.getDatas().getDatas().get(k))+", 6, 2, "+getVariableName(app.getDatas().getDatas().get(k))+");\n");
 							temp += "\tmy_lib.sendPost("+getVariableName(app.getDatas().getServer_ip())+","+getVariableName(app.getDatas().getContent_type())+","+getVariableName(app.getDatas().getHeader())+","+getVariableName(app.getDatas().getDatas().get(k))+");\n";
+					
+						}
 					}
 					for (int k = 0; k < tabulations;k++)
 					{
@@ -541,7 +589,6 @@ public class ArduinoInoCodeGenerator {
 						{
 							temp = temp.replaceAll("(?m)^", "\t");
 						}
-						if (!loop_code.contains("xTaskCreate") || loop_code.lastIndexOf("if(") > loop_code.lastIndexOf("128, NULL, 1, NULL);")+20 || loop_code.lastIndexOf("while(") > loop_code.lastIndexOf("128, NULL, 1, NULL);")+20)
 
 						if (!opened_threads.get(opened_threads.size()-2).getBody().contains("xTaskCreate") || opened_threads.get(opened_threads.size()-2).getBody().lastIndexOf("if(") > loop_code.lastIndexOf("128, NULL, 1, NULL);")+20 || opened_threads.get(opened_threads.size()-2).getBody().lastIndexOf("while(") > loop_code.lastIndexOf("128, NULL, 1, NULL);")+20 )
 							opened_threads.get(opened_threads.size()-2).addBody(temp);
@@ -596,6 +643,36 @@ public class ArduinoInoCodeGenerator {
 						loop_code+= temp;
 					temp = "";
 				}
+				if (elements.get(n).getType().equals("mq9"))
+				{
+					GasSensor app = (GasSensor) elements.get(n);
+					temp+=  "\t//Read data and store it to variables\r\n"
+							+ "\tgas"+app.getSensorId()+"= my_lib.ReadMQ9(pin"+app.getSensorId()+");\n";
+					for (int k = 0; k < tabulations;k++)
+					{
+						temp = temp.replaceAll("(?m)^", "\t");
+					}
+					if (opened_threads.size() > 0)
+						opened_threads.get(opened_threads.size()-1).addBody(temp);
+					else
+						loop_code+= temp;
+					temp = "";
+				}
+				if (elements.get(n).getType().equals("lm358"))
+				{
+					LightSensor app = (LightSensor) elements.get(n);
+					temp+=  "\t//Read data and store it to variables\r\n"
+							+ "\tlight"+app.getSensorId()+"= my_lib.Readlm358(pin"+app.getSensorId()+");\n";
+					for (int k = 0; k < tabulations;k++)
+					{
+						temp = temp.replaceAll("(?m)^", "\t");
+					}
+					if (opened_threads.size() > 0)
+						opened_threads.get(opened_threads.size()-1).addBody(temp);
+					else
+						loop_code+= temp;
+					temp = "";
+				}
 				if (elements.get(n).getType().equals("hc-sr04") || elements.get(n).getType().equals("hy-srf05"))
 				{
 					DistanceSensor app = (DistanceSensor) elements.get(n);
@@ -634,13 +711,16 @@ public class ArduinoInoCodeGenerator {
 		else_number = 0;
 	}
 	public String getVariableName(String value) {
-		if (value.equals("TEMPERATURE[2]"))
-		{
-			int k = 0;
-		}
+		String [] values;
 		if (value.contains("["))	
+		{
 			value = value.replaceAll("\\[.*\\]", "");
-		String [] values = variables.split("= "+"\""+value);
+			values = variables.split("= "+"\""+value);
+		}
+		else
+		{
+			values = variables.split("= "+"\""+value+"\"");
+		}
 		String [] values1 = values[0].split(" ");
 		return values1[values1.length-1];
 	}
@@ -659,11 +739,22 @@ public class ArduinoInoCodeGenerator {
 			    if (variables.contains(key ))
 			    {
 			    	String sensor_id = variables.substring(variables.indexOf("[")+1,variables.indexOf("]"));
-			    	variables = variables.replaceFirst("\""+key+"\\[.*\\]"+"\"", variables_dictionary.get(key) + sensor_id);
+			    	variables = variables.replaceFirst("\""+key+"\\[.*\\]"+"\"", "dtostrf("+ variables_dictionary.get(key) + sensor_id + ", 6, 2, " + getVariableName(key+"["+sensor_id+"]")+ ");");
 			    }
 			}
-			
 		}
+	}
+	public String getMappedVariable(String str)
+	{
+		for(Entry<String, String> entry : variables_dictionary.entrySet()) {
+		    String key = entry.getKey();
+		    if (str.contains(key))
+		    {
+		    	String sensor_id = str.substring(str.indexOf("[")+1,str.indexOf("]"));
+		    	return variables_dictionary.get(key) + sensor_id;
+		    }
+		}
+		return "";
 	}
 	
 }

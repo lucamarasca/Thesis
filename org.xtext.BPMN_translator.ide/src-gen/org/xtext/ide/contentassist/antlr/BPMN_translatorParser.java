@@ -95,6 +95,8 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getProtocol_deviceAccess().getGroup(), "rule__Protocol_device__Group__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup_0(), "rule__Sensor__Group_0__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup_1(), "rule__Sensor__Group_1__0");
+			builder.put(grammarAccess.getSensorAccess().getGroup_2(), "rule__Sensor__Group_2__0");
+			builder.put(grammarAccess.getSensorAccess().getGroup_3(), "rule__Sensor__Group_3__0");
 			builder.put(grammarAccess.getSensor_dataAccess().getGroup(), "rule__Sensor_data__Group__0");
 			builder.put(grammarAccess.getSensor_dataAccess().getGroup_1_0(), "rule__Sensor_data__Group_1_0__0");
 			builder.put(grammarAccess.getSensor_dataAccess().getGroup_1_1(), "rule__Sensor_data__Group_1_1__0");
@@ -155,6 +157,10 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSensorAccess().getSensorAssignment_0_2(), "rule__Sensor__SensorAssignment_0_2");
 			builder.put(grammarAccess.getSensorAccess().getSnameAssignment_1_0(), "rule__Sensor__SnameAssignment_1_0");
 			builder.put(grammarAccess.getSensorAccess().getSensorAssignment_1_2(), "rule__Sensor__SensorAssignment_1_2");
+			builder.put(grammarAccess.getSensorAccess().getSnameAssignment_2_0(), "rule__Sensor__SnameAssignment_2_0");
+			builder.put(grammarAccess.getSensorAccess().getSensorAssignment_2_2(), "rule__Sensor__SensorAssignment_2_2");
+			builder.put(grammarAccess.getSensorAccess().getSnameAssignment_3_0(), "rule__Sensor__SnameAssignment_3_0");
+			builder.put(grammarAccess.getSensorAccess().getSensorAssignment_3_2(), "rule__Sensor__SensorAssignment_3_2");
 			builder.put(grammarAccess.getSensor_dataAccess().getPnameAssignment_1_0_2(), "rule__Sensor_data__PnameAssignment_1_0_2");
 			builder.put(grammarAccess.getSensor_dataAccess().getPinsAssignment_1_1_2(), "rule__Sensor_data__PinsAssignment_1_1_2");
 			builder.put(grammarAccess.getSensor_dataAccess().getSensor_idAssignment_1_2_2(), "rule__Sensor_data__Sensor_idAssignment_1_2_2");

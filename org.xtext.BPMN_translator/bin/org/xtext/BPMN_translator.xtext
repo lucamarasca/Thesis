@@ -102,7 +102,9 @@ protocol_device:
 sensor:
 	
 	(sname += "TEMPERATURE" "{" sensor += sensor_data "}")|
-	(sname += "DISTANCE" "{" sensor += sensor_data "}")
+	(sname += "DISTANCE" "{" sensor += sensor_data "}")|
+	(sname += "GAS" "{" sensor += sensor_data "}")|
+	(sname += "LIGHT" "{" sensor += sensor_data "}")
 ;
 sensor_data:
 	{sensor_data}("NAME" "="  pname+=STRING 

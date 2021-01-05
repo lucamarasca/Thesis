@@ -2143,6 +2143,94 @@ rulesensor returns [EObject current=null]
 				newLeafNode(otherlv_7, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_1_3());
 			}
 		)
+		    |
+		(
+			(
+				(
+					lv_sname_8_0='GAS'
+					{
+						newLeafNode(lv_sname_8_0, grammarAccess.getSensorAccess().getSnameGASKeyword_2_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSensorRule());
+						}
+						addWithLastConsumed($current, "sname", lv_sname_8_0, "GAS");
+					}
+				)
+			)
+			otherlv_9='{'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getSensorAccess().getLeftCurlyBracketKeyword_2_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSensorAccess().getSensorSensor_dataParserRuleCall_2_2_0());
+					}
+					lv_sensor_10_0=rulesensor_data
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSensorRule());
+						}
+						add(
+							$current,
+							"sensor",
+							lv_sensor_10_0,
+							"org.xtext.BPMN_translator.sensor_data");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_11='}'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_2_3());
+			}
+		)
+		    |
+		(
+			(
+				(
+					lv_sname_12_0='LIGHT'
+					{
+						newLeafNode(lv_sname_12_0, grammarAccess.getSensorAccess().getSnameLIGHTKeyword_3_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSensorRule());
+						}
+						addWithLastConsumed($current, "sname", lv_sname_12_0, "LIGHT");
+					}
+				)
+			)
+			otherlv_13='{'
+			{
+				newLeafNode(otherlv_13, grammarAccess.getSensorAccess().getLeftCurlyBracketKeyword_3_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSensorAccess().getSensorSensor_dataParserRuleCall_3_2_0());
+					}
+					lv_sensor_14_0=rulesensor_data
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSensorRule());
+						}
+						add(
+							$current,
+							"sensor",
+							lv_sensor_14_0,
+							"org.xtext.BPMN_translator.sensor_data");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_15='}'
+			{
+				newLeafNode(otherlv_15, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_3_3());
+			}
+		)
 	)
 ;
 

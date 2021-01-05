@@ -3,6 +3,8 @@ package org.xtext.generator;
 import network.protocols.HTTP;
 import network.protocols.MQTT;
 import sensor.devices.DistanceSensor;
+import sensor.devices.GasSensor;
+import sensor.devices.LightSensor;
 import sensor.devices.TemperatureSensor;
 
 
@@ -211,6 +213,22 @@ public class ArduinoHCodeGenerator {
 			Object sensor1;
 			sensor1 = new DistanceSensor();
 			result+= ((DistanceSensor)sensor1).GetHCSR04HCode();
+			if (!code.contains(result))
+				code+= result;
+			break;
+		case "mq9":
+			result = "";
+			Object sensor2;
+			sensor2 = new GasSensor();
+			result+= ((GasSensor)sensor2).GetMQ9HCode();
+			if (!code.contains(result))
+				code+= result;
+			break;
+		case "lm358":
+			result = "";
+			Object sensor3;
+			sensor3 = new LightSensor();
+			result+= ((LightSensor)sensor3).GetLM358HCode();
 			if (!code.contains(result))
 				code+= result;
 			break;

@@ -13,7 +13,7 @@ public class MQTT extends Elements{
 		this.datas = new MQTTDatas();
 	}
 	public String getCPPVariables() {
-		
+	
 		switch (wifi_module)
 		{
 		case "mkr1010":

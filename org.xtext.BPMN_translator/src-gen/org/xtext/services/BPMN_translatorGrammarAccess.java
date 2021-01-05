@@ -1327,12 +1327,28 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final Assignment cSensorAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cSensorSensor_dataParserRuleCall_1_2_0 = (RuleCall)cSensorAssignment_1_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Assignment cSnameAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final Keyword cSnameGASKeyword_2_0_0 = (Keyword)cSnameAssignment_2_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cSensorAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cSensorSensor_dataParserRuleCall_2_2_0 = (RuleCall)cSensorAssignment_2_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Assignment cSnameAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final Keyword cSnameLIGHTKeyword_3_0_0 = (Keyword)cSnameAssignment_3_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cSensorAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cSensorSensor_dataParserRuleCall_3_2_0 = (RuleCall)cSensorAssignment_3_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
 		
 		//sensor:
-		//	sname+="TEMPERATURE" "{" sensor+=sensor_data "}" | sname+="DISTANCE" "{" sensor+=sensor_data "}";
+		//	sname+="TEMPERATURE" "{" sensor+=sensor_data "}" | sname+="DISTANCE" "{" sensor+=sensor_data "}" | sname+="GAS" "{"
+		//	sensor+=sensor_data "}" | sname+="LIGHT" "{" sensor+=sensor_data "}";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//sname+="TEMPERATURE" "{" sensor+=sensor_data "}" | sname+="DISTANCE" "{" sensor+=sensor_data "}"
+		//sname+="TEMPERATURE" "{" sensor+=sensor_data "}" | sname+="DISTANCE" "{" sensor+=sensor_data "}" | sname+="GAS" "{"
+		//sensor+=sensor_data "}" | sname+="LIGHT" "{" sensor+=sensor_data "}"
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//sname+="TEMPERATURE" "{" sensor+=sensor_data "}"
@@ -1376,6 +1392,48 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_1_3() { return cRightCurlyBracketKeyword_1_3; }
+		
+		//sname+="GAS" "{" sensor+=sensor_data "}"
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//sname+="GAS"
+		public Assignment getSnameAssignment_2_0() { return cSnameAssignment_2_0; }
+		
+		//"GAS"
+		public Keyword getSnameGASKeyword_2_0_0() { return cSnameGASKeyword_2_0_0; }
+		
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2_1() { return cLeftCurlyBracketKeyword_2_1; }
+		
+		//sensor+=sensor_data
+		public Assignment getSensorAssignment_2_2() { return cSensorAssignment_2_2; }
+		
+		//sensor_data
+		public RuleCall getSensorSensor_dataParserRuleCall_2_2_0() { return cSensorSensor_dataParserRuleCall_2_2_0; }
+		
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2_3() { return cRightCurlyBracketKeyword_2_3; }
+		
+		//sname+="LIGHT" "{" sensor+=sensor_data "}"
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//sname+="LIGHT"
+		public Assignment getSnameAssignment_3_0() { return cSnameAssignment_3_0; }
+		
+		//"LIGHT"
+		public Keyword getSnameLIGHTKeyword_3_0_0() { return cSnameLIGHTKeyword_3_0_0; }
+		
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
+		
+		//sensor+=sensor_data
+		public Assignment getSensorAssignment_3_2() { return cSensorAssignment_3_2; }
+		
+		//sensor_data
+		public RuleCall getSensorSensor_dataParserRuleCall_3_2_0() { return cSensorSensor_dataParserRuleCall_3_2_0; }
+		
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
 	}
 	public class Sensor_dataElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.sensor_data");
@@ -1745,7 +1803,8 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	}
 	
 	//sensor:
-	//	sname+="TEMPERATURE" "{" sensor+=sensor_data "}" | sname+="DISTANCE" "{" sensor+=sensor_data "}";
+	//	sname+="TEMPERATURE" "{" sensor+=sensor_data "}" | sname+="DISTANCE" "{" sensor+=sensor_data "}" | sname+="GAS" "{"
+	//	sensor+=sensor_data "}" | sname+="LIGHT" "{" sensor+=sensor_data "}";
 	public SensorElements getSensorAccess() {
 		return pSensor;
 	}

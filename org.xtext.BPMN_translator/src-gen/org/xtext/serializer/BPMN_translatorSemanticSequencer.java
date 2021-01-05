@@ -305,7 +305,12 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     sensor returns sensor
 	 *
 	 * Constraint:
-	 *     ((sname+='TEMPERATURE' sensor+=sensor_data) | (sname+='DISTANCE' sensor+=sensor_data))
+	 *     (
+	 *         (sname+='TEMPERATURE' sensor+=sensor_data) | 
+	 *         (sname+='DISTANCE' sensor+=sensor_data) | 
+	 *         (sname+='GAS' sensor+=sensor_data) | 
+	 *         (sname+='LIGHT' sensor+=sensor_data)
+	 *     )
 	 */
 	protected void sequence_sensor(ISerializationContext context, sensor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

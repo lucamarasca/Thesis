@@ -325,6 +325,16 @@ rulesensor:
 		'{'
 		rulesensor_data
 		'}'
+		    |
+		'GAS'
+		'{'
+		rulesensor_data
+		'}'
+		    |
+		'LIGHT'
+		'{'
+		rulesensor_data
+		'}'
 	)
 ;
 

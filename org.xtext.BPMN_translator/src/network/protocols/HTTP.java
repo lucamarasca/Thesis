@@ -135,9 +135,9 @@ public class HTTP extends Elements{
 	}
 	public String getHCodeW5100() {
 		String result = "";
-		result+="void initConnectionW5100(byte* mac, char* server, IPAddress ip, IPAddress dns)\r\n"
+		result+="void initConnectionW5100(byte* mac, char* server, IPAddress ip, IPAddress dns);\r\n"
 		+ "void sendGetRequestW5100();\n"
-		+"void sendPostRequestW5100(char* server_ip, char* data, char* url, char* content_type)\n";
+		+"void sendPostRequestW5100(char* server_ip, char* data, char* url, char* content_type);\n";
 		return result;
 	}
 	public String getCPPVariablesESP() {

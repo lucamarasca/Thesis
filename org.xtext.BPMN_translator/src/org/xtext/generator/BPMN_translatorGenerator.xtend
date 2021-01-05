@@ -17,6 +17,8 @@ import org.xtext.bPMN_translator.codex
 import sensor.devices.TemperatureSensor
 import org.xtext.bPMN_translator.Singleton
 import sensor.devices.DistanceSensor
+import sensor.devices.GasSensor
+import sensor.devices.LightSensor
 
 /**
  * Generates code from your model files on save.
@@ -452,7 +454,10 @@ def fillSuccessors(String my_id, Resource r){
 										{
 											false_closure++;
 											successors.add("end_condition");
-											
+											if (threadNumber > 0)
+											{
+												thread_conditions--;
+											}
 										}
 									}
 									if (!getCondition(Element).equals(""))
@@ -511,14 +516,12 @@ def fillSuccessors(String my_id, Resource r){
 													str3 = "parallel_condition";
 													successors.add(str3);
 													threadNumber++;
-													if (thread_conditions > 0)
-														thread_conditions--;
-													if (thread_conditions == 0 && successors.get(successors.size()-1).equals("end_condition_end"))
-													{
-														successors.add("end_parallel");
-														successors.add(str3);
-														threadNumber--;
-													}
+												}
+												else
+												{
+													successors.add("end_parallel");
+													successors.add(str3);
+													threadNumber--;
 												}
 											}
 										}
@@ -630,7 +633,6 @@ def fillSuccessors(String my_id, Resource r){
 													fork = true;
 													threadNumber--;
 												}
-												
 											}
 											else
 											{
@@ -654,9 +656,6 @@ def fillSuccessors(String my_id, Resource r){
 											successors.add(Open.value.get(j));
 											fillSuccessors(Open.value.get(j),r);
 										}
-										
-										
-										
 									}	
 								}
 								j++;
@@ -1016,8 +1015,8 @@ def setDataStructure(Resource r){
 		Reset();
 		AdjustOrder();
 	}
-		for (element : successors)
-			setDatas(r,element);
+	for (element : successors)
+		setDatas(r,element);
 	
 }
 def setDatas(Resource r, String successor_id){
@@ -1039,7 +1038,7 @@ def setDatas(Resource r, String successor_id){
 		elements.add(cond);
 		return;
 	}
-	if (successor_id.equals("end_condition") )
+	if (successor_id.equals("end_condition") && opened_conditions.size() > 0)
 	{
 		cond = new Condition(false, opened_conditions.get(opened_conditions.size()-1));
 		opened_conditions.remove(opened_conditions.size()-1);
@@ -1256,6 +1255,62 @@ def setDatas(Resource r, String successor_id){
 												h_code = h_gen.generateMethodsCode(h_code);
 												cpp_code = cpp_gen.generateSensorCode(s, cpp_code);
 												generated_elements.add("hc-sr04")
+											}
+										}
+										if (sensor.sname.get(0).toLowerCase().replaceAll("\\s+","").equals("gas"))
+										{
+											var s = new GasSensor();
+											for(Device : Codex.device_code)
+											{ 
+												cpp_gen.setDevice(Device.device.get(0));
+												s.setId(Device.id.get(0));
+											}
+											elements.add(s);
+											for (sensdata : sensor.sensor)
+											{
+												s.setType(sensdata.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+												s.setModule(sensdata.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+												s.setSensorId(sensdata.sensor_id.get(0).toLowerCase().replaceAll("\\s+",""));
+												for(pins : sensdata.pins)
+												{
+													s.getPins().add(pins);
+												}
+											}
+											if (!generated_elements.contains("mq9"))
+											{
+												h_gen.sensor = "mq9";
+												h_variables = h_gen.generateDefineCode(h_variables);
+												h_code = h_gen.generateMethodsCode(h_code);
+												cpp_code = cpp_gen.generateSensorCode(s, cpp_code);
+												generated_elements.add("mq9")
+											}
+										}
+										if (sensor.sname.get(0).toLowerCase().replaceAll("\\s+","").equals("light"))
+										{
+											var s = new LightSensor();
+											for(Device : Codex.device_code)
+											{ 
+												cpp_gen.setDevice(Device.device.get(0));
+												s.setId(Device.id.get(0));
+											}
+											elements.add(s);
+											for (sensdata : sensor.sensor)
+											{
+												s.setType(sensdata.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+												s.setModule(sensdata.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+												s.setSensorId(sensdata.sensor_id.get(0).toLowerCase().replaceAll("\\s+",""));
+												for(pins : sensdata.pins)
+												{
+													s.getPins().add(pins);
+												}
+											}
+											if (!generated_elements.contains("lm358"))
+											{
+												h_gen.sensor = "lm358";
+												h_variables = h_gen.generateDefineCode(h_variables);
+												h_code = h_gen.generateMethodsCode(h_code);
+												cpp_code = cpp_gen.generateSensorCode(s, cpp_code);
+												generated_elements.add("lm358")
 											}
 										}
 									}	

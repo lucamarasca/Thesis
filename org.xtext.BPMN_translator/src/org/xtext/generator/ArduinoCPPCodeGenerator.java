@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import elements.*;
 import network.protocols.*;
 import sensor.devices.DistanceSensor;
+import sensor.devices.GasSensor;
+import sensor.devices.LightSensor;
 import sensor.devices.TemperatureSensor;
 public class ArduinoCPPCodeGenerator {
 	
@@ -123,6 +125,14 @@ public class ArduinoCPPCodeGenerator {
 			DistanceSensor sensor1= (DistanceSensor) e;
 			if (!sensor_code.contains(sensor1.getCPPCode())) 
 				return sensor_code + sensor1.getCPPCode();
+		case "mq9":
+			GasSensor sensor2 = (GasSensor) e;
+			if (!sensor_code.contains(sensor2.getCPPCode())) 
+				return sensor_code + sensor2.getCPPCode();
+		case "lm358":
+			LightSensor sensor3 = (LightSensor) e;
+			if (!sensor_code.contains(sensor3.getCPPCode())) 
+				return sensor_code + sensor3.getCPPCode();
 		}
 		
 		return "";
