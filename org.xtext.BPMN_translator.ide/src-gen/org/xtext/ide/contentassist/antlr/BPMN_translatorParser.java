@@ -91,7 +91,7 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMqtt_dataAccess().getGroup_1_6(), "rule__Mqtt_data__Group_1_6__0");
 			builder.put(grammarAccess.getMqtt_dataAccess().getGroup_1_6_2_0(), "rule__Mqtt_data__Group_1_6_2_0__0");
 			builder.put(grammarAccess.getMqtt_dataAccess().getGroup_1_6_2_1(), "rule__Mqtt_data__Group_1_6_2_1__0");
-			builder.put(grammarAccess.getMqtt_network_dataAccess().getGroup(), "rule__Mqtt_network_data__Group__0");
+			builder.put(grammarAccess.getProtocol_network_dataAccess().getGroup(), "rule__Protocol_network_data__Group__0");
 			builder.put(grammarAccess.getProtocol_deviceAccess().getGroup(), "rule__Protocol_device__Group__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup_0(), "rule__Sensor__Group_0__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup_1(), "rule__Sensor__Group_1__0");
@@ -102,7 +102,7 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSensor_dataAccess().getGroup_1_1(), "rule__Sensor_data__Group_1_1__0");
 			builder.put(grammarAccess.getSensor_dataAccess().getGroup_1_2(), "rule__Sensor_data__Group_1_2__0");
 			builder.put(grammarAccess.getModelAccess().getModelAssignment(), "rule__Model__ModelAssignment");
-			builder.put(grammarAccess.getXmlAccess().getProvaAssignment_2(), "rule__Xml__ProvaAssignment_2");
+			builder.put(grammarAccess.getXmlAccess().getElementsAssignment_2(), "rule__Xml__ElementsAssignment_2");
 			builder.put(grammarAccess.getElementAccess().getOpenAssignment_0_0(), "rule__Element__OpenAssignment_0_0");
 			builder.put(grammarAccess.getElementAccess().getContentsAssignment_0_1(), "rule__Element__ContentsAssignment_0_1");
 			builder.put(grammarAccess.getElementAccess().getClose_tagAssignment_0_2(), "rule__Element__Close_tagAssignment_0_2");
@@ -150,8 +150,8 @@ public class BPMN_translatorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMqtt_dataAccess().getSubtopicsAssignment_1_5_2_2(), "rule__Mqtt_data__SubtopicsAssignment_1_5_2_2");
 			builder.put(grammarAccess.getMqtt_dataAccess().getPubtopicsAssignment_1_6_2_0_2(), "rule__Mqtt_data__PubtopicsAssignment_1_6_2_0_2");
 			builder.put(grammarAccess.getMqtt_dataAccess().getValueAssignment_1_6_2_1_2(), "rule__Mqtt_data__ValueAssignment_1_6_2_1_2");
-			builder.put(grammarAccess.getMqtt_network_dataAccess().getSsidAssignment_2(), "rule__Mqtt_network_data__SsidAssignment_2");
-			builder.put(grammarAccess.getMqtt_network_dataAccess().getPasswordAssignment_5(), "rule__Mqtt_network_data__PasswordAssignment_5");
+			builder.put(grammarAccess.getProtocol_network_dataAccess().getSsidAssignment_2(), "rule__Protocol_network_data__SsidAssignment_2");
+			builder.put(grammarAccess.getProtocol_network_dataAccess().getPasswordAssignment_5(), "rule__Protocol_network_data__PasswordAssignment_5");
 			builder.put(grammarAccess.getProtocol_deviceAccess().getDnameAssignment_4(), "rule__Protocol_device__DnameAssignment_4");
 			builder.put(grammarAccess.getSensorAccess().getSnameAssignment_0_0(), "rule__Sensor__SnameAssignment_0_0");
 			builder.put(grammarAccess.getSensorAccess().getSensorAssignment_0_2(), "rule__Sensor__SensorAssignment_0_2");

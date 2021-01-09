@@ -29,7 +29,7 @@ import org.xtext.bPMN_translator.element;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.bPMN_translator.impl.XmlImpl#getProva <em>Prova</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.XmlImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +37,14 @@ import org.xtext.bPMN_translator.element;
 public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
 {
   /**
-   * The cached value of the '{@link #getProva() <em>Prova</em>}' containment reference list.
+   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProva()
+   * @see #getElements()
    * @generated
    * @ordered
    */
-  protected EList<element> prova;
+  protected EList<element> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,13 +73,13 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
    * @generated
    */
   @Override
-  public EList<element> getProva()
+  public EList<element> getElements()
   {
-    if (prova == null)
+    if (elements == null)
     {
-      prova = new EObjectContainmentEList<element>(element.class, this, BPMN_translatorPackage.XML__PROVA);
+      elements = new EObjectContainmentEList<element>(element.class, this, BPMN_translatorPackage.XML__ELEMENTS);
     }
-    return prova;
+    return elements;
   }
 
   /**
@@ -92,8 +92,8 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__PROVA:
-        return ((InternalEList<?>)getProva()).basicRemove(otherEnd, msgs);
+      case BPMN_translatorPackage.XML__ELEMENTS:
+        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +108,8 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__PROVA:
-        return getProva();
+      case BPMN_translatorPackage.XML__ELEMENTS:
+        return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +125,9 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__PROVA:
-        getProva().clear();
-        getProva().addAll((Collection<? extends element>)newValue);
+      case BPMN_translatorPackage.XML__ELEMENTS:
+        getElements().clear();
+        getElements().addAll((Collection<? extends element>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +143,8 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__PROVA:
-        getProva().clear();
+      case BPMN_translatorPackage.XML__ELEMENTS:
+        getElements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,8 +160,8 @@ public class XmlImpl extends MinimalEObjectImpl.Container implements Xml
   {
     switch (featureID)
     {
-      case BPMN_translatorPackage.XML__PROVA:
-        return prova != null && !prova.isEmpty();
+      case BPMN_translatorPackage.XML__ELEMENTS:
+        return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
   }

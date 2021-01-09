@@ -131,17 +131,17 @@ ruleXml returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getXmlAccess().getProvaElementParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getXmlAccess().getElementsElementParserRuleCall_2_0());
 				}
-				lv_prova_2_0=ruleelement
+				lv_elements_2_0=ruleelement
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getXmlRule());
 					}
 					add(
 						$current,
-						"prova",
-						lv_prova_2_0,
+						"elements",
+						lv_elements_2_0,
 						"org.xtext.BPMN_translator.element");
 					afterParserOrEnumRuleCall();
 				}
@@ -1575,9 +1575,9 @@ rulehttp_data returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getHttp_dataAccess().getMqtt_network_dataMqtt_network_dataParserRuleCall_1_6_2_0());
+							newCompositeNode(grammarAccess.getHttp_dataAccess().getMqtt_network_dataProtocol_network_dataParserRuleCall_1_6_2_0());
 						}
-						lv_mqtt_network_data_21_0=rulemqtt_network_data
+						lv_mqtt_network_data_21_0=ruleprotocol_network_data
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getHttp_dataRule());
@@ -1586,7 +1586,7 @@ rulehttp_data returns [EObject current=null]
 								$current,
 								"mqtt_network_data",
 								lv_mqtt_network_data_21_0,
-								"org.xtext.BPMN_translator.mqtt_network_data");
+								"org.xtext.BPMN_translator.protocol_network_data");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -1752,9 +1752,9 @@ rulemqtt_data returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getMqtt_dataAccess().getMqtt_network_dataMqtt_network_dataParserRuleCall_1_4_2_0());
+							newCompositeNode(grammarAccess.getMqtt_dataAccess().getMqtt_network_dataProtocol_network_dataParserRuleCall_1_4_2_0());
 						}
-						lv_mqtt_network_data_15_0=rulemqtt_network_data
+						lv_mqtt_network_data_15_0=ruleprotocol_network_data
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getMqtt_dataRule());
@@ -1763,7 +1763,7 @@ rulemqtt_data returns [EObject current=null]
 								$current,
 								"mqtt_network_data",
 								lv_mqtt_network_data_15_0,
-								"org.xtext.BPMN_translator.mqtt_network_data");
+								"org.xtext.BPMN_translator.protocol_network_data");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -1912,15 +1912,15 @@ rulemqtt_data returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRulemqtt_network_data
-entryRulemqtt_network_data returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getMqtt_network_dataRule()); }
-	iv_rulemqtt_network_data=rulemqtt_network_data
-	{ $current=$iv_rulemqtt_network_data.current; }
+// Entry rule entryRuleprotocol_network_data
+entryRuleprotocol_network_data returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getProtocol_network_dataRule()); }
+	iv_ruleprotocol_network_data=ruleprotocol_network_data
+	{ $current=$iv_ruleprotocol_network_data.current; }
 	EOF;
 
-// Rule mqtt_network_data
-rulemqtt_network_data returns [EObject current=null]
+// Rule protocol_network_data
+ruleprotocol_network_data returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -1930,21 +1930,21 @@ rulemqtt_network_data returns [EObject current=null]
 	(
 		otherlv_0='SSID'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getMqtt_network_dataAccess().getSSIDKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getProtocol_network_dataAccess().getSSIDKeyword_0());
 		}
 		otherlv_1='='
 		{
-			newLeafNode(otherlv_1, grammarAccess.getMqtt_network_dataAccess().getEqualsSignKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getProtocol_network_dataAccess().getEqualsSignKeyword_1());
 		}
 		(
 			(
 				lv_ssid_2_0=RULE_STRING
 				{
-					newLeafNode(lv_ssid_2_0, grammarAccess.getMqtt_network_dataAccess().getSsidSTRINGTerminalRuleCall_2_0());
+					newLeafNode(lv_ssid_2_0, grammarAccess.getProtocol_network_dataAccess().getSsidSTRINGTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getMqtt_network_dataRule());
+						$current = createModelElement(grammarAccess.getProtocol_network_dataRule());
 					}
 					addWithLastConsumed(
 						$current,
@@ -1956,21 +1956,21 @@ rulemqtt_network_data returns [EObject current=null]
 		)
 		otherlv_3='PASSWORD'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getMqtt_network_dataAccess().getPASSWORDKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getProtocol_network_dataAccess().getPASSWORDKeyword_3());
 		}
 		otherlv_4='='
 		{
-			newLeafNode(otherlv_4, grammarAccess.getMqtt_network_dataAccess().getEqualsSignKeyword_4());
+			newLeafNode(otherlv_4, grammarAccess.getProtocol_network_dataAccess().getEqualsSignKeyword_4());
 		}
 		(
 			(
 				lv_password_5_0=RULE_STRING
 				{
-					newLeafNode(lv_password_5_0, grammarAccess.getMqtt_network_dataAccess().getPasswordSTRINGTerminalRuleCall_5_0());
+					newLeafNode(lv_password_5_0, grammarAccess.getProtocol_network_dataAccess().getPasswordSTRINGTerminalRuleCall_5_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getMqtt_network_dataRule());
+						$current = createModelElement(grammarAccess.getProtocol_network_dataRule());
 					}
 					addWithLastConsumed(
 						$current,

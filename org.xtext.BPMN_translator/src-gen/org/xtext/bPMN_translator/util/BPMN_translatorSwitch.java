@@ -157,10 +157,10 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BPMN_translatorPackage.MQTT_NETWORK_DATA:
+      case BPMN_translatorPackage.PROTOCOL_NETWORK_DATA:
       {
-        mqtt_network_data mqtt_network_data = (mqtt_network_data)theEObject;
-        T result = casemqtt_network_data(mqtt_network_data);
+        protocol_network_data protocol_network_data = (protocol_network_data)theEObject;
+        T result = caseprotocol_network_data(protocol_network_data);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -382,17 +382,17 @@ public class BPMN_translatorSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>mqtt network data</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>protocol network data</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>mqtt network data</em>'.
+   * @return the result of interpreting the object as an instance of '<em>protocol network data</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casemqtt_network_data(mqtt_network_data object)
+  public T caseprotocol_network_data(protocol_network_data object)
   {
     return null;
   }

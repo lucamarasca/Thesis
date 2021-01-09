@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.bPMN_translator.BPMN_translatorPackage;
 import org.xtext.bPMN_translator.mqtt_data;
-import org.xtext.bPMN_translator.mqtt_network_data;
+import org.xtext.bPMN_translator.protocol_network_data;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,7 +92,7 @@ public class mqtt_dataImpl extends MinimalEObjectImpl.Container implements mqtt_
    * @generated
    * @ordered
    */
-  protected EList<mqtt_network_data> mqtt_network_data;
+  protected EList<protocol_network_data> mqtt_network_data;
 
   /**
    * The cached value of the '{@link #getSubtopics() <em>Subtopics</em>}' attribute list.
@@ -211,11 +211,11 @@ public class mqtt_dataImpl extends MinimalEObjectImpl.Container implements mqtt_
    * @generated
    */
   @Override
-  public EList<mqtt_network_data> getMqtt_network_data()
+  public EList<protocol_network_data> getMqtt_network_data()
   {
     if (mqtt_network_data == null)
     {
-      mqtt_network_data = new EObjectContainmentEList<mqtt_network_data>(mqtt_network_data.class, this, BPMN_translatorPackage.MQTT_DATA__MQTT_NETWORK_DATA);
+      mqtt_network_data = new EObjectContainmentEList<protocol_network_data>(protocol_network_data.class, this, BPMN_translatorPackage.MQTT_DATA__MQTT_NETWORK_DATA);
     }
     return mqtt_network_data;
   }
@@ -340,7 +340,7 @@ public class mqtt_dataImpl extends MinimalEObjectImpl.Container implements mqtt_
         return;
       case BPMN_translatorPackage.MQTT_DATA__MQTT_NETWORK_DATA:
         getMqtt_network_data().clear();
-        getMqtt_network_data().addAll((Collection<? extends mqtt_network_data>)newValue);
+        getMqtt_network_data().addAll((Collection<? extends protocol_network_data>)newValue);
         return;
       case BPMN_translatorPackage.MQTT_DATA__SUBTOPICS:
         getSubtopics().clear();

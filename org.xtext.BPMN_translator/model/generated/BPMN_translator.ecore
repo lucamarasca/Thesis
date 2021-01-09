@@ -7,7 +7,7 @@
         eType="#//Xml" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Xml">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="prova" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//element" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="element">
@@ -95,7 +95,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mqtt_network_data" upperBound="-1"
-        eType="#//mqtt_network_data" containment="true"/>
+        eType="#//protocol_network_data" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="mqtt_data">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pname" unique="false" upperBound="-1"
@@ -107,7 +107,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="broker" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mqtt_network_data" upperBound="-1"
-        eType="#//mqtt_network_data" containment="true"/>
+        eType="#//protocol_network_data" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="subtopics" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pubtopics" unique="false"
@@ -115,7 +115,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="mqtt_network_data">
+  <eClassifiers xsi:type="ecore:EClass" name="protocol_network_data">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ssid" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" unique="false"

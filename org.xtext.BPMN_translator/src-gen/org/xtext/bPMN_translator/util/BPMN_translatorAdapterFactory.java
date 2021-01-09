@@ -136,9 +136,9 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
         return createmqtt_dataAdapter();
       }
       @Override
-      public Adapter casemqtt_network_data(mqtt_network_data object)
+      public Adapter caseprotocol_network_data(protocol_network_data object)
       {
-        return createmqtt_network_dataAdapter();
+        return createprotocol_network_dataAdapter();
       }
       @Override
       public Adapter caseprotocol_device(protocol_device object)
@@ -358,16 +358,16 @@ public class BPMN_translatorAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.mqtt_network_data <em>mqtt network data</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.bPMN_translator.protocol_network_data <em>protocol network data</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.bPMN_translator.mqtt_network_data
+   * @see org.xtext.bPMN_translator.protocol_network_data
    * @generated
    */
-  public Adapter createmqtt_network_dataAdapter()
+  public Adapter createprotocol_network_dataAdapter()
   {
     return null;
   }

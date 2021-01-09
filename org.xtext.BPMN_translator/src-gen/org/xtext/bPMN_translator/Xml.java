@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.bPMN_translator.Xml#getProva <em>Prova</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.Xml#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getXml()
@@ -26,15 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface Xml extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Prova</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.bPMN_translator.element}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Prova</em>' containment reference list.
-   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getXml_Prova()
+   * @return the value of the '<em>Elements</em>' containment reference list.
+   * @see org.xtext.bPMN_translator.BPMN_translatorPackage#getXml_Elements()
    * @model containment="true"
    * @generated
    */
-  EList<element> getProva();
+  EList<element> getElements();
 
 } // Xml

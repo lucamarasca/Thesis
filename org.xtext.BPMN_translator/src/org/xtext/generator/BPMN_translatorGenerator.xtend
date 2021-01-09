@@ -223,6 +223,8 @@ def InSubProcess(String id, Resource r){
 	}
 	return false;
 }
+
+//This method it's used for filling all the start events in the bpmn
 def FillEvent(Resource r){
 	for (Element : r.allContents.toIterable.filter(element))
 	{
@@ -464,8 +466,7 @@ def fillSuccessors(String my_id, Resource r){
 									{
 										if (threadNumber > 0)
 										{
-											thread_conditions++;
-											
+											thread_conditions++;	
 										}
 										if (str2.equals(""))
 										{

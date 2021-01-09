@@ -1356,20 +1356,20 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     // $ANTLR end "rulemqtt_data"
 
 
-    // $ANTLR start "entryRulemqtt_network_data"
-    // InternalBPMN_translator.g:453:1: entryRulemqtt_network_data : rulemqtt_network_data EOF ;
-    public final void entryRulemqtt_network_data() throws RecognitionException {
+    // $ANTLR start "entryRuleprotocol_network_data"
+    // InternalBPMN_translator.g:453:1: entryRuleprotocol_network_data : ruleprotocol_network_data EOF ;
+    public final void entryRuleprotocol_network_data() throws RecognitionException {
         try {
-            // InternalBPMN_translator.g:454:1: ( rulemqtt_network_data EOF )
-            // InternalBPMN_translator.g:455:1: rulemqtt_network_data EOF
+            // InternalBPMN_translator.g:454:1: ( ruleprotocol_network_data EOF )
+            // InternalBPMN_translator.g:455:1: ruleprotocol_network_data EOF
             {
-             before(grammarAccess.getMqtt_network_dataRule()); 
+             before(grammarAccess.getProtocol_network_dataRule()); 
             pushFollow(FOLLOW_1);
-            rulemqtt_network_data();
+            ruleprotocol_network_data();
 
             state._fsp--;
 
-             after(grammarAccess.getMqtt_network_dataRule()); 
+             after(grammarAccess.getProtocol_network_dataRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1383,35 +1383,35 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "entryRulemqtt_network_data"
+    // $ANTLR end "entryRuleprotocol_network_data"
 
 
-    // $ANTLR start "rulemqtt_network_data"
-    // InternalBPMN_translator.g:462:1: rulemqtt_network_data : ( ( rule__Mqtt_network_data__Group__0 ) ) ;
-    public final void rulemqtt_network_data() throws RecognitionException {
+    // $ANTLR start "ruleprotocol_network_data"
+    // InternalBPMN_translator.g:462:1: ruleprotocol_network_data : ( ( rule__Protocol_network_data__Group__0 ) ) ;
+    public final void ruleprotocol_network_data() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:466:2: ( ( ( rule__Mqtt_network_data__Group__0 ) ) )
-            // InternalBPMN_translator.g:467:2: ( ( rule__Mqtt_network_data__Group__0 ) )
+            // InternalBPMN_translator.g:466:2: ( ( ( rule__Protocol_network_data__Group__0 ) ) )
+            // InternalBPMN_translator.g:467:2: ( ( rule__Protocol_network_data__Group__0 ) )
             {
-            // InternalBPMN_translator.g:467:2: ( ( rule__Mqtt_network_data__Group__0 ) )
-            // InternalBPMN_translator.g:468:3: ( rule__Mqtt_network_data__Group__0 )
+            // InternalBPMN_translator.g:467:2: ( ( rule__Protocol_network_data__Group__0 ) )
+            // InternalBPMN_translator.g:468:3: ( rule__Protocol_network_data__Group__0 )
             {
-             before(grammarAccess.getMqtt_network_dataAccess().getGroup()); 
-            // InternalBPMN_translator.g:469:3: ( rule__Mqtt_network_data__Group__0 )
-            // InternalBPMN_translator.g:469:4: rule__Mqtt_network_data__Group__0
+             before(grammarAccess.getProtocol_network_dataAccess().getGroup()); 
+            // InternalBPMN_translator.g:469:3: ( rule__Protocol_network_data__Group__0 )
+            // InternalBPMN_translator.g:469:4: rule__Protocol_network_data__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__Mqtt_network_data__Group__0();
+            rule__Protocol_network_data__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMqtt_network_dataAccess().getGroup()); 
+             after(grammarAccess.getProtocol_network_dataAccess().getGroup()); 
 
             }
 
@@ -1430,7 +1430,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rulemqtt_network_data"
+    // $ANTLR end "ruleprotocol_network_data"
 
 
     // $ANTLR start "entryRuleprotocol_device"
@@ -4020,20 +4020,20 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Xml__Group__2__Impl"
-    // InternalBPMN_translator.g:1118:1: rule__Xml__Group__2__Impl : ( ( rule__Xml__ProvaAssignment_2 )* ) ;
+    // InternalBPMN_translator.g:1118:1: rule__Xml__Group__2__Impl : ( ( rule__Xml__ElementsAssignment_2 )* ) ;
     public final void rule__Xml__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:1122:1: ( ( ( rule__Xml__ProvaAssignment_2 )* ) )
-            // InternalBPMN_translator.g:1123:1: ( ( rule__Xml__ProvaAssignment_2 )* )
+            // InternalBPMN_translator.g:1122:1: ( ( ( rule__Xml__ElementsAssignment_2 )* ) )
+            // InternalBPMN_translator.g:1123:1: ( ( rule__Xml__ElementsAssignment_2 )* )
             {
-            // InternalBPMN_translator.g:1123:1: ( ( rule__Xml__ProvaAssignment_2 )* )
-            // InternalBPMN_translator.g:1124:2: ( rule__Xml__ProvaAssignment_2 )*
+            // InternalBPMN_translator.g:1123:1: ( ( rule__Xml__ElementsAssignment_2 )* )
+            // InternalBPMN_translator.g:1124:2: ( rule__Xml__ElementsAssignment_2 )*
             {
-             before(grammarAccess.getXmlAccess().getProvaAssignment_2()); 
-            // InternalBPMN_translator.g:1125:2: ( rule__Xml__ProvaAssignment_2 )*
+             before(grammarAccess.getXmlAccess().getElementsAssignment_2()); 
+            // InternalBPMN_translator.g:1125:2: ( rule__Xml__ElementsAssignment_2 )*
             loop19:
             do {
                 int alt19=2;
@@ -4046,10 +4046,10 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
                 switch (alt19) {
             	case 1 :
-            	    // InternalBPMN_translator.g:1125:3: rule__Xml__ProvaAssignment_2
+            	    // InternalBPMN_translator.g:1125:3: rule__Xml__ElementsAssignment_2
             	    {
             	    pushFollow(FOLLOW_4);
-            	    rule__Xml__ProvaAssignment_2();
+            	    rule__Xml__ElementsAssignment_2();
 
             	    state._fsp--;
 
@@ -4062,7 +4062,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
                 }
             } while (true);
 
-             after(grammarAccess.getXmlAccess().getProvaAssignment_2()); 
+             after(grammarAccess.getXmlAccess().getElementsAssignment_2()); 
 
             }
 
@@ -15606,23 +15606,23 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     // $ANTLR end "rule__Mqtt_data__Group_1_6_2_1__2__Impl"
 
 
-    // $ANTLR start "rule__Mqtt_network_data__Group__0"
-    // InternalBPMN_translator.g:5076:1: rule__Mqtt_network_data__Group__0 : rule__Mqtt_network_data__Group__0__Impl rule__Mqtt_network_data__Group__1 ;
-    public final void rule__Mqtt_network_data__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_network_data__Group__0"
+    // InternalBPMN_translator.g:5076:1: rule__Protocol_network_data__Group__0 : rule__Protocol_network_data__Group__0__Impl rule__Protocol_network_data__Group__1 ;
+    public final void rule__Protocol_network_data__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5080:1: ( rule__Mqtt_network_data__Group__0__Impl rule__Mqtt_network_data__Group__1 )
-            // InternalBPMN_translator.g:5081:2: rule__Mqtt_network_data__Group__0__Impl rule__Mqtt_network_data__Group__1
+            // InternalBPMN_translator.g:5080:1: ( rule__Protocol_network_data__Group__0__Impl rule__Protocol_network_data__Group__1 )
+            // InternalBPMN_translator.g:5081:2: rule__Protocol_network_data__Group__0__Impl rule__Protocol_network_data__Group__1
             {
             pushFollow(FOLLOW_24);
-            rule__Mqtt_network_data__Group__0__Impl();
+            rule__Protocol_network_data__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Mqtt_network_data__Group__1();
+            rule__Protocol_network_data__Group__1();
 
             state._fsp--;
 
@@ -15641,12 +15641,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_network_data__Group__0"
+    // $ANTLR end "rule__Protocol_network_data__Group__0"
 
 
-    // $ANTLR start "rule__Mqtt_network_data__Group__0__Impl"
-    // InternalBPMN_translator.g:5088:1: rule__Mqtt_network_data__Group__0__Impl : ( 'SSID' ) ;
-    public final void rule__Mqtt_network_data__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_network_data__Group__0__Impl"
+    // InternalBPMN_translator.g:5088:1: rule__Protocol_network_data__Group__0__Impl : ( 'SSID' ) ;
+    public final void rule__Protocol_network_data__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -15657,9 +15657,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:5093:1: ( 'SSID' )
             // InternalBPMN_translator.g:5094:2: 'SSID'
             {
-             before(grammarAccess.getMqtt_network_dataAccess().getSSIDKeyword_0()); 
+             before(grammarAccess.getProtocol_network_dataAccess().getSSIDKeyword_0()); 
             match(input,58,FOLLOW_2); 
-             after(grammarAccess.getMqtt_network_dataAccess().getSSIDKeyword_0()); 
+             after(grammarAccess.getProtocol_network_dataAccess().getSSIDKeyword_0()); 
 
             }
 
@@ -15678,26 +15678,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_network_data__Group__0__Impl"
+    // $ANTLR end "rule__Protocol_network_data__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Mqtt_network_data__Group__1"
-    // InternalBPMN_translator.g:5103:1: rule__Mqtt_network_data__Group__1 : rule__Mqtt_network_data__Group__1__Impl rule__Mqtt_network_data__Group__2 ;
-    public final void rule__Mqtt_network_data__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_network_data__Group__1"
+    // InternalBPMN_translator.g:5103:1: rule__Protocol_network_data__Group__1 : rule__Protocol_network_data__Group__1__Impl rule__Protocol_network_data__Group__2 ;
+    public final void rule__Protocol_network_data__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5107:1: ( rule__Mqtt_network_data__Group__1__Impl rule__Mqtt_network_data__Group__2 )
-            // InternalBPMN_translator.g:5108:2: rule__Mqtt_network_data__Group__1__Impl rule__Mqtt_network_data__Group__2
+            // InternalBPMN_translator.g:5107:1: ( rule__Protocol_network_data__Group__1__Impl rule__Protocol_network_data__Group__2 )
+            // InternalBPMN_translator.g:5108:2: rule__Protocol_network_data__Group__1__Impl rule__Protocol_network_data__Group__2
             {
             pushFollow(FOLLOW_7);
-            rule__Mqtt_network_data__Group__1__Impl();
+            rule__Protocol_network_data__Group__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Mqtt_network_data__Group__2();
+            rule__Protocol_network_data__Group__2();
 
             state._fsp--;
 
@@ -15716,12 +15716,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_network_data__Group__1"
+    // $ANTLR end "rule__Protocol_network_data__Group__1"
 
 
-    // $ANTLR start "rule__Mqtt_network_data__Group__1__Impl"
-    // InternalBPMN_translator.g:5115:1: rule__Mqtt_network_data__Group__1__Impl : ( '=' ) ;
-    public final void rule__Mqtt_network_data__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_network_data__Group__1__Impl"
+    // InternalBPMN_translator.g:5115:1: rule__Protocol_network_data__Group__1__Impl : ( '=' ) ;
+    public final void rule__Protocol_network_data__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -15732,9 +15732,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:5120:1: ( '=' )
             // InternalBPMN_translator.g:5121:2: '='
             {
-             before(grammarAccess.getMqtt_network_dataAccess().getEqualsSignKeyword_1()); 
+             before(grammarAccess.getProtocol_network_dataAccess().getEqualsSignKeyword_1()); 
             match(input,20,FOLLOW_2); 
-             after(grammarAccess.getMqtt_network_dataAccess().getEqualsSignKeyword_1()); 
+             after(grammarAccess.getProtocol_network_dataAccess().getEqualsSignKeyword_1()); 
 
             }
 
@@ -15753,26 +15753,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_network_data__Group__1__Impl"
+    // $ANTLR end "rule__Protocol_network_data__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Mqtt_network_data__Group__2"
-    // InternalBPMN_translator.g:5130:1: rule__Mqtt_network_data__Group__2 : rule__Mqtt_network_data__Group__2__Impl rule__Mqtt_network_data__Group__3 ;
-    public final void rule__Mqtt_network_data__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_network_data__Group__2"
+    // InternalBPMN_translator.g:5130:1: rule__Protocol_network_data__Group__2 : rule__Protocol_network_data__Group__2__Impl rule__Protocol_network_data__Group__3 ;
+    public final void rule__Protocol_network_data__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5134:1: ( rule__Mqtt_network_data__Group__2__Impl rule__Mqtt_network_data__Group__3 )
-            // InternalBPMN_translator.g:5135:2: rule__Mqtt_network_data__Group__2__Impl rule__Mqtt_network_data__Group__3
+            // InternalBPMN_translator.g:5134:1: ( rule__Protocol_network_data__Group__2__Impl rule__Protocol_network_data__Group__3 )
+            // InternalBPMN_translator.g:5135:2: rule__Protocol_network_data__Group__2__Impl rule__Protocol_network_data__Group__3
             {
             pushFollow(FOLLOW_50);
-            rule__Mqtt_network_data__Group__2__Impl();
+            rule__Protocol_network_data__Group__2__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Mqtt_network_data__Group__3();
+            rule__Protocol_network_data__Group__3();
 
             state._fsp--;
 
@@ -15791,35 +15791,35 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_network_data__Group__2"
+    // $ANTLR end "rule__Protocol_network_data__Group__2"
 
 
-    // $ANTLR start "rule__Mqtt_network_data__Group__2__Impl"
-    // InternalBPMN_translator.g:5142:1: rule__Mqtt_network_data__Group__2__Impl : ( ( rule__Mqtt_network_data__SsidAssignment_2 ) ) ;
-    public final void rule__Mqtt_network_data__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_network_data__Group__2__Impl"
+    // InternalBPMN_translator.g:5142:1: rule__Protocol_network_data__Group__2__Impl : ( ( rule__Protocol_network_data__SsidAssignment_2 ) ) ;
+    public final void rule__Protocol_network_data__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5146:1: ( ( ( rule__Mqtt_network_data__SsidAssignment_2 ) ) )
-            // InternalBPMN_translator.g:5147:1: ( ( rule__Mqtt_network_data__SsidAssignment_2 ) )
+            // InternalBPMN_translator.g:5146:1: ( ( ( rule__Protocol_network_data__SsidAssignment_2 ) ) )
+            // InternalBPMN_translator.g:5147:1: ( ( rule__Protocol_network_data__SsidAssignment_2 ) )
             {
-            // InternalBPMN_translator.g:5147:1: ( ( rule__Mqtt_network_data__SsidAssignment_2 ) )
-            // InternalBPMN_translator.g:5148:2: ( rule__Mqtt_network_data__SsidAssignment_2 )
+            // InternalBPMN_translator.g:5147:1: ( ( rule__Protocol_network_data__SsidAssignment_2 ) )
+            // InternalBPMN_translator.g:5148:2: ( rule__Protocol_network_data__SsidAssignment_2 )
             {
-             before(grammarAccess.getMqtt_network_dataAccess().getSsidAssignment_2()); 
-            // InternalBPMN_translator.g:5149:2: ( rule__Mqtt_network_data__SsidAssignment_2 )
-            // InternalBPMN_translator.g:5149:3: rule__Mqtt_network_data__SsidAssignment_2
+             before(grammarAccess.getProtocol_network_dataAccess().getSsidAssignment_2()); 
+            // InternalBPMN_translator.g:5149:2: ( rule__Protocol_network_data__SsidAssignment_2 )
+            // InternalBPMN_translator.g:5149:3: rule__Protocol_network_data__SsidAssignment_2
             {
             pushFollow(FOLLOW_2);
-            rule__Mqtt_network_data__SsidAssignment_2();
+            rule__Protocol_network_data__SsidAssignment_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMqtt_network_dataAccess().getSsidAssignment_2()); 
+             after(grammarAccess.getProtocol_network_dataAccess().getSsidAssignment_2()); 
 
             }
 
@@ -15838,26 +15838,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_network_data__Group__2__Impl"
+    // $ANTLR end "rule__Protocol_network_data__Group__2__Impl"
 
 
-    // $ANTLR start "rule__Mqtt_network_data__Group__3"
-    // InternalBPMN_translator.g:5157:1: rule__Mqtt_network_data__Group__3 : rule__Mqtt_network_data__Group__3__Impl rule__Mqtt_network_data__Group__4 ;
-    public final void rule__Mqtt_network_data__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_network_data__Group__3"
+    // InternalBPMN_translator.g:5157:1: rule__Protocol_network_data__Group__3 : rule__Protocol_network_data__Group__3__Impl rule__Protocol_network_data__Group__4 ;
+    public final void rule__Protocol_network_data__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5161:1: ( rule__Mqtt_network_data__Group__3__Impl rule__Mqtt_network_data__Group__4 )
-            // InternalBPMN_translator.g:5162:2: rule__Mqtt_network_data__Group__3__Impl rule__Mqtt_network_data__Group__4
+            // InternalBPMN_translator.g:5161:1: ( rule__Protocol_network_data__Group__3__Impl rule__Protocol_network_data__Group__4 )
+            // InternalBPMN_translator.g:5162:2: rule__Protocol_network_data__Group__3__Impl rule__Protocol_network_data__Group__4
             {
             pushFollow(FOLLOW_24);
-            rule__Mqtt_network_data__Group__3__Impl();
+            rule__Protocol_network_data__Group__3__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Mqtt_network_data__Group__4();
+            rule__Protocol_network_data__Group__4();
 
             state._fsp--;
 
@@ -15876,12 +15876,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_network_data__Group__3"
+    // $ANTLR end "rule__Protocol_network_data__Group__3"
 
 
-    // $ANTLR start "rule__Mqtt_network_data__Group__3__Impl"
-    // InternalBPMN_translator.g:5169:1: rule__Mqtt_network_data__Group__3__Impl : ( 'PASSWORD' ) ;
-    public final void rule__Mqtt_network_data__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_network_data__Group__3__Impl"
+    // InternalBPMN_translator.g:5169:1: rule__Protocol_network_data__Group__3__Impl : ( 'PASSWORD' ) ;
+    public final void rule__Protocol_network_data__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -15892,9 +15892,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:5174:1: ( 'PASSWORD' )
             // InternalBPMN_translator.g:5175:2: 'PASSWORD'
             {
-             before(grammarAccess.getMqtt_network_dataAccess().getPASSWORDKeyword_3()); 
+             before(grammarAccess.getProtocol_network_dataAccess().getPASSWORDKeyword_3()); 
             match(input,59,FOLLOW_2); 
-             after(grammarAccess.getMqtt_network_dataAccess().getPASSWORDKeyword_3()); 
+             after(grammarAccess.getProtocol_network_dataAccess().getPASSWORDKeyword_3()); 
 
             }
 
@@ -15913,26 +15913,26 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_network_data__Group__3__Impl"
+    // $ANTLR end "rule__Protocol_network_data__Group__3__Impl"
 
 
-    // $ANTLR start "rule__Mqtt_network_data__Group__4"
-    // InternalBPMN_translator.g:5184:1: rule__Mqtt_network_data__Group__4 : rule__Mqtt_network_data__Group__4__Impl rule__Mqtt_network_data__Group__5 ;
-    public final void rule__Mqtt_network_data__Group__4() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_network_data__Group__4"
+    // InternalBPMN_translator.g:5184:1: rule__Protocol_network_data__Group__4 : rule__Protocol_network_data__Group__4__Impl rule__Protocol_network_data__Group__5 ;
+    public final void rule__Protocol_network_data__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5188:1: ( rule__Mqtt_network_data__Group__4__Impl rule__Mqtt_network_data__Group__5 )
-            // InternalBPMN_translator.g:5189:2: rule__Mqtt_network_data__Group__4__Impl rule__Mqtt_network_data__Group__5
+            // InternalBPMN_translator.g:5188:1: ( rule__Protocol_network_data__Group__4__Impl rule__Protocol_network_data__Group__5 )
+            // InternalBPMN_translator.g:5189:2: rule__Protocol_network_data__Group__4__Impl rule__Protocol_network_data__Group__5
             {
             pushFollow(FOLLOW_7);
-            rule__Mqtt_network_data__Group__4__Impl();
+            rule__Protocol_network_data__Group__4__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Mqtt_network_data__Group__5();
+            rule__Protocol_network_data__Group__5();
 
             state._fsp--;
 
@@ -15951,12 +15951,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_network_data__Group__4"
+    // $ANTLR end "rule__Protocol_network_data__Group__4"
 
 
-    // $ANTLR start "rule__Mqtt_network_data__Group__4__Impl"
-    // InternalBPMN_translator.g:5196:1: rule__Mqtt_network_data__Group__4__Impl : ( '=' ) ;
-    public final void rule__Mqtt_network_data__Group__4__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_network_data__Group__4__Impl"
+    // InternalBPMN_translator.g:5196:1: rule__Protocol_network_data__Group__4__Impl : ( '=' ) ;
+    public final void rule__Protocol_network_data__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -15967,9 +15967,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:5201:1: ( '=' )
             // InternalBPMN_translator.g:5202:2: '='
             {
-             before(grammarAccess.getMqtt_network_dataAccess().getEqualsSignKeyword_4()); 
+             before(grammarAccess.getProtocol_network_dataAccess().getEqualsSignKeyword_4()); 
             match(input,20,FOLLOW_2); 
-             after(grammarAccess.getMqtt_network_dataAccess().getEqualsSignKeyword_4()); 
+             after(grammarAccess.getProtocol_network_dataAccess().getEqualsSignKeyword_4()); 
 
             }
 
@@ -15988,21 +15988,21 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_network_data__Group__4__Impl"
+    // $ANTLR end "rule__Protocol_network_data__Group__4__Impl"
 
 
-    // $ANTLR start "rule__Mqtt_network_data__Group__5"
-    // InternalBPMN_translator.g:5211:1: rule__Mqtt_network_data__Group__5 : rule__Mqtt_network_data__Group__5__Impl ;
-    public final void rule__Mqtt_network_data__Group__5() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_network_data__Group__5"
+    // InternalBPMN_translator.g:5211:1: rule__Protocol_network_data__Group__5 : rule__Protocol_network_data__Group__5__Impl ;
+    public final void rule__Protocol_network_data__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5215:1: ( rule__Mqtt_network_data__Group__5__Impl )
-            // InternalBPMN_translator.g:5216:2: rule__Mqtt_network_data__Group__5__Impl
+            // InternalBPMN_translator.g:5215:1: ( rule__Protocol_network_data__Group__5__Impl )
+            // InternalBPMN_translator.g:5216:2: rule__Protocol_network_data__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Mqtt_network_data__Group__5__Impl();
+            rule__Protocol_network_data__Group__5__Impl();
 
             state._fsp--;
 
@@ -16021,35 +16021,35 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_network_data__Group__5"
+    // $ANTLR end "rule__Protocol_network_data__Group__5"
 
 
-    // $ANTLR start "rule__Mqtt_network_data__Group__5__Impl"
-    // InternalBPMN_translator.g:5222:1: rule__Mqtt_network_data__Group__5__Impl : ( ( rule__Mqtt_network_data__PasswordAssignment_5 ) ) ;
-    public final void rule__Mqtt_network_data__Group__5__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_network_data__Group__5__Impl"
+    // InternalBPMN_translator.g:5222:1: rule__Protocol_network_data__Group__5__Impl : ( ( rule__Protocol_network_data__PasswordAssignment_5 ) ) ;
+    public final void rule__Protocol_network_data__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:5226:1: ( ( ( rule__Mqtt_network_data__PasswordAssignment_5 ) ) )
-            // InternalBPMN_translator.g:5227:1: ( ( rule__Mqtt_network_data__PasswordAssignment_5 ) )
+            // InternalBPMN_translator.g:5226:1: ( ( ( rule__Protocol_network_data__PasswordAssignment_5 ) ) )
+            // InternalBPMN_translator.g:5227:1: ( ( rule__Protocol_network_data__PasswordAssignment_5 ) )
             {
-            // InternalBPMN_translator.g:5227:1: ( ( rule__Mqtt_network_data__PasswordAssignment_5 ) )
-            // InternalBPMN_translator.g:5228:2: ( rule__Mqtt_network_data__PasswordAssignment_5 )
+            // InternalBPMN_translator.g:5227:1: ( ( rule__Protocol_network_data__PasswordAssignment_5 ) )
+            // InternalBPMN_translator.g:5228:2: ( rule__Protocol_network_data__PasswordAssignment_5 )
             {
-             before(grammarAccess.getMqtt_network_dataAccess().getPasswordAssignment_5()); 
-            // InternalBPMN_translator.g:5229:2: ( rule__Mqtt_network_data__PasswordAssignment_5 )
-            // InternalBPMN_translator.g:5229:3: rule__Mqtt_network_data__PasswordAssignment_5
+             before(grammarAccess.getProtocol_network_dataAccess().getPasswordAssignment_5()); 
+            // InternalBPMN_translator.g:5229:2: ( rule__Protocol_network_data__PasswordAssignment_5 )
+            // InternalBPMN_translator.g:5229:3: rule__Protocol_network_data__PasswordAssignment_5
             {
             pushFollow(FOLLOW_2);
-            rule__Mqtt_network_data__PasswordAssignment_5();
+            rule__Protocol_network_data__PasswordAssignment_5();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMqtt_network_dataAccess().getPasswordAssignment_5()); 
+             after(grammarAccess.getProtocol_network_dataAccess().getPasswordAssignment_5()); 
 
             }
 
@@ -16068,7 +16068,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_network_data__Group__5__Impl"
+    // $ANTLR end "rule__Protocol_network_data__Group__5__Impl"
 
 
     // $ANTLR start "rule__Protocol_device__Group__0"
@@ -18690,9 +18690,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     // $ANTLR end "rule__Model__ModelAssignment"
 
 
-    // $ANTLR start "rule__Xml__ProvaAssignment_2"
-    // InternalBPMN_translator.g:6144:1: rule__Xml__ProvaAssignment_2 : ( ruleelement ) ;
-    public final void rule__Xml__ProvaAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__Xml__ElementsAssignment_2"
+    // InternalBPMN_translator.g:6144:1: rule__Xml__ElementsAssignment_2 : ( ruleelement ) ;
+    public final void rule__Xml__ElementsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -18703,13 +18703,13 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:6149:2: ( ruleelement )
             // InternalBPMN_translator.g:6150:3: ruleelement
             {
-             before(grammarAccess.getXmlAccess().getProvaElementParserRuleCall_2_0()); 
+             before(grammarAccess.getXmlAccess().getElementsElementParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
             ruleelement();
 
             state._fsp--;
 
-             after(grammarAccess.getXmlAccess().getProvaElementParserRuleCall_2_0()); 
+             after(grammarAccess.getXmlAccess().getElementsElementParserRuleCall_2_0()); 
 
             }
 
@@ -18728,7 +18728,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Xml__ProvaAssignment_2"
+    // $ANTLR end "rule__Xml__ElementsAssignment_2"
 
 
     // $ANTLR start "rule__Element__OpenAssignment_0_0"
@@ -20234,25 +20234,25 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Http_data__Mqtt_network_dataAssignment_1_6_2"
-    // InternalBPMN_translator.g:6737:1: rule__Http_data__Mqtt_network_dataAssignment_1_6_2 : ( rulemqtt_network_data ) ;
+    // InternalBPMN_translator.g:6737:1: rule__Http_data__Mqtt_network_dataAssignment_1_6_2 : ( ruleprotocol_network_data ) ;
     public final void rule__Http_data__Mqtt_network_dataAssignment_1_6_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:6741:1: ( ( rulemqtt_network_data ) )
-            // InternalBPMN_translator.g:6742:2: ( rulemqtt_network_data )
+            // InternalBPMN_translator.g:6741:1: ( ( ruleprotocol_network_data ) )
+            // InternalBPMN_translator.g:6742:2: ( ruleprotocol_network_data )
             {
-            // InternalBPMN_translator.g:6742:2: ( rulemqtt_network_data )
-            // InternalBPMN_translator.g:6743:3: rulemqtt_network_data
+            // InternalBPMN_translator.g:6742:2: ( ruleprotocol_network_data )
+            // InternalBPMN_translator.g:6743:3: ruleprotocol_network_data
             {
-             before(grammarAccess.getHttp_dataAccess().getMqtt_network_dataMqtt_network_dataParserRuleCall_1_6_2_0()); 
+             before(grammarAccess.getHttp_dataAccess().getMqtt_network_dataProtocol_network_dataParserRuleCall_1_6_2_0()); 
             pushFollow(FOLLOW_2);
-            rulemqtt_network_data();
+            ruleprotocol_network_data();
 
             state._fsp--;
 
-             after(grammarAccess.getHttp_dataAccess().getMqtt_network_dataMqtt_network_dataParserRuleCall_1_6_2_0()); 
+             after(grammarAccess.getHttp_dataAccess().getMqtt_network_dataProtocol_network_dataParserRuleCall_1_6_2_0()); 
 
             }
 
@@ -20423,25 +20423,25 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
 
 
     // $ANTLR start "rule__Mqtt_data__Mqtt_network_dataAssignment_1_4_2"
-    // InternalBPMN_translator.g:6812:1: rule__Mqtt_data__Mqtt_network_dataAssignment_1_4_2 : ( rulemqtt_network_data ) ;
+    // InternalBPMN_translator.g:6812:1: rule__Mqtt_data__Mqtt_network_dataAssignment_1_4_2 : ( ruleprotocol_network_data ) ;
     public final void rule__Mqtt_data__Mqtt_network_dataAssignment_1_4_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBPMN_translator.g:6816:1: ( ( rulemqtt_network_data ) )
-            // InternalBPMN_translator.g:6817:2: ( rulemqtt_network_data )
+            // InternalBPMN_translator.g:6816:1: ( ( ruleprotocol_network_data ) )
+            // InternalBPMN_translator.g:6817:2: ( ruleprotocol_network_data )
             {
-            // InternalBPMN_translator.g:6817:2: ( rulemqtt_network_data )
-            // InternalBPMN_translator.g:6818:3: rulemqtt_network_data
+            // InternalBPMN_translator.g:6817:2: ( ruleprotocol_network_data )
+            // InternalBPMN_translator.g:6818:3: ruleprotocol_network_data
             {
-             before(grammarAccess.getMqtt_dataAccess().getMqtt_network_dataMqtt_network_dataParserRuleCall_1_4_2_0()); 
+             before(grammarAccess.getMqtt_dataAccess().getMqtt_network_dataProtocol_network_dataParserRuleCall_1_4_2_0()); 
             pushFollow(FOLLOW_2);
-            rulemqtt_network_data();
+            ruleprotocol_network_data();
 
             state._fsp--;
 
-             after(grammarAccess.getMqtt_dataAccess().getMqtt_network_dataMqtt_network_dataParserRuleCall_1_4_2_0()); 
+             after(grammarAccess.getMqtt_dataAccess().getMqtt_network_dataProtocol_network_dataParserRuleCall_1_4_2_0()); 
 
             }
 
@@ -20584,9 +20584,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
     // $ANTLR end "rule__Mqtt_data__ValueAssignment_1_6_2_1_2"
 
 
-    // $ANTLR start "rule__Mqtt_network_data__SsidAssignment_2"
-    // InternalBPMN_translator.g:6872:1: rule__Mqtt_network_data__SsidAssignment_2 : ( RULE_STRING ) ;
-    public final void rule__Mqtt_network_data__SsidAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_network_data__SsidAssignment_2"
+    // InternalBPMN_translator.g:6872:1: rule__Protocol_network_data__SsidAssignment_2 : ( RULE_STRING ) ;
+    public final void rule__Protocol_network_data__SsidAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -20597,9 +20597,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:6877:2: ( RULE_STRING )
             // InternalBPMN_translator.g:6878:3: RULE_STRING
             {
-             before(grammarAccess.getMqtt_network_dataAccess().getSsidSTRINGTerminalRuleCall_2_0()); 
+             before(grammarAccess.getProtocol_network_dataAccess().getSsidSTRINGTerminalRuleCall_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getMqtt_network_dataAccess().getSsidSTRINGTerminalRuleCall_2_0()); 
+             after(grammarAccess.getProtocol_network_dataAccess().getSsidSTRINGTerminalRuleCall_2_0()); 
 
             }
 
@@ -20618,12 +20618,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_network_data__SsidAssignment_2"
+    // $ANTLR end "rule__Protocol_network_data__SsidAssignment_2"
 
 
-    // $ANTLR start "rule__Mqtt_network_data__PasswordAssignment_5"
-    // InternalBPMN_translator.g:6887:1: rule__Mqtt_network_data__PasswordAssignment_5 : ( RULE_STRING ) ;
-    public final void rule__Mqtt_network_data__PasswordAssignment_5() throws RecognitionException {
+    // $ANTLR start "rule__Protocol_network_data__PasswordAssignment_5"
+    // InternalBPMN_translator.g:6887:1: rule__Protocol_network_data__PasswordAssignment_5 : ( RULE_STRING ) ;
+    public final void rule__Protocol_network_data__PasswordAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -20634,9 +20634,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
             // InternalBPMN_translator.g:6892:2: ( RULE_STRING )
             // InternalBPMN_translator.g:6893:3: RULE_STRING
             {
-             before(grammarAccess.getMqtt_network_dataAccess().getPasswordSTRINGTerminalRuleCall_5_0()); 
+             before(grammarAccess.getProtocol_network_dataAccess().getPasswordSTRINGTerminalRuleCall_5_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getMqtt_network_dataAccess().getPasswordSTRINGTerminalRuleCall_5_0()); 
+             after(grammarAccess.getProtocol_network_dataAccess().getPasswordSTRINGTerminalRuleCall_5_0()); 
 
             }
 
@@ -20655,7 +20655,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalContentAssist
         }
         return ;
     }
-    // $ANTLR end "rule__Mqtt_network_data__PasswordAssignment_5"
+    // $ANTLR end "rule__Protocol_network_data__PasswordAssignment_5"
 
 
     // $ANTLR start "rule__Protocol_device__DnameAssignment_4"

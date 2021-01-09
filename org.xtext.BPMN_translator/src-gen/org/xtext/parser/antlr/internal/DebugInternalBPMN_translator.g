@@ -234,7 +234,7 @@ rulehttp_data:
 		    |
 		'NETWORK'
 		'{'
-		rulemqtt_network_data
+		ruleprotocol_network_data
 		*
 		'}'
 	)*
@@ -261,7 +261,7 @@ rulemqtt_data:
 		    |
 		'NETWORK'
 		'{'
-		rulemqtt_network_data
+		ruleprotocol_network_data
 		*
 		'}'
 		    |
@@ -293,8 +293,8 @@ rulemqtt_data:
 	)*
 ;
 
-// Rule mqtt_network_data
-rulemqtt_network_data:
+// Rule protocol_network_data
+ruleprotocol_network_data:
 	'SSID'
 	'='
 	RULE_STRING

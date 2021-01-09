@@ -449,25 +449,25 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRulemqtt_network_data
-entryRulemqtt_network_data
+// Entry rule entryRuleprotocol_network_data
+entryRuleprotocol_network_data
 :
-{ before(grammarAccess.getMqtt_network_dataRule()); }
-	 rulemqtt_network_data
-{ after(grammarAccess.getMqtt_network_dataRule()); } 
+{ before(grammarAccess.getProtocol_network_dataRule()); }
+	 ruleprotocol_network_data
+{ after(grammarAccess.getProtocol_network_dataRule()); } 
 	 EOF 
 ;
 
-// Rule mqtt_network_data
-rulemqtt_network_data 
+// Rule protocol_network_data
+ruleprotocol_network_data 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getMqtt_network_dataAccess().getGroup()); }
-		(rule__Mqtt_network_data__Group__0)
-		{ after(grammarAccess.getMqtt_network_dataAccess().getGroup()); }
+		{ before(grammarAccess.getProtocol_network_dataAccess().getGroup()); }
+		(rule__Protocol_network_data__Group__0)
+		{ after(grammarAccess.getProtocol_network_dataAccess().getGroup()); }
 	)
 ;
 finally {
@@ -1121,9 +1121,9 @@ rule__Xml__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getXmlAccess().getProvaAssignment_2()); }
-	(rule__Xml__ProvaAssignment_2)*
-	{ after(grammarAccess.getXmlAccess().getProvaAssignment_2()); }
+	{ before(grammarAccess.getXmlAccess().getElementsAssignment_2()); }
+	(rule__Xml__ElementsAssignment_2)*
+	{ after(grammarAccess.getXmlAccess().getElementsAssignment_2()); }
 )
 ;
 finally {
@@ -5073,161 +5073,161 @@ finally {
 }
 
 
-rule__Mqtt_network_data__Group__0
+rule__Protocol_network_data__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Mqtt_network_data__Group__0__Impl
-	rule__Mqtt_network_data__Group__1
+	rule__Protocol_network_data__Group__0__Impl
+	rule__Protocol_network_data__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Mqtt_network_data__Group__0__Impl
+rule__Protocol_network_data__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getMqtt_network_dataAccess().getSSIDKeyword_0()); }
+	{ before(grammarAccess.getProtocol_network_dataAccess().getSSIDKeyword_0()); }
 	'SSID'
-	{ after(grammarAccess.getMqtt_network_dataAccess().getSSIDKeyword_0()); }
+	{ after(grammarAccess.getProtocol_network_dataAccess().getSSIDKeyword_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Mqtt_network_data__Group__1
+rule__Protocol_network_data__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Mqtt_network_data__Group__1__Impl
-	rule__Mqtt_network_data__Group__2
+	rule__Protocol_network_data__Group__1__Impl
+	rule__Protocol_network_data__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Mqtt_network_data__Group__1__Impl
+rule__Protocol_network_data__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getMqtt_network_dataAccess().getEqualsSignKeyword_1()); }
+	{ before(grammarAccess.getProtocol_network_dataAccess().getEqualsSignKeyword_1()); }
 	'='
-	{ after(grammarAccess.getMqtt_network_dataAccess().getEqualsSignKeyword_1()); }
+	{ after(grammarAccess.getProtocol_network_dataAccess().getEqualsSignKeyword_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Mqtt_network_data__Group__2
+rule__Protocol_network_data__Group__2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Mqtt_network_data__Group__2__Impl
-	rule__Mqtt_network_data__Group__3
+	rule__Protocol_network_data__Group__2__Impl
+	rule__Protocol_network_data__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Mqtt_network_data__Group__2__Impl
+rule__Protocol_network_data__Group__2__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getMqtt_network_dataAccess().getSsidAssignment_2()); }
-	(rule__Mqtt_network_data__SsidAssignment_2)
-	{ after(grammarAccess.getMqtt_network_dataAccess().getSsidAssignment_2()); }
+	{ before(grammarAccess.getProtocol_network_dataAccess().getSsidAssignment_2()); }
+	(rule__Protocol_network_data__SsidAssignment_2)
+	{ after(grammarAccess.getProtocol_network_dataAccess().getSsidAssignment_2()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Mqtt_network_data__Group__3
+rule__Protocol_network_data__Group__3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Mqtt_network_data__Group__3__Impl
-	rule__Mqtt_network_data__Group__4
+	rule__Protocol_network_data__Group__3__Impl
+	rule__Protocol_network_data__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Mqtt_network_data__Group__3__Impl
+rule__Protocol_network_data__Group__3__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getMqtt_network_dataAccess().getPASSWORDKeyword_3()); }
+	{ before(grammarAccess.getProtocol_network_dataAccess().getPASSWORDKeyword_3()); }
 	'PASSWORD'
-	{ after(grammarAccess.getMqtt_network_dataAccess().getPASSWORDKeyword_3()); }
+	{ after(grammarAccess.getProtocol_network_dataAccess().getPASSWORDKeyword_3()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Mqtt_network_data__Group__4
+rule__Protocol_network_data__Group__4
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Mqtt_network_data__Group__4__Impl
-	rule__Mqtt_network_data__Group__5
+	rule__Protocol_network_data__Group__4__Impl
+	rule__Protocol_network_data__Group__5
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Mqtt_network_data__Group__4__Impl
+rule__Protocol_network_data__Group__4__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getMqtt_network_dataAccess().getEqualsSignKeyword_4()); }
+	{ before(grammarAccess.getProtocol_network_dataAccess().getEqualsSignKeyword_4()); }
 	'='
-	{ after(grammarAccess.getMqtt_network_dataAccess().getEqualsSignKeyword_4()); }
+	{ after(grammarAccess.getProtocol_network_dataAccess().getEqualsSignKeyword_4()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Mqtt_network_data__Group__5
+rule__Protocol_network_data__Group__5
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Mqtt_network_data__Group__5__Impl
+	rule__Protocol_network_data__Group__5__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Mqtt_network_data__Group__5__Impl
+rule__Protocol_network_data__Group__5__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getMqtt_network_dataAccess().getPasswordAssignment_5()); }
-	(rule__Mqtt_network_data__PasswordAssignment_5)
-	{ after(grammarAccess.getMqtt_network_dataAccess().getPasswordAssignment_5()); }
+	{ before(grammarAccess.getProtocol_network_dataAccess().getPasswordAssignment_5()); }
+	(rule__Protocol_network_data__PasswordAssignment_5)
+	{ after(grammarAccess.getProtocol_network_dataAccess().getPasswordAssignment_5()); }
 )
 ;
 finally {
@@ -6141,15 +6141,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Xml__ProvaAssignment_2
+rule__Xml__ElementsAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getXmlAccess().getProvaElementParserRuleCall_2_0()); }
+		{ before(grammarAccess.getXmlAccess().getElementsElementParserRuleCall_2_0()); }
 		ruleelement
-		{ after(grammarAccess.getXmlAccess().getProvaElementParserRuleCall_2_0()); }
+		{ after(grammarAccess.getXmlAccess().getElementsElementParserRuleCall_2_0()); }
 	)
 ;
 finally {
@@ -6740,9 +6740,9 @@ rule__Http_data__Mqtt_network_dataAssignment_1_6_2
 	}
 :
 	(
-		{ before(grammarAccess.getHttp_dataAccess().getMqtt_network_dataMqtt_network_dataParserRuleCall_1_6_2_0()); }
-		rulemqtt_network_data
-		{ after(grammarAccess.getHttp_dataAccess().getMqtt_network_dataMqtt_network_dataParserRuleCall_1_6_2_0()); }
+		{ before(grammarAccess.getHttp_dataAccess().getMqtt_network_dataProtocol_network_dataParserRuleCall_1_6_2_0()); }
+		ruleprotocol_network_data
+		{ after(grammarAccess.getHttp_dataAccess().getMqtt_network_dataProtocol_network_dataParserRuleCall_1_6_2_0()); }
 	)
 ;
 finally {
@@ -6815,9 +6815,9 @@ rule__Mqtt_data__Mqtt_network_dataAssignment_1_4_2
 	}
 :
 	(
-		{ before(grammarAccess.getMqtt_dataAccess().getMqtt_network_dataMqtt_network_dataParserRuleCall_1_4_2_0()); }
-		rulemqtt_network_data
-		{ after(grammarAccess.getMqtt_dataAccess().getMqtt_network_dataMqtt_network_dataParserRuleCall_1_4_2_0()); }
+		{ before(grammarAccess.getMqtt_dataAccess().getMqtt_network_dataProtocol_network_dataParserRuleCall_1_4_2_0()); }
+		ruleprotocol_network_data
+		{ after(grammarAccess.getMqtt_dataAccess().getMqtt_network_dataProtocol_network_dataParserRuleCall_1_4_2_0()); }
 	)
 ;
 finally {
@@ -6869,30 +6869,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Mqtt_network_data__SsidAssignment_2
+rule__Protocol_network_data__SsidAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getMqtt_network_dataAccess().getSsidSTRINGTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getProtocol_network_dataAccess().getSsidSTRINGTerminalRuleCall_2_0()); }
 		RULE_STRING
-		{ after(grammarAccess.getMqtt_network_dataAccess().getSsidSTRINGTerminalRuleCall_2_0()); }
+		{ after(grammarAccess.getProtocol_network_dataAccess().getSsidSTRINGTerminalRuleCall_2_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Mqtt_network_data__PasswordAssignment_5
+rule__Protocol_network_data__PasswordAssignment_5
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getMqtt_network_dataAccess().getPasswordSTRINGTerminalRuleCall_5_0()); }
+		{ before(grammarAccess.getProtocol_network_dataAccess().getPasswordSTRINGTerminalRuleCall_5_0()); }
 		RULE_STRING
-		{ after(grammarAccess.getMqtt_network_dataAccess().getPasswordSTRINGTerminalRuleCall_5_0()); }
+		{ after(grammarAccess.getProtocol_network_dataAccess().getPasswordSTRINGTerminalRuleCall_5_0()); }
 	)
 ;
 finally {

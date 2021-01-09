@@ -77,7 +77,7 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
       case BPMN_translatorPackage.PROTOCOL: return createprotocol();
       case BPMN_translatorPackage.HTTP_DATA: return createhttp_data();
       case BPMN_translatorPackage.MQTT_DATA: return createmqtt_data();
-      case BPMN_translatorPackage.MQTT_NETWORK_DATA: return createmqtt_network_data();
+      case BPMN_translatorPackage.PROTOCOL_NETWORK_DATA: return createprotocol_network_data();
       case BPMN_translatorPackage.PROTOCOL_DEVICE: return createprotocol_device();
       case BPMN_translatorPackage.SENSOR: return createsensor();
       case BPMN_translatorPackage.SENSOR_DATA: return createsensor_data();
@@ -236,10 +236,10 @@ public class BPMN_translatorFactoryImpl extends EFactoryImpl implements BPMN_tra
    * @generated
    */
   @Override
-  public mqtt_network_data createmqtt_network_data()
+  public protocol_network_data createprotocol_network_data()
   {
-    mqtt_network_dataImpl mqtt_network_data = new mqtt_network_dataImpl();
-    return mqtt_network_data;
+    protocol_network_dataImpl protocol_network_data = new protocol_network_dataImpl();
+    return protocol_network_data;
   }
 
   /**

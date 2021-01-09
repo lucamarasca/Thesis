@@ -26,9 +26,9 @@ import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
 import org.xtext.bPMN_translator.http_data;
 import org.xtext.bPMN_translator.mqtt_data;
-import org.xtext.bPMN_translator.mqtt_network_data;
 import org.xtext.bPMN_translator.protocol;
 import org.xtext.bPMN_translator.protocol_device;
+import org.xtext.bPMN_translator.protocol_network_data;
 import org.xtext.bPMN_translator.sensor;
 import org.xtext.bPMN_translator.sensor_data;
 import org.xtext.generator.ArduinoCPPCodeGenerator;
@@ -1224,8 +1224,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                               this.netdata1.getDatas().setServer_ip(http.getServer_ip().get(0));
                               this.netdata1.getDatas().getWifi_ssid().clear();
                               this.netdata1.getDatas().getWifi_pass().clear();
-                              EList<mqtt_network_data> _mqtt_network_data = http.getMqtt_network_data();
-                              for (final mqtt_network_data http_network_data : _mqtt_network_data) {
+                              EList<protocol_network_data> _mqtt_network_data = http.getMqtt_network_data();
+                              for (final protocol_network_data http_network_data : _mqtt_network_data) {
                                 {
                                   this.netdata1.getDatas().getWifi_ssid().add(http_network_data.getSsid().get(0));
                                   this.netdata1.getDatas().getWifi_pass().add(http_network_data.getPassword().get(0));
@@ -1288,8 +1288,8 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
                               this.netdata.getDatas().setBroker(MQTTData.getBroker().get(0));
                               this.netdata.getDatas().getWifi_ssid().clear();
                               this.netdata.getDatas().getWifi_pass().clear();
-                              EList<mqtt_network_data> _mqtt_network_data = MQTTData.getMqtt_network_data();
-                              for (final mqtt_network_data MQTT_network_data : _mqtt_network_data) {
+                              EList<protocol_network_data> _mqtt_network_data = MQTTData.getMqtt_network_data();
+                              for (final protocol_network_data MQTT_network_data : _mqtt_network_data) {
                                 {
                                   this.netdata.getDatas().getWifi_ssid().add(MQTT_network_data.getSsid().get(0));
                                   this.netdata.getDatas().getWifi_pass().add(MQTT_network_data.getPassword().get(0));

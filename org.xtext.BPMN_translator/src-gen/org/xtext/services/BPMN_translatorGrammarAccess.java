@@ -43,16 +43,14 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cXmlAction_0 = (Action)cGroup.eContents().get(0);
 		private final RuleCall cPrologParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Assignment cProvaAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cProvaElementParserRuleCall_2_0 = (RuleCall)cProvaAssignment_2.eContents().get(0);
+		private final Assignment cElementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cElementsElementParserRuleCall_2_0 = (RuleCall)cElementsAssignment_2.eContents().get(0);
 		
 		//Xml:
-		//	{Xml} prolog? prova+=element*
-		//	//{Xml} opening_tag += (Opening)
-		//;
+		//	{Xml} prolog? elements+=element*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Xml} prolog? prova+=element*
+		//{Xml} prolog? elements+=element*
 		public Group getGroup() { return cGroup; }
 		
 		//{Xml}
@@ -61,11 +59,11 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//prolog?
 		public RuleCall getPrologParserRuleCall_1() { return cPrologParserRuleCall_1; }
 		
-		//prova+=element*
-		public Assignment getProvaAssignment_2() { return cProvaAssignment_2; }
+		//elements+=element*
+		public Assignment getElementsAssignment_2() { return cElementsAssignment_2; }
 		
 		//element
-		public RuleCall getProvaElementParserRuleCall_2_0() { return cProvaElementParserRuleCall_2_0; }
+		public RuleCall getElementsElementParserRuleCall_2_0() { return cElementsElementParserRuleCall_2_0; }
 	}
 	public class PrologElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.prolog");
@@ -186,7 +184,8 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		
 		//content:
 		//	{content} (type+=("_TASK" | "_GATEWAY") "{" codex+=codex "}" | element+=element | body+=preconditions* body+=(BODY |
-		//	variables) body+=conditions* | keywords+=KEYWORDS | data+=STRING)*;
+		//	variables) body+=conditions*
+		//	| keywords+=KEYWORDS | data+=STRING)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{content} (type+=("_TASK" | "_GATEWAY") "{" codex+=codex "}" | element+=element | body+=preconditions* body+=(BODY |
@@ -856,7 +855,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final Keyword cNETWORKKeyword_1_6_0 = (Keyword)cGroup_1_6.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1_6_1 = (Keyword)cGroup_1_6.eContents().get(1);
 		private final Assignment cMqtt_network_dataAssignment_1_6_2 = (Assignment)cGroup_1_6.eContents().get(2);
-		private final RuleCall cMqtt_network_dataMqtt_network_dataParserRuleCall_1_6_2_0 = (RuleCall)cMqtt_network_dataAssignment_1_6_2.eContents().get(0);
+		private final RuleCall cMqtt_network_dataProtocol_network_dataParserRuleCall_1_6_2_0 = (RuleCall)cMqtt_network_dataAssignment_1_6_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_1_6_3 = (Keyword)cGroup_1_6.eContents().get(3);
 		
 		//http_data:
@@ -865,12 +864,12 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//	| "CONTENT_TYPE" "=" content_type+=STRING
 		//	| "HEADER" "=" header+=STRING
 		//	| "DATA" "=" data+=STRING
-		//	| "NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}")*;
+		//	| "NETWORK" "{" mqtt_network_data+=protocol_network_data* "}")*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{http_data} ("NAME" "=" pname+=STRING | "SERVER_IP" "=" server_ip+=STRING | "REQUEST_TYPE" "=" request_type+=STRING |
 		//"CONTENT_TYPE" "=" content_type+=STRING | "HEADER" "=" header+=STRING | "DATA" "=" data+=STRING | "NETWORK" "{"
-		//mqtt_network_data+=mqtt_network_data* "}")*
+		//mqtt_network_data+=protocol_network_data* "}")*
 		public Group getGroup() { return cGroup; }
 		
 		//{http_data}
@@ -878,7 +877,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		
 		//("NAME" "=" pname+=STRING | "SERVER_IP" "=" server_ip+=STRING | "REQUEST_TYPE" "=" request_type+=STRING | "CONTENT_TYPE"
 		//"=" content_type+=STRING | "HEADER" "=" header+=STRING | "DATA" "=" data+=STRING | "NETWORK" "{"
-		//mqtt_network_data+=mqtt_network_data* "}")*
+		//mqtt_network_data+=protocol_network_data* "}")*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//"NAME" "=" pname+=STRING
@@ -971,7 +970,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//STRING
 		public RuleCall getDataSTRINGTerminalRuleCall_1_5_2_0() { return cDataSTRINGTerminalRuleCall_1_5_2_0; }
 		
-		//"NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}"
+		//"NETWORK" "{" mqtt_network_data+=protocol_network_data* "}"
 		public Group getGroup_1_6() { return cGroup_1_6; }
 		
 		//"NETWORK"
@@ -980,11 +979,11 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_1_6_1() { return cLeftCurlyBracketKeyword_1_6_1; }
 		
-		//mqtt_network_data+=mqtt_network_data*
+		//mqtt_network_data+=protocol_network_data*
 		public Assignment getMqtt_network_dataAssignment_1_6_2() { return cMqtt_network_dataAssignment_1_6_2; }
 		
-		//mqtt_network_data
-		public RuleCall getMqtt_network_dataMqtt_network_dataParserRuleCall_1_6_2_0() { return cMqtt_network_dataMqtt_network_dataParserRuleCall_1_6_2_0; }
+		//protocol_network_data
+		public RuleCall getMqtt_network_dataProtocol_network_dataParserRuleCall_1_6_2_0() { return cMqtt_network_dataProtocol_network_dataParserRuleCall_1_6_2_0; }
 		
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_1_6_3() { return cRightCurlyBracketKeyword_1_6_3; }
@@ -1018,7 +1017,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final Keyword cNETWORKKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1_4_1 = (Keyword)cGroup_1_4.eContents().get(1);
 		private final Assignment cMqtt_network_dataAssignment_1_4_2 = (Assignment)cGroup_1_4.eContents().get(2);
-		private final RuleCall cMqtt_network_dataMqtt_network_dataParserRuleCall_1_4_2_0 = (RuleCall)cMqtt_network_dataAssignment_1_4_2.eContents().get(0);
+		private final RuleCall cMqtt_network_dataProtocol_network_dataParserRuleCall_1_4_2_0 = (RuleCall)cMqtt_network_dataAssignment_1_4_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_1_4_3 = (Keyword)cGroup_1_4.eContents().get(3);
 		private final Group cGroup_1_5 = (Group)cAlternatives_1.eContents().get(5);
 		private final Keyword cSUBTOPICSKeyword_1_5_0 = (Keyword)cGroup_1_5.eContents().get(0);
@@ -1050,14 +1049,14 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//mqtt_data:
 		//	{mqtt_data} ("NAME" "=" pname+=STRING | "BROKER_USER" "=" broker_user+=STRING
 		//	| "BROKER_PASSWORD" "=" broker_password+=STRING | "BROKER" "=" broker+=STRING
-		//	| "NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}"
+		//	| "NETWORK" "{" mqtt_network_data+=protocol_network_data* "}"
 		//	| "SUBTOPICS" "{" ("TOPIC_NAME" "=" subtopics+=STRING)* "}"
 		//	| "PUBTOPICS" "{" ("TOPIC_NAME" "=" pubtopics+=STRING*
 		//	| "DATA" "=" value+=(STRING | variables))* "}")*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{mqtt_data} ("NAME" "=" pname+=STRING | "BROKER_USER" "=" broker_user+=STRING | "BROKER_PASSWORD" "="
-		//broker_password+=STRING | "BROKER" "=" broker+=STRING | "NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}" |
+		//broker_password+=STRING | "BROKER" "=" broker+=STRING | "NETWORK" "{" mqtt_network_data+=protocol_network_data* "}" |
 		//"SUBTOPICS" "{" ("TOPIC_NAME" "=" subtopics+=STRING)* "}" | "PUBTOPICS" "{" ("TOPIC_NAME" "=" pubtopics+=STRING* |
 		//"DATA" "=" value+=(STRING | variables))* "}")*
 		public Group getGroup() { return cGroup; }
@@ -1066,9 +1065,9 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		public Action getMqtt_dataAction_0() { return cMqtt_dataAction_0; }
 		
 		//("NAME" "=" pname+=STRING | "BROKER_USER" "=" broker_user+=STRING | "BROKER_PASSWORD" "=" broker_password+=STRING |
-		//"BROKER" "=" broker+=STRING | "NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}" | "SUBTOPICS" "{" ("TOPIC_NAME"
-		//"=" subtopics+=STRING)* "}" | "PUBTOPICS" "{" ("TOPIC_NAME" "=" pubtopics+=STRING* | "DATA" "=" value+=(STRING |
-		//variables))* "}")*
+		//"BROKER" "=" broker+=STRING | "NETWORK" "{" mqtt_network_data+=protocol_network_data* "}" | "SUBTOPICS" "{"
+		//("TOPIC_NAME" "=" subtopics+=STRING)* "}" | "PUBTOPICS" "{" ("TOPIC_NAME" "=" pubtopics+=STRING* | "DATA" "="
+		//value+=(STRING | variables))* "}")*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//"NAME" "=" pname+=STRING
@@ -1131,7 +1130,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//STRING
 		public RuleCall getBrokerSTRINGTerminalRuleCall_1_3_2_0() { return cBrokerSTRINGTerminalRuleCall_1_3_2_0; }
 		
-		//"NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}"
+		//"NETWORK" "{" mqtt_network_data+=protocol_network_data* "}"
 		public Group getGroup_1_4() { return cGroup_1_4; }
 		
 		//"NETWORK"
@@ -1140,11 +1139,11 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_1_4_1() { return cLeftCurlyBracketKeyword_1_4_1; }
 		
-		//mqtt_network_data+=mqtt_network_data*
+		//mqtt_network_data+=protocol_network_data*
 		public Assignment getMqtt_network_dataAssignment_1_4_2() { return cMqtt_network_dataAssignment_1_4_2; }
 		
-		//mqtt_network_data
-		public RuleCall getMqtt_network_dataMqtt_network_dataParserRuleCall_1_4_2_0() { return cMqtt_network_dataMqtt_network_dataParserRuleCall_1_4_2_0; }
+		//protocol_network_data
+		public RuleCall getMqtt_network_dataProtocol_network_dataParserRuleCall_1_4_2_0() { return cMqtt_network_dataProtocol_network_dataParserRuleCall_1_4_2_0; }
 		
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_1_4_3() { return cRightCurlyBracketKeyword_1_4_3; }
@@ -1227,8 +1226,8 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_1_6_3() { return cRightCurlyBracketKeyword_1_6_3; }
 	}
-	public class Mqtt_network_dataElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.mqtt_network_data");
+	public class Protocol_network_dataElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.BPMN_translator.protocol_network_data");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cSSIDKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -1239,7 +1238,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		private final Assignment cPasswordAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cPasswordSTRINGTerminalRuleCall_5_0 = (RuleCall)cPasswordAssignment_5.eContents().get(0);
 		
-		//mqtt_network_data:
+		//protocol_network_data:
 		//	"SSID" "=" ssid+=STRING
 		//	"PASSWORD" "=" password+=STRING;
 		@Override public ParserRule getRule() { return rule; }
@@ -1533,7 +1532,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	private final ProtocolElements pProtocol;
 	private final Http_dataElements pHttp_data;
 	private final Mqtt_dataElements pMqtt_data;
-	private final Mqtt_network_dataElements pMqtt_network_data;
+	private final Protocol_network_dataElements pProtocol_network_data;
 	private final Protocol_deviceElements pProtocol_device;
 	private final SensorElements pSensor;
 	private final Sensor_dataElements pSensor_data;
@@ -1566,7 +1565,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		this.pProtocol = new ProtocolElements();
 		this.pHttp_data = new Http_dataElements();
 		this.pMqtt_data = new Mqtt_dataElements();
-		this.pMqtt_network_data = new Mqtt_network_dataElements();
+		this.pProtocol_network_data = new Protocol_network_dataElements();
 		this.pProtocol_device = new Protocol_deviceElements();
 		this.pSensor = new SensorElements();
 		this.pSensor_data = new Sensor_dataElements();
@@ -1613,9 +1612,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	}
 	
 	//Xml:
-	//	{Xml} prolog? prova+=element*
-	//	//{Xml} opening_tag += (Opening)
-	//;
+	//	{Xml} prolog? elements+=element*;
 	public XmlElements getXmlAccess() {
 		return pXml;
 	}
@@ -1647,7 +1644,8 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	
 	//content:
 	//	{content} (type+=("_TASK" | "_GATEWAY") "{" codex+=codex "}" | element+=element | body+=preconditions* body+=(BODY |
-	//	variables) body+=conditions* | keywords+=KEYWORDS | data+=STRING)*;
+	//	variables) body+=conditions*
+	//	| keywords+=KEYWORDS | data+=STRING)*;
 	public ContentElements getContentAccess() {
 		return pContent;
 	}
@@ -1757,7 +1755,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	//	| "CONTENT_TYPE" "=" content_type+=STRING
 	//	| "HEADER" "=" header+=STRING
 	//	| "DATA" "=" data+=STRING
-	//	| "NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}")*;
+	//	| "NETWORK" "{" mqtt_network_data+=protocol_network_data* "}")*;
 	public Http_dataElements getHttp_dataAccess() {
 		return pHttp_data;
 	}
@@ -1769,7 +1767,7 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 	//mqtt_data:
 	//	{mqtt_data} ("NAME" "=" pname+=STRING | "BROKER_USER" "=" broker_user+=STRING
 	//	| "BROKER_PASSWORD" "=" broker_password+=STRING | "BROKER" "=" broker+=STRING
-	//	| "NETWORK" "{" mqtt_network_data+=mqtt_network_data* "}"
+	//	| "NETWORK" "{" mqtt_network_data+=protocol_network_data* "}"
 	//	| "SUBTOPICS" "{" ("TOPIC_NAME" "=" subtopics+=STRING)* "}"
 	//	| "PUBTOPICS" "{" ("TOPIC_NAME" "=" pubtopics+=STRING*
 	//	| "DATA" "=" value+=(STRING | variables))* "}")*;
@@ -1781,15 +1779,15 @@ public class BPMN_translatorGrammarAccess extends AbstractElementFinder.Abstract
 		return getMqtt_dataAccess().getRule();
 	}
 	
-	//mqtt_network_data:
+	//protocol_network_data:
 	//	"SSID" "=" ssid+=STRING
 	//	"PASSWORD" "=" password+=STRING;
-	public Mqtt_network_dataElements getMqtt_network_dataAccess() {
-		return pMqtt_network_data;
+	public Protocol_network_dataElements getProtocol_network_dataAccess() {
+		return pProtocol_network_data;
 	}
 	
-	public ParserRule getMqtt_network_dataRule() {
-		return getMqtt_network_dataAccess().getRule();
+	public ParserRule getProtocol_network_dataRule() {
+		return getProtocol_network_dataAccess().getRule();
 	}
 	
 	//protocol_device:

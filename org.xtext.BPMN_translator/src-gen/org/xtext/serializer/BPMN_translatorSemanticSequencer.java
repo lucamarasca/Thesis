@@ -24,9 +24,9 @@ import org.xtext.bPMN_translator.device;
 import org.xtext.bPMN_translator.element;
 import org.xtext.bPMN_translator.http_data;
 import org.xtext.bPMN_translator.mqtt_data;
-import org.xtext.bPMN_translator.mqtt_network_data;
 import org.xtext.bPMN_translator.protocol;
 import org.xtext.bPMN_translator.protocol_device;
+import org.xtext.bPMN_translator.protocol_network_data;
 import org.xtext.bPMN_translator.sensor;
 import org.xtext.bPMN_translator.sensor_data;
 import org.xtext.services.BPMN_translatorGrammarAccess;
@@ -78,14 +78,14 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 			case BPMN_translatorPackage.MQTT_DATA:
 				sequence_mqtt_data(context, (mqtt_data) semanticObject); 
 				return; 
-			case BPMN_translatorPackage.MQTT_NETWORK_DATA:
-				sequence_mqtt_network_data(context, (mqtt_network_data) semanticObject); 
-				return; 
 			case BPMN_translatorPackage.PROTOCOL:
 				sequence_protocol(context, (protocol) semanticObject); 
 				return; 
 			case BPMN_translatorPackage.PROTOCOL_DEVICE:
 				sequence_protocol_device(context, (protocol_device) semanticObject); 
+				return; 
+			case BPMN_translatorPackage.PROTOCOL_NETWORK_DATA:
+				sequence_protocol_network_data(context, (protocol_network_data) semanticObject); 
 				return; 
 			case BPMN_translatorPackage.SENSOR:
 				sequence_sensor(context, (sensor) semanticObject); 
@@ -151,7 +151,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *     Xml returns Xml
 	 *
 	 * Constraint:
-	 *     prova+=element*
+	 *     elements+=element*
 	 */
 	protected void sequence_Xml(ISerializationContext context, Xml semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -222,7 +222,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *         content_type+=STRING | 
 	 *         header+=STRING | 
 	 *         data+=STRING | 
-	 *         mqtt_network_data+=mqtt_network_data
+	 *         mqtt_network_data+=protocol_network_data
 	 *     )*
 	 */
 	protected void sequence_http_data(ISerializationContext context, http_data semanticObject) {
@@ -240,7 +240,7 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	 *         broker_user+=STRING | 
 	 *         broker_password+=STRING | 
 	 *         broker+=STRING | 
-	 *         mqtt_network_data+=mqtt_network_data | 
+	 *         mqtt_network_data+=protocol_network_data | 
 	 *         subtopics+=STRING | 
 	 *         pubtopics+=STRING | 
 	 *         value+=STRING | 
@@ -254,24 +254,24 @@ public class BPMN_translatorSemanticSequencer extends AbstractDelegatingSemantic
 	
 	/**
 	 * Contexts:
-	 *     mqtt_network_data returns mqtt_network_data
-	 *
-	 * Constraint:
-	 *     (ssid+=STRING password+=STRING)
-	 */
-	protected void sequence_mqtt_network_data(ISerializationContext context, mqtt_network_data semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     protocol_device returns protocol_device
 	 *
 	 * Constraint:
 	 *     dname+=STRING
 	 */
 	protected void sequence_protocol_device(ISerializationContext context, protocol_device semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     protocol_network_data returns protocol_network_data
+	 *
+	 * Constraint:
+	 *     (ssid+=STRING password+=STRING)
+	 */
+	protected void sequence_protocol_network_data(ISerializationContext context, protocol_network_data semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

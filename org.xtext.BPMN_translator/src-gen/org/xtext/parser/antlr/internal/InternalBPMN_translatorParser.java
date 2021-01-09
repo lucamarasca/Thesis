@@ -265,22 +265,22 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXml"
-    // InternalBPMN_translator.g:107:1: ruleXml returns [EObject current=null] : ( () ( ruleprolog )? ( (lv_prova_2_0= ruleelement ) )* ) ;
+    // InternalBPMN_translator.g:107:1: ruleXml returns [EObject current=null] : ( () ( ruleprolog )? ( (lv_elements_2_0= ruleelement ) )* ) ;
     public final EObject ruleXml() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_prova_2_0 = null;
+        EObject lv_elements_2_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalBPMN_translator.g:113:2: ( ( () ( ruleprolog )? ( (lv_prova_2_0= ruleelement ) )* ) )
-            // InternalBPMN_translator.g:114:2: ( () ( ruleprolog )? ( (lv_prova_2_0= ruleelement ) )* )
+            // InternalBPMN_translator.g:113:2: ( ( () ( ruleprolog )? ( (lv_elements_2_0= ruleelement ) )* ) )
+            // InternalBPMN_translator.g:114:2: ( () ( ruleprolog )? ( (lv_elements_2_0= ruleelement ) )* )
             {
-            // InternalBPMN_translator.g:114:2: ( () ( ruleprolog )? ( (lv_prova_2_0= ruleelement ) )* )
-            // InternalBPMN_translator.g:115:3: () ( ruleprolog )? ( (lv_prova_2_0= ruleelement ) )*
+            // InternalBPMN_translator.g:114:2: ( () ( ruleprolog )? ( (lv_elements_2_0= ruleelement ) )* )
+            // InternalBPMN_translator.g:115:3: () ( ruleprolog )? ( (lv_elements_2_0= ruleelement ) )*
             {
             // InternalBPMN_translator.g:115:3: ()
             // InternalBPMN_translator.g:116:4: 
@@ -321,7 +321,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBPMN_translator.g:131:3: ( (lv_prova_2_0= ruleelement ) )*
+            // InternalBPMN_translator.g:131:3: ( (lv_elements_2_0= ruleelement ) )*
             loop2:
             do {
                 int alt2=2;
@@ -334,16 +334,16 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalBPMN_translator.g:132:4: (lv_prova_2_0= ruleelement )
+            	    // InternalBPMN_translator.g:132:4: (lv_elements_2_0= ruleelement )
             	    {
-            	    // InternalBPMN_translator.g:132:4: (lv_prova_2_0= ruleelement )
-            	    // InternalBPMN_translator.g:133:5: lv_prova_2_0= ruleelement
+            	    // InternalBPMN_translator.g:132:4: (lv_elements_2_0= ruleelement )
+            	    // InternalBPMN_translator.g:133:5: lv_elements_2_0= ruleelement
             	    {
 
-            	    					newCompositeNode(grammarAccess.getXmlAccess().getProvaElementParserRuleCall_2_0());
+            	    					newCompositeNode(grammarAccess.getXmlAccess().getElementsElementParserRuleCall_2_0());
             	    				
             	    pushFollow(FOLLOW_3);
-            	    lv_prova_2_0=ruleelement();
+            	    lv_elements_2_0=ruleelement();
 
             	    state._fsp--;
 
@@ -353,8 +353,8 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"prova",
-            	    						lv_prova_2_0,
+            	    						"elements",
+            	    						lv_elements_2_0,
             	    						"org.xtext.BPMN_translator.element");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -3300,7 +3300,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulehttp_data"
-    // InternalBPMN_translator.g:1376:1: rulehttp_data returns [EObject current=null] : ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'SERVER_IP' otherlv_5= '=' ( (lv_server_ip_6_0= RULE_STRING ) ) ) | (otherlv_7= 'REQUEST_TYPE' otherlv_8= '=' ( (lv_request_type_9_0= RULE_STRING ) ) ) | (otherlv_10= 'CONTENT_TYPE' otherlv_11= '=' ( (lv_content_type_12_0= RULE_STRING ) ) ) | (otherlv_13= 'HEADER' otherlv_14= '=' ( (lv_header_15_0= RULE_STRING ) ) ) | (otherlv_16= 'DATA' otherlv_17= '=' ( (lv_data_18_0= RULE_STRING ) ) ) | (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= rulemqtt_network_data ) )* otherlv_22= '}' ) )* ) ;
+    // InternalBPMN_translator.g:1376:1: rulehttp_data returns [EObject current=null] : ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'SERVER_IP' otherlv_5= '=' ( (lv_server_ip_6_0= RULE_STRING ) ) ) | (otherlv_7= 'REQUEST_TYPE' otherlv_8= '=' ( (lv_request_type_9_0= RULE_STRING ) ) ) | (otherlv_10= 'CONTENT_TYPE' otherlv_11= '=' ( (lv_content_type_12_0= RULE_STRING ) ) ) | (otherlv_13= 'HEADER' otherlv_14= '=' ( (lv_header_15_0= RULE_STRING ) ) ) | (otherlv_16= 'DATA' otherlv_17= '=' ( (lv_data_18_0= RULE_STRING ) ) ) | (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= ruleprotocol_network_data ) )* otherlv_22= '}' ) )* ) ;
     public final EObject rulehttp_data() throws RecognitionException {
         EObject current = null;
 
@@ -3332,11 +3332,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBPMN_translator.g:1382:2: ( ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'SERVER_IP' otherlv_5= '=' ( (lv_server_ip_6_0= RULE_STRING ) ) ) | (otherlv_7= 'REQUEST_TYPE' otherlv_8= '=' ( (lv_request_type_9_0= RULE_STRING ) ) ) | (otherlv_10= 'CONTENT_TYPE' otherlv_11= '=' ( (lv_content_type_12_0= RULE_STRING ) ) ) | (otherlv_13= 'HEADER' otherlv_14= '=' ( (lv_header_15_0= RULE_STRING ) ) ) | (otherlv_16= 'DATA' otherlv_17= '=' ( (lv_data_18_0= RULE_STRING ) ) ) | (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= rulemqtt_network_data ) )* otherlv_22= '}' ) )* ) )
-            // InternalBPMN_translator.g:1383:2: ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'SERVER_IP' otherlv_5= '=' ( (lv_server_ip_6_0= RULE_STRING ) ) ) | (otherlv_7= 'REQUEST_TYPE' otherlv_8= '=' ( (lv_request_type_9_0= RULE_STRING ) ) ) | (otherlv_10= 'CONTENT_TYPE' otherlv_11= '=' ( (lv_content_type_12_0= RULE_STRING ) ) ) | (otherlv_13= 'HEADER' otherlv_14= '=' ( (lv_header_15_0= RULE_STRING ) ) ) | (otherlv_16= 'DATA' otherlv_17= '=' ( (lv_data_18_0= RULE_STRING ) ) ) | (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= rulemqtt_network_data ) )* otherlv_22= '}' ) )* )
+            // InternalBPMN_translator.g:1382:2: ( ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'SERVER_IP' otherlv_5= '=' ( (lv_server_ip_6_0= RULE_STRING ) ) ) | (otherlv_7= 'REQUEST_TYPE' otherlv_8= '=' ( (lv_request_type_9_0= RULE_STRING ) ) ) | (otherlv_10= 'CONTENT_TYPE' otherlv_11= '=' ( (lv_content_type_12_0= RULE_STRING ) ) ) | (otherlv_13= 'HEADER' otherlv_14= '=' ( (lv_header_15_0= RULE_STRING ) ) ) | (otherlv_16= 'DATA' otherlv_17= '=' ( (lv_data_18_0= RULE_STRING ) ) ) | (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= ruleprotocol_network_data ) )* otherlv_22= '}' ) )* ) )
+            // InternalBPMN_translator.g:1383:2: ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'SERVER_IP' otherlv_5= '=' ( (lv_server_ip_6_0= RULE_STRING ) ) ) | (otherlv_7= 'REQUEST_TYPE' otherlv_8= '=' ( (lv_request_type_9_0= RULE_STRING ) ) ) | (otherlv_10= 'CONTENT_TYPE' otherlv_11= '=' ( (lv_content_type_12_0= RULE_STRING ) ) ) | (otherlv_13= 'HEADER' otherlv_14= '=' ( (lv_header_15_0= RULE_STRING ) ) ) | (otherlv_16= 'DATA' otherlv_17= '=' ( (lv_data_18_0= RULE_STRING ) ) ) | (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= ruleprotocol_network_data ) )* otherlv_22= '}' ) )* )
             {
-            // InternalBPMN_translator.g:1383:2: ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'SERVER_IP' otherlv_5= '=' ( (lv_server_ip_6_0= RULE_STRING ) ) ) | (otherlv_7= 'REQUEST_TYPE' otherlv_8= '=' ( (lv_request_type_9_0= RULE_STRING ) ) ) | (otherlv_10= 'CONTENT_TYPE' otherlv_11= '=' ( (lv_content_type_12_0= RULE_STRING ) ) ) | (otherlv_13= 'HEADER' otherlv_14= '=' ( (lv_header_15_0= RULE_STRING ) ) ) | (otherlv_16= 'DATA' otherlv_17= '=' ( (lv_data_18_0= RULE_STRING ) ) ) | (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= rulemqtt_network_data ) )* otherlv_22= '}' ) )* )
-            // InternalBPMN_translator.g:1384:3: () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'SERVER_IP' otherlv_5= '=' ( (lv_server_ip_6_0= RULE_STRING ) ) ) | (otherlv_7= 'REQUEST_TYPE' otherlv_8= '=' ( (lv_request_type_9_0= RULE_STRING ) ) ) | (otherlv_10= 'CONTENT_TYPE' otherlv_11= '=' ( (lv_content_type_12_0= RULE_STRING ) ) ) | (otherlv_13= 'HEADER' otherlv_14= '=' ( (lv_header_15_0= RULE_STRING ) ) ) | (otherlv_16= 'DATA' otherlv_17= '=' ( (lv_data_18_0= RULE_STRING ) ) ) | (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= rulemqtt_network_data ) )* otherlv_22= '}' ) )*
+            // InternalBPMN_translator.g:1383:2: ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'SERVER_IP' otherlv_5= '=' ( (lv_server_ip_6_0= RULE_STRING ) ) ) | (otherlv_7= 'REQUEST_TYPE' otherlv_8= '=' ( (lv_request_type_9_0= RULE_STRING ) ) ) | (otherlv_10= 'CONTENT_TYPE' otherlv_11= '=' ( (lv_content_type_12_0= RULE_STRING ) ) ) | (otherlv_13= 'HEADER' otherlv_14= '=' ( (lv_header_15_0= RULE_STRING ) ) ) | (otherlv_16= 'DATA' otherlv_17= '=' ( (lv_data_18_0= RULE_STRING ) ) ) | (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= ruleprotocol_network_data ) )* otherlv_22= '}' ) )* )
+            // InternalBPMN_translator.g:1384:3: () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'SERVER_IP' otherlv_5= '=' ( (lv_server_ip_6_0= RULE_STRING ) ) ) | (otherlv_7= 'REQUEST_TYPE' otherlv_8= '=' ( (lv_request_type_9_0= RULE_STRING ) ) ) | (otherlv_10= 'CONTENT_TYPE' otherlv_11= '=' ( (lv_content_type_12_0= RULE_STRING ) ) ) | (otherlv_13= 'HEADER' otherlv_14= '=' ( (lv_header_15_0= RULE_STRING ) ) ) | (otherlv_16= 'DATA' otherlv_17= '=' ( (lv_data_18_0= RULE_STRING ) ) ) | (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= ruleprotocol_network_data ) )* otherlv_22= '}' ) )*
             {
             // InternalBPMN_translator.g:1384:3: ()
             // InternalBPMN_translator.g:1385:4: 
@@ -3349,7 +3349,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBPMN_translator.g:1391:3: ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'SERVER_IP' otherlv_5= '=' ( (lv_server_ip_6_0= RULE_STRING ) ) ) | (otherlv_7= 'REQUEST_TYPE' otherlv_8= '=' ( (lv_request_type_9_0= RULE_STRING ) ) ) | (otherlv_10= 'CONTENT_TYPE' otherlv_11= '=' ( (lv_content_type_12_0= RULE_STRING ) ) ) | (otherlv_13= 'HEADER' otherlv_14= '=' ( (lv_header_15_0= RULE_STRING ) ) ) | (otherlv_16= 'DATA' otherlv_17= '=' ( (lv_data_18_0= RULE_STRING ) ) ) | (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= rulemqtt_network_data ) )* otherlv_22= '}' ) )*
+            // InternalBPMN_translator.g:1391:3: ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'SERVER_IP' otherlv_5= '=' ( (lv_server_ip_6_0= RULE_STRING ) ) ) | (otherlv_7= 'REQUEST_TYPE' otherlv_8= '=' ( (lv_request_type_9_0= RULE_STRING ) ) ) | (otherlv_10= 'CONTENT_TYPE' otherlv_11= '=' ( (lv_content_type_12_0= RULE_STRING ) ) ) | (otherlv_13= 'HEADER' otherlv_14= '=' ( (lv_header_15_0= RULE_STRING ) ) ) | (otherlv_16= 'DATA' otherlv_17= '=' ( (lv_data_18_0= RULE_STRING ) ) ) | (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= ruleprotocol_network_data ) )* otherlv_22= '}' ) )*
             loop19:
             do {
                 int alt19=8;
@@ -3670,10 +3670,10 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 7 :
-            	    // InternalBPMN_translator.g:1566:4: (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= rulemqtt_network_data ) )* otherlv_22= '}' )
+            	    // InternalBPMN_translator.g:1566:4: (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= ruleprotocol_network_data ) )* otherlv_22= '}' )
             	    {
-            	    // InternalBPMN_translator.g:1566:4: (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= rulemqtt_network_data ) )* otherlv_22= '}' )
-            	    // InternalBPMN_translator.g:1567:5: otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= rulemqtt_network_data ) )* otherlv_22= '}'
+            	    // InternalBPMN_translator.g:1566:4: (otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= ruleprotocol_network_data ) )* otherlv_22= '}' )
+            	    // InternalBPMN_translator.g:1567:5: otherlv_19= 'NETWORK' otherlv_20= '{' ( (lv_mqtt_network_data_21_0= ruleprotocol_network_data ) )* otherlv_22= '}'
             	    {
             	    otherlv_19=(Token)match(input,53,FOLLOW_10); 
 
@@ -3683,7 +3683,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             	    					newLeafNode(otherlv_20, grammarAccess.getHttp_dataAccess().getLeftCurlyBracketKeyword_1_6_1());
             	    				
-            	    // InternalBPMN_translator.g:1575:5: ( (lv_mqtt_network_data_21_0= rulemqtt_network_data ) )*
+            	    // InternalBPMN_translator.g:1575:5: ( (lv_mqtt_network_data_21_0= ruleprotocol_network_data ) )*
             	    loop18:
             	    do {
             	        int alt18=2;
@@ -3696,16 +3696,16 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             	        switch (alt18) {
             	    	case 1 :
-            	    	    // InternalBPMN_translator.g:1576:6: (lv_mqtt_network_data_21_0= rulemqtt_network_data )
+            	    	    // InternalBPMN_translator.g:1576:6: (lv_mqtt_network_data_21_0= ruleprotocol_network_data )
             	    	    {
-            	    	    // InternalBPMN_translator.g:1576:6: (lv_mqtt_network_data_21_0= rulemqtt_network_data )
-            	    	    // InternalBPMN_translator.g:1577:7: lv_mqtt_network_data_21_0= rulemqtt_network_data
+            	    	    // InternalBPMN_translator.g:1576:6: (lv_mqtt_network_data_21_0= ruleprotocol_network_data )
+            	    	    // InternalBPMN_translator.g:1577:7: lv_mqtt_network_data_21_0= ruleprotocol_network_data
             	    	    {
 
-            	    	    							newCompositeNode(grammarAccess.getHttp_dataAccess().getMqtt_network_dataMqtt_network_dataParserRuleCall_1_6_2_0());
+            	    	    							newCompositeNode(grammarAccess.getHttp_dataAccess().getMqtt_network_dataProtocol_network_dataParserRuleCall_1_6_2_0());
             	    	    						
             	    	    pushFollow(FOLLOW_32);
-            	    	    lv_mqtt_network_data_21_0=rulemqtt_network_data();
+            	    	    lv_mqtt_network_data_21_0=ruleprotocol_network_data();
 
             	    	    state._fsp--;
 
@@ -3717,7 +3717,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    	    								current,
             	    	    								"mqtt_network_data",
             	    	    								lv_mqtt_network_data_21_0,
-            	    	    								"org.xtext.BPMN_translator.mqtt_network_data");
+            	    	    								"org.xtext.BPMN_translator.protocol_network_data");
             	    	    							afterParserOrEnumRuleCall();
             	    	    						
 
@@ -3807,7 +3807,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulemqtt_data"
-    // InternalBPMN_translator.g:1611:1: rulemqtt_data returns [EObject current=null] : ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'BROKER_USER' otherlv_5= '=' ( (lv_broker_user_6_0= RULE_STRING ) ) ) | (otherlv_7= 'BROKER_PASSWORD' otherlv_8= '=' ( (lv_broker_password_9_0= RULE_STRING ) ) ) | (otherlv_10= 'BROKER' otherlv_11= '=' ( (lv_broker_12_0= RULE_STRING ) ) ) | (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= rulemqtt_network_data ) )* otherlv_16= '}' ) | (otherlv_17= 'SUBTOPICS' otherlv_18= '{' (otherlv_19= 'TOPIC_NAME' otherlv_20= '=' ( (lv_subtopics_21_0= RULE_STRING ) ) )* otherlv_22= '}' ) | (otherlv_23= 'PUBTOPICS' otherlv_24= '{' ( (otherlv_25= 'TOPIC_NAME' otherlv_26= '=' ( (lv_pubtopics_27_0= RULE_STRING ) )* ) | (otherlv_28= 'DATA' otherlv_29= '=' ( ( (lv_value_30_1= RULE_STRING | lv_value_30_2= rulevariables ) ) ) ) )* otherlv_31= '}' ) )* ) ;
+    // InternalBPMN_translator.g:1611:1: rulemqtt_data returns [EObject current=null] : ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'BROKER_USER' otherlv_5= '=' ( (lv_broker_user_6_0= RULE_STRING ) ) ) | (otherlv_7= 'BROKER_PASSWORD' otherlv_8= '=' ( (lv_broker_password_9_0= RULE_STRING ) ) ) | (otherlv_10= 'BROKER' otherlv_11= '=' ( (lv_broker_12_0= RULE_STRING ) ) ) | (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= ruleprotocol_network_data ) )* otherlv_16= '}' ) | (otherlv_17= 'SUBTOPICS' otherlv_18= '{' (otherlv_19= 'TOPIC_NAME' otherlv_20= '=' ( (lv_subtopics_21_0= RULE_STRING ) ) )* otherlv_22= '}' ) | (otherlv_23= 'PUBTOPICS' otherlv_24= '{' ( (otherlv_25= 'TOPIC_NAME' otherlv_26= '=' ( (lv_pubtopics_27_0= RULE_STRING ) )* ) | (otherlv_28= 'DATA' otherlv_29= '=' ( ( (lv_value_30_1= RULE_STRING | lv_value_30_2= rulevariables ) ) ) ) )* otherlv_31= '}' ) )* ) ;
     public final EObject rulemqtt_data() throws RecognitionException {
         EObject current = null;
 
@@ -3850,11 +3850,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBPMN_translator.g:1617:2: ( ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'BROKER_USER' otherlv_5= '=' ( (lv_broker_user_6_0= RULE_STRING ) ) ) | (otherlv_7= 'BROKER_PASSWORD' otherlv_8= '=' ( (lv_broker_password_9_0= RULE_STRING ) ) ) | (otherlv_10= 'BROKER' otherlv_11= '=' ( (lv_broker_12_0= RULE_STRING ) ) ) | (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= rulemqtt_network_data ) )* otherlv_16= '}' ) | (otherlv_17= 'SUBTOPICS' otherlv_18= '{' (otherlv_19= 'TOPIC_NAME' otherlv_20= '=' ( (lv_subtopics_21_0= RULE_STRING ) ) )* otherlv_22= '}' ) | (otherlv_23= 'PUBTOPICS' otherlv_24= '{' ( (otherlv_25= 'TOPIC_NAME' otherlv_26= '=' ( (lv_pubtopics_27_0= RULE_STRING ) )* ) | (otherlv_28= 'DATA' otherlv_29= '=' ( ( (lv_value_30_1= RULE_STRING | lv_value_30_2= rulevariables ) ) ) ) )* otherlv_31= '}' ) )* ) )
-            // InternalBPMN_translator.g:1618:2: ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'BROKER_USER' otherlv_5= '=' ( (lv_broker_user_6_0= RULE_STRING ) ) ) | (otherlv_7= 'BROKER_PASSWORD' otherlv_8= '=' ( (lv_broker_password_9_0= RULE_STRING ) ) ) | (otherlv_10= 'BROKER' otherlv_11= '=' ( (lv_broker_12_0= RULE_STRING ) ) ) | (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= rulemqtt_network_data ) )* otherlv_16= '}' ) | (otherlv_17= 'SUBTOPICS' otherlv_18= '{' (otherlv_19= 'TOPIC_NAME' otherlv_20= '=' ( (lv_subtopics_21_0= RULE_STRING ) ) )* otherlv_22= '}' ) | (otherlv_23= 'PUBTOPICS' otherlv_24= '{' ( (otherlv_25= 'TOPIC_NAME' otherlv_26= '=' ( (lv_pubtopics_27_0= RULE_STRING ) )* ) | (otherlv_28= 'DATA' otherlv_29= '=' ( ( (lv_value_30_1= RULE_STRING | lv_value_30_2= rulevariables ) ) ) ) )* otherlv_31= '}' ) )* )
+            // InternalBPMN_translator.g:1617:2: ( ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'BROKER_USER' otherlv_5= '=' ( (lv_broker_user_6_0= RULE_STRING ) ) ) | (otherlv_7= 'BROKER_PASSWORD' otherlv_8= '=' ( (lv_broker_password_9_0= RULE_STRING ) ) ) | (otherlv_10= 'BROKER' otherlv_11= '=' ( (lv_broker_12_0= RULE_STRING ) ) ) | (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= ruleprotocol_network_data ) )* otherlv_16= '}' ) | (otherlv_17= 'SUBTOPICS' otherlv_18= '{' (otherlv_19= 'TOPIC_NAME' otherlv_20= '=' ( (lv_subtopics_21_0= RULE_STRING ) ) )* otherlv_22= '}' ) | (otherlv_23= 'PUBTOPICS' otherlv_24= '{' ( (otherlv_25= 'TOPIC_NAME' otherlv_26= '=' ( (lv_pubtopics_27_0= RULE_STRING ) )* ) | (otherlv_28= 'DATA' otherlv_29= '=' ( ( (lv_value_30_1= RULE_STRING | lv_value_30_2= rulevariables ) ) ) ) )* otherlv_31= '}' ) )* ) )
+            // InternalBPMN_translator.g:1618:2: ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'BROKER_USER' otherlv_5= '=' ( (lv_broker_user_6_0= RULE_STRING ) ) ) | (otherlv_7= 'BROKER_PASSWORD' otherlv_8= '=' ( (lv_broker_password_9_0= RULE_STRING ) ) ) | (otherlv_10= 'BROKER' otherlv_11= '=' ( (lv_broker_12_0= RULE_STRING ) ) ) | (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= ruleprotocol_network_data ) )* otherlv_16= '}' ) | (otherlv_17= 'SUBTOPICS' otherlv_18= '{' (otherlv_19= 'TOPIC_NAME' otherlv_20= '=' ( (lv_subtopics_21_0= RULE_STRING ) ) )* otherlv_22= '}' ) | (otherlv_23= 'PUBTOPICS' otherlv_24= '{' ( (otherlv_25= 'TOPIC_NAME' otherlv_26= '=' ( (lv_pubtopics_27_0= RULE_STRING ) )* ) | (otherlv_28= 'DATA' otherlv_29= '=' ( ( (lv_value_30_1= RULE_STRING | lv_value_30_2= rulevariables ) ) ) ) )* otherlv_31= '}' ) )* )
             {
-            // InternalBPMN_translator.g:1618:2: ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'BROKER_USER' otherlv_5= '=' ( (lv_broker_user_6_0= RULE_STRING ) ) ) | (otherlv_7= 'BROKER_PASSWORD' otherlv_8= '=' ( (lv_broker_password_9_0= RULE_STRING ) ) ) | (otherlv_10= 'BROKER' otherlv_11= '=' ( (lv_broker_12_0= RULE_STRING ) ) ) | (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= rulemqtt_network_data ) )* otherlv_16= '}' ) | (otherlv_17= 'SUBTOPICS' otherlv_18= '{' (otherlv_19= 'TOPIC_NAME' otherlv_20= '=' ( (lv_subtopics_21_0= RULE_STRING ) ) )* otherlv_22= '}' ) | (otherlv_23= 'PUBTOPICS' otherlv_24= '{' ( (otherlv_25= 'TOPIC_NAME' otherlv_26= '=' ( (lv_pubtopics_27_0= RULE_STRING ) )* ) | (otherlv_28= 'DATA' otherlv_29= '=' ( ( (lv_value_30_1= RULE_STRING | lv_value_30_2= rulevariables ) ) ) ) )* otherlv_31= '}' ) )* )
-            // InternalBPMN_translator.g:1619:3: () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'BROKER_USER' otherlv_5= '=' ( (lv_broker_user_6_0= RULE_STRING ) ) ) | (otherlv_7= 'BROKER_PASSWORD' otherlv_8= '=' ( (lv_broker_password_9_0= RULE_STRING ) ) ) | (otherlv_10= 'BROKER' otherlv_11= '=' ( (lv_broker_12_0= RULE_STRING ) ) ) | (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= rulemqtt_network_data ) )* otherlv_16= '}' ) | (otherlv_17= 'SUBTOPICS' otherlv_18= '{' (otherlv_19= 'TOPIC_NAME' otherlv_20= '=' ( (lv_subtopics_21_0= RULE_STRING ) ) )* otherlv_22= '}' ) | (otherlv_23= 'PUBTOPICS' otherlv_24= '{' ( (otherlv_25= 'TOPIC_NAME' otherlv_26= '=' ( (lv_pubtopics_27_0= RULE_STRING ) )* ) | (otherlv_28= 'DATA' otherlv_29= '=' ( ( (lv_value_30_1= RULE_STRING | lv_value_30_2= rulevariables ) ) ) ) )* otherlv_31= '}' ) )*
+            // InternalBPMN_translator.g:1618:2: ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'BROKER_USER' otherlv_5= '=' ( (lv_broker_user_6_0= RULE_STRING ) ) ) | (otherlv_7= 'BROKER_PASSWORD' otherlv_8= '=' ( (lv_broker_password_9_0= RULE_STRING ) ) ) | (otherlv_10= 'BROKER' otherlv_11= '=' ( (lv_broker_12_0= RULE_STRING ) ) ) | (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= ruleprotocol_network_data ) )* otherlv_16= '}' ) | (otherlv_17= 'SUBTOPICS' otherlv_18= '{' (otherlv_19= 'TOPIC_NAME' otherlv_20= '=' ( (lv_subtopics_21_0= RULE_STRING ) ) )* otherlv_22= '}' ) | (otherlv_23= 'PUBTOPICS' otherlv_24= '{' ( (otherlv_25= 'TOPIC_NAME' otherlv_26= '=' ( (lv_pubtopics_27_0= RULE_STRING ) )* ) | (otherlv_28= 'DATA' otherlv_29= '=' ( ( (lv_value_30_1= RULE_STRING | lv_value_30_2= rulevariables ) ) ) ) )* otherlv_31= '}' ) )* )
+            // InternalBPMN_translator.g:1619:3: () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'BROKER_USER' otherlv_5= '=' ( (lv_broker_user_6_0= RULE_STRING ) ) ) | (otherlv_7= 'BROKER_PASSWORD' otherlv_8= '=' ( (lv_broker_password_9_0= RULE_STRING ) ) ) | (otherlv_10= 'BROKER' otherlv_11= '=' ( (lv_broker_12_0= RULE_STRING ) ) ) | (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= ruleprotocol_network_data ) )* otherlv_16= '}' ) | (otherlv_17= 'SUBTOPICS' otherlv_18= '{' (otherlv_19= 'TOPIC_NAME' otherlv_20= '=' ( (lv_subtopics_21_0= RULE_STRING ) ) )* otherlv_22= '}' ) | (otherlv_23= 'PUBTOPICS' otherlv_24= '{' ( (otherlv_25= 'TOPIC_NAME' otherlv_26= '=' ( (lv_pubtopics_27_0= RULE_STRING ) )* ) | (otherlv_28= 'DATA' otherlv_29= '=' ( ( (lv_value_30_1= RULE_STRING | lv_value_30_2= rulevariables ) ) ) ) )* otherlv_31= '}' ) )*
             {
             // InternalBPMN_translator.g:1619:3: ()
             // InternalBPMN_translator.g:1620:4: 
@@ -3867,7 +3867,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBPMN_translator.g:1626:3: ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'BROKER_USER' otherlv_5= '=' ( (lv_broker_user_6_0= RULE_STRING ) ) ) | (otherlv_7= 'BROKER_PASSWORD' otherlv_8= '=' ( (lv_broker_password_9_0= RULE_STRING ) ) ) | (otherlv_10= 'BROKER' otherlv_11= '=' ( (lv_broker_12_0= RULE_STRING ) ) ) | (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= rulemqtt_network_data ) )* otherlv_16= '}' ) | (otherlv_17= 'SUBTOPICS' otherlv_18= '{' (otherlv_19= 'TOPIC_NAME' otherlv_20= '=' ( (lv_subtopics_21_0= RULE_STRING ) ) )* otherlv_22= '}' ) | (otherlv_23= 'PUBTOPICS' otherlv_24= '{' ( (otherlv_25= 'TOPIC_NAME' otherlv_26= '=' ( (lv_pubtopics_27_0= RULE_STRING ) )* ) | (otherlv_28= 'DATA' otherlv_29= '=' ( ( (lv_value_30_1= RULE_STRING | lv_value_30_2= rulevariables ) ) ) ) )* otherlv_31= '}' ) )*
+            // InternalBPMN_translator.g:1626:3: ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'BROKER_USER' otherlv_5= '=' ( (lv_broker_user_6_0= RULE_STRING ) ) ) | (otherlv_7= 'BROKER_PASSWORD' otherlv_8= '=' ( (lv_broker_password_9_0= RULE_STRING ) ) ) | (otherlv_10= 'BROKER' otherlv_11= '=' ( (lv_broker_12_0= RULE_STRING ) ) ) | (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= ruleprotocol_network_data ) )* otherlv_16= '}' ) | (otherlv_17= 'SUBTOPICS' otherlv_18= '{' (otherlv_19= 'TOPIC_NAME' otherlv_20= '=' ( (lv_subtopics_21_0= RULE_STRING ) ) )* otherlv_22= '}' ) | (otherlv_23= 'PUBTOPICS' otherlv_24= '{' ( (otherlv_25= 'TOPIC_NAME' otherlv_26= '=' ( (lv_pubtopics_27_0= RULE_STRING ) )* ) | (otherlv_28= 'DATA' otherlv_29= '=' ( ( (lv_value_30_1= RULE_STRING | lv_value_30_2= rulevariables ) ) ) ) )* otherlv_31= '}' ) )*
             loop25:
             do {
                 int alt25=8;
@@ -4096,10 +4096,10 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 5 :
-            	    // InternalBPMN_translator.g:1743:4: (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= rulemqtt_network_data ) )* otherlv_16= '}' )
+            	    // InternalBPMN_translator.g:1743:4: (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= ruleprotocol_network_data ) )* otherlv_16= '}' )
             	    {
-            	    // InternalBPMN_translator.g:1743:4: (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= rulemqtt_network_data ) )* otherlv_16= '}' )
-            	    // InternalBPMN_translator.g:1744:5: otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= rulemqtt_network_data ) )* otherlv_16= '}'
+            	    // InternalBPMN_translator.g:1743:4: (otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= ruleprotocol_network_data ) )* otherlv_16= '}' )
+            	    // InternalBPMN_translator.g:1744:5: otherlv_13= 'NETWORK' otherlv_14= '{' ( (lv_mqtt_network_data_15_0= ruleprotocol_network_data ) )* otherlv_16= '}'
             	    {
             	    otherlv_13=(Token)match(input,53,FOLLOW_10); 
 
@@ -4109,7 +4109,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             	    					newLeafNode(otherlv_14, grammarAccess.getMqtt_dataAccess().getLeftCurlyBracketKeyword_1_4_1());
             	    				
-            	    // InternalBPMN_translator.g:1752:5: ( (lv_mqtt_network_data_15_0= rulemqtt_network_data ) )*
+            	    // InternalBPMN_translator.g:1752:5: ( (lv_mqtt_network_data_15_0= ruleprotocol_network_data ) )*
             	    loop20:
             	    do {
             	        int alt20=2;
@@ -4122,16 +4122,16 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             	        switch (alt20) {
             	    	case 1 :
-            	    	    // InternalBPMN_translator.g:1753:6: (lv_mqtt_network_data_15_0= rulemqtt_network_data )
+            	    	    // InternalBPMN_translator.g:1753:6: (lv_mqtt_network_data_15_0= ruleprotocol_network_data )
             	    	    {
-            	    	    // InternalBPMN_translator.g:1753:6: (lv_mqtt_network_data_15_0= rulemqtt_network_data )
-            	    	    // InternalBPMN_translator.g:1754:7: lv_mqtt_network_data_15_0= rulemqtt_network_data
+            	    	    // InternalBPMN_translator.g:1753:6: (lv_mqtt_network_data_15_0= ruleprotocol_network_data )
+            	    	    // InternalBPMN_translator.g:1754:7: lv_mqtt_network_data_15_0= ruleprotocol_network_data
             	    	    {
 
-            	    	    							newCompositeNode(grammarAccess.getMqtt_dataAccess().getMqtt_network_dataMqtt_network_dataParserRuleCall_1_4_2_0());
+            	    	    							newCompositeNode(grammarAccess.getMqtt_dataAccess().getMqtt_network_dataProtocol_network_dataParserRuleCall_1_4_2_0());
             	    	    						
             	    	    pushFollow(FOLLOW_32);
-            	    	    lv_mqtt_network_data_15_0=rulemqtt_network_data();
+            	    	    lv_mqtt_network_data_15_0=ruleprotocol_network_data();
 
             	    	    state._fsp--;
 
@@ -4143,7 +4143,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    	    								current,
             	    	    								"mqtt_network_data",
             	    	    								lv_mqtt_network_data_15_0,
-            	    	    								"org.xtext.BPMN_translator.mqtt_network_data");
+            	    	    								"org.xtext.BPMN_translator.protocol_network_data");
             	    	    							afterParserOrEnumRuleCall();
             	    	    						
 
@@ -4484,25 +4484,25 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
     // $ANTLR end "rulemqtt_data"
 
 
-    // $ANTLR start "entryRulemqtt_network_data"
-    // InternalBPMN_translator.g:1916:1: entryRulemqtt_network_data returns [EObject current=null] : iv_rulemqtt_network_data= rulemqtt_network_data EOF ;
-    public final EObject entryRulemqtt_network_data() throws RecognitionException {
+    // $ANTLR start "entryRuleprotocol_network_data"
+    // InternalBPMN_translator.g:1916:1: entryRuleprotocol_network_data returns [EObject current=null] : iv_ruleprotocol_network_data= ruleprotocol_network_data EOF ;
+    public final EObject entryRuleprotocol_network_data() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_rulemqtt_network_data = null;
+        EObject iv_ruleprotocol_network_data = null;
 
 
         try {
-            // InternalBPMN_translator.g:1916:58: (iv_rulemqtt_network_data= rulemqtt_network_data EOF )
-            // InternalBPMN_translator.g:1917:2: iv_rulemqtt_network_data= rulemqtt_network_data EOF
+            // InternalBPMN_translator.g:1916:62: (iv_ruleprotocol_network_data= ruleprotocol_network_data EOF )
+            // InternalBPMN_translator.g:1917:2: iv_ruleprotocol_network_data= ruleprotocol_network_data EOF
             {
-             newCompositeNode(grammarAccess.getMqtt_network_dataRule()); 
+             newCompositeNode(grammarAccess.getProtocol_network_dataRule()); 
             pushFollow(FOLLOW_1);
-            iv_rulemqtt_network_data=rulemqtt_network_data();
+            iv_ruleprotocol_network_data=ruleprotocol_network_data();
 
             state._fsp--;
 
-             current =iv_rulemqtt_network_data; 
+             current =iv_ruleprotocol_network_data; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -4517,12 +4517,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRulemqtt_network_data"
+    // $ANTLR end "entryRuleprotocol_network_data"
 
 
-    // $ANTLR start "rulemqtt_network_data"
-    // InternalBPMN_translator.g:1923:1: rulemqtt_network_data returns [EObject current=null] : (otherlv_0= 'SSID' otherlv_1= '=' ( (lv_ssid_2_0= RULE_STRING ) ) otherlv_3= 'PASSWORD' otherlv_4= '=' ( (lv_password_5_0= RULE_STRING ) ) ) ;
-    public final EObject rulemqtt_network_data() throws RecognitionException {
+    // $ANTLR start "ruleprotocol_network_data"
+    // InternalBPMN_translator.g:1923:1: ruleprotocol_network_data returns [EObject current=null] : (otherlv_0= 'SSID' otherlv_1= '=' ( (lv_ssid_2_0= RULE_STRING ) ) otherlv_3= 'PASSWORD' otherlv_4= '=' ( (lv_password_5_0= RULE_STRING ) ) ) ;
+    public final EObject ruleprotocol_network_data() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -4544,11 +4544,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             {
             otherlv_0=(Token)match(input,60,FOLLOW_19); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getMqtt_network_dataAccess().getSSIDKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getProtocol_network_dataAccess().getSSIDKeyword_0());
             		
             otherlv_1=(Token)match(input,24,FOLLOW_6); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getMqtt_network_dataAccess().getEqualsSignKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getProtocol_network_dataAccess().getEqualsSignKeyword_1());
             		
             // InternalBPMN_translator.g:1939:3: ( (lv_ssid_2_0= RULE_STRING ) )
             // InternalBPMN_translator.g:1940:4: (lv_ssid_2_0= RULE_STRING )
@@ -4558,11 +4558,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             {
             lv_ssid_2_0=(Token)match(input,RULE_STRING,FOLLOW_38); 
 
-            					newLeafNode(lv_ssid_2_0, grammarAccess.getMqtt_network_dataAccess().getSsidSTRINGTerminalRuleCall_2_0());
+            					newLeafNode(lv_ssid_2_0, grammarAccess.getProtocol_network_dataAccess().getSsidSTRINGTerminalRuleCall_2_0());
             				
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getMqtt_network_dataRule());
+            						current = createModelElement(grammarAccess.getProtocol_network_dataRule());
             					}
             					addWithLastConsumed(
             						current,
@@ -4578,11 +4578,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             otherlv_3=(Token)match(input,61,FOLLOW_19); 
 
-            			newLeafNode(otherlv_3, grammarAccess.getMqtt_network_dataAccess().getPASSWORDKeyword_3());
+            			newLeafNode(otherlv_3, grammarAccess.getProtocol_network_dataAccess().getPASSWORDKeyword_3());
             		
             otherlv_4=(Token)match(input,24,FOLLOW_6); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getMqtt_network_dataAccess().getEqualsSignKeyword_4());
+            			newLeafNode(otherlv_4, grammarAccess.getProtocol_network_dataAccess().getEqualsSignKeyword_4());
             		
             // InternalBPMN_translator.g:1965:3: ( (lv_password_5_0= RULE_STRING ) )
             // InternalBPMN_translator.g:1966:4: (lv_password_5_0= RULE_STRING )
@@ -4592,11 +4592,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             {
             lv_password_5_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
-            					newLeafNode(lv_password_5_0, grammarAccess.getMqtt_network_dataAccess().getPasswordSTRINGTerminalRuleCall_5_0());
+            					newLeafNode(lv_password_5_0, grammarAccess.getProtocol_network_dataAccess().getPasswordSTRINGTerminalRuleCall_5_0());
             				
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getMqtt_network_dataRule());
+            						current = createModelElement(grammarAccess.getProtocol_network_dataRule());
             					}
             					addWithLastConsumed(
             						current,
@@ -4629,7 +4629,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "rulemqtt_network_data"
+    // $ANTLR end "ruleprotocol_network_data"
 
 
     // $ANTLR start "entryRuleprotocol_device"

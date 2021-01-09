@@ -132,13 +132,13 @@ public interface BPMN_translatorFactory extends EFactory
   mqtt_data createmqtt_data();
 
   /**
-   * Returns a new object of class '<em>mqtt network data</em>'.
+   * Returns a new object of class '<em>protocol network data</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>mqtt network data</em>'.
+   * @return a new object of class '<em>protocol network data</em>'.
    * @generated
    */
-  mqtt_network_data createmqtt_network_data();
+  protocol_network_data createprotocol_network_data();
 
   /**
    * Returns a new object of class '<em>protocol device</em>'.

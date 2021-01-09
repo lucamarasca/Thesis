@@ -105,7 +105,7 @@ public interface http_data extends EObject
 
   /**
    * Returns the value of the '<em><b>Mqtt network data</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.bPMN_translator.mqtt_network_data}.
+   * The list contents are of type {@link org.xtext.bPMN_translator.protocol_network_data}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Mqtt network data</em>' containment reference list.
@@ -113,6 +113,6 @@ public interface http_data extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<mqtt_network_data> getMqtt_network_data();
+  EList<protocol_network_data> getMqtt_network_data();
 
 } // http_data

@@ -97,9 +97,6 @@ public class ArduinoInoCodeGenerator {
 				mapVariables();
 				result.add(includes+variables+threads_code+intestation+loop_code);
 				Initialize();
-				
-				
-				
 			}
 		}
 		
@@ -140,6 +137,8 @@ public class ArduinoInoCodeGenerator {
 		variables_dictionary.put("DISTANCE", "distance");
 		variables_dictionary.put("LIGHT", "light");
 		variables_dictionary.put("GAS", "gas");
+		opened_threads.clear();
+		closed_threads.clear();
 		
 	}
 	//This method is used for generate the variables to use in the ino file
@@ -566,24 +565,46 @@ public class ArduinoInoCodeGenerator {
 					schedule = true;
 					if (opened_threads.size() == 0)
 					{
+						temp = "";
 						
 						opened_threads.add((Parallel) elements.get(n));
-						temp = "\txTaskCreate(task"+opened_threads.get(opened_threads.size()-1).getNumber()+", \"task"+opened_threads.get(opened_threads.size()-1).getNumber()+"\", 128, NULL, 1, NULL);\n";
-						for (int k = 0; k < tabulations;k++)
-						{
-							temp = temp.replaceAll("(?m)^", "\t");
-						}
-						if (!loop_code.contains("xTaskCreate") || loop_code.lastIndexOf("if(") > loop_code.lastIndexOf("128, NULL, 1, NULL);")+20 || loop_code.lastIndexOf("while(") > loop_code.lastIndexOf("128, NULL, 1, NULL);")+20)
-							loop_code += temp;
-						else
-						{
-							String str = new StringBuilder(loop_code).insert(loop_code.lastIndexOf("128, NULL, 1, NULL);")+20,"\n"+temp).toString();
-							loop_code = str;
-						}
+						opened_threads.get((opened_threads.size()-1)).setBody("");
+						
 					}
 					else if (opened_threads.size() > 0)
 					{
+						temp = "";
 						opened_threads.add((Parallel) elements.get(n));
+						opened_threads.get((opened_threads.size()-1)).setBody("");
+						
+					}
+					temp = "";
+				}
+				if( elements.get(n).getType().equals("end_thread") && opened_threads.size() > 0)
+				{
+					
+					if (opened_threads.size() == 1)
+					{
+						
+						if (!opened_threads.get(opened_threads.size()-1).getBody().equals(""))
+						{
+							temp = "\txTaskCreate(task"+opened_threads.get(opened_threads.size()-1).getNumber()+", \"task"+opened_threads.get(opened_threads.size()-1).getNumber()+"\", 128, NULL, 1, NULL);\n";
+							for (int k = 0; k < tabulations;k++)
+							{
+								temp = temp.replaceAll("(?m)^", "\t");
+							}
+							if (!loop_code.contains("xTaskCreate") || loop_code.lastIndexOf("if(") > loop_code.lastIndexOf("128, NULL, 1, NULL);")+20 || loop_code.lastIndexOf("while(") > loop_code.lastIndexOf("128, NULL, 1, NULL);")+20)
+								loop_code += temp;
+							else
+							{
+								String str = new StringBuilder(loop_code).insert(loop_code.lastIndexOf("128, NULL, 1, NULL);")+20,"\n"+temp).toString();
+								loop_code = str;
+							}
+							closed_threads.add(opened_threads.get(opened_threads.size()-1));
+						}
+					}
+					else
+					{
 						temp = "\txTaskCreate(task"+opened_threads.get(opened_threads.size()-1).getNumber()+", \"task"+opened_threads.get(opened_threads.size()-1).getNumber()+"\", 128, NULL, 1, NULL);\n";
 						for (int k = 0; k < tabulations;k++)
 						{
@@ -596,15 +617,10 @@ public class ArduinoInoCodeGenerator {
 						{
 							
 							String str = new StringBuilder(opened_threads.get(opened_threads.size()-2).getBody()).insert(opened_threads.get(opened_threads.size()-2).getBody().indexOf("\txTaskCreate"),temp).toString();
-							opened_threads.get(opened_threads.size()-2).addBody(str);
+							opened_threads.get(opened_threads.size()-2).setBody(str);
 						}
-						
 					}
 					temp = "";
-				}
-				if( elements.get(n).getType().equals("end_thread") && opened_threads.size() > 0)
-				{
-					closed_threads.add(opened_threads.get(opened_threads.size()-1));
 					opened_threads.remove(opened_threads.size()-1);
 				}
 				
@@ -736,7 +752,7 @@ public class ArduinoInoCodeGenerator {
 		{
 			for(Entry<String, String> entry : variables_dictionary.entrySet()) {
 			    String key = entry.getKey();
-			    if (variables.contains(key ))
+			    if (variables.contains(key))
 			    {
 			    	String sensor_id = variables.substring(variables.indexOf("[")+1,variables.indexOf("]"));
 			    	variables = variables.replaceFirst("\""+key+"\\[.*\\]"+"\"", "dtostrf("+ variables_dictionary.get(key) + sensor_id + ", 6, 2, " + getVariableName(key+"["+sensor_id+"]")+ ");");

@@ -11,8 +11,7 @@ Model:
 
 
 Xml:
-	{Xml}  prolog? prova+=element*
-	//{Xml} opening_tag += (Opening)
+	{Xml}  prolog? elements+=element*
 ;
 
 prolog:
@@ -26,7 +25,9 @@ element     :   (open += Open
 
 content:
 	{content}
-	( type += ("_TASK"|"_GATEWAY") "{" codex += codex "}"| element+=element | body+=preconditions*  body+=(BODY |variables) body+= conditions* |   keywords+=KEYWORDS  |  data+=STRING  )*
+	( type += ("_TASK"|"_GATEWAY") "{" codex += codex "}"| element+=element | body+=preconditions*  body+=(BODY |variables) body+= conditions* 
+		|   keywords+=KEYWORDS  |  data+=STRING
+	)*
 ;
 
 Open:
@@ -77,21 +78,21 @@ http_data:
 		| "CONTENT_TYPE" "=" content_type += STRING 
 		| "HEADER" "=" header += STRING 
 		| "DATA" "=" data += STRING
-		| "NETWORK" "{" mqtt_network_data += mqtt_network_data* "}"
+		| "NETWORK" "{" mqtt_network_data += protocol_network_data* "}"
 	)*
 ;
 mqtt_data:
 	{mqtt_data}
 	("NAME" "="  pname+=STRING |  "BROKER_USER" "=" broker_user+=STRING 
 		| "BROKER_PASSWORD" "=" broker_password+=STRING | "BROKER" "=" broker += STRING
-		| "NETWORK" "{" mqtt_network_data += mqtt_network_data* "}" 
+		| "NETWORK" "{" mqtt_network_data += protocol_network_data* "}" 
 		| "SUBTOPICS" "{" ("TOPIC_NAME" "=" subtopics += STRING)* "}" 
 		| "PUBTOPICS" "{" ("TOPIC_NAME" "="  pubtopics += STRING* 
 		| "DATA" "=" value+=(STRING|variables))*"}"
 	)*
 ;
 
-mqtt_network_data:
+protocol_network_data:
 	"SSID" "=" ssid+=STRING
 	"PASSWORD" "=" password+=STRING
 ;
