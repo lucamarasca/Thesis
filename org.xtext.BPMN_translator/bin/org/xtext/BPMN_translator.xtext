@@ -105,11 +105,12 @@ sensor:
 	(sname += "TEMPERATURE" "{" sensor += sensor_data "}")|
 	(sname += "DISTANCE" "{" sensor += sensor_data "}")|
 	(sname += "GAS" "{" sensor += sensor_data "}")|
-	(sname += "LIGHT" "{" sensor += sensor_data "}")
+	(sname += "LIGHT" "{" sensor += sensor_data "}")|
+	(sname += "LED" "{" sensor += sensor_data "}")
 ;
 sensor_data:
 	{sensor_data}("NAME" "="  pname+=STRING 
-		| "PINS" "=" pins+=STRING | "SENSOR_ID" "=" sensor_id += STRING
+		| "PINS" "=" pins+=STRING | "SENSOR_ID" "=" sensor_id += STRING | "VALUE" "=" sensor_init_value += STRING
 	)*
 ;
 

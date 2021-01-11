@@ -830,13 +830,22 @@ public interface BPMN_translatorPackage extends EPackage
   int SENSOR_DATA__SENSOR_ID = 2;
 
   /**
+   * The feature id for the '<em><b>Sensor init value</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SENSOR_DATA__SENSOR_INIT_VALUE = 3;
+
+  /**
    * The number of structural features of the '<em>sensor data</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SENSOR_DATA_FEATURE_COUNT = 3;
+  int SENSOR_DATA_FEATURE_COUNT = 4;
 
 
   /**
@@ -1583,6 +1592,17 @@ public interface BPMN_translatorPackage extends EPackage
   EAttribute getsensor_data_Sensor_id();
 
   /**
+   * Returns the meta object for the attribute list '{@link org.xtext.bPMN_translator.sensor_data#getSensor_init_value <em>Sensor init value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Sensor init value</em>'.
+   * @see org.xtext.bPMN_translator.sensor_data#getSensor_init_value()
+   * @see #getsensor_data()
+   * @generated
+   */
+  EAttribute getsensor_data_Sensor_init_value();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2188,6 +2208,14 @@ public interface BPMN_translatorPackage extends EPackage
      * @generated
      */
     EAttribute SENSOR_DATA__SENSOR_ID = eINSTANCE.getsensor_data_Sensor_id();
+
+    /**
+     * The meta object literal for the '<em><b>Sensor init value</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SENSOR_DATA__SENSOR_INIT_VALUE = eINSTANCE.getsensor_data_Sensor_init_value();
 
   }
 

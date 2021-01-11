@@ -335,6 +335,11 @@ rulesensor:
 		'{'
 		rulesensor_data
 		'}'
+		    |
+		'LED'
+		'{'
+		rulesensor_data
+		'}'
 	)
 ;
 
@@ -350,6 +355,10 @@ rulesensor_data:
 		RULE_STRING
 		    |
 		'SENSOR_ID'
+		'='
+		RULE_STRING
+		    |
+		'VALUE'
 		'='
 		RULE_STRING
 	)*

@@ -89,6 +89,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//sensor_data/pname"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//sensor_data/pins"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//sensor_data/sensor_id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BPMN_translator.ecore#//sensor_data/sensor_init_value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

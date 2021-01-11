@@ -12,6 +12,7 @@ import network.protocols.HTTP;
 import network.protocols.MQTT;
 import sensor.devices.DistanceSensor;
 import sensor.devices.GasSensor;
+import sensor.devices.Led;
 import sensor.devices.LightSensor;
 import sensor.devices.TemperatureSensor;
 
@@ -226,7 +227,24 @@ public class ArduinoInoCodeGenerator {
 						sens_variables += "float temp"+app.getSensorId()+"; //Stores temperature value value\r\n";
 					if (!sens_variables.contains("int pin"+ app.getSensorId() + "= "+ app.getPins().get(0)))
 						sens_variables += "int pin"+ app.getSensorId()  + "= " + app.getPins().get(0)+";\n";
-					
+				}
+				if (elements.get(n).getType().equals("tmp36"))
+				{
+					TemperatureSensor app = (TemperatureSensor) elements.get(n);
+					if (!sens_variables.contains("val_adc"+app.getSensorId()))
+						sens_variables += "int val_adc"+app.getSensorId()+"; //adc value readed\n";
+					if (!sens_variables.contains("voltage"+app.getSensorId()))
+						sens_variables += "float voltage"+app.getSensorId() + "; //Voltage value\n";
+					if (!sens_variables.contains("float temp"+ app.getSensorId()))
+						sens_variables += "float temp"+app.getSensorId()+"; //Stores temperature value value\r\n";
+					if (!sens_variables.contains("int pin"+ app.getSensorId() + "= "+ app.getPins().get(0)))
+						sens_variables += "int pin"+ app.getSensorId()  + "= " + app.getPins().get(0)+";\n";
+				}
+				if (elements.get(n).getType().equals("led"))
+				{
+					Led app = (Led) elements.get(n);
+					if (!sens_variables.contains("int led_pin"+ app.getSensorId() + "= "+ app.getPins().get(0)))
+						sens_variables += "int led_pin"+ app.getSensorId()  + "= " + app.getPins().get(0)+";\n";
 				}
 				if (elements.get(n).getType().equals("hc-sr04") || elements.get(n).getType().equals("hy-srf05"))
 				{
@@ -294,13 +312,17 @@ public class ArduinoInoCodeGenerator {
 				if (elements.get(n).getId().equals(elements.get(i).getId()))
 				{
 					TemperatureSensor app = (TemperatureSensor) elements.get(n);
-					
-					if (!setup_code.contains("Serial.begin(9600);"))
-						setup_code+="\tSerial.begin(9600);\n";
-					if (!setup_code.contains("InitDHT22("))
-						setup_code+="\tInitDHT22("+getIntVariableName(app.getPins().get(0))+");\n";
-				
-					
+					setup_code+="\tSerial.begin(9600);\n";
+					setup_code+="\tInitDHT22("+getIntVariableName(app.getPins().get(0))+");\n";	
+				}
+			}
+			if (elements.get(n).getType().equals("led"))
+			{
+				if (elements.get(n).getId().equals(elements.get(i).getId()))
+				{
+					Led app = (Led) elements.get(n);
+					if (!setup_code.contains("pinMode(" + getIntVariableName(app.getPins().get(0)) + ", OUTPUT);"))
+						setup_code+="\tpinMode(" + getIntVariableName(app.getPins().get(0)) + ", OUTPUT);\n";
 				}
 			}
 		}
@@ -623,7 +645,25 @@ public class ArduinoInoCodeGenerator {
 					temp = "";
 					opened_threads.remove(opened_threads.size()-1);
 				}
-				
+				if (elements.get(n).getType().equals("led"))
+				{
+					Led app = (Led) elements.get(n);
+					if (app.getOn_off())
+					temp+=  "\t//Turn on the led\r\n"
+						+	"\tdigitalWrite("+getIntVariableName(app.getPins().get(0))+", HIGH);\n";
+					if (!app.getOn_off())
+						temp+=  "\t//Turn off the led\r\n"
+							+	"\tdigitalWrite("+getIntVariableName(app.getPins().get(0))+", LOW);\n";
+					for (int k = 0; k < tabulations;k++)
+					{
+						temp = temp.replaceAll("(?m)^", "\t");
+					}
+					if (opened_threads.size() > 0)
+						opened_threads.get(opened_threads.size()-1).addBody(temp);
+					else
+						loop_code+= temp;
+					temp = "";
+				}
 				if (elements.get(n).getType().equals("dht22"))
 				{
 					TemperatureSensor app = (TemperatureSensor) elements.get(n);
@@ -631,6 +671,24 @@ public class ArduinoInoCodeGenerator {
 							+ "\t//Read data and store it to variables\r\n"
 							+ "\thum"+app.getSensorId()+"= dht.readHumidity();\r\n"
 							+ "\ttemp"+app.getSensorId()+"= dht.readTemperature();\n";
+					for (int k = 0; k < tabulations;k++)
+					{
+						temp = temp.replaceAll("(?m)^", "\t");
+					}
+					if (opened_threads.size() > 0)
+						opened_threads.get(opened_threads.size()-1).addBody(temp);
+					else
+						loop_code+= temp;
+					temp = "";
+				}
+				if (elements.get(n).getType().equals("tmp36"))
+				{
+					TemperatureSensor app = (TemperatureSensor) elements.get(n);
+					temp+= "\t//Read data and store it to variables\r\n"
+						+  "\tval_adc"+app.getSensorId()+"= analogRead("+ getIntVariableName(app.getPins().get(0)) + ");\n"
+						+  "\tvoltage"+app.getSensorId()+"= ("+ "\tval_adc"+app.getSensorId() + "/ 1024.0) * 5.0;\n"
+						+  "\ttemp"+app.getSensorId()+"= (voltage" +app.getSensorId() + "- .5) * 1000;\n";
+
 					for (int k = 0; k < tabulations;k++)
 					{
 						temp = temp.replaceAll("(?m)^", "\t");

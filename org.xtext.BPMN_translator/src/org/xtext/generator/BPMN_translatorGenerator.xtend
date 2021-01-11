@@ -19,6 +19,7 @@ import org.xtext.bPMN_translator.Singleton
 import sensor.devices.DistanceSensor
 import sensor.devices.GasSensor
 import sensor.devices.LightSensor
+import sensor.devices.Led
 
 /**
  * Generates code from your model files on save.
@@ -131,9 +132,6 @@ def FillGatewayType(){
 			
 			//THIS MEANS THAT I'VE SELECTED A BPMN
 			Initialize(resource);
-			
-			
-			
 			ino_code = ArduinoCodeGenerationIno();
 			//Main files generation
 			for(file : ino_code)
@@ -442,6 +440,7 @@ def fillSuccessors(String my_id, Resource r){
 							{
 								if (keywords1.equals("targetRef"))
 								{
+									//In case the actual event it's a subprocess
 									if(isSubProcess(Singleton.value.get(j),r))
 									{
 										getSubStartEvents(Singleton.value.get(j),r);
@@ -450,6 +449,7 @@ def fillSuccessors(String my_id, Resource r){
 											fillSuccessors(subStart,r);
 										j=app;
 									}
+									//If i have a gateway
 									if (getGatewayType(my_id,r).equals("exclusive_condition") || getGatewayType(my_id,r).equals("inclusive_condition"))
 									{
 										if (isForkGateway(my_id,r) && getCondition(Element).equals(""))
@@ -462,6 +462,7 @@ def fillSuccessors(String my_id, Resource r){
 											}
 										}
 									}
+									//If there's a condition
 									if (!getCondition(Element).equals(""))
 									{
 										if (threadNumber > 0)
@@ -483,6 +484,7 @@ def fillSuccessors(String my_id, Resource r){
 												successors.add("end_condition");
 											str2 = getGatewayType(my_id,r)+"="+getCondition(Element)+"_else";
 										}
+										//While statement in case i have a condition with loop
 										if (hasLoop(my_id,r,str2))
 										{
 											setLoop(loop_variable);
@@ -497,6 +499,7 @@ def fillSuccessors(String my_id, Resource r){
 									
 									if (!hasLoop(my_id,r,""))
 									{
+										//Check if i have a parallel condition
 										if (getGatewayType(my_id,r).equals("parallel_condition"))
 										{
 											if (isForkParallel(my_id,r))
@@ -526,7 +529,7 @@ def fillSuccessors(String my_id, Resource r){
 												}
 											}
 										}
-										
+										//Repeated values
 										if (!successors.contains(Singleton.value.get(j)) || getGatewayType(Singleton.value.get(j),r).contains("_condition"))
 										{
 											
@@ -567,16 +570,16 @@ def fillSuccessors(String my_id, Resource r){
 							{
 								if (keywords1.equals("targetRef"))
 								{
+									//If i have a subprocess
 									if(isSubProcess(Open.value.get(j),r))
 									{
-										System.out.println("subprocess");
-										
 										getSubStartEvents(Open.value.get(j),r);
 										var app = j;
 										for (subStart : subStarts.get(subStarts.size()-1))
 											fillSuccessors(subStart,r);
 										j=app;
 									}
+									//If there's a gateway
 									if (getGatewayType(my_id,r).equals("exclusive_condition") || getGatewayType(my_id,r).equals("inclusive_condition"))
 									{
 										if (isForkGateway(my_id,r) && getCondition(Element).equals(""))
@@ -589,6 +592,7 @@ def fillSuccessors(String my_id, Resource r){
 											}
 										}
 									}
+									//If i have a condition
 									if (!getCondition(Element).equals(""))
 									{
 										if (threadNumber > 0)
@@ -610,6 +614,7 @@ def fillSuccessors(String my_id, Resource r){
 												successors.add("end_condition");
 											str2 = getGatewayType(my_id,r)+"="+getCondition(Element)+"_else";
 										}
+										//if i have a loop
 										if (hasLoop(my_id,r,str2))
 										{
 											setLoop(loop_variable);
@@ -621,8 +626,10 @@ def fillSuccessors(String my_id, Resource r){
 										}
 										
 									}
+									
 									if (!hasLoop(my_id,r,""))
 									{
+										//Check if i have a parallel condition
 										if (getGatewayType(my_id,r).equals("parallel_condition"))
 										{
 											if (isForkParallel(my_id,r))
@@ -672,7 +679,7 @@ def fillSuccessors(String my_id, Resource r){
 		}
 		i=0;
 	}
-	
+	//final adjustment
 	if (!str2.equals(""))
 	{
 		if (false_closure > 0)
@@ -683,10 +690,8 @@ def fillSuccessors(String my_id, Resource r){
 		{
 			successors.add("end_condition_end");
 			if (threadNumber > 0 && thread_conditions == 0)
-				successors.add("end_parallel");
-			
+				successors.add("end_parallel");	
 		}
-		
 	}
 	if (!str3.equals(""))
 	{
@@ -805,7 +810,7 @@ def hasLoop(String id, Resource r, String condition){
 	{
 		for (var y = 0; y < temp_array_list.size(); y++)
 		{
-			if (temp_array_list.get(y).equals(id))
+			if (temp_array_list.get(y).equals(id) && y > 0)
 				loop_variable = temp_array_list.get(y-1);
 		}
 		temp_array_list.clear();
@@ -1200,6 +1205,26 @@ def setDatas(Resource r, String successor_id){
 									}
 									for (sensor : Codex.sensor_code)
 									{
+										if (sensor.sname.get(0).toLowerCase().replaceAll("\\s+","").equals("led"))
+										{
+											var s = new Led();
+											for(Device : Codex.device_code)
+											{ 
+												s.setId(Device.id.get(0));
+											}
+											elements.add(s);
+											for (sensdata : sensor.sensor)
+											{
+												s.setType(sensdata.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+												s.setModule(sensdata.pname.get(0).toLowerCase().replaceAll("\\s+",""));
+												s.setSensorId(sensdata.sensor_id.get(0).toLowerCase().replaceAll("\\s+",""));
+												s.on_off = Boolean.parseBoolean((sensdata.sensor_init_value.get(0).toLowerCase().replaceAll("\\s+","")));
+												for(pins : sensdata.pins)
+												{
+													s.getPins().add(pins);
+												}
+											}
+										}
 										if (sensor.sname.get(0).toLowerCase().replaceAll("\\s+","").equals("temperature"))
 										{
 											s = new TemperatureSensor();

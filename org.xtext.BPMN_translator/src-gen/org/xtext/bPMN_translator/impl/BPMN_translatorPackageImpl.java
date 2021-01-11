@@ -977,6 +977,17 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
    * @generated
    */
   @Override
+  public EAttribute getsensor_data_Sensor_init_value()
+  {
+    return (EAttribute)sensor_dataEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public BPMN_translatorFactory getBPMN_translatorFactory()
   {
     return (BPMN_translatorFactory)getEFactoryInstance();
@@ -1086,6 +1097,7 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     createEAttribute(sensor_dataEClass, SENSOR_DATA__PNAME);
     createEAttribute(sensor_dataEClass, SENSOR_DATA__PINS);
     createEAttribute(sensor_dataEClass, SENSOR_DATA__SENSOR_ID);
+    createEAttribute(sensor_dataEClass, SENSOR_DATA__SENSOR_INIT_VALUE);
   }
 
   /**
@@ -1203,6 +1215,7 @@ public class BPMN_translatorPackageImpl extends EPackageImpl implements BPMN_tra
     initEAttribute(getsensor_data_Pname(), ecorePackage.getEString(), "pname", null, 0, -1, sensor_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getsensor_data_Pins(), ecorePackage.getEString(), "pins", null, 0, -1, sensor_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getsensor_data_Sensor_id(), ecorePackage.getEString(), "sensor_id", null, 0, -1, sensor_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getsensor_data_Sensor_init_value(), ecorePackage.getEString(), "sensor_init_value", null, 0, -1, sensor_data.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -2231,6 +2231,50 @@ rulesensor returns [EObject current=null]
 				newLeafNode(otherlv_15, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_3_3());
 			}
 		)
+		    |
+		(
+			(
+				(
+					lv_sname_16_0='LED'
+					{
+						newLeafNode(lv_sname_16_0, grammarAccess.getSensorAccess().getSnameLEDKeyword_4_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSensorRule());
+						}
+						addWithLastConsumed($current, "sname", lv_sname_16_0, "LED");
+					}
+				)
+			)
+			otherlv_17='{'
+			{
+				newLeafNode(otherlv_17, grammarAccess.getSensorAccess().getLeftCurlyBracketKeyword_4_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSensorAccess().getSensorSensor_dataParserRuleCall_4_2_0());
+					}
+					lv_sensor_18_0=rulesensor_data
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSensorRule());
+						}
+						add(
+							$current,
+							"sensor",
+							lv_sensor_18_0,
+							"org.xtext.BPMN_translator.sensor_data");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_19='}'
+			{
+				newLeafNode(otherlv_19, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_4_3());
+			}
+		)
 	)
 ;
 
@@ -2339,6 +2383,35 @@ rulesensor_data returns [EObject current=null]
 								$current,
 								"sensor_id",
 								lv_sensor_id_9_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)
+			    |
+			(
+				otherlv_10='VALUE'
+				{
+					newLeafNode(otherlv_10, grammarAccess.getSensor_dataAccess().getVALUEKeyword_1_3_0());
+				}
+				otherlv_11='='
+				{
+					newLeafNode(otherlv_11, grammarAccess.getSensor_dataAccess().getEqualsSignKeyword_1_3_1());
+				}
+				(
+					(
+						lv_sensor_init_value_12_0=RULE_STRING
+						{
+							newLeafNode(lv_sensor_init_value_12_0, grammarAccess.getSensor_dataAccess().getSensor_init_valueSTRINGTerminalRuleCall_1_3_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getSensor_dataRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"sensor_init_value",
+								lv_sensor_init_value_12_0,
 								"org.eclipse.xtext.common.Terminals.STRING");
 						}
 					)

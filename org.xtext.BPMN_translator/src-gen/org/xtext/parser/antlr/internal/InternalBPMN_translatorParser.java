@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_HEAD", "RULE_STRING", "RULE_BODY", "RULE_KEYWORDS", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'<?'", "'version='", "'encoding='", "'?>'", "'_TASK'", "'_GATEWAY'", "'{'", "'}'", "'<'", "':'", "'='", "'>'", "'/>'", "'</'", "'TEMPERATURE'", "'['", "','", "']'", "'DISTANCE'", "'&lt;'", "'&le;'", "'&ge;'", "'&gt;'", "'&amp;'", "'||'", "')'", "'!='", "'!'", "'('", "'DEVICE'", "'NAMEID'", "'MQTT'", "'HTTP'", "'NAME'", "'SERVER_IP'", "'REQUEST_TYPE'", "'CONTENT_TYPE'", "'HEADER'", "'DATA'", "'NETWORK'", "'BROKER_USER'", "'BROKER_PASSWORD'", "'BROKER'", "'SUBTOPICS'", "'TOPIC_NAME'", "'PUBTOPICS'", "'SSID'", "'PASSWORD'", "'PROTOCOL_DEVICE'", "'GAS'", "'LIGHT'", "'PINS'", "'SENSOR_ID'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_HEAD", "RULE_STRING", "RULE_BODY", "RULE_KEYWORDS", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'<?'", "'version='", "'encoding='", "'?>'", "'_TASK'", "'_GATEWAY'", "'{'", "'}'", "'<'", "':'", "'='", "'>'", "'/>'", "'</'", "'TEMPERATURE'", "'['", "','", "']'", "'DISTANCE'", "'&lt;'", "'&le;'", "'&ge;'", "'&gt;'", "'&amp;'", "'||'", "')'", "'!='", "'!'", "'('", "'DEVICE'", "'NAMEID'", "'MQTT'", "'HTTP'", "'NAME'", "'SERVER_IP'", "'REQUEST_TYPE'", "'CONTENT_TYPE'", "'HEADER'", "'DATA'", "'NETWORK'", "'BROKER_USER'", "'BROKER_PASSWORD'", "'BROKER'", "'SUBTOPICS'", "'TOPIC_NAME'", "'PUBTOPICS'", "'SSID'", "'PASSWORD'", "'PROTOCOL_DEVICE'", "'GAS'", "'LIGHT'", "'LED'", "'PINS'", "'SENSOR_ID'", "'VALUE'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -52,7 +52,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
     public static final int T__66=66;
     public static final int RULE_ML_COMMENT=10;
     public static final int T__23=23;
+    public static final int T__67=67;
     public static final int T__24=24;
+    public static final int T__68=68;
     public static final int T__25=25;
     public static final int T__62=62;
     public static final int T__63=63;
@@ -2728,7 +2730,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
                 int alt16=2;
                 int LA16_0 = input.LA(1);
 
-                if ( (LA16_0==28||LA16_0==32||(LA16_0>=63 && LA16_0<=64)) ) {
+                if ( (LA16_0==28||LA16_0==32||(LA16_0>=63 && LA16_0<=65)) ) {
                     alt16=1;
                 }
 
@@ -4795,7 +4797,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulesensor"
-    // InternalBPMN_translator.g:2051:1: rulesensor returns [EObject current=null] : ( ( ( (lv_sname_0_0= 'TEMPERATURE' ) ) otherlv_1= '{' ( (lv_sensor_2_0= rulesensor_data ) ) otherlv_3= '}' ) | ( ( (lv_sname_4_0= 'DISTANCE' ) ) otherlv_5= '{' ( (lv_sensor_6_0= rulesensor_data ) ) otherlv_7= '}' ) | ( ( (lv_sname_8_0= 'GAS' ) ) otherlv_9= '{' ( (lv_sensor_10_0= rulesensor_data ) ) otherlv_11= '}' ) | ( ( (lv_sname_12_0= 'LIGHT' ) ) otherlv_13= '{' ( (lv_sensor_14_0= rulesensor_data ) ) otherlv_15= '}' ) ) ;
+    // InternalBPMN_translator.g:2051:1: rulesensor returns [EObject current=null] : ( ( ( (lv_sname_0_0= 'TEMPERATURE' ) ) otherlv_1= '{' ( (lv_sensor_2_0= rulesensor_data ) ) otherlv_3= '}' ) | ( ( (lv_sname_4_0= 'DISTANCE' ) ) otherlv_5= '{' ( (lv_sensor_6_0= rulesensor_data ) ) otherlv_7= '}' ) | ( ( (lv_sname_8_0= 'GAS' ) ) otherlv_9= '{' ( (lv_sensor_10_0= rulesensor_data ) ) otherlv_11= '}' ) | ( ( (lv_sname_12_0= 'LIGHT' ) ) otherlv_13= '{' ( (lv_sensor_14_0= rulesensor_data ) ) otherlv_15= '}' ) | ( ( (lv_sname_16_0= 'LED' ) ) otherlv_17= '{' ( (lv_sensor_18_0= rulesensor_data ) ) otherlv_19= '}' ) ) ;
     public final EObject rulesensor() throws RecognitionException {
         EObject current = null;
 
@@ -4811,6 +4813,9 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         Token lv_sname_12_0=null;
         Token otherlv_13=null;
         Token otherlv_15=null;
+        Token lv_sname_16_0=null;
+        Token otherlv_17=null;
+        Token otherlv_19=null;
         EObject lv_sensor_2_0 = null;
 
         EObject lv_sensor_6_0 = null;
@@ -4819,16 +4824,18 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
         EObject lv_sensor_14_0 = null;
 
+        EObject lv_sensor_18_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalBPMN_translator.g:2057:2: ( ( ( ( (lv_sname_0_0= 'TEMPERATURE' ) ) otherlv_1= '{' ( (lv_sensor_2_0= rulesensor_data ) ) otherlv_3= '}' ) | ( ( (lv_sname_4_0= 'DISTANCE' ) ) otherlv_5= '{' ( (lv_sensor_6_0= rulesensor_data ) ) otherlv_7= '}' ) | ( ( (lv_sname_8_0= 'GAS' ) ) otherlv_9= '{' ( (lv_sensor_10_0= rulesensor_data ) ) otherlv_11= '}' ) | ( ( (lv_sname_12_0= 'LIGHT' ) ) otherlv_13= '{' ( (lv_sensor_14_0= rulesensor_data ) ) otherlv_15= '}' ) ) )
-            // InternalBPMN_translator.g:2058:2: ( ( ( (lv_sname_0_0= 'TEMPERATURE' ) ) otherlv_1= '{' ( (lv_sensor_2_0= rulesensor_data ) ) otherlv_3= '}' ) | ( ( (lv_sname_4_0= 'DISTANCE' ) ) otherlv_5= '{' ( (lv_sensor_6_0= rulesensor_data ) ) otherlv_7= '}' ) | ( ( (lv_sname_8_0= 'GAS' ) ) otherlv_9= '{' ( (lv_sensor_10_0= rulesensor_data ) ) otherlv_11= '}' ) | ( ( (lv_sname_12_0= 'LIGHT' ) ) otherlv_13= '{' ( (lv_sensor_14_0= rulesensor_data ) ) otherlv_15= '}' ) )
+            // InternalBPMN_translator.g:2057:2: ( ( ( ( (lv_sname_0_0= 'TEMPERATURE' ) ) otherlv_1= '{' ( (lv_sensor_2_0= rulesensor_data ) ) otherlv_3= '}' ) | ( ( (lv_sname_4_0= 'DISTANCE' ) ) otherlv_5= '{' ( (lv_sensor_6_0= rulesensor_data ) ) otherlv_7= '}' ) | ( ( (lv_sname_8_0= 'GAS' ) ) otherlv_9= '{' ( (lv_sensor_10_0= rulesensor_data ) ) otherlv_11= '}' ) | ( ( (lv_sname_12_0= 'LIGHT' ) ) otherlv_13= '{' ( (lv_sensor_14_0= rulesensor_data ) ) otherlv_15= '}' ) | ( ( (lv_sname_16_0= 'LED' ) ) otherlv_17= '{' ( (lv_sensor_18_0= rulesensor_data ) ) otherlv_19= '}' ) ) )
+            // InternalBPMN_translator.g:2058:2: ( ( ( (lv_sname_0_0= 'TEMPERATURE' ) ) otherlv_1= '{' ( (lv_sensor_2_0= rulesensor_data ) ) otherlv_3= '}' ) | ( ( (lv_sname_4_0= 'DISTANCE' ) ) otherlv_5= '{' ( (lv_sensor_6_0= rulesensor_data ) ) otherlv_7= '}' ) | ( ( (lv_sname_8_0= 'GAS' ) ) otherlv_9= '{' ( (lv_sensor_10_0= rulesensor_data ) ) otherlv_11= '}' ) | ( ( (lv_sname_12_0= 'LIGHT' ) ) otherlv_13= '{' ( (lv_sensor_14_0= rulesensor_data ) ) otherlv_15= '}' ) | ( ( (lv_sname_16_0= 'LED' ) ) otherlv_17= '{' ( (lv_sensor_18_0= rulesensor_data ) ) otherlv_19= '}' ) )
             {
-            // InternalBPMN_translator.g:2058:2: ( ( ( (lv_sname_0_0= 'TEMPERATURE' ) ) otherlv_1= '{' ( (lv_sensor_2_0= rulesensor_data ) ) otherlv_3= '}' ) | ( ( (lv_sname_4_0= 'DISTANCE' ) ) otherlv_5= '{' ( (lv_sensor_6_0= rulesensor_data ) ) otherlv_7= '}' ) | ( ( (lv_sname_8_0= 'GAS' ) ) otherlv_9= '{' ( (lv_sensor_10_0= rulesensor_data ) ) otherlv_11= '}' ) | ( ( (lv_sname_12_0= 'LIGHT' ) ) otherlv_13= '{' ( (lv_sensor_14_0= rulesensor_data ) ) otherlv_15= '}' ) )
-            int alt26=4;
+            // InternalBPMN_translator.g:2058:2: ( ( ( (lv_sname_0_0= 'TEMPERATURE' ) ) otherlv_1= '{' ( (lv_sensor_2_0= rulesensor_data ) ) otherlv_3= '}' ) | ( ( (lv_sname_4_0= 'DISTANCE' ) ) otherlv_5= '{' ( (lv_sensor_6_0= rulesensor_data ) ) otherlv_7= '}' ) | ( ( (lv_sname_8_0= 'GAS' ) ) otherlv_9= '{' ( (lv_sensor_10_0= rulesensor_data ) ) otherlv_11= '}' ) | ( ( (lv_sname_12_0= 'LIGHT' ) ) otherlv_13= '{' ( (lv_sensor_14_0= rulesensor_data ) ) otherlv_15= '}' ) | ( ( (lv_sname_16_0= 'LED' ) ) otherlv_17= '{' ( (lv_sensor_18_0= rulesensor_data ) ) otherlv_19= '}' ) )
+            int alt26=5;
             switch ( input.LA(1) ) {
             case 28:
                 {
@@ -4848,6 +4855,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             case 64:
                 {
                 alt26=4;
+                }
+                break;
+            case 65:
+                {
+                alt26=5;
                 }
                 break;
             default:
@@ -5150,6 +5162,79 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
+                case 5 :
+                    // InternalBPMN_translator.g:2235:3: ( ( (lv_sname_16_0= 'LED' ) ) otherlv_17= '{' ( (lv_sensor_18_0= rulesensor_data ) ) otherlv_19= '}' )
+                    {
+                    // InternalBPMN_translator.g:2235:3: ( ( (lv_sname_16_0= 'LED' ) ) otherlv_17= '{' ( (lv_sensor_18_0= rulesensor_data ) ) otherlv_19= '}' )
+                    // InternalBPMN_translator.g:2236:4: ( (lv_sname_16_0= 'LED' ) ) otherlv_17= '{' ( (lv_sensor_18_0= rulesensor_data ) ) otherlv_19= '}'
+                    {
+                    // InternalBPMN_translator.g:2236:4: ( (lv_sname_16_0= 'LED' ) )
+                    // InternalBPMN_translator.g:2237:5: (lv_sname_16_0= 'LED' )
+                    {
+                    // InternalBPMN_translator.g:2237:5: (lv_sname_16_0= 'LED' )
+                    // InternalBPMN_translator.g:2238:6: lv_sname_16_0= 'LED'
+                    {
+                    lv_sname_16_0=(Token)match(input,65,FOLLOW_10); 
+
+                    						newLeafNode(lv_sname_16_0, grammarAccess.getSensorAccess().getSnameLEDKeyword_4_0_0());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getSensorRule());
+                    						}
+                    						addWithLastConsumed(current, "sname", lv_sname_16_0, "LED");
+                    					
+
+                    }
+
+
+                    }
+
+                    otherlv_17=(Token)match(input,20,FOLLOW_40); 
+
+                    				newLeafNode(otherlv_17, grammarAccess.getSensorAccess().getLeftCurlyBracketKeyword_4_1());
+                    			
+                    // InternalBPMN_translator.g:2254:4: ( (lv_sensor_18_0= rulesensor_data ) )
+                    // InternalBPMN_translator.g:2255:5: (lv_sensor_18_0= rulesensor_data )
+                    {
+                    // InternalBPMN_translator.g:2255:5: (lv_sensor_18_0= rulesensor_data )
+                    // InternalBPMN_translator.g:2256:6: lv_sensor_18_0= rulesensor_data
+                    {
+
+                    						newCompositeNode(grammarAccess.getSensorAccess().getSensorSensor_dataParserRuleCall_4_2_0());
+                    					
+                    pushFollow(FOLLOW_12);
+                    lv_sensor_18_0=rulesensor_data();
+
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getSensorRule());
+                    						}
+                    						add(
+                    							current,
+                    							"sensor",
+                    							lv_sensor_18_0,
+                    							"org.xtext.BPMN_translator.sensor_data");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+                    otherlv_19=(Token)match(input,21,FOLLOW_2); 
+
+                    				newLeafNode(otherlv_19, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_4_3());
+                    			
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -5173,7 +5258,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulesensor_data"
-    // InternalBPMN_translator.g:2238:1: entryRulesensor_data returns [EObject current=null] : iv_rulesensor_data= rulesensor_data EOF ;
+    // InternalBPMN_translator.g:2282:1: entryRulesensor_data returns [EObject current=null] : iv_rulesensor_data= rulesensor_data EOF ;
     public final EObject entryRulesensor_data() throws RecognitionException {
         EObject current = null;
 
@@ -5181,8 +5266,8 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBPMN_translator.g:2238:52: (iv_rulesensor_data= rulesensor_data EOF )
-            // InternalBPMN_translator.g:2239:2: iv_rulesensor_data= rulesensor_data EOF
+            // InternalBPMN_translator.g:2282:52: (iv_rulesensor_data= rulesensor_data EOF )
+            // InternalBPMN_translator.g:2283:2: iv_rulesensor_data= rulesensor_data EOF
             {
              newCompositeNode(grammarAccess.getSensor_dataRule()); 
             pushFollow(FOLLOW_1);
@@ -5209,7 +5294,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulesensor_data"
-    // InternalBPMN_translator.g:2245:1: rulesensor_data returns [EObject current=null] : ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) ) | (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) ) )* ) ;
+    // InternalBPMN_translator.g:2289:1: rulesensor_data returns [EObject current=null] : ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) ) | (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) ) | (otherlv_10= 'VALUE' otherlv_11= '=' ( (lv_sensor_init_value_12_0= RULE_STRING ) ) ) )* ) ;
     public final EObject rulesensor_data() throws RecognitionException {
         EObject current = null;
 
@@ -5222,19 +5307,22 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
         Token otherlv_7=null;
         Token otherlv_8=null;
         Token lv_sensor_id_9_0=null;
+        Token otherlv_10=null;
+        Token otherlv_11=null;
+        Token lv_sensor_init_value_12_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalBPMN_translator.g:2251:2: ( ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) ) | (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) ) )* ) )
-            // InternalBPMN_translator.g:2252:2: ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) ) | (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) ) )* )
+            // InternalBPMN_translator.g:2295:2: ( ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) ) | (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) ) | (otherlv_10= 'VALUE' otherlv_11= '=' ( (lv_sensor_init_value_12_0= RULE_STRING ) ) ) )* ) )
+            // InternalBPMN_translator.g:2296:2: ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) ) | (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) ) | (otherlv_10= 'VALUE' otherlv_11= '=' ( (lv_sensor_init_value_12_0= RULE_STRING ) ) ) )* )
             {
-            // InternalBPMN_translator.g:2252:2: ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) ) | (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) ) )* )
-            // InternalBPMN_translator.g:2253:3: () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) ) | (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) ) )*
+            // InternalBPMN_translator.g:2296:2: ( () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) ) | (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) ) | (otherlv_10= 'VALUE' otherlv_11= '=' ( (lv_sensor_init_value_12_0= RULE_STRING ) ) ) )* )
+            // InternalBPMN_translator.g:2297:3: () ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) ) | (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) ) | (otherlv_10= 'VALUE' otherlv_11= '=' ( (lv_sensor_init_value_12_0= RULE_STRING ) ) ) )*
             {
-            // InternalBPMN_translator.g:2253:3: ()
-            // InternalBPMN_translator.g:2254:4: 
+            // InternalBPMN_translator.g:2297:3: ()
+            // InternalBPMN_translator.g:2298:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5244,24 +5332,29 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBPMN_translator.g:2260:3: ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) ) | (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) ) )*
+            // InternalBPMN_translator.g:2304:3: ( (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) ) | (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) ) | (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) ) | (otherlv_10= 'VALUE' otherlv_11= '=' ( (lv_sensor_init_value_12_0= RULE_STRING ) ) ) )*
             loop27:
             do {
-                int alt27=4;
+                int alt27=5;
                 switch ( input.LA(1) ) {
                 case 47:
                     {
                     alt27=1;
                     }
                     break;
-                case 65:
+                case 66:
                     {
                     alt27=2;
                     }
                     break;
-                case 66:
+                case 67:
                     {
                     alt27=3;
+                    }
+                    break;
+                case 68:
+                    {
+                    alt27=4;
                     }
                     break;
 
@@ -5269,10 +5362,10 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
                 switch (alt27) {
             	case 1 :
-            	    // InternalBPMN_translator.g:2261:4: (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) )
+            	    // InternalBPMN_translator.g:2305:4: (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) )
             	    {
-            	    // InternalBPMN_translator.g:2261:4: (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) )
-            	    // InternalBPMN_translator.g:2262:5: otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:2305:4: (otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) ) )
+            	    // InternalBPMN_translator.g:2306:5: otherlv_1= 'NAME' otherlv_2= '=' ( (lv_pname_3_0= RULE_STRING ) )
             	    {
             	    otherlv_1=(Token)match(input,47,FOLLOW_19); 
 
@@ -5282,11 +5375,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             	    					newLeafNode(otherlv_2, grammarAccess.getSensor_dataAccess().getEqualsSignKeyword_1_0_1());
             	    				
-            	    // InternalBPMN_translator.g:2270:5: ( (lv_pname_3_0= RULE_STRING ) )
-            	    // InternalBPMN_translator.g:2271:6: (lv_pname_3_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:2314:5: ( (lv_pname_3_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:2315:6: (lv_pname_3_0= RULE_STRING )
             	    {
-            	    // InternalBPMN_translator.g:2271:6: (lv_pname_3_0= RULE_STRING )
-            	    // InternalBPMN_translator.g:2272:7: lv_pname_3_0= RULE_STRING
+            	    // InternalBPMN_translator.g:2315:6: (lv_pname_3_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:2316:7: lv_pname_3_0= RULE_STRING
             	    {
             	    lv_pname_3_0=(Token)match(input,RULE_STRING,FOLLOW_41); 
 
@@ -5315,12 +5408,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalBPMN_translator.g:2290:4: (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) )
+            	    // InternalBPMN_translator.g:2334:4: (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) )
             	    {
-            	    // InternalBPMN_translator.g:2290:4: (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) )
-            	    // InternalBPMN_translator.g:2291:5: otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:2334:4: (otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) ) )
+            	    // InternalBPMN_translator.g:2335:5: otherlv_4= 'PINS' otherlv_5= '=' ( (lv_pins_6_0= RULE_STRING ) )
             	    {
-            	    otherlv_4=(Token)match(input,65,FOLLOW_19); 
+            	    otherlv_4=(Token)match(input,66,FOLLOW_19); 
 
             	    					newLeafNode(otherlv_4, grammarAccess.getSensor_dataAccess().getPINSKeyword_1_1_0());
             	    				
@@ -5328,11 +5421,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             	    					newLeafNode(otherlv_5, grammarAccess.getSensor_dataAccess().getEqualsSignKeyword_1_1_1());
             	    				
-            	    // InternalBPMN_translator.g:2299:5: ( (lv_pins_6_0= RULE_STRING ) )
-            	    // InternalBPMN_translator.g:2300:6: (lv_pins_6_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:2343:5: ( (lv_pins_6_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:2344:6: (lv_pins_6_0= RULE_STRING )
             	    {
-            	    // InternalBPMN_translator.g:2300:6: (lv_pins_6_0= RULE_STRING )
-            	    // InternalBPMN_translator.g:2301:7: lv_pins_6_0= RULE_STRING
+            	    // InternalBPMN_translator.g:2344:6: (lv_pins_6_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:2345:7: lv_pins_6_0= RULE_STRING
             	    {
             	    lv_pins_6_0=(Token)match(input,RULE_STRING,FOLLOW_41); 
 
@@ -5361,12 +5454,12 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 3 :
-            	    // InternalBPMN_translator.g:2319:4: (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) )
+            	    // InternalBPMN_translator.g:2363:4: (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) )
             	    {
-            	    // InternalBPMN_translator.g:2319:4: (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) )
-            	    // InternalBPMN_translator.g:2320:5: otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:2363:4: (otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) ) )
+            	    // InternalBPMN_translator.g:2364:5: otherlv_7= 'SENSOR_ID' otherlv_8= '=' ( (lv_sensor_id_9_0= RULE_STRING ) )
             	    {
-            	    otherlv_7=(Token)match(input,66,FOLLOW_19); 
+            	    otherlv_7=(Token)match(input,67,FOLLOW_19); 
 
             	    					newLeafNode(otherlv_7, grammarAccess.getSensor_dataAccess().getSENSOR_IDKeyword_1_2_0());
             	    				
@@ -5374,11 +5467,11 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
 
             	    					newLeafNode(otherlv_8, grammarAccess.getSensor_dataAccess().getEqualsSignKeyword_1_2_1());
             	    				
-            	    // InternalBPMN_translator.g:2328:5: ( (lv_sensor_id_9_0= RULE_STRING ) )
-            	    // InternalBPMN_translator.g:2329:6: (lv_sensor_id_9_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:2372:5: ( (lv_sensor_id_9_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:2373:6: (lv_sensor_id_9_0= RULE_STRING )
             	    {
-            	    // InternalBPMN_translator.g:2329:6: (lv_sensor_id_9_0= RULE_STRING )
-            	    // InternalBPMN_translator.g:2330:7: lv_sensor_id_9_0= RULE_STRING
+            	    // InternalBPMN_translator.g:2373:6: (lv_sensor_id_9_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:2374:7: lv_sensor_id_9_0= RULE_STRING
             	    {
             	    lv_sensor_id_9_0=(Token)match(input,RULE_STRING,FOLLOW_41); 
 
@@ -5392,6 +5485,52 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
             	    								current,
             	    								"sensor_id",
             	    								lv_sensor_id_9_0,
+            	    								"org.eclipse.xtext.common.Terminals.STRING");
+            	    						
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 4 :
+            	    // InternalBPMN_translator.g:2392:4: (otherlv_10= 'VALUE' otherlv_11= '=' ( (lv_sensor_init_value_12_0= RULE_STRING ) ) )
+            	    {
+            	    // InternalBPMN_translator.g:2392:4: (otherlv_10= 'VALUE' otherlv_11= '=' ( (lv_sensor_init_value_12_0= RULE_STRING ) ) )
+            	    // InternalBPMN_translator.g:2393:5: otherlv_10= 'VALUE' otherlv_11= '=' ( (lv_sensor_init_value_12_0= RULE_STRING ) )
+            	    {
+            	    otherlv_10=(Token)match(input,68,FOLLOW_19); 
+
+            	    					newLeafNode(otherlv_10, grammarAccess.getSensor_dataAccess().getVALUEKeyword_1_3_0());
+            	    				
+            	    otherlv_11=(Token)match(input,24,FOLLOW_6); 
+
+            	    					newLeafNode(otherlv_11, grammarAccess.getSensor_dataAccess().getEqualsSignKeyword_1_3_1());
+            	    				
+            	    // InternalBPMN_translator.g:2401:5: ( (lv_sensor_init_value_12_0= RULE_STRING ) )
+            	    // InternalBPMN_translator.g:2402:6: (lv_sensor_init_value_12_0= RULE_STRING )
+            	    {
+            	    // InternalBPMN_translator.g:2402:6: (lv_sensor_init_value_12_0= RULE_STRING )
+            	    // InternalBPMN_translator.g:2403:7: lv_sensor_init_value_12_0= RULE_STRING
+            	    {
+            	    lv_sensor_init_value_12_0=(Token)match(input,RULE_STRING,FOLLOW_41); 
+
+            	    							newLeafNode(lv_sensor_init_value_12_0, grammarAccess.getSensor_dataAccess().getSensor_init_valueSTRINGTerminalRuleCall_1_3_2_0());
+            	    						
+
+            	    							if (current==null) {
+            	    								current = createModelElement(grammarAccess.getSensor_dataRule());
+            	    							}
+            	    							addWithLastConsumed(
+            	    								current,
+            	    								"sensor_init_value",
+            	    								lv_sensor_init_value_12_0,
             	    								"org.eclipse.xtext.common.Terminals.STRING");
             	    						
 
@@ -5508,8 +5647,8 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000040000000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x8000600110000002L,0x0000000000000001L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x8000000110000002L,0x0000000000000001L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x8000600110000002L,0x0000000000000003L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x8000000110000002L,0x0000000000000003L});
     public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000100000000000L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x4BE0800000000000L});
     public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x4BFF800000000000L});
@@ -5522,7 +5661,7 @@ public class InternalBPMN_translatorParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000060110000060L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x2000000000000000L});
     public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000800000200000L,0x0000000000000006L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000800000000002L,0x0000000000000006L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000800000200000L,0x000000000000001CL});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000800000000002L,0x000000000000001CL});
 
 }

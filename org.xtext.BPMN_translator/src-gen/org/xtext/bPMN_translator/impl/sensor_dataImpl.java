@@ -27,6 +27,7 @@ import org.xtext.bPMN_translator.sensor_data;
  *   <li>{@link org.xtext.bPMN_translator.impl.sensor_dataImpl#getPname <em>Pname</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.sensor_dataImpl#getPins <em>Pins</em>}</li>
  *   <li>{@link org.xtext.bPMN_translator.impl.sensor_dataImpl#getSensor_id <em>Sensor id</em>}</li>
+ *   <li>{@link org.xtext.bPMN_translator.impl.sensor_dataImpl#getSensor_init_value <em>Sensor init value</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,6 +63,16 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
    * @ordered
    */
   protected EList<String> sensor_id;
+
+  /**
+   * The cached value of the '{@link #getSensor_init_value() <em>Sensor init value</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSensor_init_value()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> sensor_init_value;
 
   /**
    * <!-- begin-user-doc -->
@@ -135,6 +146,21 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
    * @generated
    */
   @Override
+  public EList<String> getSensor_init_value()
+  {
+    if (sensor_init_value == null)
+    {
+      sensor_init_value = new EDataTypeEList<String>(String.class, this, BPMN_translatorPackage.SENSOR_DATA__SENSOR_INIT_VALUE);
+    }
+    return sensor_init_value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -145,6 +171,8 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
         return getPins();
       case BPMN_translatorPackage.SENSOR_DATA__SENSOR_ID:
         return getSensor_id();
+      case BPMN_translatorPackage.SENSOR_DATA__SENSOR_INIT_VALUE:
+        return getSensor_init_value();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -172,6 +200,10 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
         getSensor_id().clear();
         getSensor_id().addAll((Collection<? extends String>)newValue);
         return;
+      case BPMN_translatorPackage.SENSOR_DATA__SENSOR_INIT_VALUE:
+        getSensor_init_value().clear();
+        getSensor_init_value().addAll((Collection<? extends String>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -195,6 +227,9 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
       case BPMN_translatorPackage.SENSOR_DATA__SENSOR_ID:
         getSensor_id().clear();
         return;
+      case BPMN_translatorPackage.SENSOR_DATA__SENSOR_INIT_VALUE:
+        getSensor_init_value().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -215,6 +250,8 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
         return pins != null && !pins.isEmpty();
       case BPMN_translatorPackage.SENSOR_DATA__SENSOR_ID:
         return sensor_id != null && !sensor_id.isEmpty();
+      case BPMN_translatorPackage.SENSOR_DATA__SENSOR_INIT_VALUE:
+        return sensor_init_value != null && !sensor_init_value.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -236,6 +273,8 @@ public class sensor_dataImpl extends MinimalEObjectImpl.Container implements sen
     result.append(pins);
     result.append(", sensor_id: ");
     result.append(sensor_id);
+    result.append(", sensor_init_value: ");
+    result.append(sensor_init_value);
     result.append(')');
     return result.toString();
   }
