@@ -48,10 +48,37 @@ public class ArduinoCPPCodeGenerator {
 		}
 		if (sensor != null)
 		{
-			//cpp_code += getSensorCode();
+			cpp_code += getSensorCode();
 		}
 		return cpp_code;
 		
+	}
+	public String getSensorCode() {
+		switch (sensor) {
+		case "dht22":
+			TemperatureSensor temp_sensor;
+			temp_sensor = new TemperatureSensor();
+			temp_sensor.setModule(sensor);
+			return temp_sensor.getCPPCode();
+				
+		case "dht11":
+			break;
+		case "hy-srf05":
+		case "hc-sr04":
+			DistanceSensor sensor1= new DistanceSensor();
+			sensor1.setModule(sensor);
+			return sensor1.getCPPCode();
+		case "mq9":
+			GasSensor sensor2 = new GasSensor();
+			sensor2.setModule(sensor);
+			return sensor2.getCPPCode();
+		case "lm358":
+			LightSensor sensor3 = new LightSensor();
+			sensor3.setModule(sensor);
+			return sensor3.getCPPCode();
+		}
+		
+		return "";
 	}
 	public String getNetworkCode() {
 		switch (network_protocol)
@@ -75,7 +102,7 @@ public class ArduinoCPPCodeGenerator {
 				
 				return ((HTTP) http_protocol).getCPPCode();
 			default:
-				return "no protocol";
+				return "";
 		}
 	}
 	public String generateProtocolVariables(Elements e, String variables_code)

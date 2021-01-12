@@ -95,6 +95,11 @@ public class ArduinoInoCodeGenerator {
 							+ closed_threads.get(j).getBody()
 							+ "}\n";
 				}
+				if (loop_code.contains("xTaskCreate"))
+				{
+					String str = new StringBuilder(loop_code).insert(loop_code.lastIndexOf("128, NULL, 1, NULL);")+20,"\n"+"\tvTaskStartScheduler();\n").toString();
+					loop_code = str;
+				}
 				mapVariables();
 				result.add(includes+variables+threads_code+intestation+loop_code);
 				Initialize();
@@ -598,7 +603,6 @@ public class ArduinoInoCodeGenerator {
 						temp = "";
 						opened_threads.add((Parallel) elements.get(n));
 						opened_threads.get((opened_threads.size()-1)).setBody("");
-						
 					}
 					temp = "";
 				}

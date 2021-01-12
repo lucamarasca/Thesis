@@ -73,6 +73,8 @@ public class Gui implements ActionListener, DocumentListener {
 	JComboBox<String> distance_sensors;
 	JComboBox<String> wifi_sensors;
 	JComboBox<String> temperature_sensors;
+	JComboBox<String> gas_sensors;
+	JComboBox<String> light_sensors;
 	JCheckBox end_point;
 	//Third view
 	JButton btnSubmit ;
@@ -133,6 +135,9 @@ public class Gui implements ActionListener, DocumentListener {
 		sensors = new JComboBox<String>(new Vector<String>(Parameters.Sensor_type));
 		distance_sensors = new JComboBox<String>(new Vector<String>(Parameters.Distance_sensors));
 		temperature_sensors = new JComboBox<String>(new Vector<String>(Parameters.Temperature_sensors));
+		light_sensors = new JComboBox<String>(new Vector<String>(Parameters.Light_sensors));
+		gas_sensors = new JComboBox<String>(new Vector<String>(Parameters.Gas_sensors));
+
 		btnSubmit = new JButton("Submit");
 		
 		
@@ -262,9 +267,8 @@ public class Gui implements ActionListener, DocumentListener {
 		c.gridy++;
 		wifi_sensors.setVisible(false);
 		view_menus.add(wifi_sensors,c);
-		c.gridy++;
-		end_point.setText("Generate end point code");
-		view_menus.add(end_point,c);
+		
+	
 		//Sensors Label
 	    c.weightx = 1;
 	    c.gridx=0;
@@ -283,7 +287,10 @@ public class Gui implements ActionListener, DocumentListener {
 		view_menus.add(distance_sensors,c);
 		temperature_sensors.setVisible(false);
 		view_menus.add(temperature_sensors,c);
-		
+		gas_sensors.setVisible(false);
+		view_menus.add(gas_sensors,c);
+		light_sensors.setVisible(false);
+		view_menus.add(light_sensors,c);
 		
 	    //Confirm Button
 		
@@ -401,17 +408,37 @@ public class Gui implements ActionListener, DocumentListener {
 	    	{
 				distance_sensors.setVisible(false);
 				temperature_sensors.setVisible(false);
+				gas_sensors.setVisible(false);
+				light_sensors.setVisible(false);
 	    	}
 	    	if(sensors.getSelectedIndex() == 1)
 	    	{
 	    		
 				distance_sensors.setVisible(true);
 				temperature_sensors.setVisible(false);
+				gas_sensors.setVisible(false);
+				light_sensors.setVisible(false);
 	    	}	
 	    	if(sensors.getSelectedIndex() == 2)
 	    	{
 				distance_sensors.setVisible(false);
 				temperature_sensors.setVisible(true);
+				gas_sensors.setVisible(false);
+				light_sensors.setVisible(false);
+	    	}
+	    	if(sensors.getSelectedIndex() == 3)
+	    	{
+				distance_sensors.setVisible(false);
+				temperature_sensors.setVisible(false);
+				gas_sensors.setVisible(true);
+				light_sensors.setVisible(false);
+	    	}
+	    	if(sensors.getSelectedIndex() == 4)
+	    	{
+				distance_sensors.setVisible(false);
+				temperature_sensors.setVisible(false);
+				gas_sensors.setVisible(false);
+				light_sensors.setVisible(true);
 	    	}
 	    }
 	    
@@ -432,6 +459,12 @@ public class Gui implements ActionListener, DocumentListener {
 		if (sensors.getSelectedIndex() == 2)
 			if (temperature_sensors.getSelectedIndex() != 0)
 				Parameters.selected_sensor = temperature_sensors.getItemAt(temperature_sensors.getSelectedIndex());
+		if (sensors.getSelectedIndex() == 3)
+			if (gas_sensors.getSelectedIndex() != 0)		
+				Parameters.selected_sensor = gas_sensors.getItemAt(gas_sensors.getSelectedIndex());
+		if (sensors.getSelectedIndex() == 4)
+			if (light_sensors.getSelectedIndex() != 0)		
+				Parameters.selected_sensor = light_sensors.getItemAt(light_sensors.getSelectedIndex());
 		if(source_path.equals(""))
 			ConsoleLog("+++++++++++++ NO SOURCE BPMN SELECTED+++++++++++++", 2);
 		else

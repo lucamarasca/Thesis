@@ -20,26 +20,29 @@ public class Parameters {
 	//static public ArrayList <String> Bluetooth_sensors = new ArrayList<String>();
 	static public ArrayList <String> Distance_sensors = new ArrayList<String>();
 	static public ArrayList <String> Temperature_sensors = new ArrayList<String>();
+	static public ArrayList <String> Gas_sensors = new ArrayList<String>();
+	static public ArrayList <String> Light_sensors = new ArrayList<String>();
 	
 	static {
 		//Supported device list
 		Devices.add("Arduino");
 		
 		//Network protocols list
-		Network_protocols_wireless.addAll(Arrays.asList("","Radio" , "MQTT",
+		Network_protocols_wireless.addAll(Arrays.asList("" , "MQTT",
 				 "HTTP"));
-		Wifi_sensors.addAll(Arrays.asList("","ESP8266", "ESP32", "SAMD" ,"MKR 1010",
-				"W5100", "SIM800L", "SIM900"));
+		Wifi_sensors.addAll(Arrays.asList("","ESP8266", "ESP32" ,"MKR 1010",
+				"W5100"));
 
 		//Sensors types
 		Sensor_type.addAll(Arrays.asList("","Distance Sensor", 
-				 "Temperature Sensor"));
+				 "Temperature Sensor", "Gas Sensor", "Light Sensor"));
 		
 		//Sensors
 		//Bluetooth_sensors.addAll(Arrays.asList("","DSD TECH HC-05"));
-		Distance_sensors.addAll(Arrays.asList("","HC-SR04", "JSN-SR0T4"));
-		Temperature_sensors.addAll(Arrays.asList("","DHT22 (AM2302)" , "DHT11 (AM2303)"));
-
+		Distance_sensors.addAll(Arrays.asList("","HC-SR04", "HY-SRF05"));
+		Temperature_sensors.addAll(Arrays.asList("","DHT22" , "DHT11"));
+		Gas_sensors.addAll(Arrays.asList("","MQ9"));
+		Light_sensors.addAll(Arrays.asList("","LM358"));
 	}
 	
 	static public String selected_device = "";
