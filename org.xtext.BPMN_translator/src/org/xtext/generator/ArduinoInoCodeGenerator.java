@@ -273,7 +273,7 @@ public class ArduinoInoCodeGenerator {
 					for (int y = 0; y < app.getPins().size() ; y++)
 					{
 						if (!sens_variables.contains("int pin"+ app.getSensorId() + "= " + app.getPins().get(y)))
-							sens_variables += "int pin"+ app.getSensorId() + app.getPins().get(y)  + "= " + app.getPins().get(y)+";\n";
+							sens_variables += "int pin"+ app.getSensorId()  + "= " + app.getPins().get(y)+";\n";
 					}
 					
 				}
@@ -286,7 +286,7 @@ public class ArduinoInoCodeGenerator {
 					for (int y = 0; y < app.getPins().size() ; y++)
 					{
 						if (!sens_variables.contains("int pin"+ app.getSensorId() + "= " + app.getPins().get(y)))
-							sens_variables += "int pin"+ app.getSensorId() + app.getPins().get(y)  + "= " + app.getPins().get(y)+";\n";
+							sens_variables += "int pin"+ app.getSensorId()  + "= " + app.getPins().get(y)+";\n";
 					}
 					
 				}
@@ -573,7 +573,7 @@ public class ArduinoInoCodeGenerator {
 					else if(con.isElse)
 					{
 						Condition cond = (Condition) elements.get(n);
-						temp += "while("+cond.getMapped_condition() + ")\n{\n";
+						temp += "\twhile("+cond.getMapped_condition() + ")\n\t{\n";
 						for (int k = 0; k < tabulations;k++)
 						{
 							temp = temp.replaceAll("(?m)^", "\t");
@@ -817,7 +817,7 @@ public class ArduinoInoCodeGenerator {
 			    if (variables.contains(key))
 			    {
 			    	String sensor_id = variables.substring(variables.indexOf("[")+1,variables.indexOf("]"));
-			    	variables = variables.replaceFirst("\""+key+"\\[.*\\]"+"\"", "dtostrf("+ variables_dictionary.get(key) + sensor_id + ", 6, 2, " + getVariableName(key+"["+sensor_id+"]")+ ");");
+			    	variables = variables.replaceFirst("\""+key+"\\[.*\\]"+"\"", "dtostrf("+ variables_dictionary.get(key) + sensor_id + ", 6, 2, " + getVariableName(key+"["+sensor_id+"]")+ ")");
 			    }
 			}
 		}

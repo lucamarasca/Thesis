@@ -74,8 +74,6 @@ public class ArduinoHCodeGenerator {
 					case "esp8266":
 						result = "";
 						result += "#include <ESP8266WiFiMulti.h>\n";
-						if (!code.contains(result))
-							code+= result;
 						result += "#include <ESP8266WiFi.h>\n";
 						if (!code.contains(result))
 							code+= result;

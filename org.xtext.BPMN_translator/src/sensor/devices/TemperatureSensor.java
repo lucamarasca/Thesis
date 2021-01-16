@@ -26,7 +26,7 @@ public class TemperatureSensor extends Elements {
 		return 
 		"\nvoid InitDHT22(int pin)\n"
 		+ "{\r\n"
-		+ "\tDHT dht(pin, DHTTYPE); //// Initialize DHT sensor for normal 16mhz Arduino\r\n"
+		+ "\tDHT dht(pin, DHTTYPE); // Initialize DHT sensor for normal 16mhz Arduino\r\n"
 		+ "\tdht.begin();\n"
 		+ "}\n";
 	}

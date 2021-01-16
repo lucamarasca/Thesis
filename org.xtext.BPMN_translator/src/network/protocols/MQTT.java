@@ -125,7 +125,7 @@ public class MQTT extends Elements{
 				+ "\t\treconnect();\r\n"
 				+ "\t}\r\n"
 				+ "\tcurrentTime = millis();\r\n"
-				+ "\tclient.publish(pubTopic, \"datas to publish\");\r\n"
+				+ "\tclient.publish(pubTopic, datas);\r\n"
 				+ "\tlastTime = millis();\r\n"
 				+ "}\n"
 				+ "void callbackW5100(char* topic, byte* payload, unsigned int len)\r\n"
@@ -219,7 +219,7 @@ public class MQTT extends Elements{
 		+ "\t}\r\n"
 		+ "\r\n"
 		+ "\tcurrentTime = millis();\r\n"
-		+ "\tclient.publish(pubTopic, \"datas to publish\");\r\n"
+		+ "\tclient.publish(pubTopic, datas);\r\n"
 		+ "\r\n"
 		+ "\tlastTime = millis();\r\n"
 		+ "}\n";
@@ -304,7 +304,7 @@ public class MQTT extends Elements{
 		+ "\t}\r\n"
 		+ "\r\n"
 		+ "\tcurrentTime = millis();\r\n"
-		+ "\tclient.publish(pubTopic, \"datas to publish\");\r\n"
+		+ "\tclient.publish(pubTopic, datas);\r\n"
 		+ "\r\n"
 		+ "\tlastTime = millis();\r\n"
 		+ "}\n";
