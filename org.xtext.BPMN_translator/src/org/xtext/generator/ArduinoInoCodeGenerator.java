@@ -79,7 +79,7 @@ public class ArduinoInoCodeGenerator {
 				GenerateVariables(elements,i);
 				GenerateSetupCode(elements,i);
 				GenerateLoopCode(elements,i);
-				includes+="#include<GeneratedLib.h>\n\nGeneratedLib my_lib;\n\n";
+				includes+="";
 				intestation+= "void setup()\n{\n\n";
 				intestation+= setup_code;
 				intestation+= "\n}\n\n";

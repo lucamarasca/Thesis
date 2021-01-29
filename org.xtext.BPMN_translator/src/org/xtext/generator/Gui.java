@@ -12,6 +12,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileFilter;
 import java.util.Vector;
 
 import javax.swing.BoxLayout;
@@ -29,8 +30,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
 
@@ -350,7 +353,9 @@ public class Gui implements ActionListener, DocumentListener {
         	} 
 			if(source_path.equals(""))
 			{
-				int dialogResult = JOptionPane.showConfirmDialog (null, "you didn't select a source file, you wish to continue?");
+				UIManager.put("OptionPane.cancelButtonText", "Cancel");
+				UIManager.put("OptionPane.yesButtonText", "Yes");
+				int dialogResult = JOptionPane.showConfirmDialog (null, "you didn't select a source file, you wish to continue?",  "Select an Option...",JOptionPane.YES_NO_CANCEL_OPTION);
 				if(dialogResult == JOptionPane.YES_OPTION){
 					if (sensors.getSelectedIndex() == 0 && wifi_sensors.getSelectedIndex() == 0)
 					{
@@ -373,8 +378,11 @@ public class Gui implements ActionListener, DocumentListener {
 		//Action to perform for the browse button
 	    if (e.getSource() == btnBrowseSource)
 	    {
-	        chooser = new JFileChooser(new File(System.getProperty("user.home") + "\\Downloads")); //Downloads Directory as default
+	    	UIManager.put("FileChooser.saveButtonText","Select");
+	        chooser = new JFileChooser(new File(System.getProperty("user.home") + "\\Desktop\\examples")); //Downloads Directory as default
+
 	        chooser.setDialogTitle("Select Location");
+	        
 	        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 	        chooser.setAcceptAllFileFilterUsed(false);
 	        

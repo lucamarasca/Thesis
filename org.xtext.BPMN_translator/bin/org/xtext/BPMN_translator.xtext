@@ -57,8 +57,7 @@ preconditions:
 	("!"|"(")
 ;
 codex:
-	  ( device_code += device protocol += protocol* sensor_code += sensor* ) 
-	  
+	  ( device_code += device protocol += protocol* sensor_code += sensor* )   
 ;
 device:
 	"DEVICE" ":" device += STRING

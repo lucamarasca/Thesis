@@ -134,16 +134,29 @@ def FillGatewayType(){
 			Initialize(resource);
 			ino_code = ArduinoCodeGenerationIno();
 			//Main files generation
-			for(file : ino_code)
+			if (!(h_variables + h_code).equals(""))
 			{
-				fsa.generateFile("Main"+iterations+".ino", file )
-				iterations++;
+				for(file : ino_code)
+				{
+					fsa.generateFile("Main"+iterations+".ino","#include<GeneratedLib.h>\n\nGeneratedLib my_lib;\n\n" + file )
+					iterations++;
+				}
 			}
-			//.h lib file generation
-			fsa.generateFile("GeneratedLib.h" , h_variables + h_code + "};\n#endif")
-	        //.cpp lib file generation
-	        fsa.generateFile("GeneratedLib.cpp" , "#include<GeneratedLib.h>\n" + cpp_variables + cpp_code)
-	        
+			else
+			{
+				for(file : ino_code)
+				{
+					fsa.generateFile("Main"+iterations+".ino", file )
+					iterations++;
+				}
+			}
+			if (!(h_variables + h_code).equals(""))
+				//.h lib file generation
+				fsa.generateFile("GeneratedLib.h" , h_variables + h_code + "};\n#endif")
+	        if (!(cpp_variables + cpp_code).equals(""))
+		        //.cpp lib file generation
+		        fsa.generateFile("GeneratedLib.cpp" , "#include<GeneratedLib.h>\n" + cpp_variables + cpp_code)
+		        
 	        
         }
         else

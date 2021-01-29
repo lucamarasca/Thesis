@@ -207,14 +207,33 @@ public class BPMN_translatorGenerator extends AbstractGenerator {
     if ((resource != null)) {
       this.Initialize(resource);
       this.ino_code = this.ArduinoCodeGenerationIno();
-      for (final String file : this.ino_code) {
-        {
-          fsa.generateFile((("Main" + Integer.valueOf(this.iterations)) + ".ino"), file);
-          this.iterations++;
+      boolean _equals = (this.h_variables + this.h_code).equals("");
+      boolean _not = (!_equals);
+      if (_not) {
+        for (final String file : this.ino_code) {
+          {
+            fsa.generateFile((("Main" + Integer.valueOf(this.iterations)) + ".ino"), ("#include<GeneratedLib.h>\n\nGeneratedLib my_lib;\n\n" + file));
+            this.iterations++;
+          }
+        }
+      } else {
+        for (final String file_1 : this.ino_code) {
+          {
+            fsa.generateFile((("Main" + Integer.valueOf(this.iterations)) + ".ino"), file_1);
+            this.iterations++;
+          }
         }
       }
-      fsa.generateFile("GeneratedLib.h", ((this.h_variables + this.h_code) + "};\n#endif"));
-      fsa.generateFile("GeneratedLib.cpp", (("#include<GeneratedLib.h>\n" + this.cpp_variables) + this.cpp_code));
+      boolean _equals_1 = (this.h_variables + this.h_code).equals("");
+      boolean _not_1 = (!_equals_1);
+      if (_not_1) {
+        fsa.generateFile("GeneratedLib.h", ((this.h_variables + this.h_code) + "};\n#endif"));
+      }
+      boolean _equals_2 = (this.cpp_variables + this.cpp_code).equals("");
+      boolean _not_2 = (!_equals_2);
+      if (_not_2) {
+        fsa.generateFile("GeneratedLib.cpp", (("#include<GeneratedLib.h>\n" + this.cpp_variables) + this.cpp_code));
+      }
     } else {
       ArduinoHCodeGenerator _arduinoHCodeGenerator = new ArduinoHCodeGenerator(Parameters.selected_sensor, Parameters.selected_protocol, Parameters.selected_wifisensor);
       this.h_gen = _arduinoHCodeGenerator;
